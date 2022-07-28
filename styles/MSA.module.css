@@ -1,0 +1,123 @@
+.formRowsContainer {
+    grid-template-columns: 55px 4fr 1fr 1fr;
+    
+
+}
+ .line{
+    background: var(--darkBlue);
+    position: absolute;
+    left: 47.8%;
+    width: 2px;
+    height: 100%;
+ }
+.formRowsContainerDesFormEdit{
+    grid-template-columns: 25px 28% 10% 13% 12% 10% 10%;
+    gap: 2%;
+} 
+.formRowsContainerDesFormLHCW{
+    grid-template-columns: 25px 25% 13%;  
+}
+.formRowsContainerDesFormDES{
+    grid-template-columns: 13% 16% 10% 10%;
+}
+
+/* .formRowsContainerDesFormEdit div p {
+    font-size: 14px;
+}
+.formRowsContainerDesFormEdit p {
+    font-size: 14px;
+} */
+
+
+.inputDate{
+    font-size: 14px;
+    text-transform: uppercase;
+    background: none;
+   color: var(--darkBlue);
+}
+
+.inputDate::-webkit-calendar-picker-indicator{
+    display: none;
+}
+
+.inputDate::-webkit-datetime-edit{
+    text-align: center;
+    
+}
+
+.dropboxFolderNames{
+    margin-left: 17px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width:1920px) {
+    .line{
+        background-color: var(--darkBlue);
+        position: absolute;
+        left: 47.9%;
+        
+        width: 2px;
+        height: 100%;
+     }
+}
+/* @media only screen and (max-width:1280px){
+    .line{
+        background-color: var(--darkBlue);
+        position: absolute;
+        left: 40%;
+        width: 2px;
+        height: 100%;
+         
+     }
+} */
+@media only screen and (max-width: 1024px) {
+    .formRowsContainerDesFormEdit {
+        display:grid;
+        gap: 1.5%;
+        grid-template-columns: 25px 22% 15% 13% 15% 10% 10%; ;
+    }
+    .formRowsContainerDesFormEdit p {
+        font-size: 16px;
+    }
+    .dropboxFolderNames {
+        margin: 0 6px 0 6px;
+    }
+    .dropboxFolderNames p {
+        font-size: 10px;
+    } 
+    .line{
+        background-color: var(--darkBlue);
+        position: absolute;
+        left: 46.4%;
+        
+        width: 2px;
+        height: 100%;
+         
+     }
+  }
+
+@media only screen and (max-width: 768px) {
+    .formRowsContainerDesFormEdit {
+        display:grid;
+        gap: 1.5%;
+        grid-template-columns: 25px 22% 15% 13% 15% 10% 10%; ;
+    }
+    .formRowsContainerDesFormEdit p {
+        font-size: 16px;
+    }
+    .dropboxFolderNames {
+        margin-left: 11.5px;
+    }
+    .dropboxFolderNames p {
+        font-size: 10px;
+    } 
+     .line{
+        background-color: var(--darkBlue);
+        position: absolute;
+        left: 47.6%;
+        width: 2px;
+        height: 100%;
+         
+     }
+   
+  }

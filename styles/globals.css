@@ -1,0 +1,360 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 14px;
+}
+
+.font-xxs {
+  font-size: 0.68rem;
+}
+
+.text-xxs {
+  font-size: 0.58rem;
+}
+h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+h4 {
+  font-size: 15px;
+  margin: 0;
+}
+
+h5 {
+  font-size: 14px;
+  margin: 0;
+}
+
+h6 {
+  font-size: 12px;
+  margin: 0;
+}
+
+:root {
+  --yellow: #ffde0b;
+  --lightYellow: #fdf8ce;
+  --darkYellow: #ffde0b;
+  --lightBlue: #d0e7fd;
+  --blue: #62a6e5;
+  --darkBlue: #007fff;
+  --pink: #ff9eb6;
+  --strongPink: #ff56a5;
+  --purple: #ad4bbf;
+  --orange: #ffa100;
+  --green: #45ccc2;
+  --blue2: #005aaf;
+  --lightPink: #fff0f4;
+  --lightStringPink: #ffe8f3;
+  --lightPurple: #fcedff;
+  --lightOrange: #fff1d8;
+  --lightGreen: #e8fcfa;
+  --lightBlue: #e5f2ff;
+  --lightRed: #f9735b;
+  --middleGreen: #82fdad;
+  --middleWhite: #f7f9fc;
+}
+
+.lne-text-white {
+  color: white !important;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 3px solid;
+  border-color: white;
+  border-right-color: black;
+  animation: spinner-d3wgkg 1s infinite linear;
+}
+
+@keyframes spinner-d3wgkg {
+  to {
+    transform: rotate(1turn);
+  }
+}
+/* The Modal (background) */
+
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.modal-btn-close {
+  position: relative;
+  left: 93%;
+  top: -1px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  /* background-color: #fefefe; */
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-yellow {
+  background-color: var(--yellow);
+}
+
+.btn-blue {
+  background-color: var(--blue);
+}
+.btn-lightBlue {
+  background-color: var(--lightBlue);
+}
+.btn-darkBlue {
+  background-color: var(--darkBlue);
+}
+.btn-darkYellow {
+  background-color: var(--darkYellow);
+}
+.btn-darkGreen {
+  background-color: var(--green);
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 300px) {
+  @keyframes example {
+    0% {
+      right: -120%;
+    }
+    100% {
+      right: -48%;
+    }
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  @keyframes example {
+    0% {
+      right: -120%;
+    }
+    100% {
+      right: -70%;
+    }
+  }
+}
+
+.notification-animation {
+  animation: example 1s;
+  animation-fill-mode: forwards;
+}
+
+.notification-box {
+  position: relative;
+  top: 1px;
+  right: 110%;
+  display: inline-block;
+  z-index: 1;
+  max-width: 300px;
+  transition: 0.5s easy-in-out;
+  animation-delay: 0s;
+}
+
+.not-box {
+  display: inline-block;
+  background-color: #f8f8f8;
+  color: #666;
+  border-radius: 5px;
+  padding: 10px;
+  border-left: 10px solid green;
+}
+
+.dashboard-card-name-box {
+  grid-template-columns: 32px 2fr;
+}
+
+/* TEXT COLORS */
+
+.text-dark-blue {
+  color: var(--darkBlue);
+}
+
+.text-color-light-blue {
+  color: var(--blue);
+}
+/* BACKGROUNDS */
+
+.bg-yellow {
+  background-color: var(--yellow);
+}
+
+.bg-dark-blue {
+  background-color: var(--darkBlue);
+}
+.hover-bg-dark-blue:hover {
+  background-color: var(--blue);
+}
+
+.bg-light-blue {
+  background-color: var(--lightBlue);
+}
+
+.bg-light-green {
+  background-color: var(--lightGreen);
+}
+
+.bg-dark-green {
+  background-color: var(--green);
+}
+.bg-middle-green {
+  background-color: var(--middleGreen);
+}
+
+.bg-light-pink {
+  background-color: var(--lightPink);
+}
+
+.bg-dark-pink {
+  background-color: var(--darkPink);
+}
+
+.bg-light-purple {
+  background-color: var(--lightPurple);
+}
+
+.bg-dark-pueple {
+  background-color: var(--darkPurple);
+}
+.bg-orange {
+  background-color: var(--orange);
+}
+.bg-light-red {
+  background-color: var(--lightRed);
+}
+.bg-middle-white {
+  background-color: var(--middleWhite);
+}
+
+/* BORDERS */
+.border-black {
+  border: 1px solid black;
+}
+.border-light-blue {
+  border-color: var(--lightBlue);
+}
+
+.border-dark-blue {
+  border: 1px solid var(--darkBlue);
+}
+
+.border-l-dark-blue {
+  border-left: 1px solid var(--darkBlue);
+}
+
+/*Client profile style */
+
+.border-r-dark-blue {
+  border-right: 1px solid var(--darkBlue);
+}
+
+input[type="checkbox"] {
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1); /* IE */
+  -moz-transform: scale(1); /* FF */
+  -webkit-transform: scale(1); /* Safari and Chrome */
+  -o-transform: scale(1); /* Opera */
+  transform: scale(1.3);
+  padding: 10px;
+}
+
+
+
+.button-toogle:checked ~ .dot {
+  transform: translateX(100%);
+}
+/* MONITOR FUNDING */
+
+.monitor-funding .rdt_TableRow:nth-of-type(odd) {
+  background-color:var(--lightBlue);
+  }
+.eUeqdG {
+white-space: normal !important;
+}
+
+table {
+  font-size:8px;
+}
+
+table td, #customers th {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+table tr:nth-child(even){background-color: #fff;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #000;
+  color: white;
+}
