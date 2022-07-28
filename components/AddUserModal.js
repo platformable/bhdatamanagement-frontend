@@ -16,7 +16,7 @@ export default function AddUserModal({ showModal, setShowModal,notificationMessa
   const [saving,setSaving] = useState(false)
 
   const addUser =  ()=> {
-     axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers/create`,userData)
+     axios.post(`${process.env.LIVE}/authorizedusers/create`,userData)
     .then(function (response) {
       setShowModal(!showModal)
       notifyMessage()
@@ -52,7 +52,7 @@ console.log("userData",userData)
               <input
                 type="text"
                 className="mt-1 block w-full rounded-md border-grey p-2 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="John"
+                placeholder="Taylor"
                 onChange={(e) =>
                   setUserData({ ...userData, name: e.target.value })
                 }
@@ -63,7 +63,7 @@ console.log("userData",userData)
               <input
                 type="text"
                 className="mt-1 block w-full rounded-md border-grey p-2 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="Doe"
+                placeholder="Smith"
                 onChange={(e) =>
                   setUserData({ ...userData, lastname: e.target.value })
                 }
@@ -74,7 +74,7 @@ console.log("userData",userData)
               <input
                 type="email"
                 className="mt-1 block w-full rounded-md border-grey p-2 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="john@example.com"
+                placeholder="taylor@example.com"
                 onChange={(e) =>
                   setUserData({ ...userData, email: e.target.value })
                 }
@@ -90,9 +90,10 @@ console.log("userData",userData)
                 className="select-add-edit-supervisor block text-[#00000065] w-full mt-1 rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
                 <option value={null} disabled>Select</option>
-                <option value="HCW" default>HCW</option>
+                <option value="HCW" default>Program Worker</option>
+                <option value="Intern">Intern</option>
+                <option value="Partner">Partner</option>
                 <option value="Supervisor">Supervisor</option>
-                <option vlaue="DES">DES</option>
               </select>
             </label>
 

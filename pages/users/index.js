@@ -105,28 +105,28 @@ console.log(data)
               <div className={`${styles.dashboardActiveUsersListHeadRow}  pt-3 px-5`}>
                  
                 <div className="head-row font-black">
-                  <p className="text-base text-left">Name</p>
+                  <p className="text-xs md:text-base text-left">Name</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-left">Lastname</p>
+                  <p className="text-xs md:text-base text-left">Lastname</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-left"> User Role</p>
+                  <p className="text-xs md:text-base text-left"> User Role</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-left">Email</p>
+                  <p className="text-xs md:text-base text-left">Email</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-center">Activated in</p>
+                  <p className="text-xs md:text-base text-center">Activated in</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-center">Last login</p>
+                  <p className="text-xs md:text-base text-center">Last login</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-center">Edit</p>
+                  <p className="text-xs md:text-base text-center">Edit</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-center">Delete</p>
+                  <p className="text-xs md:text-base text-center">Delete</p>
                 </div>
               </div>
             </div>
@@ -165,7 +165,7 @@ console.log(data)
 // This gets called on every request
 export async function getServerSideProps() {
     // Fetch data from external API
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`)
+    const res = await fetch(`${process.env.LIVE}users`)
     const data = await res.json()
     // Pass data to the page via props
     return { props: { data } }

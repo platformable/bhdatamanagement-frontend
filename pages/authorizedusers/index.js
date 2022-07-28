@@ -17,8 +17,10 @@ import Image from 'next/image';
 import authUserICon from '../../public/authorized-users-icon.svg'
 import backIcon from '../../public/BACKicon.svg'
 import addUserICon from '../../public/add-new-user-icon.svg' 
+import Header from '../../components/Header';
 
 export default function AuthorizedUsersIndex({data, users}) {
+  console.log(data)
   const router = useRouter()
     const { user, error, isLoading } = useUser();
     const [showModal,setShowModal] = useState(false)
@@ -34,7 +36,7 @@ export default function AuthorizedUsersIndex({data, users}) {
 
     const [selectedUser,setSelectedUser]=useState({})
 
-console.log("selectedEntity",selectedEntity)
+// console.log("selectedEntity",selectedEntity)
 
     useEffect(()=> {
       getNotRegisteredUser(data, users)
@@ -66,35 +68,7 @@ console.log("selectedEntity",selectedEntity)
 
   return (
     <>
-    <header className="border-b">
-        <div className="container mx-auto pt-5 pb-0 grid space-between grid-cols-2">
-          <img
-            src="./logo.png"
-            alt=""
-            width={125}
-          />
-          <div id="head-user" className="flex place-items-end justify-end items-center">
-            <div>
-            <h4 className="font-black mr-2">
-              {user && user["https://lanuevatest.herokuapp.com/name"]} {user && user["https://lanuevatest.herokuapp.com/lastname"]}
-            </h4>
-        
-            <h6 className="">
-              {user && user["https://lanuevatest.herokuapp.com/roles"]}
-            </h6>
-            </div>
-            <Link
-              href="/api/auth/logout"
-            >
-            <a className={`bg-yellow-300 inline-block btn-index-page text-black px-3 py-1 rounded-md`}>Logout</a>
-            </Link>
-          </div>
-        </div>
-        <div className="flex mb-5 mt-1">
-             
-        
-          </div>
-      </header>
+    <Header />
       <main>
       <ToastContainer autoClose={2000}/>
           <section>
@@ -137,26 +111,26 @@ console.log("selectedEntity",selectedEntity)
               <div className={`${styles.dashboardClientListHeadRow} items-end py-3 px-5 pt-5 pb-1`}>
 
                   <div className="head-row font-black">
-                    <p className="text-base text-left">Name</p>
+                    <p className="text-xs text-left">Name</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-base text-left">Last Name</p>
+                    <p className="text-xs text-left">Last Name</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-base text-left">User Role</p>
+                    <p className="text-xs text-left">User Role</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-base text-left">Email</p>
+                    <p className="text-xs text-left">Email</p>
                   </div>
 
                   <div className="head-row font-black">
-                    <p className="text-base text-left">Date User added by the supervisor</p>
+                    <p className="text-xs text-left">Date User added by the supervisor</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-base text-center">Edit</p>
+                    <p className="text-xs text-center">Edit</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-base text-center"> Delete</p>
+                    <p className="text-xs text-center"> Delete</p>
                   </div>
               </div>
               <div className="dashboard-client-list mt-2 container mx-auto">
@@ -254,10 +228,10 @@ console.log("selectedEntity",selectedEntity)
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const [data, users] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers`).then((r) =>
+      fetch(`${process.env.LIVE}authorizedusers`).then((r) =>
         r.json()
       ),
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`).then((r) =>
+      fetch(`${process.env.LIVE}users`).then((r) =>
         r.json()
       ),
     ]);
