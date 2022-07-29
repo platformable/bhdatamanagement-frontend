@@ -32,14 +32,11 @@ console.log(user)
           />
         </div>
       </header>
-      <main>
-        <div className="container mx-auto h-screen grid justify-center content-center">
-          {/* <h1 className="font-bold pb-2 text-4xl">BLACK 
-            <span className='text-yellow-400'> HEALTH</span>
-            
-          </h1> */}
+      <main className='h-full'>
+        <div className="container mx-auto pt-20 h-4/6 grid gap-40 justify-around content-center">
+          
           <img src="/main/Black_Health_logo_welcome.svg" />
-        <div className="text-center pt-20 flex flex-col items-center justify center">
+        <div className="text-center pt-20 flex flex-col items-center">
           <h1 className="font-black mb-5">Welcome!</h1>
           <Link href={ `/dashboard`} >
             <a className='w-52'>

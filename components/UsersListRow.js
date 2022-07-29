@@ -36,21 +36,19 @@ const day= date[2]
   return (
     <> 
 
-              <div className={`${styles.dashboardClientListHeadRow} bg-white border rounded-md py-3 px-5 my-1 `}>
-                {/* <div className="head-row ">
-                  <p className="text-center">{id}</p>
-                </div> */}
+              <div className="grid grid-cols-3 gap-5 md:dashboardClientListHeadRow bg-white border rounded-md py-3 px-5 my-1">
+                
                 <div className="head-row flex justify-start items-center">
-                  <p className="text-center">{name} {userid}</p>
+                  <p className="text-center">{name}</p>
                 </div>
                 <div className="head-row flex justify-start items-center">
                   <p className="text-center">{lastname}</p>
                 </div>
                 <div className="head-row flex justify-start items-center">
-                  <p className="text-center">{role || authorizeduser.userrole}</p>
+                  <p className="text-center">{role} </p>
                 </div>
-                <div className="head-row flex justify-start items-center">
-                  <p className="text-center">{email || authorizeduser.useremail ? (email || authorizeduser.useremail ) : "-"}</p>
+                <div className="head-row flex justify-start items-center overflow-x-hidden">
+                  <p className="text-center">{email}</p>
                 </div>
               
                 <div className="head-row flex justify-start items-center">
