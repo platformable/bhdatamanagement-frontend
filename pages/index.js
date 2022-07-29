@@ -1,7 +1,6 @@
 import {useEffect} from 'react'
 import Head from "next/head";
 import { useRouter } from 'next/router'
-import Image from "next/image";
 import Link from "next/link";
 import { useUser, getSession } from '@auth0/nextjs-auth0';
 import styles from "../styles/Home.module.css";
@@ -35,10 +34,11 @@ console.log(user)
       </header>
       <main>
         <div className="container mx-auto h-screen grid justify-center content-center">
-          <h1 className="font-bold pb-2 text-4xl">BLACK 
+          {/* <h1 className="font-bold pb-2 text-4xl">BLACK 
             <span className='text-yellow-400'> HEALTH</span>
             
-          </h1>
+          </h1> */}
+          <img src="/main/Black_Health_logo_welcome.svg" />
         <div className="text-center pt-20 flex flex-col items-center justify center">
           <h1 className="font-black mb-5">Welcome!</h1>
           <Link href={ `/dashboard`} >

@@ -9,8 +9,7 @@ import Image from 'next/image';
 
 
 export default function UserListRow({setSelectedEntity,authorizeduser,setSelectedUser,setShowEditUserModal,showEditUserModal,index,showDeleteUsermodal, setShowDeleteUserModal}) {
-  const {useremail,name,lastname,userrole,isactive,dateaccountactivated,datelastlogin,user_id} = authorizeduser
-
+  const {name,lastname,role,email,isactive,dateaccountactivated,datelastlogin,userid} = authorizeduser
   const router = useRouter()
 
   const handleSelectedUser =(selectedUser, action)=>{
@@ -28,16 +27,16 @@ export default function UserListRow({setSelectedEntity,authorizeduser,setSelecte
                 className={`${styles.dashboardActiveUsersListHeadRow} border  rounded-md py-3 px-5 my-1 bg-white`}
               >
                 <div className="head-row flex justify-start items-center ">
-                  <p className="text-xs md:text-base text-left">{name}</p>
+                  <p className="text-xs md:text-base text-left">{name}{userid}</p>
                 </div>
                 <div className="head-row flex justify-start items-center ">
                   <p className="text-xs md:text-base text-left">{lastname}</p>
                 </div>
                  <div className="head-row flex justify-start items-center">
-                  <p className="text-xs md:text-base text-left">{userrole}</p>
+                  <p className="text-xs md:text-base text-left">{role}</p>
                 </div>  
-                <div className="head-row flex justify-start items-center ">
-                  <p className="text-xs md:text-base text-left">{useremail ? useremail : "-"}</p>
+                <div className="head-row flex justify-start items-center overflow-x-hidden">
+                  <p className="text-xs md:text-base text-left ">{email ? email : "-"}</p>
                 </div>
                 <div className="head-row flex justify-center items-center">
                   <p className="text-xs md:text-base text-left">{dateaccountactivated?dateaccountactivated.split('T')[0]:"-"}</p>

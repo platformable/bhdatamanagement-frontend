@@ -5,7 +5,6 @@ import Loader from "./Loader";
 
 export default function EditAuthUserModal({ selectedUser, setShowEditAuthUserModal, showEditAuthUserModal }) {
   const router = useRouter()
-  console.log('selecteduser',selectedUser)
   const [userData, setUserData] = useState(selectedUser || {
     id: selectedUser.id,
     name: "",
@@ -14,21 +13,26 @@ export default function EditAuthUserModal({ selectedUser, setShowEditAuthUserMod
     role: "",
     isactive: ''
   })
-  console.log('userData',userData)
-
+console.log("userData", userData)
   const [saving, setSaving] = useState(false)
 
   const EditUser = (user) => {
+    const isEmpty = Object.values(userData).some(value => !value)
 
-    axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers`, userData)
+    if(!isEmpty) {
+      setSaving(!saving)
+      axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/authorizedusers`, userData)
       .then(function (response) {
         console.log("response",response)
         setShowEditAuthUserModal(!showEditAuthUserModal)
         router.reload()
       })
       .catch(function (error) {
+        setSaving(false)
         console.log("client error", error);
       });
+    }
+   
   }
 
 
@@ -53,7 +57,7 @@ export default function EditAuthUserModal({ selectedUser, setShowEditAuthUserMod
               <input
                 type="text"
                 className="mt-1 block w-full bg-[#f6e89e] rounded-md  p-2 pl-3 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="John Doe"
+                placeholder="Taylor"
                 value={userData.name}
                 onChange={(e) =>
                   setUserData({ ...userData, name: e.target.value })
@@ -65,7 +69,7 @@ export default function EditAuthUserModal({ selectedUser, setShowEditAuthUserMod
               <input
                 type="text"
                 className="mt-1 block w-full bg-[#f6e89e] rounded-md p-2 pl-3 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="John Doe"
+                placeholder="Smith"
                 value={userData.lastname}
                 onChange={(e) =>
                   setUserData({ ...userData, lastname: e.target.value })
@@ -77,7 +81,7 @@ export default function EditAuthUserModal({ selectedUser, setShowEditAuthUserMod
               <input
                 type="email"
                 className="mt-1 block w-full bg-[#f6e89e] rounded-md p-2 pl-3 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="john@example.com"
+                placeholder="taylor@example.com"
                 value={userData.email}
                 onChange={(e) =>
                   setUserData({ ...userData, email: e.target.value })
@@ -100,23 +104,25 @@ export default function EditAuthUserModal({ selectedUser, setShowEditAuthUserMod
                 }
                 className="select-add-edit-supervisor block w-full mt-1 text-[#00000065] rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
-                <option>HWC</option>
-                <option>Supervisor</option>
-                <option>DES</option>
+                <option value="Program Worker">Program Worker</option>
+                <option value="Intern">Intern</option>
+                <option value="Partner">Partner</option>
+                <option value="Supervisor">Supervisor</option>
+
               </select>
             </label>
 
             <label className="block">
               <span className="ml-1 font-semibold">Active / No active</span>
               <select
-                value={userData.isactive === 'false'? 'No Active' : 'Active'}
+                value={userData.isactive}
                 onChange={(e) =>
-                     setUserData({ ...userData, isactive: e.target.selectedOptions[0].id.toString() })
+                     setUserData({ ...userData, isactive: e.target.value })
                 }
                 className="select-add-edit-supervisor block w-full mt-1  text-[#00000065] rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
-                <option>Active</option>
-                <option>No Active</option>
+                <option value="Active">Active</option>
+                <option value="No Active">No Active</option>
               </select>
             </label>
             <div className="block">

@@ -26,7 +26,7 @@ console.log(data)
     const getActiveUsers=(array)=>{
 
       const result = array.filter((user,index)=>{
-        return user.useractivestatus==='Active'
+        return user.isactive==='Active'
       })
 
       setActiveUsers(result)
@@ -133,7 +133,7 @@ console.log(data)
             </div>
             <div className="dashboard-client-list mt-2 container mx-auto">
 
-                {data?activeUsers.map((authuser,index)=>{
+                {data? activeUsers.map((authuser,index)=>{
                    return <UserListRow 
                    authorizeduser={authuser} 
                    index={index} 
@@ -155,7 +155,7 @@ console.log(data)
       
       {showModal &&<AddUserModal setShowModal={setShowModal} showModal={showModal}/>}
       {showEditUserModal &&<EditUserModal setShowEditUserModal={setShowEditUserModal} showEditUserModal={showEditUserModal} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>}
-      {showDeleteUserModal && <DeleteUserModal urlEntity={'users'}setShowDeleteUserModal={setShowDeleteUserModal} showDeleteUserModal={showDeleteUserModal} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>}
+      {showDeleteUserModal && <DeleteUserModal urlEntity={'users'} setShowDeleteUserModal={setShowDeleteUserModal} showDeleteUserModal={showDeleteUserModal} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>}
 
       </Layout>
     </>
@@ -166,7 +166,7 @@ console.log(data)
 // This gets called on every request
 export async function getServerSideProps() {
     // Fetch data from external API
-    const res = await fetch(`${process.env.LIVE}users`)
+    const res = await fetch(`${process.env.LIVE}/users`)
     const data = await res.json()
     // Pass data to the page via props
     return { props: { data } }

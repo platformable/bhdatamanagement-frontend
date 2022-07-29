@@ -5,38 +5,40 @@ import Loader from "./Loader";
 
 export default function EditUserModal({selectedUser, setShowEditUserModal, showEditUserModal }) {
   const router = useRouter()
-  const [userData,setUserData]= useState(selectedUser || {
-    user_id: selectedUser.user_id,
-    name: "",
-    lastname: "",
-    useremail: "",
-    userRole: "",
-    useractivestatus: ''
-  })
-console.log('selected', selectedUser)
+  console.log("Edit user:", selectedUser)
+  const [userData,setUserData]= useState(selectedUser 
+    // || {
+    // user_id: selectedUser.user_id,
+    // name: "",
+    // lastname: "",
+    // useremail: "",
+    // userRole: "",
+    // useractivestatus: ''
+  )
   const [saving,setSaving] = useState(false)
 
   const EditUser =  (user)=> {
-
-   axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`,userData)
+    setSaving(!saving);
+   axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/users`,userData)
    .then(response => EditAuthUser(userData))
     .then(function (response) {
-        setShowEditUserModal(!showEditUserModal)
-      router.reload()
+        setShowEditUserModal(!showEditUserModal)        
     })
     .catch(function (error) {
+      setSaving(!saving);
       console.log("client error",error);
     }); 
   }
 
 
   const EditAuthUser =  (userData)=> {
-
-    axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers/update_from_users_edit`,userData)
+    axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/authorizedusers/update_from_users_edit`,userData)
      .then(function (response) {
-        console.log("success")
+      router.reload();
+      setSaving(!saving);
      })
      .catch(function (error) {
+        setSaving(!saving);
        console.log("client error",error);
      }); 
    }
@@ -56,14 +58,14 @@ console.log('selected', selectedUser)
           <div className="grid grid-cols-1 gap-6">
             <div className="flex ml-2.5 items-end">
               <img src="/edit-user-icon.svg" className="mr-3" alt="" width="50" />
-              <h2 className="font-black">Edit User user modal.js</h2>
+              <h2 className="font-black">Edit Active User</h2>
             </div>
             <label className="block">
               <span className="ml-1 font-semibold">First name</span>
               <input
                 type="text"
                 className="mt-1 block w-full bg-[#f6e89e] rounded-md  p-2 pl-3 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="John Doe"
+                placeholder="Taylor"
                 value={userData.name}
                 onChange={(e) =>
                   setUserData({ ...userData, name: e.target.value })
@@ -75,7 +77,7 @@ console.log('selected', selectedUser)
               <input
                 type="text"
                 className="mt-1 block w-full bg-[#f6e89e] rounded-md p-2 pl-3 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="John Doe"
+                placeholder="Smith"
                 value={userData.lastname}
                 onChange={(e) =>
                   setUserData({ ...userData, lastname: e.target.value })
@@ -87,10 +89,10 @@ console.log('selected', selectedUser)
               <input
                 type="email"
                 className="mt-1 block w-full bg-[#f6e89e] rounded-md p-2 pl-3 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="john@example.com"
-                value={userData.useremail}
+                placeholder="taylor@example.com"
+                value={userData.email}
                 onChange={(e) =>
-                  setUserData({ ...userData, useremail: e.target.value })
+                  setUserData({ ...userData, email: e.target.value })
                 }
               />
             </label>
@@ -104,29 +106,31 @@ console.log('selected', selectedUser)
             <label className="block">
               <span className="font-semibold ml-1">User role</span>
               <select
-                value={userData.userrole}
+                value={userData.role}
                 onChange={(e) =>
-                  setUserData({ ...userData, userrole: e.target.value })
+                  setUserData({ ...userData, role: e.target.value })
                 }
                 className="select-add-edit-supervisor block w-full mt-1 text-[#00000065] rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
-                <option>HWC</option>
-                <option>Supervisor</option>
-                <option>DES</option>
+                <option value="Program Worker">Program Worker</option>
+                <option value="Intern">Intern</option>
+                <option value="Partner">Partner</option>
+                <option value="Supervisor">Supervisor</option>
+
               </select>
             </label>
 
             <label className="block">
               <span className="font-semibold ml-1">Active / No active</span>
               <select
-                value={userData.useractivestatus}
+                value={userData.isactive}
                 onChange={(e) =>
-                  setUserData({ ...userData, useractivestatus:e.target.value })
+                  setUserData({ ...userData, isactive :e.target.value })
                 }
                 className="select-add-edit-supervisor block w-full mt-1  text-[#00000065] rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
-                <option>Active</option>
-                <option>No Active</option>
+                <option value="Active">Active</option>
+                <option value="No Active">No Active</option>
               </select>
             </label>
             <div className="block">
@@ -136,7 +140,6 @@ console.log('selected', selectedUser)
                     className="px-4  py-2 mr-3 font-medium bg-[#23D3AA] hover:bg-green-500 text-sm flex shadow-xl rounded-md"
                     onClick={() => {
                       EditUser(selectedUser);
-                      setSaving(!saving);
                     }}
                   >
                     {saving ? (

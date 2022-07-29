@@ -82,6 +82,10 @@ h6 {
   --lightRed: #f9735b;
   --middleGreen: #82fdad;
   --middleWhite: #f7f9fc;
+
+  
+  --violet: #6b1a73;
+  --lightViolet: #ebdae9;
 }
 
 .lne-text-white {
@@ -176,6 +180,7 @@ input[type="number"] {
 .btn-darkGreen {
   background-color: var(--green);
 }
+
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 300px) {
@@ -290,6 +295,10 @@ input[type="number"] {
 }
 .bg-middle-white {
   background-color: var(--middleWhite);
+}
+
+.bg-light-purple {
+  background-color: var(--lightPurple);
 }
 
 /* BORDERS */

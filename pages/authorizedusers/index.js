@@ -20,10 +20,12 @@ import addUserICon from '../../public/add-new-user-icon.svg'
 import Header from '../../components/Header';
 
 export default function AuthorizedUsersIndex({data, users}) {
-  console.log(data)
   const router = useRouter()
     const { user, error, isLoading } = useUser();
     const [showModal,setShowModal] = useState(false)
+
+    console.log("auth users", data);
+    console.log("users: ", users)
 
     const [notificationMessage,setNotificationMessage]=useState(false)
     const [listOfNonRegistered,setListOfNonRegistered]=useState([])
@@ -36,7 +38,6 @@ export default function AuthorizedUsersIndex({data, users}) {
 
     const [selectedUser,setSelectedUser]=useState({})
 
-// console.log("selectedEntity",selectedEntity)
 
     useEffect(()=> {
       getNotRegisteredUser(data, users)
@@ -49,19 +50,18 @@ export default function AuthorizedUsersIndex({data, users}) {
     
   });
  }
- const getNotRegisteredUser =  (array1,array2)=>{
+ const getNotRegisteredUser =  (allUsers,activeUsers)=>{
     const selected=[]
-    const alldata=array1.map((data,index)=>{
-      const filtered = array2.findIndex(user=> user.useremail===data.email)
+    allUsers.forEach((data,index)=>{
+      const filtered = activeUsers.findIndex(user=> user.email===data.email)
         if(filtered===-1){
           selected.push(data)
       }
     })
     setListOfNonRegistered(selected)
-    return selected
   }
   const getNoActiveUser = (array1) => {
-    const noActive = array1.filter(user => user.useractivestatus === 'No Active' || user.useractivestatus === 'false')
+    const noActive = array1.filter(user => user.isactive === 'No Active')
     console.log('lista noactive',noActive)
     setListOfNoActive(noActive)
   }
@@ -74,18 +74,18 @@ export default function AuthorizedUsersIndex({data, users}) {
           <section>
            <div className="container mx-auto mt-5"> 
               <div className="flex items-center">
-                <button onClick={() => router.back()}>
+                <button onClick={() => router.back()} className="bg-light-purple rounded px-2 mr-2">
                   <a className="pr-5 py-2 flex  items-center font-bold" id="myBtn">
                   <Image src="/main/back_button_icon.svg" width={22} height={20} />
                     <p className='ml-2'>Back</p>
                   </a>
-                  </button>
-                <Link href="/dashboard">
+                </button>
+                <button onClick={() => router.push("/dashboard")} className="bg-light-purple rounded px-2">
                 <a className="py-2 flex items-center font-bold" id="myBtn">
-                <Image src="/supervisor/dashboard_icon.svg" width={25} height={25}/>
+                <Image src="/supervisor/dashboard_icon.svg" width={22} height={20}/>
                   <p className='ml-2'>Dashboard</p>
                 </a>
-              </Link>
+                </button>
               </div>
             <div className='button-container flex justify-between items-center mt-3 mb-5'>
                <h1 className='block font-bold'>Manage Users</h1>
@@ -109,7 +109,7 @@ export default function AuthorizedUsersIndex({data, users}) {
           
           </div>
               {/* TABLE */}
-          <div id="dashboard-client-list" className="bg-light-blue pb-7 h-screen">
+          <div id="dashboard-client-list" className="bg-light-purple pb-7 h-screen">
 
             <div className="dashboard-client-list container mx-auto">
               <h2 className="font-black text-center pt-6 pb-3">Authorized Users</h2>
@@ -195,8 +195,6 @@ export default function AuthorizedUsersIndex({data, users}) {
                    authorizeduser={authuser}
                    index={index}
                    key={index}
-                  //  setShowEditAuthUserModal={setShowEditAuthUserModal}
-                  //  showEditAuthUserModal={showEditAuthUserModal}
                    showEditInactiveUserModal={showEditInactiveUserModal}
                    setShowEditInactiveUserModal={setShowEditInactiveUserModal}
                    setSelectedUser={setSelectedUser}
@@ -233,10 +231,10 @@ export default function AuthorizedUsersIndex({data, users}) {
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const [data, users] = await Promise.all([
-      fetch(`${process.env.LIVE}authorizedusers`).then((r) =>
+      fetch(`${process.env.LIVE}/authorizedusers`).then((r) =>
         r.json()
       ),
-      fetch(`${process.env.LIVE}users`).then((r) =>
+      fetch(`${process.env.LIVE}/users`).then((r) =>
         r.json()
       ),
     ]);
