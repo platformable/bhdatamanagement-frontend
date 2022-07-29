@@ -42,24 +42,24 @@ const day= date[2]
                   <p className="text-center">{id}</p>
                 </div> */}
                 <div className="head-row flex justify-start items-center">
-                  <p className="text-center">{name}</p>
+                  <p className="md:text-base text-center">{name}</p>
                 </div>
                 <div className="head-row flex justify-start items-center">
-                  <p className="text-center">{lastname}</p>
+                  <p className="md:text-base text-center">{lastname}</p>
                 </div>
                 <div className="head-row flex justify-start items-center">
-                  <p className="text-center">{role || authorizeduser.userrole}</p>
+                  <p className="md:text-base text-center">{role || authorizeduser.userrole}</p>
                 </div>
                 <div className="head-row flex justify-start items-center">
-                  <p className="text-center">{email || authorizeduser.useremail ? (email || authorizeduser.useremail ) : "-"}</p>
+                  <p className="md:text-base text-center">{email || authorizeduser.useremail ? (email || authorizeduser.useremail ) : "-"}</p>
                 </div>
               
                 <div className="head-row flex justify-start items-center">
-                  <p className="text-center">{dateaccountactivated ? `${month}/${day}/${year}` : "-"}</p>
+                  <p className="md:text-base text-center">{dateaccountactivated ? `${month}/${day}/${year}` : "-"}</p>
                 </div>
                 
                 <div className="head-row flex justify-center items-center">
-                  <p className="text-center flex cursor-pointer" 
+                  <p className="md:text-base text-center flex cursor-pointer" 
                    onClick={()=>handleSelectedUser(authorizeduser)}>
                      <img src='/edit-icon.svg' alt=''/>
                   </p>

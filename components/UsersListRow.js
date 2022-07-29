@@ -36,7 +36,7 @@ const day= date[2]
   return (
     <> 
 
-              <div className="grid grid-cols-3 gap-5 md:dashboardClientListHeadRow bg-white border rounded-md py-3 px-5 my-1">
+              <div className="dashboardClientListHeadRow bg-white border rounded-md py-3 px-5 my-1">
                 
                 <div className="head-row flex justify-start items-center">
                   <p className="text-center">{name}</p>

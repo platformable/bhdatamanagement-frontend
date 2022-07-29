@@ -116,26 +116,26 @@ export default function AuthorizedUsersIndex({data, users}) {
               <div className={`${styles.dashboardClientListHeadRow} items-end py-3 px-5 pt-5 pb-1`}>
 
                   <div className="head-row font-black">
-                    <p className="text-xs text-left">Name</p>
+                    <p className="text-xs md:text-base text-left">Name</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-xs text-left">Last Name</p>
+                    <p className="text-xs md:text-base text-left">Last Name</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-xs text-left">User Role</p>
+                    <p className="text-xs md:text-base text-left">User Role</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-xs text-left">Email</p>
+                    <p className="text-xs md:text-base text-left">Email</p>
                   </div>
 
                   <div className="head-row font-black">
-                    <p className="text-xs text-left">Date User added by the supervisor</p>
+                    <p className="text-xs md:text-base text-left">Date User added by the supervisor</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-xs text-center">Edit</p>
+                    <p className="text-xs md:text-base text-center">Edit</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-xs text-center"> Delete</p>
+                    <p className="text-xs md:text-base text-center"> Delete</p>
                   </div>
               </div>
               <div className="dashboard-client-list mt-2 container mx-auto">
