@@ -22,7 +22,6 @@ export default function UsersIndex({data}) {
     const [selectedUser,setSelectedUser] = useState({});
     const [selectedEntity,setSelectedEntity]=useState("")
     const [activeUsers,setActiveUsers]=useState([])
-console.log(data)
     const getActiveUsers=(array)=>{
 
       const result = array.filter((user,index)=>{
@@ -32,7 +31,6 @@ console.log(data)
       setActiveUsers(result)
 
     }
-
 
 
     useEffect(()=>{
@@ -48,10 +46,10 @@ console.log(data)
           <section>
            <div className=""> 
 
-           <div className="container mx-auto flex flex-wrap mt-5">
+           <div className="container px-4 md:mx-auto flex flex-wrap mt-5">
               <Link href="/dashboard">
-                <a className="py-2 flex items-center font-bold" id="myBtn">
-                <Image src="/supervisor/dashboard_icon.svg" width={25} height={25}/>
+                <a className="px-2 py-2 flex bg-light-purple items-center font-bold" id="myBtn">
+                <Image src="/supervisor/dashboard_icon.svg" width={22} height={20}/>
                   <p className='ml-2'>Dashboard</p>
                 </a>
               </Link>
@@ -100,10 +98,10 @@ console.log(data)
             </div>
 
                 {/* TABLE */}
-          <div id='dashboard-client-list-container' className="bg-light-blue pb-7 h-screen">
+          <div id='dashboard-client-list-container' className="bg-light-purple pb-7 h-screen">
           <div className="dashboard-client-list container mx-auto">
             <h2 className="font-black text-center py-5">Active Users</h2>
-              <div className={`${styles.dashboardActiveUsersListHeadRow}  pt-3 px-5`}>
+              <div className="dashboardActiveUsersListHeadRow  pt-3 px-5">
                  
                 <div className="head-row font-black">
                   <p className="text-xs md:text-base text-left">Name</p>

@@ -16,9 +16,8 @@ const DeleteUserModal = ({urlEntity,selectedUser, showDeleteUserModal, setShowDe
     const handleAuthUserDelete = ()=>{
         console.log("handle user delete")
         urlEntity==="users" ?
-        axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/${urlEntity}/`,{ data: userid  }):
-        axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/${urlEntity}/`,{ data: email  })
-        
+        axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/${urlEntity}/`,{ data: {userid}  }):
+        axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/${urlEntity}/`,{ data: {email} })
         .then(response=>{
           router.reload()
         })

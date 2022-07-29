@@ -72,7 +72,7 @@ export default function AuthorizedUsersIndex({data, users}) {
       <main>
       <ToastContainer autoClose={2000}/>
           <section>
-           <div className="container mx-auto mt-5"> 
+           <div className="container p-5 md:mx-auto mt-5"> 
               <div className="flex items-center">
                 <button onClick={() => router.back()} className="bg-light-purple rounded px-2 mr-2">
                   <a className="pr-5 py-2 flex  items-center font-bold" id="myBtn">
@@ -87,8 +87,8 @@ export default function AuthorizedUsersIndex({data, users}) {
                 </a>
                 </button>
               </div>
-            <div className='button-container flex justify-between items-center mt-3 mb-5'>
-               <h1 className='block font-bold'>Manage Users</h1>
+            <div className='button-container  md:flex justify-between items-center mt-3 mb-5'>
+               <h1 className='block font-bold py-2'>Manage Users</h1>
 
                <div className="flex justify-center items-center">
                 <button className="rounded bg-yellow px-5 py-2 flex items-center  font-semibold shadow-xl mr-4" id="myBtn" onClick={() => setShowModal(!showModal)}>

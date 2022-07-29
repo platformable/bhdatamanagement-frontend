@@ -61,7 +61,7 @@ h6 {
 }
 
 :root {
-  --yellow: #ffde0b;
+  --yellow: #efb827;
   --lightYellow: #fdf8ce;
   --darkYellow: #ffde0b;
   --lightBlue: #d0e7fd;
@@ -175,7 +175,7 @@ input[type="number"] {
   background-color: var(--darkBlue);
 }
 .btn-darkYellow {
-  background-color: var(--darkYellow);
+  background-color: var(--yellow);
 }
 .btn-darkGreen {
   background-color: var(--green);
@@ -366,4 +366,14 @@ table th {
   text-align: left;
   background-color: #000;
   color: white;
+}
+.dashboardClientListHeadRow {
+  display:grid;
+  gap: 2px;
+  grid-template-columns: 1.5fr 1.5fr 1.5fr 2fr 1.5fr 1fr 1fr;
+}
+.dashboardActiveUsersListHeadRow {
+  display:grid;
+  gap: 5px;
+  grid-template-columns: 1.5fr 1.5fr 1.5fr 2fr 1.5fr 1.5fr 1fr 1fr;
 }

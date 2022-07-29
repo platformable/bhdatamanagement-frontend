@@ -23,11 +23,9 @@ export default function UserListRow({setSelectedEntity,authorizeduser,setSelecte
   return (
     <> 
 
-    <div
-                className={`${styles.dashboardActiveUsersListHeadRow} border  rounded-md py-3 px-5 my-1 bg-white`}
-              >
+    <div className="dashboardActiveUsersListHeadRow  hidden border  rounded-md py-4 px-5 my-1 bg-white">
                 <div className="head-row flex justify-start items-center ">
-                  <p className="text-xs md:text-base text-left">{name}{userid}</p>
+                  <p className="text-xs md:text-base text-left">{name}</p>
                 </div>
                 <div className="head-row flex justify-start items-center ">
                   <p className="text-xs md:text-base text-left">{lastname}</p>
@@ -38,10 +36,10 @@ export default function UserListRow({setSelectedEntity,authorizeduser,setSelecte
                 <div className="head-row flex justify-start items-center overflow-x-hidden">
                   <p className="text-xs md:text-base text-left ">{email ? email : "-"}</p>
                 </div>
-                <div className="head-row flex justify-center items-center">
+                <div className="head-row items-center">
                   <p className="text-xs md:text-base text-left">{dateaccountactivated?dateaccountactivated.split('T')[0]:"-"}</p>
                 </div>
-                <div className="head-row flex justify-center items-center">
+                <div className="head-row items-center">
                   <p className="text-xs md:text-base text-left">{datelastlogin?datelastlogin.split('T')[0]:"-"}</p>
                 </div>
                 <div className="head-row flex justify-center items-center">
