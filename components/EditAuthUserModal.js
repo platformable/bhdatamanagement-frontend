@@ -21,7 +21,7 @@ console.log("userData", userData)
 
     if(!isEmpty) {
       setSaving(!saving)
-      axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/authorizedusers`, userData)
+      axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers`, userData)
       .then(function (response) {
         console.log("response",response)
         setShowEditAuthUserModal(!showEditAuthUserModal)
