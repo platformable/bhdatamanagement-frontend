@@ -49,20 +49,21 @@ console.log(data)
            <div className=""> 
 
            <div className="container mx-auto flex flex-wrap mt-5">
-              <h1 className='block font-bold'>Manage Users</h1>
+              <Link href="/dashboard">
+                <a className="py-2 flex items-center font-bold" id="myBtn">
+                <Image src="/supervisor/dashboard_icon.svg" width={25} height={25}/>
+                  <p className='ml-2'>Dashboard</p>
+                </a>
+              </Link>
             <div className="flex  items-center justify-between container my-5 mx-auto">
+              <h1 className='block font-bold'>Manage Users</h1>
               <Link href="/authorizedusers">
                 <a className="rounded bg-yellow px-5 py-2 flex items-center  font-semibold shadow-xl" id="myBtn">
-                <Image src={authUserICon} width={40} height={40}/>
+                <Image src={authUserICon} width={31} height={29}/>
                   <p className='ml-2 text-sm'>View authorized users</p>
                 </a>
               </Link>
-              <Link href="/dashboard">
-                <a className="px-5 py-2 flex  items-center font-bold" id="myBtn">
-                <Image src={backIcon} />
-                  <p className='ml-2'>back to homepage</p>
-                </a>
-              </Link>
+              
             </div>
               
               {/* <button className="rounded btn-lightBlue px-5 py-2 flex shadow-xl inline-block" id="myBtn" onClick={()=>setShowModal(!showModal)}>

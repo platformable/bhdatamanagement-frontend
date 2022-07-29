@@ -73,31 +73,36 @@ export default function AuthorizedUsersIndex({data, users}) {
       <ToastContainer autoClose={2000}/>
           <section>
            <div className="container mx-auto mt-5"> 
-           <h1 className='block font-bold'>Manage Users</h1>
-           
+              <div className="flex items-center">
+                <button onClick={() => router.back()}>
+                  <a className="pr-5 py-2 flex  items-center font-bold" id="myBtn">
+                  <Image src="/main/back_button_icon.svg" width={22} height={20} />
+                    <p className='ml-2'>Back</p>
+                  </a>
+                  </button>
+                <Link href="/dashboard">
+                <a className="py-2 flex items-center font-bold" id="myBtn">
+                <Image src="/supervisor/dashboard_icon.svg" width={25} height={25}/>
+                  <p className='ml-2'>Dashboard</p>
+                </a>
+              </Link>
+              </div>
             <div className='button-container flex justify-between items-center mt-3 mb-5'>
+               <h1 className='block font-bold'>Manage Users</h1>
+
                <div className="flex justify-center items-center">
                 <button className="rounded bg-yellow px-5 py-2 flex items-center  font-semibold shadow-xl mr-4" id="myBtn" onClick={() => setShowModal(!showModal)}>
-                <Image src={addUserICon} width={35} height={35}/>
+                <Image src={addUserICon} width={31} height={29}/>
                 <p className='ml-2 text-sm'>Add a new user</p>
-                
-                 </button>
+                </button>
+
                 <Link href="/users">
                 <a className="rounded bg-yellow px-5 py-2 flex items-center  font-semibold shadow-xl" id="myBtn">
-                <Image src={authUserICon} width={40} height={40}/>
+                <Image src={authUserICon} width={31} height={29}/>
                   <p className='ml-2 text-sm'>View active users</p>
                 </a>
                 </Link>
                </div>
-              
-              <div className="flex justify-center items-center">
-            <Link href="/dashboard">
-                <a className="px-5 py-2 flex  items-center font-bold" id="myBtn">
-                <Image src={backIcon} />
-                  <p className='ml-2'>back to homepage</p>
-                </a>
-              </Link>
-              </div>
               
             </div>
             {/* Authorized Users   */}
