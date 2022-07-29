@@ -26,7 +26,7 @@ console.log(data)
     const getActiveUsers=(array)=>{
 
       const result = array.filter((user,index)=>{
-        return user.useractivestatus==='Active'
+        return user.isactive==='Active'
       })
 
       setActiveUsers(result)
@@ -49,20 +49,21 @@ console.log(data)
            <div className=""> 
 
            <div className="container mx-auto flex flex-wrap mt-5">
-              <h1 className='block font-bold'>Manage Users</h1>
+              <Link href="/dashboard">
+                <a className="py-2 flex items-center font-bold" id="myBtn">
+                <Image src="/supervisor/dashboard_icon.svg" width={25} height={25}/>
+                  <p className='ml-2'>Dashboard</p>
+                </a>
+              </Link>
             <div className="flex  items-center justify-between container my-5 mx-auto">
+              <h1 className='block font-bold'>Manage Users</h1>
               <Link href="/authorizedusers">
                 <a className="rounded bg-yellow px-5 py-2 flex items-center  font-semibold shadow-xl" id="myBtn">
-                <Image src={authUserICon} width={40} height={40}/>
+                <Image src={authUserICon} width={31} height={29}/>
                   <p className='ml-2 text-sm'>View authorized users</p>
                 </a>
               </Link>
-              <Link href="/dashboard">
-                <a className="px-5 py-2 flex  items-center font-bold" id="myBtn">
-                <Image src={backIcon} />
-                  <p className='ml-2'>back to homepage</p>
-                </a>
-              </Link>
+              
             </div>
               
               {/* <button className="rounded btn-lightBlue px-5 py-2 flex shadow-xl inline-block" id="myBtn" onClick={()=>setShowModal(!showModal)}>
@@ -105,34 +106,34 @@ console.log(data)
               <div className={`${styles.dashboardActiveUsersListHeadRow}  pt-3 px-5`}>
                  
                 <div className="head-row font-black">
-                  <p className="text-base text-left">Name</p>
+                  <p className="text-xs md:text-base text-left">Name</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-left">Lastname</p>
+                  <p className="text-xs md:text-base text-left">Lastname</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-left"> User Role</p>
+                  <p className="text-xs md:text-base text-left"> User Role</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-left">Email</p>
+                  <p className="text-xs md:text-base text-left">Email</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-center">Activated in</p>
+                  <p className="text-xs md:text-base text-center">Activated in</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-center">Last login</p>
+                  <p className="text-xs md:text-base text-center">Last login</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-center">Edit</p>
+                  <p className="text-xs md:text-base text-center">Edit</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-base text-center">Delete</p>
+                  <p className="text-xs md:text-base text-center">Delete</p>
                 </div>
               </div>
             </div>
             <div className="dashboard-client-list mt-2 container mx-auto">
 
-                {data?activeUsers.map((authuser,index)=>{
+                {data? activeUsers.map((authuser,index)=>{
                    return <UserListRow 
                    authorizeduser={authuser} 
                    index={index} 
@@ -154,7 +155,7 @@ console.log(data)
       
       {showModal &&<AddUserModal setShowModal={setShowModal} showModal={showModal}/>}
       {showEditUserModal &&<EditUserModal setShowEditUserModal={setShowEditUserModal} showEditUserModal={showEditUserModal} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>}
-      {showDeleteUserModal && <DeleteUserModal urlEntity={'users'}setShowDeleteUserModal={setShowDeleteUserModal} showDeleteUserModal={showDeleteUserModal} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>}
+      {showDeleteUserModal && <DeleteUserModal urlEntity={'users'} setShowDeleteUserModal={setShowDeleteUserModal} showDeleteUserModal={showDeleteUserModal} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>}
 
       </Layout>
     </>
@@ -165,7 +166,7 @@ console.log(data)
 // This gets called on every request
 export async function getServerSideProps() {
     // Fetch data from external API
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`)
+    const res = await fetch(`${process.env.LIVE}/users`)
     const data = await res.json()
     // Pass data to the page via props
     return { props: { data } }

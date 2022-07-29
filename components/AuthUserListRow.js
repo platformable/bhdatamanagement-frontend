@@ -7,7 +7,9 @@ export default function AuthUserListRow({showDeleteUserModal,setShowDeleteUserMo
   index,setSelectedUser, showEditInactiveUserModal, setShowEditInactiveUserModal,selectedEntity,setSelectedEntity}) {
   const {email,name,lastname,role,isactive,datelastlogin,id,dateaccountactivated} = authorizeduser
   const router = useRouter()
+    console.log("name:", name)
 
+    
   const handleSelectedUser =(selectedUser)=>{
     if(selectedUser.id) {
       setSelectedUser(selectedUser)
@@ -25,8 +27,6 @@ export default function AuthUserListRow({showDeleteUserModal,setShowDeleteUserMo
     setSelectedEntity("authorizedusers")
     setSelectedUser(authorizeduser)
     setShowDeleteUserModal(!showDeleteUserModal)
-   
-
   } 
   //date to shown in list
 const date = dateaccountactivated.split("T")[0].split("-") 

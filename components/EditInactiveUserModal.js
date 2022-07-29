@@ -5,37 +5,35 @@ import Loader from "./Loader";
 
 export default function EditInactiveUserModal({ selectedUser, setShowEditInactiveUserModal, showEditInactiveUserModal }) {
   const router = useRouter()
-  console.log('selecteduser',selectedUser)
-  const [userData, setUserData] = useState(selectedUser || {
-    user_id: selectedUser.user_id,
-    name: "",
-    lastname: "",
-    useremail: "",
-    userrole: "",
-    userstatusactive: ''
-  })
+  // console.log('selecteduser',selectedUser)
+  const [userData, setUserData] = useState(selectedUser)
   console.log('userDataInactive',userData)
 
   const [saving, setSaving] = useState(false)
 
   const EditUser = (user) => {
+    const isEmpty = Object.values(userData).some(value => !value)
 
-    axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`, userData)
-    .then(response => EditAuthUser(userData))
-      .then(function (response) {
-        setShowEditInactiveUserModal(!showEditInactiveUserModal)
-        router.reload()
-      })
-      .catch(function (error) {
-        console.log("client error", error);
-      });
+    if(!isEmpty) {
+      setSaving(!saving)
+      axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/users`, userData)
+      .then(response => EditAuthUser(userData))
+        .then(function (response) {
+          setShowEditInactiveUserModal(!showEditInactiveUserModal)
+        })
+        .catch(function (error) {
+          setSaving(false)
+          console.log("client error", error);
+        });
+    }
+    
   }
 
   const EditAuthUser =  (userData)=> {
 
-    axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers/update_from_users_edit`,userData)
+    axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/authorizedusers/update_from_users_edit`,userData)
      .then(function (response) {
-        console.log("success")
+        router.reload()
      })
      .catch(function (error) {
        console.log("client error",error);
@@ -48,7 +46,7 @@ export default function EditInactiveUserModal({ selectedUser, setShowEditInactiv
       <div className="modal">
         <div className="mt-8 relative max-w-sm mx-auto bg-yellow-400 p-10 rounded-md">
           <button
-            className="absolute  top-0 right-0"
+            className="absolute top-0 right-0"
             onClick={() => setShowEditInactiveUserModal(!showEditInactiveUserModal)}
           >
             <img src="/close-window-icon.svg" alt="close-window" title="close-window_" className="rounded-tr"  width="20" /> 
@@ -63,7 +61,7 @@ export default function EditInactiveUserModal({ selectedUser, setShowEditInactiv
               <input
                 type="text"
                 className="mt-1 block w-full bg-[#f6e89e] rounded-md  p-2 pl-3 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="John Doe"
+                placeholder="Taylor"
                 value={userData.name}
                 onChange={(e) =>
                   setUserData({ ...userData, name: e.target.value })
@@ -75,7 +73,7 @@ export default function EditInactiveUserModal({ selectedUser, setShowEditInactiv
               <input
                 type="text"
                 className="mt-1 block w-full bg-[#f6e89e] rounded-md p-2 pl-3 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="John Doe"
+                placeholder="Smith"
                 value={userData.lastname}
                 onChange={(e) =>
                   setUserData({ ...userData, lastname: e.target.value })
@@ -87,10 +85,10 @@ export default function EditInactiveUserModal({ selectedUser, setShowEditInactiv
               <input
                 type="email"
                 className="mt-1 block w-full bg-[#f6e89e] rounded-md p-2 pl-3 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="john@example.com"
-                value={userData.useremail}
+                placeholder="taylor@example.com"
+                value={userData.email}
                 onChange={(e) =>
-                  setUserData({ ...userData, useremail: e.target.value })
+                  setUserData({ ...userData, email: e.target.value })
                 }
               />
             </label>
@@ -104,24 +102,25 @@ export default function EditInactiveUserModal({ selectedUser, setShowEditInactiv
             <label className="block">
               <span className="ml-1 font-semibold">User role</span>
               <select
-                value={userData.userrole}
+                value={userData.role}
                 onChange={(e) =>
-                  setUserData({ ...userData, userrole: e.target.value })
+                  setUserData({ ...userData, role: e.target.value })
                 }
                 className="select-add-edit-supervisor block w-full mt-1 text-[#00000065] rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
-                <option>HWC</option>
-                <option>Supervisor</option>
-                <option>DES</option>
+                <option value="Program Worker">Program Worker</option>
+                <option value="Intern">Intern</option>
+                <option value="Partner">Partner</option>
+                <option value="Supervisor">Supervisor</option>
               </select>
             </label>
 
             <label className="block">
               <span className="ml-1 font-semibold">Active / No active</span>
               <select
-                value={userData.useractivestatus}
+                value={userData.isactive}
                 onChange={(e) =>
-                  setUserData({ ...userData, useractivestatus: e.target.selectedOptions[0].id.toString() })
+                  setUserData({ ...userData, isactive: e.target.selectedOptions[0].id.toString() })
                 }
                 className="select-add-edit-supervisor block w-full mt-1  text-[#00000065] rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
@@ -134,10 +133,7 @@ export default function EditInactiveUserModal({ selectedUser, setShowEditInactiv
                 <div className="flex justify-center ">
                   <button
                     className="px-4  py-2 mr-3 font-medium bg-[#23D3AA] hover:bg-green-500 text-sm flex shadow-xl rounded-md"
-                    onClick={() => {
-                      EditUser(selectedUser);
-                      setSaving(!saving);
-                    }}
+                    onClick={() => EditUser(selectedUser)}
                   >
                     {saving ? (
                       <Loader />

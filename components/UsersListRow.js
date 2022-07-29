@@ -5,13 +5,15 @@ import axios from 'axios'
 
 export default function UsersListRow({showDeleteUserModal,setShowDeleteUserModal,authorizeduser,setShowEditAuthUserModal,showEditAuthUserModal,
   index,setSelectedUser, showEditInactiveUserModal, setShowEditInactiveUserModal,selectedEntity,setSelectedEntity}) {
-  const {email,name,lastname,role,isactive,datelastlogin,id,dateaccountactivated} = authorizeduser
+  
+  const {email,name,lastname,role,isactive,datelastlogin,userid,dateaccountactivated} = authorizeduser
+console.log("aut user row: ", authorizeduser)
   const router = useRouter()
 
   const handleSelectedUser =(selectedUser)=>{
     if(selectedUser.id) {
       setSelectedUser(selectedUser)
-      setShowEditAuthUserModal(!showEditAuthUserModal)
+      setShowEditInactiveUserModal(!showEditInactiveUserModal)
     } else {
       setSelectedUser(selectedUser)
       setShowEditInactiveUserModal(!showEditInactiveUserModal)
@@ -20,13 +22,10 @@ export default function UsersListRow({showDeleteUserModal,setShowDeleteUserModal
  
   }
 
-
   const handleAuthUserDelete = (id)=>{
     setSelectedEntity("users")
     setSelectedUser(authorizeduser)
     setShowDeleteUserModal(!showDeleteUserModal)
-   
-
   } 
   //date to shown in list
 const date = dateaccountactivated.split("T")[0].split("-") 
@@ -42,7 +41,7 @@ const day= date[2]
                   <p className="text-center">{id}</p>
                 </div> */}
                 <div className="head-row flex justify-start items-center">
-                  <p className="text-center">{name}</p>
+                  <p className="text-center">{name} {userid}</p>
                 </div>
                 <div className="head-row flex justify-start items-center">
                   <p className="text-center">{lastname}</p>

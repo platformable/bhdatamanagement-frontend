@@ -19,9 +19,11 @@
 
 .dashboardClientListHeadRow {
   display:grid;
+  gap: 2px;
   grid-template-columns: 1.5fr 1.5fr 1.5fr 2fr 1.5fr 1fr 1fr;
 }
 .dashboardActiveUsersListHeadRow {
   display:grid;
+  gap: 5px;
   grid-template-columns: 1.5fr 1.5fr 1.5fr 2fr 1.5fr 1.5fr 1fr 1fr;
 }
