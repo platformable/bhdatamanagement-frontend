@@ -20,7 +20,7 @@ export default function AddUserModal({ showModal, setShowModal,notificationMessa
 
     if (!isEmpty) {
       setSaving(!saving)
-      axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/authorizedusers/create`,userData)
+      axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers/create`,userData)
       .then(function (response) {
         setShowModal(!showModal)
         notifyMessage()

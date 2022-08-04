@@ -54,8 +54,8 @@ const day= date[2]
                   <p className="md:text-base text-center">{email || authorizeduser.useremail ? (email || authorizeduser.useremail ) : "-"}</p>
                 </div>
               
-                <div className="head-row flex justify-start items-center">
-                  <p className="md:text-base text-center">{dateaccountactivated ? `${month}/${day}/${year}` : "-"}</p>
+                <div className="head-row flex justify-center items-center">
+                  <p className="text-center">{dateaccountactivated ? `${month}/${day}/${year}` : "-"}</p>
                 </div>
                 
                 <div className="head-row flex justify-center items-center">

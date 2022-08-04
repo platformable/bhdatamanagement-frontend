@@ -19,7 +19,7 @@ export default function EditUserModal({selectedUser, setShowEditUserModal, showE
 
   const EditUser =  (user)=> {
     setSaving(!saving);
-   axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/users`,userData)
+   axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`,userData)
    .then(response => EditAuthUser(userData))
     .then(function (response) {
         setShowEditUserModal(!showEditUserModal)        
@@ -32,7 +32,7 @@ export default function EditUserModal({selectedUser, setShowEditUserModal, showE
 
 
   const EditAuthUser =  (userData)=> {
-    axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/authorizedusers/update_from_users_edit`,userData)
+    axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers/update_from_users_edit`,userData)
      .then(function (response) {
       router.reload();
       setSaving(!saving);
