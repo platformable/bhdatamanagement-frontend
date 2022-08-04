@@ -7,6 +7,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Lato", sans-serif;
+  background-color: var(--lightPurple);
 }
 
 a {
@@ -61,11 +62,9 @@ h6 {
 }
 
 :root {
-  --yellow: #efb827;
-  --lightYellow: #fdf8ce;
-  --darkYellow: #ffde0b;
-  --lightBlue: #d0e7fd;
-  --blue: #62a6e5;
+  --lightYellow: #fef7cf;
+  --darkYellow: #ffde0B;
+  --lightBlue: #f2f9ff;
   --darkBlue: #007fff;
   --pink: #ff9eb6;
   --strongPink: #ff56a5;
@@ -75,7 +74,7 @@ h6 {
   --blue2: #005aaf;
   --lightPink: #fff0f4;
   --lightStringPink: #ffe8f3;
-  --lightPurple: #fcedff;
+  --lightPurple: #fee8fa;
   --lightOrange: #fff1d8;
   --lightGreen: #e8fcfa;
   --lightBlue: #e5f2ff;
@@ -162,11 +161,11 @@ input[type="number"] {
 }
 
 .btn-yellow {
-  background-color: var(--yellow);
+  background-color: var(--darkYellow);
 }
 
 .btn-blue {
-  background-color: var(--blue);
+  background-color: var(--darkBlue);
 }
 .btn-lightBlue {
   background-color: var(--lightBlue);
@@ -175,7 +174,7 @@ input[type="number"] {
   background-color: var(--darkBlue);
 }
 .btn-darkYellow {
-  background-color: var(--yellow);
+  background-color: var(--darkYellow);
 }
 .btn-darkGreen {
   background-color: var(--green);
@@ -247,14 +246,14 @@ input[type="number"] {
 /* BACKGROUNDS */
 
 .bg-yellow {
-  background-color: var(--yellow);
+  background-color: var(--darkYellow);
 }
 
 .bg-dark-blue {
   background-color: var(--darkBlue);
 }
 .hover-bg-dark-blue:hover {
-  background-color: var(--blue);
+  background-color: var(--darkBlue);
 }
 
 .bg-light-blue {

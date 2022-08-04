@@ -8,7 +8,7 @@ export default function Header() {
   const { user, error, isLoading } = useUser();
   
   return (
-     <header className="border-b">
+     <header className="border-b bg-white">
         <div className="container mx-auto py-5  grid space-between grid-cols-2 px-5 md:px-0">
           <Link href="/dashboard"><img src="/main/Black_Health_logo.svg" alt="" width={280} height={200} className="cursor-pointer" /></Link>
           <div id="head-user" className="grid place-items-end">
