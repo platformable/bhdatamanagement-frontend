@@ -1,4 +1,4 @@
-const ProgramCard = ({program, datasetName, description, dateRange, records, programImage}) => {
+const ProgramCard = ({program, datasetName, description, dateRange, records, programImage,link}) => {
     return (
         <div className='rounded shadow grid grid-cols-6 md:h-52'>
             <div className='grid grid-rows-4 col-span-1'>
@@ -24,9 +24,13 @@ const ProgramCard = ({program, datasetName, description, dateRange, records, pro
                   </div>
                 </div>
                 <div className='bg-white flex items-center justify-center'>
-                  <button className='col-span-1 rounded-md bg-violet text-white text-lg flex items-center px-4 py-1'>
-                  <img src="/historical_data/download_icon_button.svg" alt="download" className='mr-2'/>
-                    Download</button>
+                  <a className='col-span-1 rounded-md bg-violet text-white text-lg flex items-center px-4 py-1 cursor-pointer'
+                  download
+                  href={link}
+                  >
+                  <img src="/historical_data/download_icon_button.svg" alt="download" className='mr-2' />
+                    Download</a>
+                    
                 </div>
               </div>
             </div>

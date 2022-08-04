@@ -18,7 +18,7 @@ export default function HistoricalData() {
         {
             program:"T2",
             datasetName:"Test and Trace (T2) Database",            
-            link:"",
+            link:'https://drive.google.com/uc?export=download&id=1hrMVh2Kpwm1pK64h9Eggi3NlDcusJcXl',
             description:"COVID-19 Outreach activities for the T2 program",
             records:"2674 records",
             dateRange:"8/6/2020-6/30/2022",
@@ -27,7 +27,7 @@ export default function HistoricalData() {
         {
             program:"HRSA",
             datasetName:"HRSA Outreach Worker Daily Activity",
-            link:"",
+            link:"https://drive.google.com/uc?export=download&id=1-SWEeEeftx8MN5MemkqWnHlL01tMZPE1",
             description:"Daily Outreach Worker reports for activities from the HRSA program in NY, AL, SC, LA, GA ",
             records:"884 records",
             dateRange:"9/27/2021-7/30/2022",
@@ -36,7 +36,7 @@ export default function HistoricalData() {
         {
             program:"HRSA",
             datasetName:"Vaccine Profile: HRSA Community Based Vaccine Outreach Database",
-            link:"",
+            link:"https://drive.google.com/uc?export=download&id=1JoE5B6gXCcBQq41zHExHaJdabxgYNNQW",
             description:"Referrals to COVID-19 vaccines and boosters as part of the HRSA program in NY, AL, SC, LA, GA ",
             records:"1708 records",
             dateRange:"9/3/2021-08/02/2022",
@@ -45,7 +45,7 @@ export default function HistoricalData() {
         {
             program:"OEF",
             datasetName:"OEF FBOs Directory 2021/22 Public",
-            link:"",
+            link:"https://drive.google.com/uc?export=download&id=1C1iwPps51qKmjljRLrQWb_g2aDJLC7M3",
             description:"OEF Program directory participating FBOs",
             records:"35 records",
             date:"FY 2021-2022",
@@ -54,7 +54,7 @@ export default function HistoricalData() {
         {
             program:"OEF",
             datasetName:"OEF HIV Outreach Events FY 2021-2022 Database",
-            link:"",
+            link:"https://drive.google.com/uc?export=download&id=1r-N6nPLuGo972j9YB4LOxUnif0a9SmtR",
             description:"OEF HIV Outreach Events data",
             records:"159 records",
             dateRange:"FY 2021-2022",
@@ -63,7 +63,7 @@ export default function HistoricalData() {
         {
             program:"OEF",
             datasetName:"OEF HIV Outreach Events Participant (sign-in sheet) 2021/22",
-            link:"",
+            link:"https://drive.google.com/uc?export=download&id=1WYZlDAlFNGVPpoRNCICamlpUcMx5ML38",
             description:"OEF HIV Outreach Events Participant Sign in Sheets",
             records:"6820 records",
             dateRange:"FY 2021-2022",
@@ -72,7 +72,7 @@ export default function HistoricalData() {
         {
             program:"OEF",
             datasetName:"OEF FBO Site Visits Database 2021-2022",
-            link:"",
+            link:"https://drive.google.com/uc?export=download&id=1YBgvbbPhMHBU17zvKYKKAh7JsTsl3DPk",
             description:"OEF FBO Site Visit Evaluations",
             records:"30 records",
             dateRange:"FY 2021-2022",
@@ -81,7 +81,7 @@ export default function HistoricalData() {
         {
             program:"NYS",
             datasetName:"NYS HIV Activity Database September 2021 to end of June 2022",
-            link:"",
+            link:"https://drive.google.com/uc?export=download&id=1ZPrCLaKt6b5cd24kbjyuw4tDhUi6qPtO",
             description:"Outreach activities for the NYS HIV program",
             records:"74 records",
             dateRange:"09/30/2022-06/30/2022",
@@ -90,7 +90,7 @@ export default function HistoricalData() {
         {
             program:"NYS",
             datasetName:"NYS HIV Activity Database January 2021 - November 2021",
-            link:"",
+            link:"https://drive.google.com/uc?export=download&id=1p6qKJ-R6EBm4t3qH2TuBYIrguItBfD5R",
             description:"Outreach activities for the NYS HIV program",
             records:"86 records",
             dateRange:"01/27/2021-11/05/2021",
@@ -99,7 +99,7 @@ export default function HistoricalData() {
         {
             program:"Social Media",
             datasetName:"Social Media Database Black Health",
-            link:"",
+            link:"https://drive.google.com/uc?export=download&id=1qUeiOTzUaMAJf1vQc0K0UU_CdTWLuDJq",
             description:"Record of Black Health social media posts from Facebook, Instagram, Twitter, YouTube and Mailchimp.",
             records:"1119 records",
             dateRange:"7/23/21-06/30/2022",
@@ -160,7 +160,8 @@ setSearchWord(word)
                 description={program.description} 
                 dateRange={program.dateRange} 
                 records={program.records} 
-                programImage={program.programImage}/> 
+                programImage={program.programImage}
+                link={program.link}/> 
                     )
                 })
             }
