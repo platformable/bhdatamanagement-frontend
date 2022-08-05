@@ -237,10 +237,10 @@ export default function AuthorizedUsersIndex({data, users}) {
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const [data, users] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/authorizedusers`).then((r) =>
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers`).then((r) =>
         r.json()
       ),
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/users`).then((r) =>
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`).then((r) =>
         r.json()
       ),
     ]);
