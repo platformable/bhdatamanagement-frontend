@@ -64,7 +64,7 @@ export default function Dashboard() {
               </h2>
             
 
-             
+              <div className="grid md:grid-cols-6 grid-cols-1 mb-2">
               <Link href="/historicalData">
                     <div className="text-center mr-5 ">
                       <div className="rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
@@ -79,7 +79,7 @@ export default function Dashboard() {
                       </div>{" "}
                     </div>
                   </Link>
-           
+           </div>
 
            
             
