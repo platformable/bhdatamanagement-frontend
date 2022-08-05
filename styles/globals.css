@@ -241,6 +241,10 @@ input[type="number"] {
 .text-color-light-blue {
   color: var(--blue);
 }
+
+.text-color-violet {
+  color: var(--violet);
+}
 /* BACKGROUNDS */
 
 .bg-yellow {
@@ -300,6 +304,12 @@ input[type="number"] {
 
 .bg-light-purple {
   background-color: var(--lightPurple);
+}
+.bg-light-violet {
+  background-color: var(--lightViolet);
+}
+.bg-violet {
+  background-color: var(--violet);
 }
 
 /* BORDERS */
@@ -378,3 +388,4 @@ table th {
   gap: 5px;
   grid-template-columns: 1.5fr 1.5fr 1.5fr 2fr 1.5fr 1.5fr 1fr 1fr;
 }
+

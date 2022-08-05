@@ -190,3 +190,4 @@ setSearchWord(word)
     </Layout>
   );
 }
+
