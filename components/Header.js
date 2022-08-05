@@ -11,7 +11,10 @@ export default function Header() {
      <header className="border-b bg-white">
         <div className="container mx-auto py-5  grid space-between grid-cols-2 px-5 md:px-0">
           <Link href="/dashboard"><img src="/main/Black_Health_logo.svg" alt="" width={280} height={200} className="cursor-pointer" /></Link>
-          <div id="head-user" className="grid place-items-end">
+          <div id="head-user" className="flex justify-end items-center">
+            <div className="flex gap-x-3 ">
+            <img src="/user_icon.svg" alt="" width={32} />
+            <div>
             <h3 className="font-black">
               Melissa
               {/* {user && user["https://lanuevatest.herokuapp.com/name"]} */}
@@ -20,13 +23,17 @@ export default function Header() {
               Supervisor
               {/* {user && user["https://lanuevatest.herokuapp.com/roles"]} */}
             </h6>
+            </div>
+            <div className="">
             <Link href="/api/auth/logout">
               <a
-                className={`${styles.btnIndexPage} inline-block btn-index-page text-black px-3 py-0 rounded-md`}
+                className={`${styles.btnIndexPage}  btn-index-page text-black px-3 py-0 rounded flex  self-start`}
               >
                 Logout
               </a>
             </Link>
+            </div>
+            </div>
           </div>
         </div>
       </header>

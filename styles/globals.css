@@ -81,8 +81,6 @@ h6 {
   --lightRed: #f9735b;
   --middleGreen: #82fdad;
   --middleWhite: #f7f9fc;
-
-  
   --violet: #6b1a73;
   --lightViolet: #ebdae9;
 }
@@ -285,6 +283,10 @@ input[type="number"] {
 
 .bg-light-purple {
   background-color: var(--lightPurple);
+}
+
+.bg-violet {
+  background-color: var(--violet);
 }
 
 .bg-dark-pueple {

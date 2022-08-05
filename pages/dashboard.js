@@ -52,18 +52,33 @@ export default function Dashboard() {
           <div className="container mx-auto py-5">
             
             
-            <h1 className="font-black py-5">
-              Hello 
-            </h1>
-           
+          <section className=" py-5">
+                <h1 className="font-black py-5 md:px-0 px-5">
+                  Hello Melissa,
+                </h1>
+               
+              </section>
+              
+              <h2 className="font-black my-2 md:px-0 px-5">
+                What do you want <span className="bg-yellow">to do</span> today?
+              </h2>
             
 
              
-              {/* <div className="dashboard-clients-container grid md:grid-cols-5 grid.cols-1 md:px-0 px-5 gap-5">
-               
-            
-          
-              </div>  */}
+              <Link href="/historicalData">
+                    <div className="text-center mr-5 ">
+                      <div className="rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
+                        <button id="myBtn">
+                          <div className="flex justify-center">
+                            <img src="/download_historical_data_icon.svg" alt="" />
+                          </div>
+                          <p className="my-5 font-bold text-white uppercase">
+                            Download <br /> Historical Data
+                          </p>
+                        </button>
+                      </div>{" "}
+                    </div>
+                  </Link>
            
 
            

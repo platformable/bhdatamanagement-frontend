@@ -44,16 +44,25 @@ export default function UsersIndex({data}) {
     
     
           <section>
-           <div className=""> 
+              <section className="bg-white">
 
-           <div className="container px-4 md:mx-auto flex flex-wrap mt-5">
+                <div className="container mx-auto">
+                <div className="flex btn-dashboard py-5">
               <Link href="/dashboard">
-                <a className="px-2 py-2 flex bg-light-purple items-center font-bold" id="myBtn">
-                <Image src="/supervisor/dashboard_icon.svg" width={22} height={20}/>
-                  <p className='ml-2'>Dashboard</p>
+                <a
+                  className="px-2 py-2  flex bg-light-purple gap-x-2 items-center font-black"
+                  id=""
+                >
+                  <Image
+                    src="/supervisor/dashboard_icon.svg"
+                    width={22}
+                    height={20}
+                  />
+                  Dashboard
                 </a>
               </Link>
-            <div className="flex  items-center justify-between container my-5 mx-auto">
+            </div>
+            <div className="flex  items-center justify-between container my-5 mx-auto pt-2 pb-5">
               <h1 className='block font-bold'>Manage Users</h1>
               <Link href="/authorizedusers">
                 <a className="rounded bg-yellow px-5 py-2 flex items-center  font-semibold shadow-xl" id="myBtn">
@@ -61,8 +70,13 @@ export default function UsersIndex({data}) {
                   <p className='ml-2 text-sm'>View authorized users</p>
                 </a>
               </Link>
-              
             </div>
+            </div>
+            </section>
+           <div className=""> 
+
+           <div className="container px-4 md:mx-auto flex flex-wrap mt-5">
+        
               
               {/* <button className="rounded btn-lightBlue px-5 py-2 flex shadow-xl inline-block" id="myBtn" onClick={()=>setShowModal(!showModal)}>
                 <svg
