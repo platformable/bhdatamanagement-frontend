@@ -37,10 +37,10 @@ export default function UserListRow({setSelectedEntity,authorizeduser,setSelecte
                   <p className="text-xs md:text-base text-left ">{email ? email : "-"}</p>
                 </div>
                 <div className="head-row items-center">
-                  <p className="text-xs md:text-base text-left">{dateaccountactivated?dateaccountactivated.split('T')[0]:"-"}</p>
+                  <p className="text-xs md:text-base text-center">{dateaccountactivated?dateaccountactivated.split('T')[0]:"-"}</p>
                 </div>
                 <div className="head-row items-center">
-                  <p className="text-xs md:text-base text-left">{datelastlogin?datelastlogin.split('T')[0]:"-"}</p>
+                  <p className="text-xs md:text-base text-center">{datelastlogin?datelastlogin.split('T')[0]:"-"}</p>
                 </div>
                 <div className="head-row flex justify-center items-center">
                   <p className="text-xs md:text-base text-left flex cursor-pointer" 

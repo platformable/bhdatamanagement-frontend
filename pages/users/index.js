@@ -50,7 +50,7 @@ export default function UsersIndex({data}) {
                 <div className="flex btn-dashboard py-5">
               <Link href="/dashboard">
                 <a
-                  className="px-2 py-2  flex bg-light-purple gap-x-2 items-center font-black"
+                  className="px-2 py-2 flex bg-light-violet rounded gap-x-2 items-center font-black"
                   id=""
                 >
                   <Image
@@ -62,7 +62,7 @@ export default function UsersIndex({data}) {
                 </a>
               </Link>
             </div>
-            <div className="flex  items-center justify-between container my-5 mx-auto pt-2 pb-5">
+            <div className="flex  items-center justify-between container mx-auto py-5">
               <h1 className='block font-bold'>Manage Users</h1>
               <Link href="/authorizedusers">
                 <a className="rounded bg-yellow px-5 py-2 flex items-center  font-semibold shadow-xl" id="myBtn">
@@ -75,7 +75,7 @@ export default function UsersIndex({data}) {
             </section>
            <div className=""> 
 
-           <div className="container px-4 md:mx-auto flex flex-wrap mt-5">
+           <div className="container px-4 md:mx-auto flex flex-wrap">
         
               
               {/* <button className="rounded btn-lightBlue px-5 py-2 flex shadow-xl inline-block" id="myBtn" onClick={()=>setShowModal(!showModal)}>
@@ -112,10 +112,10 @@ export default function UsersIndex({data}) {
             </div>
 
                 {/* TABLE */}
-          <div id='dashboard-client-list-container' className="bg-light-purple pb-7 h-screen">
+          <div id='dashboard-client-list-container' className="bg-light-violet pb-7 h-screen">
           <div className="dashboard-client-list container mx-auto">
             <h2 className="font-black text-center py-5">Active Users</h2>
-              <div className="dashboardActiveUsersListHeadRow  pt-3 px-5">
+              <div className="dashboardActiveUsersListHeadRow pb-1 pt-5 px-5">
                  
                 <div className="head-row font-black">
                   <p className="text-xs md:text-base text-left">Name</p>
@@ -178,7 +178,7 @@ export default function UsersIndex({data}) {
 // This gets called on every request
 export async function getServerSideProps() {
     // Fetch data from external API
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/users`)
     const data = await res.json()
     // Pass data to the page via props
     return { props: { data } }

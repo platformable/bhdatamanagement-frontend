@@ -15,9 +15,9 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 import authUserICon from '../../public/authorized-users-icon.svg'
-import backIcon from '../../public/BACKicon.svg'
 import addUserICon from '../../public/add-new-user-icon.svg' 
 import Header from '../../components/Header';
+import Layout from '../../components/Layout';
 
 export default function AuthorizedUsersIndex({data, users}) {
   const router = useRouter()
@@ -68,27 +68,33 @@ export default function AuthorizedUsersIndex({data, users}) {
 
   return (
     <>
-    <Header />
-      <main>
-      <ToastContainer autoClose={2000}/>
-          <section>
-           <div className="container p-5 md:mx-auto mt-5"> 
-              <div className="flex items-center">
-                <button onClick={() => router.back()} className="bg-light-purple rounded px-2 mr-2">
+      <Layout>
+          <ToastContainer autoClose={2000}/>
+          <section className='bg-white'>
+           <div className="container md:mx-auto"> 
+              <div className="flex items-center py-5">
+                <button onClick={() => router.back()} className="bg-light-violet rounded px-2 mr-2">
                   <a className="pr-5 py-2 flex  items-center font-bold" id="myBtn">
                   <Image src="/main/back_button_icon.svg" width={22} height={20} />
-                    <p className='ml-2'>Back</p>
+                    <p className='ml-2 font-black'>Back</p>
                   </a>
                 </button>
-                <button onClick={() => router.push("/dashboard")} className="bg-light-purple rounded px-2">
-                <a className="py-2 flex items-center font-bold" id="myBtn">
-                <Image src="/supervisor/dashboard_icon.svg" width={22} height={20}/>
-                  <p className='ml-2'>Dashboard</p>
+                <Link href="/dashboard">
+                <a
+                  className="px-2 py-2  flex bg-light-violet rounded gap-x-2 items-center font-black"
+                  id=""
+                >
+                  <Image
+                    src="/supervisor/dashboard_icon.svg"
+                    width={22}
+                    height={20}
+                  />
+                  Dashboard
                 </a>
-                </button>
+               </Link>
               </div>
-            <div className='button-container  md:flex justify-between items-center mt-3 mb-5'>
-               <h1 className='block font-bold py-2'>Manage Users</h1>
+            <div className='button-container  md:flex justify-between items-center py-5'>
+               <h1 className='block font-bold '>Manage Users</h1>
 
                <div className="flex justify-center items-center">
                 <button className="rounded bg-yellow px-5 py-2 flex items-center  font-semibold shadow-xl mr-4" id="myBtn" onClick={() => setShowModal(!showModal)}>
@@ -109,11 +115,11 @@ export default function AuthorizedUsersIndex({data, users}) {
           
           </div>
               {/* TABLE */}
-          <div id="dashboard-client-list" className="bg-light-purple pb-7 h-screen">
+          <div id="dashboard-client-list" className="bg-light-violet pb-7 h-screen">
 
             <div className="dashboard-client-list container mx-auto">
-              <h2 className="font-black text-center pt-6 pb-3">Authorized Users</h2>
-              <div className={`${styles.dashboardClientListHeadRow} items-end py-3 px-5 pt-5 pb-1`}>
+              <h2 className="font-black text-center py-5">Authorized Users</h2>
+              <div className={`${styles.dashboardClientListHeadRow} items-end px-5 pt-5 pb-1`}>
 
                   <div className="head-row font-black">
                     <p className="text-xs md:text-base text-left">Name</p>
@@ -214,7 +220,7 @@ export default function AuthorizedUsersIndex({data, users}) {
             </div>     
           </div>
           </section>
-      </main>
+      </Layout>
       {showModal &&<AddUserModal 
       setShowModal={setShowModal} 
       showModal={showModal}
@@ -231,10 +237,10 @@ export default function AuthorizedUsersIndex({data, users}) {
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const [data, users] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers`).then((r) =>
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/authorizedusers`).then((r) =>
         r.json()
       ),
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`).then((r) =>
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_LIVE}/users`).then((r) =>
         r.json()
       ),
     ]);
