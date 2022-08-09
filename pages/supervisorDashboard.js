@@ -17,10 +17,9 @@ import Layout from "../components/Layout";
 export default function SupervisorDashboard({  }) {
   const { user, error, isLoading } = useUser();
   const [showModal, setShowModal] = useState(false);
-  const [totalMsaFormsNotCompleted, setTotalMsaFormsNotCompleted] = useState(
-    []
-  );
-  const [notCompletedGoals, setNotCompletedGoals] = useState([]);
+
+  const userName=user['https://lanuevatest.herokuapp.com/name']
+
   const [showCreateClientModal, setShowCreateClientModal] = useState(false);
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
@@ -126,7 +125,7 @@ if(userid!=="All"){
             <div className="container mx-auto">
               <section className=" py-5">
                 <h1 className="font-black py-5 md:px-0 px-5">
-                  Hello Melissa,
+                  Hello {userName},
                 </h1>
                
               </section>
@@ -157,7 +156,7 @@ if(userid!=="All"){
                       <div className="rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
                         <button id="myBtn">
                           <div className="flex justify-center">
-                            <img src="/download_historical_data_icon.svg" alt="" />
+                            <img src="/download_historical_data_icon.svg" alt="" width={85}/>
                           </div>
                           <p className="my-5 font-bold text-white uppercase">
                             Download <br /> Historical Data
