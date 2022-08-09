@@ -21,7 +21,7 @@ export default function Dashboard() {
   const userId = user?.sub
   const router = useRouter()
 
-  const userName=user['https://lanuevatest.herokuapp.com/name']
+  const userName=user && user['https://lanuevatest.herokuapp.com/name']
 
 
   const notifyMessage = () => {
