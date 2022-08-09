@@ -6,9 +6,9 @@ import styles from "../styles/Home.module.css";
 export default function Header() {
 
   const { user, error, isLoading } = useUser();
-  console.log("user",user)
 
-  const userName=user['https://lanuevatest.herokuapp.com/name']
+
+  const userName=user && user['https://lanuevatest.herokuapp.com/name']
   
   return (
      <header className="border-b bg-white">
