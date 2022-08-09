@@ -9,6 +9,7 @@ export default function Header() {
 
 
   const userName=user && user['https://lanuevatest.herokuapp.com/name']
+  const userRole=user && user['https://lanuevatest.herokuapp.com/roles']
   
   return (
      <header className="border-b bg-white">
@@ -20,11 +21,9 @@ export default function Header() {
             <div>
             <h3 className="font-black">
               {userName}
-              {/* {user && user["https://lanuevatest.herokuapp.com/name"]} */}
             </h3>
-            <h6 className="">
-              Supervisor
-              {/* {user && user["https://lanuevatest.herokuapp.com/roles"]} */}
+            <h6 className="">  
+              {userRole}
             </h6>
             </div>
             <div className="">

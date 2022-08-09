@@ -22,8 +22,9 @@ export default function Dashboard() {
   const router = useRouter()
 
   const userName=user && user['https://lanuevatest.herokuapp.com/name']
+  
 
-
+console.log("user",user)
   const notifyMessage = () => {
     toast.success("A new client is being created!", {
       position: toast.POSITION.TOP_CENTER,
