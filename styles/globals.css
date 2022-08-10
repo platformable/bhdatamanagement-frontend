@@ -324,6 +324,10 @@ input[type="number"] {
   border: 1px solid var(--darkBlue);
 }
 
+.border-dark-violet {
+  border: 1px solid var(--violet)
+}
+
 .border-l-dark-blue {
   border-left: 1px solid var(--darkBlue);
 }
@@ -389,3 +393,19 @@ table th {
   grid-template-columns: 1.5fr 1.5fr 1.5fr 2fr 1.5fr 1.5fr 1fr 1fr;
 }
 
+/* Event Input form styles */
+.checkbox-round {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2px solid red;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+.checkbox-round:checked {
+    background-color: green;
+}
