@@ -136,8 +136,8 @@ if(userid!=="All"){
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2">
                 {loggedUserRole === "Supervisor" && (
                   <Link href="/users">
-                    <div className="text-center mr-5 ">
-                      <div className="rounded btn-yellow p-5 text-center shadow-xl   mb-2 rounded-xl">
+                    <div className="text-center mr-5 rounded btn-yellow p-5 text-center shadow-xl   mb-2 rounded-xl">
+                      <div className="">
                         <button id="myBtn">
                           <div className="flex justify-center">
                             <img src="/manage-users-icon.svg" alt="" />

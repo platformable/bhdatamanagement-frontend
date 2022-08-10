@@ -6,7 +6,7 @@ import styles from "../styles/Home.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Dropbox } from "dropbox";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 import Layout from "../components/Layout";
 import Router from "next/router";
@@ -14,29 +14,32 @@ import Loader from "../components/Loader";
 
 export default function Dashboard() {
   const { user, error, isLoading } = useUser();
-  const [loading,setLoading]=useState(true)
+  const [loading, setLoading] = useState(true);
 
-  const loggedUserRole = user && user["https://lanuevatest.herokuapp.com/roles"];
-  const loggedUserStatus = user && user["https://lanuevatest.herokuapp.com/activestatus"];
-  const userId = user?.sub
-  const router = useRouter()
+  const loggedUserRole =
+    user && user["https://lanuevatest.herokuapp.com/roles"];
+  const loggedUserStatus =
+    user && user["https://lanuevatest.herokuapp.com/activestatus"];
+  const userId = user?.sub;
+  const router = useRouter();
 
-  const userName=user && user['https://lanuevatest.herokuapp.com/name']
-  
+  const userName = user && user["https://lanuevatest.herokuapp.com/name"];
 
-console.log("user",user)
+  console.log("user", user);
   const notifyMessage = () => {
     toast.success("A new client is being created!", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
 
-
-    useEffect(()=>{
-    loggedUserRole==="Supervisor" ? router.push("/supervisorDashboard"):setLoading(false)
-    loggedUserStatus==="No Active" ? router.push("/api/auth/logout"):setLoading(false)
-    },[loggedUserRole,loggedUserStatus])
-
+  useEffect(() => {
+    loggedUserRole === "Supervisor"
+      ? router.push("/supervisorDashboard")
+      : setLoading(false);
+    loggedUserStatus === "No Active"
+      ? router.push("/api/auth/logout")
+      : setLoading(false);
+  }, [loggedUserRole, loggedUserStatus]);
 
   return (
     <>
@@ -48,51 +51,66 @@ console.log("user",user)
       </Head>
 
       <Layout>
-      <main className="bg-light-purple h-screen">
-        <section id="dashboard-client-list">
-          <div className="container mx-auto py-5">
-            
-            
-          <section className=" py-5">
+        <main className="bg-light-purple h-screen">
+          <section id="dashboard-client-list">
+            <div className="container mx-auto py-5">
+              <section className=" py-5">
                 <h1 className="font-black py-5 md:px-0 px-5">
                   Hello {userName},
                 </h1>
-               
               </section>
-              
+
               <h2 className="font-black my-2 md:px-0 px-5">
                 What do you want <span className="bg-yellow">to do</span> today?
               </h2>
-            
 
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2">
-              <Link href="/historicalData">
-                    <div className="text-center mr-5 ">
-                      <div className="rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
-                        <button id="myBtn">
-                          <div className="flex justify-center">
-                            <img src="/download_historical_data_icon.svg" alt="" width={85}/>
-                          </div>
-                          <p className="my-5 font-bold text-white uppercase">
-                            Download <br /> Historical Data
-                          </p>
-                        </button>
+                <Link href="/historicalData">
+                  <button id="myBtn">
+                    <div className="text-center mr-5 rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
+                      <div className="">
+                        <div className="flex justify-center">
+                          <img
+                            src="/download_historical_data_icon.svg"
+                            alt=""
+                            width={85}
+                          />
+                        </div>
+                        <p className="my-5 font-bold text-white uppercase">
+                          Download <br /> Historical Data
+                        </p>
                       </div>{" "}
                     </div>
-                  </Link>
-           </div>
+                  </button>
+                </Link>
 
-           
-            
-          </div>
-        </section>
-      </main>
+                <Link href="/events">
+                  <button id="myBtn">
+                    <div className="text-center mr-5 rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
+                      <div className="">
+                        <div className="flex justify-center">
+                          <img
+                            src="/download_historical_data_icon.svg"
+                            alt=""
+                            width={85}
+                          />
+                        </div>
+                        <p className="my-5 font-bold text-white uppercase">
+                          Plan / Report <br /> Event
+                        </p>
+                      </div>{" "}
+                    </div>
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </section>
+        </main>
       </Layout>
-      
     </>
   );
 }
 
 /* export const getServerSideProps = withPageAuthRequired(); */
 
-export const getServerSideProps = withPageAuthRequired()
+export const getServerSideProps = withPageAuthRequired();
