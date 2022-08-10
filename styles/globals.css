@@ -7,7 +7,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Lato", sans-serif;
-  background-color: var(--lightPurple);
+  background-color: var(--lightViolet);
 }
 
 a {
@@ -83,6 +83,8 @@ h6 {
   --middleWhite: #f7f9fc;
   --violet: #6b1a73;
   --lightViolet: #ebdae9;
+  --extraLightViolet: #ebdae980;
+
 }
 
 .lne-text-white {
@@ -307,6 +309,9 @@ input[type="number"] {
 }
 .bg-light-violet {
   background-color: var(--lightViolet);
+}
+.bg-extra-light-violet {
+  background-color: var(--extraLightViolet);
 }
 .bg-violet {
   background-color: var(--violet);

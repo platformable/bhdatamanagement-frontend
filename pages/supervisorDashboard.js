@@ -120,7 +120,7 @@ if(userid!=="All"){
       </Head>
 
       <Layout>
-        <main className="bg-light-purple h-screen">
+        <main className="bg-light-violet h-screen">
           <section id="dashboard-client-list">
             <div className="container mx-auto">
               <section className=" py-5">

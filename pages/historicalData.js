@@ -123,7 +123,7 @@ export default function HistoricalData() {
             <div className="flex btn-dashboard">
               <Link href="/dashboard">
                 <a
-                  className="px-2 py-2  flex bg-light-purple gap-x-2 items-center font-black"
+                  className="px-2 py-2  flex bg-light-violet gap-x-2 items-center font-black"
                   id=""
                 >
                   <Image
