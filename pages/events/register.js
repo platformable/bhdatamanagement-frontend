@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Section1 from "../../components/events/Section1";
 import Section2 from "../../components/events/Section2";
 import Section3 from "../../components/events/Section3";
@@ -10,36 +10,65 @@ import Section8 from "../../components/events/Section8";
 import Layout from "../../components/Layout";
 import PageTopHeading from "../../components/PageTopHeading";
 
-import {  withPageAuthRequired } from "@auth0/nextjs-auth0";
-
+import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 import axios from "axios"
+import ResponseStatusModal from "../../components/ResponseStatusModal";
 
 const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
-    console.log(programs,locationTypes, areasOfFocus, eventTypes)
+  const { user, error, isLoading } = useUser();
+  const [showResponseStatus, setShowResponseStatus] = useState(false)
+  const [responseStatus, setResponseStatus] = useState ({})
   const [eventForm, setEventForm] = useState({
-    eventDateCreated: new Date()
+    userID: "",
+    eventDateCreated: new Date(),
+    eventDateCreated: null,
+    programID: "",
+    programName: "",
+    eventName: "",
+    eventDate: "",
+    eventStartTime: "",
+    eventFinishTime: "",
+    eventLocationTypeID: "",
+    eventLocationTypeName: "",
+    // eventZipCode: "",
+    healthAreaOfFocusID: "",
+    healthAreaOfFocusName: "",
+    eventTypeID: "",
+    eventTypeName: "",
   });
-
+  const userId = user && user.sub
+  
+  useEffect(() => {
+    setEventForm({...eventForm, userID: userId})
+  }, [userId])
+  
+  
   const submitEventForm = async () => {
     console.log(eventForm)
     const isEmpty = Object.values(eventForm).some(value => !value)
     
     if (!isEmpty) {
-        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/`, {
-            eventForm
+        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
+        .then(response => {
+            if (response.ok) {
+              setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
+              setShowResponseStatus(!showResponseStatus)
+            } 
         })
-        .then(response =>
-            console.log(response)
-          )
-          .catch(function (error) {
-                // setErrorMessage(error.message)
-                console.error("error: ", error.message)
-          });
+        .catch(function (error) {
+            setResponseStatus({ success: false, statusMessage: error.message})
+            setShowResponseStatus(!showResponseStatus)
+            console.error("error: ", error)
+    });
+    } else {
+      setResponseStatus({ success: false, statusMessage: "Please complete all the fields"})
+      setShowResponseStatus(!showResponseStatus)
     }
   }
   
   return (
+    <>
     <Layout>
       <PageTopHeading
         backBtn={true}
@@ -65,6 +94,8 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
         </button>
       </div>    
     </Layout>
+    {showResponseStatus && <ResponseStatusModal setShowResponseStatus={setShowResponseStatus} responseStatus={responseStatus}/>}
+    </>
   );
 };
 

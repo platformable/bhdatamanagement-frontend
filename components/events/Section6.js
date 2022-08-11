@@ -9,7 +9,7 @@ const Section6 = ({eventForm, setEventForm}) => {
       <h2 className="mb-3 font-bold">
         <span className="text-color-violet">6</span> What time will the event finish?
       </h2>
-      <input type="time" className='border-dark-violet rounded p-2 text-lg' onChange={handleForm}/>
+      <input type="time" name="eventFinishTime" className='border-dark-violet rounded p-2 text-lg' onChange={handleForm}/>
     </div>
   );
 };

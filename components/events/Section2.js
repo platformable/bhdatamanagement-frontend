@@ -1,8 +1,11 @@
 import React from 'react';
 
 const Section2 = ({eventForm, setEventForm, }) => {
+
+    const uppercaseWords = str => str.replace(/^(.)|\s+(.)/g, c => c.toUpperCase());
+
     const handleForm = (e) => {
-        setEventForm(previous => ({...previous, eventName: e.target.value}))
+        setEventForm(previous => ({...previous, eventName: uppercaseWords(e.target.value)}))
       }
     return (
         <div className='p-5 bg-extra-light-violet rounded'>
