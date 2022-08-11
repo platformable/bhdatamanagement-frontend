@@ -18,7 +18,7 @@ export default function SupervisorDashboard({  }) {
   const { user, error, isLoading } = useUser();
   const [showModal, setShowModal] = useState(false);
 
-  const userName=user['https://lanuevatest.herokuapp.com/name']
+  const userName = user && user['https://lanuevatest.herokuapp.com/name']
 
   const [showCreateClientModal, setShowCreateClientModal] = useState(false);
   const loggedUserRole =
@@ -125,7 +125,7 @@ if(userid!=="All"){
             <div className="container mx-auto">
               <section className=" py-5">
                 <h1 className="font-black py-5 md:px-0 px-5">
-                  Hello {userName},
+                  {userName},
                 </h1>
                
               </section>

@@ -80,10 +80,10 @@ h6 {
   --lightBlue: #e5f2ff;
   --lightRed: #f9735b;
   --middleGreen: #82fdad;
-  --middleWhite: #f7f9fc;
   --violet: #6b1a73;
   --lightViolet: #ebdae9;
   --extraLightViolet: #ebdae980;
+  --middleWhite: #F5F0F6;
 
 }
 
@@ -413,4 +413,10 @@ table th {
 }
 .checkbox-round:checked {
     background-color: green;
+}
+
+/* EVENTS TABLE  */
+.existing-events-head-table {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 1.5fr 1.2fr 1.7fr 1.7fr 1.7fr;
 }
