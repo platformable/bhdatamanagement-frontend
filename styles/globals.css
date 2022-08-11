@@ -7,7 +7,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Lato", sans-serif;
-  background-color: var(--lightPurple);
+  background-color: var(--lightViolet);
 }
 
 a {
@@ -83,6 +83,8 @@ h6 {
   --middleWhite: #f7f9fc;
   --violet: #6b1a73;
   --lightViolet: #ebdae9;
+  --extraLightViolet: #ebdae980;
+
 }
 
 .lne-text-white {
@@ -308,6 +310,9 @@ input[type="number"] {
 .bg-light-violet {
   background-color: var(--lightViolet);
 }
+.bg-extra-light-violet {
+  background-color: var(--extraLightViolet);
+}
 .bg-violet {
   background-color: var(--violet);
 }
@@ -322,6 +327,10 @@ input[type="number"] {
 
 .border-dark-blue {
   border: 1px solid var(--darkBlue);
+}
+
+.border-dark-violet {
+  border: 1px solid var(--violet)
 }
 
 .border-l-dark-blue {
@@ -389,3 +398,19 @@ table th {
   grid-template-columns: 1.5fr 1.5fr 1.5fr 2fr 1.5fr 1.5fr 1fr 1fr;
 }
 
+/* Event Input form styles */
+.checkbox-round {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2px solid red;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+.checkbox-round:checked {
+    background-color: green;
+}
