@@ -65,6 +65,43 @@ export default function Dashboard() {
               </h2>
 
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2">
+              <div className="text-center mr-5 rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
+            <Link href="/events/register">
+              <button id="myBtn">
+                <div className="flex justify-center">
+                  <img
+                    src="/events/register_an_event_icon.svg"
+                    alt=""
+                    width={85}
+                  />
+                </div>
+                <p className="my-5 font-bold text-white uppercase">
+                  Register <br /> an Event
+                </p>
+              </button>
+            </Link>
+          </div>
+          <div className="text-center mr-5 rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
+            <Link href="/events">
+              <button id="myBtn">
+                <div className="">
+                  <div className="flex justify-center ">
+                    <img
+                      src="/events/register_an_event_icon.svg"
+                      alt=""
+                      width={85}
+                    />
+                  </div>
+                  <p className="my-5 font-bold text-white uppercase">
+                    Manage an<br />existing  Event
+                  </p>
+                </div>{" "}
+              </button>
+            </Link>
+          </div>
+          <div></div>
+            <div></div>
+            <div></div>
                 <Link href="/historicalData">
                   <button id="myBtn">
                     <div className="text-center mr-5 rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
@@ -78,25 +115,6 @@ export default function Dashboard() {
                         </div>
                         <p className="my-5 font-bold text-white uppercase">
                           Download <br /> Historical Data
-                        </p>
-                      </div>{" "}
-                    </div>
-                  </button>
-                </Link>
-
-                <Link href="/events">
-                  <button id="myBtn">
-                    <div className="text-center mr-5 rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
-                      <div className="">
-                        <div className="flex justify-center">
-                          <img
-                            src="/download_historical_data_icon.svg"
-                            alt=""
-                            width={85}
-                          />
-                        </div>
-                        <p className="my-5 font-bold text-white uppercase">
-                          Plan / Report <br /> Event
                         </p>
                       </div>{" "}
                     </div>
