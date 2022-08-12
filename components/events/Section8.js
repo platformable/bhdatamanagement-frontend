@@ -168,7 +168,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             <img src="/events/Maternal_health_icon.svg" alt=""/>
             <p className="">Maternal<br/>Health</p>    
         </label>
-        <label className="flex items-center p-2 col-start-2 col-end-6">
+        {/* <label className="flex items-center p-2 col-start-2 col-end-6">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
@@ -183,7 +183,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
              onChange={handleForm}
              className='w-full p-2 border-dark-violet rounded' 
              placeholder="Please specify here"/>
-        </label>
+        </label> */}
       </div>
     </div>
   );
