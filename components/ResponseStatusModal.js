@@ -1,7 +1,7 @@
 const ResponseStatusModal = ({responseStatus, setShowResponseStatus}) => {
     return (
         <div className='modal flex items-center '>
-            <div className='relative max-w-sm mx-auto flex flex-col items-center justify-center gap-10 bg-violet p-10 rounded-md h-3/6'>
+            <div className='relative max-w-sm mx-auto flex flex-col items-center justify-center gap-10 bg-violet p-10 rounded-md w-2/5 h-3/6'>
             <button
             className="absolute  top-0 right-0"
             onClick={() => setShowResponseStatus(previous => !previous)}

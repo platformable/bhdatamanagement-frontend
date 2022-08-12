@@ -20,20 +20,21 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
   const [showResponseStatus, setShowResponseStatus] = useState(false)
   const [responseStatus, setResponseStatus] = useState ({})
   const [eventForm, setEventForm] = useState({
+    eventid: event?.id,
     userID: "",
     eventDateCreated: new Date(),
-    programID: "",
-    programName: event?.programname,
-    eventName: "",
+    programID: event?.programid || "",
+    programName: event?.programname || "",
+    eventName: event?.eventname || "",  
     eventDate: event?.eventdate.split('T')[0] || "",
     eventStartTime: event?.eventstarttime|| "",
     eventFinishTime: event?.eventfinishtime|| "",
-    eventLocationTypeID: "",
+    eventLocationTypeID: event?.eventlocationtypeid || "",
     eventLocationTypeName: event?.eventlocationtypename,
     // eventZipCode: "",
-    healthAreaOfFocusID: "",
-    healthAreaOfFocusName: "",
-    eventTypeID: "",
+    healthAreaOfFocusID: event?.healthareaoffocusid.substring(1) || "",
+    healthAreaOfFocusName: event?.healthareaoffocusname.substring(1) || "",
+    eventTypeID: event?.eventtypeid || "",
     eventTypeName: event?.eventtypename,
   });
   const userId = user && user.sub
@@ -49,9 +50,11 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
     const isEmpty = Object.values(eventForm).some(value => !value)
     
     if (!isEmpty) {
-        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
+        axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
-            if (response.statusText==='OK') {
+            console.log("response",response)
+
+            if (response.data.statusText==='OK') {
               setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
               setShowResponseStatus(!showResponseStatus)
             } 
@@ -86,7 +89,7 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
             <Section6 eventForm={eventForm} setEventForm={setEventForm} />
           </div>
           <Section7 eventForm={eventForm} setEventForm={setEventForm} locationTypes={locationTypes} event={event}/>
-          <Section8 eventForm={eventForm} setEventForm={setEventForm} />
+          <Section8 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
         </div>
         <button className="py-2 px-5 flex items-center rounded bg-violet text-white font-semibold" onClick={submitEventForm}>
             <img src="/check-save-and-finish.svg" alt="register event icon" className="mr-2"/>
