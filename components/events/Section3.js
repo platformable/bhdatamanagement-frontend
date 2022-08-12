@@ -30,7 +30,7 @@ const Section3 = ({eventForm, setEventForm, eventTypes,event}) => {
     const  capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1)
 
     const handleForm = (e) => {
-        setEventForm(previous => ({...previous, eventTypeName: capitalizeFirstLetter(e.target.value), eventTypeID: e.target.id,programName:""}))
+        setEventForm(previous => ({...previous, eventTypeName: capitalizeFirstLetter(e.target.value), eventTypeID: e.target.id,}))
     }
     const handleFormId = (e) => {
 

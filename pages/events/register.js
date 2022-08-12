@@ -50,13 +50,13 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
     if (!isEmpty) {
         axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
-            if (response.statusText==='OK') {
+            if (response.data.statusText==='OK') {
               setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
               setShowResponseStatus(!showResponseStatus)
             } 
         })
         .catch(function (error) {
-            setResponseStatus({ success: false, statusMessage: error.message})
+            setResponseStatus({ success: false, statusMessage: "Request Failed"})
             setShowResponseStatus(!showResponseStatus)
             console.error("error: ", error)
     });
