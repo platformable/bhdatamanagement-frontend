@@ -1,19 +1,29 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
+import { useRouter } from 'next/router'
 
-const Section1 = ({eventForm, setEventForm, programs}) => {
-    console.log(eventForm)
+const Section1 = ({eventForm, setEventForm, programs,event}) => {
 
-    const handleForm = (e) => {
-        
-        setEventForm(previous => ({...previous, programName: e.target.value.toUpperCase(), programID: e.target.id}))
-    }
+
+
+    const router = useRouter()
+    const location = router.route
+
+ 
+ /*    const handleForm = (e) => {
+        console.log("eventForm",eventForm)
+     
+    } */
     const handleFormId = (e) => {
         setEventForm(previous => ({...previous, programID: e.target.id}))
       }
-    
+
+
+    useEffect(()=>{
+            console.log("eventForm",eventForm)
+    },[eventForm.programName])
     return (
         <div className='p-5 bg-extra-light-violet rounded'>
-            <h2 className='mb-3 font-bold'><span className='text-color-violet'>1</span> Which program is your event for?</h2>
+            <h2 className='mb-3 font-black'><span className='text-color-violet'>1</span> Which program is your event for?</h2>
             <div className='grid grid-cols-1 gap-3 md:flex md:justify-between md:items-center'>
                 {programs && programs.map(program => (
                         
@@ -25,7 +35,9 @@ const Section1 = ({eventForm, setEventForm, programs}) => {
                         className='mr-2 w-4 h-4'
                         value={program.name} 
                         id={program.id} 
-                        onChange={handleForm}/>
+                        onChange={(e)=>setEventForm(previous => ({...previous, programName: e.target.value.toUpperCase(), programID: e.target.id}))}
+                        defaultChecked={program.id===event?.programid?'checked':""}
+                        />
                         {program.name}
                         </label> :
 

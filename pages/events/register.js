@@ -22,7 +22,6 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
   const [eventForm, setEventForm] = useState({
     userID: "",
     eventDateCreated: new Date(),
-    eventDateCreated: null,
     programID: "",
     programName: "",
     eventName: "",
@@ -45,13 +44,13 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
   
   
   const submitEventForm = async () => {
-    console.log(eventForm)
+ 
     const isEmpty = Object.values(eventForm).some(value => !value)
     
     if (!isEmpty) {
         axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
-            if (response.ok) {
+            if (response.statusText==='OK') {
               setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
               setShowResponseStatus(!showResponseStatus)
             } 

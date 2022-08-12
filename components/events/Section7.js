@@ -1,21 +1,35 @@
 import React, {useState, useEffect} from 'react';
 
-const Section7 = ({eventForm, setEventForm, locationTypes}) => {
+const Section7 = ({eventForm, setEventForm, locationTypes,event}) => {
    
     const [fields, setFields] = useState([]);
 
     useEffect(() => {
-        if (eventForm.programName) {
+        /* if (eventForm.programName) {
             const programNameConverted = convertStringTocompareWithProgramName(eventForm.programName)
             const filtered = locationTypes.filter(locationType => locationType[programNameConverted] === "1" )
             setFields(filtered)
-        }
+        } */
+        if (eventForm.programName && !event) {
+            const programNameConverted = convertStringTocompareWithProgramName(eventForm?.programName)
+            //const eventProgramNameConverted = convertStringTocompareWithProgramName(event?.programname)
+            const filtered = locationTypes.filter(locationType => locationType[programNameConverted] === "1")
+            setFields(filtered)
+        } 
+
+        if (eventForm.programName && event) {
+            const programNameConverted = convertStringTocompareWithProgramName(eventForm?.programName)
+            const eventProgramNameConverted = convertStringTocompareWithProgramName(event?.programname)
+            const filtered = locationTypes.filter(locationType => event?locationType[programNameConverted] === "1": locationType[eventProgramNameConverted] === "1")
+            setFields(filtered)
+        } 
+
     }, [eventForm.programName]);
 
     const convertStringTocompareWithProgramName = (string) => string.toLowerCase().replace(/\s/g, '');
     const  capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
-    console.log("fields",fields)
+
     const handleForm = (e) => {
         setEventForm(previous => ({...previous, eventLocationTypeName: capitalizeFirstLetter(e.target.value),  eventLocationTypeID: e.target.id}))
       };
@@ -36,7 +50,9 @@ const Section7 = ({eventForm, setEventForm, locationTypes}) => {
                     className='mr-2 w-4 h-4' 
                     value={location.name} 
                     id={location.id}
-                    onChange={handleForm}/>
+                    onChange={handleForm}
+                    defaultChecked={location.name===eventForm.eventLocationTypeName ?'checked':""}
+                    />
                     {location.name}
                     </label> :
 
