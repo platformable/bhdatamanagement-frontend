@@ -1,0 +1,60 @@
+<svg id="hand_sanitizers_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19.736" height="39.472" viewBox="0 0 19.736 39.472">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1703" data-name="Rectangle 1703" width="19.736" height="39.471" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_1695" data-name="Rectangle 1695" width="19.736" height="37.149" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect id="Rectangle_1693" data-name="Rectangle 1693" width="19.736" height="26.701" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <rect id="Rectangle_1694" data-name="Rectangle 1694" width="13.32" height="1.723" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-6">
+      <rect id="Rectangle_1701" data-name="Rectangle 1701" width="19.588" height="22.305" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2510" data-name="Group 2510" clip-path="url(#clip-path)">
+    <g id="Group_2501" data-name="Group 2501" transform="translate(0 2.322)">
+      <g id="Group_2500" data-name="Group 2500" clip-path="url(#clip-path-2)">
+        <g id="Group_2496" data-name="Group 2496" transform="translate(0 10.448)" opacity="0.37">
+          <g id="Group_2495" data-name="Group 2495" transform="translate(0 0)">
+            <g id="Group_2494" data-name="Group 2494" clip-path="url(#clip-path-3)">
+              <path id="Path_7931" data-name="Path 7931" d="M16.454,26H3.134A3.134,3.134,0,0,0,0,29.134V50.289a3.134,3.134,0,0,0,3.134,3.134h13.32a3.134,3.134,0,0,0,3.134-3.134V29.134A3.134,3.134,0,0,0,16.454,26" transform="translate(-0.384 -26.722)" fill="#b0d9ec"/>
+            </g>
+          </g>
+        </g>
+        <g id="Group_2499" data-name="Group 2499" transform="translate(2.75 35.427)" opacity="0.25">
+          <g id="Group_2498" data-name="Group 2498">
+            <g id="Group_2497" data-name="Group 2497" clip-path="url(#clip-path-4)">
+              <path id="Path_7932" data-name="Path 7932" d="M21.32,93.325A14.284,14.284,0,0,0,14.66,91.6,14.284,14.284,0,0,0,8,93.325" transform="translate(-8 -91.602)" fill="#e6e7e8"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <rect id="Rectangle_1696" data-name="Rectangle 1696" width="9.287" height="4.644" transform="translate(4.644 8.126)" fill="#838181"/>
+    <rect id="Rectangle_1697" data-name="Rectangle 1697" width="3.483" height="2.322" transform="translate(8.126 5.805)" fill="#838181"/>
+    <path id="Path_7934" data-name="Path 7934" d="M0-.559H1.161v1.81H0Z" transform="translate(9.287 3.393)" fill="#838181"/>
+    <rect id="Rectangle_1699" data-name="Rectangle 1699" width="10.186" height="1.567" transform="translate(6.863 1.862)" fill="#838181"/>
+    <g id="Group_2509" data-name="Group 2509" transform="translate(0 2.322)">
+      <g id="Group_2508" data-name="Group 2508" clip-path="url(#clip-path-2)">
+        <g id="Group_2507" data-name="Group 2507" transform="translate(-0.384 14.845)" style="mix-blend-mode: multiply;isolation: isolate">
+          <g id="Group_2506" data-name="Group 2506">
+            <g id="Group_2505" data-name="Group 2505" clip-path="url(#clip-path-6)">
+              <g id="Group_2504" data-name="Group 2504" opacity="0.25">
+                <g id="Group_2503" data-name="Group 2503">
+                  <g id="Group_2502" data-name="Group 2502" clip-path="url(#clip-path-6)">
+                    <path id="Path_7933" data-name="Path 7933" d="M2.612,39.072C.66,39.151.125,39.354,0,39.5V58.236a3.134,3.134,0,0,0,3.134,3.134h13.32a3.134,3.134,0,0,0,3.134-3.134V39.264a22.233,22.233,0,0,1-6.112,1.672c-2.764.193-7.714-1.993-10.864-1.864" transform="translate(0 -39.066)" fill="#b0d9ec"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

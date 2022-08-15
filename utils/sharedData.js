@@ -98,6 +98,22 @@ export const shareData = {
     "Unknown",
     "Declined to answer",
   ],
+  resourcesDistributed: [
+    "Masks",
+    "COVID literature",
+    "Vaccine related literature",
+    "HIV literature",
+    "HepC literature",
+    "PrEP literature",
+    "Safer sex kits",
+    "Health disparities literature",
+    "Bags/boxes of food",
+    "Posters",
+    "Other event leaflets",
+    "Prepared meals",
+    "Hand sanitizers",
+    "COVID vaccine site referral information/details",
+  ],
 };
 
 export const workArea = [
@@ -208,4 +224,21 @@ export const sexualOrientation = [
   "Questioning or not sure",
   "Unknown",
   "Declined to answer",
+];
+
+export const resourcesDistributed= [
+  "Masks",
+  "COVID literature",
+  "Vaccine related literature",
+  "HIV literature",
+  "HepC literature",
+  "PrEP literature",
+  "Safer sex kits",
+  "Health disparities literature",
+  "Bags/boxes of food",
+  "Posters",
+  "Other event leaflets",
+  "Prepared meals",
+  "Hand sanitizers",
+  "COVID vaccine site referral information/details",
 ];
