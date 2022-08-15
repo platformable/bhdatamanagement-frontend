@@ -50,7 +50,7 @@ const EventsIndex = ({events}) => {
                 </div>
               </Link>
               
-              <Link href="">
+              <Link href={`events/${event.id}/post-event-report`}>
                 <div className="cursor-pointer flex items-center justify-center">
                   <img src="/events/manage/complete_report.svg" alt="complete report icon"/>
                 </div>

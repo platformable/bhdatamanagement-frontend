@@ -66,6 +66,8 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
     }
   }
   
+
+  console.log("eventForm",eventForm)
   return (
     <>
     <Layout>
