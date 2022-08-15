@@ -88,6 +88,8 @@ const PostEventReport = ({event,programs,locationTypes, areasOfFocus, eventTypes
   useEffect(() => {
     setEventForm({...eventForm, userID: userId})
   }, [userId])
+
+  
   
   
   const submitPostEventForm = async () => {
