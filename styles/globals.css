@@ -420,3 +420,10 @@ table th {
   display: grid;
   grid-template-columns: 1.2fr 2fr 1.5fr 1.2fr 1.7fr 1.7fr 1.7fr;
 }
+
+/* PARTICIPANT SURVEY */
+
+.participant-survey-head-table {
+  display:grid;
+  grid-template-columns: 1fr 1fr 4fr;
+}

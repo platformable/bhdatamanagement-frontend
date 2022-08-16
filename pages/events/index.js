@@ -38,7 +38,7 @@ const EventsIndex = ({events}) => {
                 </div>
               </Link>
               
-              <Link href="">
+              <Link href={`/events/${event.id}/participant-survey`}>
                 <div className="cursor-pointer flex items-center justify-center">
                   <img src="/events/manage/participant_survey.svg" alt="go to participant surveys icon"/>
                 </div>

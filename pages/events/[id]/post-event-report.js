@@ -240,7 +240,7 @@ const PostEventReport = ({
 
               <div className="flex justify-center ">
                 <Link href={`/events/${event?.id}/edit`}>
-                  <button className="bg-purple-800 text-white rounded px-2 mr-2">
+                  <button className="bg-violet text-white rounded px-2 mr-2">
                     <a
                       className="px-10 py-2 flex  justify-center items-center font-bold"
                       id="myBtn"
