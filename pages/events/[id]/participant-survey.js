@@ -177,7 +177,7 @@ const ParticipantSurvey = ({
                   content={() => componentRef.current} />
           
               <div style={{display:'none'}}>
-                <PrintQR ref={componentRef} />
+                <PrintQR ref={componentRef} event={event}/>
               </div>
       
               
