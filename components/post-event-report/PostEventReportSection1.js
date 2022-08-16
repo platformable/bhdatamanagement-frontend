@@ -3,7 +3,7 @@ import { workArea } from "../../utils/sharedData";
 const PostEventReportSection1 = () => {
   const styles = {
     display: "grid",
-    gridTemplateColumns: "repeat(7,1fr)",
+    gridTemplateColumns: "repeat(1,1fr)",
     justifyContent:'space-between',
     placeItems:'items-center',
     gap:'5px'
@@ -13,7 +13,7 @@ const PostEventReportSection1 = () => {
       <h2 className="font-black">
         <span className="text-color-violet">1</span> Where do you work?
       </h2>
-      <div className="" style={styles}>
+      <div className="md:grid-columns-7" style={styles}>
         {workArea.map((area, index) => {
           return (
             <label className="text-lg flex items-center" key={index}>

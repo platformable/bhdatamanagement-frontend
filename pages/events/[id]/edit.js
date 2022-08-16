@@ -34,12 +34,12 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
     eventLocationTypeID: event?.eventlocationtypeid || "",
     eventLocationTypeName: event?.eventlocationtypename,
     // eventZipCode: "",
-    healthAreaOfFocusID: event?.healthareaoffocusid.substring(1) || "",
-    healthAreaOfFocusName: event?.healthareaoffocusname.substring(1) || "",
+    healthAreaOfFocusID: event?.healthareaoffocusid || "",
+    healthAreaOfFocusName: event?.healthareaoffocusname|| "",
     eventTypeID: event?.eventtypeid || "",
     eventTypeName: event?.eventtypename,
   });
-  const userId = user && user.sub
+  const userId = user && user.sub;
   
   useEffect(() => {
     setEventForm({...eventForm, userID: userId})
