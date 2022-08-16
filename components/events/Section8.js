@@ -20,7 +20,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
     console.log(eventForm)
   return (
     <div className="p-5 bg-extra-light-violet rounded">
-      <h2 className="mb-3 font-bold">
+      <h2 className="mb-3 font-black">
         <span className="text-color-violet">8</span> What is the event's health
         area of focus?
       </h2>

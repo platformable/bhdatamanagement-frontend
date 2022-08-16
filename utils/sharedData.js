@@ -116,7 +116,7 @@ export const roles = [
   "Support team member",
   "Community ambassador",
   "Intern/apprentice",
-  "Other (please specify)",
+  "Other ",
 ];
 
 export const nysActivity = [
@@ -126,7 +126,7 @@ export const nysActivity = [
   "Conscientious Clinician",
   "Health Disparities Workshop",
   "Faith Without Walls",
-  "Other (please specify)",
+  "Other ",
 ];
 
 export const nysPrograms = ["Leadership Training Institute", "HIV High Impact"];
