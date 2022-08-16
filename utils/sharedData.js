@@ -227,18 +227,60 @@ export const sexualOrientation = [
 ];
 
 export const resourcesDistributed= [
-  "Masks",
-  "COVID literature",
-  "Vaccine related literature",
-  "HIV literature",
-  "HepC literature",
-  "PrEP literature",
-  "Safer sex kits",
-  "Health disparities literature",
-  "Bags/boxes of food",
-  "Posters",
-  "Other event leaflets",
-  "Prepared meals",
-  "Hand sanitizers",
-  "COVID vaccine site referral information/details",
-];
+  {
+    source: "/post_Event_report/mask_icon.svg",
+    name:"Masks",
+  },
+  {
+    source: "/post_Event_report/COVID_literature_icon.svg",
+    name:"COVID literature",
+  },
+  {
+    source: "/post_Event_report/COVID_literature_icon.svg",
+    name:"Vaccine related literature",
+  },
+  {
+    source: "/post_Event_report/COVID_literature_icon.svg",
+    name:"HIV literature",
+  },
+  {
+    source: "/post_Event_report/COVID_literature_icon.svg",
+    name:"HepC literature",
+  },
+  {
+    source: "/post_Event_report/COVID_literature_icon.svg",
+    name:"PrEP literature",
+  },
+  {
+    source: "/post_Event_report/safer_sex_kit_icon.svg",
+    name:"Safer sex kits",
+  },
+  {
+    source: "/post_Event_report/COVID_literature_icon.svg",
+    name:"Health disparities literature",
+  },
+  {
+    source: "/post_Event_report/bags_boxes_of_food_icon.svg",
+    name:"Bags/boxes of food",
+  },
+  {
+    source: "/post_Event_report/poster_icon.svg",
+    name:"Posters",
+  },
+  {
+    source: "/post_Event_report/ther_event_leaflets_icon.svg",
+    name:"Other event leaflets",
+  },
+  {
+    source: "/post_Event_report/prepared_meal_icon.svg",
+    name:"Prepared meals",
+  },
+  {
+    source: "/post_Event_report/hand_sanitizers_icon.svg",
+    name:"Hand sanitizers",
+  },
+  {
+    source: "/post_Event_report/COVID_site_referral_icon.svg",
+    name:"COVID vaccine site referral information/details",
+},]
+

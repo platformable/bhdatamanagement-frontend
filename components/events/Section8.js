@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 const Section8 = ({event, eventForm, setEventForm}) => {
     const  capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1)
-    let areas = eventForm.healthAreaOfFocusName.split(","); 
-    let ids = eventForm.healthAreaOfFocusID.split(",");
+    let areas = eventForm.healthAreaOfFocusName.startsWith(",") ? eventForm.healthAreaOfFocusName.substring(1).split(",") : eventForm.healthAreaOfFocusName.split(",") 
+    let ids = eventForm.healthAreaOfFocusID.startsWith(",") ? eventForm.healthAreaOfFocusID.substring(1).split(",") : eventForm.healthAreaOfFocusID.split(",") 
 
     const handleForm = (e) => {
+      
         areas.includes(e.target.value) ? 
         areas = areas.filter(area => area !== e.target.value) : areas.push(e.target.value)
 
@@ -13,10 +14,10 @@ const Section8 = ({event, eventForm, setEventForm}) => {
         ids = ids.filter(id => id !== e.target.id) : ids.push(e.target.id)
 
         setEventForm(previous => ({...previous, healthAreaOfFocusName: areas.toString(), healthAreaOfFocusID : ids.toString()}))
-      }
+    };
     const handleFormId = (e) => {
       setEventForm(previous => ({...previous,  healthAreaOfFocusID : e.target.id}))
-    }
+    };
     console.log(eventForm)
   return (
     <div className="p-5 bg-extra-light-violet rounded">
@@ -33,7 +34,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             id="1" 
             className='mr-2 w-6 h-6'
             onChange={handleForm}
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("Breast cancer") ? "checked" : ""}
+            checked={eventForm.healthAreaOfFocusName.includes("Breast cancer") ? "checked" : ""}
             />
             <img src="/events/breast_cancer_icon.svg" alt=""/>
             <p className="">Breast<br/>cancer</p>       
@@ -46,7 +47,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             id="2" 
             className='mr-2 w-6 h-6'
             onChange={handleForm}
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("Cardiovascular disease") ? "checked" : ""}
+            checked={eventForm.healthAreaOfFocusName.includes("Cardiovascular disease") ? "checked" : ""}
             />
             <img src="/events/cardiovascular_disease_icon.svg" alt=""/>
             <p className="">Cardiovascular<br/>disease</p>    
@@ -59,7 +60,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             id="3" 
             className='mr-2 w-6 h-6'
             onChange={handleForm}
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("COVID-19") ? "checked" : ""}
+            checked={eventForm.healthAreaOfFocusName.includes("COVID-19") ? "checked" : ""}
             />
             <img src="/events/covid19_icon.svg" alt=""/>
             <p className="">COVID-19</p>    
@@ -72,7 +73,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             id="4" 
             className='mr-2 w-6 h-6'
             onChange={handleForm}
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("Diabetes") ? "checked" : ""}
+            checked={eventForm.healthAreaOfFocusName.includes("Diabetes") ? "checked" : ""}
             />
             <img src="/events/diabetes_icon.svg" alt=""/>
             <p className="">Diabetes</p>    
@@ -85,7 +86,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             id="5" 
             className='mr-2 w-6 h-6'
             onChange={handleForm}
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("Hepatitis C") ? "checked" : ""}
+            checked={eventForm.healthAreaOfFocusName.includes("Hepatitis C") ? "checked" : ""}
             />
             <img src="/events/hepatitis_C_icon.svg" alt=""/>
             <p className="">Hepatitis C</p>    
@@ -98,7 +99,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             id="6" 
             className='mr-2 w-6 h-6'
             onChange={handleForm}
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("HIV/AIDS") ? "checked" : ""}
+            checked={eventForm.healthAreaOfFocusName.includes("HIV/AIDS") ? "checked" : ""}
             />
             <img src="/events/HIV_icon.svg" alt=""/>
             <p className="">HIV/AIDS</p>    
@@ -111,7 +112,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             id="7" 
             className='mr-2 w-6 h-6'
             onChange={handleForm}
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("Mental health") ? "checked" : ""}
+            checked={eventForm.healthAreaOfFocusName.includes("Mental health") ? "checked" : ""}
             />
             <img src="/events/mental_health_icon.svg" alt=""/>
             <p className="">Mental<br/>Health</p>    
@@ -124,7 +125,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             id="8" 
             className='mr-2 w-6 h-6'
             onChange={handleForm}
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("Obesity") ? "checked" : ""}
+            checked={eventForm.healthAreaOfFocusName.includes("Obesity") ? "checked" : ""}
             />
             <img src="/events/obesity_icon.svg" alt=""/>
             <p className="">Obesity</p>    
@@ -137,7 +138,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             id="9" 
             className='mr-2 w-6 h-6'
             onChange={handleForm}
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("Prostate cancer") ? "checked" : ""}
+            checked={eventForm.healthAreaOfFocusName.includes("Prostate cancer") ? "checked" : ""}
             />
             <img src="/events/prostate_cancer_icon.svg" alt=""/>
             <p className="">Prostate<br/>cancer</p>    
@@ -150,7 +151,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             id="10" 
             className='mr-2 w-6 h-6'
             onChange={handleForm}
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("Sickle cell") ? "checked" : ""}
+            checked={eventForm.healthAreaOfFocusName.includes("Sickle cell") ? "checked" : ""}
             />
             <img src="/events/sickle_cell_icon.svg" alt=""/>
             <p className="">Sickle cell</p>    
@@ -163,7 +164,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             id="11" 
             className='mr-2 w-6 h-6'
             onChange={handleForm}
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("Maternal health") ? "checked" : ""}
+            checked={eventForm.healthAreaOfFocusName.includes("Maternal health") ? "checked" : ""}
             />
             <img src="/events/Maternal_health_icon.svg" alt=""/>
             <p className="">Maternal<br/>Health</p>    
@@ -175,7 +176,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             id="12" 
             onChange={handleFormId} 
             className='mr-2 w-6 h-6'
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("Other") ? "checked" : ""}
+            checked={eventForm.healthAreaOfFocusName.includes("Other") ? "checked" : ""}
               />
             <p className="mr-2">Other</p>
             <input type="text" 
