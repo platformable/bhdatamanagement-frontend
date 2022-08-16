@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostEventReportSection15 = () => {
   return (
-    <div className="p-5  rounded">
+    <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">15 </span>
         How many people attended the event (or if it was street outreach or canvassing, etc, how many people did you engage with or provide resources to, etc)?

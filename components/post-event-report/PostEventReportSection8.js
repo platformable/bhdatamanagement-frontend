@@ -3,7 +3,7 @@ import { resourcesDistributed } from '../../utils/sharedData';
 
 const PostEventReportSection8 = () => {
   return (
-    <div className="p-5  rounded">
+    <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">8 </span>
         Resources Distributed:
@@ -12,14 +12,13 @@ const PostEventReportSection8 = () => {
         {resourcesDistributed &&
           resourcesDistributed.map((resource, index) => (
             <label className="text-lg flex items-center" key={index}>
-              <img src={resource.source} alt={`${resource.name} icon`} className="w-6 md:w-10"/>
+              <img src={resource.source} alt={`${resource.name} icon`} className="w-8 h-8 md:w-12 md:h-12"/>
               <input
                 type="number"
-                name={resource.name}
-                className="mx-2 w-20 p-1 border-dark-violet rounded"
-                value={resource.name}
+                name="resourcesDistributed"
+                className="mr-2 ml-10 w-40 p-1 border-dark-violet rounded"
                 id={index}
-                placeholder="eg. 5"
+                placeholder="Type a number"
                 // onChange={(e) =>
                 //   setEventForm((previous) => ({
                 //     ...previous,

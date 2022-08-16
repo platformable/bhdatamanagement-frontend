@@ -12,7 +12,7 @@ const PostEventReportSection12 = () => {
       <input
         type="number"
         className="p-2 border-dark-violet rounded"
-        placeholder="eg. 5"
+        placeholder="Type a number"
         name="adultVolunteers"
         // onChange={handleForm}
         // defaultValue={event?event.eventname:""}

@@ -11,7 +11,7 @@ const PostEventReportSection2 = () => {
     gap:'5px'
   };
   return (
-    <div className="p-5">
+    <div className="p-5 py-10">
     <h2 className="font-black"><span className="text-color-violet">2</span> What was your role at the event? (if you had more than one role, what was your MAIN role at this event?)</h2>
     <div className="mt-5 grid md:grid-cols-4 grid-cols-1 space-between gap-5" >
     {roles.map((role,index)=>{
@@ -27,7 +27,7 @@ const PostEventReportSection2 = () => {
             //defaultChecked={program.id===event?.programid?'checked':""}
           />
           {role}
-          <input type="text" placeholder="other..." className="border-dark-violet rounded px-5 self-start p-1 ml-2" />
+          <input type="text" placeholder="Please specify" className="border-dark-violet rounded px-5 self-start p-1 ml-2" />
         </label>
 
       )

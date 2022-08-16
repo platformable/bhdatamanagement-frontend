@@ -2,7 +2,7 @@ import React from "react";
 
 const PostEventReportSection7 = () => {
   return (
-    <div className="p-5  rounded">
+    <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">7 </span>
          Enter the event location name, eg. business name or faith-based
@@ -41,7 +41,7 @@ const PostEventReportSection7 = () => {
           // onChange={handleForm}
           type="text"
           className="ml-3 p-1 text-base border-dark-violet rounded w-full"
-          placeholder="Please specify here"
+          placeholder="Please type location name"
         />
       </label>
 

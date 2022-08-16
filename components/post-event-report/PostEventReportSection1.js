@@ -3,17 +3,17 @@ import { workArea } from "../../utils/sharedData";
 const PostEventReportSection1 = () => {
   const styles = {
     display: "grid",
-    gridTemplateColumns: "repeat(1,1fr)",
+    // gridTemplateColumns: "repeat(1,1fr)",
     justifyContent:'space-between',
     placeItems:'items-center',
     gap:'5px'
   };
   return (
-    <div className="p-5">
+    <div className="p-5 py-10">
       <h2 className="font-black">
         <span className="text-color-violet">1</span> Where do you work?
       </h2>
-      <div className="md:grid-columns-7" style={styles}>
+      <div className="grid-cols-1 md:grid-cols-7" style={styles}>
         {workArea.map((area, index) => {
           return (
             <label className="text-lg flex items-center" key={index}>
@@ -30,7 +30,7 @@ const PostEventReportSection1 = () => {
 
           );
         })}
-        <input type="text" placeholder="other..." className="border-dark-violet rounded self-start p-1" />
+        <input type="text" placeholder="Please specify" className="border-dark-violet rounded self-start p-1" />
       </div>
     </div>
   );
