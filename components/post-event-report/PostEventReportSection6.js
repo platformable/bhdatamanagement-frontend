@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostEventReportSection6 = () => {
   return (
-    <div className="p-5  rounded">
+    <div className="p-5 py-10 rounded">
     <h2 className="mb-3 font-black">
       <span className="text-color-violet">6</span> What was the event location address
     </h2>
@@ -11,7 +11,7 @@ const PostEventReportSection6 = () => {
     className='border-dark-violet rounded p-2 text-lg w-full'
     // onChange={handleForm}
     // defaultValue={eventForm.eventFinishTime}
-    placeholder='Please specify here' 
+    placeholder='Please type address' 
 
 />
   </div>

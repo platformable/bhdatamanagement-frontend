@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostEventReportSection4 = () => {
   return (
-<div className="p-5">
+<div className="p-5 py-10">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">4</span> Is this part of:
       </h2>
@@ -13,11 +13,11 @@ const PostEventReportSection4 = () => {
             name="partof"
             value="leadership Training Institute" 
             id="1" 
-            className='mr-2 w-6 h-6'
+            className='mr-2 w-4 h-4'
 
 
             />
-            <p className="">Leadership Training Institute</p>       
+            Leadership Training Institute       
         </label>
 
         <label className="flex items-center p-2">
@@ -26,9 +26,9 @@ const PostEventReportSection4 = () => {
             name="partof"
             value="HIV Hight Impact" 
             id="2" 
-            className='mr-2 w-6 h-6'
+            className='mr-2 w-4 h-4'
             />
-            <p className="">HIV Hight Impact</p>       
+            HIV Hight Impact       
         </label>
        
     

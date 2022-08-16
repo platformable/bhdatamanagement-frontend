@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostEventReportSection21 = () => {
   return (
-    <div className="p-5 bg-extra-light-violet rounded">
+    <div className="p-5 bg-extra-light-violet rounded py-10">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">21 </span>
         Was testing done at the event

@@ -10,8 +10,8 @@ const PostEventReportSection3 = () => {
     gap:'5px'
   };
   return (
-    <div className="p-5">
-    <h2 className="font-black"><span className="text-color-violet">3</span> Which NYS Activity was conducted (according to your fraework plan)?</h2>
+    <div className="p-5 py-10">
+    <h2 className="font-black"><span className="text-color-violet">3</span> Which NYS Activity was conducted (according to your framework plan)?</h2>
     <div className="mt-5 grid md:grid-cols-4 grid-cols-1 space-between gap-5" >
 
     {nysActivity.map((activity,index)=>{
@@ -27,7 +27,7 @@ const PostEventReportSection3 = () => {
             //defaultChecked={program.id===event?.programid?'checked':""}
           />
           {activity}
-          <input type="text" placeholder="other..." className="border-dark-violet rounded px-5 self-start p-1 ml-2" />
+          <input type="text" placeholder="Please specify" className="border-dark-violet rounded px-5 self-start p-1 ml-2" />
         </label>
 
       )

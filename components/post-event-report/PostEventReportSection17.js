@@ -2,12 +2,12 @@ import React from "react";
 
 const PostEventReportSection17 = () => {
   return (
-    <div className="p-5  rounded">
+    <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">17 </span>
         How many people did you send an email blast to about the event?
       </h2>
-      <div className='flex gap-5 justify-center'>
+      <div className='flex gap-5 justify-start'>
         <img src='/post_event_report/email_icon.svg' alt='adult volunteers icon' />
       <input
         type="number"

@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostEventReportSection10 = () => {
   return (
-    <div className="p-5  rounded">
+    <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">10 </span>
          How many INTERNS/APPRENTICES were present?
@@ -12,7 +12,7 @@ const PostEventReportSection10 = () => {
       <input
         type="number"
         className=" p-2 border-dark-violet rounded"
-        placeholder="eg. 5"
+        placeholder="Type a number"
         name="intenPresent"
         // onChange={handleForm}
         // defaultValue={event?event.eventname:""}

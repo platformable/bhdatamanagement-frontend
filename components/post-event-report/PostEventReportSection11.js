@@ -2,7 +2,7 @@ import React from 'react';
 
 const PostEventReportSection11 = () => {
     return (
-      <div className="p-5 rounded">
+      <div className="p-5 py-10rounded">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">11 </span>
          How many ADULT volunteers helped you?
@@ -12,7 +12,7 @@ const PostEventReportSection11 = () => {
       <input
         type="number"
         className="p-2 border-dark-violet rounded"
-        placeholder="eg. 5"
+        placeholder="Type a number"
         name="adultVolunteers"
         // onChange={handleForm}
         // defaultValue={event?event.eventname:""}
