@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostEventReportSection20 = () => {
   return (
-    <div className="p-5 bg-extra-light-violet rounded">
+    <div className="p-5  rounded">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">20 </span>
         Describe any specific health questions you were asked or any feedback you received specifically about health issues at the event

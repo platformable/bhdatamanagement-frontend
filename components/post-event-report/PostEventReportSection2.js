@@ -12,7 +12,7 @@ const PostEventReportSection2 = () => {
   };
   return (
     <div className="p-5">
-    <h3 className="font-black"><span className="text-color-violet">2</span> What was your role at the event? (if you had more than one role, what was your MAIN role at this event?)</h3>
+    <h2 className="font-black"><span className="text-color-violet">2</span> What was your role at the event? (if you had more than one role, what was your MAIN role at this event?)</h2>
     <div className="mt-5 grid md:grid-cols-4 grid-cols-1 space-between gap-5" >
     {roles.map((role,index)=>{
     if(index===roles.length-1){

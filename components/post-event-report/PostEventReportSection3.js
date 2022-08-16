@@ -11,7 +11,7 @@ const PostEventReportSection3 = () => {
   };
   return (
     <div className="p-5">
-    <h3 className="font-black"><span className="text-color-violet">3</span> Which NYS Activity was conducted (according to your fraework plan)?</h3>
+    <h2 className="font-black"><span className="text-color-violet">3</span> Which NYS Activity was conducted (according to your fraework plan)?</h2>
     <div className="mt-5 grid md:grid-cols-4 grid-cols-1 space-between gap-5" >
 
     {nysActivity.map((activity,index)=>{

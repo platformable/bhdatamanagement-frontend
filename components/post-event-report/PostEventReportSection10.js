@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostEventReportSection10 = () => {
   return (
-    <div className="p-5 bg-extra-light-violet rounded">
+    <div className="p-5  rounded">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">10 </span>
          How many INTERNS/APPRENTICES were present?

@@ -2,7 +2,7 @@ import React from "react";
 
 const PostEventReportSection7 = () => {
   return (
-    <div className="p-5 bg-extra-light-violet rounded">
+    <div className="p-5  rounded">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">7 </span>
          Enter the event location name, eg. business name or faith-based

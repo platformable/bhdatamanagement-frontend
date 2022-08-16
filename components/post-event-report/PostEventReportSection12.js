@@ -2,7 +2,7 @@ import React from "react";
 
 const PostEventReportSection12 = () => {
   return (
-    <div className="p-5 bg-extra-light-violet rounded">
+    <div className="p-5 rounded">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">12 </span>
          How many YOUTH volunteers (aged 13-18) helped you?

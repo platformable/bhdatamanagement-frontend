@@ -10,9 +10,9 @@ const PostEventReportSection1 = () => {
   };
   return (
     <div className="p-5">
-      <h3 className="font-black">
+      <h2 className="font-black">
         <span className="text-color-violet">1</span> Where do you work?
-      </h3>
+      </h2>
       <div className="" style={styles}>
         {workArea.map((area, index) => {
           return (

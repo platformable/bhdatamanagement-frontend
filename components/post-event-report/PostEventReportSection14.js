@@ -4,7 +4,7 @@ import {eventChecklist} from "../../utils/sharedData";
 
 const PostEventReportSection14 = () => {
   return (
-    <div className="p-5 bg-extra-light-violet rounded">
+    <div className="p-5  rounded">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">14 </span>
         Please check off all of the following events that you are aware happened today.

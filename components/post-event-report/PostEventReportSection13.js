@@ -4,7 +4,7 @@ import {languajes} from "../../utils/sharedData";
 
 const PostEventReportSection13 = () => {
   return (
-    <div className="p-5 bg-extra-light-violet rounded">
+    <div className="p-5  rounded">
       <h2 className="mb-3 font-black">
         <span className="text-color-violet">13 </span> What languages was your team able to support?
       </h2>

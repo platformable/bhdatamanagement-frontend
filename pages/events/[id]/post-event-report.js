@@ -254,7 +254,7 @@ const PostEventReport = ({
             </section>
 
             <div className="bg-extra-light-violet p-5 rounded-tl-md rounded-tr-md">
-            <h3 className="text-color-violet">Event details</h3>
+            <h3 className="text-color-violet font-black">Event details</h3>
             
             <PostEventReportSection1 />
             <PostEventReportSection2 />
@@ -265,49 +265,31 @@ const PostEventReport = ({
             <PostEventReportSection7 />
             <PostEventReportSection8 />
             </div>
+            <div className="bg-extra-light-violet p-5 rounded-tl-md rounded-tr-md">
+            <h3 className="text-color-violet font-black">Event organization and promotion</h3>
+            <div className="grid md:grid-cols-2 grid-cols-1">
             <PostEventReportSection9 />
             <PostEventReportSection10 />
 
             <PostEventReportSection11 />
             <PostEventReportSection12 />
+            </div>
             <PostEventReportSection13 />
             <PostEventReportSection14 />
             <PostEventReportSection15 />
+            <div className="grid md:grid-cols-2 grid-cols-1">
             <PostEventReportSection16 />
             <PostEventReportSection17 />
+            </div>
             <PostEventReportSection18 />
             <PostEventReportSection19 />
             <PostEventReportSection20 />
-
+            </div>
             <PostEventReportSection21 />
            
-            <PostEventReportSection22 />
-            <PostEventReportSection23 />
-            <PostEventReportSection24 />
-            <PostEventReportSection25 />
-            <PostEventReportSection26 />
-            <PostEventReportSection27 />
-            <PostEventReportSection28 />
-            <PostEventReportSection29 />
-            <PostEventReportSection30 />
 
-            <PostEventReportSection31 />
-            <PostEventReportSection32 />
-            <PostEventReportSection33 />
-            <PostEventReportSection34 />
-            <PostEventReportSection35 />
-            <PostEventReportSection36 />
-            <PostEventReportSection37 />
-            <PostEventReportSection38 />
-            <PostEventReportSection39 />
-            <PostEventReportSection40 />
-
-            <PostEventReportSection41 />
-            <PostEventReportSection42 />
-            <PostEventReportSection43 />
-            <PostEventReportSection44 />
-            <PostEventReportSection45 />
           </div>
+          <div className="flex justify-center my-10">
           <button
             className="py-2 px-5 flex items-center rounded bg-violet text-white font-semibold"
             onClick={submitPostEventForm}
@@ -319,6 +301,7 @@ const PostEventReport = ({
             />
             Save event report
           </button>
+          </div>
         </div>
       </Layout>
       {showResponseStatus && (
