@@ -31,7 +31,7 @@ const EventsIndex = ({events}) => {
             <section key={index} className={`existing-events-head-table px-1 py-3 ${index % 2 !== 0 ? "bg-light-violet" : "bg-middle-white"}`}>
               <div className="flex items-center lg:text-lg justify-center">{event.programname}</div>
               <div className="flex items-center lg:text-lg pr-2">{event.eventname}</div>
-              <div className="flex items-center lg:text-lg">{event.eventdate && event.eventdate.split("T")[0]}</div>
+              <div className="flex items-center lg:text-lg">{event.eventdate && new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</div>
               <Link href={`events/${event.id}/edit`}>
                 <div className="cursor-pointer flex items-center justify-center">
                   <img src="/events/manage/edit.svg" alt="edit event icon"/>
