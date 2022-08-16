@@ -185,7 +185,7 @@ const ParticipantSurvey = ({
           </div>
           <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl">
             
-              <a id="myBtn" href="https://www.surveymonkey.com/r/BH-EVENTS" target="_blank">
+              {/* <a id="myBtn" href="https://www.surveymonkey.com/r/BH-EVENTS" target="_blank"> */}
                 <div className="">
                   <div className="flex justify-center ">
                     <img
@@ -195,10 +195,10 @@ const ParticipantSurvey = ({
                     />
                   </div>
                   <p className="my-5 font-bold text-black uppercase">
-                   Go survey
+                   Go to survey
                   </p>
                 </div>{" "}
-              </a>
+        {/*       </a> */}
     
           </div>
               </div>
