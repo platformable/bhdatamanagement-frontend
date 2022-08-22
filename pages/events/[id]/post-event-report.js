@@ -140,11 +140,11 @@ const PostEventReport = ({
           dashboardBtn={true}
           pageTitle={"Post event report"}
         />
-        <div className="container mx-auto md:px-0 px-5  items-center">
-          <div className="post-envent-form-container  grid gap-1 bg-white border-dark-violet rounded-lg p-1 my-10 shadow-lg">
-            <section className="event bg-extra-light-violet p-5 rounded">
+        <div className="container mx-auto md:px-0 px-5 items-center">
+          <div className="post-envent-form-container  border-black grid gap-1 bg-white rounded-lg p-1 my-10 shadow-lg">
+            <section className="event p-5 rounded">
               <div className="flex justify-between items-center ">
-                <h3 className="mb-3 font-black text-color-violet">Event</h3>
+                <h3 className="mb-3 font-black ">Event</h3>
               </div>
               <div style={programAndAreaStyles}>
                 <div>
@@ -153,7 +153,7 @@ const PostEventReport = ({
                     type="text"
                     value={event?.programname}
                     id="program"
-                    className="border-dark-violet rounded self-start p-1 w-full text-color-violet px-2"
+                    className=" rounded self-start p-1 w-full  px-2"
                     disabled
                   />
                 </div>
@@ -163,7 +163,7 @@ const PostEventReport = ({
                     type="text"
                     value={event.healthareaoffocusname.substring(1)}
                     id="program"
-                    className="border-dark-violet rounded self-start p-1 w-full text-color-violet px-2"
+                    className=" rounded self-start p-1 w-full  px-2"
                     disabled
                   />
                 </div>
@@ -174,7 +174,7 @@ const PostEventReport = ({
                   type="text"
                   value={event?.eventname}
                   id="program"
-                  className="border-dark-violet rounded self-start p-1 w-full text-color-violet px-2"
+                  className=" rounded self-start p-1 w-full  px-2"
                   disabled
                 />
               </div>
@@ -187,7 +187,7 @@ const PostEventReport = ({
                       type="text"
                       value={event && new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}
                       id="program"
-                      className="border-dark-violet rounded self-start p-1 w-full text-color-violet px-2"
+                      className=" rounded self-start p-1 w-full  px-2"
                       disabled
                     />
                   </div>
@@ -198,7 +198,7 @@ const PostEventReport = ({
                       type="time"
                       value={event?.eventstarttime}
                       id="program"
-                      className="border-dark-violet rounded self-start p-1 w-full text-color-violet px-2"
+                      className=" rounded self-start p-1 w-full  px-2"
                       disabled
                     />
                   </div>
@@ -209,7 +209,7 @@ const PostEventReport = ({
                       type="time"
                       value={event?.eventfinishtime}
                       id="program"
-                      className="border-dark-violet rounded self-start p-1 w-full text-color-violet px-2"
+                      className=" rounded self-start p-1 w-full  px-2"
                       disabled
                     />
                   </div>
@@ -222,7 +222,7 @@ const PostEventReport = ({
                   type="text"
                   value={event?.eventlocationtypename}
                   id="program"
-                  className="border-dark-violet rounded self-start p-1 w-full text-color-violet px-2"
+                  className=" rounded self-start p-1 w-full  px-2"
                   disabled
                 />
               </div>
@@ -233,19 +233,21 @@ const PostEventReport = ({
                   type="text"
                   value={event?.eventtypename}
                   id="program"
-                  className="border-dark-violet rounded self-start p-1 w-full text-color-violet px-2"
+                  className=" rounded self-start p-1 w-full  px-2"
                   disabled
                 />
               </div>
 
               <div className="flex justify-center ">
                 <Link href={`/events/${event?.id}/edit`}>
-                  <button className="bg-violet text-white rounded px-2 mr-2">
+
+                  <button className="bg-black text-white rounded px-2 mr-2">
+
                     <a
                       className="px-10 py-2 flex  justify-center items-center font-bold"
                       id="myBtn"
                     >
-                      <img src="/events/edit_event_icon_button.svg" alt="" />
+                      {/* <img src="/events/edit_event_icon_button.svg" alt="" /> */}
                       <p className="ml-2 font-black">Edit event</p>
                     </a>
                   </button>
@@ -253,8 +255,8 @@ const PostEventReport = ({
               </div>
             </section>
 
-            <div className="bg-extra-light-violet p-5 rounded-tl-md rounded-tr-md">
-            <h3 className="text-color-violet font-black">Event details</h3>
+            <div className=" p-5 rounded-tl-md rounded-tr-md">
+            <h3 className=" font-black">Event details</h3>
             
             <PostEventReportSection1 />
             <PostEventReportSection2 />
@@ -265,27 +267,30 @@ const PostEventReport = ({
             <PostEventReportSection7 />
             <PostEventReportSection8 />
             </div>
-            <div className="bg-extra-light-violet p-5 rounded-tl-md rounded-tr-md">
-            <h3 className="text-color-violet font-black">Event organization and promotion</h3>
-            <div className="grid md:grid-cols-2 grid-cols-1">
+            <div className=" p-5 rounded-tl-md rounded-tr-md">
+            <h3 className=" font-black">Event organization and promotion</h3>
+            {/* <div className="grid md:grid-cols-2 grid-cols-1"> */}
             <PostEventReportSection9 />
             <PostEventReportSection10 />
 
             <PostEventReportSection11 />
             <PostEventReportSection12 />
-            </div>
+            {/* </div> */}
             <PostEventReportSection13 />
             <PostEventReportSection14 />
             <PostEventReportSection15 />
-            <div className="grid md:grid-cols-2 grid-cols-1">
+            {/* <div className="grid md:grid-cols-2 grid-cols-1"> */}
             <PostEventReportSection16 />
             <PostEventReportSection17 />
-            </div>
+            {/* </div> */}
             <PostEventReportSection18 />
             <PostEventReportSection19 />
             <PostEventReportSection20 />
+            <PostEventReportSection21 eventForm={eventForm} setEventForm={setEventForm}/>
+
+            <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm}/>
+
             </div>
-            <PostEventReportSection21 />
            
 
           </div>

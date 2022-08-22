@@ -12,11 +12,11 @@ const PostEventReportSection8 = () => {
         {resourcesDistributed &&
           resourcesDistributed.map((resource, index) => (
             <label className="text-lg flex items-center" key={index}>
-              <img src={resource.source} alt={`${resource.name} icon`} className="w-8 h-8 md:w-12 md:h-12"/>
+              {/* <img src={resource.source} alt={`${resource.name} icon`} className="w-8 h-8 md:w-12 md:h-12"/> */}
               <input
                 type="number"
                 name="resourcesDistributed"
-                className="mr-2 ml-10 w-40 p-1 border-dark-violet rounded"
+                className="mr-2 ml-10 w-40 p-1 border-black rounded"
                 id={index}
                 placeholder="Type a number"
                 // onChange={(e) =>

@@ -82,7 +82,7 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
         pageTitle={"Register an event"}
       />
       <div className="container mx-auto md:px-0 px-5 flex flex-col items-center">
-        <div className="register-envent-form-container  grid gap-1 bg-white border-dark-violet rounded-lg p-1 my-10 shadow-lg">
+        <div className="register-envent-form-container  grid gap-1 bg-white  rounded-lg p-1 my-10 shadow-lg">
           <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} />
           <Section2 eventForm={eventForm} setEventForm={setEventForm} />
           <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/>
