@@ -1,27 +1,25 @@
 import React from 'react'
 
-const PostEventReportSection21 = () => {
+const PostEventReportSection21 = ({setEventForm}) => {
   return (
-    <div className="p-5 bg-extra-light-violet rounded py-10">
+    <div className="p-5 rounded py-10">
       <h2 className="mb-3 font-black">
-        <span className="text-color-violet">21 </span>
+        <span className="">21 </span>
         Was testing done at the event
       </h2>
-      <div className="flex gap-7 w-full items-center justify-center">
+      <div className="grid grid-cols-1">
       <label className="text-lg flex items-center" >
         <input
           type="radio"
-          name="hivTesting"
+          name="eventTestingDone"
           className="mr-2 w-4 h-4"
-          value={true}
           
-          // onChange={(e) =>
-          //   setEventForm((previous) => ({
-          //     ...previous,
-          //     programName: e.target.value.toUpperCase(),
-          //     programID: e.target.id,
-          //   }))
-          // }
+          onChange={(e) =>
+            setEventForm((previous) => ({
+              ...previous,
+              [e.target.name]: true,
+            }))
+          }
           // defaultChecked={program.id === event?.programid ? "checked" : ""}
         />
         Yes
@@ -29,11 +27,14 @@ const PostEventReportSection21 = () => {
       <label className="text-lg flex items-center ">
         <input
           type="radio"
-          name="hivTesting"
+          name="eventTestingDone"
           className="mr-2 w-4 h-4"
-          value={false}
-          // id={program.id}
-          // onChange={handleFormId}
+          onChange={(e) =>
+            setEventForm((previous) => ({
+              ...previous,
+              [e.target.name]: false,
+            }))
+          }
         />
         No
       </label>

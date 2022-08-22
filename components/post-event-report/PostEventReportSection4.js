@@ -4,9 +4,9 @@ const PostEventReportSection4 = () => {
   return (
 <div className="p-5 py-10">
       <h2 className="mb-3 font-black">
-        <span className="text-color-violet">4</span> Is this part of:
+        <span className="">4</span> Is this part of:
       </h2>
-      <div className="md:grid md:grid-cols-4 gap-x-16 gap-y-5">
+      <div className="md:grid  gap-x-16 gap-y-5">
         <label className="flex  items-center p-2">
             <input 
             type="checkbox" 

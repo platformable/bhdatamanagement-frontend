@@ -4,12 +4,12 @@ const PostEventReportSection20 = () => {
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
-        <span className="text-color-violet">20 </span>
+        <span className="">20 </span>
         Describe any specific health questions you were asked or any feedback you received specifically about health issues at the event
       </h2>
       
       <textarea
-        className="p-2 block w-full h-32 bg-white break-all border-dark-violet rounded-md overflow-hidden"
+        className="p-2 block w-full h-32 bg-white break-all border-black rounded-md overflow-hidden"
         role="textbox"
         name="eventQuestions"
         placeholder=""

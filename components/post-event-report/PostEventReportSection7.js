@@ -4,11 +4,11 @@ const PostEventReportSection7 = () => {
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
-        <span className="text-color-violet">7 </span>
+        <span className="">7 </span>
          Enter the event location name, eg. business name or faith-based
         organization name
       </h2>
-      <div className="grid grid-cols-4">
+      <div className="grid ">
       <label className="text-lg flex items-center" >
         <input
           type="radio"
@@ -40,7 +40,7 @@ const PostEventReportSection7 = () => {
         <input
           // onChange={handleForm}
           type="text"
-          className="ml-3 p-1 text-base border-dark-violet rounded w-full"
+          className="ml-3 p-1 text-base border-black rounded w-full"
           placeholder="Please type location name"
         />
       </label>
