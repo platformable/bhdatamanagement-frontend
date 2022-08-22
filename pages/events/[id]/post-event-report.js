@@ -57,8 +57,8 @@ import PostEventReportSection40 from "../../../components/post-event-report/Post
 
 import PostEventReportSection41 from "../../../components/post-event-report/PostEventReportSection41";
 import PostEventReportSection42 from "../../../components/post-event-report/PostEventReportSection42";
-import PostEventReportSection43 from "../../../components/post-event-report/PostEventReportSection43";
-import PostEventReportSection44 from "../../../components/post-event-report/PostEventReportSection44";
+import PostEventReportSection43 from "../../../components/post-event-report/AgeSurveySection";
+import PostEventReportSection44 from "../../../components/post-event-report/GenderSurveySection";
 import PostEventReportSection45 from "../../../components/post-event-report/PostEventReportSection45";
 
 const PostEventReport = ({
@@ -285,9 +285,23 @@ const PostEventReport = ({
             <PostEventReportSection19 />
             <PostEventReportSection20 />
             <PostEventReportSection21 eventForm={eventForm} setEventForm={setEventForm}/>
-
-            <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm}/>
-
+            
+            {eventForm.eventTestingDone && 
+            <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm}/> } 
+            {eventForm.hivTesting && 
+            <PostEventReportSection23 setEventForm={setEventForm}/>}
+            {eventForm.stiTesting && 
+            <PostEventReportSection24 />}
+            {eventForm.hepCTesting && 
+            <PostEventReportSection25 />}
+            {eventForm.otherTesting && 
+            <PostEventReportSection26 />}
+            {eventForm.bloodPressureTesting && 
+            <PostEventReportSection27 />}
+            {eventForm.cholesterolTesting && 
+            <PostEventReportSection28 />}
+            {eventForm.covidTesting && 
+            <PostEventReportSection29 />}
             </div>
            
 
