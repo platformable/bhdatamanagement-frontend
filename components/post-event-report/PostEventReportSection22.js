@@ -1,7 +1,7 @@
 import React from "react";
 
 const PostEventReportSection22 = ({eventForm, setEventForm}) => {
-  console.log(eventForm)
+  
   const handleForm = (e) => {
     setEventForm((prev) => ({
       ...prev,
