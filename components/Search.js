@@ -13,7 +13,7 @@ export default function Search({searchFunction}) {
                       placeholder="program name..."
                       onChange={(e)=>searchFunction(e.target.value)}
                     />
-                    <button className="px-2 py-2 m-1 text-white bg-yellow border-l rounded">
+                    <button className="px-2 py-2 m-1 text-white bg-black-50  rounded">
                       <svg
                         width="24"
                         height="24"

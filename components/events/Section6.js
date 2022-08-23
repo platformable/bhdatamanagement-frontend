@@ -5,13 +5,13 @@ const Section6 = ({eventForm, setEventForm}) => {
     setEventForm(previous => ({...previous, eventFinishTime: e.target.value}))
   }
   return (
-    <div className="p-5 bg-extra-light-violet rounded text-center">
+    <div className="p-5 rounded ">
       <h2 className="mb-3 font-bold">
-        <span className="text-color-violet">6</span> What time will the event finish?
+        <span className="">6</span> What time will the event finish?
       </h2>
       <input type="time" 
       name="eventFinishTime" 
-      className='border-dark-violet rounded p-2 text-lg' 
+      className='border rounded p-2 text-lg' 
       onChange={handleForm}
       defaultValue={eventForm.eventFinishTime}
       />

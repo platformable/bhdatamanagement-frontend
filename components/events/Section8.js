@@ -18,15 +18,15 @@ const Section8 = ({event, eventForm, setEventForm}) => {
     const handleFormId = (e) => {
       setEventForm(previous => ({...previous,  healthAreaOfFocusID : e.target.id}))
     };
-    console.log(eventForm)
+
   return (
-    <div className="p-5 bg-extra-light-violet rounded">
+    <div className="p-5 rounded">
       <h2 className="mb-3 font-black">
-        <span className="text-color-violet">8</span> What is the event's health
+        <span className="">8</span> What is the event's health
         area of focus?
       </h2>
-      <div className="md:grid md:grid-cols-5 gap-x-16 gap-y-5">
-        <label className="grid grid-cols-3 items-center p-2">
+      <div className="">
+        <label className="flex items-center p-2">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
@@ -36,10 +36,10 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Breast cancer") ? "checked" : ""}
             />
-            <img src="/events/breast_cancer_icon.svg" alt=""/>
+            {/* <img src="/events/breast_cancer_icon.svg" alt=""/> */}
             <p className="">Breast<br/>cancer</p>       
         </label>
-        <label className="grid grid-cols-3 items-center p-2">
+        <label className="flex items-center p-2">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
@@ -49,10 +49,10 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Cardiovascular disease") ? "checked" : ""}
             />
-            <img src="/events/cardiovascular_disease_icon.svg" alt=""/>
+            {/* <img src="/events/cardiovascular_disease_icon.svg" alt=""/> */}
             <p className="">Cardiovascular<br/>disease</p>    
         </label>
-        <label className="grid grid-cols-3 items-center p-2">
+        <label className="flex items-center p-2">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
@@ -62,10 +62,10 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("COVID-19") ? "checked" : ""}
             />
-            <img src="/events/covid19_icon.svg" alt=""/>
+            {/* <img src="/events/covid19_icon.svg" alt=""/> */}
             <p className="">COVID-19</p>    
         </label>
-        <label className="grid grid-cols-3 items-center p-2">
+        <label className="flex items-center p-2">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
@@ -75,10 +75,10 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Diabetes") ? "checked" : ""}
             />
-            <img src="/events/diabetes_icon.svg" alt=""/>
+            {/* <img src="/events/diabetes_icon.svg" alt=""/> */}
             <p className="">Diabetes</p>    
         </label>
-        <label className="grid grid-cols-3 items-center p-2">
+        <label className="flex items-center p-2">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
@@ -88,10 +88,10 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Hepatitis C") ? "checked" : ""}
             />
-            <img src="/events/hepatitis_C_icon.svg" alt=""/>
+            {/* <img src="/events/hepatitis_C_icon.svg" alt=""/> */}
             <p className="">Hepatitis C</p>    
         </label>
-        <label className="grid grid-cols-3 items-center p-2">
+        <label className="flex items-center p-2">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
@@ -101,10 +101,10 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("HIV/AIDS") ? "checked" : ""}
             />
-            <img src="/events/HIV_icon.svg" alt=""/>
+            {/* <img src="/events/HIV_icon.svg" alt=""/> */}
             <p className="">HIV/AIDS</p>    
         </label>
-        <label className="grid grid-cols-3 items-center p-2">
+        <label className="flex items-center p-2">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
@@ -114,10 +114,10 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Mental health") ? "checked" : ""}
             />
-            <img src="/events/mental_health_icon.svg" alt=""/>
+            {/* <img src="/events/mental_health_icon.svg" alt=""/> */}
             <p className="">Mental<br/>Health</p>    
         </label>
-        <label className="grid grid-cols-3 items-center p-2">
+        <label className="flex items-center p-2">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
@@ -127,10 +127,10 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Obesity") ? "checked" : ""}
             />
-            <img src="/events/obesity_icon.svg" alt=""/>
+            {/* <img src="/events/obesity_icon.svg" alt=""/> */}
             <p className="">Obesity</p>    
         </label>
-        <label className="grid grid-cols-3 items-center p-2">
+        <label className="flex items-center p-2">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
@@ -140,10 +140,10 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Prostate cancer") ? "checked" : ""}
             />
-            <img src="/events/prostate_cancer_icon.svg" alt=""/>
+            {/* <img src="/events/prostate_cancer_icon.svg" alt=""/> */}
             <p className="">Prostate<br/>cancer</p>    
         </label>
-        <label className="grid grid-cols-3 items-center p-2">
+        <label className="flex items-center p-2">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
@@ -153,10 +153,10 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Sickle cell") ? "checked" : ""}
             />
-            <img src="/events/sickle_cell_icon.svg" alt=""/>
+            {/* <img src="/events/sickle_cell_icon.svg" alt=""/> */}
             <p className="">Sickle cell</p>    
         </label>
-        <label className="grid grid-cols-3 items-center p-2">
+        <label className="flex items-center p-2">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
@@ -166,7 +166,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Maternal health") ? "checked" : ""}
             />
-            <img src="/events/Maternal_health_icon.svg" alt=""/>
+            {/* <img src="/events/Maternal_health_icon.svg" alt=""/> */}
             <p className="">Maternal<br/>Health</p>    
         </label>
         {/* <label className="flex items-center p-2 col-start-2 col-end-6">

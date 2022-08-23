@@ -22,9 +22,9 @@ const Section1 = ({eventForm, setEventForm, programs,event}) => {
             console.log("eventForm",eventForm)
     },[eventForm.programName])
     return (
-        <div className='p-5 bg-extra-light-violet rounded'>
-            <h2 className='mb-3 font-black'><span className='text-color-violet'>1</span> Which program is your event for?</h2>
-            <div className='grid grid-cols-1 gap-3 md:flex md:justify-between md:items-center'>
+        <div className='px-5 py-0 rounded'>
+            <h2 className='mb-3 font-black'><span className=''>1</span> Which program is your event for?</h2>
+            <div className='md:items-center'>
                 {programs && programs.map(program => (
                         
                         program.name !== "Other" ?

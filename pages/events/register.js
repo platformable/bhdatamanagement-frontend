@@ -81,23 +81,25 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
         dashboardBtn={true}
         pageTitle={"Register an event"}
       />
-      <div className="container mx-auto md:px-0 px-5 flex flex-col items-center">
-        <div className="register-envent-form-container  grid gap-1 bg-white  rounded-lg p-1 my-10 shadow-lg">
+      <div className="container mx-auto md:px-0 px-5  border rounded-lg my-10 py-5">
+        <div className="register-envent-form-container  grid gap-1 bg-white  rounded-lg p-1 my-10 ">
           <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} />
           <Section2 eventForm={eventForm} setEventForm={setEventForm} />
           <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/>
-          <div className="grid grid-cols-1 md:grid-cols-3">
+         
             <Section4 eventForm={eventForm} setEventForm={setEventForm} />
             <Section5 eventForm={eventForm} setEventForm={setEventForm} />
             <Section6 eventForm={eventForm} setEventForm={setEventForm} />
-          </div>
+
           <Section7 eventForm={eventForm} setEventForm={setEventForm} locationTypes={locationTypes}/>
           <Section8 eventForm={eventForm} setEventForm={setEventForm} />
         </div>
-        <button className="py-2 px-5 flex items-center rounded bg-violet text-white font-semibold" onClick={submitEventForm}>
+        <div className="flex justify-center">
+        <button className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold" onClick={submitEventForm}>
             <img src="/check-save-and-finish.svg" alt="register event icon" className="mr-2"/>
             Create event
         </button>
+        </div>
       </div>    
     </Layout>
     {showResponseStatus && <ResponseStatusModal setShowResponseStatus={setShowResponseStatus} responseStatus={responseStatus}/>}

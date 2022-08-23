@@ -39,9 +39,9 @@ const Section3 = ({eventForm, setEventForm, eventTypes,event}) => {
 
 
     return (
-        <div className='p-5 bg-extra-light-violet rounded'>
-            <h2 className='mb-3 font-bold'><span className='text-color-violet'>3</span> What type of event is it?</h2>
-            <div className='grid grid-cols-1 gap-5 md:grid-rows-auto  md:grid-cols-3'>
+        <div className='p-5  rounded'>
+            <h2 className='mb-3 font-bold'><span className=''>3</span> What type of event is it?</h2>
+            <div className='grid grid-cols-1 '>
             {fields && fields.map(eventType => (
                 eventType.name !== "Other" ? 
 

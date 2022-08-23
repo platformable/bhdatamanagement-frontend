@@ -6,11 +6,11 @@ const Section5 = ({eventForm, setEventForm}) => {
         setEventForm(previous => ({...previous, eventStartTime: e.target.value}))
       }
     return (
-        <div className='p-5 bg-extra-light-violet rounded text-center'>
-            <h2 className='mb-3 font-bold'><span className='text-color-violet'>5</span> What time will the event start?</h2>
+        <div className='p-5 rounded '>
+            <h2 className='mb-3 font-bold'><span className=''>5</span> What time will the event start?</h2>
             <input type="time" 
             name="eventStartTime" 
-            className='border-dark-violet rounded p-2 text-lg' 
+            className='border rounded p-2 text-lg' 
             onChange={handleForm}
             defaultValue={eventForm.eventStartTime}
             />

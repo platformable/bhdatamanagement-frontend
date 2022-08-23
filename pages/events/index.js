@@ -12,9 +12,9 @@ const EventsIndex = ({events}) => {
     <Layout>
       <PageTopHeading pageTitle={"Manage Existing Events"} dashboardBtn={true} backBtn={false} />
 
-      <div className="container mx-auto md:px-0 px-5 my-10">
+      <div className="container mx-auto md:px-0 px-5 my-10 rounded-lg border">
          {/* TABLE HEAD  */}
-         <div className="existing-events-head-table rounded-t-lg py-3 px-1 bg-violet text-white tex">
+         <div className="existing-events-head-table rounded-t-lg py-3 px-1 bg-black text-white">
                 <p className="lg:text-lg flex items-center justify-center">Program</p>
                 <p className="lg:text-lg flex items-center ">Event name</p>
                 <p className="lg:text-lg flex items-center ">Event Date</p>
@@ -26,18 +26,19 @@ const EventsIndex = ({events}) => {
           {/* TABLE HEAD END */}
 
 
-        <div className="events-index-btn-container grid grid-cols-1 gap-2 bg-white p-1">
+        <div className="events-index-btn-container grid grid-cols-1 gap-2  p-0">
           {events && events.map((event, index) => (
-            <section key={index} className={`existing-events-head-table px-1 py-3 ${index % 2 !== 0 ? "bg-light-violet" : "bg-middle-white"}`}>
+            <section key={index} className={`existing-events-head-table px-1 py-3 ${index % 2 !== 0 ? "bg-white" : "border-b border-t"}`}>
               <div className="flex items-center lg:text-lg justify-center">{event.programname}</div>
               <div className="flex items-center lg:text-lg pr-2">{event.eventname}</div>
               <div className="flex items-center lg:text-lg">{event.eventdate && new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</div>
+              <div className="cursor-pointer flex items-center justify-center">
               <Link href={`events/${event.id}/edit`}>
-                <div className="cursor-pointer flex items-center justify-center">
+                
                   <img src="/events/manage/edit.svg" alt="edit event icon"/>
-                </div>
+               
               </Link>
-              
+              </div>
               <Link href={`/events/${event.id}/participant-survey`}>
                 <div className="cursor-pointer flex items-center justify-center">
                   <img src="/events/manage/participant_survey.svg" alt="go to participant surveys icon"/>

@@ -17,7 +17,7 @@ export default function Header() {
           <Link href="/dashboard"><img src="/main/Black_Health_logo.svg" alt="" width={280} height={200} className="cursor-pointer" /></Link>
           <div id="head-user" className="flex justify-end items-center">
             <div className="flex gap-x-3 ">
-            <img src="/user_icon.svg" alt="" width={32} />
+            {/* <img src="/user_icon.svg" alt="" width={32} /> */}
             <div>
             <h3 className="font-black">
               {userName}
@@ -29,7 +29,7 @@ export default function Header() {
             <div className="">
             <Link href="/api/auth/logout">
               <a
-                className={`${styles.btnIndexPage}  btn-index-page text-black px-3 py-0 rounded flex  self-start`}
+                className={`${styles.btnIndexPage}  btn-index-page text-white px-3 py-0 rounded flex  mt-1 self-start`}
               >
                 Logout
               </a>

@@ -51,7 +51,7 @@ export default function Dashboard() {
       </Head>
 
       <Layout>
-        <main className="bg-light-purple h-screen">
+        <main className="h-screen">
           <section id="dashboard-client-list">
             <div className="container mx-auto py-5">
               <section className=" py-5">
@@ -60,12 +60,12 @@ export default function Dashboard() {
                 </h1>
               </section>
 
-              <h2 className="font-black my-2 md:px-0 px-5">
-                What do you want <span className="bg-yellow">to do</span> today?
-              </h2>
+              <h1 className="font-black my-2 md:px-0 px-5">
+                What do you want <span className="">to do</span> today?
+              </h1>
 
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2">
-              <div className="text-center mr-5 rounded bg-violet p-5 text-center shadow-xl   mb-2 rounded-xl">
+              <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl">
             <Link href="/events/register">
               <button id="myBtn">
                 <div className="flex justify-center">
@@ -81,7 +81,7 @@ export default function Dashboard() {
               </button>
             </Link>
           </div>
-          <div className="text-center mr-5 rounded bg-violet p-5 text-center shadow-xl   mb-2 rounded-xl">
+          <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl">
             <Link href="/events">
               <button id="myBtn">
                 <div className="">
@@ -104,7 +104,7 @@ export default function Dashboard() {
             <div></div>
                 <Link href="/historicalData">
                   <button id="myBtn">
-                    <div className="text-center mr-5 rounded bg-violet p-5 text-center shadow-xl   mb-2 rounded-xl">
+                    <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl">
                       <div className="">
                         <div className="flex justify-center">
                           <img

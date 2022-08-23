@@ -38,9 +38,9 @@ const Section7 = ({eventForm, setEventForm, locationTypes,event}) => {
     };
 
     return (
-        <div className='p-5 bg-extra-light-violet rounded'>
-            <h2 className='mb-3 font-bold'><span className='text-color-violet'>7</span> What type of event location will the event be held at?</h2>
-             <div className='grid grid-cols-1 gap-5  md:grid-cols-3 lg:grid-cols-5 '>
+        <div className='p-5  rounded'>
+            <h2 className='mb-3 font-bold'><span className=''>7</span> What type of event location will the event be held at?</h2>
+             <div className=''>
                 {fields && fields.map(location => (
                     location.name !== "Other" ?
 

@@ -123,14 +123,14 @@ export default function HistoricalData() {
             <div className="flex btn-dashboard">
               <Link href="/dashboard">
                 <a
-                  className="px-2 py-2  flex bg-light-violet gap-x-2 items-center font-black"
+                  className="px-2 py-2  flex bg-black gap-x-2 items-center font-black text-white rounded"
                   id=""
                 >
-                  <Image
+                 {/*  <Image
                     src="/supervisor/dashboard_icon.svg"
                     width={22}
                     height={20}
-                  />
+                  /> */}
                   Dashboard
                 </a>
               </Link>
@@ -146,7 +146,7 @@ export default function HistoricalData() {
           </div>
         </section>
 
-        <section className="h-full py-10 bg-light-violet">
+        <section className="h-full py-10 ">
           <div className="container mx-auto grid grid-cols-1 gap-10">
             {datasets
               ?.filter((program, index) => {
