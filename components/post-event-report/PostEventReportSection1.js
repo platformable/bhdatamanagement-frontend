@@ -14,7 +14,7 @@ const PostEventReportSection1 = ({eventForm, setEventForm}) => {
       <h2 className="font-black">
         <span className="">1</span> Where do you work?
       </h2>
-      <div className="grid-cols-1" style={styles}>
+      <div className="mt-5 grid grid-cols-1 space-between gap-5">
         {workArea.map((area, index) => {
           return (
             <label className="text-lg flex items-center" key={index}>

@@ -3,14 +3,14 @@ import DemographicSurveySection from './DemographicSurveySection';
 
 const PostEventReportSection28 = ({setEventForm}) => {
   return (
-    <div className="grid grid-cols-1 gap-7">
+    <div className="grid grid-cols-1 mt-10 gap-7">
     <h2 className="font-black">Cholesterol Testing</h2>
-    <label className="grid grid-cols-4">
-      <p>Cholesterol Testing Agency</p>
+    <label className="flex gap-x-10">
+      <div className="w-40">Cholesterol Testing Agency</div>
       <input
         className="border-black ml-2"
         type="text"
-        placeholder="Please specify"
+        // placeholder="Please specify"
         name="cholesterolTestingAgency"
         onChange={(e) =>
           setEventForm((prev) => ({
@@ -20,12 +20,12 @@ const PostEventReportSection28 = ({setEventForm}) => {
         }
       />
     </label>
-    <label className="grid grid-cols-4">
-      <p>Total tested for Cholesterol</p>
+    <label className="flex gap-x-10">
+      <div className="w-40">Total tested for Cholesterol</div>
       <input
         className="border-black ml-2"
         type="number"
-        placeholder="type a number"
+        // placeholder="Type a number"
         name="cholesterolTestedTotal"
         onChange={(e) =>
           setEventForm((prev) => ({
@@ -35,12 +35,12 @@ const PostEventReportSection28 = ({setEventForm}) => {
         }
       />
     </label>
-    <label className="grid grid-cols-4">
-      <p>Total # of Reactive Results</p>
+    <label className="flex gap-x-10">
+      <div className="w-40">Total # of Reactive Results</div>
       <input
         className="border-black ml-2"
         type="number"
-        placeholder="type a number"
+        // placeholder="Type a number"
         name="cholesterolReactiveResults"
         onChange={(e) =>
           setEventForm((prev) => ({
@@ -50,12 +50,12 @@ const PostEventReportSection28 = ({setEventForm}) => {
         }
       />
     </label>
-    <label className="grid grid-cols-4">
-      <p>Total # Linked to Care</p>
+    <label className="flex gap-x-10">
+      <div className="w-40">Total # Linked to Care</div>
       <input
         className="border-black ml-2"
         type="number"
-        placeholder="type a number"
+        // placeholder="Type a number"
         name="cholesterolLinkedToCare"
         onChange={(e) =>
           setEventForm((prev) => ({
@@ -65,12 +65,12 @@ const PostEventReportSection28 = ({setEventForm}) => {
         }
       />
     </label>
-    <label className="grid grid-cols-4">
-      <p>Which services were they referred to?</p>
+    <label className="flex gap-x-10">
+      <div className="w-40">Which services were they referred to</div>?
       <input
         className="border-black ml-2"
         type="text"
-        placeholder="type a number"
+        // placeholder="Type a number"
         name="cholesterolServicesReferredTo"
         onChange={(e) =>
           setEventForm((prev) => ({

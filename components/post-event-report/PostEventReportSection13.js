@@ -8,14 +8,14 @@ const PostEventReportSection13 = () => {
       <h2 className="mb-3 font-black">
         <span className="">13 </span> What languages was your team able to support?
       </h2>
-      <div className="grid grid-cols-1 gap-3">
+      <div className="mt-5 grid grid-cols-1 space-between gap-5">
         {languajes &&
           languajes.map((lang, index) => (
             <label className="text-lg flex items-center" key={index}>
               <input
                 type="checkbox"
                 name="languages"
-                className="mr-2 w-4 h-4"
+                className="mr-2 w-6 h-6"
                 value={lang}
                 id={index}
                 // onChange={(e) =>

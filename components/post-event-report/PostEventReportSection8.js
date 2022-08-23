@@ -8,7 +8,7 @@ const PostEventReportSection8 = () => {
         <span className="text-color-violet">8 </span>
         Resources Distributed:
       </h2>
-      <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
+      <div className="mt-5 grid grid-cols-1 space-between gap-5">
         {resourcesDistributed &&
           resourcesDistributed.map((resource, index) => (
             <label className="text-lg flex items-center" key={index}>

@@ -3,14 +3,16 @@ import DemographicSurveySection from './DemographicSurveySection'
 
 const PostEventReportSection26 = ({setEventForm}) => {
   return (
-    <div className="grid grid-cols-1 gap-7 mt-10">
-    <h2 className="font-black">Sti Testing</h2>
-    <label className="flex gap-5">
-    <div className="w-40">   STI Testing Agency</div>
+
+    <div className="grid grid-cols-1 mt-10 gap-7">
+    <h2 className="font-black">STI Testing</h2>
+    <label className="flex gap-x-10">
+      <div className='w-40'>STI Testing Agency</div>
       <input
         className="border-black ml-2"
         type="text"
-        placeholder=""
+        // placeholder="Please specify"
+
         name="stiTestingAgency"
         onChange={(e) =>
           setEventForm((prev) => ({
@@ -20,12 +22,14 @@ const PostEventReportSection26 = ({setEventForm}) => {
         }
       />
     </label>
-    <label className="flex gap-5">
-    <div className="w-40">     Total tested for STI</div>
+
+    <label className="flex gap-x-10">
+      <div className='w-40'>Total tested for STI</div>
       <input
         className="border-black ml-2"
         type="number"
-        placeholder=""
+        // placeholder="Type a number"
+
         name="stiTestedTotal"
         onChange={(e) =>
           setEventForm((prev) => ({
@@ -35,12 +39,14 @@ const PostEventReportSection26 = ({setEventForm}) => {
         }
       />
     </label>
-    <label className="flex gap-5">
-    <div className="w-40">   Total # of Reactive Results</div>
+
+    <label className="flex gap-x-10">
+      <div className='w-40'>Total # of Reactive Results</div>
       <input
         className="border-black ml-2"
         type="number"
-        placeholder=""
+        // placeholder="Type a number"
+
         name="stiReactiveResults"
         onChange={(e) =>
           setEventForm((prev) => ({
@@ -50,12 +56,14 @@ const PostEventReportSection26 = ({setEventForm}) => {
         }
       />
     </label>
-    <label className="flex gap-5">
-    <div className="w-40">   Total # Linked to Care</div>
+
+    <label className="flex gap-x-10">
+      <div className='w-40'>Total # Linked to Care</div>
       <input
         className="border-black ml-2"
         type="number"
-        placeholder=""
+        // placeholder="Type a number"
+
         name="stiLinkedToCare"
         onChange={(e) =>
           setEventForm((prev) => ({
@@ -65,12 +73,14 @@ const PostEventReportSection26 = ({setEventForm}) => {
         }
       />
     </label>
-    <label className="flex gap-5">
-    <div className="w-40">   Which services were they referred to?</div>
+
+    <label className="flex gap-x-10">
+      <div className='w-40'>Which services were they referred to</div>?
       <input
         className="border-black ml-2"
         type="text"
-        placeholder=""
+        // placeholder="Type a number"
+
         name="stiServicesReferredTo"
         onChange={(e) =>
           setEventForm((prev) => ({

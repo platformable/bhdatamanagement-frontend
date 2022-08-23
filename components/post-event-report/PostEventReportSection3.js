@@ -11,7 +11,7 @@ const PostEventReportSection3 = () => {
   };
   return (
     <div className="p-5 py-10">
-    <h2 className="font-black"><span className="text-color-violet">3</span> Which NYS Activity was conducted (according to your framework plan)?</h2>
+    <h2 className="font-black"><span className="">3</span> Which NYS Activity was conducted (according to your framework plan)?</h2>
     <div className="mt-5 grid grid-cols-1 space-between gap-5" >
 
     {nysActivity.map((activity,index)=>{
