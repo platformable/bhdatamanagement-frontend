@@ -282,18 +282,25 @@ const PostEventReport = ({
             
             {eventForm.eventTestingDone && 
             <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm}/> } 
+            
             {eventForm.hivTesting && 
             <PostEventReportSection23 eventForm={eventForm} setEventForm={setEventForm}/>}
-            {eventForm.stiTesting && 
+            
+            {eventForm.otherTesting && 
             <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm}/>}
+
             {eventForm.hepCTesting && 
             <PostEventReportSection25 eventForm={eventForm} setEventForm={setEventForm}/>}
-            {eventForm.otherTesting && 
+
+            {eventForm.stiTesting && 
             <PostEventReportSection26 eventForm={eventForm} setEventForm={setEventForm}/>}
+
             {eventForm.bloodPressureTesting && 
             <PostEventReportSection27 eventForm={eventForm} setEventForm={setEventForm}/>}
+
             {eventForm.cholesterolTesting && 
             <PostEventReportSection28 eventForm={eventForm} setEventForm={setEventForm}/>}
+          
             {eventForm.covidTesting && 
             <PostEventReportSection29 eventForm={eventForm} setEventForm={setEventForm}/>}
             </div>

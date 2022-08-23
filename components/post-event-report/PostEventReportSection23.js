@@ -1,7 +1,7 @@
 import React from "react";
 import DemographicSurveySection from "./DemographicSurveySection";
 
-const PostEventReportSection23 = ({ setEventForm, eventForm }) => {
+const PostEventReportSection23 = ({ setEventForm }) => {
   return (
     <div className="grid grid-cols-1 gap-7">
       <h2 className="font-black">HIV Testing</h2>
@@ -95,7 +95,7 @@ const PostEventReportSection23 = ({ setEventForm, eventForm }) => {
           }
         />
       </label>
-      <DemographicSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest="hiv"/>
+      <DemographicSurveySection setEventForm={setEventForm}  typeOfTest="hiv"/>
     </div>
   );
 };
