@@ -16,48 +16,48 @@ const PostEventReportSection22 = ({eventForm, setEventForm}) => {
           What testing was done at the event
         </h2>
         <div className="grid grid-cols-1">
-          <label>
+          <label className="flex gap-x-10">
             <input type="checkbox" name="hivTesting" onChange={handleForm} />
-          HIV Testing
+         {' '} HIV Testing
           </label>
-          <label>
+          <label className="flex gap-x-10">
             <input type="checkbox" name="stiTesting" onChange={handleForm} />
-          STI Testing
+            {' '}  STI Testing
           </label>
 
-          <label>
+          <label className="flex gap-x-10">
             <input type="checkbox" name="hepCTesting" onChange={handleForm} />
-            Hep C Testing
+            {' '}   Hep C Testing
           </label>
 
-          <label>
+          <label className="flex gap-x-10">
             <input
               type="checkbox"
               name="bloodPressureTesting"
               onChange={handleForm}
             />
-          Blood Pressure Testing
+          {' '} Blood Pressure Testing
 
           </label>
 
-          <label>
+          <label className="flex gap-x-10">
             <input
               type="checkbox"
               name="cholesterolTesting"
               onChange={handleForm}
             />
-          Cholesterol Testing
+         {' '}  Cholesterol Testing
 
           </label>
 
-          <label>
+          <label className="flex gap-x-10">
             <input type="checkbox" name="covidTesting" onChange={handleForm} />
-          COVID-19 Testing
+            {' '}  COVID-19 Testing
           </label>
 
-          <label>
+          <label className="flex gap-x-10">
             <input type="checkbox" name="otherTesting" onChange={handleForm} />
-          Other Testing
+            {' '}  Other Testing
           </label>
         </div>
       </div>

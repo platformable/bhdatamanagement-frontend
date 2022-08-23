@@ -29,29 +29,29 @@ const GenderSurveySection = ({setEventForm, typeOfTest}) => {
   return (
     <div className='grid grid-cols-1 gap-5'>
       
-      <h2 className=''>Gender</h2>
-      <label className='grid grid-cols-3'><p>Female</p>
+      <h2 className='font-black'>Gender</h2>
+      <label className='flex gap-x-5'><p className="w-40 text-lg">Female</p>
       <input type="number" name={fields[0]} onChange={handleForm} className="border-black p-1"/>
       </label>
-      <label className='grid grid-cols-3'><p>Male</p>
+      <label className='flex gap-x-5'><p className="w-40">Male</p>
       <input type="number" name={fields[1]} onChange={handleForm} className="border-black p-1"/>
       </label>
-      <label className='grid grid-cols-3'><p>Transgender female</p>
+      <label className='flex gap-x-5'><p className="w-40">Transgender female</p>
       <input type="number" name={fields[2]} onChange={handleForm} className="border-black p-1"/>
       </label>
-      <label className='grid grid-cols-3'><p>Transgender male</p>
+      <label className='flex gap-x-5'><p className="w-40">Transgender male</p>
       <input type="number" name={fields[3]} onChange={handleForm} className="border-black p-1"/>
       </label>
-      <label className='grid grid-cols-3'><p>Gender non-conforming</p>
+      <label className='flex gap-x-5'><p className="w-40">Gender non-conforming</p>
       <input type="number" name={fields[4]} onChange={handleForm} className="border-black p-1"/>
       </label>
-      <label className='grid grid-cols-3'><p>Non-binary</p>
+      <label className='flex gap-x-5'><p className="w-40">Non-binary</p>
       <input type="number" name={fields[5]} onChange={handleForm} className="border-black p-1"/>
       </label>
-      <label className='grid grid-cols-3'><p>Other gender identity</p>
+      <label className='flex gap-x-5'><p className="w-40">Other gender identity</p>
       <input type="number" name={fields[6]} onChange={handleForm} className="border-black p-1"/>
       </label>
-      <label className='grid grid-cols-3'><p>Decline to answer</p>
+      <label className='flex gap-x-5'><p className="w-40">Decline to answer</p>
       <input type="number" name={fields[7]} onChange={handleForm} className="border-black p-1"/>
       </label>
     </div>

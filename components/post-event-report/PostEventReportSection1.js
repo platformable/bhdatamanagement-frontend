@@ -1,6 +1,7 @@
 import React from "react";
 import { workArea } from "../../utils/sharedData";
-const PostEventReportSection1 = () => {
+const PostEventReportSection1 = ({eventForm, setEventForm}) => {
+  console.log("eventForm",eventForm)
   const styles = {
     display: "grid",
     // gridTemplateColumns: "repeat(1,1fr)",
@@ -19,11 +20,17 @@ const PostEventReportSection1 = () => {
             <label className="text-lg flex items-center" key={index}>
               <input
                 type="radio"
-                name="program"
+                name={area}
                 className="mr-2 w-4 h-4"
                 value={area}
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}
+                onChange={(e) =>
+                  setEventForm((previous) => ({
+                    ...previous,
+                    [e.target.name]: true,
+                  }))
+                }
               />
               {area}
             </label>
