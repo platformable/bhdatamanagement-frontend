@@ -8,7 +8,7 @@ const PostEventReportSection7 = () => {
          Enter the event location name, eg. business name or faith-based
         organization name
       </h2>
-      <div className="grid ">
+      <div className="mt-5 grid grid-cols-1 space-between gap-5">
       <label className="text-lg flex items-center" >
         <input
           type="radio"

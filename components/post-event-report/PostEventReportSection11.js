@@ -2,7 +2,7 @@ import React from 'react';
 
 const PostEventReportSection11 = () => {
     return (
-      <div className="p-5 py-10rounded">
+      <div className="p-5 rounded">
       <h2 className="mb-3 font-black">
         <span className="">11 </span>
          How many ADULT volunteers helped you?

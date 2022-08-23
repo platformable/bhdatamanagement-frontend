@@ -7,11 +7,11 @@ const PostEventReportSection12 = () => {
         <span className="">12 </span>
          How many YOUTH volunteers (aged 13-18) helped you?
       </h2>
-      <div className='flex gap-5'>
+      <div className='flex mt-5 gap-5'>
         {/* <img src='/post_event_report/ADULT_volunteers_icon.svg' alt='adult volunteers icon' /> */}
       <input
         type="number"
-        className="p-2 rounded"
+        className="p-2 rounded border-black"
         placeholder="Type a number"
         name="adultVolunteers"
         // onChange={handleForm}
