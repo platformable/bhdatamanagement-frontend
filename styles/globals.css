@@ -21,7 +21,7 @@ a {
 }
 
 p {
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .font-xxs {
@@ -315,6 +315,11 @@ input[type="number"] {
 }
 .bg-violet {
   background-color: var(--violet);
+}
+
+
+.bg-middleWhite {
+background-color:var(--middleWhite);
 }
 
 /* BORDERS */

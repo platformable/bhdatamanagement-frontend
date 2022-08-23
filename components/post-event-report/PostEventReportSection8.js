@@ -5,7 +5,7 @@ const PostEventReportSection8 = () => {
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
-        <span className="text-color-violet">8 </span>
+        <span className="">8 </span>
         Resources Distributed:
       </h2>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
@@ -16,7 +16,7 @@ const PostEventReportSection8 = () => {
               <input
                 type="number"
                 name="resourcesDistributed"
-                className="mr-2 ml-10 w-40 p-1 border-black rounded"
+                className="mr-2  w-40 p-1 border-black rounded"
                 id={index}
                 placeholder="Type a number"
                 // onChange={(e) =>

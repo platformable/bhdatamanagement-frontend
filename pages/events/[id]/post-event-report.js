@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { useRouter } from 'next/router';
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 
@@ -10,6 +10,9 @@ import ResponseStatusModal from "../../../components/ResponseStatusModal";
 
 import Link from "next/link";
 import Image from "next/image";
+
+import { ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import PostEventReportSection1 from "../../../components/post-event-report/PostEventReportSection1";
 import PostEventReportSection2 from "../../../components/post-event-report/PostEventReportSection2";
@@ -83,17 +86,27 @@ const PostEventReport = ({
     eventTypeName: "",
   });
   const userId = user && user.sub;
-
+const router = useRouter()
   useEffect(() => {
     setEventForm({ ...eventForm, userID: userId });
     console.log("eventForm",eventForm)
     
   }, [userId]);
 
+  const notifyMessage= ()=>{
+    toast.success("Survey saved!", {
+      position: toast.POSITION.TOP_CENTER,
+      
+    });
+    setTimeout(()=>{
+      router.back()
+    },1500)
+   }
+
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
     console.log("eventForm",eventForm)
-
+    notifyMessage()
     /* if (!isEmpty) {
       axios
         .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
@@ -134,6 +147,7 @@ const PostEventReport = ({
   return (
     <>
       <Layout>
+      <ToastContainer autoClose={1500}/>
         <PageTopHeading
           backBtn={true}
           dashboardBtn={true}
@@ -152,7 +166,7 @@ const PostEventReport = ({
                     type="text"
                     value={event?.programname}
                     id="program"
-                    className=" rounded self-start p-1 w-full  px-2"
+                    className=" rounded self-start p-1 w-full  px-2 "
                     disabled
                   />
                 </div>
@@ -160,9 +174,9 @@ const PostEventReport = ({
                   <p className="font-black">Health area of focus</p>
                   <input
                     type="text"
-                    value={event.healthareaoffocusname.substring(1)}
+                    value={event.healthareaoffocusname.substring(0)}
                     id="program"
-                    className=" rounded self-start p-1 w-full  px-2"
+                    className=" rounded self-start p-1 w-full  px-2 "
                     disabled
                   />
                 </div>
@@ -173,7 +187,7 @@ const PostEventReport = ({
                   type="text"
                   value={event?.eventname}
                   id="program"
-                  className=" rounded self-start p-1 w-full  px-2"
+                  className=" rounded self-start p-1 w-full  px-2 "
                   disabled
                 />
               </div>
@@ -186,7 +200,7 @@ const PostEventReport = ({
                       type="text"
                       value={event && new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}
                       id="program"
-                      className=" rounded self-start p-1 w-full  px-2"
+                      className=" rounded self-start p-1 w-full  px-2 "
                       disabled
                     />
                   </div>
@@ -197,7 +211,7 @@ const PostEventReport = ({
                       type="time"
                       value={event?.eventstarttime}
                       id="program"
-                      className=" rounded self-start p-1 w-full  px-2"
+                      className=" rounded self-start p-1 w-full  px-2 "
                       disabled
                     />
                   </div>
@@ -208,7 +222,7 @@ const PostEventReport = ({
                       type="time"
                       value={event?.eventfinishtime}
                       id="program"
-                      className=" rounded self-start p-1 w-full  px-2"
+                      className=" rounded self-start p-1 w-full  px-2 "
                       disabled
                     />
                   </div>
@@ -221,7 +235,7 @@ const PostEventReport = ({
                   type="text"
                   value={event?.eventlocationtypename}
                   id="program"
-                  className=" rounded self-start p-1 w-full  px-2"
+                  className=" rounded self-start p-1 w-full  px-2 "
                   disabled
                 />
               </div>
@@ -232,7 +246,7 @@ const PostEventReport = ({
                   type="text"
                   value={event?.eventtypename}
                   id="program"
-                  className=" rounded self-start p-1 w-full  px-2"
+                  className=" rounded self-start p-1 w-full  px-2 "
                   disabled
                 />
               </div>
@@ -240,7 +254,7 @@ const PostEventReport = ({
               <div className="flex justify-center ">
                 <Link href={`/events/${event?.id}/edit`}>
 
-                  <button className="bg-black text-white rounded px-2 mr-2">
+                  <button className="bg-black text-white rounded px-2 mr-2 ">
 
                     <a
                       className="px-10 py-2 flex  justify-center items-center font-bold"

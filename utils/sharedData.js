@@ -122,7 +122,7 @@ export const workArea = [
   "Nassau/Suffolk",
   "Rochester",
   "Syracuse",
-  "Other (please specify)",
+  "Other",
 ];
 
 export const roles = [

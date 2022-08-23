@@ -15,7 +15,7 @@ const PostEventReportSection13 = () => {
               <input
                 type="checkbox"
                 name="languages"
-                className="mr-2 w-6 h-6"
+                className="mr-10 w-6 h-6"
                 value={lang}
                 id={index}
                 // onChange={(e) =>

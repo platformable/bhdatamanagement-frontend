@@ -24,8 +24,7 @@ export default function AuthorizedUsersIndex({data, users}) {
     const { user, error, isLoading } = useUser();
     const [showModal,setShowModal] = useState(false)
 
-    console.log("auth users", data);
-    console.log("users: ", users)
+
 
     const [notificationMessage,setNotificationMessage]=useState(false)
     const [listOfNonRegistered,setListOfNonRegistered]=useState([])

@@ -13,7 +13,7 @@ const PostEventReportSection4 = () => {
             name="partof"
             value="leadership Training Institute" 
             id="1" 
-            className='mr-2 w-6 h-6'
+            className='mr-10 w-6 h-6'
 
 
             />
@@ -26,7 +26,7 @@ const PostEventReportSection4 = () => {
             name="partof"
             value="HIV Hight Impact" 
             id="2" 
-            className='mr-2 w-6 h-6'
+            className='mr-10 w-6 h-6'
             />
             HIV Hight Impact       
         </label>

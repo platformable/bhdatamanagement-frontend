@@ -13,7 +13,7 @@ const PostEventReportSection7 = () => {
         <input
           type="radio"
           name="locationName"
-          className="mr-2 w-4 h-4"
+          className="mr-10 w-4 h-4"
           // value={program.name}
           
           // onChange={(e) =>
@@ -31,7 +31,7 @@ const PostEventReportSection7 = () => {
         <input
           type="radio"
           name="locationName"
-          className="mr-2 w-4 h-4"
+          className="mr-10 w-4 h-4"
           value="Other"
           // id={program.id}
           // onChange={handleFormId}

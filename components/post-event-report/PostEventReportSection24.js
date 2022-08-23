@@ -6,12 +6,12 @@ const PostEventReportSection24 = ({setEventForm}) => {
   return (
     <div className="grid grid-cols-1 gap-7">
     <h2 className="font-black">Other Testing</h2>
-    <label className="grid grid-cols-4">
-      <p>What type of health screening was conducted?</p>
+    <label className="flex gap-5">
+      <p className="w-40">What type of health screening was conducted?</p>
       <input
         className="border-black ml-2"
         type="text"
-        placeholder="Please specify"
+       // placeholder="Please specify"
         name="otherTestingType"
         onChange={(e) =>
           setEventForm((prev) => ({
@@ -21,12 +21,12 @@ const PostEventReportSection24 = ({setEventForm}) => {
         }
       />
     </label>
-    <label className="grid grid-cols-4">
-      <p>Other Testing Agency</p>
+    <label className="flex gap-5">
+      <p className="w-40">Other Testing Agency</p>
       <input
         className="border-black ml-2"
         type="text"
-        placeholder="type a number"
+       // placeholder="type a number"
         name="otherTestingAgency"
         onChange={(e) =>
           setEventForm((prev) => ({
@@ -36,12 +36,12 @@ const PostEventReportSection24 = ({setEventForm}) => {
         }
       />
     </label>
-    <label className="grid grid-cols-4">
-      <p>Total tested for Other</p>
+    <label className="flex gap-5">
+      <p className="w-40">Total tested for Other</p>
       <input
         className="border-black ml-2"
         type="number"
-        placeholder="type a number"
+       // placeholder="type a number"
         name="otherTestedTotal"
         onChange={(e) =>
           setEventForm((prev) => ({
@@ -51,12 +51,12 @@ const PostEventReportSection24 = ({setEventForm}) => {
         }
       />
     </label>
-    <label className="grid grid-cols-4">
-      <p>Total # Linked to Care</p>
+    <label className="flex gap-5">
+      <p className="w-40">Total # Linked to Care</p>
       <input
         className="border-black ml-2"
         type="number"
-        placeholder="type a number"
+      //  placeholder="type a number"
         name="otherLinkedToCare"
         onChange={(e) =>
           setEventForm((prev) => ({
@@ -66,12 +66,12 @@ const PostEventReportSection24 = ({setEventForm}) => {
         }
       />
     </label>
-    <label className="grid grid-cols-4">
-      <p>Which services were they referred to?</p>
+    <label className="flex gap-5">
+      <p className="w-40">Which services were they referred to?</p>
       <input
         className="border-black ml-2"
         type="text"
-        placeholder="type a number"
+       // placeholder="type a number"
         name="otherServicesReferredTo"
         onChange={(e) =>
           setEventForm((prev) => ({

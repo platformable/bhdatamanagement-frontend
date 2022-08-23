@@ -21,13 +21,13 @@ const PostEventReportSection3 = () => {
           <input
             type="radio"
             name="nysActivity"
-            className="mr-2 w-4 h-4"
+            className="mr-10 w-4 h-4"
             value={activity}
             id={index}
             //defaultChecked={program.id===event?.programid?'checked':""}
           />
           {activity}
-          <input type="text" placeholder="Please specify" className="border-dark-violet rounded px-5 self-start p-1 ml-2" />
+          <input type="text" placeholder="Please specify" className="border rounded px-5 self-start p-1 ml-2" />
         </label>
 
       )
@@ -37,7 +37,7 @@ const PostEventReportSection3 = () => {
           <input
             type="radio"
             name="nysActivity"
-            className="mr-2 w-4 h-4"
+            className="mr-10 w-4 h-4"
             value={activity}
             id={index}
             //defaultChecked={program.id===event?.programid?'checked':""}

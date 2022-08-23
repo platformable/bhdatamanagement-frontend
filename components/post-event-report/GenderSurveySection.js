@@ -30,7 +30,7 @@ const GenderSurveySection = ({setEventForm, typeOfTest}) => {
     <div className='grid grid-cols-1 gap-5'>
       
       <h2 className='font-black'>Gender</h2>
-      <label className='flex gap-x-5'><p className="w-40 text-lg">Female</p>
+      <label className='flex gap-x-5'><p className="w-40">Female</p>
       <input type="number" name={fields[0]} onChange={handleForm} className="border-black p-1"/>
       </label>
       <label className='flex gap-x-5'><p className="w-40">Male</p>

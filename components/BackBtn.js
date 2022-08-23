@@ -8,12 +8,14 @@ const BackBtn = () => {
   return (
     <button
       onClick={() => router.back()}
-      className="bg-black text-white rounded px-2 mr-2"
+      className="bg-black text-white rounded px-2"
     >
-      <a className="pr-5 py-2 flex  items-center font-bold" id="myBtn">
-        {/* <Image src="/main/back_button_icon.svg" width={22} height={20} /> */}
-        <p className="ml-2 font-black">Back</p>
-      </a>
+       <a
+          className="px-2 py-2  flex bg-black gap-x-2 items-center font-black text-white rounded"
+          id=""
+        >
+          Back
+        </a>
     </button>
   );
 };

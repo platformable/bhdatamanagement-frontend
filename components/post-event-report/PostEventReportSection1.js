@@ -21,7 +21,7 @@ const PostEventReportSection1 = ({eventForm, setEventForm}) => {
               <input
                 type="radio"
                 name={area}
-                className="mr-2 w-4 h-4"
+                className="mr-10 w-4 h-4"
                 value={area}
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}
@@ -32,12 +32,12 @@ const PostEventReportSection1 = ({eventForm, setEventForm}) => {
                   }))
                 }
               />
-              {area}
+             {area}
             </label>
 
           );
         })}
-        <input type="text" placeholder="Please specify" className="border-black rounded self-start p-1" />
+        <input type="text" placeholder="" className="border-black rounded self-start p-1" />
       </div>
     </div>
   );
