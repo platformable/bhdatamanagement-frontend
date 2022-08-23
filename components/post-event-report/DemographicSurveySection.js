@@ -8,7 +8,7 @@ import SexualOrientationSurveySection from './SexualOrientationSurveySection'
 const DemographicSurveySection = ({setEventForm, eventForm, typeOfTest}) => {
   
   return (
-    <div className='font-black'>
+    <div className=''>
       <h2 className='mb-10'>Demographics</h2>
       <div className='grid grid-cols-1 gap-16'>
       <GenderSurveySection setEventForm={setEventForm} typeOfTest={typeOfTest}/>

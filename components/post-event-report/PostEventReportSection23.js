@@ -3,14 +3,14 @@ import DemographicSurveySection from "./DemographicSurveySection";
 
 const PostEventReportSection23 = ({ setEventForm }) => {
   return (
-    <div className="grid grid-cols-1 gap-7">
+    <div className="grid grid-cols-1 gap-7 mt-10">
       <h2 className="font-black">HIV Testing</h2>
-      <label className="grid grid-cols-4">
-        <p>HIV Testing Agency</p>
+      <label className="flex gap-5 ">
+        <div className="w-40"> HIV Testing Agency</div>
         <input
           className="border-black ml-2"
           type="text"
-          placeholder="Please specify"
+          placeholder=""
           name="hivTestingAgency"
           onChange={(e) =>
             setEventForm((prev) => ({
@@ -20,12 +20,12 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="grid grid-cols-4">
-        <p>Total tested for HIV</p>
+      <label className="flex gap-x-5 w-96">
+       <div className="w-40">  Total tested for HIV</div>
         <input
           className="border-black ml-2"
           type="number"
-          placeholder="type a number"
+          placeholder=""
           name="hivTestedTotal"
           onChange={(e) =>
             setEventForm((prev) => ({
@@ -35,12 +35,12 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="grid grid-cols-4">
-        <p>Total # of Reactive Results</p>
+      <label className="flex gap-x-5  w-62">
+        <div className="w-40"> Total # of Reactive Results</div>
         <input
           className="border-black ml-2"
           type="number"
-          placeholder="type a number"
+          placeholder=""
           name="hivReactiveResults"
           onChange={(e) =>
             setEventForm((prev) => ({
@@ -50,12 +50,12 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="grid grid-cols-4">
-        <p>Total # of PrEP Referrals</p>
+      <label className="flex gap-5 w-96">
+        <div className="w-40"> Total # of PrEP Referrals</div>
         <input
           className="border-black ml-2"
           type="number"
-          placeholder="type a number"
+          placeholder=""
           name="prepReferrals"
           onChange={(e) =>
             setEventForm((prev) => ({
@@ -65,12 +65,12 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="grid grid-cols-4">
-        <p>Total # Linked to Care</p>
+      <label className="flex gap-5 w-96">
+       <div className="w-40"> Total # Linked to Care</div>
         <input
           className="border-black ml-2"
           type="number"
-          placeholder="type a number"
+          placeholder=""
           name="hivLinkedToCare"
           onChange={(e) =>
             setEventForm((prev) => ({
@@ -80,12 +80,12 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="grid grid-cols-4">
-        <p>Which services were they referred to?</p>
+      <label className="flex gap-5 w-96">
+      <div className="w-40"> Which services were they referred to? </div>
         <input
           className="border-black ml-2"
           type="text"
-          placeholder="Please specify"
+          /* placeholder="Please specify" */
           name="hivServicesReferredTo"
           onChange={(e) =>
             setEventForm((prev) => ({

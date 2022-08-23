@@ -21,7 +21,7 @@ const EventsIndex = ({events}) => {
                 <p className="lg:text-lg flex items-center justify-center text-center">Edit</p>
                 <p className="lg:text-lg flex items-center justify-center text-center">Go to participant surveys</p>
                 <p className="lg:text-lg flex items-center justify-center text-center">Upload event documents</p>
-                <p className="lg:text-lg flex items-center justify-center text-center">Complete post-event report</p>
+                <p className="lg:text-lg flex items-center justify-center text-center">Complete post-event survey</p>
             </div>
           {/* TABLE HEAD END */}
 

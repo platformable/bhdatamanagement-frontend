@@ -68,8 +68,8 @@ const PostEventReport = ({
   const [eventForm, setEventForm] = useState({
     userID: "",
     eventDateCreated: new Date(),
-    programID: "",
-    programName: "",
+    programID: event?.programid,
+    programName: event?.programname,
     eventName: "",
     eventDate: "",
     eventStartTime: "",
@@ -86,12 +86,15 @@ const PostEventReport = ({
 
   useEffect(() => {
     setEventForm({ ...eventForm, userID: userId });
+    console.log("eventForm",eventForm)
+    
   }, [userId]);
 
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
+    console.log("eventForm",eventForm)
 
-    if (!isEmpty) {
+    /* if (!isEmpty) {
       axios
         .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then((response) => {
@@ -117,7 +120,7 @@ const PostEventReport = ({
         statusMessage: "Please complete all the fields",
       });
       setShowResponseStatus(!showResponseStatus);
-    }
+    } */
   };
 
   const programAndAreaStyles = {
@@ -125,6 +128,8 @@ const PostEventReport = ({
     gridTemplateColumns: "2fr 3fr",
     gap: "20px",
   };
+
+
 
   return (
     <>
@@ -152,7 +157,7 @@ const PostEventReport = ({
                   />
                 </div>
                 <div>
-                  <p className="font-black">Area of health focus</p>
+                  <p className="font-black">Health area of focus</p>
                   <input
                     type="text"
                     value={event.healthareaoffocusname.substring(1)}
@@ -252,14 +257,14 @@ const PostEventReport = ({
             <div className=" p-5 rounded-tl-md rounded-tr-md">
             <h3 className=" font-black">Event details</h3>
             
-            <PostEventReportSection1 />
-            <PostEventReportSection2 />
-            <PostEventReportSection3 />
-            <PostEventReportSection4 />
-            <PostEventReportSection5 />
-            <PostEventReportSection6 />
-            <PostEventReportSection7 />
-            <PostEventReportSection8 />
+            <PostEventReportSection1 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection2 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection3 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection4 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection5 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection6 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm}/>
             </div>
             <div className=" p-5 rounded-tl-md rounded-tr-md">
             <h3 className=" font-black">Event organization and promotion</h3>
@@ -311,15 +316,15 @@ const PostEventReport = ({
           </div>
           <div className="flex justify-center my-10">
           <button
-            className="py-2 px-5 flex items-center rounded bg-violet text-white font-semibold"
+            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
             onClick={submitPostEventForm}
           >
-            <img
+           {/*  <img
               src="/check-save-and-finish.svg"
               alt="register event icon"
               className="mr-2"
-            />
-            Save event report
+            /> */}
+            Save report
           </button>
           </div>
         </div>
