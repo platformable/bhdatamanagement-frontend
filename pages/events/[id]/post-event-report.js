@@ -98,15 +98,16 @@ const router = useRouter()
       position: toast.POSITION.TOP_CENTER,
       
     });
-    setTimeout(()=>{
-      router.back()
-    },1500)
+   
    }
 
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
     console.log("eventForm",eventForm)
     notifyMessage()
+  /*   setTimeout(()=>{
+      router.back()
+    },1000) */
     /* if (!isEmpty) {
       axios
         .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
@@ -338,7 +339,7 @@ const router = useRouter()
               alt="register event icon"
               className="mr-2"
             /> */}
-            Save report
+            Save
           </button>
           </div>
         </div>

@@ -11,7 +11,7 @@ const PostEventReportSection14 = () => {
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
         {eventChecklist &&
           eventChecklist.map((eventItem, index) => (
-            <label className="text-lg grid" key={index} style={{gridTemplateColumns: '1fr 16fr'}}>
+            <label className=" grid" key={index} style={{gridTemplateColumns: '1fr 16fr'}}>
               <input
                 type="checkbox"
                 name="eventChecklist"

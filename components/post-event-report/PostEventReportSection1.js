@@ -20,7 +20,7 @@ const PostEventReportSection1 = ({eventForm, setEventForm}) => {
             <label className="text-lg flex items-center" key={index}>
               <input
                 type="radio"
-                name={area}
+                name="workArea"
                 className="mr-10 w-4 h-4"
                 value={area}
                 id={index}
@@ -28,7 +28,7 @@ const PostEventReportSection1 = ({eventForm, setEventForm}) => {
                 onChange={(e) =>
                   setEventForm((previous) => ({
                     ...previous,
-                    [e.target.name]: true,
+                    [e.target.name]: area,
                   }))
                 }
               />
@@ -37,7 +37,7 @@ const PostEventReportSection1 = ({eventForm, setEventForm}) => {
 
           );
         })}
-        <input type="text" placeholder="" className="border-black rounded self-start p-1" />
+        <input type="text" placeholder="" className="border-black rounded self-start p-1"  />
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const PostEventReportSection13 = () => {
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
         {languajes &&
           languajes.map((lang, index) => (
-            <label className="text-lg flex items-center" key={index}>
+            <label className="flex items-center" key={index}>
               <input
                 type="checkbox"
                 name="languages"
