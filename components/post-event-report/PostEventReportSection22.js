@@ -11,28 +11,28 @@ const PostEventReportSection22 = ({eventForm, setEventForm}) => {
   return (
     <>
       <div className="p-5 rounded py-10">
-        <h2 className="mb-3 font-black">
+        <h2 className="font-black">
           <span className="">22 </span>
           What testing was done at the event
         </h2>
-        <div className="grid grid-cols-1">
+        <div className="grid mt-5 grid-cols-1 gap-5">
           <label className="flex gap-x-10">
-            <input type="checkbox" name="hivTesting" onChange={handleForm} />
+            <input type="checkbox" className="w-6 h-6" name="hivTesting" onChange={handleForm} />
          {' '} HIV Testing
           </label>
           <label className="flex gap-x-10">
-            <input type="checkbox" name="stiTesting" onChange={handleForm} />
+            <input type="checkbox" className="w-6 h-6" name="stiTesting" onChange={handleForm} />
             {' '}  STI Testing
           </label>
 
           <label className="flex gap-x-10">
-            <input type="checkbox" name="hepCTesting" onChange={handleForm} />
+            <input type="checkbox" className="w-6 h-6" name="hepCTesting" onChange={handleForm} />
             {' '}   Hep C Testing
           </label>
 
           <label className="flex gap-x-10">
             <input
-              type="checkbox"
+              type="checkbox" className="w-6 h-6"
               name="bloodPressureTesting"
               onChange={handleForm}
             />
@@ -42,7 +42,7 @@ const PostEventReportSection22 = ({eventForm, setEventForm}) => {
 
           <label className="flex gap-x-10">
             <input
-              type="checkbox"
+              type="checkbox" className="w-6 h-6"
               name="cholesterolTesting"
               onChange={handleForm}
             />
@@ -51,12 +51,12 @@ const PostEventReportSection22 = ({eventForm, setEventForm}) => {
           </label>
 
           <label className="flex gap-x-10">
-            <input type="checkbox" name="covidTesting" onChange={handleForm} />
+            <input type="checkbox" className="w-6 h-6" name="covidTesting" onChange={handleForm} />
             {' '}  COVID-19 Testing
           </label>
 
           <label className="flex gap-x-10">
-            <input type="checkbox" name="otherTesting" onChange={handleForm} />
+            <input type="checkbox" className="w-6 h-6" name="otherTesting" onChange={handleForm} />
             {' '}  Other Testing
           </label>
         </div>
