@@ -9,6 +9,7 @@ import Section7 from "../../../components/events/Section7";
 import Section8 from "../../../components/events/Section8";
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
+import { useRouter } from 'next/router'
 
 import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
@@ -16,6 +17,7 @@ import axios from "axios"
 import ResponseStatusModal from "../../../components/ResponseStatusModal";
 
 const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => {
+  const router = useRouter()
   const { user, error, isLoading } = useUser();
   const [showResponseStatus, setShowResponseStatus] = useState(false)
   const [responseStatus, setResponseStatus] = useState ({})
@@ -57,6 +59,9 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
             if (response.data.statusText==='OK') {
               setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
               setShowResponseStatus(!showResponseStatus)
+              setTimeout(()=>{
+                router.push("/events") 
+             },1500 )
             } 
         })
         .catch(function (error) {

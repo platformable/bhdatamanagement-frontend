@@ -65,7 +65,7 @@ export default function Dashboard() {
               </h2>
 
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2">
-              <div className="text-center mr-5 rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
+              <div className="text-center mr-5 rounded bg-violet p-5 text-center shadow-xl   mb-2 rounded-xl">
             <Link href="/events/register">
               <button id="myBtn">
                 <div className="flex justify-center">
@@ -81,7 +81,7 @@ export default function Dashboard() {
               </button>
             </Link>
           </div>
-          <div className="text-center mr-5 rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
+          <div className="text-center mr-5 rounded bg-violet p-5 text-center shadow-xl   mb-2 rounded-xl">
             <Link href="/events">
               <button id="myBtn">
                 <div className="">
@@ -104,7 +104,7 @@ export default function Dashboard() {
             <div></div>
                 <Link href="/historicalData">
                   <button id="myBtn">
-                    <div className="text-center mr-5 rounded bg-purple-800 p-5 text-center shadow-xl   mb-2 rounded-xl">
+                    <div className="text-center mr-5 rounded bg-violet p-5 text-center shadow-xl   mb-2 rounded-xl">
                       <div className="">
                         <div className="flex justify-center">
                           <img

@@ -108,8 +108,6 @@ if(userid!=="All"){
 
 
 
-  console.log("user", user);
-
   return (
     <>
       <ToastContainer autoClose={60000} />
@@ -153,7 +151,7 @@ if(userid!=="All"){
 
                 <Link href="/historicalData">
                     <div className="text-center mr-5 ">
-                      <div className="rounded bg-purple-800 p-5 text-center shadow-xl mb-2 rounded-xl">
+                      <div className="rounded bg-violet p-5 text-center shadow-xl mb-2 rounded-xl">
                         <button id="myBtn">
                           <div className="flex justify-center">
                             <img src="/download_historical_data_icon.svg" alt="" width={85}/>
