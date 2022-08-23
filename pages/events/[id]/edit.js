@@ -83,8 +83,8 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
         dashboardBtn={true}
         pageTitle={"Update event"}
       />
-      <div className="container mx-auto md:px-0 px-5 flex flex-col items-center">
-        <div className="register-envent-form-container  grid gap-1 bg-white border-dark-violet rounded-lg p-1 my-10 shadow-lg">
+      <div className="container mx-auto md:px-0 px-5 items-center">
+        <div className="register-envent-form-container  grid gap-1 bg-white border rounded-lg p-5 my-10 shadow-lg">
           <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} event={event}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes} event={event}/>
@@ -96,10 +96,12 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
           <Section7 eventForm={eventForm} setEventForm={setEventForm} locationTypes={locationTypes} event={event}/>
           <Section8 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
         </div>
-        <button className="py-2 px-5 flex items-center rounded bg-violet text-white font-semibold" onClick={submitEventForm}>
-            <img src="/check-save-and-finish.svg" alt="register event icon" className="mr-2"/>
+        <div className="py-5 flex justify-center">
+        <button className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold" onClick={submitEventForm}>
+            {/* <img src="/check-save-and-finish.svg" alt="register event icon" className="mr-2"/> */}
             Update event
         </button>
+        </div>
       </div>    
     </Layout>
     {showResponseStatus && <ResponseStatusModal setShowResponseStatus={setShowResponseStatus} responseStatus={responseStatus}/>}
