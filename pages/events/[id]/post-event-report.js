@@ -105,9 +105,9 @@ const router = useRouter()
     const isEmpty = Object.values(eventForm).some((value) => !value);
     console.log("eventForm",eventForm)
     notifyMessage()
-  /*   setTimeout(()=>{
+    setTimeout(()=>{
       router.back()
-    },1000) */
+    },1500)
     /* if (!isEmpty) {
       axios
         .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)

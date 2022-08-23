@@ -3,7 +3,9 @@ import React from "react";
 const PostEventReportSection18 = () => {
   return (
     <div className="p-5 py-10 rounded">
+       <h2 className="my-5 font-black">In regards to HIV/AIDS prevention and reducing stigma/discrimination</h2>
       <h2 className="mb-3 font-black">
+       
         <span className="">18 </span>
         Describe the highlights from the event
       </h2>
