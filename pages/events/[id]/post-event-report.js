@@ -53,13 +53,7 @@ import PostEventReportSection36 from "../../../components/post-event-report/Post
 import PostEventReportSection37 from "../../../components/post-event-report/PostEventReportSection37";
 import PostEventReportSection38 from "../../../components/post-event-report/PostEventReportSection38";
 import PostEventReportSection39 from "../../../components/post-event-report/PostEventReportSection39";
-import PostEventReportSection40 from "../../../components/post-event-report/PostEventReportSection40";
 
-import PostEventReportSection41 from "../../../components/post-event-report/PostEventReportSection41";
-import PostEventReportSection42 from "../../../components/post-event-report/PostEventReportSection42";
-import PostEventReportSection43 from "../../../components/post-event-report/PostEventReportSection43";
-import PostEventReportSection44 from "../../../components/post-event-report/PostEventReportSection44";
-import PostEventReportSection45 from "../../../components/post-event-report/PostEventReportSection45";
 
 const PostEventReport = ({
   event,
@@ -287,9 +281,30 @@ const PostEventReport = ({
             <PostEventReportSection19 />
             <PostEventReportSection20 />
             <PostEventReportSection21 eventForm={eventForm} setEventForm={setEventForm}/>
+            
+            {eventForm.eventTestingDone && 
+            <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm}/> } 
+            
+            {eventForm.hivTesting && 
+            <PostEventReportSection23 eventForm={eventForm} setEventForm={setEventForm}/>}
+            
+            {eventForm.otherTesting && 
+            <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm}/>}
 
-            <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm}/>
+            {eventForm.hepCTesting && 
+            <PostEventReportSection25 eventForm={eventForm} setEventForm={setEventForm}/>}
 
+            {eventForm.stiTesting && 
+            <PostEventReportSection26 eventForm={eventForm} setEventForm={setEventForm}/>}
+
+            {eventForm.bloodPressureTesting && 
+            <PostEventReportSection27 eventForm={eventForm} setEventForm={setEventForm}/>}
+
+            {eventForm.cholesterolTesting && 
+            <PostEventReportSection28 eventForm={eventForm} setEventForm={setEventForm}/>}
+          
+            {eventForm.covidTesting && 
+            <PostEventReportSection29 eventForm={eventForm} setEventForm={setEventForm}/>}
             </div>
            
 
