@@ -3,12 +3,12 @@ import DemographicSurveySection from './DemographicSurveySection'
 const PostEventReportSection25 = ({setEventForm}) => {
   
   return (
-    <div className="grid grid-cols-1 gap-7 mt-10">
+    <div className="p-5 grid grid-cols-1 gap-7 mt-10">
     <h2 className="font-black">Hepatitis C Testing</h2>
     <label className="flex gap-5">
     <div className="w-40">   Hepatitis C Testing Agency</div>
       <input
-        className="border-black ml-2"
+        className="border-black ml-2 p-2"
         type="text"
         /* placeholder="Please specify" */
         name="hepCTestingAgency"
@@ -23,7 +23,7 @@ const PostEventReportSection25 = ({setEventForm}) => {
     <label className="flex gap-5">
     <div className="w-40">   Total tested for Hepatitis C</div>
       <input
-        className="border-black ml-2"
+        className="border-black ml-2 p-2"
         type="number"
         /* placeholder="type a number" */
         name="hepCTestedTotal"
@@ -38,7 +38,7 @@ const PostEventReportSection25 = ({setEventForm}) => {
     <label className="flex gap-5">
     <div className="w-40">   Total # of Reactive Results</div>
       <input
-        className="border-black ml-2"
+        className="border-black ml-2 p-2"
         type="number"
         /* placeholder="type a number" */
         name="hepCReactiveResults"
@@ -53,7 +53,7 @@ const PostEventReportSection25 = ({setEventForm}) => {
     <label className="flex gap-5">
     <div className="w-40">   Total # Linked to Care</div>
       <input
-        className="border-black ml-2"
+        className="border-black ml-2 p-2"
         type="number"
         /* placeholder="type a number" */
         name="hepCLinkedToCare"
@@ -68,7 +68,7 @@ const PostEventReportSection25 = ({setEventForm}) => {
     <label className="flex gap-5">
     <div className="w-40">   Which services were they referred to? </div>
       <input
-        className="border-black ml-2"
+        className="border-black ml-2 p-2"
         type="text"
         /* placeholder="type a number" */
         name="hepCServicesReferredTo"

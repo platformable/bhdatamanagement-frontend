@@ -523,7 +523,7 @@ console.log("event",event)
                   <p className="font-black">Health area of focus</p>
                   <input
                     type="text"
-                    value={event.healthareaoffocusname.substring(0)}
+                    value={event.healthareaoffocusname.substring(1)}
                     id="program"
                     className=" rounded self-start p-1 w-full  px-2 "
                     disabled
@@ -629,7 +629,7 @@ console.log("event",event)
             <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm}/>
             </div>
-            <div className=" p-5 rounded-tl-md rounded-tr-md">
+            <div className="p-5 rounded-tl-md rounded-tr-md">
             <h3 className=" font-black">Event organization and promotion</h3>
             {/* <div className="grid md:grid-cols-2 grid-cols-1"> */}
             <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm}/>
@@ -656,14 +656,11 @@ console.log("event",event)
             {eventForm.hivTesting && 
             <PostEventReportSection23 eventForm={eventForm} setEventForm={setEventForm}/>}
             
-            {eventForm.otherTesting && 
-            <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm}/>}
+            {eventForm.stiTesting && 
+            <PostEventReportSection26 eventForm={eventForm} setEventForm={setEventForm}/>}
 
             {eventForm.hepCTesting && 
             <PostEventReportSection25 eventForm={eventForm} setEventForm={setEventForm}/>}
-
-            {eventForm.stiTesting && 
-            <PostEventReportSection26 eventForm={eventForm} setEventForm={setEventForm}/>}
 
             {eventForm.bloodPressureTesting && 
             <PostEventReportSection27 eventForm={eventForm} setEventForm={setEventForm}/>}
@@ -673,7 +670,10 @@ console.log("event",event)
           
             {eventForm.covidTesting && 
             <PostEventReportSection29 eventForm={eventForm} setEventForm={setEventForm}/>}
-            </div>
+
+            {eventForm.otherTesting && 
+            <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm}/>}
+          </div>
            
 
           </div>

@@ -20,7 +20,7 @@ const dataFieldStrings = (raiz) => {
     hivGenderDeclinedToAnswer,
   ]
 }
-const GenderSurveySection = ({setEventForm, typeOfTest}) => {
+const GenderSurveySection = ({setEventForm, typeOfTest, typeOfTestForTitles}) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest])
 
   const handleForm =(e) => {
@@ -29,7 +29,7 @@ const GenderSurveySection = ({setEventForm, typeOfTest}) => {
   return (
     <div className='grid grid-cols-1 gap-5'>
       
-      <h2 className='font-black'>Gender</h2>
+      <h2 className='font-black'>Gender: How many people identified as the following for {typeOfTestForTitles(typeOfTest)} Testing</h2>
       <label className='flex gap-x-5'><p className="w-40">Female</p>
       <input type="number" name={fields[0]} onChange={handleForm} className="border-black p-1"/>
       </label>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Layout from '../../../components/Layout';
 import PageTopHeading from "../../../components/PageTopHeading";
@@ -7,6 +7,65 @@ import Link from "next/link";
 
 
 export const Upload_event = ({event}) => {
+  const [file, setFile] = useState(null);
+  const [fileName, setFileName] = useState("");
+
+  const onSubmitFile = async(e) => {
+    e.preventDefault()
+
+    // setLoading(true)
+
+    const form = new FormData();
+    const blob = new Blob([file], {
+        type: "text/plain"
+    })
+    form.append('file', blob);  
+    const fileFormat= fileName.split(".")[1];
+
+    const dateNow = JSON.stringify(new Date());
+   
+    const headerDataForUpload = {
+        "autorename": false,
+        "mode": "add",
+        "mute": false,
+        "path": `/uploads/${dateNow}.${fileFormat}`,
+        "strict_conflict": false
+    };
+    
+    try {
+        const tokenResponse = await fetch (`${process.env.NEXT_PUBLIC_SERVER_URL}/access_token`)
+        const token = await tokenResponse.json()
+        const response = await fetch("https://content.dropboxapi.com/2/files/upload", {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${token.access_token}`,
+                "Content-Type":"application/octet-stream",
+                'Dropbox-API-Arg': JSON.stringify(headerDataForUpload),
+          },
+          body: blob
+
+        })
+        // setLoading(false)
+
+        if(response.status === 200) {
+            const data = await response.json();
+            setFile(null);
+            setFileName("")
+            // setUploadSuccess(!uploadSuccess)
+        }
+    } catch(error) {
+        // setLoading(false)
+        // setError(error.message)
+        console.error(error)
+    };
+    
+};
+const onHandleFile = (event) => {
+    // setUploadSuccess(false)
+    setFile(event.target.files[0])
+    setFileName(event.target.files[0].name)
+    onSubmitFile(event)
+}
   return (
    <Layout>
     <PageTopHeading backBtn={true} dashboardBtn={true} pageTitle={"Upload Event Documents"}/>
@@ -47,9 +106,9 @@ export const Upload_event = ({event}) => {
     
 
     <div className="container mx-auto my-5">
-    <div>
-                <h3 className="text-center">Upload your documents to the followgin events folders</h3>
-              </div>
+        <div>
+          <h3 className="text-center">Upload your documents to the followin events folders</h3>
+        </div>
     </div>
 
     <div className="container mx-auto">
@@ -68,6 +127,13 @@ export const Upload_event = ({event}) => {
       <p className="my-5 font-bold text-black uppercase">
        Upload documents and flyers
       </p>
+      <input 
+        type='file'
+        name="file"
+        onChange={(event) => onHandleFile(event)}
+        accept=".txt,.pdf,.csv,.xlsx"
+      />
+
     </div>{" "}
   </button>
 
@@ -85,6 +151,12 @@ export const Upload_event = ({event}) => {
       <p className="my-5 font-bold text-black uppercase">
        Upload event photos
       </p>
+      <input 
+        type='file'
+        name="file"
+        onChange={(event) => onHandleFile(event)}
+        accept=".jpeg, .jpg, .png"
+      />
     </div>{" "}
   </button>
 

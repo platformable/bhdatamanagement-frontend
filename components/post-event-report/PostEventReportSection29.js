@@ -3,12 +3,12 @@ import DemographicSurveySection from './DemographicSurveySection'
 
 const PostEventReportSection29 = ({setEventForm}) => {
   return (
-    <div className="grid grid-cols-1 gap-7 my-10">
-    <h2 className="font-black">Covid 19 Testing</h2>
+    <div className="p-5 grid grid-cols-1 gap-7 my-10">
+    <h2 className="font-black">COVID-19 Testing</h2>
     <label className="flex gap-5">
-      <p className="w-40">Covid Testing Agency</p>
+      <p className="w-40">COVID Testing Agency</p>
       <input
-        className="border-black ml-2"
+        className="border-black ml-2 p-2"
         type="text"
         //placeholder="Please specify"
         name="covidTestingAgency"
@@ -23,7 +23,7 @@ const PostEventReportSection29 = ({setEventForm}) => {
     <label className="flex gap-5">
       <p>Total tested for COVID-19</p>
       <input
-        className="border-black ml-2"
+        className="border-black ml-2 p-2"
         type="number"
         //placeholder="type a number"
         name="covidTestedTotal"
