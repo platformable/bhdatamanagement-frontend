@@ -1,7 +1,7 @@
 import React from "react";
 import { workArea } from "../../utils/sharedData";
 const PostEventReportSection1 = ({eventForm, setEventForm}) => {
-  console.log("eventForm",eventForm)
+  
   const styles = {
     display: "grid",
     // gridTemplateColumns: "repeat(1,1fr)",

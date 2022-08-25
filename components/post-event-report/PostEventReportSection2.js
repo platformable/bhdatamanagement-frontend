@@ -3,7 +3,7 @@ import React from 'react'
 import { roles } from '../../utils/sharedData'
 
 const PostEventReportSection2 = ({eventForm, setEventForm}) => {
-  console.log("eventForm",eventForm)
+  
   const styles = {
     display: "grid",
     gridTemplateColumns: "repeat(5,1fr)",
@@ -29,7 +29,7 @@ const PostEventReportSection2 = ({eventForm, setEventForm}) => {
             onChange={(e) =>
               setEventForm((previous) => ({
                 ...previous,
-                [e.target.name]: role,
+                [e.target.name]: role
               }))
             }
           />
@@ -43,11 +43,17 @@ const PostEventReportSection2 = ({eventForm, setEventForm}) => {
         <label className="text-lg flex items-center" key={index}>
           <input
             type="radio"
-            name="roles"
+            name="mainRole"
             className="mr-10 w-4 h-4"
             value={role}
             id={index}
             //defaultChecked={program.id===event?.programid?'checked':""}
+            onChange={(e) =>
+              setEventForm((previous) => ({
+                ...previous,
+                [e.target.name]: role
+              }))
+            }
           />
           {role}
           

@@ -45,17 +45,6 @@ import PostEventReportSection26 from "../../../components/post-event-report/Post
 import PostEventReportSection27 from "../../../components/post-event-report/PostEventReportSection27";
 import PostEventReportSection28 from "../../../components/post-event-report/PostEventReportSection28";
 import PostEventReportSection29 from "../../../components/post-event-report/PostEventReportSection29";
-import PostEventReportSection30 from "../../../components/post-event-report/PostEventReportSection30";
-
-import PostEventReportSection31 from "../../../components/post-event-report/PostEventReportSection31";
-import PostEventReportSection32 from "../../../components/post-event-report/PostEventReportSection32";
-import PostEventReportSection33 from "../../../components/post-event-report/PostEventReportSection33";
-import PostEventReportSection34 from "../../../components/post-event-report/PostEventReportSection34";
-import PostEventReportSection35 from "../../../components/post-event-report/PostEventReportSection35";
-import PostEventReportSection36 from "../../../components/post-event-report/PostEventReportSection36";
-import PostEventReportSection37 from "../../../components/post-event-report/PostEventReportSection37";
-import PostEventReportSection38 from "../../../components/post-event-report/PostEventReportSection38";
-import PostEventReportSection39 from "../../../components/post-event-report/PostEventReportSection39";
 
 
 const PostEventReport = ({
@@ -73,23 +62,22 @@ const PostEventReport = ({
     eventDateCreated: new Date(),
     programID: event?.programid,
     programName: event?.programname,
-    eventName: "",
-    eventDate: "",
-    eventStartTime: "",
-    eventFinishTime: "",
-    eventLocationTypeID: "",
-    eventLocationTypeName: "",
-    // eventZipCode: "",
-    healthAreaOfFocusID: "",
-    healthAreaOfFocusName: "",
-    eventTypeID: "",
-    eventTypeName: "",
+    eventName: event?.eventname,
+    eventDate: event && new Date(event.eventdate),
+    eventStartTime: event?.eventstarttime,
+    eventFinishTime: event?.eventfinishtime,
+    eventLocationTypeID: event?.eventlocationtypeid,
+    eventLocationTypeName: event?.eventlocationtypename,
+    healthAreaOfFocusID: event?.healthareaoffocusid,
+    healthAreaOfFocusName: event?.healthareaoffocusname,
+    eventTypeID: event?.eventtypeid,
+    eventTypeName: event?.eventtypename,
   });
   const userId = user && user.sub;
 const router = useRouter()
+console.log("event",event)
   useEffect(() => {
     setEventForm({ ...eventForm, userID: userId });
-    console.log("eventForm",eventForm)
     
   }, [userId]);
 
@@ -104,13 +92,13 @@ const router = useRouter()
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
     console.log("eventForm",eventForm)
-    notifyMessage()
+/*     notifyMessage()
     setTimeout(()=>{
       router.back()
-    },1500)
-    /* if (!isEmpty) {
+    },1500) */
+    // if (!isEmpty) {
       axios
-        .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
+        .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/create`, eventForm)
         .then((response) => {
           if (response.data.statusText === "OK") {
             setResponseStatus({
@@ -128,13 +116,13 @@ const router = useRouter()
           setShowResponseStatus(!showResponseStatus);
           console.error("error: ", error);
         });
-    } else {
-      setResponseStatus({
-        success: false,
-        statusMessage: "Please complete all the fields",
-      });
-      setShowResponseStatus(!showResponseStatus);
-    } */
+    // } else {
+      // setResponseStatus({
+      //   success: false,
+      //   statusMessage: "Please complete all the fields",
+      // });
+      // setShowResponseStatus(!showResponseStatus);
+   // }
   };
 
   const programAndAreaStyles = {
@@ -284,22 +272,22 @@ const router = useRouter()
             <div className=" p-5 rounded-tl-md rounded-tr-md">
             <h3 className=" font-black">Event organization and promotion</h3>
             {/* <div className="grid md:grid-cols-2 grid-cols-1"> */}
-            <PostEventReportSection9 />
-            <PostEventReportSection10 />
+            <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm}/>
 
-            <PostEventReportSection11 />
-            <PostEventReportSection12 />
+            <PostEventReportSection11 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection12 eventForm={eventForm} setEventForm={setEventForm}/>
             {/* </div> */}
-            <PostEventReportSection13 />
-            <PostEventReportSection14 />
-            <PostEventReportSection15 />
+            <PostEventReportSection13 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection14 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection15 eventForm={eventForm} setEventForm={setEventForm}/>
             {/* <div className="grid md:grid-cols-2 grid-cols-1"> */}
-            <PostEventReportSection16 />
-            <PostEventReportSection17 />
+            <PostEventReportSection16 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection17 eventForm={eventForm} setEventForm={setEventForm}/>
             {/* </div> */}
-            <PostEventReportSection18 />
-            <PostEventReportSection19 />
-            <PostEventReportSection20 />
+            <PostEventReportSection18 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection19 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection21 eventForm={eventForm} setEventForm={setEventForm}/>
             
             {eventForm.eventTestingDone && 

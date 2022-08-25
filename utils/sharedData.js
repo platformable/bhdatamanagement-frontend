@@ -156,15 +156,24 @@ export const languajes = [
 ];
 
 export const eventChecklist = [
-  "Participants completed a sign in registration at the start of the session (online).",
-  "The event started on time.",
-  "The event finished on time.",
-  "For meetings/workshops/training/town halls/webinars: Participants were greeted by someone from the program.",
-  "Resources were available to participants.",
-  "If photos were taken, participants signed a photo usage form.",
-  "Hand sanitizer was available.",
-  "For meetings/workshops/training/town halls/webinars: Participants were reminded that the workshop area is a safe space and to treat each other respectfully and within the workshop guidelines.",
-  "For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
+  {event:"Participants completed a sign in registration at the start of the session (online).",
+  dataField:"participantRegistrationForm"},
+  {event:"The event started on time.",
+dataField:"eventStartedOnTime"},
+  {event:"The event finished on time.",
+dataField:"eventFinishedOnTime"},
+  {event:"For meetings/workshops/training/town halls/webinars: Participants were greeted by someone from the program.",
+dataField:"participantGreeted"},
+  {event:"Resources were available to participants.",
+dataField:"resourcesAvailable"},
+  {event:"If photos were taken, participants signed a photo usage form.",
+dataField:"photoRelease"},
+  {event:"Hand sanitizer was available.",
+dataField:"handSanitizerAvailable"},
+  {event:"For meetings/workshops/training/town halls/webinars: Participants were reminded that the workshop area is a safe space and to treat each other respectfully and within the workshop guidelines.",
+dataField:"reminderSafeSpace"},
+  {event:"For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
+dataField:"reminderPostEvaluationSurvy"},
 ];
 
 export const gender = [
@@ -230,57 +239,71 @@ export const resourcesDistributed= [
   {
     source: "/post_Event_report/mask_icon.svg",
     name:"Masks",
+    dataFieldName:"masks"
   },
   {
     source: "/post_Event_report/COVID_literature_icon.svg",
     name:"COVID literature",
+    dataFieldName:"covidLiterature"
   },
   {
     source: "/post_Event_report/COVID_literature_icon.svg",
     name:"Vaccine related literature",
+    dataFieldName:"vaccineRelatedLiterature"
   },
   {
     source: "/post_Event_report/COVID_literature_icon.svg",
     name:"HIV literature",
+    dataFieldName:"hivLiterature"
   },
   {
     source: "/post_Event_report/COVID_literature_icon.svg",
     name:"HepC literature",
+    dataFieldName:"hepCLiterature"
   },
   {
     source: "/post_Event_report/COVID_literature_icon.svg",
     name:"PrEP literature",
+    dataFieldName:"prepLiterature"
   },
   {
     source: "/post_Event_report/safer_sex_kit_icon.svg",
     name:"Safer sex kits",
+    dataFieldName:"saferSexKits"
   },
   {
     source: "/post_Event_report/COVID_literature_icon.svg",
     name:"Health disparities literature",
+    dataFieldName:"healthDisparitiesLiterature"
   },
   {
     source: "/post_Event_report/bags_boxes_of_food_icon.svg",
     name:"Bags/boxes of food",
+    dataFieldName:"bagsBoxesFood"
   },
   {
     source: "/post_Event_report/poster_icon.svg",
     name:"Posters",
+    dataFieldName:"posters"
   },
   {
     source: "/post_Event_report/ther_event_leaflets_icon.svg",
     name:"Other event leaflets",
+    dataFieldName:"otherEventLeaflets"
   },
   {
     source: "/post_Event_report/prepared_meal_icon.svg",
     name:"Prepared meals",
+    dataFieldName:"preparedMeals"
   },
   {
     source: "/post_Event_report/hand_sanitizers_icon.svg",
     name:"Hand sanitizers",
+    dataFieldName:"handSanitizers"
   },
   {
     source: "/post_Event_report/COVID_site_referral_icon.svg",
     name:"COVID vaccine site referral information/details",
+    dataFieldName:"covidVaccineSiteReferralDetails"
 },]
 

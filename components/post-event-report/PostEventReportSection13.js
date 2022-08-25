@@ -1,8 +1,33 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {languajes} from "../../utils/sharedData";
 
 
-const PostEventReportSection13 = () => {
+const PostEventReportSection13 = ({eventForm, setEventForm}) => {
+  
+  const [data,setData]=useState([])
+
+  const handleForm=(value)=>{
+    const isValueOnData=data?.includes(value)
+   
+    const filteredData=data.filter(oldValues=> oldValues !=value) 
+    
+    isValueOnData?
+    setData(filteredData) :
+    setData((previous)=>([
+      ...previous,value
+    ]))
+
+  }
+
+  useEffect(()=>{
+    setEventForm((previous) => ({
+      ...previous,
+      languajes: data,
+    }))
+  },[data])
+
+
+
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
@@ -18,16 +43,7 @@ const PostEventReportSection13 = () => {
                 className="mr-10 w-6 h-6"
                 value={lang}
                 id={index}
-                // onChange={(e) =>
-                //   setEventForm((previous) => ({
-                //     ...previous,
-                //     programName: e.target.value.toUpperCase(),
-                //     programID: e.target.id,
-                //   }))
-                // }
-                // defaultChecked={
-                //   program.id === event?.programid ? "checked" : ""
-                // }
+                onChange={(e)=>handleForm(e.target.value)}
               />
               {lang}
             </label>

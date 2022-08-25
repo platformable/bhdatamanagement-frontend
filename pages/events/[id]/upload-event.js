@@ -1,0 +1,120 @@
+import React from 'react'
+import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
+import Layout from '../../../components/Layout';
+import PageTopHeading from "../../../components/PageTopHeading";
+
+import Link from "next/link";
+
+
+export const Upload_event = ({event}) => {
+  return (
+   <Layout>
+    <PageTopHeading backBtn={true} dashboardBtn={true} pageTitle={"Upload Event Documents"}/>
+
+    <div className="container mx-auto border-black rounded p-5">
+      <div className="flex justify-between">
+        <div className="w-4/5 ">
+          <h3 className="font-black">Event name</h3>
+          <input type="text" className="bg-gray-50 w-4/5 rounded-lg" value={event?.eventname} disabled/>
+        </div>
+        <div className="w-1/5  flex justify-end">
+          <div className="">
+          <h3 className="font-black">Event name</h3>
+          <input type="text" className="px-5 rounded-lg" value={new Date(event?.eventdate).toLocaleDateString('en-US')} disabled/>
+          
+          </div>
+        </div>
+      </div>
+      <div className="flex justify-center my-5">
+                <Link href={`/events/${event?.id}/edit`}>
+
+                  <button className="bg-black text-white rounded px-2 mr-2 ">
+
+                    <a
+                      className="px-10 py-2 flex  justify-center items-center font-bold"
+                      id="myBtn"
+                    >
+                      {/* <img src="/events/edit_event_icon_button.svg" alt="" /> */}
+                      <p className="ml-2 font-black">Edit event</p>
+                    </a>
+                  </button>
+                </Link>
+              </div>
+
+
+              
+    </div>
+    
+
+    <div className="container mx-auto my-5">
+    <div>
+                <h3 className="text-center">Upload your documents to the followgin events folders</h3>
+              </div>
+    </div>
+
+    <div className="container mx-auto">
+    <div className="text-center mr-5 rounded bg-white  text-center   mb-2 rounded-xl flex justify-center gap-x-5">
+  
+  <button id="myBtn"
+>
+    <div className="border-black rounded p-5" >
+      <div className="flex justify-center ">
+       {/*  <img
+          src="/events/copy_link_icon.svg"
+          alt=""
+          width={85}
+        /> */}
+      </div>
+      <p className="my-5 font-bold text-black uppercase">
+       Upload documents and flyers
+      </p>
+    </div>{" "}
+  </button>
+
+
+  <button id="myBtn"
+>
+    <div className="border-black rounded p-5" >
+      <div className="flex justify-center ">
+       {/*  <img
+          src="/events/copy_link_icon.svg"
+          alt=""
+          width={85}
+        /> */}
+      </div>
+      <p className="my-5 font-bold text-black uppercase">
+       Upload event photos
+      </p>
+    </div>{" "}
+  </button>
+
+</div>
+
+
+
+    </div>
+  
+  </Layout>
+  )
+}
+
+export default Upload_event
+
+export const getServerSideProps = withPageAuthRequired({
+  async getServerSideProps(ctx) {
+    const { id } = ctx.params;
+    const [event, programs, locationTypes, areasOfFocus, eventTypes] =
+      await Promise.all([
+        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`)
+          .then((r) => r.json())
+          .then((response) => response[0])
+          .catch((e)=>console.log(e)),
+     
+      ]);
+    return {
+      props: {
+        event: event,
+      },
+    };
+  },
+});

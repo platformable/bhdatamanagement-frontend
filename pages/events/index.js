@@ -45,7 +45,7 @@ const EventsIndex = ({events}) => {
                 </div>
               </Link>
               
-              <Link href="">
+              <Link href={`events/${event.id}/upload-event`}>
                 <div className="cursor-pointer flex items-center justify-center">
                   <img src="/events/manage/Upload_docs.svg" alt="upload event documents icon"/>
                 </div>

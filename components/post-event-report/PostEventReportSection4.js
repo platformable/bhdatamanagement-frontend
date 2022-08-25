@@ -1,6 +1,31 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 
-const PostEventReportSection4 = () => {
+const PostEventReportSection4 = ({setEventForm,eventForm}) => {
+
+  const [data,setData]=useState([])
+
+  const handleForm=(value)=>{
+    const isValueOnData=data?.includes(value)
+   
+    const filteredData=data.filter(oldValues=> oldValues !=value) 
+    
+    isValueOnData?
+    setData(filteredData) :
+    setData((previous)=>([
+      ...previous,value
+    ]))
+
+  }
+
+  useEffect(()=>{
+    setEventForm((previous) => ({
+      ...previous,
+      nysPrograms: data,
+    }))
+  },[data])
+
+
+ 
   return (
 <div className="p-5 py-10">
       <h2 className="font-black">
@@ -10,12 +35,11 @@ const PostEventReportSection4 = () => {
         <label className="flex  items-center p-2">
             <input 
             type="checkbox" 
-            name="partof"
+            name="nysPrograms"
             value="leadership Training Institute" 
             id="1" 
             className='mr-10 w-6 h-6'
-
-
+            onChange={(e)=>handleForm(e.target.value)}
             />
             Leadership Training Institute       
         </label>
@@ -23,10 +47,11 @@ const PostEventReportSection4 = () => {
         <label className="flex items-center p-2">
             <input 
             type="checkbox" 
-            name="partof"
+            name="nysPrograms"
             value="HIV Hight Impact" 
             id="2" 
             className='mr-10 w-6 h-6'
+            onChange={(e)=>handleForm(e.target.value)}
             />
             HIV Hight Impact       
         </label>

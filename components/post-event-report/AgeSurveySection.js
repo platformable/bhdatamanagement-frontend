@@ -1,18 +1,19 @@
 import React, {useMemo} from 'react'
 const dataFieldStrings = (raiz) => {
-  const hivUnder15  = raiz + "hivUnder15"
-  const hiv16_19 = raiz + "hiv16_19"
-  const hiv20_24 = raiz + "hiv20_24"
-  const hiv25_29 = raiz + "hiv25_29"
-  const hiv30_34 = raiz + "hiv30_34"
-  const hiv35_39 = raiz + "hiv35_39"
-  const hiv40_44 = raiz + "hiv40_44"
-  const hiv45_49 = raiz + "hiv45_49"
-  const hiv50_54 = raiz + "hiv50_54"
-  const hiv55_59 = raiz + "hiv55_59"
-  const hiv60_64 = raiz + "hiv60_64"
-  const hiv65_69 = raiz + "hiv65_69"
-  const hiv70 = raiz + "hiv70"
+  const hivUnder15  = raiz + "Under15"
+  const hiv16_19 = raiz +"16_19"
+  const hiv20_24 = raiz +"20_24"
+  const hiv25_29 = raiz +"25_29"
+  const hiv30_34 = raiz +"30_34"
+  const hiv35_39 = raiz +"35_39"
+  const hiv40_44 = raiz +"40_44"
+  const hiv45_49 = raiz +"45_49"
+  const hiv50_54 =  raiz +"50_54"
+  const hiv55_59 = raiz +"55_59"
+  const hiv60_64 = raiz +"60_64"
+  const hiv65_69 =  raiz +"65_69"
+  const hiv70 =      raiz +"70"
+  const declinedToAnswer = raiz+"DeclinedToAnswer"
 
   return [
     hivUnder15,
@@ -28,13 +29,14 @@ const dataFieldStrings = (raiz) => {
     hiv60_64,
     hiv65_69,
     hiv70,
+    declinedToAnswer
   ]
 }
 const AgeSurveySection = ({setEventForm, typeOfTest}) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest])
 
   const handleForm =(e) => {
-    setEventForm(prev => ({...prev, [e.target.name]: e.target.value}))
+    setEventForm(prev => ({...prev, [e.target.name]: Number(e.target.value)}))
   }
   return (
     <div className='grid gap-5'>

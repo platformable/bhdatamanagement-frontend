@@ -30,7 +30,7 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           onChange={(e) =>
             setEventForm((prev) => ({
               ...prev,
-              [e.target.name]: e.target.value,
+              [e.target.name]: Number(e.target.value),
             }))
           }
         />
@@ -45,7 +45,7 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           onChange={(e) =>
             setEventForm((prev) => ({
               ...prev,
-              [e.target.name]: e.target.value,
+              [e.target.name]: Number(e.target.value)
             }))
           }
         />
@@ -60,7 +60,7 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           onChange={(e) =>
             setEventForm((prev) => ({
               ...prev,
-              [e.target.name]: e.target.value,
+              [e.target.name]: Number(e.target.value)
             }))
           }
         />
@@ -75,7 +75,7 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           onChange={(e) =>
             setEventForm((prev) => ({
               ...prev,
-              [e.target.name]: e.target.value,
+              [e.target.name]: Number(e.target.value)
             }))
           }
         />

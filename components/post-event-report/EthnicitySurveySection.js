@@ -22,7 +22,7 @@ const dataFieldStrings = (raizName) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest])
 
   const handleForm =(e) => {
-    setEventForm(prev => ({...prev, [e.target.name]: e.target.value}))
+    setEventForm(prev => ({...prev, [e.target.name]: Number(e.target.value)}))
   }
   return (
     <div className='grid grid-cols-1 gap-5'>

@@ -30,7 +30,7 @@ const PostEventReportSection29 = ({setEventForm}) => {
         onChange={(e) =>
           setEventForm((prev) => ({
             ...prev,
-            [e.target.name]: e.target.value,
+            [e.target.name]: Number(e.target.value),
           }))
         }
       />

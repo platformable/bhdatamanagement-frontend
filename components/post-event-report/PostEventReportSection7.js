@@ -1,6 +1,7 @@
 import React from "react";
 
-const PostEventReportSection7 = () => {
+const PostEventReportSection7 = ({eventForm,setEventForm}) => {
+
   return (
     <div className="p-5 py-10 rounded">
       <h2 className=" font-black">
@@ -15,14 +16,13 @@ const PostEventReportSection7 = () => {
           name="locationName"
           className="mr-10 w-4 h-4"
           // value={program.name}
-          
-          // onChange={(e) =>
-          //   setEventForm((previous) => ({
-          //     ...previous,
-          //     programName: e.target.value.toUpperCase(),
-          //     programID: e.target.id,
-          //   }))
-          // }
+          value="Black Health Office"
+          onChange={(e) =>
+            setEventForm((previous) => ({
+              ...previous,
+              [e.target.name]:e.target.value
+            }))
+          }
           // defaultChecked={program.id === event?.programid ? "checked" : ""}
         />
         Black Health Office
@@ -33,11 +33,16 @@ const PostEventReportSection7 = () => {
           name="locationName"
           className="mr-10 w-4 h-4"
           value="Other"
-          // id={program.id}
-          // onChange={handleFormId}
+          onChange={(e) =>
+            setEventForm((previous) => ({
+              ...previous,
+              [e.target.name]:e.target.value
+            }))
+          }
         />
         Other
         <input
+        name="locationNameOther"
           // onChange={handleForm}
           type="text"
           className="ml-3 p-1 text-base border-black rounded"

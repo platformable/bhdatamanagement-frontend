@@ -1,7 +1,24 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {eventChecklist} from "../../utils/sharedData";
 
-const PostEventReportSection14 = () => {
+const PostEventReportSection14 = ({eventForm, setEventForm}) => {
+  console.log("eventForm 14",eventForm)
+
+const [data,setData]=useState(false)
+  
+  const handleForm=(field)=>{
+      console.log(field)
+      setEventForm((previous) => ({
+        ...previous,
+        [field]:!eventForm[field]
+      }))
+  
+  }
+
+
+  
+
+// console.log("eventForm",eventForm)
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
@@ -14,22 +31,12 @@ const PostEventReportSection14 = () => {
             <label className=" grid" key={index} style={{gridTemplateColumns: '1fr 16fr'}}>
               <input
                 type="checkbox"
-                name="eventChecklist"
+                name={eventItem.dataField}
                 className="mr-2 mt-1 w-6 h-6"
-                value={eventItem}
                 id={index}
-                // onChange={(e) =>
-                //   setEventForm((previous) => ({
-                //     ...previous,
-                //     programName: e.target.value.toUpperCase(),
-                //     programID: e.target.id,
-                //   }))
-                // }
-                // defaultChecked={
-                //   program.id === event?.programid ? "checked" : ""
-                // }
+                onChange={(e)=>handleForm(e.target.name)}
               />
-              <p className='text-lg'>{eventItem}</p>
+              <p className='text-lg'>{eventItem.event}</p>
             </label>
           ))}
       </div>

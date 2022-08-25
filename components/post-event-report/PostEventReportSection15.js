@@ -1,6 +1,8 @@
 import React from 'react'
 
-const PostEventReportSection15 = () => {
+const PostEventReportSection15 = ({eventForm, setEventForm}) => {
+
+ 
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
@@ -10,12 +12,16 @@ const PostEventReportSection15 = () => {
       <div className='flex gap-5'>
         {/* <img src='/post_event_report/attended_event_icon.svg' alt='adult volunteers icon' /> */}
       <input
-        type="number"
+        type="tel"
         className="p-2 border-black rounded"
         placeholder="type a number"
         name="totalAttendees"
-        // onChange={handleForm}
-        // defaultValue={event?event.eventname:""}
+        onChange={(e) =>
+          setEventForm((previous) => ({
+            ...previous,
+            [e.target.name]:Number(e.target.value)
+          }))
+        }
       />
     </div>
     </div>

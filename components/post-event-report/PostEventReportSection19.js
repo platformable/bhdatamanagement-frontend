@@ -1,6 +1,7 @@
 import React from 'react'
 
-const PostEventReportSection19 = () => {
+const PostEventReportSection19 = ({eventForm,setEventForm}) => {
+ 
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
@@ -14,6 +15,12 @@ const PostEventReportSection19 = () => {
         name="eventChallenges"
         placeholder=""
         contentEditable
+        onChange={(e) =>
+          setEventForm((previous) => ({
+            ...previous,
+            [e.target.name]:e.target.value
+          }))
+        }
       />
     </div>
   )

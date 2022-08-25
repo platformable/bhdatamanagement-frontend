@@ -1,7 +1,8 @@
 import React from 'react'
 import { nysActivity } from '../../utils/sharedData';
 
-const PostEventReportSection3 = () => {
+const PostEventReportSection3 = ({setEventForm,eventForm}) => {
+  
   const styles = {
     display: "grid",
     gridTemplateColumns: "repeat(5,1fr)",
@@ -24,6 +25,12 @@ const PostEventReportSection3 = () => {
             className="mr-10 w-4 h-4"
             value={activity}
             id={index}
+            onChange={(e) =>
+              setEventForm((previous) => ({
+                ...previous,
+                [e.target.name]: activity
+              }))
+            }
             //defaultChecked={program.id===event?.programid?'checked':""}
           />
           {activity}
@@ -41,6 +48,12 @@ const PostEventReportSection3 = () => {
             value={activity}
             id={index}
             //defaultChecked={program.id===event?.programid?'checked':""}
+            onChange={(e) =>
+              setEventForm((previous) => ({
+                ...previous,
+                [e.target.name]: activity
+              }))
+            }
           />
           {activity}
           
@@ -49,30 +62,7 @@ const PostEventReportSection3 = () => {
       )
     }
   })}
-        {/* {nysActivity.map((activity, index) => {
-          console.log(nysActivity)
-          if(index===nysActivity.lenght-1){
-            console.log("este es")
-            return (
-            "Hola"
-            )
-          } else {
-            console.log("este es el otro")
-          return (
-            <label className="text-lg flex items-center" key={index}>
-              <input
-                type="radio"
-                name="nysActivity"
-                className="mr-2 w-4 h-4"
-                value={activity}
-                id={index}
-                //defaultChecked={program.id===event?.programid?'checked':""}
-              />
-              {activity}
-            </label>
 
-          )};
-        })} */}
        
       </div>
 </div>

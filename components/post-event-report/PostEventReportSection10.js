@@ -1,6 +1,7 @@
 import React from 'react'
 
-const PostEventReportSection10 = () => {
+const PostEventReportSection10 = ({eventForm,setEventForm}) => {
+
   return (
     <div className="p-5  rounded">
       <h2 className=" font-black">
@@ -13,9 +14,13 @@ const PostEventReportSection10 = () => {
         type="number"
         className="p-2 border-black rounded"
         placeholder="Type a number"
-        name="intenPresent"
-        // onChange={handleForm}
-        // defaultValue={event?event.eventname:""}
+        name="internPresent"
+        onChange={(e) =>
+          setEventForm((previous) => ({
+            ...previous,
+            [e.target.name]:Number(e.target.value)
+          }))
+        }
       />
     </div>
     </div>
