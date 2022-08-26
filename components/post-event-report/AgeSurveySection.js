@@ -32,7 +32,7 @@ const dataFieldStrings = (raiz) => {
     declinedToAnswer
   ]
 }
-const AgeSurveySection = ({setEventForm, typeOfTest}) => {
+const AgeSurveySection = ({setEventForm, typeOfTest, typeOfTestForTitles}) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest])
 
   const handleForm =(e) => {
@@ -40,7 +40,7 @@ const AgeSurveySection = ({setEventForm, typeOfTest}) => {
   }
   return (
     <div className='grid gap-5'>
-      <h2 className='font-black'>Age</h2>
+      <h2 className='font-black'>Age: How many people were in each of the following age groups for {typeOfTestForTitles(typeOfTest)} Testing</h2>
       <label className='flex gap-x-5'><p className="w-20">Under 15</p><input type="number" name={fields[0]} className='border-black p-1' onChange={handleForm}/></label>
       <label className='flex gap-x-5'><p className="w-20">16-19</p><input type="number" name={fields[1]} className='border-black p-1' onChange={handleForm}/></label>
       <label className='flex gap-x-5'><p className="w-20">20-24</p><input type="number" name={fields[2]} className='border-black p-1' onChange={handleForm}/></label>

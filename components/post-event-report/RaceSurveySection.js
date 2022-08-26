@@ -24,15 +24,15 @@ const dataFieldStrings = (raiz) => {
   ]
 }
 
-const RaceSurveySection = ({setEventForm, typeOfTest}) => {
+const RaceSurveySection = ({setEventForm, typeOfTest, typeOfTestForTitles}) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest])
-  
+
   const handleForm =(e) => {
     setEventForm(prev => ({...prev, [e.target.name]: Number(e.target.value)}))
   }
   return (
     <div className='grid grid-cols-1 gap-5'>
-    <h2 className='font-black'>Race identity of people tested</h2>
+    <h2 className='font-black'>Race: How many people identified with the following for racial identity during {typeOfTestForTitles(typeOfTest)} testing</h2>
     <label className='flex gap-x-5'><p className="w-40">Black or African American</p><input type="number" className="border-black p-1" name={fields[0]} onChange={handleForm}/></label>
     <label className='flex gap-x-5'><p className="w-40">Hispanic, Latino/a or Spanish</p><input type="number" className="border-black p-1" name={fields[1]} onChange={handleForm}/></label>
     <label className='flex gap-x-5'><p className="w-40">Asian</p><input type="number" className="border-black p-1" name={fields[2]} onChange={handleForm}/></label>

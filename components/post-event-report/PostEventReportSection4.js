@@ -32,7 +32,7 @@ const PostEventReportSection4 = ({setEventForm,eventForm}) => {
         <span className="">4</span> Is this part of:
       </h2>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
-        <label className="flex  items-center p-2">
+        <label className="flex items-center p-2">
             <input 
             type="checkbox" 
             name="nysPrograms"
@@ -41,7 +41,7 @@ const PostEventReportSection4 = ({setEventForm,eventForm}) => {
             className='mr-10 w-6 h-6'
             onChange={(e)=>handleForm(e.target.value)}
             />
-            Leadership Training Institute       
+            <p>Leadership Training Institute</p>       
         </label>
 
         <label className="flex items-center p-2">
@@ -53,7 +53,7 @@ const PostEventReportSection4 = ({setEventForm,eventForm}) => {
             className='mr-10 w-6 h-6'
             onChange={(e)=>handleForm(e.target.value)}
             />
-            HIV Hight Impact       
+            <p>HIV High Impact</p>    
         </label>
        
     
