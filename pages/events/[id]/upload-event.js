@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Layout from '../../../components/Layout';
 import PageTopHeading from "../../../components/PageTopHeading";
@@ -8,13 +8,13 @@ import Link from "next/link";
 
 export const Upload_event = ({event}) => {
   const [file, setFile] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
   const [fileName, setFileName] = useState("");
+  console.log("event",event)
 
   const onSubmitFile = async(e) => {
-    e.preventDefault()
-
+  
     // setLoading(true)
-
     const form = new FormData();
     const blob = new Blob([file], {
         type: "text/plain"
@@ -28,7 +28,7 @@ export const Upload_event = ({event}) => {
         "autorename": false,
         "mode": "add",
         "mute": false,
-        "path": `/uploads/${dateNow}.${fileFormat}`,
+        "path": `${event?.folderpath}/${fileName}`,
         "strict_conflict": false
     };
     
@@ -46,26 +46,91 @@ export const Upload_event = ({event}) => {
 
         })
         // setLoading(false)
-
+        console.log("response",response)
         if(response.status === 200) {
+   
             const data = await response.json();
             setFile(null);
             setFileName("")
+            console.log("saved")
             // setUploadSuccess(!uploadSuccess)
         }
     } catch(error) {
         // setLoading(false)
         // setError(error.message)
-        console.error(error)
+        console.error("upload error",error)
     };
-    
+};
+
+const onSubmitImageFile = async(e) => {
+  
+  // setLoading(true)
+  const form = new FormData();
+  const blob = new Blob([imageFile], {
+      type: "text/plain"
+  })
+  form.append('file', blob);  
+  const fileFormat= fileName.split(".")[1];
+
+  const dateNow = JSON.stringify(new Date());
+ 
+  const headerDataForUpload = {
+      "autorename": false,
+      "mode": "add",
+      "mute": false,
+      "path": `${event?.folderpath}/Images/${fileName}`,
+      "strict_conflict": false
+  };
+  
+  try {
+      const tokenResponse = await fetch (`${process.env.NEXT_PUBLIC_SERVER_URL}/access_token`)
+      const token = await tokenResponse.json()
+      const response = await fetch("https://content.dropboxapi.com/2/files/upload", {
+          method: "POST",
+          headers: {
+              "Authorization": `Bearer ${token.access_token}`,
+              "Content-Type":"application/octet-stream",
+              'Dropbox-API-Arg': JSON.stringify(headerDataForUpload),
+        },
+        body: blob
+
+      })
+      // setLoading(false)
+      console.log("response",response)
+      if(response.status === 200) {
+ 
+          const data = await response.json();
+          setFile(null);
+          setFileName("")
+          console.log("saved")
+          // setUploadSuccess(!uploadSuccess)
+      }
+  } catch(error) {
+      // setLoading(false)
+      // setError(error.message)
+      console.error("upload error",error)
+  };
 };
 const onHandleFile = (event) => {
+  console.log("handle file",event)
     // setUploadSuccess(false)
     setFile(event.target.files[0])
     setFileName(event.target.files[0].name)
-    onSubmitFile(event)
 }
+
+const onHandleImageFile = (event) => {
+    // setUploadSuccess(false)
+    setImageFile(event.target.files[0])
+    setFileName(event.target.files[0].name)
+}
+
+console.log("file:",file)
+console.log("fileName:",fileName)
+
+useEffect(()=>{
+  file?  onSubmitFile():""
+  imageFile?  onSubmitImageFile():""
+  },[file,imageFile])
   return (
    <Layout>
     <PageTopHeading backBtn={true} dashboardBtn={true} pageTitle={"Upload Event Documents"}/>
@@ -154,8 +219,8 @@ const onHandleFile = (event) => {
       <input 
         type='file'
         name="file"
-        onChange={(event) => onHandleFile(event)}
-        accept=".jpeg, .jpg, .png"
+        onChange={(event) => onHandleImageFile(event)}
+        accept=".jpeg,.jpg,.png"
       />
     </div>{" "}
   </button>
