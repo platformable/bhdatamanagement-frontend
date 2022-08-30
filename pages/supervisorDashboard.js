@@ -118,7 +118,7 @@ if(userid!=="All"){
       </Head>
 
       <Layout>
-        <main className="bg-light-violet h-screen">
+        <main className="">
           <section id="dashboard-client-list">
             <div className="container mx-auto">
               <section className=" py-5">
@@ -129,16 +129,16 @@ if(userid!=="All"){
               </section>
               
               <h2 className="font-black my-2 md:px-0 px-5">
-                What do you want <span className="bg-yellow">to do</span> today?
+                What do you want <span className="">to do</span> today?
               </h2>
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2">
                 {loggedUserRole === "Supervisor" && (
                   <Link href="/users">
-                    <div className="text-center mr-5 rounded btn-yellow p-5 text-center shadow-xl   mb-2 rounded-xl">
+                    <div className="text-center mr-5 rounded bg-black text-white p-5 text-center shadow-xl   mb-2 rounded-xl">
                       <div className="">
                         <button id="myBtn">
                           <div className="flex justify-center">
-                            <img src="/manage-users-icon.svg" alt="" />
+                           {/*  <img src="/manage-users-icon.svg" alt="" /> */}
                           </div>
                           <p className="my-5 font-bold">
                             MANAGE <br /> USERS
@@ -151,10 +151,10 @@ if(userid!=="All"){
 
                 <Link href="/historicalData">
                     <div className="text-center mr-5 ">
-                      <div className="rounded bg-violet p-5 text-center shadow-xl mb-2 rounded-xl">
+                      <div className="rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl">
                         <button id="myBtn">
                           <div className="flex justify-center">
-                            <img src="/download_historical_data_icon.svg" alt="" width={85}/>
+                            {/* <img src="/download_historical_data_icon.svg" alt="" width={85}/> */}
                           </div>
                           <p className="my-5 font-bold text-white uppercase">
                             Download <br /> Historical Data
