@@ -523,7 +523,9 @@ console.log("event",event)
                   <p className="font-black">Health area of focus</p>
                   <input
                     type="text"
-                    value={event.healthareaoffocusname}
+
+                    value={event.healthareaoffocusname.join(", ")}
+
                     id="program"
                     className=" rounded self-start p-1 w-full  px-2 "
                     disabled

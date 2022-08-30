@@ -34,7 +34,7 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
     eventLocationTypeName: "",
     // eventZipCode: "",
     healthAreaOfFocusID: "",
-    healthAreaOfFocusName: "",
+    healthAreaOfFocusName: [],
     eventTypeID: "",
     eventTypeName: "",
   });

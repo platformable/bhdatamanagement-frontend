@@ -6,8 +6,8 @@ const PostEventReportSection27 = ({setEventForm}) => {
 
     <div className="p-5 grid grid-cols-1 mt-10 gap-7">
     <h2 className="font-black">Blood Pressure Testing</h2>
-    <label className="flex gap-x-10">
-      <div className='w-40'>Blood Pressure Testing Agency</div>
+    <label className="flex gap-5">
+      <p className='w-40 '>Blood Pressure Testing Agency</p>
       <input
         className="border-black ml-2 p-2"
         type="text"
@@ -23,8 +23,8 @@ const PostEventReportSection27 = ({setEventForm}) => {
       />
     </label>
 
-    <label className="flex gap-x-10">
-      <div className='w-40'>Total tested for Blood Pressure</div>
+    <label className="flex gap-5">
+      <p className='w-40 '>Total tested for Blood Pressure</p>
       <input
         className="border-black ml-2 p-2"
         type="number"
@@ -40,8 +40,8 @@ const PostEventReportSection27 = ({setEventForm}) => {
       />
     </label>
 
-    <label className="flex gap-x-10">
-      <div className='w-40'>Total # of Reactive Results</div>
+    <label className="flex gap-5">
+      <p className='w-40 '>Total # of Reactive Results</p>
       <input
         className="border-black ml-2 p-2"
         type="number"
@@ -57,8 +57,8 @@ const PostEventReportSection27 = ({setEventForm}) => {
       />
     </label>
 
-    <label className="flex gap-x-10">
-      <div className='w-40'>Total # Linked to Care</div>
+    <label className="flex gap-5">
+      <p className='w-40 '>Total # Linked to Care</p>
       <input
         className="border-black ml-2 p-2"
         type="number"
@@ -74,8 +74,8 @@ const PostEventReportSection27 = ({setEventForm}) => {
       />
     </label>
 
-    <label className="flex gap-x-10">
-      <div className='w-40'>Which services were they referred to ?</div>
+    <label className="flex gap-5">
+      <p className='w-40 '>Which services were they referred to ?</p>
       <input
         className="border-black ml-2 p-2"
         type="text"

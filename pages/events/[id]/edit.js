@@ -34,8 +34,8 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
     eventLocationTypeID: event?.eventlocationtypeid || "",
     eventLocationTypeName: event?.eventlocationtypename,
     // eventZipCode: "",
-    healthAreaOfFocusID: event?.healthareaoffocusid || "",
-    healthAreaOfFocusName: event?.healthareaoffocusname|| "",
+    healthAreaOfFocusID: event?.healthareaoffocusid || [],
+    healthAreaOfFocusName: event?.healthareaoffocusname|| [],
     eventTypeID: event?.eventtypeid || "",
     eventTypeName: event?.eventtypename,
   });
@@ -88,11 +88,9 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
           <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} event={event}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes} event={event}/>
-          <div className="grid grid-cols-1 md:grid-cols-3">
             <Section4 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
             <Section5 eventForm={eventForm} setEventForm={setEventForm} />
             <Section6 eventForm={eventForm} setEventForm={setEventForm} />
-          </div>
           <Section7 eventForm={eventForm} setEventForm={setEventForm} locationTypes={locationTypes} event={event}/>
           <Section8 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
         </div>

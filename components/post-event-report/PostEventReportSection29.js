@@ -6,7 +6,7 @@ const PostEventReportSection29 = ({setEventForm}) => {
     <div className="p-5 grid grid-cols-1 gap-7 my-10">
     <h2 className="font-black">COVID-19 Testing</h2>
     <label className="flex gap-5">
-      <p className="w-40">COVID Testing Agency</p>
+      <p className="w-40 ">COVID-19 Testing Agency</p>
       <input
         className="border-black ml-2 p-2"
         type="text"
@@ -21,7 +21,7 @@ const PostEventReportSection29 = ({setEventForm}) => {
       />
     </label>
     <label className="flex gap-5">
-      <p>Total tested for COVID-19</p>
+      <p className="w-40 ">Total tested for COVID-19</p>
       <input
         className="border-black ml-2 p-2"
         type="number"

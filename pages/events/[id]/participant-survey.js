@@ -125,11 +125,11 @@ const ParticipantSurvey = ({
       
               <a id="myBtn" href="/events/qrcode_www.surveymonkey.com.png" download>
                 <div className="flex justify-center">
-                  <img
+                  {/* <img
                     src="/events/download_QR_icon.svg"
                     alt=""
                     width={85}
-                  />
+                  /> */}
                 </div>
                 <p className="my-5 font-bold text-black uppercase">
                  Download QR Code
@@ -143,11 +143,11 @@ const ParticipantSurvey = ({
               onClick={()=>addToClipboard()}>
                 <div className="">
                   <div className="flex justify-center ">
-                    <img
+                    {/* <img
                       src="/events/copy_link_icon.svg"
                       alt=""
                       width={85}
-                    />
+                    /> */}
                   </div>
                   <p className="my-5 font-bold text-black uppercase">
                    Copy link to clipboard
@@ -163,11 +163,11 @@ const ParticipantSurvey = ({
                   trigger={() => <button id="myBtn">
                   <div className="">
                     <div className="flex justify-center ">
-                      <img
+                      {/* <img
                         src="/events/print_QR_icon.svg"
                         alt=""
                         width={85}
-                      />
+                      /> */}
                     </div>
                     <p className="my-5 font-bold text-black uppercase">
                      Print the qr code to put up at your event
@@ -188,11 +188,11 @@ const ParticipantSurvey = ({
               {/* <a id="myBtn" href="https://www.surveymonkey.com/r/BH-EVENTS" target="_blank"> */}
                 <div className="">
                   <div className="flex justify-center ">
-                    <img
+                    {/* <img
                       src="/events/go_survey_icon.svg"
                       alt=""
                       width={85}
-                    />
+                    /> */}
                   </div>
                   <p className="my-5 font-bold text-black uppercase">
                    Go to survey

@@ -29,31 +29,35 @@ const EventsIndex = ({events}) => {
         <div className="events-index-btn-container grid grid-cols-1 gap-2  p-0">
           {events && events.map((event, index) => (
             <section key={index} className={`existing-events-head-table px-1 py-3 ${index % 2 !== 0 ? "bg-white" : "border-b border-t"}`}>
-              <div className="flex items-center lg:text-lg justify-center">{event.programname}</div>
-              <div className="flex items-center lg:text-lg pr-2">{event.eventname}</div>
-              <div className="flex items-center lg:text-lg">{event.eventdate && new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</div>
-              <div className="cursor-pointer flex items-center justify-center">
+              <div className="flex items-start lg:text-lg justify-center">{event.programname}</div>
+              <div className="flex items-start lg:text-lg pr-2">{event.eventname}</div>
+              <div className="flex items-start lg:text-lg">{event.eventdate && new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</div>
               <Link href={`events/${event.id}/edit`}>
-                
-                  <img src="/events/manage/edit.svg" alt="edit event icon"/>
-               
-              </Link>
+              <div className="cursor-pointer flex items-start lg:text-lg justify-center">
+
+                  Edit event
+                  {/* <img src="/events/manage/edit.svg" alt="edit event icon"/> */}
               </div>
+
+              </Link>
               <Link href={`/events/${event.id}/participant-survey`}>
-                <div className="cursor-pointer flex items-center justify-center">
-                  <img src="/events/manage/participant_survey.svg" alt="go to participant surveys icon"/>
+                <div className="cursor-pointer flex items-start lg:text-lg justify-center">
+                  Go to participant surveys
+                  {/* <img src="/events/manage/participant_survey.svg" alt="go to participant surveys icon"/> */}
                 </div>
               </Link>
               
               <Link href={`events/${event.id}/upload-event`}>
-                <div className="cursor-pointer flex items-center justify-center">
-                  <img src="/events/manage/Upload_docs.svg" alt="upload event documents icon"/>
+                <div className="cursor-pointer flex items-start lg:text-lg justify-center">
+                Upload event documents
+                  {/* <img src="/events/manage/Upload_docs.svg" alt="upload event documents icon"/> */}
                 </div>
               </Link>
               
               <Link href={`events/${event.id}/post-event-report`}>
-                <div className="cursor-pointer flex items-center justify-center">
-                  <img src="/events/manage/complete_report.svg" alt="complete report icon"/>
+                <div className="cursor-pointer flex items-start lg:text-lg justify-center">
+                Complete post-event survey
+                  {/* <img src="/events/manage/complete_report.svg" alt="complete report icon"/> */}
                 </div>
               </Link>
               

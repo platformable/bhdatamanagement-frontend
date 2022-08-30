@@ -138,7 +138,9 @@ if(userid!=="All"){
                       <div className="">
                         <button id="myBtn">
                           <div className="flex justify-center">
-                           {/*  <img src="/manage-users-icon.svg" alt="" /> */}
+
+                            {/* <img src="/manage-users-icon.svg" alt="" /> */}
+
                           </div>
                           <p className="my-5 font-bold">
                             MANAGE <br /> USERS
