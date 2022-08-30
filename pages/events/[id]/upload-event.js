@@ -196,7 +196,7 @@ useEffect(()=>{
         type='file'
         name="file"
         onChange={(event) => onHandleFile(event)}
-        accept=".txt,.pdf,.csv,.xlsx"
+        accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx"
       />
 
     </div>{" "}
