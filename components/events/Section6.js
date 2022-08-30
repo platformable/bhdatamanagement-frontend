@@ -6,7 +6,7 @@ const Section6 = ({eventForm, setEventForm}) => {
   }
   return (
     <div className="p-5 rounded ">
-      <h2 className="mb-3 font-bold">
+      <h2 className="mb-3 font-black">
         <span className="">6</span> What time will the event finish?
       </h2>
       <input type="time" 

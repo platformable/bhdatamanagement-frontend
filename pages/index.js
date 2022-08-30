@@ -41,7 +41,7 @@ console.log(user)
           <Link href={ `/dashboard`} >
             <a className='w-52'>
             <p className={`${styles.btnIndexPage} bg-black text-white flex items-center justify-between font-bold px-9 py-1  rounded-md test cursor-pointer`}>
-            <img src="/client/user-icon.svg" />
+            {/* <img src="/client/user-icon.svg" /> */}
             Login / Register</p>
           {user && <h3 className="my-5 font-black">{user.name}</h3>} 
             </a>

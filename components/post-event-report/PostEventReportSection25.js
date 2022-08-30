@@ -6,7 +6,7 @@ const PostEventReportSection25 = ({setEventForm}) => {
     <div className="p-5 grid grid-cols-1 gap-7 mt-10">
     <h2 className="font-black">Hepatitis C Testing</h2>
     <label className="flex gap-5">
-    <div className="w-40">   Hepatitis C Testing Agency</div>
+    <p className="w-40">Hepatitis C Testing Agency</p>
       <input
         className="border-black ml-2 p-2"
         type="text"
@@ -21,7 +21,7 @@ const PostEventReportSection25 = ({setEventForm}) => {
       />
     </label>
     <label className="flex gap-5">
-    <div className="w-40">   Total tested for Hepatitis C</div>
+    <p className="w-40">   Total tested for Hepatitis C</p>
       <input
         className="border-black ml-2 p-2"
         type="number"
@@ -36,7 +36,7 @@ const PostEventReportSection25 = ({setEventForm}) => {
       />
     </label>
     <label className="flex gap-5">
-    <div className="w-40">   Total # of Reactive Results</div>
+    <p className="w-40">   Total # of Reactive Results</p>
       <input
         className="border-black ml-2 p-2"
         type="number"
@@ -51,7 +51,7 @@ const PostEventReportSection25 = ({setEventForm}) => {
       />
     </label>
     <label className="flex gap-5">
-    <div className="w-40">   Total # Linked to Care</div>
+    <p className="w-40">   Total # Linked to Care</p>
       <input
         className="border-black ml-2 p-2"
         type="number"
@@ -66,7 +66,7 @@ const PostEventReportSection25 = ({setEventForm}) => {
       />
     </label>
     <label className="flex gap-5">
-    <div className="w-40">   Which services were they referred to? </div>
+    <p className="w-40">   Which services were they referred to? </p>
       <input
         className="border-black ml-2 p-2"
         type="text"

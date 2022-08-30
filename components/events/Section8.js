@@ -1,19 +1,41 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 
 const Section8 = ({event, eventForm, setEventForm}) => {
-    const  capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1)
-    let areas = eventForm.healthAreaOfFocusName.startsWith(",") ? eventForm.healthAreaOfFocusName.substring(1).split(",") : eventForm.healthAreaOfFocusName.split(",") 
-    let ids = eventForm.healthAreaOfFocusID.startsWith(",") ? eventForm.healthAreaOfFocusID.substring(1).split(",") : eventForm.healthAreaOfFocusID.split(",") 
+    // const  capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1)
+    // let areas = eventForm.healthAreaOfFocusName.startsWith(",") ? eventForm.healthAreaOfFocusName.substring(1).split(",") : eventForm.healthAreaOfFocusName.split(",") 
+    // let ids = eventForm.healthAreaOfFocusID.startsWith(",") ? eventForm.healthAreaOfFocusID.substring(1).split(",") : eventForm.healthAreaOfFocusID.split(",") 
+    const [data,setData]=useState({
+      areas: [...eventForm.healthAreaOfFocusName],
+      ids: [...eventForm.healthAreaOfFocusID]
+    })
+    useEffect(() => {
+        setEventForm(previous => ({...previous, healthAreaOfFocusName: data.areas, healthAreaOfFocusID : data.ids}))
+
+    }, [data])
 
     const handleForm = (e) => {
       
-        areas.includes(e.target.value) ? 
-        areas = areas.filter(area => area !== e.target.value) : areas.push(e.target.value)
+        // areas.includes(e.target.value) ? 
+        // areas = areas.filter(area => area !== e.target.value) : areas.push(e.target.value)
 
-        ids.includes(e.target.id) ? 
-        ids = ids.filter(id => id !== e.target.id) : ids.push(e.target.id)
+        // ids.includes(e.target.id) ? 
+        // ids = ids.filter(id => id !== e.target.id) : ids.push(e.target.id)
 
-        setEventForm(previous => ({...previous, healthAreaOfFocusName: areas.toString(), healthAreaOfFocusID : ids.toString()}))
+        // setEventForm(previous => ({...previous, healthAreaOfFocusName: areas.toString(), healthAreaOfFocusID : ids.toString()}))
+
+        const isValueOnData=data.areas.includes(e.target.value) && data.ids.includes(e.target.id)
+   
+        const filteredData=data.areas.filter(oldValues=> oldValues != e.target.value) 
+        const filteredIds=data.ids.filter(oldValues=> oldValues != e.target.id) 
+
+        isValueOnData?
+         setData(previous => ({...previous, areas: filteredData, ids : filteredIds}))
+         :
+        setData((previous)=>({
+          ...previous,
+          areas: [...filteredData, e.target.value],
+          ids: [...filteredIds, e.target.id]
+    }))
     };
     const handleFormId = (e) => {
       setEventForm(previous => ({...previous,  healthAreaOfFocusID : e.target.id}))

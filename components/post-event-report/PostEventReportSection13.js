@@ -9,7 +9,7 @@ const PostEventReportSection13 = ({eventForm, setEventForm}) => {
   const handleForm=(value)=>{
     const isValueOnData=data?.includes(value)
    
-    const filteredData=data.filter(oldValues=> oldValues !=value) 
+    const filteredData=data.filter(oldValues=> oldValues != value) 
     
     isValueOnData?
     setData(filteredData) :

@@ -13,14 +13,11 @@ const DemographicSurveySection = ({setEventForm, eventForm, typeOfTest}) => {
       case('hiv'):
         return string.toUpperCase()
         
-      case('hiv'):
-        return string.toUpperCase()
-        
-      case('hiv'):
+      case('sti'):
         return string.toUpperCase()
       
       case('bloodPressure'):
-        return capitalizeFirstLetter(string)
+        return 'Blood Pressure'
         
       case('hepC'):
         return 'Hepatitis C'

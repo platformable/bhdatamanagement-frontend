@@ -26,7 +26,7 @@ const dataFieldStrings = (raizName) => {
   }
   return (
     <div className='grid grid-cols-1 gap-5'>
-      <h2 className='font-black'>Ethnicity: How many people doing {typeOfTestForTitles(typeOfTest)} testing identified with the following Hispanic and Latin ethnicities?</h2>
+      <h2 className='font-black'>Ethnicity: How many people doing {typeOfTestForTitles(typeOfTest)} testing identified with the following Hispanic and Latin ethnicities ?</h2>
       
       <label className='flex gap-x-5'><p className="w-40">Not of Hispanic, Latino/a or Spanish origin</p><input type="number" className='border-black p-1' name={fields[0]} onChange={handleForm} /></label>
       <label className='flex gap-x-5'><p className="w-40">Mexican, Mexican American or Chicano</p><input type="number" className='border-black p-1' name={fields[1]} onChange={handleForm} /></label>

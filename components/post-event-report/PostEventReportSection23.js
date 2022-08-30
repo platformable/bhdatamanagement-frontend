@@ -6,7 +6,7 @@ const PostEventReportSection23 = ({ setEventForm }) => {
     <div className="p-5 grid grid-cols-1 gap-7 mt-10">
       <h2 className="font-black">HIV Testing</h2>
       <label className="flex gap-5 ">
-        <div className="w-40"> HIV Testing Agency</div>
+        <p className="w-40"> HIV Testing Agency</p>
         <input
           className="border-black ml-2 p-2"
           type="text"
@@ -20,8 +20,8 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-x-5 w-96">
-       <div className="w-40">  Total tested for HIV</div>
+      <label className="flex gap-x-5 ">
+       <p className="w-40">  Total tested for HIV</p>
         <input
           className="border-black ml-2 p-2"
           type="number"
@@ -35,8 +35,8 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-x-5  w-62">
-        <div className="w-40"> Total # of Reactive Results</div>
+      <label className="flex gap-x-5 ">
+        <p className="w-40"> Total # of Reactive Results</p>
         <input
           className="border-black ml-2 p-2"
           type="number"
@@ -50,8 +50,8 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5 w-96">
-        <div className="w-40"> Total # of PrEP Referrals</div>
+      <label className="flex gap-5 ">
+        <p className="w-40"> Total # of PrEP Referrals</p>
         <input
           className="border-black ml-2 p-2"
           type="number"
@@ -65,8 +65,8 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5 w-96">
-       <div className="w-40"> Total # Linked to Care</div>
+      <label className="flex gap-5 ">
+       <p className="w-40"> Total # Linked to Care</p>
         <input
           className="border-black ml-2 p-2"
           type="number"
@@ -80,8 +80,8 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5 w-96">
-      <div className="w-40"> Which services were they referred to? </div>
+      <label className="flex gap-5 ">
+      <p className="w-40"> Which services were they referred to? </p>
         <input
           className="border-black ml-2 p-2"
           type="text"

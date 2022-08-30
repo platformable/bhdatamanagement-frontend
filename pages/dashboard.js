@@ -69,11 +69,11 @@ export default function Dashboard() {
             <Link href="/events/register">
               <button id="myBtn">
                 <div className="flex justify-center">
-                  <img
+                  {/* <img
                     src="/events/register_an_event_icon.svg"
                     alt=""
                     width={85}
-                  />
+                  /> */}
                 </div>
                 <p className="my-5 font-bold text-white uppercase">
                   Register <br /> an Event
@@ -86,11 +86,11 @@ export default function Dashboard() {
               <button id="myBtn">
                 <div className="">
                   <div className="flex justify-center ">
-                    <img
+                    {/* <img
                       src="/events/register_an_event_icon.svg"
                       alt=""
                       width={85}
-                    />
+                    /> */}
                   </div>
                   <p className="my-5 font-bold text-white uppercase">
                     Manage an<br />existing  Event
@@ -107,11 +107,11 @@ export default function Dashboard() {
                     <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl">
                       <div className="">
                         <div className="flex justify-center">
-                          <img
+                          {/* <img
                             src="/download_historical_data_icon.svg"
                             alt=""
                             width={85}
-                          />
+                          /> */}
                         </div>
                         <p className="my-5 font-bold text-white uppercase">
                           Download <br /> Historical Data
