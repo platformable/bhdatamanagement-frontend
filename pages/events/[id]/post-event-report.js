@@ -110,7 +110,7 @@ const PostEventReport = ({
         photoRelease : false,
         handSanitizerAvailable : false,
         reminderSafeSpace : false,
-        reminderPostEvaluationSurvy : false,
+        reminderPostEvaluationSurvey : false,
         totalAttendees : 0,
         textOrCall : 0,
         sendEmail : 0,
