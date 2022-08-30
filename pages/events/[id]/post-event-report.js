@@ -70,7 +70,7 @@ const PostEventReport = ({
     // eventLocationTypeID: event?.eventlocationtypeid,
     eventLocationTypeName: event?.eventlocationtypename,
     // healthAreaOfFocusID: event?.healthareaoffocusid,
-    healthAreaOfFocusName: event?.healthareaoffocusname,
+    healthAreaOfFocusName: event?.healthareaoffocusname.join(', '),
     // eventTypeID: event?.eventtypeid,
     eventTypeName: event?.eventtypename,
         workArea : '',
@@ -110,7 +110,7 @@ const PostEventReport = ({
         photoRelease : false,
         handSanitizerAvailable : false,
         reminderSafeSpace : false,
-        reminderPostEvaluationSurvy : false,
+        reminderPostEvaluationSurvey : false,
         totalAttendees : 0,
         textOrCall : 0,
         sendEmail : 0,
@@ -523,7 +523,9 @@ console.log("event",event)
                   <p className="font-black">Health area of focus</p>
                   <input
                     type="text"
+
                     value={event.healthareaoffocusname.join(", ")}
+
                     id="program"
                     className=" rounded self-start p-1 w-full  px-2 "
                     disabled

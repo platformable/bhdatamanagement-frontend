@@ -72,22 +72,17 @@ export default function AuthorizedUsersIndex({data, users}) {
           <section className='bg-white'>
            <div className="container md:mx-auto"> 
               <div className="flex items-center py-5">
-                <button onClick={() => router.back()} className="bg-light-violet rounded px-2 mr-2">
-                  <a className="pr-5 py-2 flex  items-center font-bold" id="myBtn">
-                  <Image src="/main/back_button_icon.svg" width={22} height={20} />
-                    <p className='ml-2 font-black'>Back</p>
-                  </a>
-                </button>
+                
                 <Link href="/dashboard">
                 <a
-                  className="px-2 py-2  flex bg-light-violet rounded gap-x-2 items-center font-black"
+                  className="px-2 py-2  flex bg-black text-white  rounded gap-x-2 items-center font-black"
                   id=""
                 >
-                  <Image
+                {/*   <Image
                     src="/supervisor/dashboard_icon.svg"
                     width={22}
                     height={20}
-                  />
+                  /> */}
                   Dashboard
                 </a>
                </Link>
@@ -96,14 +91,14 @@ export default function AuthorizedUsersIndex({data, users}) {
                <h1 className='block font-bold '>Manage Users</h1>
 
                <div className="flex justify-center items-center">
-                <button className="rounded bg-yellow px-5 py-2 flex items-center  font-semibold shadow-xl mr-4" id="myBtn" onClick={() => setShowModal(!showModal)}>
-                <Image src={addUserICon} width={31} height={29}/>
+                <button className="rounded bg-black text-white px-5 py-2 flex items-center  font-semibold shadow-xl mr-4" id="myBtn" onClick={() => setShowModal(!showModal)}>
+               {/*  <Image src={addUserICon} width={31} height={29}/> */}
                 <p className='ml-2 text-sm'>Add a new user</p>
                 </button>
 
                 <Link href="/users">
-                <a className="rounded bg-yellow px-5 py-2 flex items-center  font-semibold shadow-xl" id="myBtn">
-                <Image src={authUserICon} width={31} height={29}/>
+                <a className="rounded bg-black text-white px-5 py-2 flex items-center  font-semibold shadow-xl" id="myBtn">
+              {/*   <Image src={authUserICon} width={31} height={29}/> */}
                   <p className='ml-2 text-sm'>View active users</p>
                 </a>
                 </Link>
@@ -114,7 +109,7 @@ export default function AuthorizedUsersIndex({data, users}) {
           
           </div>
               {/* TABLE */}
-          <div id="dashboard-client-list" className="bg-light-violet pb-7 h-screen">
+          <div id="dashboard-client-list" className="pb-7 ">
 
             <div className="dashboard-client-list container mx-auto">
               <h2 className="font-black text-center py-5">Authorized Users</h2>
