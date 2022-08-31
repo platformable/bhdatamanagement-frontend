@@ -42,7 +42,7 @@ const PostEventReportSection28 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5">
+      {/* <label className="flex gap-5">
         <p className="w-40 ">Total # of Reactive Results</p>
         <input
           className="border-black ml-2 p-2"
@@ -59,7 +59,7 @@ const PostEventReportSection28 = ({ setEventForm }) => {
             }))
           }
         />
-      </label>
+      </label> */}
       <label className="flex gap-5">
         <p className="w-40 ">Total # Linked to Care</p>
         <input
