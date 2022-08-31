@@ -43,7 +43,11 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
         Other
         <input
         name="locationNameOther"
-          // onChange={handleForm}
+          onChange={(e) => 
+            setEventForm((previous) => ({
+              ...previous,
+              [e.target.name]:e.target.value
+            }))}
           type="text"
           className="ml-3 p-1 text-base border-black rounded"
           placeholder="Please type location name"
