@@ -7,7 +7,7 @@ import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 
 const EventsIndex = ({events}) => {
-  
+  const sortedEventsByDate  = events.sort((a, b) => new Date(b.eventdate) - new Date(a.eventdate))
   return (
     <Layout>
       <PageTopHeading pageTitle={"Manage Existing Events"} dashboardBtn={true} backBtn={false} />
@@ -27,7 +27,7 @@ const EventsIndex = ({events}) => {
 
 
         <div className="events-index-btn-container grid grid-cols-1 gap-2  p-0">
-          {events && events.map((event, index) => (
+          {sortedEventsByDate && sortedEventsByDate.map((event, index) => (
             <section key={index} className={`existing-events-head-table px-1 py-3 ${index % 2 !== 0 ? "bg-white" : "border-b border-t"}`}>
               <div className="flex items-start lg:text-lg justify-center">{event.programname}</div>
               <div className="flex items-start lg:text-lg pr-2">{event.eventname}</div>
