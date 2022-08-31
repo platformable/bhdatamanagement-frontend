@@ -36,7 +36,7 @@ const PostEventReportSection3 = ({setEventForm,eventForm}) => {
           {activity}
           <input type="text" placeholder="Please specify" 
           className="border border-black rounded px-2 self-start p-1 ml-2"
-          onChange={(e)=>setEventForm({...eventForm,nysactivityother:e.target.value})}
+          onChange={(e)=>setEventForm({...eventForm,nysActivityOther:e.target.value})}
           />
         </label>
 

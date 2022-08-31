@@ -78,7 +78,6 @@ const PostEventReport = ({
         mainRole : '',
         nysActivity : '',
         nysActivityOther : '',
-
         nysPrograms : [],
         zipCode : 0,
         locationAddress : '',
@@ -278,7 +277,7 @@ const PostEventReport = ({
         hepCBisexual : 0,
         hepCQueer : 0,
         hepCQuestioningOrNotSure : 0,
-        hepCSexualOrietnationUnknown : 0,
+        hepCSexualOrientationUnknown : 0,
         hepCSexualOrientationDeclinedToAnswer : 0,
         bloodPressureTestingAgency : '',
         bloodPressureTestedTotal : 0,
@@ -341,7 +340,7 @@ const PostEventReport = ({
         cholesterolGenderNonConforming : 0,
         cholesterolNonBinary : 0,
         cholesterolOtherGenderIdentity : 0,
-        cholesterolOtherGenderDeclinedToAnswer : 0,
+        cholesterolGenderDeclinedToAnswer : 0,
         cholesterolUnder15 : 0,
         cholesterol16_19 : 0,
         cholesterol20_24 : 0,
@@ -436,7 +435,7 @@ const PostEventReport = ({
   });
   const userId = user && user.sub;
 const router = useRouter()
-console.log("event",event)
+// console.log("event",event)
   // useEffect(() => {
   //   setEventForm({ ...eventForm, userID: userId });
     
@@ -445,18 +444,13 @@ console.log("event",event)
   const notifyMessage= ()=>{
     toast.success("Survey saved!", {
       position: toast.POSITION.TOP_CENTER,
-      
     });
-   
    }
 
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
 
-    notifyMessage()
-    setTimeout(()=>{
-      router.back()
-    },1500)
+ 
     // if (!isEmpty) {
       axios
         .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/create`, eventForm)
@@ -467,6 +461,10 @@ console.log("event",event)
               statusMessage: "Your Event has been saved",
             });
             setShowResponseStatus(!showResponseStatus);
+            notifyMessage()
+            setTimeout(()=>{
+              router.back()
+            },1500)
           }
         })
         .catch(function (error) {
@@ -493,7 +491,7 @@ console.log("event",event)
   };
 
 
-
+console.log("eventForm",eventForm)
   return (
     <>
       <Layout>

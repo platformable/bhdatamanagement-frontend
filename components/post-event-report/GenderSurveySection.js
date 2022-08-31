@@ -30,9 +30,13 @@ const GenderSurveySection = ({
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest]);
 
   const handleForm = (e) => {
+    let {value} = e.target
+    let finalValue;
+    value > 100 ? finalValue = 100:finalValue=value
+   
     setEventForm((prev) => ({
       ...prev,
-      [e.target.name]: Number(e.target.value),
+      [e.target.name]: Number(finalValue),
     }));
   };
   return (
@@ -141,7 +145,7 @@ const GenderSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[7]}
-          onChange={handleForm}
+          onChange={()=>handleForm()}
           className="border-black p-1"
         />
       </label>
