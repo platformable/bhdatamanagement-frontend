@@ -12,9 +12,15 @@ const PostEventReportSection15 = ({eventForm, setEventForm}) => {
       <div className='flex gap-5'>
         {/* <img src='/post_event_report/attended_event_icon.svg' alt='adult volunteers icon' /> */}
       <input
-        type="tel"
+        type="number"
+        onWheelCapture={(e) => e.target.blur()}
+        onKeyUp={(e) => {
+          let {value} = e.target
+          value > 1000 && (e.target.value = 1000) 
+        }}
+        maxLength={4}
+        defaultValue={0}
         className="p-2 border-black rounded"
-        placeholder="type a number"
         name="totalAttendees"
         onChange={(e) =>
           setEventForm((previous) => ({

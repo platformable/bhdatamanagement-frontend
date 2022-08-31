@@ -78,6 +78,7 @@ const PostEventReport = ({
         mainRole : '',
         nysActivity : '',
         nysActivityOther : '',
+
         nysPrograms : [],
         zipCode : 0,
         locationAddress : '',
@@ -500,7 +501,8 @@ console.log("event",event)
         <PageTopHeading
           backBtn={true}
           dashboardBtn={true}
-          pageTitle={"Post event report"}
+          pageTitle={"Post event survey"}
+
         />
         <div className="container mx-auto md:px-0 px-5 items-center">
           <div className="post-envent-form-container  border-black grid gap-1 bg-white rounded-lg p-1 my-10 shadow-lg">

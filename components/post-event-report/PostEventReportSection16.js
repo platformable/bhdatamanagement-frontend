@@ -11,9 +11,15 @@ const PostEventReportSection16 = ({eventForm, setEventForm}) => {
       <div className='flex gap-5 justify-start'>
         {/* <img src='/post_event_report/text_call_icon.svg' alt='adult volunteers icon' /> */}
       <input
-        type="tel"
+        type="number"
+        onWheelCapture={(e) => e.target.blur()}
+        onKeyUp={(e) => {
+          let {value} = e.target
+          value > 1000 && (e.target.value = 1000) 
+        }}
+        maxLength={4}
         className="p-2 border-black rounded"
-        placeholder="type a number"
+        defaultValue={0}
         name="textOrCall"
         onChange={(e) =>
           setEventForm((previous) => ({

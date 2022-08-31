@@ -2,6 +2,10 @@ import React from "react";
 import DemographicSurveySection from "./DemographicSurveySection";
 
 const PostEventReportSection23 = ({ setEventForm }) => {
+  const handleMaxNumber = (e) => {
+    let { value } = e.target;
+    value > 100 && (e.target.value = 100);
+  };
   return (
     <div className="p-5 grid grid-cols-1 gap-7 mt-10">
       <h2 className="font-black">HIV Testing</h2>
@@ -21,11 +25,13 @@ const PostEventReportSection23 = ({ setEventForm }) => {
         />
       </label>
       <label className="flex gap-x-5 ">
-       <p className="w-40">  Total tested for HIV</p>
+        <p className="w-40"> Total tested for HIV</p>
         <input
           className="border-black ml-2 p-2"
           type="number"
-          placeholder=""
+          onWheelCapture={(e) => e.target.blur()}
+          onKeyUp={handleMaxNumber}
+          defaultValue={0}
           name="hivTestedTotal"
           onChange={(e) =>
             setEventForm((prev) => ({
@@ -40,12 +46,14 @@ const PostEventReportSection23 = ({ setEventForm }) => {
         <input
           className="border-black ml-2 p-2"
           type="number"
-          placeholder=""
+          onWheelCapture={(e) => e.target.blur()}
+          onKeyUp={handleMaxNumber}
+          defaultValue={0}
           name="hivReactiveResults"
           onChange={(e) =>
             setEventForm((prev) => ({
               ...prev,
-              [e.target.name]: Number(e.target.value)
+              [e.target.name]: Number(e.target.value),
             }))
           }
         />
@@ -55,33 +63,37 @@ const PostEventReportSection23 = ({ setEventForm }) => {
         <input
           className="border-black ml-2 p-2"
           type="number"
-          placeholder=""
+          onWheelCapture={(e) => e.target.blur()}
+          onKeyUp={handleMaxNumber}
+          defaultValue={0}
           name="prepReferrals"
           onChange={(e) =>
             setEventForm((prev) => ({
               ...prev,
-              [e.target.name]: Number(e.target.value)
+              [e.target.name]: Number(e.target.value),
             }))
           }
         />
       </label>
       <label className="flex gap-5 ">
-       <p className="w-40"> Total # Linked to Care</p>
+        <p className="w-40"> Total # Linked to Care</p>
         <input
           className="border-black ml-2 p-2"
           type="number"
-          placeholder=""
+          onWheelCapture={(e) => e.target.blur()}
+          onKeyUp={handleMaxNumber}
+          defaultValue={0}
           name="hivLinkedToCare"
           onChange={(e) =>
             setEventForm((prev) => ({
               ...prev,
-              [e.target.name]: Number(e.target.value)
+              [e.target.name]: Number(e.target.value),
             }))
           }
         />
       </label>
       <label className="flex gap-5 ">
-      <p className="w-40"> Which services were they referred to? </p>
+        <p className="w-40"> Which services were they referred to? </p>
         <input
           className="border-black ml-2 p-2"
           type="text"
@@ -95,14 +107,9 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <DemographicSurveySection setEventForm={setEventForm}  typeOfTest="hiv"/>
+      <DemographicSurveySection setEventForm={setEventForm} typeOfTest="hiv" />
     </div>
   );
 };
 
 export default PostEventReportSection23;
-
-
-
-
-

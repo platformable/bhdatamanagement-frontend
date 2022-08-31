@@ -172,7 +172,7 @@ useEffect(()=>{
 
     <div className="container mx-auto my-5">
         <div>
-          <h3 className="text-center">Upload your documents to the followin events folders</h3>
+          <h3 className="text-center">Upload your documents to the following events folders</h3>
         </div>
     </div>
 

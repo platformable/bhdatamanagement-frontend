@@ -34,7 +34,7 @@ const PostEventReportSection2 = ({eventForm, setEventForm}) => {
             }
           />
           {role}
-          <input type="text" placeholder="Please specify" className="border-black rounded px-5 self-start p-1 ml-2" />
+          <input type="text" placeholder="Please specify" className="border-black rounded px-2 self-start p-1 ml-2" />
         </label>
 
       )

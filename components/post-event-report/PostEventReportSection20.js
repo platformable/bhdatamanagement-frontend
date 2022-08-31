@@ -12,6 +12,7 @@ const PostEventReportSection20 = ({eventForm,setEventForm}) => {
       <textarea
         className="p-2 block w-full h-32 bg-white break-all border-black rounded-md overflow-hidden"
         role="textbox"
+        maxLength={500}
         name="eventQuestions"
         placeholder=""
         contentEditable

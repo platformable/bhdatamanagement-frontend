@@ -9,7 +9,7 @@ const PostEventReportSection21 = ({eventForm,setEventForm}) => {
         Was testing done at the event
       </h2>
       <div className="grid grid-cols-1">
-      <label className="text-lg flex items-center" >
+      <p className="text-lg flex items-center" >
         <input
           type="radio"
           name="eventTestingDone"
@@ -24,8 +24,8 @@ const PostEventReportSection21 = ({eventForm,setEventForm}) => {
           // defaultChecked={program.id === event?.programid ? "checked" : ""}
         />
         Yes
-      </label>
-      <label className="text-lg flex items-center ">
+      </p>
+      <p className="text-lg flex items-center ">
         <input
           type="radio"
           name="eventTestingDone"
@@ -38,7 +38,7 @@ const PostEventReportSection21 = ({eventForm,setEventForm}) => {
           }
         />
         No
-      </label>
+      </p>
 
       </div>
       
