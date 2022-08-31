@@ -452,11 +452,11 @@ console.log("event",event)
 
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
-    console.log("eventForm",eventForm)
-/*     notifyMessage()
+
+    notifyMessage()
     setTimeout(()=>{
       router.back()
-    },1500) */
+    },1500)
     // if (!isEmpty) {
       axios
         .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/create`, eventForm)

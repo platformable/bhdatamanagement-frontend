@@ -10,13 +10,13 @@ const PostEventReportSection5 = ({eventForm,setEventForm}) => {
       <input 
       type="number" 
       placeholder="Please enter a 4-digit zip code"
-      className="border-black rounded px-2 self-start p-1 ml-2"
-      maxlength={4}
+      className="border-black rounded px-2 self-start p-1 ml-2 w-60"
+      maxlength={5}
       name="zipCode"
       max={9999}
       min={0}
       onKeyUp={(e) => {
-        e.target.value.length > 4 && (e.target.value = e.target.value.slice(0,4)) 
+        e.target.value.length > 5 && (e.target.value = e.target.value.slice(0,4)) 
       }}
       onWheelCapture={(e) => e.target.blur()}
       onChange={(e)=>{

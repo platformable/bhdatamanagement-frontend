@@ -13,7 +13,6 @@ const PostEventReportSection19 = ({eventForm,setEventForm}) => {
         className="p-2 block w-full h-32 bg-white break-all border-black rounded-md overflow-hidden"
         role="textbox"
         name="eventChallenges"
-        maxLength={500}
         placeholder=""
         contentEditable
         onChange={(e) =>
