@@ -1,7 +1,15 @@
 import React from 'react';
 
 const PostEventReportSection11 = ({eventForm, setEventForm}) => {
- 
+  const handleForm = (e) => {
+    let {value} = e.target
+      let finalValue;
+      value > 100 ? finalValue = 100:finalValue=value
+      setEventForm((previous) => ({
+        ...previous,
+        [e.target.name]:Number(finalValue)
+      }))
+  }
     return (
       <div className="p-5 rounded">
       <h2 className="mb-3 font-black">
@@ -22,12 +30,7 @@ const PostEventReportSection11 = ({eventForm, setEventForm}) => {
         className="p-2 border-black rounded"
         placeholder="Type a number"
         name="adultVolunteers"
-        onChange={(e) =>
-          setEventForm((previous) => ({
-            ...previous,
-            [e.target.name]:Number(e.target.value)
-          }))
-        }
+        onChange={handleForm}
       />
     </div>
     </div>

@@ -2,7 +2,15 @@ import React from 'react';
 import { resourcesDistributed } from '../../utils/sharedData';
 
 const PostEventReportSection8 = ({eventForm,setEventForm}) => {
-
+const handleForm = (e) => {
+  let {value} = e.target
+    let finalValue;
+    value > 500 ? finalValue = 500:finalValue=value
+    setEventForm((previous) => ({
+      ...previous,
+      [e.target.name]:Number(finalValue)
+    }))
+}
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
@@ -16,23 +24,15 @@ const PostEventReportSection8 = ({eventForm,setEventForm}) => {
               {/* <img src={resource.source} alt={`${resource.name} icon`} className="w-8 h-8 md:w-12 md:h-12"/> */}
               <input
                 type="number"
-                onWheelCapture={(e) => e.target.blur()}
-                onKeyUp={(e) => {
-                  let value = e.target.value
-                  value > 500 && (e.target.value = 500) 
-                }}
-                defaultValue={0}
-                maxLength={3}
                 name={resource.dataFieldName}
                 className="mr-2  w-40 p-1 border-black rounded"
                 id={index}
-                placeholder="Type a number"
-                onChange={(e) =>
-                  setEventForm((previous) => ({
-                    ...previous,
-                    [e.target.name]:Number(e.target.value)
-                  }))
-                }
+                defaultValue={0}
+                onChange={handleForm}
+                onKeyUp={(e) => {
+                  let {value} = e.target
+                  value > 500 && (e.target.value = 500) 
+                }}
               />
               {resource.name}
             </label>
