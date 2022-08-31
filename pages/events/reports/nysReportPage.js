@@ -10,8 +10,7 @@ const NysReportPage = ({eventReport}) => {
     })
     const [selectedCSV, setSelectedCSV] = useState([])
     useEffect(() => {
-        const selectedReports = eventReport.filter(report =>  report.eventdate <= selectedDate.finish)
-        console.log("resultReports", selectedReports, selectedDate)
+        const selectedReports = eventReport.filter(report =>  new Date(report.eventdate) <= new Date(selectedDate.finish))
         setSelectedCSV(selectedReports)
     }, [selectedDate])
     console.log(selectedCSV)
