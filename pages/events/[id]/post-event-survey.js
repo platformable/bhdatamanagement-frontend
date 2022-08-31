@@ -59,7 +59,7 @@ const PostEventReport = ({
   const [responseStatus, setResponseStatus] = useState({});
   const [eventForm, setEventForm] = useState({
     // userID: "",
-    eventID : event?.id,
+    eventID : Number(event?.id),
     eventDateCreated: new Date(),
     // programID: event?.programid,
     programName: event?.programname,
@@ -78,7 +78,8 @@ const PostEventReport = ({
         mainRole : '',
         nysActivity : '',
         nysActivityOther : '',
-        nysPrograms : '',
+
+        nysPrograms : [],
         zipCode : 0,
         locationAddress : '',
         locationName : '',
@@ -97,11 +98,11 @@ const PostEventReport = ({
         preparedMeals : 0,
         handSanitizers : 0,
         covidVaccineSiteReferralDetails : 0,
-        staffPresent : "",
+        staffPresent : 0,
         internPresent : 0,
         adultVolunteers : 0,
         youthVolunteers : 0,
-        languages : '',
+        languages : [],
         participantRegistrationForm : false,
         eventStartedOnTime : false,
         eventFinishedOnTime : false,
@@ -431,7 +432,7 @@ const PostEventReport = ({
         otherQueer : 0,
         otherQuestioningOrNotSure : 0,
         otherSexualOrientationUnknown : 0,
-        otherSexualOrientationDeclinedToAnswe : 0
+        otherSexualOrientationDeclinedToAnswer : 0
   });
   const userId = user && user.sub;
 const router = useRouter()
@@ -501,6 +502,7 @@ console.log("event",event)
           backBtn={true}
           dashboardBtn={true}
           pageTitle={"Post event survey"}
+
         />
         <div className="container mx-auto md:px-0 px-5 items-center">
           <div className="post-envent-form-container  border-black grid gap-1 bg-white rounded-lg p-1 my-10 shadow-lg">

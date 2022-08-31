@@ -26,7 +26,7 @@ export const shareData = {
     "Other (please specify)",
   ],
   nysPrograms: ["Leadership Training Institute", "HIV High Impact"],
-  languajes: [
+  languages: [
     "English",
     "Spanish",
     "French",
@@ -147,7 +147,7 @@ export const nysActivity = [
 
 export const nysPrograms = ["Leadership Training Institute", "HIV High Impact"];
 
-export const languajes = [
+export const languages = [
   "English",
   "Spanish",
   "French",
