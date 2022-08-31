@@ -13,7 +13,7 @@ const dataFieldStrings = (raiz) => {
   const hiv60_64 = raiz + "60_64";
   const hiv65_69 = raiz + "65_69";
   const hiv70 = raiz + "70";
-  const declinedToAnswer = raiz + "DeclinedToAnswer";
+  const declinedToAnswer = raiz + "AgeDeclinedToAnswer";
 
   return [
     hivUnder15,
@@ -42,9 +42,12 @@ const AgeSurveySection = ({
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest]);
 
   const handleForm = (e) => {
+    let {value} = e.target
+    let finalValue;
+    value > 100 ? finalValue = 100:finalValue=value
     setEventForm((prev) => ({
       ...prev,
-      [e.target.name]: Number(e.target.value),
+      [e.target.name]: Number(finalValue),
     }));
   };
   return (
@@ -228,7 +231,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+          defaultValue={0}
           maxLength={3}
           name={fields[13]}
           className="border-black p-1"

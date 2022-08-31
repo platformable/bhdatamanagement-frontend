@@ -35,9 +35,12 @@ const RaceSurveySection = ({
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest]);
 
   const handleForm = (e) => {
+    let {value} = e.target
+    let finalValue;
+    value > 100 ? finalValue = 100:finalValue=value
     setEventForm((prev) => ({
       ...prev,
-      [e.target.name]: Number(e.target.value),
+      [e.target.name]: Number(finalValue),
     }));
   };
   return (

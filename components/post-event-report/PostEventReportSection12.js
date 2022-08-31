@@ -21,7 +21,7 @@ const PostEventReportSection12 = ({eventForm, setEventForm}) => {
         defaultValue={0}
         className="p-2 rounded border-black"
         placeholder="Type a number"
-        name="adultVolunteers"
+        name="youthVolunteers"
         onChange={(e) =>
           setEventForm((previous) => ({
             ...previous,
