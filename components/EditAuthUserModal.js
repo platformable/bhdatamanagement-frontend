@@ -40,7 +40,7 @@ console.log("userData", userData)
   return (
     <>
       <div className="modal">
-        <div className="mt-8 relative max-w-sm mx-auto bg-yellow-400 p-10 rounded-md">
+        <div className="mt-8 relative max-w-sm mx-auto bg-white p-10 rounded-md">
           <button
             className="absolute  top-0 right-0"
             onClick={() => setShowEditAuthUserModal(!showEditAuthUserModal)}
@@ -49,7 +49,7 @@ console.log("userData", userData)
           </button>
           <div className="grid grid-cols-1 gap-6">
             <div className="flex ml-2.5 items-end">
-              <img src="/edit-user-icon.svg" className="mr-3" alt="" width="50" />
+              {/* <img src="/edit-user-icon.svg" className="mr-3" alt="" width="50" /> */}
               <h2 className="font-black">Edit Authorized User</h2>
             </div>
             <label className="block">
@@ -102,7 +102,7 @@ console.log("userData", userData)
                 onChange={(e) =>
                   setUserData({ ...userData, role: e.target.value })
                 }
-                className="select-add-edit-supervisor block w-full mt-1 text-[#00000065] rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="select-add-edit-supervisor block w-full mt-1 text-black rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
                 <option value="Program Worker">Program Worker</option>
                 <option value="Intern">Intern</option>
@@ -119,7 +119,7 @@ console.log("userData", userData)
                 onChange={(e) =>
                      setUserData({ ...userData, isactive: e.target.value })
                 }
-                className="select-add-edit-supervisor block w-full mt-1  text-[#00000065] rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="select-add-edit-supervisor block w-full mt-1  text-black rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
                 <option value="Active">Active</option>
                 <option value="No Active">No Active</option>
@@ -129,19 +129,19 @@ console.log("userData", userData)
               <div className="mt-2">
                 <div className="flex justify-center ">
                   <button
-                    className="px-4  py-2 mr-3 font-medium bg-[#23D3AA] hover:bg-green-500 text-sm flex shadow-xl rounded-md"
+                    className="px-4  py-2 mr-3 font-medium bg-black text-white hover:bg-green-500 text-sm flex shadow-xl rounded-md"
                     onClick={() => {
                       EditUser(selectedUser);
                       setSaving(!saving);
                     }}
                   >
-                    {saving ? (
+                    {/* {saving ? (
                       <Loader />
                     ) : (
                       <img src="/update-icon.svg" className="mr-2" alt="" width="18" />
 
 
-                    )}
+                    )} */}
                     Update
                   </button>
 

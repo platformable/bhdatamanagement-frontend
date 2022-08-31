@@ -42,7 +42,7 @@ console.log("userData",userData)
   return (
     <>
       <div className="modal">
-        <div className="bg-yellow relative mt-8 max-w-sm mx-auto p-10 rounded">
+        <div className="bg-white  relative mt-8 max-w-sm mx-auto p-10 rounded">
         <button
                     className="absolute  top-0 right-0 "
                     onClick={() => setShowModal(!showModal)}

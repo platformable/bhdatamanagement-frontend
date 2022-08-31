@@ -3,17 +3,17 @@ import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Layout from '../../../components/Layout';
 import PageTopHeading from '../../../components/PageTopHeading';
 const NysReportPage = ({eventReport}) => {
-    console.log("report", eventReport)
+    // console.log("report", eventReport)
     const [selectedDate, setSelectedDate] = useState({
         start: null,
         finish: null
     })
     const [selectedCSV, setSelectedCSV] = useState([])
+
     useEffect(() => {
         const selectedReports = eventReport.filter(report =>  new Date(report.eventdate) <= new Date(selectedDate.finish))
         setSelectedCSV(selectedReports)
     }, [selectedDate])
-    console.log(selectedCSV)
     return (
        <Layout>
         <PageTopHeading pageTitle={'Download the CSV dataset for the NYS CMD report'} backBtn={true} dashboardBtn={true}/>
