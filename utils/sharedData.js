@@ -173,7 +173,7 @@ dataField:"handSanitizerAvailable"},
   {event:"For meetings/workshops/training/town halls/webinars: Participants were reminded that the workshop area is a safe space and to treat each other respectfully and within the workshop guidelines.",
 dataField:"reminderSafeSpace"},
   {event:"For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
-dataField:"reminderPostEvaluationSurvy"},
+dataField:"reminderPostEvaluationSurvey"},
 ];
 
 export const gender = [

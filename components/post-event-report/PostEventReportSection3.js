@@ -34,7 +34,10 @@ const PostEventReportSection3 = ({setEventForm,eventForm}) => {
             //defaultChecked={program.id===event?.programid?'checked':""}
           />
           {activity}
-          <input type="text" placeholder="Please specify" className="border border-black rounded px-2 self-start p-1 ml-2" />
+          <input type="text" placeholder="Please specify" 
+          className="border border-black rounded px-2 self-start p-1 ml-2"
+          onChange={(e)=>setEventForm({...eventForm,nysactivityother:e.target.value})}
+          />
         </label>
 
       )
