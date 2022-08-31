@@ -445,18 +445,13 @@ console.log("event",event)
   const notifyMessage= ()=>{
     toast.success("Survey saved!", {
       position: toast.POSITION.TOP_CENTER,
-      
     });
-   
    }
 
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
 
-    notifyMessage()
-    setTimeout(()=>{
-      router.back()
-    },1500)
+ 
     // if (!isEmpty) {
       axios
         .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/create`, eventForm)
@@ -467,6 +462,10 @@ console.log("event",event)
               statusMessage: "Your Event has been saved",
             });
             setShowResponseStatus(!showResponseStatus);
+            notifyMessage()
+            setTimeout(()=>{
+              router.back()
+            },1500)
           }
         })
         .catch(function (error) {
