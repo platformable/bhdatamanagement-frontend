@@ -59,7 +59,7 @@ const PostEventReport = ({
   const [responseStatus, setResponseStatus] = useState({});
   const [eventForm, setEventForm] = useState({
     // userID: "",
-    eventID : event?.id,
+    eventID : Number(event?.id),
     eventDateCreated: new Date(),
     // programID: event?.programid,
     programName: event?.programname,
@@ -78,7 +78,7 @@ const PostEventReport = ({
         mainRole : '',
         nysActivity : '',
         nysActivityOther : '',
-        nysPrograms : '',
+        nysPrograms : [],
         zipCode : 0,
         locationAddress : '',
         locationName : '',
@@ -97,11 +97,11 @@ const PostEventReport = ({
         preparedMeals : 0,
         handSanitizers : 0,
         covidVaccineSiteReferralDetails : 0,
-        staffPresent : "",
+        staffPresent : 0,
         internPresent : 0,
         adultVolunteers : 0,
         youthVolunteers : 0,
-        languages : '',
+        languages : [],
         participantRegistrationForm : false,
         eventStartedOnTime : false,
         eventFinishedOnTime : false,
@@ -431,7 +431,7 @@ const PostEventReport = ({
         otherQueer : 0,
         otherQuestioningOrNotSure : 0,
         otherSexualOrientationUnknown : 0,
-        otherSexualOrientationDeclinedToAnswe : 0
+        otherSexualOrientationDeclinedToAnswer : 0
   });
   const userId = user && user.sub;
 const router = useRouter()

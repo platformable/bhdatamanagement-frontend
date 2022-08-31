@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {languajes} from "../../utils/sharedData";
+import {languages} from "../../utils/sharedData";
 
 
 const PostEventReportSection13 = ({eventForm, setEventForm}) => {
@@ -22,7 +22,7 @@ const PostEventReportSection13 = ({eventForm, setEventForm}) => {
   useEffect(()=>{
     setEventForm((previous) => ({
       ...previous,
-      languajes: data,
+      languages: data,
     }))
   },[data])
 
@@ -34,8 +34,8 @@ const PostEventReportSection13 = ({eventForm, setEventForm}) => {
         <span className="">13 </span> What languages was your team able to support?
       </h2>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
-        {languajes &&
-          languajes.map((lang, index) => (
+        {languages &&
+          languages.map((lang, index) => (
             <label className="flex items-center" key={index}>
               <input
                 type="checkbox"
