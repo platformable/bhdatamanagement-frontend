@@ -12,6 +12,13 @@ const PostEventReportSection10 = ({eventForm,setEventForm}) => {
         {/* <img src='/post_event_report/ADULT_volunteers_icon.svg' alt='adult volunteers icon' /> */}
       <input
         type="number"
+        onWheelCapture={(e) => e.target.blur()}
+        onKeyUp={(e) => {
+          let {value} = e.target
+          value > 100 && (e.target.value = 100) 
+        }}
+        maxLength={3}
+        defaultValue={0}
         className="p-2 border-black rounded"
         placeholder="Type a number"
         name="internPresent"

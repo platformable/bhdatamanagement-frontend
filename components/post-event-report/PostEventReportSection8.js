@@ -15,7 +15,14 @@ const PostEventReportSection8 = ({eventForm,setEventForm}) => {
             <label className="text-lg flex items-center" key={index}>
               {/* <img src={resource.source} alt={`${resource.name} icon`} className="w-8 h-8 md:w-12 md:h-12"/> */}
               <input
-                type="tel"
+                type="number"
+                onWheelCapture={(e) => e.target.blur()}
+                onKeyUp={(e) => {
+                  let value = e.target.value
+                  value > 500 && (e.target.value = 500) 
+                }}
+                defaultValue={0}
+                maxLength={3}
                 name={resource.dataFieldName}
                 className="mr-2  w-40 p-1 border-black rounded"
                 id={index}
