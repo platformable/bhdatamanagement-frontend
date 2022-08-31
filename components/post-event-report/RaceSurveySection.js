@@ -29,7 +29,8 @@ const RaceSurveySection = ({
   setEventForm,
   typeOfTest,
   typeOfTestForTitles,
-  handleMaxNumber
+  handleMaxNumber,
+  disableWheelInputNumber
 }) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest]);
 
