@@ -15,7 +15,6 @@ const PostEventReportSection18 = ({eventForm,setEventForm}) => {
         role="textbox"
         name="eventHighlights"
         placeholder=""
-        contentEditable
         onChange={(e) =>
           setEventForm((previous) => ({
             ...previous,

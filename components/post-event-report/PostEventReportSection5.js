@@ -9,12 +9,12 @@ const PostEventReportSection5 = ({eventForm,setEventForm}) => {
       <h3>Zip Code</h3>
       <input 
       type="number" 
-      placeholder="Please enter a 4-digit zip code"
+      placeholder="Please enter a 5-digit zip code"
       className="border-black rounded px-2 self-start p-1 ml-2 w-60"
       maxlength={5}
       name="zipCode"
-      max={9999}
-      min={0}
+      // max={9999}
+      // min={0}
       onKeyUp={(e) => {
         e.target.value.length > 5 && (e.target.value = e.target.value.slice(0,4)) 
       }}
