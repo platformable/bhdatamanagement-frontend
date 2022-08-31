@@ -26,7 +26,7 @@ const DeleteUserModal = ({urlEntity,selectedUser, showDeleteUserModal, setShowDe
 
     return (
         <div className='modal flex items-center '>
-            <div className='relative max-w-sm mx-auto bg-yellow-400 p-10 rounded-md h-4/6'>
+            <div className='relative max-w-sm mx-auto bg-white p-10 rounded-md h-4/6'>
             <button
             className="absolute  top-0 right-0"
             onClick={() => setShowDeleteUserModal(!showDeleteUserModal)}
@@ -35,7 +35,7 @@ const DeleteUserModal = ({urlEntity,selectedUser, showDeleteUserModal, setShowDe
             </button>
                 <div className='flex flex-col justify-between items-start  h-full'>
                     <div className='flex items-center'>
-                        <Image src={deleteUserIcon}/>
+                        {/* <Image src={deleteUserIcon}/> */}
                         <p className='font-bold text-xl ml-2'>Delete User</p>
                     </div>
                     <label id="name" className="block font-semibold ">Name
