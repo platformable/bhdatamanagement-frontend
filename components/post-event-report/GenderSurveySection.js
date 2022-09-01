@@ -1,23 +1,23 @@
 import React, { useMemo } from "react";
 const dataFieldStrings = (raiz) => {
-  const hivFemale = raiz + "Female";
-  const hivMale = raiz + "Male";
-  const hivTransgenderFemale = raiz + "TransgenderFemale";
-  const hivTransgenderMale = raiz + "TransgenderMale";
-  const hivGenderNonConforming = raiz + "GenderNonConforming";
-  const hivNonBinary = raiz + "NonBinary";
-  const hivOtherGenderIdentity = raiz + "OtherGenderIdentity";
-  const hivGenderDeclinedToAnswer = raiz + "GenderDeclinedToAnswer";
+  const Female = raiz + "Female";
+  const Male = raiz + "Male";
+  const TransgenderFemale = raiz + "TransgenderFemale";
+  const TransgenderMale = raiz + "TransgenderMale";
+  const GenderNonConforming = raiz + "GenderNonConforming";
+  const NonBinary = raiz + "NonBinary";
+  const OtherGenderIdentity = raiz + "OtherGenderIdentity";
+  const GenderDeclinedToAnswer = raiz + "GenderDeclinedToAnswer";
 
   return [
-    hivFemale,
-    hivMale,
-    hivTransgenderFemale,
-    hivTransgenderMale,
-    hivGenderNonConforming,
-    hivNonBinary,
-    hivOtherGenderIdentity,
-    hivGenderDeclinedToAnswer,
+    Female,
+    Male,
+    TransgenderFemale,
+    TransgenderMale,
+    GenderNonConforming,
+    NonBinary,
+    OtherGenderIdentity,
+    GenderDeclinedToAnswer,
   ];
 };
 const GenderSurveySection = ({
@@ -145,7 +145,7 @@ const GenderSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[7]}
-          onChange={()=>handleForm()}
+          onChange={handleForm}
           className="border-black p-1"
         />
       </label>
