@@ -145,7 +145,7 @@ const GenderSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[7]}
-          onChange={()=>handleForm()}
+          onChange={handleForm}
           className="border-black p-1"
         />
       </label>
