@@ -108,7 +108,7 @@ const ParticipantSurvey = ({
         />
         <div className="container mx-auto md:px-0 px-5  items-center  rounded-lg shadow-lg">
 
-        <div className="participant-survey-head-table borde rounded-t-lg py-3 px-5 bg-black text-white flex gap-x-5 ">
+        <div className="participant-survey-head-table border rounded-t-lg py-3 px-5 bg-black text-white flex gap-x-5 ">
                {/*  <p className="lg:text-lg flex items-center justify-center">Program</p> */}
                 <p className="lg:text-lg flex items-center ">Event name</p>
                 <p className="lg:text-lg flex items-center ">Event Date</p>
@@ -187,7 +187,7 @@ const ParticipantSurvey = ({
           </div>
           <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl">
             
-              <a id="myBtn" href={`${process.env.AUTH0_BASE_URL}/events/${event.id}/participant-survey/survey`} target="_blank" >
+              <a id="myBtn" href={`/events/${event.id}/participant-survey/survey`} target="_blank" >
                 <div className="">
                   <div className="flex justify-center ">
                     {/* <img

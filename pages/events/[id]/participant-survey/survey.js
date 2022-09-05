@@ -26,6 +26,9 @@ import { ParticipantSurveySection28 } from "../../../../components/participant-e
 import { ParticipantSurveySection29 } from "../../../../components/participant-event-survey/ParticipantSurveySection29";
 import { ParticipantSurveySection3 } from "../../../../components/participant-event-survey/ParticipantSurveySection3";
 import { ParticipantSurveySection30 } from "../../../../components/participant-event-survey/ParticipantSurveySection30";
+import { ParticipantSurveySection31 } from "../../../../components/participant-event-survey/ParticipantSurveySection31";
+import { ParticipantSurveySection32 } from "../../../../components/participant-event-survey/ParticipantSurveySection32";
+import { ParticipantSurveySection33 } from "../../../../components/participant-event-survey/ParticipantSurveySection33";
 import { ParticipantSurveySection4 } from "../../../../components/participant-event-survey/ParticipantSurveySection4";
 import { ParticipantSurveySection5 } from "../../../../components/participant-event-survey/ParticipantSurveySection5";
 import { ParticipantSurveySection6 } from "../../../../components/participant-event-survey/ParticipantSurveySection6";
@@ -39,11 +42,11 @@ const Survey = () => {
       <Layout>
         <ToastContainer autoClose={1500} />
         <PageTopHeading
-          backBtn={true}
-          dashboardBtn={true}
+          backBtn={false}
+          dashboardBtn={false}
           pageTitle={"Participant event survey"}
         />
-        <div className="container mx-auto border-black">
+        <div className="container mx-auto border-black rounded-lg mb-10">
           <ParticipantSurveySection1 />
           <ParticipantSurveySection2 />
           <ParticipantSurveySection3 />
@@ -74,7 +77,29 @@ const Survey = () => {
           <ParticipantSurveySection28 />
           <ParticipantSurveySection29 />
           <ParticipantSurveySection30 />
+          <ParticipantSurveySection31 />
+          <ParticipantSurveySection32 />
+          <ParticipantSurveySection33 />
+          
+
+         
         </div>
+
+        <div className="flex justify-center">
+        <h3>Thank you! Your answers help us plan our services, demonstrate our focus on our community, and help us meet our funding commitments.</h3>
+        </div>
+
+        <div className="flex justify-center my-10">
+        
+          <button
+            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
+            /* onClick={submitPostEventForm} */
+          >
+            Save
+          </button>
+          </div>
+
+         
       </Layout>
     </>
   );
