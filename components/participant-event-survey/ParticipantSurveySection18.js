@@ -4,7 +4,7 @@ export const ParticipantSurveySection18 = () => {
   return (
     <div className="p-5 py-10">
       <h2 className="font-black">
-        <span className="">18</span>
+        <span className="">18</span> How comfortable are you discussing the following with your provider? (1 = very uncomfortable, 2 = uncomfortable, 3 = neutral, 4 = comfortable, and 5 = very comfortable)
       </h2>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
         <div className="flex gap-x-5 items-center">

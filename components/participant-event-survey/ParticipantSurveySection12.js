@@ -3,11 +3,11 @@ import React from "react";
 export const ParticipantSurveySection12 = () => {
   return (
     <div className="p-5 py-10">
-      <p className="text-lg font-black">
+      <h2 className="font-black mb-7">
         Some people have made the following statements about their food
         situation. Please answer whether the statements were OFTEN, SOMETIMES,
         or NEVER true for you and your household in the last 12 months.
-      </p>
+      </h2>
       <h2 className="font-black">
         <span className="">12</span>  Within the past 12 months, you worried that your food would run out before you got money to buy more.
       </h2>
