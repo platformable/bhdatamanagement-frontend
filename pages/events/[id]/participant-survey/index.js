@@ -1,15 +1,15 @@
 import React, { useEffect, useState,useRef } from "react";
 
-import Layout from "../../../components/Layout";
-import PageTopHeading from "../../../components/PageTopHeading";
+import Layout from "../../../../components/Layout";
+import PageTopHeading from "../../../../components/PageTopHeading";
 
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 import axios from "axios";
 
-import ResponseStatusModal from "../../../components/ResponseStatusModal";
+import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 import ReactToPrint from 'react-to-print'
-import PrintQR from '../../../components/PrintQR'
+import PrintQR from '../../../../components/PrintQR'
 
 
 
@@ -187,7 +187,7 @@ const ParticipantSurvey = ({
           </div>
           <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl">
             
-              {/* <a id="myBtn" href="https://www.surveymonkey.com/r/BH-EVENTS" target="_blank"> */}
+              <a id="myBtn" href={`${process.env.AUTH0_BASE_URL}/events/${event.id}/participant-survey/survey`} target="_blank" >
                 <div className="">
                   <div className="flex justify-center ">
                     {/* <img
@@ -200,7 +200,7 @@ const ParticipantSurvey = ({
                    Go to survey
                   </p>
                 </div>{" "}
-        {/*       </a> */}
+               </a> 
     
           </div>
               </div>
@@ -234,6 +234,7 @@ export const getServerSideProps = withPageAuthRequired({
         ),
 
       ]);
+      console.log(event)
     return {
       props: {
         event: event
