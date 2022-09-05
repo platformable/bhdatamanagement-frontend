@@ -8,7 +8,7 @@ export const ParticipantSurveySection18 = () => {
       </h2>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
         <div className="flex gap-x-5  items-center">
-          <p className="w-60">Sexual Health Concerns</p>
+          <p className="w-96">Sexual Health Concerns</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="1" className="mr-2 w-4 h-4" />1
           </label>
@@ -26,7 +26,7 @@ export const ParticipantSurveySection18 = () => {
           </label>
         </div>
         <div className="flex gap-x-5 bg-gray-50 items-center">
-          <p className="w-60">Mental Health Concerns</p>
+          <p className="w-96">Mental Health Concerns</p>
 
           <label className="m-5 flex items-center">
             <input type="radio" name="2" className="mr-2 w-4 h-4" />2
@@ -45,7 +45,7 @@ export const ParticipantSurveySection18 = () => {
           </label>
         </div>
         <div className="flex gap-x-5 items-center">
-          <p className="w-60">Diet/ Nutrition</p>
+          <p className="w-96">Diet/ Nutrition</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="3" className="mr-2 w-4 h-4" />1
           </label>
@@ -63,7 +63,7 @@ export const ParticipantSurveySection18 = () => {
           </label>
         </div>
         <div className="flex gap-x-5 bg-gray-50 items-center">
-          <p className="w-60"> Physical Activity/ Exercise</p>
+          <p className="w-96"> Physical Activity/ Exercise</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="4" className="mr-2 w-4 h-4" />1
           </label>
@@ -81,7 +81,7 @@ export const ParticipantSurveySection18 = () => {
           </label>
         </div>
         <div className="flex gap-x-5 items-center">
-          <p className="w-60">Health Concerns (Chronic disease care)</p>
+          <p className="w-96">Health Concerns (Chronic disease care)</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="5" className="mr-2 w-4 h-4" />1
           </label>
@@ -99,7 +99,7 @@ export const ParticipantSurveySection18 = () => {
           </label>
         </div>
         <div className="flex gap-x-5 bg-gray-50 items-center">
-          <p className="w-60">Medications</p>
+          <p className="w-96">Medications</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="6" className="mr-2 w-4 h-4" />1
           </label>
@@ -117,7 +117,7 @@ export const ParticipantSurveySection18 = () => {
           </label>
         </div>
         <div className="flex gap-x-5 items-center">
-          <p className="w-60">
+          <p className="w-96">
             Health Screens (Mammogram, Colonoscopy, PSAs etc.)
           </p>
           <label className="m-5 flex items-center">
@@ -137,7 +137,7 @@ export const ParticipantSurveySection18 = () => {
           </label>
         </div>
         <div className="flex gap-x-5 bg-gray-50 items-center">
-          <p className="w-60">Substance Use Concerns</p>
+          <p className="w-96">Substance Use Concerns</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="8" className="mr-2 w-4 h-4" />1
           </label>
