@@ -56,9 +56,9 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
             if (response.data.statusText==='OK') {
               setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
               setShowResponseStatus(!showResponseStatus)
-              setTimeout(()=>{
+              /* setTimeout(()=>{
                  router.push("/events") 
-              },1500)
+              },1500) */
             } 
         })
         .catch(function (error) {

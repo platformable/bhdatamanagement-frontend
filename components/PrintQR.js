@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const PrintQR = React.forwardRef((props, ref) => {
-const {eventname,eventdate}=props.event
+const {eventname,eventdate,qrcode}=props.event
 
   return (
     <div className="bg-white flex flex-col justify-center items-center my-10" ref={ref}>
@@ -9,7 +9,7 @@ const {eventname,eventdate}=props.event
       <h1>{new Date(eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</h1>
       <p>Please help us by filling in this survey</p>
       <div className="flex justify-center">
-        <img src="/events/qrcode_www.surveymonkey.com.png" alt="qr" className="self-start" width={'50%'}/>
+        <img src={qrcode} alt="qr" className="self-start" width={'50%'}/>
         </div>
     </div>
   )

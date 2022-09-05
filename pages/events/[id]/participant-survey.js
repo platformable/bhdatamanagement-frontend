@@ -43,6 +43,8 @@ const ParticipantSurvey = ({
   });
   const userId = user && user.sub;
 
+  console.log("event",event)
+
   useEffect(() => {
     setEventForm({ ...eventForm, userID: userId });
   }, [userId]);
@@ -89,7 +91,7 @@ const ParticipantSurvey = ({
 
   const addToClipboard=()=>{
     if(typeof window !=='undefined'){
-      navigator.clipboard.writeText('https://www.surveymonkey.com/r/BH-EVENTS')
+      navigator.clipboard.writeText(`http://www.bh.platformable.com/events/${event.id}/participant_survey`)
     }
     setCopyToClipboard(!copyToClipboard)
     setTimeout(()=>{
@@ -123,7 +125,7 @@ const ParticipantSurvey = ({
             <div className="grid md:grid-cols-4 grid-cols-1 mb-2 ">
               <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl">
       
-              <a id="myBtn" href="/events/qrcode_www.surveymonkey.com.png" download>
+              <a id="myBtn" href={event.qrcode} download={event?.eventname}>
                 <div className="flex justify-center">
                   {/* <img
                     src="/events/download_QR_icon.svg"
