@@ -39,8 +39,8 @@ const Survey = () => {
       <Layout>
         <ToastContainer autoClose={1500} />
         <PageTopHeading
-          backBtn={true}
-          dashboardBtn={true}
+          backBtn={false}
+          dashboardBtn={false}
           pageTitle={"Participant event survey"}
         />
         <div className="container mx-auto border-black">
