@@ -12,7 +12,7 @@ export const ParticipantSurveySection31 = () => {
     },
     {
       id:3,
-      value:"Declined to answer"
+      value:"Decline to answer"
     }
   ]
   return (

@@ -28,7 +28,7 @@ export const ParticipantSurveySection23 = () => {
     },
     {
       id:7,
-      value:"Don’t Know/Not Sure"
+      value:"Don’t know/Not sure"
     }
   ]
   return (
