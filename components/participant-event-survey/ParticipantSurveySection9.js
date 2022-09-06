@@ -18,24 +18,38 @@ console.log("surveyForm",surveyForm)
 
 
   const [data,setData]=useState([])
+  const [dataId,setDataId]=useState([])
 
-  const handleForm=(value)=>{
-    const isValueOnData=data?.includes(value)
+
+  const handleForm=(e)=>{
+    const isValueOnData=data?.includes(e.target.value)
+    const isIdOnDataId=dataId?.includes(Number(e.target.id))
+
    
-    const filteredData=data.filter(oldValues=> oldValues !=value) 
+    const filteredData=data.filter(oldValues=> oldValues != e.target.value) 
+    const filteredDataIds=dataId.filter(oldValues=> oldValues != e.target.id) 
+
     
     isValueOnData?
-    setData(filteredData) :
+    setData(filteredData)  :
     setData((previous)=>([
-      ...previous,value
+      ...previous,e.target.value
     ]))
+
+    isIdOnDataId ? 
+    setDataId(filteredDataIds):
+    setDataId((previous)=>([
+      ...previous,Number(e.target.id)
+    ]))    
+
 
   }
 
   useEffect(()=>{
     setSurveyForm((previous) => ({
       ...previous,
-      participantEmployment: data,
+      employmentID: dataId,
+      participantEmployment: data
     }))
   },[data])
 
@@ -49,8 +63,8 @@ console.log("surveyForm",surveyForm)
       {options?.map((option,index)=>{
         return (
           <label className="flex gap-x-5 items-center" key={index}>
-          <input type="checkbox" className="mr-10 w-4 h-4" name="participantEmployment"
-          onChange={(e)=>handleForm(option.value)}/>
+          <input type="checkbox" className="mr-10 w-4 h-4" id={option.id} value={option.value} name="participantEmployment"
+          onChange={handleForm}/>
           <p className="">{option.value}</p>
        </label>
         )

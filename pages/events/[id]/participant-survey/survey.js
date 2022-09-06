@@ -49,35 +49,36 @@ const Survey = ({data}) => {
    }
 
   console.log("data",data)
+
   const [surveyForm, setSurveyForm] = useState({
     eventID:data[0]?.eventid,
     eventName:data[0]?.eventname,
     eventDate:data[0]?.eventdate,
     participantZipCode: 0,
-    ageID: "",
+    ageID: 0,
     participantAgeRange: "",
-    raceID: "",
+    raceID: [],
     participantRace: [],
-    ethnicityID: "",
+    ethnicityID: 0,
     participantEthnicity: "",
-    genderID: "",
+    genderID: 0,
     participantGender: "",
-    orientationID: "",
+    orientationID: 0,
     participantOrientation: "",
     participantOrientationOther: "",
-    roleID: "",
+    roleID: 0,
     participantRole: "",
-    educationID: "",
+    educationID: 0,
     participantEducation: "",
-    employmentID: "",
+    employmentID: [],
     participantEmployment: [],
-    livingID: "",
+    livingID: 0,
     participantLiving: "",
-    housingID: "",
+    housingID: 0,
     participantHousing: "",
     participantFoodInsecurity1: "",
     participantFoodInsecurity2: "",
-    insuranceID: "",
+    insuranceID: 0,
     participantInsurance: "",
     participantHealth: "",
     participantPCP: "",
@@ -118,6 +119,7 @@ const Survey = ({data}) => {
     participantReferralOther:"",
     participantSuggestions: "",
   })
+  console.log("form",surveyForm)
 
   const router = useRouter()
 
