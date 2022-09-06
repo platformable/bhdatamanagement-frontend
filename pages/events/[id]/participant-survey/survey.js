@@ -51,7 +51,7 @@ const Survey = ({data}) => {
   console.log("data",data)
 
   const [surveyForm, setSurveyForm] = useState({
-    eventID:data[0]?.eventid,
+    eventID:data[0]?.id,
     eventName:data[0]?.eventname,
     eventDate:data[0]?.eventdate,
     participantZipCode: 0,
@@ -125,7 +125,7 @@ const Survey = ({data}) => {
 
 
   const submitParticipantSurvey = async () => {
-   // const isEmpty = Object.values(eventForm).some((value) => !value);
+
 
  
     // if (!isEmpty) {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 
 export const ParticipantSurveySection23 = ({surveyForm,setSurveyForm}) => {
 
@@ -32,6 +32,28 @@ export const ParticipantSurveySection23 = ({surveyForm,setSurveyForm}) => {
       value:"Don’t know/Not sure"
     }
   ]
+
+  const [data,setData]=useState([])
+
+  const handleForm=(value)=>{
+    const isValueOnData=data?.includes(value)
+   
+    const filteredData=data.filter(oldValues=> oldValues !=value) 
+    
+    isValueOnData?
+    setData(filteredData) :
+    setData((previous)=>([
+      ...previous,value
+    ]))
+
+  }
+
+  useEffect(()=>{
+    setSurveyForm((previous) => ({
+      ...previous,
+      participantHIVKnowledge: data,
+    }))
+  },[data])
   return (
     <div className="p-5 py-10">
     <h2 className="font-black">
@@ -49,12 +71,7 @@ export const ParticipantSurveySection23 = ({surveyForm,setSurveyForm}) => {
                 value={option.value}
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}
-                onChange={(e) =>
-                  setSurveyForm((previous) => ({
-                    ...previous,
-                    [e.target.name]: option.value,
-                  }))
-                }
+                onChange={(e)=>handleForm(e.target.value)}
               />
              {option.value}
             </label>
