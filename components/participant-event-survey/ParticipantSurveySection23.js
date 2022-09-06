@@ -52,7 +52,7 @@ export const ParticipantSurveySection23 = ({surveyForm,setSurveyForm}) => {
                 onChange={(e) =>
                   setSurveyForm((previous) => ({
                     ...previous,
-                    [e.target.name]: aroption.valueea,
+                    [e.target.name]: option.value,
                   }))
                 }
               />

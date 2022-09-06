@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useRouter } from 'next/router'
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
+import axios from "axios";
+
 import {ParticipantSurveySection1} from "../../../../components/participant-event-survey/ParticipantSurveySection1";
 import { ParticipantSurveySection10 } from "../../../../components/participant-event-survey/ParticipantSurveySection10";
 import { ParticipantSurveySection11 } from "../../../../components/participant-event-survey/ParticipantSurveySection11";
@@ -39,11 +42,17 @@ import { ParticipantSurveySection9 } from "../../../../components/participant-ev
 
 const Survey = ({data}) => {
 
+  const notifyMessage= ()=>{
+    toast.success("Survey saved!", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+   }
+
   console.log("data",data)
   const [surveyForm, setSurveyForm] = useState({
-    // eventID,
-    // eventName,
-    // eventDate,
+    eventID:data[0]?.eventid,
+    eventName:data[0]?.eventname,
+    eventDate:data[0]?.eventdate,
     participantZipCode: 0,
     ageID: "",
     participantAgeRange: "",
@@ -111,6 +120,45 @@ const Survey = ({data}) => {
   })
 
   const router = useRouter()
+
+
+  const submitParticipantSurvey = async () => {
+   // const isEmpty = Object.values(eventForm).some((value) => !value);
+
+ 
+    // if (!isEmpty) {
+      axios
+        .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/create`, surveyForm)
+        .then((response) => {
+          if (response.data.statusText === "OK") {
+            // setResponseStatus({
+            //   success: true,
+            //   statusMessage: "Your Event has been saved",
+            // });
+            //setShowResponseStatus(!showResponseStatus);
+            notifyMessage()
+            /* setTimeout(()=>{
+              router.back()
+            },1500) */
+          }
+        })
+        .catch(function (error) {
+          // setResponseStatus({
+          //   success: false,
+          //   statusMessage: "Request Failed",
+          // });
+          // setShowResponseStatus(!showResponseStatus);
+          console.error("error: ", error);
+        });
+  //   } else {
+  //     setResponseStatus({
+  //       success: false,
+  //       statusMessage: "Please complete all the fields",
+  //     });
+  //     setShowResponseStatus(!showResponseStatus);
+  //  }
+  };
+
   return (
     <>
       <Layout showStatusHeader={false}>
@@ -178,7 +226,8 @@ const Survey = ({data}) => {
         
           <button
             className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-            onClick={(e)=>{router.push("https://nblch.org/")}}
+            /* onClick={(e)=>{router.push("https://nblch.org/")}} */
+            onClick={submitParticipantSurvey}
           >
             Save
           </button>
