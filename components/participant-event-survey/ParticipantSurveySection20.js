@@ -1,6 +1,7 @@
 import React from 'react'
 
-export const ParticipantSurveySection20 = () => {
+export const ParticipantSurveySection20 = ({surveyForm,setSurveyForm}) => {
+
 
 const options=[
   {
@@ -42,7 +43,7 @@ const options=[
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}
                 onChange={(e) =>
-                  setEventForm((previous) => ({
+                  setSurveyForm((previous) => ({
                     ...previous,
                     [e.target.name]: option.value,
                   }))
@@ -66,7 +67,7 @@ const options=[
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}
                 onChange={(e) =>
-                  setEventForm((previous) => ({
+                  setSurveyForm((previous) => ({
                     ...previous,
                     [e.target.name]: option.value,
                   }))

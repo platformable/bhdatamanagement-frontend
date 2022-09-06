@@ -55,6 +55,7 @@ const Survey = ({data}) => {
     participantGender: "",
     orientationID: "",
     participantOrientation: "",
+    participantOrientationOther: "",
     roleID: "",
     participantRole: "",
     educationID: "",
@@ -91,7 +92,8 @@ const Survey = ({data}) => {
     participantPrEPUse: "",
     participantUKnowledge: "",
     participantTestResourceKnowledge: "",
-    participantPRePResourceKnowledge: "",
+    participantPRePResourceKnowledge: [],
+    participantPRePResourceKnowledgeOther:"",
     interestHIV: false,
     interestPrEP: false,
     interestHepC: false,
@@ -104,6 +106,7 @@ const Survey = ({data}) => {
     interestOther: "",
     participantVote: false,
     participantReferral: [],
+    participantReferralOther:"",
     participantSuggestions: "",
   })
 

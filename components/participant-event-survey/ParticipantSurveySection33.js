@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ParticipantSurveySection33 = () => {
+export const ParticipantSurveySection33 = ({surveyForm,setSurveyForm}) => {
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
@@ -13,12 +13,12 @@ export const ParticipantSurveySection33 = () => {
         role="textbox"
         name="participantSuggestions"
         placeholder=""
-        /* onChange={(e) =>
-          setEventForm((previous) => ({
+        onChange={(e) =>
+          setSurveyForm((previous) => ({
             ...previous,
             [e.target.name]:e.target.value
           }))
-        } */
+        }
       />
     </div>
   )
