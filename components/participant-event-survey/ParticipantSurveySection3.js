@@ -9,11 +9,11 @@ export const ParticipantSurveySection3 = () => {
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
       <label className="flex gap-x-5 items-center">
           <input type="checkbox" className="mr-10 w-4 h-4" name="participantRace" />
-          <p className="">Black or African American</p>
+          <p className="">Black or African American </p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="checkbox" className="mr-10 w-4 h-4" name="participantRace" />
-          <p className="">Hispanic, Latino/a or Spanish</p>
+          <p className="">Hispanic, Latino/a or Spanish </p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="checkbox" className="mr-10 w-4 h-4" name="participantRace" />

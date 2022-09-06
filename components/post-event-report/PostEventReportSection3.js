@@ -18,22 +18,22 @@ const PostEventReportSection3 = ({setEventForm,eventForm}) => {
     {nysActivity.map((activity,index)=>{
     if(index===nysActivity.length-1){
       return (
-        <label className="text-lg flex items-center" key={index}>
+        <label className="text-lg flex items-center" key={activity.id}>
           <input
             type="radio"
             name="nysActivity"
             className="mr-10 w-4 h-4"
-            value={activity}
-            id={index}
+            value={activity.value}
+            id={activity.id}
             onChange={(e) =>
               setEventForm((previous) => ({
                 ...previous,
-                [e.target.name]: activity
+                [e.target.name]: activity.value
               }))
             }
             //defaultChecked={program.id===event?.programid?'checked':""}
           />
-          {activity}
+          {activity.value}
           <input type="text" placeholder="Please specify" 
           className="border border-black rounded px-2 self-start p-1 ml-2"
           onChange={(e)=>setEventForm({...eventForm,nysActivityOther:e.target.value})}
@@ -43,22 +43,22 @@ const PostEventReportSection3 = ({setEventForm,eventForm}) => {
       )
     } else {
       return (
-        <label className="text-lg flex items-center" key={index}>
+        <label className="text-lg flex items-center" key={activity.id}>
           <input
             type="radio"
             name="nysActivity"
             className="mr-10 w-4 h-4"
-            value={activity}
-            id={index}
+            value={activity.value}
+            id={activity.id}
             //defaultChecked={program.id===event?.programid?'checked':""}
             onChange={(e) =>
               setEventForm((previous) => ({
                 ...previous,
-                [e.target.name]: activity
+                [e.target.name]: activity.value
               }))
             }
           />
-          {activity}
+          {activity.value}
           
         </label>
 
