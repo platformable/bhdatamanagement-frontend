@@ -9,11 +9,11 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
 
   const handleForm=(e)=>{
     const isValueOnData=data?.includes(e.target.value)
-    const isIdOnDataId=dataId?.includes(e.target.id)
+    const isIdOnDataId=dataId?.includes(Number(e.target.id))
 
    
     const filteredData=data.filter(oldValues=> oldValues != e.target.value) 
-    const filteredDataIds=dataId.filter(oldValues=> oldValues != Number(e.target.id)) 
+    const filteredDataIds=dataId.filter(oldValues=> oldValues != e.target.id) 
 
     
     isValueOnData?
@@ -24,9 +24,10 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
 
     isIdOnDataId ? 
     setDataId(filteredDataIds):
-    setData((previous)=>([
+    setDataId((previous)=>([
       ...previous,Number(e.target.id)
     ]))    
+
 
   }
 
