@@ -17,7 +17,7 @@ export const ParticipantSurveySection1 = ({surveyForm, setSurveyForm}) => {
           placeholder="Eg. 10027"
           className="border-black rounded px-2 self-start p-1 ml-2 w-60"
           maxLength={5}
-          name="zipCode"
+          name="participantZipCode"
           onKeyUp={(e) => {
             e.target.value.length > 5 &&
               (e.target.value = e.target.value.slice(0, 4));

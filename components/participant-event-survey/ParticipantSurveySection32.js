@@ -23,7 +23,7 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
   useEffect(()=>{
     setSurveyForm((previous) => ({
       ...previous,
-      participantPRePResourceKnowledge: data,
+      participantReferral: data,
     }))
   },[data])
 
