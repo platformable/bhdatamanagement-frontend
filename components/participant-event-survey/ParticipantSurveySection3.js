@@ -16,31 +16,31 @@ export const ParticipantSurveySection3 = () => {
           <p className="">Hispanic, Latino/a or Spanish </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
+          <input type="checkbox" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">Asian </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
+          <input type="checkbox" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">American Indian or Alaska Native </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
+          <input type="checkbox" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">Middle Eastern or North African </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
+          <input type="checkbox" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">Native Hawaiian or Other Pacific Islander </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
+          <input type="checkbox" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">White </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
+          <input type="checkbox" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">Some other race or origin (Please specify) </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
+          <input type="checkbox" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">Decline to answer </p>
         </label>
       </div>

@@ -60,7 +60,7 @@ if(index===options.length-1){
   return (
     <label className="text-lg flex items-center" key={index}>
       <input
-        type="radio"
+        type="checkbox"
         name="participantReferral"
         className="mr-10 w-4 h-4"
         value={option.value}
@@ -86,7 +86,7 @@ if(index===options.length-1){
           return (
             <label className="text-lg flex items-center" key={index}>
               <input
-                type="radio"
+                type="checkbox"
                 name="participantReferral"
                 className="mr-10 w-4 h-4"
                 value={option.value}

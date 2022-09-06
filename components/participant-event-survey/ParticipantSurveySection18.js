@@ -25,7 +25,7 @@ export const ParticipantSurveySection18 = () => {
             <input type="radio" name="participantComfortSex" className="mr-2 w-4 h-4" />5
           </label>
         </div>
-        <div className="flex gap-x-5 bg-gray-50 items-center">
+        <div className="flex gap-x-5  items-center">
           <p className="w-96">Mental Health Concerns</p>
 
           <label className="m-5 flex items-center">
@@ -62,7 +62,7 @@ export const ParticipantSurveySection18 = () => {
             <input type="radio" name="participantComfortDiet" className="mr-2 w-4 h-4" />5
           </label>
         </div>
-        <div className="flex gap-x-5 bg-gray-50 items-center">
+        <div className="flex gap-x-5  items-center">
           <p className="w-96"> Physical Activity/ Exercise</p>
           <label className="m-5 flex items-center">
           <input type="radio" name="participantComfortExercise" className="mr-2 w-4 h-4" />1
@@ -98,7 +98,7 @@ export const ParticipantSurveySection18 = () => {
             <input type="radio" name="participantComfortHealth" className="mr-2 w-4 h-4" />5
           </label>
         </div>
-        <div className="flex gap-x-5 bg-gray-50 items-center">
+        <div className="flex gap-x-5  items-center">
           <p className="w-96">Medications</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="participantComfortMedications" className="mr-2 w-4 h-4" />1
@@ -136,7 +136,7 @@ export const ParticipantSurveySection18 = () => {
             <input type="radio" name="participantComfortScreens" className="mr-2 w-4 h-4" />5
           </label>
         </div>
-        <div className="flex gap-x-5 bg-gray-50 items-center">
+        <div className="flex gap-x-5  items-center">
           <p className="w-96">Substance Use Concerns</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="participantComfortSubstances" className="mr-2 w-4 h-4" />1

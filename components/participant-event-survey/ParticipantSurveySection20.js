@@ -53,7 +53,7 @@ const options=[
           );
         })}
       </div>
-      <div className="flex gap-x-5 bg-gray-50 px-5 rounded">
+      <div className="flex gap-x-5  px-5 rounded">
         <p className="w-96 mr-5">Feeling down, depressed or hopeless</p>
         {options.map((option, index) => {
           return (

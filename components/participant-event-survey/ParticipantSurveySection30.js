@@ -47,7 +47,7 @@ export const ParticipantSurveySection30 = () => {
     <div className="p-5 py-10">
     <h2 className="font-black">
       <span className="">30 </span> 
-      Are you aware of where to obtain PreP (Pre- Exposures Prophylaxis) in your community?  
+      What services would you like to obtain more information about (Select all that apply)?   
     </h2>
     <div className="mt-5 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {
@@ -56,7 +56,7 @@ if(index===options.length-1){
   return (
     <label className="text-lg flex items-center" key={index}>
       <input
-        type="radio"
+        type="checkbox"
         name="participantPRePResourceKnowledge"
         className="mr-10 w-4 h-4"
         value={option.value}
@@ -82,7 +82,7 @@ if(index===options.length-1){
           return (
             <label className="text-lg flex items-center" key={index}>
               <input
-                type="radio"
+                type="checkbox"
                 name="participantPRePResourceKnowledge"
                 className="mr-10 w-4 h-4"
                 value={option.value}
