@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
@@ -37,6 +37,72 @@ import { ParticipantSurveySection8 } from "../../../../components/participant-ev
 import { ParticipantSurveySection9 } from "../../../../components/participant-event-survey/ParticipantSurveySection9";
 
 const Survey = () => {
+  const [surveyForm, setSurveyForm] = useState({
+    // eventID,
+    // eventName,
+    // eventDate,
+    participantZipCode: 0,
+    ageID: "",
+    participantAgeRange: "",
+    raceID: "",
+    participantRace: [],
+    ethnicityID: "",
+    participantEthnicity: "",
+    genderID: "",
+    participantGender: "",
+    orientationID: "",
+    participantOrientation: "",
+    roleID: "",
+    participantRole: "",
+    educationID: "",
+    participantEducation: "",
+    employmentID: "",
+    participantEmployment: [],
+    livingID: "",
+    participantLiving: "",
+    housingID: "",
+    participantHousing: "",
+    participantFoodInsecurity1: "",
+    participantFoodInsecurity2: "",
+    insuranceID: "",
+    participantInsurance: "",
+    participantHealth: "",
+    participantPCP: "",
+    participantRoutine: "",
+    participantComfortSex: 0,
+    participantComfortMentalHealth: 0,
+    participantComfortDiet: 0,
+    participantComfortExercise: 0,
+    participantComfortHealth: 0,
+    participantComfortMedications: 0,
+    participantComfortScreens: 0,
+    participantComfortSubstances: 0,
+    participantRelationship: "",
+    participantPHQ2a: "",
+    participantPHQ2b: "",
+    participantHIVTest: "",
+    participantHIV12: "",
+    participantHIVKnowledge: [],
+    participantCondomUse: "",
+    participantPrEPKnowledge: "",
+    participantPrEPUse: "",
+    participantUKnowledge: "",
+    participantTestResourceKnowledge: "",
+    participantPRePResourceKnowledge: "",
+    interestHIV: false,
+    interestPrEP: false,
+    interestHepC: false,
+    interestImmigration: false,
+    interestScreens: false,
+    interestVaccines: false,
+    interestMentalHealth: false,
+    interestSubstance: false,
+    interestChronic: false,
+    interestOther: "",
+    participantVote: false,
+    participantReferral: [],
+    participantSuggestions: "",
+  })
   return (
     <>
       <Layout>

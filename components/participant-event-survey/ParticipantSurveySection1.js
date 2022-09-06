@@ -11,7 +11,7 @@ export const ParticipantSurveySection1 = () => {
         <h3>Zip Code</h3>
         <input
           type="number"
-        //   placeholder="Please enter a 5-digit zip code"
+          placeholder="Eg. 10027"
           className="border-black rounded px-2 self-start p-1 ml-2 w-60"
           maxLength={5}
           name="zipCode"
