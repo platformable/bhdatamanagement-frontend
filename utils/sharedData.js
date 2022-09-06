@@ -117,42 +117,45 @@ export const shareData = {
 };
 
 export const workArea = [
-  "NYC",
-  "Buffalo",
-  "Nassau/Suffolk",
-  "Rochester",
-  "Syracuse",
-  "Other",
+  {id:1,value:"NYC"},
+  {id:2,value:"Buffalo"},
+  {id:3,value:"Nassau/Suffolk"},
+  {id:4,value:"Rochester"},
+  {id:5,value:"Syracuse"},
+  {id:6,value:"Other"},
 ];
 
 export const roles = [
-  "Organizer",
-  "Facilitator/Presenter/MC",
-  "Volunteer",
-  "Support team member",
-  "Community ambassador",
-  "Intern/apprentice",
-  "Other ",
+  {id:1,value:"Organizer"},
+  {id:2,value:"Facilitator/Presenter/MC"},
+  {id:3,value:"Volunteer"},
+  {id:4,value:"Support team member"},
+  {id:5,value:"Community ambassador"},
+  {id:6,value:"Intern/apprentice"},
+  {id:7,value:"Other "},
 ];
 
 export const nysActivity = [
-  "Block Association",
-  "Strategic Planning Group",
-  "Campus Approach",
-  "Conscientious Clinician",
-  "Health Disparities Workshop",
-  "Faith Without Walls",
-  "Other ",
+  {id:1,value:"Block Association"},
+  {id:2,value:"Strategic Planning Group"},
+  {id:3,value:"Campus Approach"},
+  {id:4,value:"Conscientious Clinician"},
+  {id:5,value:"Health Disparities Workshop"},
+  {id:6,value:"Faith Without Walls"},
+  {id:7,value:"Other "},
 ];
 
-export const nysPrograms = ["Leadership Training Institute", "HIV High Impact"];
+export const nysPrograms = [
+{id:1,value:"Leadership Training Institute"}, 
+{id:2,value:"HIV High Impact"},
+];
 
 export const languages = [
-  "English",
-  "Spanish",
-  "French",
-  "African languages",
-  "Haitian-Creole",
+  {id:1,value:"English"},
+  {id:2,value:"Spanish"},
+  {id:3,value:"French"},
+  {id:4,value:"African languages"},
+  {id:5,value:"Haitian-Creole"},
 ];
 
 export const eventChecklist = [
@@ -236,74 +239,75 @@ export const sexualOrientation = [
 ];
 
 export const resourcesDistributed= [
-  {
+  { id:1,
     source: "/post_Event_report/mask_icon.svg",
     name:"Masks",
     dataFieldName:"masks"
   },
-  {
+  { id:2,
     source: "/post_Event_report/COVID_literature_icon.svg",
     name:"COVID literature",
     dataFieldName:"covidLiterature"
   },
-  {
+  { id:3,
     source: "/post_Event_report/COVID_literature_icon.svg",
     name:"Vaccine related literature",
     dataFieldName:"vaccineRelatedLiterature"
   },
-  {
+  { id:4,
     source: "/post_Event_report/COVID_literature_icon.svg",
     name:"HIV literature",
     dataFieldName:"hivLiterature"
   },
-  {
+  { id:5,
     source: "/post_Event_report/COVID_literature_icon.svg",
     name:"HepC literature",
     dataFieldName:"hepCLiterature"
   },
-  {
+  { id:6,
     source: "/post_Event_report/COVID_literature_icon.svg",
     name:"PrEP literature",
     dataFieldName:"prepLiterature"
   },
-  {
+  { id:7,
     source: "/post_Event_report/safer_sex_kit_icon.svg",
     name:"Safer sex kits",
     dataFieldName:"saferSexKits"
   },
-  {
+  { id:8,
     source: "/post_Event_report/COVID_literature_icon.svg",
     name:"Health disparities literature",
     dataFieldName:"healthDisparitiesLiterature"
   },
-  {
+  { id:9,
     source: "/post_Event_report/bags_boxes_of_food_icon.svg",
     name:"Bags/boxes of food",
     dataFieldName:"bagsBoxesFood"
   },
-  {
+  { id:10,
     source: "/post_Event_report/poster_icon.svg",
     name:"Posters",
     dataFieldName:"posters"
   },
-  {
+  { id:11,
     source: "/post_Event_report/ther_event_leaflets_icon.svg",
     name:"Other event leaflets",
     dataFieldName:"otherEventLeaflets"
   },
-  {
+  { id:12,
     source: "/post_Event_report/prepared_meal_icon.svg",
     name:"Prepared meals",
     dataFieldName:"preparedMeals"
   },
-  {
+  { id:13,
     source: "/post_Event_report/hand_sanitizers_icon.svg",
     name:"Hand sanitizers",
     dataFieldName:"handSanitizers"
   },
-  {
+  { id:14,
     source: "/post_Event_report/COVID_site_referral_icon.svg",
     name:"COVID vaccine site referral information/details",
     dataFieldName:"covidVaccineSiteReferralDetails"
-},]
+  },
+]
 
