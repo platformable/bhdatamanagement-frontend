@@ -57,7 +57,7 @@ if(index===options.length-1){
     <label className="text-lg flex items-center" key={index}>
       <input
         type="radio"
-        name=""
+        name="participantPRePResourceKnowledge"
         className="mr-10 w-4 h-4"
         value={option.value}
         id={index}
@@ -83,7 +83,7 @@ if(index===options.length-1){
             <label className="text-lg flex items-center" key={index}>
               <input
                 type="radio"
-                name=""
+                name="participantPRePResourceKnowledge"
                 className="mr-10 w-4 h-4"
                 value={option.value}
                 id={index}

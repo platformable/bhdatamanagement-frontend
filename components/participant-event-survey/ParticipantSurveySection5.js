@@ -8,35 +8,35 @@ export const ParticipantSurveySection5 = () => {
       </h2>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
       <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantGender"/>
           <p className="">Female</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantGender"/>
           <p className="">Male</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantGender"/>
           <p className="">Transgender</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantGender"/>
           <p className="">Transgender Female</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantGender"/>
           <p className=""> Transgender Male</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantGender"/>
           <p className="">Gender non-conforming </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantGender"/>
           <p className="">Non-binary </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantGender"/>
           <p className="">Other gender identity (Please specify): </p>
         </label>
       </div>

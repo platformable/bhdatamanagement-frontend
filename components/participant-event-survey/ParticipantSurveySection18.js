@@ -10,110 +10,110 @@ export const ParticipantSurveySection18 = () => {
         <div className="flex gap-x-5  items-center">
           <p className="w-96">Sexual Health Concerns</p>
           <label className="m-5 flex items-center">
-            <input type="radio" name="1" className="mr-2 w-4 h-4" />1
+            <input type="radio" name="participantComfortSex" className="mr-2 w-4 h-4" />1
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="1" className="mr-2 w-4 h-4" />2
+            <input type="radio" name="participantComfortSex" className="mr-2 w-4 h-4" />2
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="1" className="mr-2 w-4 h-4" />3
+            <input type="radio" name="participantComfortSex" className="mr-2 w-4 h-4" />3
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="1" className="mr-2 w-4 h-4" />4
+            <input type="radio" name="participantComfortSex" className="mr-2 w-4 h-4" />4
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="1" className="mr-2 w-4 h-4" />5
+            <input type="radio" name="participantComfortSex" className="mr-2 w-4 h-4" />5
           </label>
         </div>
         <div className="flex gap-x-5 bg-gray-50 items-center">
           <p className="w-96">Mental Health Concerns</p>
 
           <label className="m-5 flex items-center">
-            <input type="radio" name="2" className="mr-2 w-4 h-4" />2
+            <input type="radio" name="participantComfortMentalHealth" className="mr-2 w-4 h-4" />2
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="2" className="mr-2 w-4 h-4" />2
+            <input type="radio" name="participantComfortMentalHealth" className="mr-2 w-4 h-4" />2
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="2" className="mr-2 w-4 h-4" />3
+            <input type="radio" name="participantComfortMentalHealth" className="mr-2 w-4 h-4" />3
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="2" className="mr-2 w-4 h-4" />4
+            <input type="radio" name="participantComfortMentalHealth" className="mr-2 w-4 h-4" />4
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="2" className="mr-2 w-4 h-4" />5
+            <input type="radio" name="participantComfortMentalHealth" className="mr-2 w-4 h-4" />5
           </label>
         </div>
         <div className="flex gap-x-5 items-center">
           <p className="w-96">Diet/ Nutrition</p>
           <label className="m-5 flex items-center">
-            <input type="radio" name="3" className="mr-2 w-4 h-4" />1
+            <input type="radio" name="participantComfortDiet" className="mr-2 w-4 h-4" />1
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="3" className="mr-2 w-4 h-4" />2
+            <input type="radio" name="participantComfortDiet" className="mr-2 w-4 h-4" />2
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="3" className="mr-2 w-4 h-4" />3
+            <input type="radio" name="participantComfortDiet" className="mr-2 w-4 h-4" />3
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="3" className="mr-2 w-4 h-4" />4
+            <input type="radio" name="participantComfortDiet" className="mr-2 w-4 h-4" />4
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="3" className="mr-2 w-4 h-4" />5
+            <input type="radio" name="participantComfortDiet" className="mr-2 w-4 h-4" />5
           </label>
         </div>
         <div className="flex gap-x-5 bg-gray-50 items-center">
           <p className="w-96"> Physical Activity/ Exercise</p>
           <label className="m-5 flex items-center">
-            <input type="radio" name="4" className="mr-2 w-4 h-4" />1
+          <input type="radio" name="participantComfortExercise" className="mr-2 w-4 h-4" />1
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="4" className="mr-2 w-4 h-4" />2
+          <input type="radio" name="participantComfortExercise" className="mr-2 w-4 h-4" />2
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="4" className="mr-2 w-4 h-4" />3
+          <input type="radio" name="participantComfortExercise" className="mr-2 w-4 h-4" />3
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="4" className="mr-2 w-4 h-4" />4
+          <input type="radio" name="participantComfortExercise" className="mr-2 w-4 h-4" />4
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="4" className="mr-2 w-4 h-4" />5
+          <input type="radio" name="participantComfortExercise" className="mr-2 w-4 h-4" />5
           </label>
         </div>
         <div className="flex gap-x-5 items-center">
           <p className="w-96">Health Concerns (Chronic disease care)</p>
           <label className="m-5 flex items-center">
-            <input type="radio" name="5" className="mr-2 w-4 h-4" />1
+            <input type="radio" name="participantComfortHealth" className="mr-2 w-4 h-4" />1
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="5" className="mr-2 w-4 h-4" />2
+            <input type="radio" name="participantComfortHealth" className="mr-2 w-4 h-4" />2
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="5" className="mr-2 w-4 h-4" />3
+            <input type="radio" name="participantComfortHealth" className="mr-2 w-4 h-4" />3
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="5" className="mr-2 w-4 h-4" />4
+            <input type="radio" name="participantComfortHealth" className="mr-2 w-4 h-4" />4
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="5" className="mr-2 w-4 h-4" />5
+            <input type="radio" name="participantComfortHealth" className="mr-2 w-4 h-4" />5
           </label>
         </div>
         <div className="flex gap-x-5 bg-gray-50 items-center">
           <p className="w-96">Medications</p>
           <label className="m-5 flex items-center">
-            <input type="radio" name="6" className="mr-2 w-4 h-4" />1
+            <input type="radio" name="participantComfortMedications" className="mr-2 w-4 h-4" />1
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="6" className="mr-2 w-4 h-4" />2
+            <input type="radio" name="participantComfortMedications" className="mr-2 w-4 h-4" />2
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="6" className="mr-2 w-4 h-4" />3
+            <input type="radio" name="participantComfortMedications" className="mr-2 w-4 h-4" />3
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="6" className="mr-2 w-4 h-4" />4
+            <input type="radio" name="participantComfortMedications" className="mr-2 w-4 h-4" />4
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="6" className="mr-2 w-4 h-4" />5
+            <input type="radio" name="participantComfortMedications" className="mr-2 w-4 h-4" />5
           </label>
         </div>
         <div className="flex gap-x-5 items-center">
@@ -121,37 +121,37 @@ export const ParticipantSurveySection18 = () => {
             Health Screens (Mammogram, Colonoscopy, PSAs etc.)
           </p>
           <label className="m-5 flex items-center">
-            <input type="radio" name="7" className="mr-2 w-4 h-4" />1
+            <input type="radio" name="participantComfortScreens" className="mr-2 w-4 h-4" />1
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="7" className="mr-2 w-4 h-4" />2
+            <input type="radio" name="participantComfortScreens" className="mr-2 w-4 h-4" />2
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="7" className="mr-2 w-4 h-4" />3
+            <input type="radio" name="participantComfortScreens" className="mr-2 w-4 h-4" />3
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="7" className="mr-2 w-4 h-4" />4
+            <input type="radio" name="participantComfortScreens" className="mr-2 w-4 h-4" />4
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="7" className="mr-2 w-4 h-4" />5
+            <input type="radio" name="participantComfortScreens" className="mr-2 w-4 h-4" />5
           </label>
         </div>
         <div className="flex gap-x-5 bg-gray-50 items-center">
           <p className="w-96">Substance Use Concerns</p>
           <label className="m-5 flex items-center">
-            <input type="radio" name="8" className="mr-2 w-4 h-4" />1
+            <input type="radio" name="participantComfortSubstances" className="mr-2 w-4 h-4" />1
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="8" className="mr-2 w-4 h-4" />2
+            <input type="radio" name="participantComfortSubstances" className="mr-2 w-4 h-4" />2
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="8" className="mr-2 w-4 h-4" />3
+            <input type="radio" name="participantComfortSubstances" className="mr-2 w-4 h-4" />3
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="8" className="mr-2 w-4 h-4" />4
+            <input type="radio" name="participantComfortSubstances" className="mr-2 w-4 h-4" />4
           </label>
           <label className="m-5 flex items-center">
-            <input type="radio" name="8" className="mr-2 w-4 h-4" />5
+            <input type="radio" name="participantComfortSubstances" className="mr-2 w-4 h-4" />5
           </label>
         </div>
       </div>
