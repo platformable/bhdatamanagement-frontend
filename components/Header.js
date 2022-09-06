@@ -19,12 +19,15 @@ export default function Header() {
             <div className="flex gap-x-3 ">
             {/* <img src="/user_icon.svg" alt="" width={32} /> */}
             <div>
-            <h3 className="font-black">
+              {userName !="" ?<>
+              <h3 className="font-black">
               {userName}
             </h3>
             <h6 className="">  
               {userRole}
             </h6>
+              </> : null}
+           
             </div>
             <div className="">
             <Link href="/api/auth/logout">
