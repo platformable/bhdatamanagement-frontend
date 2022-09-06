@@ -1,6 +1,9 @@
 import React from "react";
 
-export const ParticipantSurveySection1 = () => {
+export const ParticipantSurveySection1 = ({surveyForm, setSurveyForm}) => {
+  const handleForm = (e) => {
+    setSurveyForm({...surveyForm, [e.target.name]: Number(e.target.value)})
+  }
   return (
     <div className="p-5 py-10">
       <h2 className="font-black">
@@ -20,12 +23,7 @@ export const ParticipantSurveySection1 = () => {
               (e.target.value = e.target.value.slice(0, 4));
           }}
           onWheelCapture={(e) => e.target.blur()}
-        //   onChange={(e) => {
-        //     setEventForm((previous) => ({
-        //       ...previous,
-        //       [e.target.name]: Number(e.target.value),
-        //     }));
-        //   }}
+        onChange={handleForm}
         />
       </div>
     </div>

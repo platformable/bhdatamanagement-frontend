@@ -13,7 +13,7 @@ export const ParticipantSurveySection24 = ({surveyForm,setSurveyForm}) => {
     },
     {
       id:3,
-      value:"Don’t Know/ Not Sure"
+      value:"Don’t know/ Not sure"
     },
     {
       id:4,

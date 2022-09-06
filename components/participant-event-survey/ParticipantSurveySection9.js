@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 
+
 export const ParticipantSurveySection9 = ({surveyForm,setSurveyForm}) => {
 console.log("surveyForm",surveyForm)
 
@@ -37,12 +38,14 @@ console.log("surveyForm",surveyForm)
       participantEmployment: data,
     }))
   },[data])
+
   return (
     <div className="p-5 py-10">
     <h2 className="font-black">
       <span className="">9</span> Are you currently...? 
     </h2>
     <div className="mt-5 grid grid-cols-1 space-between gap-5">
+
       {options?.map((option,index)=>{
         return (
           <label className="flex gap-x-5 items-center" key={index}>
@@ -52,7 +55,7 @@ console.log("surveyForm",surveyForm)
        </label>
         )
       })}
-   
+ 
        
     </div>
   </div>

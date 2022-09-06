@@ -268,7 +268,7 @@ export const ParticipantSurveySection18 = ({surveyForm,setSurveyForm}) => {
         </div>
         <div className="flex gap-x-5 items-center">
           <p className="w-96">
-            Health Screens (Mammogram, Colonoscopy, PSAs etc.)
+            Health screens (Mammogram, Colonoscopy, PSAs etc.)
           </p>
           <label className="m-5 flex items-center">
             <input type="radio" name="participantComfortScreens" className="mr-2 w-4 h-4" onChange={(e) =>
