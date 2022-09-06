@@ -1,6 +1,33 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 
-export const ParticipantSurveySection32 = () => {
+
+
+
+export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
+
+  const [data,setData]=useState([])
+
+  const handleForm=(value)=>{
+    const isValueOnData=data?.includes(value)
+   
+    const filteredData=data.filter(oldValues=> oldValues !=value) 
+    
+    isValueOnData?
+    setData(filteredData) :
+    setData((previous)=>([
+      ...previous,value
+    ]))
+
+  }
+
+  useEffect(()=>{
+    setSurveyForm((previous) => ({
+      ...previous,
+      participantPRePResourceKnowledge: data,
+    }))
+  },[data])
+
+
   const options=[
     {
       id:1,
@@ -65,18 +92,12 @@ if(index===options.length-1){
         className="mr-10 w-4 h-4"
         value={option.value}
         id={index}
-        //defaultChecked={program.id===event?.programid?'checked':""}
-        /* onChange={(e) =>
-          setEventForm((previous) => ({
-            ...previous,
-            [e.target.name]: area,
-          }))
-        } */
+        onChange={(e)=>handleForm(e.target.value)}
       />
      {option.value}
      <input type="text" 
           placeholder="Please specify" 
-          onChange={(e)=>setEventForm({...eventForm,workAreaOther:e.target.value})}
+          onChange={(e)=>setEventForm({...eventForm,participantReferralOther:e.target.value})}
           className="border-black rounded px-2 self-start p-1 ml-2" />
     </label>
 
@@ -91,13 +112,7 @@ if(index===options.length-1){
                 className="mr-10 w-4 h-4"
                 value={option.value}
                 id={index}
-                //defaultChecked={program.id===event?.programid?'checked':""}
-                /* onChange={(e) =>
-                  setEventForm((previous) => ({
-                    ...previous,
-                    [e.target.name]: area,
-                  }))
-                } */
+                onChange={(e)=>handleForm(e.target.value)}
               />
              {option.value}
             </label>
