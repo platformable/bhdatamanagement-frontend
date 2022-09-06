@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from 'next/router'
 import { toast, ToastContainer } from "react-toastify";
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
@@ -36,7 +37,9 @@ import { ParticipantSurveySection7 } from "../../../../components/participant-ev
 import { ParticipantSurveySection8 } from "../../../../components/participant-event-survey/ParticipantSurveySection8";
 import { ParticipantSurveySection9 } from "../../../../components/participant-event-survey/ParticipantSurveySection9";
 
-const Survey = () => {
+const Survey = ({data}) => {
+
+  console.log("data",data)
   const [surveyForm, setSurveyForm] = useState({
     // eventID,
     // eventName,
@@ -103,6 +106,8 @@ const Survey = () => {
     participantReferral: [],
     participantSuggestions: "",
   })
+
+  const router = useRouter()
   return (
     <>
       <Layout>
@@ -159,7 +164,7 @@ const Survey = () => {
         
           <button
             className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-            /* onClick={submitPostEventForm} */
+            onClick={(e)=>{router.push("https://nblch.org/")}}
           >
             Save
           </button>
@@ -172,3 +177,13 @@ const Survey = () => {
 };
 
 export default Survey;
+
+export async function getServerSideProps(req) {
+  let {id}= req.params
+  // Fetch data from external API
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`)
+  const data = await res.json()
+
+  // Pass data to the page via props
+  return { props: { data } }
+}
