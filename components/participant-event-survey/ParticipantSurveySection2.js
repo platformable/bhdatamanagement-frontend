@@ -62,7 +62,7 @@ export const ParticipantSurveySection2 = () => {
 
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="mr-10 w-4 h-4" name="participantAgeRange" />
-          <p className="w-20">Declined to answer</p>
+          <p className="w-40">Decline to answer</p>
         </label>
       </div>
     </div>

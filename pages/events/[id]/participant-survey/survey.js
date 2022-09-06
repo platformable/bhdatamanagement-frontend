@@ -117,6 +117,17 @@ const Survey = ({data}) => {
           dashboardBtn={false}
           pageTitle={"Participant event survey"}
         />
+
+        <div id="event" className="container mx-auto rounded my-5 border-black-lg">
+          <div className="grid grid-cols-2 bg-black text-white justify-between p-5 rounded-tl-lg rounded-tr-lg">
+            <div>Event name</div>
+            <div className="flex justify-end">Event date</div>
+          </div>
+          <div className="grid grid-cols-2  justify-between p-5 ">
+            <div className="text-black">{data[0]?.eventname}</div>
+            <div className="flex justify-end">{new Date(data[0]?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</div>
+          </div>
+        </div>
         <div className="container mx-auto border-black rounded-lg mb-10">
           <ParticipantSurveySection1 />
           <ParticipantSurveySection2 />
