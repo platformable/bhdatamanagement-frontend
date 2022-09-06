@@ -1,6 +1,9 @@
 import React from "react";
 
-export const ParticipantSurveySection12 = () => {
+export const ParticipantSurveySection12 = ({surveyForm, setSurveyForm}) => {
+  const handleForm = (e) => {
+    setSurveyForm({...surveyForm, [e.target.name]: e.target.value })
+  }
   return (
     <div className="p-5 py-10">
       <h2 className="font-black mb-7">
@@ -13,19 +16,19 @@ export const ParticipantSurveySection12 = () => {
       </h2>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
       <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantFoodInsecurity1"/>
+          <input type="radio" className="mr-10 w-4 h-4" id={1} value="Often true" name="participantFoodInsecurity1" onChange={handleForm}/>
           <p className="">Often true  </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantFoodInsecurity1"/>
+          <input type="radio" className="mr-10 w-4 h-4" id={2} value="Sometimes true" name="participantFoodInsecurity1" onChange={handleForm}/>
           <p className="">Sometimes true  </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantFoodInsecurity1"/>
+          <input type="radio" className="mr-10 w-4 h-4" id={3} value="Never true" name="participantFoodInsecurity1" onChange={handleForm}/>
           <p className="">Never true  </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantFoodInsecurity1"/>
+          <input type="radio" className="mr-10 w-4 h-4" id={4} value="Decline to answer" name="participantFoodInsecurity1" onChange={handleForm}/>
           <p className="">Decline to answer</p>
         </label>
       </div>

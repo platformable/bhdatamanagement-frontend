@@ -77,7 +77,7 @@ export const shareData = {
     "Native Hawaiian or Other Pacific Islander",
     "White",
     "Some other race or origin (please specify)",
-    "Declined to answer",
+    "Decline to answer",
   ],
   ethnicity: [
     "Not of Hispanic, Latino/a or Spanish origin",
@@ -87,7 +87,7 @@ export const shareData = {
     "Dominican",
     "Ecuadorian",
     "Other Hispanic, Latino/a, or Spanish origin",
-    "Declined to answer",
+    "Decline to answer",
   ],
   sexualOrientation: [
     "Gay or lesbian",
@@ -96,7 +96,7 @@ export const shareData = {
     "Queer",
     "Questioning or not sure",
     "Unknown",
-    "Declined to answer",
+    "Decline to answer",
   ],
   resourcesDistributed: [
     "Masks",
@@ -214,7 +214,7 @@ export const race = [
   {id:6,value:"Native Hawaiian or Other Pacific Islander"},
   {id:7,value:"White"},
   {id:8,value:"Some other race or origin (please specify)"},
-  {id:9,value:"Declined to answer"},
+  {id:9,value:"Decline to answer"},
 ];
 
 export const ethnicity = [
@@ -225,7 +225,7 @@ export const ethnicity = [
   {id:5,value:"Dominican"},
   {id:6,value:"Ecuadorian"},
   {id:7,value:"Other Hispanic, Latino/a, or Spanish origin"},
-  {id:8,value:"Declined to answer"},
+  {id:8,value:"Decline to answer"},
 ];
 
 export const sexualOrientation = [
@@ -235,7 +235,7 @@ export const sexualOrientation = [
   {id:4,value:"Queer"},
   {id:5,value:"Questioning or not sure"},
   {id:6,value:"Unknown"},
-  {id:7,value:"Declined to answer"},
+  {id:7,value:"Decline to answer"},
 ];
 
 export const resourcesDistributed= [
