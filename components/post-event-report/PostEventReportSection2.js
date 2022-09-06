@@ -18,22 +18,22 @@ const PostEventReportSection2 = ({eventForm, setEventForm}) => {
     {roles.map((role,index)=>{
     if(index===roles.length-1){
       return (
-        <label className="text-lg flex items-center" key={index}>
+        <label className="text-lg flex items-center" key={role.id}>
           <input
             type="radio"
             name="mainRole"
             className="mr-10 w-4 h-4"
-            value={role}
-            id={index}
+            value={role.value}
+            id={role.id}
             //defaultChecked={program.id===event?.programid?'checked':""}
             onChange={(e) =>
               setEventForm((previous) => ({
                 ...previous,
-                [e.target.name]: role
+                [e.target.name]: role.value
               }))
             }
           />
-          {role}
+          {role.value}
           <input type="text" 
           placeholder="Please specify" 
           onChange={(e)=>setEventForm({...eventForm,workAreaOther:e.target.value})}
@@ -43,22 +43,22 @@ const PostEventReportSection2 = ({eventForm, setEventForm}) => {
       )
     } else {
       return (
-        <label className="text-lg flex items-center" key={index}>
+        <label className="text-lg flex items-center" key={role.id}>
           <input
             type="radio"
             name="mainRole"
             className="mr-10 w-4 h-4"
-            value={role}
-            id={index}
+            value={role.value}
+            id={role.id}
             //defaultChecked={program.id===event?.programid?'checked':""}
             onChange={(e) =>
               setEventForm((previous) => ({
                 ...previous,
-                [e.target.name]: role
+                [e.target.name]: role.value
               }))
             }
           />
-          {role}
+          {role.value}
           
         </label>
 
