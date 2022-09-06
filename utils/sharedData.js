@@ -159,23 +159,23 @@ export const languages = [
 ];
 
 export const eventChecklist = [
-  {event:"Participants completed a sign in registration at the start of the session (online).",
+  {id:1,event:"Participants completed a sign in registration at the start of the session (online).",
   dataField:"participantRegistrationForm"},
-  {event:"The event started on time.",
+  {id:2,event:"The event started on time.",
 dataField:"eventStartedOnTime"},
-  {event:"The event finished on time.",
+  {id:3,event:"The event finished on time.",
 dataField:"eventFinishedOnTime"},
-  {event:"For meetings/workshops/training/town halls/webinars: Participants were greeted by someone from the program.",
+  {id:4,event:"For meetings/workshops/training/town halls/webinars: Participants were greeted by someone from the program.",
 dataField:"participantGreeted"},
-  {event:"Resources were available to participants.",
+  {id:5,event:"Resources were available to participants.",
 dataField:"resourcesAvailable"},
-  {event:"If photos were taken, participants signed a photo usage form.",
+  {id:6,event:"If photos were taken, participants signed a photo usage form.",
 dataField:"photoRelease"},
-  {event:"Hand sanitizer was available.",
+  {id:7,event:"Hand sanitizer was available.",
 dataField:"handSanitizerAvailable"},
-  {event:"For meetings/workshops/training/town halls/webinars: Participants were reminded that the workshop area is a safe space and to treat each other respectfully and within the workshop guidelines.",
+  {id:8,event:"For meetings/workshops/training/town halls/webinars: Participants were reminded that the workshop area is a safe space and to treat each other respectfully and within the workshop guidelines.",
 dataField:"reminderSafeSpace"},
-  {event:"For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
+  {id:9,event:"For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
 dataField:"reminderPostEvaluationSurvey"},
 ];
 

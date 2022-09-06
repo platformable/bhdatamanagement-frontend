@@ -41,11 +41,11 @@ const PostEventReportSection13 = ({eventForm, setEventForm}) => {
                 type="checkbox"
                 name="languages"
                 className="mr-10 w-6 h-6"
-                value={lang}
+                value={lang.value}
                 id={index}
                 onChange={(e)=>handleForm(e.target.value)}
               />
-              {lang}
+              {lang.value}
             </label>
           ))}
       </div>
