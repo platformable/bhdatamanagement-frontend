@@ -110,7 +110,7 @@ const Survey = ({data}) => {
   const router = useRouter()
   return (
     <>
-      <Layout>
+      <Layout showStatusHeader={false}>
         <ToastContainer autoClose={1500} />
         <PageTopHeading
           backBtn={false}

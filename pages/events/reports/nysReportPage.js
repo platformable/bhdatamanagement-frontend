@@ -27,7 +27,7 @@ const NysReportPage = ({ eventReport }) => {
   console.log("selected", selectedCSV);
 
   return (
-    <Layout>
+    <Layout showStatusHeader={true}>
       <PageTopHeading
         pageTitle={"Download the CSV dataset for the NYS CMD report"}
         backBtn={true}

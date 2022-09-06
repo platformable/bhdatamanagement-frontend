@@ -50,7 +50,7 @@ export default function Dashboard() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout>
+      <Layout showStatusHeader={true}>
         <main className="h-screen">
           <section id="dashboard-client-list">
             <div className="container mx-auto py-5">

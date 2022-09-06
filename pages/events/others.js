@@ -6,7 +6,7 @@ import PageTopHeading from "../../components/PageTopHeading";
 
 const EventsIndexOther = () => {
   return (
-    <Layout>
+    <Layout showStatusHeader={true}>
       <PageTopHeading pageTitle={"Events"} dashboardBtn={true} backBtn={false} />
 
       <div className="container mx-auto md:px-0 px-5 my-10">

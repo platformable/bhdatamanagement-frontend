@@ -40,7 +40,7 @@ export default function UsersIndex({data}) {
 
   return (
     <>
-    <Layout>
+    <Layout showStatusHeader={true}>
     
     
           <section>

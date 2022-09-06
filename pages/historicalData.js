@@ -116,7 +116,7 @@ export default function HistoricalData() {
   };
 
   return (
-    <Layout>
+    <Layout showStatusHeader={true}>
       <div id="historicalData">
         <section className="py-5 bg-white">
           <div className="container mx-auto ">
