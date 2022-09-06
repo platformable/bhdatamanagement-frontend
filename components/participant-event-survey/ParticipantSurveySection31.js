@@ -27,7 +27,7 @@ export const ParticipantSurveySection31 = () => {
             <label className="text-lg flex items-center" key={index}>
               <input
                 type="radio"
-                name="workArea"
+                name="participantVote"
                 className="mr-10 w-4 h-4"
                 value={option.value}
                 id={index}

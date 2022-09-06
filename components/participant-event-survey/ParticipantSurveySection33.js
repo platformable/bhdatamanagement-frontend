@@ -11,7 +11,7 @@ export const ParticipantSurveySection33 = () => {
         <textarea
         className="p-2 block w-full h-32 bg-white break-all border-black rounded-md overflow-hidden"
         role="textbox"
-        name=""
+        name="participantSuggestions"
         placeholder=""
         /* onChange={(e) =>
           setEventForm((previous) => ({

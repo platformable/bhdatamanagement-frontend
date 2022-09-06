@@ -23,7 +23,7 @@ export const ParticipantSurveySection26 = () => {
     <div className="p-5 py-10">
     <h2 className="font-black">
       <span className="">26 </span> 
-      Have You Ever Used Prep (Pre- Exposures Prophylaxis) To Prevent Getting Infected With Hiv?
+      Have you ever used Prep (Pre- Exposures Prophylaxis) to prevent getting infected with HIV?
     </h2>
     <div className="mt-5 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {
@@ -31,7 +31,7 @@ export const ParticipantSurveySection26 = () => {
             <label className="text-lg flex items-center" key={index}>
               <input
                 type="radio"
-                name=""
+                name="participantPrEPUse"
                 className="mr-10 w-4 h-4"
                 value={option.value}
                 id={index}

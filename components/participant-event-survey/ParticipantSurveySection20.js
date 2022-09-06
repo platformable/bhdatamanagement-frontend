@@ -36,7 +36,7 @@ const options=[
             <label className="text-lg flex items-center" key={index}>
               <input
                 type="radio"
-                name=""
+                name="participantPHQ2a"
                 className="mr-1 w-4 h-4"
                 value={option.value}
                 id={index}
@@ -60,7 +60,7 @@ const options=[
             <label className="text-lg flex items-center" key={index}>
               <input
                 type="radio"
-                name=""
+                name="participantPHQ2b"
                 className="mr-1 w-4 h-4"
                 value={option.value}
                 id={index}

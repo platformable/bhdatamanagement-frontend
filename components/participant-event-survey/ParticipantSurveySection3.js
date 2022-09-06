@@ -8,39 +8,39 @@ export const ParticipantSurveySection3 = () => {
       </h2>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
       <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">Black or African American </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">Hispanic, Latino/a or Spanish </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">Asian </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">American Indian or Alaska Native </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">Middle Eastern or North African </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">Native Hawaiian or Other Pacific Islander </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">White </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">Some other race or origin (Please specify) </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" />
+          <input type="radio" className="mr-10 w-4 h-4" name="participantRace" />
           <p className="">Decline to answer </p>
         </label>
       </div>
