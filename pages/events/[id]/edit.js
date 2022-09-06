@@ -77,7 +77,7 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
   
   return (
     <>
-    <Layout>
+    <Layout showStatusHeader={true}>
       <PageTopHeading
         backBtn={true}
         dashboardBtn={true}

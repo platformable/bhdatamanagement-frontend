@@ -494,7 +494,7 @@ const router = useRouter()
 console.log("eventForm",eventForm)
   return (
     <>
-      <Layout>
+      <Layout showStatusHeader={true}>
       <ToastContainer autoClose={1500}/>
         <PageTopHeading
           backBtn={true}

@@ -67,7 +67,7 @@ export default function AuthorizedUsersIndex({data, users}) {
 
   return (
     <>
-      <Layout>
+      <Layout showStatusHeader={true}>
           <ToastContainer autoClose={2000}/>
           <section className='bg-white'>
            <div className="container md:mx-auto"> 

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 const CreateReport = () => {
     return (
-        <Layout>
+        <Layout showStatusHeader={true}>
             <PageTopHeading pageTitle="Create Report" dashboardBtn={true} backBtn={true}/>
             <div className="container mx-auto">
 

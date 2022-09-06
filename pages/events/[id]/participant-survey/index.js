@@ -100,7 +100,7 @@ const ParticipantSurvey = ({
   }
   return (
     <>
-      <Layout>
+      <Layout showStatusHeader={true}>
         <PageTopHeading
           backBtn={true}
           dashboardBtn={true}

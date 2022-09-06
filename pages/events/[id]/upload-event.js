@@ -132,7 +132,7 @@ useEffect(()=>{
   imageFile?  onSubmitImageFile():""
   },[file,imageFile])
   return (
-   <Layout>
+   <Layout showStatusHeader={true}>
     <PageTopHeading backBtn={true} dashboardBtn={true} pageTitle={"Upload Event Documents"}/>
 
     <div className="container mx-auto border-black rounded p-5">

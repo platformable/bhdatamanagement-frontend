@@ -3,8 +3,9 @@ import { useUser, getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
-export default function Header() {
+export default function Header({showStatus}) {
   const { user, error, isLoading } = useUser();
+  console.log("show Status", showStatus)
 
   const userName = user && user["https://lanuevatest.herokuapp.com/name"];
   const userRole = user && user["https://lanuevatest.herokuapp.com/roles"];
@@ -25,7 +26,7 @@ export default function Header() {
           <div className="flex gap-x-3 ">
             {/* <img src="/user_icon.svg" alt="" width={32} /> */}
             <div>
-              {userName != "" ? (
+              {showStatus ? (
                 <>
                   <h3 className="font-black">{userName}</h3>
                   <h6 className="">{userRole}</h6>
@@ -33,7 +34,7 @@ export default function Header() {
               ) : null}
             </div>
             <div className="">
-              {userName ? <>
+              {showStatus ? <>
               <Link href="/api/auth/logout">
                 <a
                   className={`${styles.btnIndexPage}  btn-index-page text-white px-3 py-0 rounded flex  mt-1 self-start`}

@@ -117,7 +117,7 @@ if(userid!=="All"){
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout>
+      <Layout showStatusHeader={true}>
         <main className="">
           <section id="dashboard-client-list">
             <div className="container mx-auto">
