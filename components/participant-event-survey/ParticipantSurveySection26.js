@@ -38,7 +38,7 @@ export const ParticipantSurveySection26 = ({surveyForm,setSurveyForm}) => {
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}
                 onChange={(e) =>
-                  setEventForm((previous) => ({
+                  setSurveyForm((previous) => ({
                     ...previous,
                     [e.target.name]: option.value,
                   }))
