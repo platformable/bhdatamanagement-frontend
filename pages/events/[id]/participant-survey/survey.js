@@ -129,39 +129,39 @@ const Survey = ({data}) => {
           </div>
         </div>
         <div className="container mx-auto border-black rounded-lg mb-10">
-          <ParticipantSurveySection1 />
-          <ParticipantSurveySection2 />
-          <ParticipantSurveySection3 />
-          <ParticipantSurveySection4 />
-          <ParticipantSurveySection5 />
-          <ParticipantSurveySection6 />
-          <ParticipantSurveySection7 />
-          <ParticipantSurveySection8 />
-          <ParticipantSurveySection9 />
-          <ParticipantSurveySection10 />
-          <ParticipantSurveySection11 />
-          <ParticipantSurveySection12 />
-          <ParticipantSurveySection13 />
-          <ParticipantSurveySection14 />
-          <ParticipantSurveySection15 />
-          <ParticipantSurveySection16 />
-          <ParticipantSurveySection17 />
-          <ParticipantSurveySection18 />
-          <ParticipantSurveySection19 />
-          <ParticipantSurveySection20 />
-          <ParticipantSurveySection21 />
-          <ParticipantSurveySection22 />
-          <ParticipantSurveySection23 />
-          <ParticipantSurveySection24 />
-          <ParticipantSurveySection25 />
-          <ParticipantSurveySection26 />
-          <ParticipantSurveySection27 />
-          <ParticipantSurveySection28 />
-          <ParticipantSurveySection29 />
-          <ParticipantSurveySection30 />
-          <ParticipantSurveySection31 />
-          <ParticipantSurveySection32 />
-          <ParticipantSurveySection33 />
+          <ParticipantSurveySection1 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection2 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection3 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection4 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection5 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection6 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection7 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection8 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection9 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection10 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection11 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection12 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection13 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection14 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection15 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection16 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection17 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection18 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection19 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection20 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection21 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection22 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection23 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection24 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection25 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection26 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection27 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection28 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection29 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection30 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection31 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection32 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection33 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           
 
          
