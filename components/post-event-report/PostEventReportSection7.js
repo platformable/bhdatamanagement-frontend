@@ -49,7 +49,7 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
               [e.target.name]:e.target.value
             }))}
           type="text"
-          className="ml-3 p-1 text-base border-black rounded"
+          className="ml-3 p-1 text-base border-black rounded w-60"
           placeholder="Please type location name"
         />
       </label>

@@ -24,7 +24,7 @@ export const ParticipantSurveySection28 = ({surveyForm,setSurveyForm}) => {
     }
   ]
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
     <h2 className="font-black">
       <span className="">28 </span> 
       Are you aware of HIV testing resources within your community?  

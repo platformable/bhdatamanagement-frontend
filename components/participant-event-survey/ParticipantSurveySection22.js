@@ -21,7 +21,7 @@ export const ParticipantSurveySection22 = ({surveyForm,setSurveyForm}) => {
     }
   ]
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
     <h2 className="font-black">
       <span className="">22 </span> 
       Have you had an HIV test in the last 12 months?

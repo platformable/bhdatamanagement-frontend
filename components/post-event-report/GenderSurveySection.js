@@ -45,7 +45,7 @@ const GenderSurveySection = ({
         Gender: How many people identified as the following for{" "}
         {typeOfTestForTitles(typeOfTest)} Testing?
       </h2>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-40">Female</p>
         <input
           type="number"
@@ -55,10 +55,10 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[0]}
           onChange={handleForm}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20 my-1"
         />
       </label>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-40">Male</p>
         <input
           type="number"
@@ -68,10 +68,10 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[1]}
           onChange={handleForm}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
         />
       </label>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-40">Transgender female</p>
         <input
           type="number"
@@ -81,10 +81,10 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[2]}
           onChange={handleForm}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
         />
       </label>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-40">Transgender male</p>
         <input
           type="number"
@@ -94,10 +94,10 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[3]}
           onChange={handleForm}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
         />
       </label>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-40">Gender non-conforming</p>
         <input
           type="number"
@@ -107,10 +107,10 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[4]}
           onChange={handleForm}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
         />
       </label>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-40">Non-binary</p>
         <input
           type="number"
@@ -120,10 +120,10 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[5]}
           onChange={handleForm}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
         />
       </label>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-40">Other gender identity</p>
         <input
           type="number"
@@ -133,10 +133,10 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[6]}
           onChange={handleForm}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
         />
       </label>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-40">Decline to answer</p>
         <input
           type="number"
@@ -146,7 +146,7 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[7]}
           onChange={handleForm}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
         />
       </label>
     </div>

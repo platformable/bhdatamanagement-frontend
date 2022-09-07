@@ -20,7 +20,7 @@ export const ParticipantSurveySection27 = ({surveyForm,setSurveyForm}) => {
     }
   ]
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
     <h2 className="font-black">
       <span className="">27 </span> 
       Have you ever heard of U=U (Undetectable = Untransmittable)? 

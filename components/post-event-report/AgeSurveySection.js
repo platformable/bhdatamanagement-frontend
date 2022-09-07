@@ -56,8 +56,8 @@ const AgeSurveySection = ({
         Age: How many people were in each of the following age groups for{" "}
         {typeOfTestForTitles(typeOfTest)} Testing?
       </h2>
-      <label className="flex gap-x-5">
-        <p className="w-20">Under 15</p>
+      <label className="">
+        <p className="w-80">Under 15</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -65,12 +65,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[0]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">16-19</p>
+      <label className="">
+        <p className="w-80">16-19</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -78,12 +78,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[1]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">20-24</p>
+      <label className="">
+        <p className="w-80">20-24</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -91,12 +91,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[2]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">25-29</p>
+      <label className="">
+        <p className="w-80">25-29</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -104,12 +104,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[3]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">30-34</p>
+      <label className="">
+        <p className="w-80">30-34</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -117,12 +117,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[4]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">35-39</p>
+      <label className="">
+        <p className="w-80">35-39</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -130,12 +130,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[5]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">40-44</p>
+      <label className="">
+        <p className="w-80">40-44</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -143,12 +143,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[6]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">45-49</p>
+      <label className="">
+        <p className="w-80">45-49</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -156,12 +156,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[7]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">50-54</p>
+      <label className="">
+        <p className="w-80">50-54</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -169,12 +169,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[8]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">55-59</p>
+      <label className="">
+        <p className="w-80">55-59</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -182,12 +182,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[9]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">60-64</p>
+      <label className="">
+        <p className="w-80">60-64</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -195,12 +195,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[10]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">65-69</p>
+      <label className="">
+        <p className="w-80">65-69</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -208,12 +208,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[11]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">70+</p>
+      <label className="">
+        <p className="w-80">70+</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -221,12 +221,12 @@ const AgeSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[12]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-20">Declined to answer</p>
+      <label className="">
+        <p className="w-80">Declined to answer</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -234,7 +234,7 @@ const AgeSurveySection = ({
           defaultValue={0}
           maxLength={3}
           name={fields[13]}
-          className="border-black p-1"
+          className="border-black p-1 w-20 rounded my-1"
           onChange={handleForm}
         />
       </label>

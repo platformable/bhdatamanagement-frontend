@@ -27,7 +27,7 @@ const PostEventReportSection12 = ({eventForm, setEventForm}) => {
         }}
         maxLength={3}
         defaultValue={0}
-        className="p-2 rounded border-black"
+        className="p-2 rounded border-black w-20"
         placeholder="Type a number"
         name="youthVolunteers"
         onChange={handleForm}

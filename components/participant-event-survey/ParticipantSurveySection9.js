@@ -54,7 +54,7 @@ console.log("surveyForm",surveyForm)
   },[data])
 
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
     <h2 className="font-black">
       <span className="">9</span> Are you currently...? 
     </h2>

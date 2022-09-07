@@ -21,7 +21,7 @@ export const ParticipantSurveySection26 = ({surveyForm,setSurveyForm}) => {
     }
   ]
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
     <h2 className="font-black">
       <span className="">26 </span> 
       Have you ever used Prep (Pre- Exposures Prophylaxis) to prevent getting infected with HIV?

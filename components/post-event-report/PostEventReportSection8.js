@@ -20,12 +20,13 @@ const handleForm = (e) => {
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
         {resourcesDistributed &&
           resourcesDistributed.map((resource, index) => (
-            <label className="text-lg flex items-center" key={index}>
+            <>{resource.name}
+            <label className="text-lg " key={index}>
               {/* <img src={resource.source} alt={`${resource.name} icon`} className="w-8 h-8 md:w-12 md:h-12"/> */}
               <input
                 type="number"
                 name={resource.dataFieldName}
-                className="mr-2  w-40 p-1 border-black rounded"
+                className="mr-2  w-20 p-1 border-black rounded"
                 id={index}
                 defaultValue={0}
                 onChange={handleForm}
@@ -34,8 +35,9 @@ const handleForm = (e) => {
                   value > 500 && (e.target.value = 500) 
                 }}
               />
-              {resource.name}
+              
             </label>
+            </>
           ))}
       </div>
     </div>

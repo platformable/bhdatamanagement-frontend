@@ -28,7 +28,7 @@ const PostEventReportSection15 = ({eventForm, setEventForm}) => {
         }}
         maxLength={4}
         defaultValue={0}
-        className="p-2 border-black rounded"
+        className="p-2 border-black rounded w-20"
         name="totalAttendees"
         onChange={handleForm}
       />

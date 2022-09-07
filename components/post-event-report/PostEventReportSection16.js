@@ -26,7 +26,7 @@ const PostEventReportSection16 = ({eventForm, setEventForm}) => {
           value > 1000 && (e.target.value = 1000) 
         }}
         maxLength={4}
-        className="p-2 border-black rounded"
+        className="p-2 border-black rounded w-20"
         defaultValue={0}
         name="textOrCall"
         onChange={handleForm}

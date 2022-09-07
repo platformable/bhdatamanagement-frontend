@@ -45,7 +45,7 @@ const SexualOrientationSurveySection = ({
         {typeOfTestForTitles(typeOfTest)} testing identified with the following
         sexual orientation?
       </h2>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-60 gap-x-5 text-lg">Gay or lesbian</p>
         <input
           type="number"
@@ -53,12 +53,12 @@ const SexualOrientationSurveySection = ({
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
           name={fields[0]}
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-60 gap-x-5">Straight or heterosexual</p>
         <input
           type="number"
@@ -66,12 +66,12 @@ const SexualOrientationSurveySection = ({
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
           name={fields[1]}
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-60 gap-x-5">Bisexual</p>
         <input
           type="number"
@@ -79,12 +79,12 @@ const SexualOrientationSurveySection = ({
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
           name={fields[2]}
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-60 gap-x-5">Queer</p>
         <input
           type="number"
@@ -92,12 +92,12 @@ const SexualOrientationSurveySection = ({
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
           name={fields[3]}
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-60 gap-x-5">Questioning or not sure</p>
         <input
           type="number"
@@ -105,12 +105,12 @@ const SexualOrientationSurveySection = ({
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
           name={fields[4]}
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
+      <label className="">
         <p className="w-60 gap-x-5">Unknown</p>
         <input
           type="number"
@@ -118,20 +118,20 @@ const SexualOrientationSurveySection = ({
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
           name={fields[5]}
           onChange={handleForm}
         />
       </label>
-      <label className="flex gap-x-5">
-        <p className="w-60 gap-x-5">Declined to answer</p>
+      <label className="">
+        <p className="w-60 gap-x-5">Decline to answer</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1"
+          className="border-black p-1 my-1 rounded w-20"
           name={fields[6]}
           onChange={handleForm}
         />
