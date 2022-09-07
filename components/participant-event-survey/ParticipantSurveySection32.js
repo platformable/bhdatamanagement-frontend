@@ -75,12 +75,12 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
     }
   ]
   return (
-    <div className="p-5 ">
-    <h2 className="font-black">
+    <div className="px-7 ">
+    <h1 className="font-black">
       <span className="">32 </span> 
       How did you hear about this event?  
-    </h2>
-    <div className="mt-5 grid grid-cols-1 space-between gap-5">
+    </h1>
+    <div className="mt-7 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {
 
 if(index===options.length-1){
@@ -98,7 +98,7 @@ if(index===options.length-1){
      <input type="text" 
           placeholder="Please specify" 
           onChange={(e)=>setSurveyForm({...eventForm,participantReferralOther:e.target.value})}
-          className="border-black rounded px-2 self-start p-1 ml-2" />
+          className="border-black rounded px-4 self-start p-1 ml-2 text-xl" />
     </label>
 
   )

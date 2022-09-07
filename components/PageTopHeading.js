@@ -7,7 +7,7 @@ import BackBtn from "./BackBtn";
 const PageTopHeading = ({ pageTitle,dashboardBtn,backBtn }) => {
   return (
     <section className="py-5 bg-white">
-      <div className="container mx-auto ">
+      <div className="container mx-auto md:px-0 px-5">
         <div className="flex btn-dashboard gap-x-4">
           {backBtn && <BackBtn/>}
           {dashboardBtn && <DashboardBtn />} 

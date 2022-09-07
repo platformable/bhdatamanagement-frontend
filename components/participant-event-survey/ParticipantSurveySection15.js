@@ -6,38 +6,38 @@ export const ParticipantSurveySection15 = ({surveyForm, setSurveyForm}) => {
   }
   
   return (
-    <div className="p-5">
-    <h2 className="font-black">
+    <div className="px-7">
+    <h1 className="font-black">
       <span className="">15</span> Would you say that in general your health is:
-    </h2>
-    <div className="mt-5 grid grid-cols-1 space-between gap-5">
+    </h1>
+    <div className="mt-7 grid grid-cols-1 space-between gap-5">
     <label className="flex gap-x-5 items-center">
           <input type="radio" className="mr-10 w-6 h-6" name="participantHealth" value="Excellent" onChange={handleForm}/>
-          <p className="">Excellent</p>
+          <h3 className="">Excellent</h3>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="mr-10 w-6 h-6" name="participantHealth" value="Very good" onChange={handleForm}/>
-          <p className="">Very good </p>
+          <h3 className="">Very good </h3>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="mr-10 w-6 h-6" name="participantHealth" value="Good" onChange={handleForm}/>
-          <p className="">Good</p>
+          <h3 className="">Good</h3>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="mr-10 w-6 h-6" name="participantHealth" value="Fair" onChange={handleForm}/>
-          <p className="">Fair</p>
+          <h3 className="">Fair</h3>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="mr-10 w-6 h-6" name="participantHealth" value="Poor" onChange={handleForm}/>
-          <p className="">Poor</p>
+          <h3 className="">Poor</h3>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="mr-10 w-6 h-6" name="participantHealth" value="Don’t know/Not sure" onChange={handleForm}/>
-          <p className="">Don’t know/Not sure</p>
+          <h3 className="">Don’t know/Not sure</h3>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="mr-10 w-6 h-6" name="participantHealth" value="Decline to answer" onChange={handleForm}/>
-          <p className="">Decline to answer</p>
+          <h3 className="">Decline to answer</h3>
         </label>
     </div>
   </div>

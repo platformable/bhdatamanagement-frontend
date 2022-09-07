@@ -55,12 +55,12 @@ export const ParticipantSurveySection23 = ({surveyForm,setSurveyForm}) => {
     }))
   },[data])
   return (
-    <div className="p-5">
-    <h2 className="font-black">
+    <div className="px-7">
+    <h1 className="font-black">
       <span className="">23 </span>
       Which of the following can put you at risk for sexually transmitted HIV? (Select all that apply.) 
-    </h2>
-    <div className="mt-5 grid grid-cols-1 space-between gap-5">
+    </h1>
+    <div className="mt-7 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {
           return (
             <label className="text-lg flex items-center" key={index}>

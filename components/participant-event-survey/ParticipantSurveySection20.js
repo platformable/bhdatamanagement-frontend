@@ -24,14 +24,14 @@ const options=[
 
 
   return (
-    <div className="p-5">
-    <h2 className="font-black">
+    <div className="px-7">
+    <h1 className="font-black">
       <span className="">20 </span>  
        Over the <span className="underline underline-offset-1">last 2 weeks</span>, how often have you been bothered by the following problems? 
-    </h2>
-    <div className="mt-5 grid grid-cols-1 space-between gap-5">
+    </h1>
+    <div className="mt-7 grid grid-cols-1 space-between gap-5">
       <div className="block md:flex gap-x-5  rounded">
-        <p className="md:w-96 w-100 mb-2">Little interest or pleasure in doing things</p>
+        <h3 className="md:w-96 w-100 mb-2">Little interest or pleasure in doing things</h3>
         {options.map((option, index) => {
           return (
             <label className="text-lg flex items-center" key={index}>
@@ -55,7 +55,7 @@ const options=[
         })}
       </div>
       <div className="block md:flex gap-x-5   rounded">
-        <p className="md:w-96 w-100  mb-2">Feeling down, depressed or hopeless</p>
+        <h3 className="md:w-96 w-100  mb-2">Feeling down, depressed or hopeless</h3>
         {options.map((option, index) => {
           return (
             <label className="text-lg flex items-center" key={index}>

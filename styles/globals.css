@@ -80,7 +80,7 @@ h6 {
   --lightBlue: #e5f2ff;
   --lightRed: #f9735b;
   --middleGreen: #82fdad;
-  --violet: #6b1a73;
+  --violet: #802D85;
   --lightViolet: #ebdae9;
   --extraLightViolet: #ebdae980;
   --middleWhite: #F5F0F6;
@@ -295,6 +295,9 @@ input[type="number"] {
 .bg-violet {
   background-color: var(--violet);
 }
+.grandient-violet {
+  background: linear-gradient(0deg,rgba(128,45,133,1) 15%,rgba(108,30,113,1));
+}
 
 .bg-dark-pueple {
   background-color: var(--darkPurple);
@@ -414,6 +417,14 @@ table th {
 }
 
 /* Event Input form styles */
+input[type="radio"], input[type="checkbox"] {
+  min-height:30px;
+  min-width:30px;
+}
+input[type="text"], input[type="number"] {
+  padding: 4px 15px;
+}
+
 .checkbox-round {
     width: 25px;
     height: 25px;

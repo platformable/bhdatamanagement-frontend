@@ -6,15 +6,15 @@ export const ParticipantSurveySection4 = ({surveyForm, setSurveyForm}) => {
     setSurveyForm({...surveyForm, [e.target.name]: e.target.value, "ethnicityID": Number(e.target.id) })
   }
   return (
-    <div className="p-5">
-      <h2 className="font-black">
+    <div className="px-7">
+      <h1 className="font-black">
         <span className="">4</span> Are you of Hispanic, Latino/a, or Spanish origin?
-      </h2>
-      <div className="mt-5 grid grid-cols-1 space-between gap-5">
+      </h1>
+      <div className="mt-7 grid grid-cols-1 space-between gap-5">
       {ethnicity.map(option => (
         <label className="flex gap-x-5 items-center">
-        <input type="radio" className="mr-10 w-6 h-6" value={option.value} id={option.id} onChange={handleForm} name="participantEthnicity" />
-        <p className="">{option.value}</p>
+        <input type="radio" className="mr-10 " value={option.value} id={option.id} onChange={handleForm} name="participantEthnicity" />
+        <h3 className="">{option.value}</h3>
       </label>
       ))}
         

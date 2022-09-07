@@ -9,8 +9,8 @@ const PostEventReportSection5 = ({eventForm,setEventForm}) => {
       <h3>Zip Code</h3>
       <input 
       type="number" 
-      placeholder="Please enter a 5-digit zip code"
-      className="border-black rounded px-2 self-start p-1 ml-2 w-60"
+      placeholder="Eg. 10027"
+      className="border-black rounded px-2 self-start p-1 ml-2 w-24"
       maxlength={5}
       name="zipCode"
       // max={9999}
