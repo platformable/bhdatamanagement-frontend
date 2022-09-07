@@ -59,7 +59,7 @@ export const ParticipantSurveySection18 = ({surveyForm,setSurveyForm}) => {
             ...previous,
             [e.target.name]:Number(e.target.value)
           }))
-        }/>2
+        }/>1
           </label>
           <label className="m-5 flex items-center">
             <input type="radio" name="participantComfortMentalHealth" value={2} className="mr-2 w-4 h-4" onChange={(e) =>
