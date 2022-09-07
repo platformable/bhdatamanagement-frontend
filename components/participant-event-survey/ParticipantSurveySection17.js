@@ -5,7 +5,7 @@ export const ParticipantSurveySection17 = ({surveyForm, setSurveyForm}) => {
     setSurveyForm({...surveyForm, [e.target.name]: e.target.value })
   }
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
     <h2 className="font-black">
       <span className="">17</span> About how long has it been since you last visited a doctor for a routine checkup?
     </h2>

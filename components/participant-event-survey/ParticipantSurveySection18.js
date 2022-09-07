@@ -2,13 +2,13 @@ import React from "react";
 
 export const ParticipantSurveySection18 = ({surveyForm,setSurveyForm}) => {
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
       <h2 className="font-black">
         <span className="">18</span> How comfortable are you discussing the following with your provider? (1 = very uncomfortable, 2 = uncomfortable, 3 = neutral, 4 = comfortable, and 5 = very comfortable)
       </h2>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
-        <div className="flex gap-x-5  items-center">
-          <p className="w-96">Sexual Health Concerns</p>
+        <div className="block md:flex gap-x-5  items-center">
+          <p className="md:w-96 w-100">Sexual Health Concerns</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="participantComfortSex" value={1} className="mr-2 w-6 h-6" onChange={(e) =>
           setSurveyForm((previous) => ({
@@ -50,8 +50,8 @@ export const ParticipantSurveySection18 = ({surveyForm,setSurveyForm}) => {
         }/>5
           </label>
         </div>
-        <div className="flex gap-x-5  items-center">
-          <p className="w-96">Mental Health Concerns</p>
+        <div className="block md:flex gap-x-5  items-center">
+          <p className="md:w-96 w-100">Mental Health Concerns</p>
 
           <label className="m-5 flex items-center">
             <input type="radio" name="participantComfortMentalHealth" value={1} className="mr-2 w-6 h-6" onChange={(e) =>
@@ -94,8 +94,8 @@ export const ParticipantSurveySection18 = ({surveyForm,setSurveyForm}) => {
         }/>5
           </label>
         </div>
-        <div className="flex gap-x-5 items-center">
-          <p className="w-96">Diet/ Nutrition</p>
+        <div className="block md:flex gap-x-5 items-center">
+          <p className="md:w-96 w-100">Diet/ Nutrition</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="participantComfortDiet" value={1} className="mr-2 w-6 h-6" onChange={(e) =>
           setSurveyForm((previous) => ({
@@ -137,8 +137,8 @@ export const ParticipantSurveySection18 = ({surveyForm,setSurveyForm}) => {
         }/>5
           </label>
         </div>
-        <div className="flex gap-x-5  items-center">
-          <p className="w-96"> Physical Activity/ Exercise</p>
+        <div className="block md:flex gap-x-5  items-center">
+          <p className="md:w-96 w-100"> Physical Activity/ Exercise</p>
           <label className="m-5 flex items-center">
           <input type="radio" name="participantComfortExercise" value={1} className="mr-2 w-6 h-6" onChange={(e) =>
           setSurveyForm((previous) => ({
@@ -180,8 +180,8 @@ export const ParticipantSurveySection18 = ({surveyForm,setSurveyForm}) => {
         }/>5
           </label>
         </div>
-        <div className="flex gap-x-5 items-center">
-          <p className="w-96">Health Concerns (Chronic disease care)</p>
+        <div className="block md:flex gap-x-5 items-center">
+          <p className="md:w-96 w-100">Health Concerns (Chronic disease care)</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="participantComfortHealth" value={1} className="mr-2 w-6 h-6" onChange={(e) =>
           setSurveyForm((previous) => ({
@@ -223,8 +223,8 @@ export const ParticipantSurveySection18 = ({surveyForm,setSurveyForm}) => {
         }/>5
           </label>
         </div>
-        <div className="flex gap-x-5  items-center">
-          <p className="w-96">Medications</p>
+        <div className="block md:flex gap-x-5  items-center">
+          <p className="md:w-96 w-100">Medications</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="participantComfortMedications" value={1} className="mr-2 w-6 h-6" onChange={(e) =>
           setSurveyForm((previous) => ({
@@ -266,8 +266,8 @@ export const ParticipantSurveySection18 = ({surveyForm,setSurveyForm}) => {
         }/>5
           </label>
         </div>
-        <div className="flex gap-x-5 items-center">
-          <p className="w-96">
+        <div className="block md:flex gap-x-5 items-center">
+          <p className="md:w-96 w-100">
             Health screens (Mammogram, Colonoscopy, PSAs etc.)
           </p>
           <label className="m-5 flex items-center">
@@ -311,8 +311,8 @@ export const ParticipantSurveySection18 = ({surveyForm,setSurveyForm}) => {
         }/>5
           </label>
         </div>
-        <div className="flex gap-x-5  items-center">
-          <p className="w-96">Substance Use Concerns</p>
+        <div className="block md:flex gap-x-5  items-center">
+          <p className="md:w-96 w-100">Substance Use Concerns</p>
           <label className="m-5 flex items-center">
             <input type="radio" name="participantComfortSubstances" value={1} className="mr-2 w-6 h-6" onChange={(e) =>
           setSurveyForm((previous) => ({

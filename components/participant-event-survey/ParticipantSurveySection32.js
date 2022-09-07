@@ -75,7 +75,7 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
     }
   ]
   return (
-    <div className="p-5 py-10">
+    <div className="p-5 ">
     <h2 className="font-black">
       <span className="">32 </span> 
       How did you hear about this event?  

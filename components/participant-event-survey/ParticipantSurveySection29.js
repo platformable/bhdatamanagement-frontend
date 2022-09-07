@@ -24,7 +24,7 @@ export const ParticipantSurveySection29 = ({surveyForm,setSurveyForm}) => {
     }
   ]
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
     <h2 className="font-black">
       <span className="">29 </span> 
       Are you aware of where to obtain PreP (Pre- Exposures Prophylaxis) in your community?  

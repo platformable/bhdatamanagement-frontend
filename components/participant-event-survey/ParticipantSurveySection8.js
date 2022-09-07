@@ -6,7 +6,7 @@ export const ParticipantSurveySection8 = ({surveyForm, setSurveyForm}) => {
     setSurveyForm({...surveyForm, [e.target.name]: e.target.value, "educationID": Number(e.target.id) })
   }
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
     <h2 className="font-black">
       <span className="">8</span> What is the highest grade or year of school you completed? 
     </h2>

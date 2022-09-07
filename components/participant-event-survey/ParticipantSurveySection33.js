@@ -2,7 +2,7 @@ import React from 'react'
 
 export const ParticipantSurveySection33 = ({surveyForm,setSurveyForm}) => {
   return (
-    <div className="p-5 py-10 rounded">
+    <div className="p-5 rounded">
       <h2 className="mb-3 font-black">
         <span className="">33 </span>
         Do you have any comments or suggestions? 

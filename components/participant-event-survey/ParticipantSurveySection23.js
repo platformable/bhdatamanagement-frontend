@@ -55,7 +55,7 @@ export const ParticipantSurveySection23 = ({surveyForm,setSurveyForm}) => {
     }))
   },[data])
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
     <h2 className="font-black">
       <span className="">23 </span>
       Which of the following can put you at risk for sexually transmitted HIV? (Select all that apply.) 

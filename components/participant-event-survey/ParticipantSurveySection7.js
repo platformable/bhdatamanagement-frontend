@@ -6,7 +6,7 @@ export const ParticipantSurveySection7 = ({surveyForm, setSurveyForm}) => {
     setSurveyForm({...surveyForm, [e.target.name]: e.target.value, "roleID": Number(e.target.id) })
   }
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
       <h2 className="font-black">
         <span className="">7</span> What is your role? 
       </h2>

@@ -39,7 +39,7 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
     }))
   },[data])
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
       <h2 className="font-black">
         <span className="">3</span> Do you identify as (Select all that apply):
       </h2>

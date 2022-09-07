@@ -5,7 +5,7 @@ export const ParticipantSurveySection12 = ({surveyForm, setSurveyForm}) => {
     setSurveyForm({...surveyForm, [e.target.name]: e.target.value })
   }
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
       <h2 className="font-black mb-7">
         Some people have made the following statements about their food
         situation. Please answer whether the statements were OFTEN, SOMETIMES,

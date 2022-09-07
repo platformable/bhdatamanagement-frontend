@@ -170,7 +170,7 @@ const Survey = ({data}) => {
           dashboardBtn={false}
           pageTitle={"Participant event survey"}
         />
-
+      <main className="container mx-auto md:px-0 px-5">
         <div id="event" className="container mx-auto rounded my-5 border-black-lg">
           <div className="grid grid-cols-2 bg-black text-white justify-between p-5 rounded-tl-lg rounded-tr-lg">
             <div>Event name</div>
@@ -181,7 +181,7 @@ const Survey = ({data}) => {
             <div className="flex justify-end">{new Date(data[0]?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</div>
           </div>
         </div>
-        <div className="container mx-auto border-black rounded-lg mb-10">
+        <div className=" border-black rounded-lg mb-10">
           <ParticipantSurveySection1 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection2 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection3 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
@@ -215,9 +215,7 @@ const Survey = ({data}) => {
           <ParticipantSurveySection31 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection32 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection33 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          
 
-         
         </div>
 
         <div className="flex justify-center">
@@ -235,7 +233,7 @@ const Survey = ({data}) => {
           </button>
           </div>
 
-         
+          </main>
       </Layout>
     </>
   );

@@ -6,7 +6,7 @@ export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
     setSurveyForm({...surveyForm, [e.target.name]: e.target.value, "genderID": Number(e.target.id) })
   }
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
       <h2 className="font-black">
         <span className="">5</span> How do you describe yourself? 
       </h2>

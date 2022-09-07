@@ -17,7 +17,7 @@ export const ParticipantSurveySection31 = ({surveyForm,setSurveyForm}) => {
     }
   ]
   return (
-    <div className="p-5 py-10">
+    <div className="p-5">
     <h2 className="font-black">
       <span className="">31 </span> 
       Have you registered to vote? 
