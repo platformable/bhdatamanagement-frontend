@@ -38,7 +38,7 @@ const options=[
               <input
                 type="radio"
                 name="participantPHQ2a"
-                className="mr-1 w-4 h-4"
+                className="mr-1 w-6 h-6"
                 value={option.value}
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}
@@ -62,7 +62,7 @@ const options=[
               <input
                 type="radio"
                 name="participantPHQ2b"
-                className="mr-1 w-4 h-4"
+                className="mr-1 w-6 h-6"
                 value={option.value}
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}

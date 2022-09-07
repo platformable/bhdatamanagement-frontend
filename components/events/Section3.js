@@ -48,7 +48,7 @@ const Section3 = ({eventForm, setEventForm, eventTypes,event}) => {
                 (<label className='text-lg flex items-center' key={eventType.id}>
                     <input type="radio" 
                     name="eventTypeName" 
-                    className='mr-2 w-4 h-4' 
+                    className='mr-2 w-6 h-6' 
                     value={eventType.name} 
                     id={eventType.id} 
                     onChange={handleForm}
@@ -61,7 +61,7 @@ const Section3 = ({eventForm, setEventForm, eventTypes,event}) => {
                 (<label className="flex items-center p-2 ">
                     <input type="radio" 
                     name="eventTypeId" 
-                    className='mr-2 w-4 h-4' 
+                    className='mr-2 w-6 h-6' 
                     id={eventType.id}
                     onChange={handleFormId}/>
                     <p className="mr-2">Other</p>

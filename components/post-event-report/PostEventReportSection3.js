@@ -22,7 +22,7 @@ const PostEventReportSection3 = ({setEventForm,eventForm}) => {
           <input
             type="radio"
             name="nysActivity"
-            className="mr-10 w-4 h-4"
+            className="mr-10 w-6 h-6"
             value={activity.value}
             id={activity.id}
             onChange={(e) =>
@@ -47,7 +47,7 @@ const PostEventReportSection3 = ({setEventForm,eventForm}) => {
           <input
             type="radio"
             name="nysActivity"
-            className="mr-10 w-4 h-4"
+            className="mr-10 w-6 h-6"
             value={activity.value}
             id={activity.id}
             //defaultChecked={program.id===event?.programid?'checked':""}

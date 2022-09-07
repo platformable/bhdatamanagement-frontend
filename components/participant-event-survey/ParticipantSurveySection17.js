@@ -11,35 +11,35 @@ export const ParticipantSurveySection17 = ({surveyForm, setSurveyForm}) => {
     </h2>
     <div className="mt-5 grid grid-cols-1 space-between gap-5">
     <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRoutine" value="Within the last 6" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantRoutine" value="Within the last 6" onChange={handleForm}/>
           <p className="">Within the last 6 months</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRoutine" value="Within the past year (Anytime between 7- 12 months ago)" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantRoutine" value="Within the past year (Anytime between 7- 12 months ago)" onChange={handleForm}/>
           <p className="">Within the past year (Anytime between 7- 12 months ago)</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRoutine" value="Within the past 2 years (1 year but less than 2 years ago)" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantRoutine" value="Within the past 2 years (1 year but less than 2 years ago)" onChange={handleForm}/>
           <p className="">Within the past 2 years (1 year but less than 2 years ago)</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRoutine" value="Within the past 5 years (2 years but less than 5 years ago)" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantRoutine" value="Within the past 5 years (2 years but less than 5 years ago)" onChange={handleForm}/>
           <p className="">Within the past 5 years (2 years but less than 5 years ago)</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRoutine" value="5 or more years ago," onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantRoutine" value="5 or more years ago," onChange={handleForm}/>
           <p className="">5 or more years ago</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRoutine" value="Don’t know / Not sure" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantRoutine" value="Don’t know / Not sure" onChange={handleForm}/>
           <p className="">Don’t know / Not sure</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRoutine" value="Never" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantRoutine" value="Never" onChange={handleForm}/>
           <p className="">Never</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantRoutine" value="Decline to answer" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantRoutine" value="Decline to answer" onChange={handleForm}/>
           <p className="">Decline to answer</p>
         </label>
     </div>

@@ -89,7 +89,7 @@ if(index===options.length-1){
       <input
         type="checkbox"
         name="participantReferral"
-        className="mr-10 w-4 h-4"
+        className="mr-10 w-6 h-6"
         value={option.value}
         id={index}
         onChange={(e)=>handleForm(e.target.value)}
@@ -109,7 +109,7 @@ if(index===options.length-1){
               <input
                 type="checkbox"
                 name="participantReferral"
-                className="mr-10 w-4 h-4"
+                className="mr-10 w-6 h-6"
                 value={option.value}
                 id={index}
                 onChange={(e)=>handleForm(e.target.value)}

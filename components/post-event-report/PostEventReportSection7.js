@@ -14,7 +14,7 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
         <input
           type="radio"
           name="locationName"
-          className="mr-10 w-4 h-4"
+          className="mr-10 w-6 h-6"
           // value={program.name}
           value="Black Health Office"
           onChange={(e) =>
@@ -31,7 +31,7 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
         <input
           type="radio"
           name="locationName"
-          className="mr-10 w-4 h-4"
+          className="mr-10 w-6 h-6"
           value="Other"
           onChange={(e) =>
             setEventForm((previous) => ({

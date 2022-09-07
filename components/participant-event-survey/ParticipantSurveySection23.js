@@ -67,7 +67,7 @@ export const ParticipantSurveySection23 = ({surveyForm,setSurveyForm}) => {
               <input
                 type="checkbox"
                 name="participantHIVKnowledge"
-                className="mr-10 w-4 h-4"
+                className="mr-10 w-6 h-6"
                 value={option.value}
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}

@@ -33,7 +33,7 @@ export const ParticipantSurveySection26 = ({surveyForm,setSurveyForm}) => {
               <input
                 type="radio"
                 name="participantPrEPUse"
-                className="mr-10 w-4 h-4"
+                className="mr-10 w-6 h-6"
                 value={option.value}
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}

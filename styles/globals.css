@@ -87,6 +87,11 @@ h6 {
 
 }
 
+[type=“checkbox”], [type=“radio”] {
+  height:44px !important;
+  width:24px !important;
+  }
+
 .lne-text-white {
   color: white !important;
 }

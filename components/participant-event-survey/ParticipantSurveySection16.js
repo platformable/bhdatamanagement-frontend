@@ -11,23 +11,23 @@ export const ParticipantSurveySection16 = ({surveyForm, setSurveyForm}) => {
     </h2>
     <div className="mt-5 grid grid-cols-1 space-between gap-5">
     <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantPCP" value="Yes, only one" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantPCP" value="Yes, only one" onChange={handleForm}/>
           <p className="">Yes, only one </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantPCP" value="Yes, more than one" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantPCP" value="Yes, more than one" onChange={handleForm}/>
           <p className="">Yes, more than one </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantPCP" value="No" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantPCP" value="No" onChange={handleForm}/>
           <p className="">No</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantPCP" value="Don’t know / Not sure" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantPCP" value="Don’t know / Not sure" onChange={handleForm}/>
           <p className="">Don’t know / Not sure</p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" name="participantPCP" value="Decline to answer" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" name="participantPCP" value="Decline to answer" onChange={handleForm}/>
           <p className="">Decline to answer</p>
         </label>
         

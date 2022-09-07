@@ -83,7 +83,7 @@ if(index===options.length-1){
       <input
         type="checkbox"
         name="participantPRePResourceKnowledge"
-        className="mr-10 w-4 h-4"
+        className="mr-10 w-6 h-6"
         value={option.value}
         id={index}
         //defaultChecked={program.id===event?.programid?'checked':""}
@@ -104,7 +104,7 @@ if(index===options.length-1){
               <input
                 type="checkbox"
                 name="participantPRePResourceKnowledge"
-                className="mr-10 w-4 h-4"
+                className="mr-10 w-6 h-6"
                 value={option.value}
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}
