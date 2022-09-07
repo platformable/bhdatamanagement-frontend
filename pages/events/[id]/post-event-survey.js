@@ -76,6 +76,7 @@ const PostEventReport = ({
         workArea : '',
         workAreaOther : '',
         mainRole : '',
+        mainRoleOther: '',
         nysActivity : '',
         nysActivityOther : '',
         nysPrograms : [],

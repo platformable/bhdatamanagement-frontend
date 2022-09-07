@@ -36,8 +36,8 @@ const PostEventReportSection2 = ({eventForm, setEventForm}) => {
           {role.value}
           <input type="text" 
           placeholder="Please specify" 
-          onChange={(e)=>setEventForm({...eventForm,workAreaOther:e.target.value})}
-          className="border-black rounded px-2 self-start p-1 ml-2" />
+          onChange={(e)=>setEventForm({...eventForm,mainRoleOther:e.target.value})}
+          className="border-black rounded px-2 self-start p-1 ml-2 w-96" />
         </label>
 
       )

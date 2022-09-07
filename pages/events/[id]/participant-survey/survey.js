@@ -163,25 +163,30 @@ const Survey = ({data}) => {
 
   return (
     <>
-      <Layout showStatusHeader={false}>
+      <div>
+        <div className="h-88 flex flex-col items-center grandient-violet">
+          <img src="/bh_logo.png" alt="black health data app management logo" width={400} className="pt-12"/>
+          <h1 className="leading-tight text-white py-12 text-center">We want to hear from you. <br/> Your answers help us plan our services, demonstrate our focus on our community,<br/>
+          and help us meet our funding commitments</h1>
+        </div>
         <ToastContainer autoClose={1500} />
-        <PageTopHeading
+        {/* <PageTopHeading
           backBtn={false}
           dashboardBtn={false}
           pageTitle={"Participant event survey"}
-        />
-      <main className="container mx-auto md:px-0 px-5">
-        <div id="event" className="container mx-auto rounded my-5 border-black-lg">
-          <div className="grid grid-cols-2 bg-black text-white justify-between p-5 rounded-tl-lg rounded-tr-lg">
-            <div>Event name</div>
-            <div className="flex justify-end">Event date</div>
+        /> */}
+      <main className="container mx-auto  md:px-0 px-5">
+        <div id="event" className="container mx-auto rounded my-10 h-36 border-dark-violet">
+          <div className="grid grid-cols-2 bg-violet font-bold text-white h-12 px-7 items-center rounded-tl-lg rounded-tr-lg">
+            <h2 className="">Event name</h2>
+            <h2 className="flex justify-end ">Event date</h2>
           </div>
-          <div className="grid grid-cols-2  justify-between p-5 ">
-            <div className="text-black">{data[0]?.eventname}</div>
-            <div className="flex justify-end">{new Date(data[0]?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</div>
+          <div className="grid grid-cols-2 py-6 px-7">
+            <h1 className="text-black">{data[0]?.eventname}</h1>
+            <h1 className="flex justify-end">{new Date(data[0]?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</h1>
           </div>
         </div>
-        <div className=" border-black rounded-lg mb-10">
+        <div className="grid grid-cols-1 gap-y-10 border-dark-violet rounded-lg mb-10">
           <ParticipantSurveySection1 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection2 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection3 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
@@ -234,7 +239,7 @@ const Survey = ({data}) => {
           </div>
 
           </main>
-      </Layout>
+      </div>
     </>
   );
 };

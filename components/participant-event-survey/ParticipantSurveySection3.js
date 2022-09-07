@@ -39,15 +39,15 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
     }))
   },[data])
   return (
-    <div className="p-5">
-      <h2 className="font-black">
+    <div className="px-7">
+      <h1 className="font-black">
         <span className="">3</span> Do you identify as (Select all that apply):
-      </h2>
-      <div className="mt-5 grid grid-cols-1 space-between gap-5">
+      </h1>
+      <div className="mt-7 grid grid-cols-1 space-between gap-5">
       {race.map(option => (
         <label className="flex gap-x-5 items-center">
-        <input type="checkbox" className="mr-10 w-6 h-6" value={option.value} id={option.id} onChange={handleForm} name="participantRace" />
-        <p className="">{option.value}</p>
+        <input type="checkbox" className="mr-10 " value={option.value} id={option.id} onChange={handleForm} name="participantRace" />
+        <h3 className="">{option.value}</h3>
       </label>
       ))}
        

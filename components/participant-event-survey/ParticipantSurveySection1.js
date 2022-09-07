@@ -5,17 +5,17 @@ export const ParticipantSurveySection1 = ({surveyForm, setSurveyForm}) => {
     setSurveyForm({...surveyForm, [e.target.name]: Number(e.target.value)})
   }
   return (
-    <div className="p-5 py-10">
-      <h2 className="font-black">
+    <div className="px-7 mt-7">
+      <h1 className="font-black">
         <span className="">1</span> What zip code do you live in or spend most
         of your time in?
-      </h2>
-      <div className="flex gap-x-3 mt-5">
+      </h1>
+      <div className="flex gap-x-5 mt-7">
         <h3>Zip Code</h3>
         <input
           type="number"
           placeholder="Eg. 10027"
-          className="border-black rounded px-2 self-start p-1 ml-2 w-60"
+          className="border-black rounded text-xl px-2 self-start p-1 ml-2 w-32"
           maxLength={5}
           name="participantZipCode"
           onKeyUp={(e) => {

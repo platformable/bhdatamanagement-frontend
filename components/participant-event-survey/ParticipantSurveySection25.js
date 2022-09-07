@@ -21,12 +21,12 @@ export const ParticipantSurveySection25 = ({surveyForm,setSurveyForm}) => {
     }
   ]
   return (
-    <div className="p-5">
-    <h2 className="font-black">
+    <div className="px-7">
+    <h1 className="font-black">
       <span className="">25 </span> 
       Have you ever heard of PrEP (Pre-Exposures Prophylaxis)? (NYC DOH SURVEY) 
-    </h2>
-    <div className="mt-5 grid grid-cols-1 space-between gap-5">
+    </h1>
+    <div className="mt-7 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {
           return (
             <label className="text-lg flex items-center" key={index}>
