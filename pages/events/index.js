@@ -12,7 +12,7 @@ const EventsIndex = ({events}) => {
     <Layout showStatusHeader={true}>
       <PageTopHeading pageTitle={"Manage Existing Events"} dashboardBtn={true} backBtn={false} />
 
-      <div className="container mx-auto md:px-0 px-5 my-10 rounded-lg border">
+      <div className="container mx-auto md:px-0 px-5 mb-10 pb-10 rounded-lg border">
          {/* TABLE HEAD  */}
          <div className="existing-events-head-table rounded-t-lg py-3 px-1 bg-black text-white">
                 <p className="lg:text-lg flex items-center justify-center">Program</p>

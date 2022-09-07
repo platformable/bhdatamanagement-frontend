@@ -63,7 +63,7 @@ console.log("surveyForm",surveyForm)
       {options?.map((option,index)=>{
         return (
           <label className="flex gap-x-5 items-center" key={index}>
-          <input type="checkbox" className="mr-10 w-4 h-4" id={option.id} value={option.value} name="participantEmployment"
+          <input type="checkbox" className="mr-10 w-6 h-6" id={option.id} value={option.value} name="participantEmployment"
           onChange={handleForm}/>
           <p className="">{option.value}</p>
        </label>

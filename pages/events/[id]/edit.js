@@ -84,7 +84,7 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
         pageTitle={"Update event"}
       />
       <div className="container mx-auto md:px-0 px-5 items-center">
-        <div className="register-envent-form-container  grid gap-1 bg-white border rounded-lg p-5 my-10 shadow-lg">
+        <div className="register-envent-form-container  grid gap-1 bg-white border rounded-lg p-5 mb-10 pb-10 shadow-lg">
           <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} event={event}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes} event={event}/>

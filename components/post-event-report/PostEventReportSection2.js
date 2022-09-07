@@ -22,7 +22,7 @@ const PostEventReportSection2 = ({eventForm, setEventForm}) => {
           <input
             type="radio"
             name="mainRole"
-            className="mr-10 w-4 h-4"
+            className="mr-10 w-6 h-6"
             value={role.value}
             id={role.id}
             //defaultChecked={program.id===event?.programid?'checked':""}
@@ -47,7 +47,7 @@ const PostEventReportSection2 = ({eventForm, setEventForm}) => {
           <input
             type="radio"
             name="mainRole"
-            className="mr-10 w-4 h-4"
+            className="mr-10 w-6 h-6"
             value={role.value}
             id={role.id}
             //defaultChecked={program.id===event?.programid?'checked':""}

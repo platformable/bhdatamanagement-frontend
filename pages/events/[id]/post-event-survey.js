@@ -503,7 +503,7 @@ console.log("eventForm",eventForm)
 
         />
         <div className="container mx-auto md:px-0 px-5 items-center">
-          <div className="post-envent-form-container  border-black grid gap-1 bg-white rounded-lg p-1 my-10 shadow-lg">
+          <div className="post-envent-form-container  border-black grid gap-1 bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
             <section className="event p-5 rounded">
               <div className="flex justify-between items-center ">
                 <h3 className="mb-3 font-black ">Event</h3>

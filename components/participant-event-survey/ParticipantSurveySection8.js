@@ -12,31 +12,31 @@ export const ParticipantSurveySection8 = ({surveyForm, setSurveyForm}) => {
     </h2>
     <div className="mt-5 grid grid-cols-1 space-between gap-5">
     <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" id={1} name="participantEducation" value="Never attended school or only attended kindergarten" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" id={1} name="participantEducation" value="Never attended school or only attended kindergarten" onChange={handleForm}/>
           <p className=""> Never attended school or only attended kindergarten  </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" id={2} name="participantEducation" value="Grades 1 through 8 (Elementary)" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" id={2} name="participantEducation" value="Grades 1 through 8 (Elementary)" onChange={handleForm}/>
           <p className=""> Grades 1 through 8 (Elementary)  </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" id={3} name="participantEducation" value="Grades 9 through 11 (Some high school)" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" id={3} name="participantEducation" value="Grades 9 through 11 (Some high school)" onChange={handleForm}/>
           <p className=""> Grades 9 through 11 (Some high school)  </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" id={4} name="participantEducation" value="Grade 12 or GED (High school graduate)" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" id={4} name="participantEducation" value="Grade 12 or GED (High school graduate)" onChange={handleForm}/>
           <p className=""> Grade 12 or GED (High school graduate) </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" id={5} name="participantEducation" value="College 1 year to 3 years (Some college or technical school)" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" id={5} name="participantEducation" value="College 1 year to 3 years (Some college or technical school)" onChange={handleForm}/>
           <p className=""> College 1 year to 3 years (Some college or technical school)   </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" id={6} name="participantEducation" value="College 4 years or more (College graduate)" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" id={6} name="participantEducation" value="College 4 years or more (College graduate)" onChange={handleForm}/>
           <p className=""> College 4 years or more (College graduate)   </p>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-4 h-4" id={7} name="participantEducation" value="Decline to Answer" onChange={handleForm}/>
+          <input type="radio" className="mr-10 w-6 h-6" id={7} name="participantEducation" value="Decline to Answer" onChange={handleForm}/>
           <p className=""> Decline to Answer  </p>
         </label>
     </div>

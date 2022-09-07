@@ -21,7 +21,7 @@ const PostEventReportSection1 = ({eventForm, setEventForm}) => {
               <input
                 type="radio"
                 name="workArea"
-                className="mr-10 w-4 h-4"
+                className="mr-10 w-6 h-6"
                 value={area.value}
                 id={area.id}
                 //defaultChecked={program.id===event?.programid?'checked':""}

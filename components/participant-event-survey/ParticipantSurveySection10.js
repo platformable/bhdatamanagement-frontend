@@ -17,7 +17,7 @@ export const ParticipantSurveySection10 = ({surveyForm, setSurveyForm}) => {
         <label className="flex gap-x-5 items-center">
           <input
             type="radio"
-            className="mr-10 w-4 h-4"
+            className="mr-10 w-6 h-6"
             value="I have a steady place to live"
             id={1}
             name="participantLiving"
@@ -28,7 +28,7 @@ export const ParticipantSurveySection10 = ({surveyForm, setSurveyForm}) => {
         <label className="flex gap-x-5 items-center">
           <input
             type="radio"
-            className="mr-10 w-4 h-4"
+            className="mr-10 w-6 h-6"
             value="I have a place to live today, but I am worried about losing it in the future"
             id={2}
             name="participantLiving"
@@ -42,7 +42,7 @@ export const ParticipantSurveySection10 = ({surveyForm, setSurveyForm}) => {
         <label className="flex gap-x-5 items-center">
           <input
             type="radio"
-            className="mr-10 w-4 h-4"
+            className="mr-10 w-6 h-6"
             value="I do not have a steady place to live (I am temporarily staying with others, in a hotel, in a shelter, living outside on the street, on a beach, in a car, abandoned building, bus or train station, or in a park)"
             id={3}
             name="participantLiving"
@@ -58,7 +58,7 @@ export const ParticipantSurveySection10 = ({surveyForm, setSurveyForm}) => {
         <label className="flex gap-x-5 items-center">
           <input
             type="radio"
-            className="mr-10 w-4 h-4"
+            className="mr-10 w-6 h-6"
             value="Decline to answer"
             id={4}
             name="participantLiving"

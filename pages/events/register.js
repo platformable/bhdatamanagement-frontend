@@ -82,7 +82,7 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
         dashboardBtn={true}
         pageTitle={"Register an event"}
       />
-      <div className="container mx-auto md:px-0 px-5  border rounded-lg my-10 py-5">
+      <div className="container mx-auto md:px-0 px-5  border rounded-lg mb-10 pb-10">
         <div className="register-envent-form-container  grid gap-1 bg-white  rounded-lg p-1 my-10 ">
           <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} />
           <Section2 eventForm={eventForm} setEventForm={setEventForm} />
@@ -95,13 +95,14 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
           <Section7 eventForm={eventForm} setEventForm={setEventForm} locationTypes={locationTypes}/>
           <Section8 eventForm={eventForm} setEventForm={setEventForm} />
         </div>
-        <div className="flex justify-center">
+        
+      </div>   
+      <div className="flex justify-center my-10">
         <button className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold" onClick={submitEventForm}>
             <img src="/check-save-and-finish.svg" alt="register event icon" className="mr-2"/>
             Create event
         </button>
-        </div>
-      </div>    
+        </div> 
     </Layout>
     {showResponseStatus && <ResponseStatusModal setShowResponseStatus={setShowResponseStatus} responseStatus={responseStatus}/>}
     </>

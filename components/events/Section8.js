@@ -59,7 +59,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             checked={eventForm.healthAreaOfFocusName.includes("Breast cancer") ? "checked" : ""}
             />
             {/* <img src="/events/breast_cancer_icon.svg" alt=""/> */}
-            <p className="">Breast<br/>cancer</p>       
+            <p className="">Breast cancer</p>       
         </label>
         <label className="flex items-center p-2">
             <input 
@@ -72,7 +72,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             checked={eventForm.healthAreaOfFocusName.includes("Cardiovascular disease") ? "checked" : ""}
             />
             {/* <img src="/events/cardiovascular_disease_icon.svg" alt=""/> */}
-            <p className="">Cardiovascular<br/>disease</p>    
+            <p className="">Cardiovascular disease</p>    
         </label>
         <label className="flex items-center p-2">
             <input 
@@ -137,7 +137,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             checked={eventForm.healthAreaOfFocusName.includes("Mental health") ? "checked" : ""}
             />
             {/* <img src="/events/mental_health_icon.svg" alt=""/> */}
-            <p className="">Mental<br/>Health</p>    
+            <p className="">Mental Health</p>    
         </label>
         <label className="flex items-center p-2">
             <input 
@@ -163,7 +163,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             checked={eventForm.healthAreaOfFocusName.includes("Prostate cancer") ? "checked" : ""}
             />
             {/* <img src="/events/prostate_cancer_icon.svg" alt=""/> */}
-            <p className="">Prostate<br/>cancer</p>    
+            <p className="">Prostate cancer</p>    
         </label>
         <label className="flex items-center p-2">
             <input 
@@ -189,7 +189,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             checked={eventForm.healthAreaOfFocusName.includes("Maternal health") ? "checked" : ""}
             />
             {/* <img src="/events/Maternal_health_icon.svg" alt=""/> */}
-            <p className="">Maternal<br/>Health</p>    
+            <p className="">Maternal Health</p>    
         </label>
         {/* <label className="flex items-center p-2 col-start-2 col-end-6">
             <input 

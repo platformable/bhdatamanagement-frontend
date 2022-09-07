@@ -46,7 +46,7 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
       {race.map(option => (
         <label className="flex gap-x-5 items-center">
-        <input type="checkbox" className="mr-10 w-4 h-4" value={option.value} id={option.id} onChange={handleForm} name="participantRace" />
+        <input type="checkbox" className="mr-10 w-6 h-6" value={option.value} id={option.id} onChange={handleForm} name="participantRace" />
         <p className="">{option.value}</p>
       </label>
       ))}

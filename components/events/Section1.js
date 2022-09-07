@@ -32,7 +32,7 @@ const Section1 = ({eventForm, setEventForm, programs,event}) => {
                         <label className='text-lg flex items-center' key={program.id}>
                         <input type="radio" 
                         name="program" 
-                        className='mr-2 w-4 h-4'
+                        className='mr-2 w-6 h-6'
                         value={program.name} 
                         id={program.id} 
                         onChange={(e)=>setEventForm(previous => ({...previous, programName: e.target.value.toUpperCase(), programID: e.target.id}))}
@@ -44,7 +44,7 @@ const Section1 = ({eventForm, setEventForm, programs,event}) => {
                         <label className='text-lg flex items-center'>
                         <input type="radio" 
                         name="program" 
-                        className='mr-2 w-4 h-4' 
+                        className='mr-2 w-6 h-6' 
                         value="Other" 
                         id={program.id}
                         onChange={handleFormId}/>
