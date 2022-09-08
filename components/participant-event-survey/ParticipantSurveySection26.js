@@ -13,7 +13,7 @@ export const ParticipantSurveySection26 = ({surveyForm,setSurveyForm}) => {
     },
     {
       id:3,
-      value:"Don’t know/ Not sure"
+      value:"Don’t know / Not sure"
     },
     {
       id:4,
@@ -24,7 +24,7 @@ export const ParticipantSurveySection26 = ({surveyForm,setSurveyForm}) => {
     <div className="px-7">
     <h1 className="font-black">
       {/* <span className="">26 </span>  */}
-      Have you ever used Prep (Pre- Exposures Prophylaxis) to prevent getting infected with HIV?
+      Have you ever used PrEP (Pre-Exposures Prophylaxis) to prevent getting infected with HIV?
     </h1>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {

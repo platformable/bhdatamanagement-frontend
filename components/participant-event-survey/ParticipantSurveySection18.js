@@ -6,8 +6,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
       <h1 className="font-black">
         {/* <span className="">18</span> */}
          How comfortable are you discussing the
-        following with your provider? (1 = very uncomfortable, 2 =
-        uncomfortable, 3 = neutral, 4 = comfortable, and 5 = very comfortable)
+        following with your provider? 
       </h1>
       <div className="mt-7 grid grid-cols-1 gap-y-7">
         <div className="flex flex-col gap-y-5  items-start">
@@ -91,7 +90,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
           </div>
         </div>
         <div className="flex flex-col gap-y-5  items-start">
-          <h3 className="font-black">Mental Health Concerns</h3>
+          <h3 className="font-black">Mental Health concerns</h3>
 
           <div className="grid grid-cols-1 gap-y-5 md:grid-cols-5 md:gap-24">
             <label className="gap-x-2 flex items-center">

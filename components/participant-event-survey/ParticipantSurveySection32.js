@@ -31,11 +31,11 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
   const options=[
     {
       id:1,
-      value:"Word of Mouth "
+      value:"Word of mouth"
     },
     {
       id:2,
-      value:"Faith-Based Organization / Place of worship (Ex. church, mosque, etc.)"
+      value:"Faith-Based Organization / Place of worship (Eg. church, mosque, etc.)"
     },
     {
       id:3,
@@ -43,11 +43,11 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
     },
     {
       id:4,
-      value:"Social Media"
+      value:"Social media"
     },
     {
       id:5,
-      value:"Signs/Flyers "
+      value:"Signs / Flyers "
     },
     {
       id:6,
@@ -59,7 +59,7 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
     },
     {
       id:8,
-      value:"Government or City Agency (E.g., DOH, DOE, Health + Hospitals)"
+      value:"Government or city agency (E.g., DOH, DOE, Health + Hospitals)"
     },
     {
       id:9,
