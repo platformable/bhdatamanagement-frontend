@@ -11,9 +11,9 @@ const PostEventReportSection3 = ({setEventForm,eventForm}) => {
     gap:'5px'
   };
   return (
-    <div className="p-5 py-10">
+    <div className="px-7 mt-10">
     <h1 className="font-black">Which NYS Activity was conducted (according to your framework plan)?</h1>
-    <div className="mt-5 grid grid-cols-1 space-between gap-5" >
+    <div className="mt-7 grid grid-cols-1 space-between gap-5" >
 
     {nysActivity.map((activity,index)=>{
     if(index===nysActivity.length-1){

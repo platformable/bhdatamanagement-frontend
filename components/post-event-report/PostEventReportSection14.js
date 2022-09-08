@@ -20,18 +20,18 @@ const [data,setData]=useState(false)
 
 // console.log("eventForm",eventForm)
   return (
-    <div className="p-5 py-10 rounded">
-      <h2 className="mb-3 font-black">
+    <div className="px-7 mt-10 rounded">
+      <h2 className="font-black">
         Please check off all of the following events that you are aware happened today.
       </h2>
-      <div className="mt-5 grid grid-cols-1 space-between gap-5">
+      <div className="mt-7 grid grid-cols-1 space-between gap-5">
         {eventChecklist &&
           eventChecklist.map((eventItem, index) => (
-            <label className=" grid" key={index} style={{gridTemplateColumns: '1fr 16fr'}}>
+            <label className="flex gap-x-5" key={index} >
               <input
                 type="checkbox"
                 name={eventItem.dataField}
-                className="mr-2 mt-1 w-6 h-6"
+                className=""
                 id={index}
                 onChange={(e)=>handleForm(e.target.name)}
               />

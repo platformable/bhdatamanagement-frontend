@@ -11,11 +11,11 @@ const PostEventReportSection12 = ({eventForm, setEventForm}) => {
       }))
   }
   return (
-    <div className="p-5 rounded">
-      <h2 className="mb-3 font-black">
+    <div className="px-7 rounded mt-10">
+      <h2 className="font-black">
          How many YOUTH volunteers (aged 13-18) helped you?
       </h2>
-      <div className='flex mt-5 gap-5'>
+      <div className='flex mt-7 gap-5'>
         {/* <img src='/post_event_report/ADULT_volunteers_icon.svg' alt='adult volunteers icon' /> */}
       <input
         type="number"
@@ -26,7 +26,7 @@ const PostEventReportSection12 = ({eventForm, setEventForm}) => {
         }}
         maxLength={3}
         defaultValue={0}
-        className="p-2 rounded border-black w-20"
+        className="p-4 rounded border-black w-20"
         placeholder="Type a number"
         name="youthVolunteers"
         onChange={handleForm}

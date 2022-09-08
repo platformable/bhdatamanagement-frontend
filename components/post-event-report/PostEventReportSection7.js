@@ -3,17 +3,17 @@ import React from "react";
 const PostEventReportSection7 = ({eventForm,setEventForm}) => {
 
   return (
-    <div className="p-5 py-10 rounded">
+    <div className="px-7 mt-10 rounded">
       <h1 className=" font-black">
          Enter the event location name, eg. business name or faith-based
         organization name
       </h1>
-      <div className="mt-5 grid grid-cols-1 space-between gap-5">
-      <label className="text-lg flex items-center" >
+      <div className="mt-7 grid grid-cols-1 gap-5">
+      <label className="text-lg flex gap-x-5 items-center" >
         <input
           type="radio"
           name="locationName"
-          className="mr-10 w-6 h-6"
+          className=""
           // value={program.name}
           value="Black Health Office"
           onChange={(e) =>
@@ -26,11 +26,11 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
         />
         Black Health Office
       </label>
-      <label className="text-lg flex items-center w-full">
+      <label className="text-lg flex gap-x-5 items-center w-full">
         <input
           type="radio"
           name="locationName"
-          className="mr-10 w-6 h-6"
+          className=""
           value="Other"
           onChange={(e) =>
             setEventForm((previous) => ({
@@ -48,8 +48,8 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
               [e.target.name]:e.target.value
             }))}
           type="text"
-          className="ml-3 p-1 text-base border-black rounded w-60"
-          placeholder="Please type location name"
+          className="p-4 text-base border-black rounded w-60"
+          placeholder=""
         />
       </label>
 

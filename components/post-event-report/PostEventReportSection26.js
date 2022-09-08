@@ -7,12 +7,12 @@ const PostEventReportSection26 = ({ setEventForm }) => {
     value > 100 && (e.target.value = 100);
   };
   return (
-    <div className="p-5 grid grid-cols-1 mt-10 gap-7">
+    <div className="px-5 grid grid-cols-1 mt-10 gap-7">
       <h1 className="font-black">STI Testing</h1>
       <label className="flex gap-5">
         <p className="w-40">STI Testing Agency</p>
         <input
-          className="border-black ml-2 p-2"
+          className="border-black  p-4"
           type="text"
           // placeholder="Please specify"
 
@@ -29,7 +29,7 @@ const PostEventReportSection26 = ({ setEventForm }) => {
       <label className="flex gap-5">
         <p className="w-40">Total tested for STI</p>
         <input
-          className="border-black ml-2 p-2"
+          className="border-black  p-4"
           type="number"
           onWheelCapture={(e) => e.target.blur()}
           defaultValue={0}
@@ -48,7 +48,7 @@ const PostEventReportSection26 = ({ setEventForm }) => {
       <label className="flex gap-5">
         <p className="w-40">Total # of Reactive Results</p>
         <input
-          className="border-black ml-2 p-2"
+          className="border-black  p-4"
           type="number"
           onWheelCapture={(e) => e.target.blur()}
           defaultValue={0}
@@ -67,7 +67,7 @@ const PostEventReportSection26 = ({ setEventForm }) => {
       <label className="flex gap-5">
         <p className="w-40">Total # Linked to Care</p>
         <input
-          className="border-black ml-2 p-2"
+          className="border-black  p-4"
           type="number"
           onWheelCapture={(e) => e.target.blur()}
           defaultValue={0}
@@ -86,7 +86,7 @@ const PostEventReportSection26 = ({ setEventForm }) => {
       <label className="flex gap-5">
         <p className="w-40">Which services were they referred to ?</p>
         <input
-          className="border-black ml-2 p-2"
+          className="border-black  p-4"
           type="text"
           // placeholder="Type a number"
 

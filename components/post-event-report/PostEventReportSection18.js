@@ -3,13 +3,13 @@ import React from "react";
 const PostEventReportSection18 = ({eventForm,setEventForm}) => {
   
   return (
-    <div className="p-5 py-10 rounded">
-       <h2 className="my-5 font-black">In regards to HIV/AIDS prevention and reducing stigma/discrimination, please:</h2>
-      <h2 className="mb-3 font-black">
+    <div className="px-7 mt-10 rounded">
+       <h1 className="my-5 font-black">In regards to HIV/AIDS prevention and reducing stigma/discrimination, please:</h1>
+      <h2 className="mb-7 ">
         Describe the highlights from the event
       </h2>
       <textarea
-        className="p-2 block w-full h-32 bg-white break-all border-black rounded-md overflow-hidden"
+        className="p-4 block w-full h-52 bg-white break-all border-black rounded-md overflow-hidden"
         role="textbox"
         name="eventHighlights"
         placeholder=""

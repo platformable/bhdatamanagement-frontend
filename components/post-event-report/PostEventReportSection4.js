@@ -27,11 +27,11 @@ const PostEventReportSection4 = ({setEventForm,eventForm}) => {
 
  
   return (
-<div className="p-5 py-10">
+<div className="px-7 mt-10">
       <h1 className="font-black">
         Is this part of:
       </h1>
-      <div className="mt-5 grid grid-cols-1 space-between gap-5">
+      <div className="mt-7 grid grid-cols-1 space-between gap-5">
         <label className="flex items-center p-2">
             <input 
             type="checkbox" 

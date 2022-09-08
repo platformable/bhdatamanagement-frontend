@@ -12,9 +12,9 @@ const PostEventReportSection2 = ({eventForm, setEventForm}) => {
     gap:'5px'
   };
   return (
-    <div className="p-5 py-10">
+    <div className="px-7 mt-10">
     <h1 className="font-black">What was your role at the event? (if you had more than one role, what was your MAIN role at this event?)</h1>
-    <div className="mt-5 grid grid-cols-1 space-between gap-5" >
+    <div className="mt-7 grid grid-cols-1 space-between gap-5" >
     {roles.map((role,index)=>{
     if(index===roles.length-1){
       return (
