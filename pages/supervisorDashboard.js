@@ -133,7 +133,7 @@ if(userid!=="All"){
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
                 {loggedUserRole === "Supervisor" && (
                   <Link href="/users">
-                    <div className="text-center mr-5 rounded bg-black text-white p-5 text-center shadow-xl   mb-2 rounded-xl">
+                    <div className="text-center mr-5 rounded bg-black text-white p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
                       <div className="">
                         <button id="myBtn">
                           <div className="flex justify-center">
@@ -141,7 +141,7 @@ if(userid!=="All"){
                             {/* <img src="/manage-users-icon.svg" alt="" /> */}
 
                           </div>
-                          <p className="my-5 font-bold">
+                          <p className="font-bold">
                             MANAGE <br /> USERS
                           </p>
                         </button>
@@ -149,7 +149,7 @@ if(userid!=="All"){
                     </div>
                   </Link>
                 )}
-                <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl">
+                <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
             <Link href="/events/reports/">
               <button id="myBtn">
                 <div className="">
@@ -160,7 +160,7 @@ if(userid!=="All"){
                       width={85}
                     /> */}
                   </div>
-                  <p className="my-5 font-bold text-white uppercase">
+                  <p className=" font-bold text-white uppercase">
                     Create<br />Report
                   </p>
                 </div>{" "}
@@ -173,12 +173,12 @@ if(userid!=="All"){
 
                 <Link href="/historicalData">
                     <div className="text-center mr-5 ">
-                      <div className="rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl">
+                      <div className="rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
                         <button id="myBtn">
                           <div className="flex justify-center">
                             {/* <img src="/download_historical_data_icon.svg" alt="" width={85}/> */}
                           </div>
-                          <p className="my-5 font-bold text-white uppercase">
+                          <p className="font-bold text-white uppercase">
                             Download <br /> Historical Data
                           </p>
                         </button>

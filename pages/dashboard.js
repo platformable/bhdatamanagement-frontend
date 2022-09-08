@@ -65,23 +65,25 @@ export default function Dashboard() {
               </h1>
 
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
-              <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl">
+              <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
             <Link href="/events/register">
-              <button id="myBtn">
-                <div className="flex justify-center">
-                  {/* <img
+            <div className=" ">
+              <button id="myBtn" className="flex items-center">
+                
+                 {/*  <img
                     src="/events/register_an_event_icon.svg"
                     alt=""
                     width={85}
                   /> */}
-                </div>
-                <p className="my-5 font-bold text-white uppercase">
+               
+                <p className=" font-bold text-white uppercase">
                   Register <br /> an Event
                 </p>
               </button>
+              </div>
             </Link>
           </div>
-          <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl">
+          <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
             <Link href="/events">
               <button id="myBtn">
                 <div className="">
@@ -92,14 +94,14 @@ export default function Dashboard() {
                       width={85}
                     /> */}
                   </div>
-                  <p className="my-6 font-bold text-white uppercase">
+                  <p className="font-bold text-white uppercase">
                     Manage<br />existing  Event
                   </p>
                 </div>{" "}
               </button>
             </Link>
           </div>
-          <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl">
+          <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
             <Link href="/events/reports/">
               <button id="myBtn">
                 <div className="">
@@ -110,7 +112,7 @@ export default function Dashboard() {
                       width={85}
                     /> */}
                   </div>
-                  <p className="my-5 font-bold text-white uppercase">
+                  <p className=" font-bold text-white uppercase">
                     Create<br />Report
                   </p>
                 </div>{" "}
@@ -122,7 +124,7 @@ export default function Dashboard() {
             <div></div>
                 <Link href="/historicalData">
                   <button id="myBtn">
-                    <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl">
+                    <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
                       <div className="">
                         <div className="flex justify-center">
                           {/* <img
@@ -131,7 +133,7 @@ export default function Dashboard() {
                             width={85}
                           /> */}
                         </div>
-                        <p className="my-5 font-bold text-white uppercase">
+                        <p className="font-bold text-white uppercase">
                           Download <br /> Historical Data
                         </p>
                       </div>{" "}
