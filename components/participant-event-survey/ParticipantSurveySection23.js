@@ -48,6 +48,9 @@ export const ParticipantSurveySection23 = ({surveyForm,setSurveyForm}) => {
 
   }
 
+  const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
+  const newList = shuffle(options);
+
   useEffect(()=>{
     setSurveyForm((previous) => ({
       ...previous,
@@ -61,7 +64,7 @@ export const ParticipantSurveySection23 = ({surveyForm,setSurveyForm}) => {
       Which of the following can put you at risk for sexually transmitted HIV? (Select all that apply.) 
     </h1>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
-    {options.map((option, index) => {
+    {newList?.map((option, index) => {
           return (
             <label className="text-lg flex gap-x-5 items-center" key={index}>
               <input

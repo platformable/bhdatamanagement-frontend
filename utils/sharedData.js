@@ -136,13 +136,13 @@ export const roles = [
 ];
 
 export const nysActivity = [
-  {id:1,value:"Block Association"},
-  {id:2,value:"Strategic Planning Group"},
-  {id:3,value:"Campus Approach"},
-  {id:4,value:"Conscientious Clinician"},
-  {id:5,value:"Health Disparities Workshop"},
-  {id:6,value:"Faith Without Walls"},
-  {id:7,value:"Other "},
+  {id:1,value:"Block Association",nyscmp:1},
+  {id:2,value:"Strategic Planning Group",nyscmp:1},
+  {id:3,value:"Campus Approach",nyscmp:1},
+  {id:4,value:"Conscientious Clinician",nyscmp:1},
+  {id:5,value:"Health Disparities Workshop",nyscmp:1},
+  {id:6,value:"Faith Without Walls",nyscmp:1},
+  {id:7,value:"Other",nyscmp:1},
 ];
 
 export const nysPrograms = [
