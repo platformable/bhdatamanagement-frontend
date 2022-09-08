@@ -67,7 +67,7 @@ export const ParticipantSurveySection20 = ({ surveyForm, setSurveyForm }) => {
           <div className="grid grid-cols-1 gap-y-5 md:grid-cols-5 md:gap-24">
             {options.map((option, index) => {
               return (
-                <label className="text-lg flex items-center" key={index}>
+                <label className="text-lg flex gap-x-5 items-center" key={index}>
                   <input
                     type="radio"
                     name="participantPHQ2b"

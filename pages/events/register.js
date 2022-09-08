@@ -10,11 +10,13 @@ import Section8 from "../../components/events/Section8";
 import Layout from "../../components/Layout";
 import PageTopHeading from "../../components/PageTopHeading";
 import { useRouter } from 'next/router'
+import { nysActivity } from "../../utils/sharedData";
 
 import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 import axios from "axios"
 import ResponseStatusModal from "../../components/ResponseStatusModal";
+import Section3_2 from "../../components/events/Section3-2";
 
 const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
   const router = useRouter()
@@ -37,6 +39,8 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
     healthAreaOfFocusName: [],
     eventTypeID: "",
     eventTypeName: "",
+    nysActivity:"",
+    nysActivityOther:""
   });
   const userId = user && user.sub
   
@@ -87,6 +91,7 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
           <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} />
           <Section2 eventForm={eventForm} setEventForm={setEventForm} />
           <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/>
+         {eventForm.programName==='NYS CMP' && <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>} 
          
             <Section4 eventForm={eventForm} setEventForm={setEventForm} />
             <Section5 eventForm={eventForm} setEventForm={setEventForm} />

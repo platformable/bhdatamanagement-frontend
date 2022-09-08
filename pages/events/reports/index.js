@@ -9,26 +9,13 @@ const CreateReport = () => {
             <PageTopHeading pageTitle="Create report" dashboardBtn={true} backBtn={true}/>
             <div className="container mx-auto">
 
-                <div className="grid md:grid-cols-6 grid-cols-1">
-            <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl">
-            <Link href="/events/reports/nysReportPage">
-              <button id="myBtn">
-                <div className="">
-                  <div className="flex justify-center ">
-                    {/* <img
-                      src="/events/register_an_event_icon.svg"
-                      alt=""
-                      width={85}
-                    /> */}
-                  </div>
-                  <p className="my-5 font-bold text-white uppercase">
-                    Download CSV<br /> FOR NYS FUNDING REPORT
-                  </p>
-                </div>{" "}
-              </button>
-            </Link>
-          </div>
-          </div>
+     <div>
+     <Link href="/events/reports/nysReportPage">
+      <button className="bg-black text-white p-5 rounded">Download CSV FOR NYS FUNDING REPORT</button>
+      </Link>
+     </div>
+          
+
           </div>
         </Layout>
     );
