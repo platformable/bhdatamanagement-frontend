@@ -63,7 +63,7 @@ export default function UsersIndex({data}) {
               </Link>
             </div>
             <div className="flex  items-center justify-between container mx-auto py-5">
-              <h1 className='block font-bold'>Manage Users</h1>
+              <h1 className='block font-bold'>Manage users</h1>
               <Link href="/authorizedusers">
                 <a className="rounded bg-black px-5 py-2 flex items-center  font-semibold shadow-xl" id="myBtn">
                 {/* <Image src={authUserICon} width={31} height={29}/> */}

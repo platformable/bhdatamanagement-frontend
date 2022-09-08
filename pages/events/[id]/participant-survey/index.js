@@ -123,7 +123,7 @@ const ParticipantSurvey = ({
             <p className=" text-lg">  {new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</p>
             </div>
             <div className="grid md:grid-cols-4 grid-cols-1 mb-2 ">
-              <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl">
+              <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
       
               <a id="myBtn" href={event.qrcode} download={event?.eventname}>
                 <div className="flex justify-center">
@@ -133,13 +133,13 @@ const ParticipantSurvey = ({
                     width={85}
                   /> */}
                 </div>
-                <p className="my-5 font-bold text-black uppercase">
+                <p className="text-black uppercase">
                  Download QR Code
                 </p>
               </a>
 
           </div>
-          <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl">
+          <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
   
               <button id="myBtn"
               onClick={()=>addToClipboard()}>
@@ -151,7 +151,7 @@ const ParticipantSurvey = ({
                       width={85}
                     /> */}
                   </div>
-                  <p className="my-5 font-bold text-black uppercase">
+                  <p className=" text-black uppercase">
                    Copy link to clipboard
                   </p>
                 </div>{" "}
@@ -159,19 +159,19 @@ const ParticipantSurvey = ({
               {copyToClipboard && <span className="text-xs bg-green-300 p-1 rounded">Copied to clipboard</span>}
             
           </div>
-          <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl">
+          <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
 
           <ReactToPrint
                   trigger={() => <button id="myBtn">
                   <div className="">
-                    <div className="flex justify-center ">
+                    <div className="grid justify-center content-center">
                       {/* <img
                         src="/events/print_QR_icon.svg"
                         alt=""
                         width={85}
                       /> */}
                     </div>
-                    <p className="my-5 font-bold text-black uppercase">
+                    <p className="text-black uppercase">
                      Print the qr code to put up at your event
                     </p>
                   </div>{" "}
@@ -185,7 +185,7 @@ const ParticipantSurvey = ({
               
  
           </div>
-          <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl">
+          <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
             
               <a id="myBtn" href={`/events/${event.id}/participant-survey/survey`} target="_blank" >
                 <div className="">
@@ -196,7 +196,7 @@ const ParticipantSurvey = ({
                       width={85}
                     /> */}
                   </div>
-                  <p className="my-5 font-bold text-black uppercase">
+                  <p className="text-black uppercase">
                    Go to survey
                   </p>
                 </div>{" "}

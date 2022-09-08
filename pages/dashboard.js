@@ -95,7 +95,7 @@ export default function Dashboard() {
                     /> */}
                   </div>
                   <p className="font-bold text-white uppercase">
-                    Manage<br />existing  Event
+                    Manage<br />existing  Events
                   </p>
                 </div>{" "}
               </button>

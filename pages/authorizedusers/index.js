@@ -88,7 +88,7 @@ export default function AuthorizedUsersIndex({data, users}) {
                </Link>
               </div>
             <div className='button-container  md:flex justify-between items-center py-5'>
-               <h1 className='block font-bold '>Manage Users</h1>
+               <h1 className='block font-bold '>Manage users</h1>
 
                <div className="flex justify-center items-center">
                 <button className="rounded bg-black text-white px-5 py-2 flex items-center  font-semibold shadow-xl mr-4" id="myBtn" onClick={() => setShowModal(!showModal)}>

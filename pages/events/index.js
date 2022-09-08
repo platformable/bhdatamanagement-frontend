@@ -10,7 +10,7 @@ const EventsIndex = ({events}) => {
   const sortedEventsByDate  = events.sort((a, b) => new Date(b.eventdate) - new Date(a.eventdate))
   return (
     <Layout showStatusHeader={true}>
-      <PageTopHeading pageTitle={"Manage Existing Events"} dashboardBtn={true} backBtn={false} />
+      <PageTopHeading pageTitle={"Manage existing events"} dashboardBtn={true} backBtn={false} />
 
       <div className="container mx-auto md:px-0 px-5 mb-10 pb-10 rounded-lg border">
          {/* TABLE HEAD  */}
