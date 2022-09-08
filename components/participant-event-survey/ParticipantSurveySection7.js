@@ -21,7 +21,7 @@ export const ParticipantSurveySection7 = ({ surveyForm, setSurveyForm }) => {
               <label className="flex gap-x-5 items-center">
                 <input
                   type="radio"
-                  className="mr-10 "
+                  className=""
                   value={option.value}
                   id={option.id}
                   onChange={handleForm}
@@ -42,7 +42,7 @@ export const ParticipantSurveySection7 = ({ surveyForm, setSurveyForm }) => {
               <label className="flex gap-x-5 items-center">
                 <input
                   type="radio"
-                  className="mr-10 "
+                  className=" "
                   value={option.value}
                   id={option.id}
                   onChange={handleForm}
@@ -57,7 +57,7 @@ export const ParticipantSurveySection7 = ({ surveyForm, setSurveyForm }) => {
         <label className="flex gap-x-5 items-center">
           <input
             type="radio"
-            className="mr-10 w-6 h-6"
+            className=""
             value="Decline to answer"
             onChange={handleForm}
             name="participantRole"

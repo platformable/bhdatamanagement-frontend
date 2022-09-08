@@ -29,11 +29,11 @@ export const ParticipantSurveySection25 = ({surveyForm,setSurveyForm}) => {
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {
           return (
-            <label className="text-lg flex items-center" key={index}>
+            <label className="text-lg flex gap-x-5 items-center" key={index}>
               <input
                 type="radio"
                 name="participantPrEPKnowledge"
-                className="mr-10 w-6 h-6"
+                className=""
                 value={option.value}
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}

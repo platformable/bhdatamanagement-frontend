@@ -34,7 +34,7 @@ const options=[
         <h3 className="md:w-96 w-100 mb-2">Little interest or pleasure in doing things</h3>
         {options.map((option, index) => {
           return (
-            <label className="text-lg flex items-center" key={index}>
+            <label className="text-lg flex gap-x-5 items-center" key={index}>
               <input
                 type="radio"
                 name="participantPHQ2a"

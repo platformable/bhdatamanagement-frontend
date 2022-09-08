@@ -11,19 +11,19 @@ export const ParticipantSurveySection13 = ({surveyForm, setSurveyForm}) => {
     </h1>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-6 h-6" value="Often true" name="participantFoodInsecurity2" onChange={handleForm}/>
+          <input type="radio" className="" value="Often true" name="participantFoodInsecurity2" onChange={handleForm}/>
           <h3 className="">Often true  </h3>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-6 h-6" value="Sometimes true" name="participantFoodInsecurity2" onChange={handleForm}/>
+          <input type="radio" className="" value="Sometimes true" name="participantFoodInsecurity2" onChange={handleForm}/>
           <h3 className="">Sometimes true  </h3>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-6 h-6" value="Never true" name="participantFoodInsecurity2" onChange={handleForm}/>
+          <input type="radio" className="" value="Never true" name="participantFoodInsecurity2" onChange={handleForm}/>
           <h3 className="">Never true  </h3>
         </label>
         <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 w-6 h-6" value="Decline to answer" name="participantFoodInsecurity2" onChange={handleForm}/>
+          <input type="radio" className="" value="Decline to answer" name="participantFoodInsecurity2" onChange={handleForm}/>
           <h3 className="">Decline to answer</h3>
         </label>
     </div>

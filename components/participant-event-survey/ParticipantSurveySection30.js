@@ -79,11 +79,11 @@ export const ParticipantSurveySection30 = ({surveyForm,setSurveyForm}) => {
 
 if(index===options.length-1){
   return (
-    <label className="text-lg flex items-center" key={index}>
+    <label className="text-lg flex gap-x-5 items-center" key={index}>
       <input
         type="checkbox"
         name="participantPRePResourceKnowledge"
-        className="mr-10 "
+        className=""
         value={option.value}
         id={index}
         //defaultChecked={program.id===event?.programid?'checked':""}
@@ -100,11 +100,11 @@ if(index===options.length-1){
 
 } else {
           return (
-            <label className="text-lg flex items-center" key={index}>
+            <label className="text-lg flex gap-x-5  items-center" key={index}>
               <input
                 type="checkbox"
                 name="participantPRePResourceKnowledge"
-                className="mr-10 w-6 h-6"
+                className=""
                 value={option.value}
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}

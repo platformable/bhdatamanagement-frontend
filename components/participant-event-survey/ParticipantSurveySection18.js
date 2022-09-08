@@ -6,9 +6,9 @@ export const ParticipantSurveySection18 = ({surveyForm,setSurveyForm}) => {
       <h1 className="font-black">
         <span className="">18</span> How comfortable are you discussing the following with your provider? (1 = very uncomfortable, 2 = uncomfortable, 3 = neutral, 4 = comfortable, and 5 = very comfortable)
       </h1>
-      <div className="mt-7 grid grid-cols-1 space-between gap-5">
+      <div className="mt-7 grid grid-cols-1 gap-5">
         <div className="block md:flex gap-x-5  items-center">
-          <h3 className="md:w-96 w-100">Sexual Health Concerns</h3>
+          <h3 className="md:w-96 w-100 block">Sexual Health Concerns</h3>
           <label className="m-5 flex items-center">
             <input type="radio" name="participantComfortSex" value={1} className="mr-2 w-6 h-6" onChange={(e) =>
           setSurveyForm((previous) => ({

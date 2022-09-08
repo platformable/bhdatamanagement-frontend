@@ -85,11 +85,11 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
 
 if(index===options.length-1){
   return (
-    <label className="text-lg flex items-center" key={index}>
+    <label className="text-lg flex gap-x-5 items-center" key={index}>
       <input
         type="checkbox"
         name="participantReferral"
-        className="mr-10 w-6 h-6"
+        className=""
         value={option.value}
         id={index}
         onChange={(e)=>handleForm(e.target.value)}
@@ -105,11 +105,11 @@ if(index===options.length-1){
 
 } else {
           return (
-            <label className="text-lg flex items-center" key={index}>
+            <label className="text-lg flex gap-x-5 items-center" key={index}>
               <input
                 type="checkbox"
                 name="participantReferral"
-                className="mr-10 w-6 h-6"
+                className=""
                 value={option.value}
                 id={index}
                 onChange={(e)=>handleForm(e.target.value)}
