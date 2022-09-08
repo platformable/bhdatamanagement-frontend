@@ -12,7 +12,7 @@ const PostEventReportSection3 = ({setEventForm,eventForm}) => {
   };
   return (
     <div className="p-5 py-10">
-    <h2 className="font-black"><span className="">3</span> Which NYS Activity was conducted (according to your framework plan)?</h2>
+    <h1 className="font-black">Which NYS Activity was conducted (according to your framework plan)?</h1>
     <div className="mt-5 grid grid-cols-1 space-between gap-5" >
 
     {nysActivity.map((activity,index)=>{

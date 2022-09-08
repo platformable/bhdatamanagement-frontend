@@ -54,7 +54,7 @@ export default function Dashboard() {
         <main className="h-screen">
           <section id="dashboard-client-list">
             <div className="container mx-auto py-5">
-              <section className=" py-2">
+              <section className="py-5">
                 <h1 className="font-black  md:px-0 px-5">
                   Hello {userName}
                 </h1>
@@ -85,15 +85,15 @@ export default function Dashboard() {
             <Link href="/events">
               <button id="myBtn">
                 <div className="">
-                  <div className="flex justify-center ">
+                  <div className="flex items-center bg-red-50">
                     {/* <img
                       src="/events/register_an_event_icon.svg"
                       alt=""
                       width={85}
                     /> */}
                   </div>
-                  <p className="my-5 font-bold text-white uppercase">
-                    Manage an<br />existing  Event
+                  <p className="my-6 font-bold text-white uppercase">
+                    Manage<br />existing  Event
                   </p>
                 </div>{" "}
               </button>

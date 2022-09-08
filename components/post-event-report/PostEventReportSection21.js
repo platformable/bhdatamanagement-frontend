@@ -5,7 +5,6 @@ const PostEventReportSection21 = ({eventForm,setEventForm}) => {
   return (
     <div className="p-5 rounded py-10">
       <h2 className="mb-3 font-black">
-        <span className="">21 </span>
         Was testing done at the event
       </h2>
       <div className="grid grid-cols-1">

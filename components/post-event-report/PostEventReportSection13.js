@@ -31,7 +31,7 @@ const PostEventReportSection13 = ({eventForm, setEventForm}) => {
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
-        <span className="">13 </span> What languages was your team able to support?
+    What languages was your team able to support?
       </h2>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
         {languages &&

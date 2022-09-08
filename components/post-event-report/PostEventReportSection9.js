@@ -12,10 +12,9 @@ const PostEventReportSection9 = ({eventForm,setEventForm}) => {
   }
   return (
     <div className="p-5 prounded flex-">
-      <h2 className="font-black">
-        <span className="">9 </span>
+      <h1 className="font-black">
          How many STAFF MEMBERS were present?
-      </h2>
+      </h1>
       <div className='flex mt-5 gap-5 '>
         {/* <img src='/post_event_report/ADULT_volunteers_icon.svg' alt='adult volunteers icon' /> */}
       <input

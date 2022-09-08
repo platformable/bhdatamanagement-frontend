@@ -348,7 +348,8 @@ background-color:var(--middleWhite);
 }
 
 .border-dark-violet {
-  border: 1px solid var(--violet)
+  border: 1px solid var(--violet);
+  border-radius: 10px;
 }
 
 .border-l-dark-blue {

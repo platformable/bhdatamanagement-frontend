@@ -121,17 +121,16 @@ if(userid!=="All"){
         <main className="">
           <section id="dashboard-client-list">
             <div className="container mx-auto">
-              <section className=" py-5">
-                <h1 className="font-black py-5 md:px-0 px-5">
-                  {userName},
+              <section className="py-5">
+              <h1 className="font-black  md:px-0 px-5">
+                  Hello {userName}
                 </h1>
-               
               </section>
-              
-              <h2 className="font-black my-2 md:px-0 px-5">
+
+              <h1 className="font-black  md:px-0 px-5">
                 What do you want <span className="">to do</span> today?
-              </h2>
-              <div className="grid md:grid-cols-6 grid-cols-1 mb-2">
+              </h1>
+              <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
                 {loggedUserRole === "Supervisor" && (
                   <Link href="/users">
                     <div className="text-center mr-5 rounded bg-black text-white p-5 text-center shadow-xl   mb-2 rounded-xl">

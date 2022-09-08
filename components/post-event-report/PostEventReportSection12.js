@@ -13,7 +13,6 @@ const PostEventReportSection12 = ({eventForm, setEventForm}) => {
   return (
     <div className="p-5 rounded">
       <h2 className="mb-3 font-black">
-        <span className="">12 </span>
          How many YOUTH volunteers (aged 13-18) helped you?
       </h2>
       <div className='flex mt-5 gap-5'>
