@@ -56,14 +56,15 @@ console.log("surveyForm",surveyForm)
   return (
     <div className="px-7">
     <h1 className="font-black">
-      <span className="">9</span> Are you currently...? 
+      {/* <span className="">9</span>  */}
+      Are you currently...? 
     </h1>
     <div className="mt-7 grid grid-cols-1 gap-5">
 
       {options?.map((option,index)=>{
         return (
           <label className="flex gap-x-5 items-center" key={index}>
-          <input type="checkbox" className="mr-10" id={option.id} value={option.value} name="participantEmployment"
+          <input type="checkbox" className="" id={option.id} value={option.value} name="participantEmployment"
           onChange={handleForm}/>
           <h3 className="">{option.value}</h3>
        </label>

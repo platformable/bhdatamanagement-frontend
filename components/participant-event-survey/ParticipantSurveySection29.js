@@ -26,17 +26,17 @@ export const ParticipantSurveySection29 = ({surveyForm,setSurveyForm}) => {
   return (
     <div className="px-7">
     <h1 className="font-black">
-      <span className="">29 </span> 
+      {/* <span className="">29 </span>  */}
       Are you aware of where to obtain PreP (Pre- Exposures Prophylaxis) in your community?  
     </h1>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {
           return (
-            <label className="text-lg flex items-center" key={index}>
+            <label className="text-lg flex gap-x-5 items-center" key={index}>
               <input
                 type="radio"
                 name="participantPRePResourceKnowledge"
-                className="mr-10 w-6 h-6"
+                className=""
                 value={option.value}
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}

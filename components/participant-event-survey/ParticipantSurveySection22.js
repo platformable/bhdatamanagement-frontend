@@ -23,17 +23,17 @@ export const ParticipantSurveySection22 = ({surveyForm,setSurveyForm}) => {
   return (
     <div className="px-7">
     <h1 className="font-black">
-      <span className="">22 </span> 
+      {/* <span className="">22 </span>  */}
       Have you had an HIV test in the last 12 months?
     </h1>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {
           return (
-            <label className="text-lg flex items-center" key={index}>
+            <label className="text-lg flex gap-x-5 items-center" key={index}>
               <input
                 type="radio"
                 name="participantHIV12"
-                className="mr-10 "
+                className=""
                 value={option.value}
                 id={index}
                 //defaultChecked={program.id===event?.programid?'checked':""}

@@ -7,10 +7,11 @@ export const ParticipantSurveySection1 = ({surveyForm, setSurveyForm}) => {
   return (
     <div className="px-7 mt-7">
       <h1 className="font-black">
-        <span className="">1</span> What zip code do you live in or spend most
+        {/* <span className="">1</span> */}
+         What zip code do you live in or spend most
         of your time in?
       </h1>
-      <div className="flex gap-x-5 mt-7">
+      <div className="flex items-center gap-x-5 mt-7">
         <h3>Zip Code</h3>
         <input
           type="number"

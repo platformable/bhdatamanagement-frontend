@@ -8,12 +8,13 @@ export const ParticipantSurveySection2 = ({surveyForm, setSurveyForm}) => {
   return (
     <div className="px-7">
       <h1 className="font-black">
-        <span className="">2</span> What is your age?
+        {/* <span className="">2</span>  */}
+        What is your age?
       </h1>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
         {age.map(opt => (
           <label className="flex gap-x-5 items-center">
-          <input type="radio" className="mr-10 " id={opt.id} name="participantAgeRange" onChange={handleForm} />
+          <input type="radio" className="" id={opt.id} name="participantAgeRange" onChange={handleForm} />
           <h3 className="w-20">{opt.value}</h3>
         </label>
         ))}

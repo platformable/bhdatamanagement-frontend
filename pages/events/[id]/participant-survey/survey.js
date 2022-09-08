@@ -176,7 +176,7 @@ const Survey = ({data}) => {
           pageTitle={"Participant event survey"}
         /> */}
       <main className="container mx-auto  md:px-0 px-5">
-        <div id="event" className="container mx-auto rounded my-10 h-36 border-dark-violet">
+        <div id="event" className="container mx-auto rounded my-10 md:h-36 border-dark-violet">
           <div className="grid grid-cols-2 bg-violet font-bold text-white h-12 px-7 items-center rounded-tl-lg rounded-tr-lg">
             <h2 className="">Event name</h2>
             <h2 className="flex justify-end ">Event date</h2>

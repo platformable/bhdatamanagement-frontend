@@ -77,7 +77,7 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
   return (
     <div className="px-7 ">
     <h1 className="font-black">
-      <span className="">32 </span> 
+      {/* <span className="">32 </span>  */}
       How did you hear about this event?  
     </h1>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
@@ -85,31 +85,34 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
 
 if(index===options.length-1){
   return (
-    <label className="text-lg flex items-center" key={index}>
+    <label className="text-lg flex flex-col md:flex-row gap-y-5 md:gap-x-5 items-start md:items-center" key={index}>
+      <div className='flex gap-x-5'>
       <input
         type="checkbox"
         name="participantReferral"
-        className="mr-10 w-6 h-6"
+        className=""
         value={option.value}
         id={index}
         onChange={(e)=>handleForm(e.target.value)}
       />
      {option.value}
+      </div>
+     
      <input type="text" 
           placeholder="Please specify" 
           onChange={(e)=>setSurveyForm({...eventForm,participantReferralOther:e.target.value})}
-          className="border-black rounded px-4 self-start p-1 ml-2 text-xl" />
+          className="border-black rounded px-4 self-start p-1 w-full text-xl w-134" />
     </label>
 
   )
 
 } else {
           return (
-            <label className="text-lg flex items-center" key={index}>
+            <label className="text-lg flex gap-x-5 items-center" key={index}>
               <input
                 type="checkbox"
                 name="participantReferral"
-                className="mr-10 w-6 h-6"
+                className=""
                 value={option.value}
                 id={index}
                 onChange={(e)=>handleForm(e.target.value)}
