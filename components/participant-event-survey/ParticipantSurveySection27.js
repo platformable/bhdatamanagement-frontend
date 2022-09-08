@@ -22,7 +22,7 @@ export const ParticipantSurveySection27 = ({surveyForm,setSurveyForm}) => {
   return (
     <div className="px-7">
     <h1 className="font-black">
-      <span className="">27 </span> 
+      {/* <span className="">27 </span>  */}
       Have you ever heard of U=U (Undetectable = Untransmittable)? 
     </h1>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">

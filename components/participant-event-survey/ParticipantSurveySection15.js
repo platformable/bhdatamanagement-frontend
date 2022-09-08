@@ -8,7 +8,8 @@ export const ParticipantSurveySection15 = ({surveyForm, setSurveyForm}) => {
   return (
     <div className="px-7">
     <h1 className="font-black">
-      <span className="">15</span> Would you say that in general your health is:
+      {/* <span className="">15</span>  */}
+      Would you say that in general your health is:
     </h1>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     <label className="flex gap-x-5 items-center">

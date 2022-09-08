@@ -426,6 +426,12 @@ input[type="text"], input[type="number"] {
   padding: 4px 15px;
 }
 
+@media (min-width: 768px) {
+  .w-134 {
+    width: 536px;
+  }  
+}
+
 .checkbox-round {
     width: 25px;
     height: 25px;

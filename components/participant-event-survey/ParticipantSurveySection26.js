@@ -23,7 +23,7 @@ export const ParticipantSurveySection26 = ({surveyForm,setSurveyForm}) => {
   return (
     <div className="px-7">
     <h1 className="font-black">
-      <span className="">26 </span> 
+      {/* <span className="">26 </span>  */}
       Have you ever used Prep (Pre- Exposures Prophylaxis) to prevent getting infected with HIV?
     </h1>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">

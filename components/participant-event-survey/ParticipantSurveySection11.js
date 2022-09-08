@@ -7,7 +7,8 @@ export const ParticipantSurveySection11 = ({surveyForm, setSurveyForm}) => {
   return (
     <div className="px-7">
     <h1 className="font-black">
-      <span className="">11</span> Do you own or rent your home?
+      {/* <span className="">11</span>  */}
+      Do you own or rent your home?
     </h1>
     <div className="mt-5 grid grid-cols-1 space-between gap-5">
     <label className="flex gap-x-5 items-center">

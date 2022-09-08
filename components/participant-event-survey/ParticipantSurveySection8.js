@@ -8,7 +8,8 @@ export const ParticipantSurveySection8 = ({surveyForm, setSurveyForm}) => {
   return (
     <div className="px-7">
     <h1 className="font-black">
-      <span className="">8</span> What is the highest grade or year of school you completed? 
+      {/* <span className="">8</span>  */}
+      What is the highest grade or year of school you completed? 
     </h1>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     <label className="flex gap-x-5 items-center">

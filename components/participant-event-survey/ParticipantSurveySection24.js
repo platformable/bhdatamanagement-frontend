@@ -23,7 +23,7 @@ export const ParticipantSurveySection24 = ({surveyForm,setSurveyForm}) => {
   return (
     <div className="px-7">
     <h1 className="font-black">
-      <span className="">24 </span> 
+      {/* <span className="">24 </span>  */}
       The last time you had sex, did you use a condom?
     </h1>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">

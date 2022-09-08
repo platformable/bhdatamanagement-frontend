@@ -41,7 +41,8 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
   return (
     <div className="px-7">
       <h1 className="font-black">
-        <span className="">3</span> Do you identify as (Select all that apply):
+        {/* <span className="">3</span>  */}
+        Do you identify as (Select all that apply):
       </h1>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
       {race.map(option => (

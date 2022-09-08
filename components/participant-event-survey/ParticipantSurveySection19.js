@@ -5,7 +5,7 @@ export const ParticipantSurveySection19 = ({surveyForm,setSurveyForm}) => {
   return (
     <div className="px-7 rounded">
       <h1 className="font-black">
-        <span className="">19 </span>
+        {/* <span className="">19 </span> */}
         How would you describe your relationship with your medical provider? 
       </h1>
       

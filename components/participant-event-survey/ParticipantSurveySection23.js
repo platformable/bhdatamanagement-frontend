@@ -57,7 +57,7 @@ export const ParticipantSurveySection23 = ({surveyForm,setSurveyForm}) => {
   return (
     <div className="px-7">
     <h1 className="font-black">
-      <span className="">23 </span>
+      {/* <span className="">23 </span> */}
       Which of the following can put you at risk for sexually transmitted HIV? (Select all that apply.) 
     </h1>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
