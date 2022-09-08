@@ -12,10 +12,9 @@ const PostEventReportSection16 = ({eventForm, setEventForm}) => {
   }
   return (
     <div className="p-5 py-10 rounded">
-      <h2 className="mb-3 font-black">
-        <span className="">16 </span>
+      <h1 className="mb-3 font-black">
         How many people did you text or call about the event?
-      </h2>
+      </h1>
       <div className='flex gap-5 justify-start'>
         {/* <img src='/post_event_report/text_call_icon.svg' alt='adult volunteers icon' /> */}
       <input

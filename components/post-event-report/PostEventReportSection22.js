@@ -12,7 +12,6 @@ const PostEventReportSection22 = ({eventForm, setEventForm}) => {
     <>
       <div className="p-5 rounded py-10">
         <h2 className="font-black">
-          <span className="">22 </span>
           What testing was done at the event
         </h2>
         <div className="grid mt-5 grid-cols-1 gap-5">
@@ -30,7 +29,7 @@ const PostEventReportSection22 = ({eventForm, setEventForm}) => {
             {' '}   Hep C Testing
           </p>
 
-          <p className="flex gap-x-10">
+        {/*   <p className="flex gap-x-10">
             <input
               type="checkbox" className="w-6 h-6"
               name="bloodPressureTesting"
@@ -48,17 +47,17 @@ const PostEventReportSection22 = ({eventForm, setEventForm}) => {
             />
          {' '}  Cholesterol Testing
 
-          </p>
+          </p> */}
 
           <p className="flex gap-x-10">
             <input type="checkbox" className="w-6 h-6" name="covidTesting" onChange={handleForm} />
             {' '}  COVID-19 Testing
           </p>
 
-          <p className="flex gap-x-10">
+      {/*     <p className="flex gap-x-10">
             <input type="checkbox" className="w-6 h-6" name="otherTesting" onChange={handleForm} />
             {' '}  Other Testing
-          </p>
+          </p> */}
         </div>
       </div>
     </>

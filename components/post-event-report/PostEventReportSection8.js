@@ -13,10 +13,9 @@ const handleForm = (e) => {
 }
   return (
     <div className="p-5 py-10 rounded">
-      <h2 className="mb-3 font-black">
-        <span className="">8 </span>
+      <h1 className="mb-3 font-black">
         Resources Distributed:
-      </h2>
+      </h1>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
         {resourcesDistributed &&
           resourcesDistributed.map((resource, index) => (

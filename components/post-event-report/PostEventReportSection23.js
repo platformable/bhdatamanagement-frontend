@@ -8,7 +8,7 @@ const PostEventReportSection23 = ({ setEventForm }) => {
   };
   return (
     <div className="p-5 grid grid-cols-1 gap-7 mt-10">
-      <h2 className="font-black">HIV Testing</h2>
+      <h1 className="font-black">HIV Testing</h1>
       <label className="">
         <p className="w-80"> HIV Testing Agency</p>
         <input

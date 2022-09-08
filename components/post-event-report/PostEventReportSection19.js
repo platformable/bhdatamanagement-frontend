@@ -5,7 +5,6 @@ const PostEventReportSection19 = ({eventForm,setEventForm}) => {
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
-        <span className="">19 </span>
         Describe any challenges and how you overcame them, and any lessons learned
       </h2>
       

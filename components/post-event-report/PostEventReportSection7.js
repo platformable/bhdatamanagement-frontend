@@ -4,11 +4,10 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
 
   return (
     <div className="p-5 py-10 rounded">
-      <h2 className=" font-black">
-        <span className="">7 </span>
+      <h1 className=" font-black">
          Enter the event location name, eg. business name or faith-based
         organization name
-      </h2>
+      </h1>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">
       <label className="text-lg flex items-center" >
         <input

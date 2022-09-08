@@ -7,7 +7,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
       }
     return (
         <div className='p-5  rounded  md:text-left'>            
-                <h2 className='mb-3 font-black'><span className=''>4</span> What date is the event?</h2>
+                <h1 className='mb-3 font-black'>What date is the event?</h1>
                 <input type="date" 
                 name="eventDate" 
                 className='border rounded p-2 text-lg ' 

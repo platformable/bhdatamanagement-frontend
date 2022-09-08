@@ -13,7 +13,6 @@ const PostEventReportSection11 = ({eventForm, setEventForm}) => {
     return (
       <div className="p-5 rounded">
       <h2 className="mb-3 font-black">
-        <span className="">11 </span>
          How many ADULT volunteers helped you?
       </h2>
       <div className='flex gap-5'>

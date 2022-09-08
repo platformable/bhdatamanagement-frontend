@@ -13,7 +13,6 @@ const PostEventReportSection17 = ({eventForm, setEventForm}) => {
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
-        <span className="">17 </span>
         How many people did you send an email blast to about the event?
       </h2>
       <div className='flex gap-5 justify-start'>

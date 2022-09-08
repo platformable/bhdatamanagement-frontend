@@ -5,7 +5,6 @@ const PostEventReportSection20 = ({eventForm,setEventForm}) => {
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
-        <span className="">20 </span>
         Describe any specific health questions you were asked or any feedback you received specifically about health issues at the event
       </h2>
       

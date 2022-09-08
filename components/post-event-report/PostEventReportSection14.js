@@ -22,7 +22,6 @@ const [data,setData]=useState(false)
   return (
     <div className="p-5 py-10 rounded">
       <h2 className="mb-3 font-black">
-        <span className="">14 </span>
         Please check off all of the following events that you are aware happened today.
       </h2>
       <div className="mt-5 grid grid-cols-1 space-between gap-5">

@@ -23,13 +23,13 @@ const Section1 = ({eventForm, setEventForm, programs,event}) => {
     },[eventForm.programName])
     return (
         <div className='px-5 py-0 rounded'>
-            <h2 className='mb-3 font-black'><span className=''>1</span> Which program is your event for?</h2>
+            <h1 className='mb-3 font-black'>Which program is your event for?</h1>
             <div className='md:items-center'>
                 {programs && programs.map(program => (
                         
                         program.name !== "Other" ?
 
-                        <label className='text-lg flex items-center' key={program.id}>
+                        <label className='text-lg flex items-center my-5' key={program.id}>
                         <input type="radio" 
                         name="program" 
                         className='mr-2 w-6 h-6'

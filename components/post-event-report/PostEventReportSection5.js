@@ -4,7 +4,7 @@ const PostEventReportSection5 = ({eventForm,setEventForm}) => {
 
   return (
     <div className="p-5 py-10">
-      <h2 className="font-black"><span className="">5</span> What was the Primary Zip Code of the event Location? (In what zip code were you hoping the participants at the event will be coming from?)</h2>
+      <h1 className="font-black">What was the Primary Zip Code of the event Location? (In what zip code were you hoping the participants at the event will be coming from?)</h1>
     <div className="flex gap-x-3 mt-5">
       <h3>Zip Code</h3>
       <input 
