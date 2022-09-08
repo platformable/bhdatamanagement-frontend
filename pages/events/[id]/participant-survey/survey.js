@@ -166,7 +166,9 @@ const Survey = ({data}) => {
       <div>
         <div className="h-88 flex flex-col items-center grandient-violet">
           <img src="/bh_logo.png" alt="black health data app management logo" width={400} className="pt-12"/>
-          <h1 className="leading-tight text-white py-12 text-center">We want to hear from you. <br/> Your answers help us plan our services, demonstrate our focus on our community,<br/>
+          <h1 className="leading-tight text-white py-12 text-center"><span className="italic">We want to hear from you</span> <br/> 
+          <hr className="my-2"/>
+          Your answers help us plan our services, demonstrate our focus on our community,<br/>
           and help us meet our funding commitments</h1>
         </div>
         <ToastContainer autoClose={1500} />

@@ -34,10 +34,10 @@ console.log(user)
       </header>
       <main className='h-full'>
         <div className="container mx-auto pt-20 h-4/6 grid gap-40 justify-around content-center">
-          
-          <img src="/main/Black_Health_logo_welcome.svg" />
+          <h1 className='font-black'>Data Management App</h1>
+          {/* <img src="/main/Black_Health_logo_welcome.svg" /> */}
         <div className="text-center pt-20 flex flex-col items-center">
-          <h1 className="font-black mb-5">Welcome!</h1>
+          <h1 className="font-black mb-5">Welcome</h1>
           <Link href={ `/dashboard`} >
             <a className='w-52'>
             <p className={`${styles.btnIndexPage} bg-black text-white flex items-center justify-between font-bold px-9 py-1  rounded-md test cursor-pointer`}>
