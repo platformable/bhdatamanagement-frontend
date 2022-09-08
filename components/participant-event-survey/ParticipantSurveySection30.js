@@ -29,7 +29,7 @@ export const ParticipantSurveySection30 = ({surveyForm,setSurveyForm}) => {
   const options=[
     {
       id:1,
-      value:"HIV/STDs Testing and Prevention"
+      value:"HIV/STDs testing and prevention"
     },
     {
       id:2,
@@ -41,11 +41,11 @@ export const ParticipantSurveySection30 = ({surveyForm,setSurveyForm}) => {
     },
     {
       id:4,
-      value:"Immigration Services"
+      value:"Immigration services"
     },
     {
       id:5,
-      value:"Health Screens (Mammogram, Prostate Cancer Screening, etc.)"
+      value:"Health screens (mammogram, prostate cancer screening, etc.)"
     },
     {
       id:6,
@@ -53,11 +53,11 @@ export const ParticipantSurveySection30 = ({surveyForm,setSurveyForm}) => {
     },
     {
       id:7,
-      value:"Mental Health Care"
+      value:"Mental health care"
     },
     {
       id:8,
-      value:"Substance Use Treatment/ Services"
+      value:"Substance use treatment/ Services"
     },
     {
       id:9,

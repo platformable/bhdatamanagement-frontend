@@ -95,8 +95,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
             </label>
           </div>
         </div>
+
         <div className="flex flex-col items-start">
           <h3 className="font-black">Mental Health Concerns</h3>
+
 
           <div className="">
           <label className="gap-x-2 flex items-center my-5">

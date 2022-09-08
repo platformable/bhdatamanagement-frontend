@@ -27,10 +27,12 @@ export const ParticipantSurveySection23 = ({ surveyForm, setSurveyForm }) => {
       value: "Sharing needles",
     },
     {
-      id: 7,
-      value: "Don’t know/Not sure",
-    },
-  ];
+
+      id:7,
+      value:"Don’t know / Not sure"
+    }
+  ]
+
 
   const [data, setData] = useState([]);
 

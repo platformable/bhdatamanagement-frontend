@@ -8,7 +8,7 @@ export const ParticipantSurveySection14 = ({surveyForm, setSurveyForm}) => {
     <div className="px-7">
       <h1 className="font-black">
         {/* <span className="">14</span>  */}
-        Please indicate what type of Health Insurance you have:
+        Please indicate what type of health insurance you have:
       </h1>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
         <label className="flex gap-x-5 items-center">
