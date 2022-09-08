@@ -4,7 +4,7 @@ const PostEventReportSection18 = ({eventForm,setEventForm}) => {
   
   return (
     <div className="px-7 mt-10 rounded">
-       <h1 className="my-5 font-black">In regards to HIV/AIDS prevention and reducing stigma/discrimination, please:</h1>
+       <h1 className="mb-3 font-black">In regards to HIV/AIDS prevention and reducing stigma/discrimination, please:</h1>
       <h2 className="mb-7 ">
         Describe the highlights from the event
       </h2>
