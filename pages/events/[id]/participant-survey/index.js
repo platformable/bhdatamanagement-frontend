@@ -111,7 +111,7 @@ const ParticipantSurvey = ({
         <div className="participant-survey-head-table border rounded-t-lg py-3 px-5 bg-black text-white flex gap-x-5 ">
                {/*  <p className="lg:text-lg flex items-center justify-center">Program</p> */}
                 <p className="lg:text-lg flex items-center ">Event name</p>
-                <p className="lg:text-lg flex items-center ">Event Date</p>
+                <p className="lg:text-lg flex items-center ">Event date</p>
             </div>
           {/* TABLE HEAD END */}
           <div className="participant-survey-head-table items-center gap-2 bg-white p-5">
@@ -126,7 +126,7 @@ const ParticipantSurvey = ({
               <div className="text-center mr-5 rounded bg-white border p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
       
               <a id="myBtn" href={event.qrcode} download={event?.eventname}>
-                <div className="flex justify-center">
+                <div className="flex justify-center items-center">
                   {/* <img
                     src="/events/download_QR_icon.svg"
                     alt=""
@@ -144,7 +144,7 @@ const ParticipantSurvey = ({
               <button id="myBtn"
               onClick={()=>addToClipboard()}>
                 <div className="">
-                  <div className="flex justify-center ">
+                  <div className="flex justify-center items-center ">
                     {/* <img
                       src="/events/copy_link_icon.svg"
                       alt=""
@@ -189,7 +189,7 @@ const ParticipantSurvey = ({
             
               <a id="myBtn" href={`/events/${event.id}/participant-survey/survey`} target="_blank" >
                 <div className="">
-                  <div className="flex justify-center ">
+                  <div className="flex justify-center items-center ">
                     {/* <img
                       src="/events/go_survey_icon.svg"
                       alt=""

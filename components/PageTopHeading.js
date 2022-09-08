@@ -12,7 +12,7 @@ const PageTopHeading = ({ pageTitle,dashboardBtn,backBtn }) => {
           {backBtn && <BackBtn/>}
           {dashboardBtn && <DashboardBtn />} 
         </div>
-        <div className="search-box grid md:grid-cols-2 grid-cols-1  items-center my-5 space-between">
+        <div className="search-box grid  grid-cols-1  items-center my-5 space-between">
           <h1 className="font-black">{pageTitle}</h1>
         </div>
       </div>
