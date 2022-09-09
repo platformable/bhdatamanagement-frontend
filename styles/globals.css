@@ -464,10 +464,11 @@ input[type="text"], input[type="number"] {
 }
 
 /* LABELS */
-/* label {
+ label {
   display: flex;
   font-size: 20px;
 }
+/*
 label > div {
   display: flex;
   align-items: center;
@@ -475,10 +476,10 @@ label > div {
 label h3 {
   margin-left: 20px;
   margin-right: 20px;
-}
- input[type="text"],  input[type="radio"], input[type="number"] {
+}*/
+  label > input[type="text"],  label > input[type="radio"], label > input[type="number"] {
   border: 1px solid black;
   padding: 8px 16px;
   border-radius: 5px;
   font-size: 20px;
-} */
+} 

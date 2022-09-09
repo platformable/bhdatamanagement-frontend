@@ -22,26 +22,26 @@ export const ParticipantSurveySection20 = ({ surveyForm, setSurveyForm }) => {
 
   return (
     <div className="px-7">
-      <h1 className="font-black mb-6">
+      <h1 className="font-black mb-7">
         {/* <span className="">20 </span>   */}
         Over the{" "}
         <span className="underline underline-offset-1">last 2 weeks</span>, how
         often have you been bothered by the following problems?
       </h1>
-      <div className="my-5">
+      <div className="grid  grid-cols-1 gap-7">
   
         <div className="flex flex-col gap-y-5 items-start rounded">
           <h3 className="font-black">
           Little interest or pleasure in doing things
           </h3>
-          <div className="">
+          <div className="grid grid-cols-1 gap-y-5">
             {options.map((option, index) => {
               return (
                 <label className="text-lg flex gap-x-5 items-center" key={index}>
                   <input
                     type="radio"
                     name="participantPHQ2a"
-                    className="mr-1 w-6 h-6 my-2"
+                    className=""
                     value={option.value}
                     id={index}
                     //defaultChecked={program.id===event?.programid?'checked':""}
@@ -59,18 +59,18 @@ export const ParticipantSurveySection20 = ({ surveyForm, setSurveyForm }) => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-y-5 items-start rounded my-5">
+        <div className="flex flex-col gap-y-5 items-start rounded ">
           <h3 className="font-black">
             Feeling down, depressed or hopeless
           </h3>
-          <div className="">
+          <div className="grid grid-cols-1 gap-y-5">
             {options.map((option, index) => {
               return (
                 <label className="text-lg flex gap-x-5 items-center" key={index}>
                   <input
                     type="radio"
                     name="participantPHQ2b"
-                    className="mr-1 w-6 h-6 my-2"
+                    className=""
                     value={option.value}
                     id={index}
                     //defaultChecked={program.id===event?.programid?'checked':""}
