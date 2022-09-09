@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Search({searchFunction}) {
+export default function SearchEvents ({searchFunction}) {
   return (
-    <div className="flex  md:justify-end justify-center items-center md:px-0 px-5">
+    <div className="flex justify-start items-center md:px-0 px-5">
                 <p className="mr-5">Search</p>
 
                 <div className="flex ">

@@ -5,7 +5,7 @@ import Layout from "../../components/Layout";
 import PageTopHeading from "../../components/PageTopHeading";
 import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import EventsCardItems from "../../components/events/EventsCardItems";
-import Search from '../../components/Search'
+import Search from '../../components/SearchEvents'
 
 
 const EventsIndex = ({events}) => {
@@ -22,17 +22,17 @@ const EventsIndex = ({events}) => {
       <PageTopHeading pageTitle={"Manage existing events"} dashboardBtn={true} backBtn={true} />
 
 
-      <div className="container mx-auto search grid md:grid-cols-2 grid-cols-1 my-5">
-        <div className=""><Search searchFunction={searchFunction}/></div>
+      <div className="container mx-auto search grid md:grid-cols-2 grid-cols-1 my-5 ">
+        <Search searchFunction={searchFunction}/>
         <div className="">
 
           <div className="grid md:grid-cols-3 cols-1 md:justify-end gap-5 md:gap-x-5 items-center md:px-0 px-5 md:my-0 my-5">
-            <h3 className="flex justify-start  md:justify-end">Filter by date</h3>
+            <h3 className="flex justify-start  md:justify-end">Filter by date,   start</h3>
             <div className="flex md:justify-end">
             <input type="date" className="border-black px-5 py-3 rounded-md" placeholder="end date"/>
             </div>
             <div className="flex items-center md:justify-end md:gap-x-5 ">
-              <p className="hidden md:block">and</p>
+              <p className="hidden md:block">end</p>
               <input type="date" className="border-black px-5 py-3 rounded-md" placeholder="end date"/>
             </div>
           </div>
@@ -49,6 +49,10 @@ const EventsIndex = ({events}) => {
                   return event;
                 } else if (
                   event.programname
+                    .toLowerCase()
+                    .includes(searchWord.toLowerCase())
+                    ||
+                    event.eventname
                     .toLowerCase()
                     .includes(searchWord.toLowerCase())
                 ) {

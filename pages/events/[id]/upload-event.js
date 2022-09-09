@@ -2,17 +2,21 @@ import React, { useState, useEffect } from "react";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
+import Loader from "../../../components/Loader";
 import Link from "next/link";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import TopEventsInfo from "../../../components/TopEventsInfo";
 
 export const Upload_event = ({ event }) => {
   const [file, setFile] = useState(null);
   const [imageFile, setImageFile] = useState(null);
   const [fileName, setFileName] = useState("");
-  console.log("event", event);
+  const [loadingFile,setLoadingFile]=useState(false)
+  const [loadingImgFile,setLoadingImgFile]=useState(false)
 
   const onSubmitFile = async (e) => {
-    // setLoading(true)
+    setLoadingFile(!loadingFile)
     const form = new FormData();
     const blob = new Blob([file], {
       type: "text/plain",
@@ -51,7 +55,8 @@ export const Upload_event = ({ event }) => {
       console.log("response", response);
       if (response.status === 200) {
         const data = await response.json();
-        notifyMessage(fileName)
+        setLoadingFile(false)
+        notifyMessage(fileName);
         setFile(null);
         setFileName("");
         console.log("saved");
@@ -65,7 +70,7 @@ export const Upload_event = ({ event }) => {
   };
 
   const onSubmitImageFile = async (e) => {
-    // setLoading(true)
+    setLoadingImgFile(!loadingFile)
     const form = new FormData();
     const blob = new Blob([imageFile], {
       type: "text/plain",
@@ -101,10 +106,11 @@ export const Upload_event = ({ event }) => {
         }
       );
       // setLoading(false)
-      console.log("response", response);
+
       if (response.status === 200) {
         const data = await response.json();
-        notifyMessage(fileName)
+        setLoadingImgFile(false)
+        notifyMessage(fileName);
         setFile(null);
         setFileName("");
         console.log("saved");
@@ -117,7 +123,6 @@ export const Upload_event = ({ event }) => {
     }
   };
   const onHandleFile = (event) => {
-    console.log("handle file", event);
     // setUploadSuccess(false)
     setFile(event.target.files[0]);
     setFileName(event.target.files[0].name);
@@ -128,82 +133,71 @@ export const Upload_event = ({ event }) => {
     setImageFile(event.target.files[0]);
     setFileName(event.target.files[0].name);
   };
-  const notifyMessage= (filename)=>{
-    toast.success(filename + "has been saved to the events folder", {
+  const notifyMessage = (filename) => {
+    toast.success(filename + " has been saved to the events folder", {
       position: toast.POSITION.TOP_CENTER,
     });
-   }
-  console.log("file:", file);
-  console.log("fileName:", fileName);
+  };
 
   // useEffect(() => {
   //   file ? onSubmitFile() : "";
   //   imageFile ? onSubmitImageFile() : "";
   // }, [file, imageFile]);
+
   return (
     <Layout showStatusHeader={true}>
-      <ToastContainer autoClose={1500}/>
+      <ToastContainer autoClose={1500} />
       <PageTopHeading
         backBtn={true}
         dashboardBtn={true}
         pageTitle={"Upload event documents"}
       />
-      <section className="px-5 md:px-0">
-        <div className="container mx-auto border-black rounded p-5">
-          <div className="flex justify-between">
-            <div className="w-4/5 ">
-              <h3 className="font-black">Event name</h3>
-              <input
-                type="text"
-                className="bg-gray-50 w-4/5 rounded-lg"
-                value={event?.eventname}
-                disabled
-              />
-            </div>
-            <div className="w-1/5  flex justify-end">
-              <div className="">
-                <h3 className="font-black">Event date</h3>
-                <input
-                  type="text"
-                  className="px-5 rounded-lg"
-                  value={new Date(event?.eventdate).toLocaleDateString("en-US")}
-                  disabled
-                />
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center my-5">
-            <Link href={`/events/${event?.id}/edit`}>
-              <button className="bg-black text-white rounded px-2 mr-2 ">
-                <a
-                  className="px-10 py-2 flex  justify-center items-center font-bold"
-                  id="myBtn"
-                >
-                  {/* <img src="/events/edit_event_icon_button.svg" alt="" /> */}
-                  <p className="ml-2 font-black">Edit event</p>
-                </a>
-              </button>
-            </Link>
-          </div>
-        </div>
 
+      <TopEventsInfo event={event}/>
+
+      <section className="px-5 md:px-0">
         <div className="container mx-auto mb-5 mt-7">
-          <h3 className="text-center">
+          <h3 className="font-black">
             Upload your documents to the following events folders
           </h3>
         </div>
 
         <div className="container mx-auto">
-          <div className="text-center mb-2 rounded-xl flex flex-col md:flex-row justify-center gap-7">
-            <div className="border-black w-134 shadow-lg rounded p-5">
-              <div className="flex justify-center ">
-                {/*  <img
-          src="/events/copy_link_icon.svg"
-          alt=""
-          width={85}
-        /> */}
+          <div className="text-center mb-2 rounded-xl grid md:grid-cols-2 grid-cols-1 md:gap-y-0 gap-y-5">
+            <div
+              className="border-black w-134 shadow-lg rounded grid"
+              style={{ gridTemplateColumns: "2fr 1fr" }}
+            >
+              <div className="bg-black pb-10 pt-5">
+                
+               {loadingFile && <div className="flex justify-center"><Loader/></div>}
+                <h2 className="my-5 font-bold text-white uppercase">
+                  Upload documents 
+                </h2>
+                <input type="file" id="upload" 
+                hidden
+                name="file"
+                onChange={(event) => onHandleFile(event)}
+                accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx" 
+                />
+                <label
+                  for="upload"
+                  className="text-black bg-white px-5 py-2 rounded-md cursor-pointer"
+                >
+                  Choose file
+                </label>
               </div>
-              <h2 className="my-5 font-bold text-black uppercase">
+              <div className="flex items-center justify-center">
+              <button
+                type="submit"
+                onClick={onSubmitFile}
+                className="bg-black text-white rounded py-2 px-10"
+              >
+                Save
+              </button>
+              </div>
+
+              {/* <h2 className="my-5 font-bold text-black uppercase">
                 Upload documents
                 <br /> and flyers
               </h2>
@@ -213,29 +207,132 @@ export const Upload_event = ({ event }) => {
                 onChange={(event) => onHandleFile(event)}
                 accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx"
               />
-              <button type="submit" onClick={onSubmitFile} className="bg-black mt-5 text-white rounded py-2 w-full">Save</button>
+              <button
+                type="submit"
+                onClick={onSubmitFile}
+                className="bg-black mt-5 text-white rounded py-2 w-full"
+              >
+                Save
+              </button> */}
+            </div>
 
-            </div>{" "}
-            <div className="border-black w-134 shadow-lg rounded p-5">
-              <div className="flex justify-center ">
-                {/*  <img
-          src="/events/copy_link_icon.svg"
-          alt=""
-          width={85}
-        /> */}
-              </div>
-              <h2 className="my-5 font-bold text-black uppercase">
-                Upload event <br />
-                photos
-              </h2>
-              <input
+
+
+
+
+
+
+
+
+          <div className="flex justify-end">
+            <div
+              className="border-black w-134 shadow-lg rounded grid"
+              style={{ gridTemplateColumns: "2fr 1fr" }}
+            >
+              <div className="bg-black pb-10 pt-5">
+              {loadingImgFile && <div className="flex justify-center"><Loader/></div>}
+                <h2 className="my-5 font-bold text-white uppercase">
+                  Upload photos
+                </h2>
+                <input
+                id="imgUpload" 
+                hidden
                 type="file"
                 name="file"
                 onChange={(event) => onHandleImageFile(event)}
                 accept=".jpeg,.jpg,.png"
+                />
+                <label
+                  for="imgUpload"
+                  className="text-black bg-white px-5 py-2 rounded-md cursor-pointer"
+                >
+                  Choose file
+                </label>
+              </div>
+              <div className="flex items-center justify-center">
+              <button
+                type="submit"
+                onClick={onSubmitImageFile}
+                className="bg-black text-white rounded py-2 px-10"
+              >
+                Save
+              </button>
+              </div>
+
+              {/* <h2 className="my-5 font-bold text-black uppercase">
+                Upload documents
+                <br /> and flyers
+              </h2>
+              <input
+                type="file"
+                name="file"
+                onChange={(event) => onHandleFile(event)}
+                accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx"
               />
-              <button type="submit" onClick={onSubmitImageFile} className="bg-black mt-5 text-white rounded py-2 w-full">Save</button>
-            </div>{" "}
+              <button
+                type="submit"
+                onClick={onSubmitFile}
+                className="bg-black mt-5 text-white rounded py-2 w-full"
+              >
+                Save
+              </button> */}
+            </div>   
+            </div>
+
+
+
+
+            {/* <div className="flex justify-end">
+              <div>
+              <div className="border-black w-134 shadow-lg rounded" 
+              style={{ gridTemplateColumns: "2fr 1fr" }}
+              >
+                  <div className="bg-black">
+                <h2 className="my-5 font-bold text-white uppercase">
+                  Upload documents and flyers
+                </h2>
+                <input type="file" id="upload" 
+                hidden
+                name="file"
+                onChange={(event) => onHandleFile(event)}
+                accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx" 
+                />
+                <label
+                  for="upload"
+                  className="text-black bg-white px-5 py-2 rounded-md cursor-pointer"
+                >
+                  Choose file
+                </label>
+              </div>
+              <div className="flex items-center justify-center">
+              <button
+                type="submit"
+                onClick={onSubmitFile}
+                className="bg-black text-white rounded py-2 px-10"
+              >
+                Save
+              </button>
+              </div>
+                <h2 className="my-5 font-bold text-black uppercase">
+                  Upload event <br />
+                  photos
+                </h2>
+                <input
+                  type="file"
+                  name="file"
+                  onChange={(event) => onHandleImageFile(event)}
+                  accept=".jpeg,.jpg,.png"
+                />
+                <button
+                  type="submit"
+                  onClick={onSubmitImageFile}
+                  className="bg-black mt-5 text-white rounded py-2 w-full"
+                >
+                  Save
+                </button>
+              </div>
+              </div>
+            </div> */}
           </div>
         </div>
       </section>
