@@ -13,15 +13,16 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
       <h1 className="font-black">
       Where do you work?
       </h1>
-      <div className="mt-7 grid grid-cols-1 space-between gap-5">
+      <div className="mt-7 grid grid-cols-1  gap-5">
         {workArea.map((area, index) => {
           if(index === workArea.length - 1) {
             return (
-              <label className="text-lg flex items-center" key={area.id}>
+              <label className="text-lg flex flex-col md:flex-row gap-y-5 md:gap-x-5 items-start md:items-center" key={area.id}>
+                <div className="flex gap-5">
                 <input
                   type="radio"
                   name="workArea"
-                  className="mr-10 w-6 h-6"
+                  className=""
                   value={area.value}
                   id={area.id}
                   //defaultChecked={program.id===event?.programid?'checked':""}
@@ -32,7 +33,10 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
                     }))
                   }
                 />
-                {area.value}
+                <h3>{area.value}</h3>
+                
+                </div>
+                
                 <input
                   type="text"
                   placeholder="Please specify"
@@ -42,17 +46,17 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
                       workAreaOther: e.target.value,
                     })
                   }
-                  className="border-black rounded px-2 self-start p-1 ml-2 w-96"
+                  className="border-black rounded px-4 self-start p-1  md:w-96"
                 />
               </label>
             ) }
             else{
               return(
-              <label className="text-lg flex items-center" key={area.id}>
+              <label className="text-lg flex gap-x-5 items-center" key={area.id}>
                 <input
                   type="radio"
                   name="workArea"
-                  className="mr-10 w-6 h-6"
+                  className=""
                   value={area.value}
                   id={area.id}
                   //defaultChecked={program.id===event?.programid?'checked':""}
@@ -63,7 +67,7 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
                     }))
                   }
                 />
-                {area.value}
+                <h3>{area.value}</h3>
               </label>
             )}
           

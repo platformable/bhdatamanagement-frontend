@@ -4,19 +4,20 @@ const PostEventReportSection5 = ({eventForm,setEventForm}) => {
 
   return (
     <div className="px-7 mt-10">
-      <h1 className="font-black">What was the Primary Zip Code of the event Location? (In what zip code were you hoping the participants at the event will be coming from?)</h1>
-    <div className="flex gap-x-5 mt-7">
+      <h1 className="font-black">What was the Primary Zip Code of the event Location?</h1><h2> (In what zip code were you hoping the participants at the event will be coming from?)</h2>
+    <div className="flex gap-x-5 items-center mt-7">
       <h3>Zip Code</h3>
+      <label>
       <input 
       type="number" 
       placeholder="Eg. 10027"
-      className="border-black rounded px-2 self-start p-1  w-24"
+      className="border-black rounded p-4 self-start w-32"
       maxlength={5}
       name="zipCode"
       // max={9999}
       // min={0}
       onKeyUp={(e) => {
-        e.target.value.length > 5 && (e.target.value = e.target.value.slice(0,4)) 
+        e.target.value.length > 5 && (e.target.value = e.target.value.slice(0,5)) 
       }}
       onWheelCapture={(e) => e.target.blur()}
       onChange={(e)=>{
@@ -25,6 +26,8 @@ const PostEventReportSection5 = ({eventForm,setEventForm}) => {
         [e.target.name]: Number(e.target.value),
       }))}}
       />
+      </label>
+      
     </div>
     </div>
   )

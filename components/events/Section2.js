@@ -9,9 +9,9 @@ const Section2 = ({eventForm, setEventForm,event}) => {
         setEventForm(previous => ({...previous, eventName: uppercaseWords(e.target.value)}))
       }
     return (
-        <div className='p-5  rounded'>
+        <div className=''>
             <h1 className=' font-black'>What is the name of the event?</h1>
-            <p className="mb-3">Please only use letters and numbers in the name</p>
+            <p className="mb-7">Please only use letters and numbers in the name</p>
             <input type="text" 
             className="w-134 p-2 border rounded text-lg" 
             placeholder='' 

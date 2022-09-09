@@ -95,7 +95,7 @@ if(index===options.length-1){
      <input type="text" 
           placeholder="Please specify" 
           onChange={(e)=>setSurveyForm({...surveyForm,participantPRePResourceKnowledgeOther:e.target.value})}
-          className="border-black rounded px-4 text-xl self-start p-1 md:ml-2 w-134" />
+          className="border-black rounded px-4 text-xl self-start p-1  w-134" />
     </label>
 
   )

@@ -11,9 +11,9 @@ const PostEventReportSection22 = ({eventForm, setEventForm}) => {
   return (
     <>
       <div className="px-7 rounded mt-10">
-        <h2 className="font-black">
+        <h1 className="font-black">
           What testing was done at the event
-        </h2>
+        </h1>
         <div className="grid mt-7 grid-cols-1 gap-5">
           <p className="flex gap-x-5">
             <input type="checkbox" className="" name="hivTesting" onChange={handleForm} />

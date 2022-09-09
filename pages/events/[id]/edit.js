@@ -83,8 +83,8 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
         dashboardBtn={true}
         pageTitle={"Update event"}
       />
-      <div className="container mx-auto md:px-0 px-5 items-center">
-        <div className="register-envent-form-container  grid gap-1 bg-white border rounded-lg p-5 mb-10 pb-10 shadow-lg">
+      <div className="container mx-auto md:px-0 px-5 mb-10 items-center">
+        <div className="register-envent-form-container  grid gap-10 bg-white border rounded-lg p-7 mb-5 pb-10 shadow-lg">
           <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} event={event}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes} event={event}/>

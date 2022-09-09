@@ -38,16 +38,16 @@ const Section7 = ({eventForm, setEventForm, locationTypes,event}) => {
     };
 
     return (
-        <div className='p-5  rounded'>
-            <h1 className='mb-3 font-black'>What type of event location will the event be held at?</h1>
-             <div className=''>
+        <div className=''>
+            <h1 className='mb-7 font-black'>What type of event location will the event be held at?</h1>
+             <div className='grid grid-cols-1 gap-5'>
                 {fields && fields.map(location => (
                     location.name !== "Other" ?
 
-                    <label className='text-lg flex items-center my-4' key={location.id}>
+                    <label className='text-lg flex items-center gap-5' key={location.id}>
                     <input type="radio" 
                     name="eventLocationTypeName" 
-                    className='mr-2 w-6 h-6' 
+                    className='' 
                     value={location.name} 
                     id={location.id}
                     onChange={handleForm}

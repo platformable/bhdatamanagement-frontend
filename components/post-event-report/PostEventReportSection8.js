@@ -16,10 +16,10 @@ const handleForm = (e) => {
       <h1 className="font-black">
         Resources Distributed:
       </h1>
-      <div className="mt-7 grid grid-cols-1 text-lg  space-between gap-5">
+      <div className="mt-7 grid grid-cols-1 text-lg gap-7">
         {resourcesDistributed &&
           resourcesDistributed.map((resource, index) => (
-            <>{resource.name}
+            <div className='grid grid-cols-1 gap-5'>{resource.name}
             <label className="" key={index}>
               {/* <img src={resource.source} alt={`${resource.name} icon`} className="w-8 h-8 md:w-12 md:h-12"/> */}
               <input
@@ -36,7 +36,7 @@ const handleForm = (e) => {
               />
               
             </label>
-            </>
+            </div>
           ))}
       </div>
     </div>

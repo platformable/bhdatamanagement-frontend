@@ -40,13 +40,13 @@ const GenderSurveySection = ({
     }));
   };
   return (
-    <div className="grid grid-cols-1 gap-5">
-      <h2 className="font-black">
+    <div className="grid grid-cols-1 gap-7">
+      <h1 className="font-black">
         Gender: How many people identified as the following for{" "}
         {typeOfTestForTitles(typeOfTest)} Testing?
-      </h2>
-      <label className="">
-        <p className="">Female</p>
+      </h1>
+      <label className="flex flex-col gap-5">
+        <h3 className="">Female</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -55,11 +55,11 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[0]}
           onChange={handleForm}
-          className="border-black p-1 my-1 rounded w-20 my-1"
+          className="border-black p-4 rounded w-20 "
         />
       </label>
-      <label className="">
-        <p className="">Male</p>
+      <label className="flex flex-col gap-5">
+        <h3 className="">Male</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -68,11 +68,11 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[1]}
           onChange={handleForm}
-          className="border-black p-1 my-1 rounded w-20"
+          className="border-black p-4  rounded w-20"
         />
       </label>
-      <label className="">
-        <p className="">Transgender female</p>
+      <label className="flex flex-col gap-5">
+        <h3 className="">Transgender female</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -81,11 +81,11 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[2]}
           onChange={handleForm}
-          className="border-black p-1 my-1 rounded w-20"
+          className="border-black p-4  rounded w-20"
         />
       </label>
-      <label className="">
-        <p className="">Transgender male</p>
+      <label className="flex flex-col gap-5">
+        <h3 className="">Transgender male</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -94,11 +94,11 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[3]}
           onChange={handleForm}
-          className="border-black p-1 my-1 rounded w-20"
+          className="border-black p-4  rounded w-20"
         />
       </label>
-      <label className="">
-        <p className="">Gender non-conforming</p>
+      <label className="flex flex-col gap-5">
+        <h3 className="">Gender non-conforming</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -107,11 +107,11 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[4]}
           onChange={handleForm}
-          className="border-black p-1 my-1 rounded w-20"
+          className="border-black p-4  rounded w-20"
         />
       </label>
-      <label className="">
-        <p className="">Non-binary</p>
+      <label className="flex flex-col gap-5">
+        <h3 className="">Non-binary</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -120,11 +120,11 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[5]}
           onChange={handleForm}
-          className="border-black p-1 my-1 rounded w-20"
+          className="border-black p-4  rounded w-20"
         />
       </label>
-      <label className="">
-        <p className="">Other gender identity</p>
+      <label className="flex flex-col gap-5">
+        <h3 className="">Other gender identity</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -133,11 +133,11 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[6]}
           onChange={handleForm}
-          className="border-black p-1 my-1 rounded w-20"
+          className="border-black p-4  rounded w-20"
         />
       </label>
-      <label className="">
-        <p className="">Decline to answer</p>
+      <label className="flex flex-col gap-5">
+        <h3 className="">Decline to answer</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -146,7 +146,7 @@ const GenderSurveySection = ({
           maxLength={3}
           name={fields[7]}
           onChange={handleForm}
-          className="border-black p-1 my-1 rounded w-20"
+          className="border-black p-4  rounded w-20"
         />
       </label>
     </div>

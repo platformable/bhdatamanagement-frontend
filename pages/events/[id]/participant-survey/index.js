@@ -24,62 +24,11 @@ const ParticipantSurvey = ({
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
   let componentRef = useRef();
-  const [eventForm, setEventForm] = useState({
-    userID: "",
-    eventDateCreated: new Date(),
-    programID: "",
-    programName: "",
-    eventName: "",
-    eventDate: "",
-    eventStartTime: "",
-    eventFinishTime: "",
-    eventLocationTypeID: "",
-    eventLocationTypeName: "",
-    // eventZipCode: "",
-    healthAreaOfFocusID: "",
-    healthAreaOfFocusName: "",
-    eventTypeID: "",
-    eventTypeName: "",
-  });
+  
   const userId = user && user.sub;
 
   console.log("event",event)
 
-  useEffect(() => {
-    setEventForm({ ...eventForm, userID: userId });
-  }, [userId]);
-
-  const submitPostEventForm = async () => {
-    const isEmpty = Object.values(eventForm).some((value) => !value);
-
-    if (!isEmpty) {
-      axios
-        .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
-        .then((response) => {
-          if (response.data.statusText === "OK") {
-            setResponseStatus({
-              success: true,
-              statusMessage: "Your Event has been saved",
-            });
-            setShowResponseStatus(!showResponseStatus);
-          }
-        })
-        .catch(function (error) {
-          setResponseStatus({
-            success: false,
-            statusMessage: "Request Failed",
-          });
-          setShowResponseStatus(!showResponseStatus);
-          console.error("error: ", error);
-        });
-    } else {
-      setResponseStatus({
-        success: false,
-        statusMessage: "Please complete all the fields",
-      });
-      setShowResponseStatus(!showResponseStatus);
-    }
-  };
 
   const programAndAreaStyles = {
     display: "grid",

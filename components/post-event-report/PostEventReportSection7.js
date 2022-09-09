@@ -26,8 +26,9 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
         />
         Black Health Office
       </label>
-      <label className="text-lg flex gap-x-5 items-center w-full">
-        <input
+      <label className="text-lg flex flex-col md:flex-row gap-y-5 md:gap-x-5 items-start md:items-center">
+          <divc className="flex gap-5">
+          <input
           type="radio"
           name="locationName"
           className=""
@@ -40,6 +41,8 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
           }
         />
         Other
+          </divc>
+        
         <input
         name="locationNameOther"
           onChange={(e) => 

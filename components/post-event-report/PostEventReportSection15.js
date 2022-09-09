@@ -13,9 +13,9 @@ const PostEventReportSection15 = ({eventForm, setEventForm}) => {
  
   return (
     <div className="px-7 mt-10 rounded">
-      <h2 className="font-black">
+      <h1 className="font-black">
         How many people attended the event (or if it was street outreach or canvassing, etc, how many people did you engage with or provide resources to, etc)?
-      </h2>
+      </h1>
       <div className='mt-7 flex gap-5'>
         {/* <img src='/post_event_report/attended_event_icon.svg' alt='adult volunteers icon' /> */}
       <input

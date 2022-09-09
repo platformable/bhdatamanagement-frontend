@@ -31,26 +31,26 @@ const PostEventReportSection4 = ({setEventForm,eventForm}) => {
       <h1 className="font-black">
         Is this part of:
       </h1>
-      <div className="mt-7 grid grid-cols-1 space-between gap-5">
-        <label className="flex items-center p-2">
+      <div className="mt-7 grid grid-cols-1  gap-5">
+        <label className="flex items-center gap-x-5">
             <input 
             type="checkbox" 
             name="nysPrograms"
             value="leadership Training Institute" 
             id="1" 
-            className='mr-10 w-6 h-6'
+            className=''
             onChange={(e)=>handleForm(e.target.value)}
             />
             <p>Leadership Training Institute</p>       
         </label>
 
-        <label className="flex items-center p-2">
+        <label className="flex items-center gap-x-5">
             <input 
             type="checkbox" 
             name="nysPrograms"
             value="HIV Hight Impact" 
             id="2" 
-            className='mr-10 w-6 h-6'
+            className=''
             onChange={(e)=>handleForm(e.target.value)}
             />
             <p>HIV High Impact</p>    
