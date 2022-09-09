@@ -18,20 +18,20 @@ const Section1 = ({ eventForm, setEventForm, programs, event }) => {
     console.log("eventForm", eventForm);
   }, [eventForm.programName]);
   return (
-    <div className="px-5 py-0 rounded">
-      <h1 className="mb-3 font-black">Which program is your event for?</h1>
-      <div className="md:items-center">
+    <div className=" py-0 rounded">
+      <h1 className="mb-7 font-black">Which program is your event for?</h1>
+      <div className="grid grid-cols-1 gap-5">
         {programs &&
           programs.map((program) =>
             program.name !== "Other" ? (
               <label
-                className="text-lg flex items-center my-5"
+                className="text-lg flex items-center gap-5"
                 key={program.id}
               >
                 <input
                   type="radio"
                   name="program"
-                  className="mr-2 w-6 h-6"
+                  className=""
                   value={program.name}
                   id={program.id}
                   onChange={(e) => {

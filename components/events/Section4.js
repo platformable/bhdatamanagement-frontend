@@ -6,11 +6,11 @@ const Section4 = ({eventForm, setEventForm,event}) => {
         setEventForm(previous => ({...previous, eventDate: e.target.value}))
       }
     return (
-        <div className='p-5  rounded  md:text-left'>            
-                <h1 className='mb-3 font-black'>What date is the event?</h1>
+        <div className='md:text-left'>            
+                <h1 className='mb-7 font-black'>What date is the event?</h1>
                 <input type="date" 
                 name="eventDate" 
-                className='border rounded p-2 text-lg ' 
+                className='border rounded text-lg ' 
                 onChange={handleForm}
                 value={eventForm.eventDate}
                 />

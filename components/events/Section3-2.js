@@ -39,16 +39,16 @@ const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
 
 
     return (
-        <div className='p-5  rounded'>
-            <h1 className='mb-3 font-black'>Which NYS Activity is being conducted (according to your framework plan)?</h1>
-            <div className='grid grid-cols-1 '>
+        <div className=''>
+            <h1 className='mb-7 font-black'>Which NYS Activity is being conducted (according to your framework plan)?</h1>
+            <div className='grid grid-cols-1 gap-5'>
             {fields && fields.map(activity => (
                 activity.value !== "Other" ? 
 
-                (<label className='text-lg flex items-center my-2' key={activity.id}>
+                (<label className='text-lg flex items-center gap-5' key={activity.id}>
                     <input type="radio" 
                     name="nysActivity" 
-                    className='mr-2 w-6 h-6' 
+                    className='' 
                     value={activity.value} 
                     id={activity.id} 
                     onChange={handleForm}

@@ -63,7 +63,7 @@ h6 {
 
 :root {
   --lightYellow: #fef7cf;
-  --darkYellow: #ffde0B;
+  --darkYellow: #ffde0b;
   --lightBlue: #f2f9ff;
   --darkBlue: #007fff;
   --pink: #ff9eb6;
@@ -80,17 +80,17 @@ h6 {
   --lightBlue: #e5f2ff;
   --lightRed: #f9735b;
   --middleGreen: #82fdad;
-  --violet: #802D85;
+  --violet: #802d85;
   --lightViolet: #ebdae9;
   --extraLightViolet: #ebdae980;
-  --middleWhite: #F5F0F6;
-
+  --middleWhite: #f5f0f6;
 }
 
-[type=“checkbox”], [type=“radio”] {
-  height:44px !important;
-  width:24px !important;
-  }
+[type="“checkbox”"],
+[type="“radio”"] {
+  height: 44px !important;
+  width: 24px !important;
+}
 
 .lne-text-white {
   color: white !important;
@@ -184,7 +184,6 @@ input[type="number"] {
 .btn-darkGreen {
   background-color: var(--green);
 }
-
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 300px) {
@@ -296,7 +295,11 @@ input[type="number"] {
   background-color: var(--violet);
 }
 .grandient-violet {
-  background: linear-gradient(0deg,rgba(128,45,133,1) 15%,rgba(108,30,113,1));
+  background: linear-gradient(
+    0deg,
+    rgba(128, 45, 133, 1) 15%,
+    rgba(108, 30, 113, 1)
+  );
 }
 
 .bg-dark-pueple {
@@ -325,9 +328,8 @@ input[type="number"] {
   background-color: var(--violet);
 }
 
-
 .bg-middleWhite {
-background-color:var(--middleWhite);
+  background-color: var(--middleWhite);
 }
 
 /* BORDERS */
@@ -336,7 +338,7 @@ background-color:var(--middleWhite);
 }
 
 .border-black-lg {
-  border:1px solid black;
+  border: 1px solid black;
   border-radius: 10px;
 }
 .border-light-blue {
@@ -372,32 +374,35 @@ input[type="checkbox"] {
   padding: 10px;
 }
 
-
-
 .button-toogle:checked ~ .dot {
   transform: translateX(100%);
 }
 /* MONITOR FUNDING */
 
 .monitor-funding .rdt_TableRow:nth-of-type(odd) {
-  background-color:var(--lightBlue);
-  }
+  background-color: var(--lightBlue);
+}
 .eUeqdG {
-white-space: normal !important;
+  white-space: normal !important;
 }
 
 table {
-  font-size:8px;
+  font-size: 8px;
 }
 
-table td, #customers th {
+table td,
+#customers th {
   border: 1px solid #ddd;
   padding: 10px;
 }
 
-table tr:nth-child(even){background-color: #fff;}
+table tr:nth-child(even) {
+  background-color: #fff;
+}
 
-table tr:hover {background-color: #ddd;}
+table tr:hover {
+  background-color: #ddd;
+}
 
 table th {
   padding-top: 12px;
@@ -407,45 +412,47 @@ table th {
   color: white;
 }
 .dashboardClientListHeadRow {
-  display:grid;
+  display: grid;
   gap: 2px;
   grid-template-columns: 1.5fr 1.5fr 1.5fr 2fr 1.5fr 1fr 1fr;
 }
 .dashboardActiveUsersListHeadRow {
-  display:grid;
+  display: grid;
   gap: 5px;
   grid-template-columns: 1.5fr 1.5fr 1.5fr 2fr 1.5fr 1.5fr 1fr 1fr;
 }
 
 /* Event Input form styles */
-input[type="radio"], input[type="checkbox"] {
-  min-height:30px;
-  min-width:30px;
+input[type="radio"],
+input[type="checkbox"] {
+  min-height: 30px;
+  min-width: 30px;
 }
-input[type="text"], input[type="number"] {
+input[type="text"],
+input[type="number"] {
   padding: 4px 15px;
 }
 
 @media (min-width: 768px) {
   .w-134 {
     width: 536px;
-  }  
+  }
 }
 
 .checkbox-round {
-    width: 25px;
-    height: 25px;
-    background-color: white;
-    border-radius: 50%;
-    vertical-align: middle;
-    border: 2px solid red;
-    appearance: none;
-    -webkit-appearance: none;
-    outline: none;
-    cursor: pointer;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 2px solid red;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
 }
 .checkbox-round:checked {
-    background-color: green;
+  background-color: green;
 }
 
 /* EVENTS TABLE  */
@@ -459,12 +466,12 @@ input[type="text"], input[type="number"] {
 /* PARTICIPANT SURVEY */
 
 .participant-survey-head-table {
-  display:grid;
+  display: grid;
   grid-template-columns: 1.2fr 1.2fr 4fr;
 }
 
 /* LABELS */
- label {
+label {
   display: flex;
   font-size: 20px;
 }
@@ -477,9 +484,13 @@ label h3 {
   margin-left: 20px;
   margin-right: 20px;
 }*/
-  label > input[type="text"],  label > input[type="radio"], label > input[type="number"] {
+label > input[type="text"],
+label > input[type="radio"],
+label > input[type="number"],
+input[type="date"],
+input[type="time"] {
   border: 1px solid black;
   padding: 8px 16px;
   border-radius: 5px;
   font-size: 20px;
-} 
+}

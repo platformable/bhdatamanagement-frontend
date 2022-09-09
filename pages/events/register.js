@@ -86,8 +86,8 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
         dashboardBtn={true}
         pageTitle={"Register an event"}
       />
-      <div className="container mx-auto md:px-0 px-5  border rounded-lg mb-10 pb-10">
-        <div className="register-envent-form-container  grid gap-1 bg-white  rounded-lg p-1 my-10 ">
+      <div className="container mx-auto border rounded-lg mb-10">
+        <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
           <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} />
           <Section2 eventForm={eventForm} setEventForm={setEventForm} />
           <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/>

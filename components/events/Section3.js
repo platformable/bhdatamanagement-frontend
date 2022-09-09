@@ -39,16 +39,16 @@ const Section3 = ({eventForm, setEventForm, eventTypes,event}) => {
 
 
     return (
-        <div className='p-5  rounded'>
-            <h1 className='mb-3 font-black'>What type of event is it?</h1>
-            <div className='grid grid-cols-1 '>
+        <div className=''>
+            <h1 className='mb-7 font-black'>What type of event is it?</h1>
+            <div className='grid grid-cols-1 gap-5'>
             {fields && fields.map(eventType => (
                 eventType.name !== "Other" ? 
 
-                (<label className='text-lg flex items-center my-2' key={eventType.id}>
+                (<label className='text-lg flex items-center gap-5' key={eventType.id}>
                     <input type="radio" 
                     name="eventTypeName" 
-                    className='mr-2 w-6 h-6' 
+                    className='' 
                     value={eventType.name} 
                     id={eventType.id} 
                     onChange={handleForm}
