@@ -2,15 +2,15 @@ import React from 'react'
 
 export default function Search({searchFunction}) {
   return (
-    <div className="flex  justify-end items-center">
-                <p className="mr-5">Search by program</p>
+    <div className="flex  md:justify-end justify-center items-center md:px-0 px-5">
+                <p className="mr-5">Search</p>
 
                 <div className="flex ">
                   <div className="flex border-1 border-black rounded-lg  rounded-lg">
                     <input
                       type="text"
                       className="px-4  w-80 rounded-lg "
-                      placeholder="program name..."
+                      placeholder="..."
                       onChange={(e)=>searchFunction(e.target.value)}
                     />
                     <button className="px-2 py-2 m-1 text-white bg-black-50  rounded">

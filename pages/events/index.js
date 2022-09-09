@@ -1,69 +1,168 @@
-import React from "react";
+import React,{useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import PageTopHeading from "../../components/PageTopHeading";
 import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
+import EventsCardItems from "../../components/events/EventsCardItems";
+import Search from '../../components/Search'
 
 
 const EventsIndex = ({events}) => {
+  const [searchWord, setSearchWord] = useState("");
+  const searchFunction = (word) => {
+    setSearchWord(word);
+  };
+
+  console.log("events",events)
+
   const sortedEventsByDate  = events.sort((a, b) => new Date(b.eventdate) - new Date(a.eventdate))
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading pageTitle={"Manage existing events"} dashboardBtn={true} backBtn={true} />
 
+
+      <div className="container mx-auto search grid md:grid-cols-2 grid-cols-1 my-5">
+        <div className=""><Search searchFunction={searchFunction}/></div>
+        <div className="">
+
+          <div className="grid md:grid-cols-3 cols-1 md:justify-end gap-5 md:gap-x-5 items-center md:px-0 px-5 md:my-0 my-5">
+            <h3 className="flex justify-start  md:justify-end">Filter by date</h3>
+            <div className="flex md:justify-end">
+            <input type="date" className="border-black px-5 py-3 rounded-md" placeholder="end date"/>
+            </div>
+            <div className="flex items-center md:justify-end md:gap-x-5 ">
+              <p className="hidden md:block">and</p>
+              <input type="date" className="border-black px-5 py-3 rounded-md" placeholder="end date"/>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+
+
+    <div className="events-cards-container grid md:grid-cols-3 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5">
+
+    {sortedEventsByDate && sortedEventsByDate?.filter((event, index) => {
+                if (searchWord === "") {
+                  return event;
+                } else if (
+                  event.programname
+                    .toLowerCase()
+                    .includes(searchWord.toLowerCase())
+                ) {
+                  return event;
+                }
+              }).map((event, index) => {
+      
+      return (
+           <EventsCardItems 
+           programName={event.programname}
+           eventdate={event.eventdate}
+           eventName={event.eventname}
+           urlEdit={`events/${event.id}/edit`}
+           urlParticipantSurvey={`/events/${event.id}/participant-survey`}
+           urlUpload={`events/${event.id}/upload-event`}
+           urlPostEventSurvey={`events/${event.id}/post-event-survey`}
+           />
+          )}
+          )
+          
+    }
+
+
+     {/*  <div className="events-card-item shadow-lg rounded-lg border p-5">
+        <div className="event-card-item-top flex justify-between my-2">
+          <div>
+            <h3 className="font-black pl-2">Program</h3>
+          </div>
+          <div>
+            <h3 className="font-black pr-2">Event date</h3>
+          </div>
+        </div>
+        <div className="event-card-item-program-date flex justify-between border rounded-lg py-1">
+          <div>
+            <h3 className="font-black pl-2">T2</h3>
+          </div>
+          <div>
+            <h3 className="font-black pr-2">08/08/2022</h3>
+          </div>
+        </div>
+        <h3 className="my-2 px-2 font-black">Event name</h3>
+        <p className="border rounded-lg py-1 px-2">Event de la virgen maria</p>
+        <div className="events-card-item-btn-container grid md:grid-cols-2 grid-cols-2 gap-5 my-3">
+        <div className="events-card-item-btn bg-black text-white p-5 flex justify-center items-center rounded-lg">
+              <p className="text-center">Edit</p>
+          </div>
+          <div className="events-card-item-btn bg-black text-white p-5 flex justify-center items-center rounded-lg">
+              <p className="text-center"> Participant survey</p>
+          </div>
+
+          <div className="events-card-item-btn bg-black text-white p-5 flex justify-center items-center rounded-lg">
+              <p className="text-center">Upload docs, photos, etc</p>
+          </div>
+          <div className="events-card-item-btn bg-black text-white p-5 flex justify-center items-center rounded-lg">
+              <p className="text-center">Complete post event survey</p>
+          </div>
+        </div>
+      </div> */}
+
+    </div>
+
+
+
+
+
+
+
+
       <div className="container mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
-         {/* TABLE HEAD  */}
-         <div className="existing-events-head-table rounded-t-lg py-3 px-7 bg-black text-white">
+       {/*   <div className="existing-events-head-table rounded-t-lg py-3 px-7 bg-black text-white">
                 <p className="lg:text-xl font-bold flex items-center ">Program</p>
                 <p className="lg:text-xl font-bold flex items-center ">Event name</p>
-                <p className="lg:text-xl font-bold flex items-center ">Event Date</p>
-                {/* <p className="lg:text-xl font-bold flex items-center justify-center text-center">Edit</p>
-                <p className="lg:text-xl font-bold flex items-center justify-center text-center">Go to participant surveys</p>
-                <p className="lg:text-xl font-bold flex items-center justify-center text-center">Upload event documents</p>
-                <p className="lg:text-xl font-bold flex items-center justify-center text-center">Complete post-event survey</p> */}
+                <p className="lg:text-xl font-bold flex items-center ">Event date</p>
+              
             </div>
-          {/* TABLE HEAD END */}
+  */}
 
 
-        <div className="events-index-btn-container grid grid-cols-1 gap-3 p-0 ">
+       {/*  <div className="events-index-btn-container grid grid-cols-1 gap-3 p-0">
           {sortedEventsByDate && sortedEventsByDate.map((event, index) => (
-            <section key={index} className={`existing-events-head-table px-7 py-7 rounded shadow`}>
+            <section key={index} className={`existing-events-head-table px-7 py-7 rounded shadow-md`}>
               <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div>
               <div className="flex items-center lg:text-xl font-bold ">{event.eventname}</div>
               <div className="flex items-center lg:text-xl font-bold mr-2">{event.eventdate && new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</div>
               <Link href={`events/${event.id}/edit`}>
-              <div className="cursor-pointer flex items-center border shadow rounded text-center lg:text-xl p-4 font-bold justify-center">
+              <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
 
-                  Edit event
-                  {/* <img src="/events/manage/edit.svg" alt="edit event icon"/> */}
+                  <p className="leading-5">Edit event</p>
               </div>
 
               </Link>
               <Link href={`/events/${event.id}/participant-survey`}>
-                <div className="cursor-pointer flex items-center border shadow rounded text-center lg:text-xl p-4 font-bold justify-center">
-                  Participant<br/>survey
-                  {/* <img src="/events/manage/participant_survey.svg" alt="go to participant surveys icon"/> */}
+                <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
+                  <p className="leading-5">Participant survey</p> 
                 </div>
               </Link>
               
               <Link href={`events/${event.id}/upload-event`}>
-                <div className="cursor-pointer flex items-center border shadow rounded text-center lg:text-xl p-4 font-bold justify-center">
-                Upload docs,<br/>photos, etc
-                  {/* <img src="/events/manage/Upload_docs.svg" alt="upload event documents icon"/> */}
+                <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
+                <p className="leading-5">Uploads docs &#38; photos , etc </p>
+        
                 </div>
               </Link>
               
               <Link href={`events/${event.id}/post-event-survey`}>
-                <div className="cursor-pointer flex items-center border shadow rounded text-center lg:text-xl p-4 font-bold justify-center">
-                Complete<br/> post-event survey
-                  {/* <img src="/events/manage/complete_report.svg" alt="complete report icon"/> */}
+                <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center text-center">
+                <p className="leading-5 text-center">Complete post-event survey</p>
+    
                 </div>
               </Link>
               
             </section>
           ))}
-        </div>   
+        </div>  */}  
       </div>
     </Layout>
   );
