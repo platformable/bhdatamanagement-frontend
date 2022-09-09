@@ -46,7 +46,7 @@ const GenderSurveySection = ({
         {typeOfTestForTitles(typeOfTest)} Testing?
       </h2>
       <label className="">
-        <p className="w-40">Female</p>
+        <p className="">Female</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -59,7 +59,7 @@ const GenderSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Male</p>
+        <p className="">Male</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -72,7 +72,7 @@ const GenderSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Transgender female</p>
+        <p className="">Transgender female</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -85,7 +85,7 @@ const GenderSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Transgender male</p>
+        <p className="">Transgender male</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -98,7 +98,7 @@ const GenderSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Gender non-conforming</p>
+        <p className="">Gender non-conforming</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -111,7 +111,7 @@ const GenderSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Non-binary</p>
+        <p className="">Non-binary</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -124,7 +124,7 @@ const GenderSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Other gender identity</p>
+        <p className="">Other gender identity</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -137,7 +137,7 @@ const GenderSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Decline to answer</p>
+        <p className="">Decline to answer</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}

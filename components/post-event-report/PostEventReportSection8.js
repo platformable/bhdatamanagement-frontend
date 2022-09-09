@@ -12,20 +12,20 @@ const handleForm = (e) => {
     }))
 }
   return (
-    <div className="p-5 py-10 rounded">
-      <h1 className="mb-3 font-black">
+    <div className="px-7 mt-10 rounded">
+      <h1 className="font-black">
         Resources Distributed:
       </h1>
-      <div className="mt-5 grid grid-cols-1 space-between gap-5">
+      <div className="mt-7 grid grid-cols-1 text-lg  space-between gap-5">
         {resourcesDistributed &&
           resourcesDistributed.map((resource, index) => (
             <>{resource.name}
-            <label className="text-lg " key={index}>
+            <label className="" key={index}>
               {/* <img src={resource.source} alt={`${resource.name} icon`} className="w-8 h-8 md:w-12 md:h-12"/> */}
               <input
                 type="number"
                 name={resource.dataFieldName}
-                className="mr-2  w-20 p-1 border-black rounded"
+                className=" w-20 p-4 border-black rounded"
                 id={index}
                 defaultValue={0}
                 onChange={handleForm}

@@ -9,11 +9,11 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
     gap: "5px",
   };
   return (
-    <div className="p-5 py-10">
+    <div className="px-7 mt-10">
       <h1 className="font-black">
       Where do you work?
       </h1>
-      <div className="mt-5 grid grid-cols-1 space-between gap-5">
+      <div className="mt-7 grid grid-cols-1 space-between gap-5">
         {workArea.map((area, index) => {
           if(index === workArea.length - 1) {
             return (

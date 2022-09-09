@@ -3,14 +3,14 @@ import React from 'react'
 const PostEventReportSection5 = ({eventForm,setEventForm}) => {
 
   return (
-    <div className="p-5 py-10">
+    <div className="px-7 mt-10">
       <h1 className="font-black">What was the Primary Zip Code of the event Location? (In what zip code were you hoping the participants at the event will be coming from?)</h1>
-    <div className="flex gap-x-3 mt-5">
+    <div className="flex gap-x-5 mt-7">
       <h3>Zip Code</h3>
       <input 
       type="number" 
       placeholder="Eg. 10027"
-      className="border-black rounded px-2 self-start p-1 ml-2 w-24"
+      className="border-black rounded px-2 self-start p-1  w-24"
       maxlength={5}
       name="zipCode"
       // max={9999}

@@ -11,11 +11,11 @@ const PostEventReportSection10 = ({eventForm,setEventForm}) => {
       }))
   }
   return (
-    <div className="p-5  rounded">
+    <div className="px-7 mt-10 rounded">
       <h1 className=" font-black">
          How many INTERNS/APPRENTICES were present?
       </h1>
-      <div className='flex mt-5 gap-5'>
+      <div className='flex mt-7 gap-5'>
         {/* <img src='/post_event_report/ADULT_volunteers_icon.svg' alt='adult volunteers icon' /> */}
       <input
         type="number"
@@ -26,7 +26,7 @@ const PostEventReportSection10 = ({eventForm,setEventForm}) => {
         }}
         maxLength={3}
         defaultValue={0}
-        className="p-2 border-black rounded w-20"
+        className="p-4 border-black rounded w-20"
         placeholder="Type a number"
         name="internPresent"
         onChange={handleForm}

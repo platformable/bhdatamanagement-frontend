@@ -50,7 +50,7 @@ const RaceSurveySection = ({
         during {typeOfTestForTitles(typeOfTest)} Testing?
       </h2>
       <label className="">
-        <p className="w-40">Black or African American</p>
+        <p className="">Black or African American</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -63,7 +63,7 @@ const RaceSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Hispanic, Latino/a or Spanish</p>
+        <p className="">Hispanic, Latino/a or Spanish</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -76,7 +76,7 @@ const RaceSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Asian</p>
+        <p className="">Asian</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -89,7 +89,7 @@ const RaceSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">American Indian or Alaska Native</p>
+        <p className="">American Indian or Alaska Native</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -102,7 +102,7 @@ const RaceSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Middle Eastern or North African</p>
+        <p className="">Middle Eastern or North African</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -115,7 +115,7 @@ const RaceSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Native Hawaiian or Other Pacific Islander</p>
+        <p className="">Native Hawaiian or Other Pacific Islander</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -128,7 +128,7 @@ const RaceSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">White</p>
+        <p className="">White</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -141,7 +141,7 @@ const RaceSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Some other race or origin</p>
+        <p className="">Some other race or origin</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -154,7 +154,7 @@ const RaceSurveySection = ({
         />
       </label>
       <label className="">
-        <p className="w-40">Declined to answer</p>
+        <p className="">Declined to answer</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}

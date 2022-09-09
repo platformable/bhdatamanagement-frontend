@@ -11,8 +11,8 @@ const PostEventReportSection17 = ({eventForm, setEventForm}) => {
       }))
   }
   return (
-    <div className="p-5 py-10 rounded">
-      <h2 className="mb-3 font-black">
+    <div className="px-7 mt-10 rounded">
+      <h2 className="mb-7 font-black">
         How many people did you send an email blast to about the event?
       </h2>
       <div className='flex gap-5 justify-start'>
@@ -25,7 +25,7 @@ const PostEventReportSection17 = ({eventForm, setEventForm}) => {
           value > 1000 && (e.target.value = 1000) 
         }}
         maxLength={4}
-        className="p-2 border-black rounded w-20"
+        className="p-4 border-black rounded w-20"
         defaultValue={0}
         name="sendEmail"
         onChange={handleForm}
