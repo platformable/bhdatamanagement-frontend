@@ -10,12 +10,12 @@ const BackBtn = () => {
       onClick={() => router.back()}
       className="bg-black text-white rounded px-2"
     >
-       <a
+       <p
           className="p-5 flex bg-black gap-x-2 items-center font-black text-white rounded"
           id=""
         >
           Back
-        </a>
+        </p>
     </button>
   );
 };

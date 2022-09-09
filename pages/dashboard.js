@@ -83,11 +83,11 @@ export default function Dashboard() {
               </div>
             </Link>
           </div>
-          <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+          <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
             <Link href="/events">
               <button id="myBtn">
                 <div className="">
-                  <div className="flex items-center bg-red-50">
+                  <div className="flex items-center">
                     {/* <img
                       src="/events/register_an_event_icon.svg"
                       alt=""
