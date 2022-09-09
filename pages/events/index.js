@@ -57,7 +57,7 @@ const EventsIndex = ({ events }) => {
             onChange={(e)=>setDateFilter({...dateFilter,startDate:e.target.value})}
            /*  onFocus={(e) => (e.target.type = "date")}
             onBlur={(e) => (e.target.type = "text")} */
-            className="border-black rounded-md py-5 w-40 text-sm"
+            className="border-black rounded-md p-3  text-sm"
             />
           </div>
           <h3 className="text-center">and</h3>
@@ -67,7 +67,7 @@ const EventsIndex = ({ events }) => {
             onChange={(e)=>setDateFilter({...dateFilter,endDate:e.target.value})}
            /*  onFocus={(e) => (e.target.type = "date")}
             onBlur={(e) => (e.target.type = "text")} */
-            className="border-black rounded-md py-5 w-40 text-sm"
+            className="border-black rounded-md p-3  text-sm"
             />
           </div>
         </div>
@@ -95,10 +95,10 @@ const EventsIndex = ({ events }) => {
                 let filterPass = true
                 const date = new Date(event.eventdate)
                 if (dateFilter.startDate) {
-                  filterPass = filterPass && (new Date(dateFilter.startDate) < date)
+                  filterPass = filterPass && (new Date(dateFilter.startDate) <= date)
                 }
                 if (dateFilter.endDate) {
-                  filterPass = filterPass && (new Date(dateFilter.endDate) > date)
+                  filterPass = filterPass && (new Date(dateFilter.endDate) >= date)
                 }
                 //if filterPass comes back `false` the row is filtered out
                 return filterPass
