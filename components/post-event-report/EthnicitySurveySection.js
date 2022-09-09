@@ -45,7 +45,7 @@ const EthnicitySurveySection = ({
         testing identified with the following Hispanic and Latin ethnicities?
       </h1>
 
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Not of Hispanic, Latino/a or Spanish origin</h3>
         <input
           type="number"
@@ -58,7 +58,7 @@ const EthnicitySurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 >Mexican, Mexican American or Chicano</h3>
         <input
           type="number"
@@ -71,7 +71,7 @@ const EthnicitySurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 >Puerto Rican</h3>
         <input
           type="number"
@@ -84,7 +84,7 @@ const EthnicitySurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 >Cuban</h3>
         <input
           type="number"
@@ -97,7 +97,7 @@ const EthnicitySurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 >Dominican</h3>
         <input
           type="number"
@@ -110,7 +110,7 @@ const EthnicitySurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 >Ecuadorian</h3>
         <input
           type="number"
@@ -123,7 +123,7 @@ const EthnicitySurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 >Other Hispanic, Latino/a, or Spanish origin</h3>
         <input
           type="number"
@@ -136,7 +136,7 @@ const EthnicitySurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 >Declined to answer</h3>
         <input
           type="number"

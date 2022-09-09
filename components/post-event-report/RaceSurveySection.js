@@ -49,7 +49,7 @@ const RaceSurveySection = ({
         Race: How many people identified with the following for racial identity
         during {typeOfTestForTitles(typeOfTest)} Testing?
       </h1>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Black or African American</h3>
         <input
           type="number"
@@ -62,7 +62,7 @@ const RaceSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Hispanic, Latino/a or Spanish</h3>
         <input
           type="number"
@@ -75,7 +75,7 @@ const RaceSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Asian</h3>
         <input
           type="number"
@@ -88,7 +88,7 @@ const RaceSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">American Indian or Alaska Native</h3>
         <input
           type="number"
@@ -101,7 +101,7 @@ const RaceSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Middle Eastern or North African</h3>
         <input
           type="number"
@@ -114,7 +114,7 @@ const RaceSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Native Hawaiian or Other Pacific Islander</h3>
         <input
           type="number"
@@ -127,7 +127,7 @@ const RaceSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">White</h3>
         <input
           type="number"
@@ -140,7 +140,7 @@ const RaceSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Some other race or origin</h3>
         <input
           type="number"
@@ -153,7 +153,7 @@ const RaceSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Declined to answer</h3>
         <input
           type="number"

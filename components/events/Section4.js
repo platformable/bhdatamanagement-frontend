@@ -6,7 +6,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
         setEventForm(previous => ({...previous, eventDate: e.target.value}))
       }
     return (
-        <div className='md:text-left'>            
+        <label className='md:text-left'>            
                 <h1 className='mb-7 font-black'>What date is the event?</h1>
                 <input type="date" 
                 name="eventDate" 
@@ -14,7 +14,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
                 onChange={handleForm}
                 value={eventForm.eventDate}
                 />
-        </div>
+        </label>
     );
 }
 

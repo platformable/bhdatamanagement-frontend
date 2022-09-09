@@ -15,8 +15,8 @@ const PostEventReportSection2 = ({ eventForm, setEventForm }) => {
       <h1 className="font-black">
         What was your role at the event? 
       </h1>
-      <h2>(if you had more than one role, what
-        was your MAIN role at this event?)</h2>
+      <h3>If you had more than one role, what
+        was your MAIN role at this event?</h3>
       <div className="mt-7 grid grid-cols-1  gap-5">
         {roles.map((role, index) => {
           if (index === roles.length - 1) {

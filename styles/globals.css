@@ -428,10 +428,17 @@ input[type="checkbox"] {
   min-height: 30px;
   min-width: 30px;
 }
-input[type="text"],
-input[type="number"] {
-  padding: 4px 15px;
+label > input[type="text"],
+label > input[type="radio"],
+label > input[type="number"],
+label > input[type="date"],
+label > input[type="time"] {
+  border: 1px solid black;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 20px;
 }
+
 
 @media (min-width: 768px) {
   .w-134 {
@@ -484,13 +491,3 @@ label h3 {
   margin-left: 20px;
   margin-right: 20px;
 }*/
-label > input[type="text"],
-label > input[type="radio"],
-label > input[type="number"],
-input[type="date"],
-input[type="time"] {
-  border: 1px solid black;
-  padding: 8px 16px;
-  border-radius: 5px;
-  font-size: 20px;
-}

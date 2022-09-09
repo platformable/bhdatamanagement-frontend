@@ -14,9 +14,11 @@ const PostEventReportSection15 = ({eventForm, setEventForm}) => {
   return (
     <div className="px-7 mt-10 rounded">
       <h1 className="font-black">
-        How many people attended the event (or if it was street outreach or canvassing, etc, how many people did you engage with or provide resources to, etc)?
+        How many people attended the event <br/>
       </h1>
-      <div className='mt-7 flex gap-5'>
+      <h3>If it was street outreach / canvassing, how many people did you engage with and provide resources to?</h3>
+
+      <label className='mt-7 flex gap-5'>
         {/* <img src='/post_event_report/attended_event_icon.svg' alt='adult volunteers icon' /> */}
       <input
         type="number"
@@ -31,7 +33,7 @@ const PostEventReportSection15 = ({eventForm, setEventForm}) => {
         name="totalAttendees"
         onChange={handleForm}
       />
-    </div>
+    </label>
     </div>
   )
 }

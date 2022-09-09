@@ -15,7 +15,7 @@ const PostEventReportSection17 = ({eventForm, setEventForm}) => {
       <h1 className="mb-7 font-black">
         How many people did you send an email blast to about the event?
       </h1>
-      <div className='flex gap-5 justify-start'>
+      <label className='flex gap-5 justify-start'>
         {/* <img src='/post_event_report/email_icon.svg' alt='adult volunteers icon' /> */}
       <input
         type="number"
@@ -30,7 +30,7 @@ const PostEventReportSection17 = ({eventForm, setEventForm}) => {
         name="sendEmail"
         onChange={handleForm}
       />
-    </div>
+    </label>
     </div>
   );
 };

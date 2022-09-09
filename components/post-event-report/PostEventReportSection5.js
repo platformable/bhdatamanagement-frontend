@@ -4,9 +4,10 @@ const PostEventReportSection5 = ({eventForm,setEventForm}) => {
 
   return (
     <div className="px-7 mt-10">
-      <h1 className="font-black">What was the Primary Zip Code of the event Location?</h1><h2> (In what zip code were you hoping the participants at the event will be coming from?)</h2>
+      <h1 className="font-black">What was the primary zip code of the event Location?</h1>
+      <h3>In what zip code were you hoping the participants at the event will be coming from?</h3>
     <div className="flex gap-x-5 items-center mt-7">
-      <h3>Zip Code</h3>
+      <h3>zip code</h3>
       <label>
       <input 
       type="number" 

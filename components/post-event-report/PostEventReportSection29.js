@@ -6,10 +6,10 @@ const PostEventReportSection29 = ({ setEventForm }) => {
     value > 100 && (e.target.value = 100)
   }
   return (
-    <div className="px-5 grid grid-cols-1 gap-7 my-10">
+    <div className="px-7 grid grid-cols-1 gap-7 my-10">
       <h1 className="font-black">COVID-19 Testing</h1>
-      <label className="flex gap-5">
-        <p className="w-40 ">COVID-19 Testing Agency</p>
+      <label className="grid md:flex gap-5 items-center">
+        <p className="md:w-80 ">COVID-19 Testing Agency</p>
         <input
           className="border-black p-4"
           type="text"
@@ -23,8 +23,8 @@ const PostEventReportSection29 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5">
-        <p className="w-40 ">Total tested for COVID-19</p>
+      <label className="grid md:flex gap-5 items-center">
+        <p className="md:w-80 ">Total tested for COVID-19</p>
         <input
           className="border-black p-4"
           type="number"
