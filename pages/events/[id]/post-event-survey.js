@@ -634,20 +634,15 @@ console.log("eventForm",eventForm)
             </div>
             <div className="p-5 rounded-tl-md rounded-tr-md">
             <h3 className=" font-black">Event organization and promotion</h3>
-            {/* <div className="grid md:grid-cols-2 grid-cols-1"> */}
             <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm}/>
-
-            <PostEventReportSection11 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection12 eventForm={eventForm} setEventForm={setEventForm}/>
-            {/* </div> */}
-            <PostEventReportSection13 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection14 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection15 eventForm={eventForm} setEventForm={setEventForm}/>
-            {/* <div className="grid md:grid-cols-2 grid-cols-1"> */}
-            <PostEventReportSection16 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection17 eventForm={eventForm} setEventForm={setEventForm}/>
-            {/* </div> */}
+            {/* <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm}/> */}
+            {/* <PostEventReportSection11 eventForm={eventForm} setEventForm={setEventForm}/> */}
+            {/* <PostEventReportSection12 eventForm={eventForm} setEventForm={setEventForm}/> */}
+            {/* <PostEventReportSection13 eventForm={eventForm} setEventForm={setEventForm}/> */}
+            {/* <PostEventReportSection14 eventForm={eventForm} setEventForm={setEventForm}/> */}
+            {/* <PostEventReportSection15 eventForm={eventForm} setEventForm={setEventForm}/> */}
+            {/* <PostEventReportSection16 eventForm={eventForm} setEventForm={setEventForm}/> */}
+            {/* <PostEventReportSection17 eventForm={eventForm} setEventForm={setEventForm}/> */}
             <PostEventReportSection18 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection19 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm}/>

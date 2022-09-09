@@ -39,112 +39,112 @@ const EthnicitySurveySection = ({
     }));
   };
   return (
-    <div className="grid grid-cols-1 gap-5">
-      <h2 className="font-black">
+    <div className="grid grid-cols-1 gap-7">
+      <h1 className="font-black">
         Ethnicity: How many people doing {typeOfTestForTitles(typeOfTest)}{" "}
         testing identified with the following Hispanic and Latin ethnicities?
-      </h2>
+      </h1>
 
-      <label className="">
-        <p className="">Not of Hispanic, Latino/a or Spanish origin</p>
+      <label className="flex flex-col gap-5">
+        <h3 className="">Not of Hispanic, Latino/a or Spanish origin</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1 rounded my-1 w-20"
+          className="border-black p-4 rounded  w-20"
           name={fields[0]}
           onChange={handleForm}
         />
       </label>
-      <label className="">
-        <p >Mexican, Mexican American or Chicano</p>
+      <label className="flex flex-col gap-5">
+        <h3 >Mexican, Mexican American or Chicano</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1 rounded my-1 w-20"
+          className="border-black p-4 rounded  w-20"
           name={fields[1]}
           onChange={handleForm}
         />
       </label>
-      <label className="">
-        <p >Puerto Rican</p>
+      <label className="flex flex-col gap-5">
+        <h3 >Puerto Rican</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1 rounded my-1 w-20"
+          className="border-black p-4 rounded  w-20"
           name={fields[2]}
           onChange={handleForm}
         />
       </label>
-      <label className="">
-        <p >Cuban</p>
+      <label className="flex flex-col gap-5">
+        <h3 >Cuban</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1 rounded my-1 w-20"
+          className="border-black p-4 rounded  w-20"
           name={fields[3]}
           onChange={handleForm}
         />
       </label>
-      <label className="">
-        <p >Dominican</p>
+      <label className="flex flex-col gap-5">
+        <h3 >Dominican</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1 rounded my-1 w-20"
+          className="border-black p-4 rounded  w-20"
           name={fields[4]}
           onChange={handleForm}
         />
       </label>
-      <label className="">
-        <p >Ecuadorian</p>
+      <label className="flex flex-col gap-5">
+        <h3 >Ecuadorian</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1 rounded my-1 w-20"
+          className="border-black p-4 rounded  w-20"
           name={fields[5]}
           onChange={handleForm}
         />
       </label>
-      <label className="">
-        <p >Other Hispanic, Latino/a, or Spanish origin</p>
+      <label className="flex flex-col gap-5">
+        <h3 >Other Hispanic, Latino/a, or Spanish origin</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1 rounded my-1 w-20"
+          className="border-black p-4 rounded  w-20"
           name={fields[6]}
           onChange={handleForm}
         />
       </label>
-      <label className="">
-        <p >Declined to answer</p>
+      <label className="flex flex-col gap-5">
+        <h3 >Declined to answer</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
         defaultValue={0}
           maxLength={3}
-          className="border-black p-1 rounded my-1 w-20"
+          className="border-black p-4 rounded  w-20"
           name={fields[7]}
           onChange={handleForm}
         />

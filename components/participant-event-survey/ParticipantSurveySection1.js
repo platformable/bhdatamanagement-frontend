@@ -16,12 +16,12 @@ export const ParticipantSurveySection1 = ({surveyForm, setSurveyForm}) => {
         <input
           type="number"
           placeholder="Eg. 10027"
-          className="border-black rounded text-xl px-2 self-start p-1 ml-2 w-32"
+          className="border-black rounded text-xl px-2 self-start p-1 ml-5 w-32"
           maxLength={5}
           name="participantZipCode"
           onKeyUp={(e) => {
             e.target.value.length > 5 &&
-              (e.target.value = e.target.value.slice(0, 4));
+              (e.target.value = e.target.value.slice(0, 5));
           }}
           onWheelCapture={(e) => e.target.blur()}
         onChange={handleForm}

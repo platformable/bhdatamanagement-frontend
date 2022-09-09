@@ -4,9 +4,9 @@ const PostEventReportSection19 = ({eventForm,setEventForm}) => {
  
   return (
     <div className="px-7 mt-10 rounded">
-      <h2 className="mb-7 font-black">
+      <h1 className="mb-7 font-black">
         Describe any challenges and how you overcame them, and any lessons learned
-      </h2>
+      </h1>
       
         <textarea
         className="p-4 block w-full text-lg h-52 bg-white break-all border-black rounded-md overflow-hidden"

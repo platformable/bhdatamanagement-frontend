@@ -462,3 +462,23 @@ input[type="text"], input[type="number"] {
   display:grid;
   grid-template-columns: 1.2fr 1.2fr 4fr;
 }
+
+/* LABELS */
+/* label {
+  display: flex;
+  font-size: 20px;
+}
+label > div {
+  display: flex;
+  align-items: center;
+} 
+label h3 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+ input[type="text"],  input[type="radio"], input[type="number"] {
+  border: 1px solid black;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 20px;
+} */

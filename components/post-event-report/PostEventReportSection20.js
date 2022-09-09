@@ -4,9 +4,9 @@ const PostEventReportSection20 = ({eventForm,setEventForm}) => {
   
   return (
     <div className="px-7 mt-10 rounded">
-      <h2 className="mb-7 font-black">
+      <h1 className="mb-7 font-black">
         Describe any specific health questions you were asked or any feedback you received specifically about health issues at the event
-      </h2>
+      </h1>
       
       <textarea
         className="p-4 text-lg block w-full h-52 bg-white break-all border-black rounded-md overflow-hidden"

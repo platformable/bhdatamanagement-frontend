@@ -36,7 +36,7 @@ export const ParticipantSurveySection7 = ({ surveyForm, setSurveyForm }) => {
                   type="text"
                   name="participantRoleOther"
                   placeholder="Please specify"
-                  className="border-black p-1 px-4 w-72 rounded text-xl"
+                  className="border-black p-4 w-72 rounded text-xl"
                   onChange={(e) => setSurveyForm({...surveyForm, [e.target.name]: e.target.value})}
                 />
               </label>

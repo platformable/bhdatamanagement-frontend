@@ -30,9 +30,9 @@ const PostEventReportSection13 = ({eventForm, setEventForm}) => {
 
   return (
     <div className="px-7 mt-10 rounded">
-      <h2 className=" font-black">
+      <h1 className=" font-black">
     What languages was your team able to support?
-      </h2>
+      </h1>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
         {languages &&
           languages.map((lang, index) => (
