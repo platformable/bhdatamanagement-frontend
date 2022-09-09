@@ -8,10 +8,10 @@ const PostEventReportSection25 = ({ setEventForm }) => {
   return (
     <div className="px-7 grid grid-cols-1 gap-7 mt-10">
       <h1 className="font-black">Hepatitis C Testing</h1>
-      <label className="flex gap-5">
-        <p className="w-40">Hepatitis C Testing Agency</p>
+      <label className="grid md:flex gap-5 items-center">
+        <p className="md:w-80">Hepatitis C Testing Agency</p>
         <input
-          className="border-black  p-4"
+          className="border-black w-96"
           type="text"
           /* placeholder="Please specify" */
           name="hepCTestingAgency"
@@ -23,10 +23,10 @@ const PostEventReportSection25 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5">
-        <p className="w-40"> Total tested for Hepatitis C</p>
+      <label className="grid gap-2 items-center">
+        <p className="md:w-80"> Total tested for Hepatitis C</p>
         <input
-          className="border-black  p-4"
+          className="border-black w-20"
           type="number"
           onWheelCapture={(e) => e.target.blur()}
           defaultValue={0}
@@ -41,10 +41,10 @@ const PostEventReportSection25 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5">
-        <p className="w-40"> Total # of Reactive Results</p>
+      <label className="grid gap-2 items-center">
+        <p className="md:w-80"> Total # of Reactive Results</p>
         <input
-          className="border-black p-4"
+          className="border-black w-20"
           type="number"
           onWheelCapture={(e) => e.target.blur()}
           defaultValue={0}
@@ -59,10 +59,10 @@ const PostEventReportSection25 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5">
-        <p className="w-40"> Total # Linked to Care</p>
+      <label className="grid gap-2 items-center">
+        <p className="md:w-80"> Total # Linked to Care</p>
         <input
-          className="border-black  p-4"
+          className="border-black w-20 "
           type="number"
           onWheelCapture={(e) => e.target.blur()}
           defaultValue={0}
@@ -77,10 +77,10 @@ const PostEventReportSection25 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5">
-        <p className="w-40"> Which services were they referred to? </p>
+      <label className="grid md:flex gap-5 items-center">
+        <p className="md:w-80"> Which services were they referred to? </p>
         <input
-          className="border-black  p-4"
+          className="border-black w-96"
           type="text"
           /* placeholder="type a number" */
           name="hepCServicesReferredTo"

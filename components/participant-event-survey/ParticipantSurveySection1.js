@@ -11,7 +11,7 @@ export const ParticipantSurveySection1 = ({ surveyForm, setSurveyForm }) => {
         What zip code do you live in or spend most of your time in?
       </h1>
       <div className="flex items-center gap-x-5 mt-7">
-        <h3>Zip Code</h3>
+        <h3>zip code</h3>
         <label>
           <input
             type="number"

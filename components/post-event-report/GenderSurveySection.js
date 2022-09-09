@@ -45,7 +45,7 @@ const GenderSurveySection = ({
         Gender: How many people identified as the following for{" "}
         {typeOfTestForTitles(typeOfTest)} Testing?
       </h1>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Female</h3>
         <input
           type="number"
@@ -58,7 +58,7 @@ const GenderSurveySection = ({
           className="border-black p-4 rounded w-20 "
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Male</h3>
         <input
           type="number"
@@ -71,7 +71,7 @@ const GenderSurveySection = ({
           className="border-black p-4  rounded w-20"
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Transgender female</h3>
         <input
           type="number"
@@ -84,7 +84,7 @@ const GenderSurveySection = ({
           className="border-black p-4  rounded w-20"
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Transgender male</h3>
         <input
           type="number"
@@ -97,7 +97,7 @@ const GenderSurveySection = ({
           className="border-black p-4  rounded w-20"
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Gender non-conforming</h3>
         <input
           type="number"
@@ -110,7 +110,7 @@ const GenderSurveySection = ({
           className="border-black p-4  rounded w-20"
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Non-binary</h3>
         <input
           type="number"
@@ -123,7 +123,7 @@ const GenderSurveySection = ({
           className="border-black p-4  rounded w-20"
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Other gender identity</h3>
         <input
           type="number"
@@ -136,7 +136,7 @@ const GenderSurveySection = ({
           className="border-black p-4  rounded w-20"
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="">Decline to answer</h3>
         <input
           type="number"

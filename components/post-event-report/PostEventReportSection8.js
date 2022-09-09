@@ -19,7 +19,7 @@ const handleForm = (e) => {
       <div className="mt-7 grid grid-cols-1 text-lg gap-7">
         {resourcesDistributed &&
           resourcesDistributed.map((resource, index) => (
-            <div className='grid grid-cols-1 gap-5'>{resource.name}
+            <div className='grid grid-cols-1 gap-2'>{resource.name}
             <label className="" key={index}>
               {/* <img src={resource.source} alt={`${resource.name} icon`} className="w-8 h-8 md:w-12 md:h-12"/> */}
               <input

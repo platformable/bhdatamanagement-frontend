@@ -5,7 +5,7 @@ const Section6 = ({eventForm, setEventForm}) => {
     setEventForm(previous => ({...previous, eventFinishTime: e.target.value}))
   }
   return (
-    <div className="">
+    <label className="">
       <h1 className="mb-7 font-black">
        What time will the event finish?
       </h1>
@@ -15,7 +15,7 @@ const Section6 = ({eventForm, setEventForm}) => {
       onChange={handleForm}
       defaultValue={eventForm.eventFinishTime}
       />
-    </div>
+    </label>
   );
 };
 

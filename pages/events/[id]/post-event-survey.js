@@ -77,9 +77,9 @@ const PostEventReport = ({
         workAreaOther : '',
         mainRole : '',
         mainRoleOther: '',
-        nysActivity : '',
-        nysActivityOther : '',
-        nysPrograms : [],
+        // nysActivity : '',
+        // nysActivityOther : '',
+        // nysPrograms : [],
         zipCode : 0,
         locationAddress : '',
         locationName : '',
@@ -92,12 +92,12 @@ const PostEventReport = ({
         prepLiterature : 0,
         saferSexKits : 0,
         healthDisparitiesLiterature : 0,
-        bagsBoxesFood : 0,
-        posters : 0,
-        otherEventLeaflets : 0,
-        preparedMeals : 0,
+        // bagsBoxesFood : 0,
+        // posters : 0,
+        // otherEventLeaflets : 0,
+        // preparedMeals : 0,
         handSanitizers : 0,
-        covidVaccineSiteReferralDetails : 0,
+        // covidVaccineSiteReferralDetails : 0,
         staffPresent : 0,
         internPresent : 0,
         adultVolunteers : 0,
@@ -621,19 +621,19 @@ console.log("eventForm",eventForm)
             </section>
 
             <div className="rounded-tl-md rounded-tr-md">
-            <h3 className="px-7 mt-10 font-black">Event details</h3>
+            {/* <h3 className="px-7 mt-10 font-black">Event details</h3> */}
             
             <PostEventReportSection1 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection2 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection3 eventForm={eventForm} setEventForm={setEventForm} />
-            <PostEventReportSection4 eventForm={eventForm} setEventForm={setEventForm}/>
+            {/* <PostEventReportSection3 eventForm={eventForm} setEventForm={setEventForm} /> */}
+            {/* <PostEventReportSection4 eventForm={eventForm} setEventForm={setEventForm}/> */}
             <PostEventReportSection5 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection6 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm}/>
             </div>
             <div className="mt-10 rounded-tl-md rounded-tr-md">
-            <h3 className="px-7 font-black">Event organization and promotion</h3>
+            {/* <h3 className="px-7 font-black">Event organization and promotion</h3> */}
             <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection11 eventForm={eventForm} setEventForm={setEventForm}/>

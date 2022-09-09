@@ -9,10 +9,10 @@ const PostEventReportSection23 = ({ setEventForm }) => {
   return (
     <div className="px-7 grid grid-cols-1 gap-7 mt-10">
       <h1 className="font-black">HIV Testing</h1>
-      <label className="flex gap-5">
-        <p className="w-80"> HIV Testing Agency</p>
+      <label className="grid md:flex gap-5">
+        <p className="md:w-80"> HIV Testing Agency</p>
         <input
-          className="border-black  p-4 rounded"
+          className="border-black rounded w-96"
           type="text"
           placeholder=""
           name="hivTestingAgency"
@@ -24,10 +24,10 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5">
-        <p className="w-80"> Total tested for HIV</p>
+      <label className="grid gap-2">
+        <p className="md:w-80"> Total tested for HIV</p>
         <input
-          className="border-black  p-4 w-20 rounded"
+          className="border-black  w-20 rounded"
           type="number"
           onWheelCapture={(e) => e.target.blur()}
           onKeyUp={handleMaxNumber}
@@ -41,10 +41,10 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5">
-        <p className="w-80"> Total # of Reactive Results</p>
+      <label className="grid gap-2">
+        <p className="md:w-80"> Total # of Reactive Results</p>
         <input
-          className="border-black  p-4 w-20 rounded"
+          className="border-black  w-20 rounded"
           type="number"
           onWheelCapture={(e) => e.target.blur()}
           onKeyUp={handleMaxNumber}
@@ -58,10 +58,10 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5">
-        <p className="w-80"> Total # of PrEP Referrals</p>
+      <label className="grid gap-2">
+        <p className="md:w-80"> Total # of PrEP Referrals</p>
         <input
-          className="border-black  p-4 w-20 rounded"
+          className="border-black  w-20 rounded"
           type="number"
           onWheelCapture={(e) => e.target.blur()}
           onKeyUp={handleMaxNumber}
@@ -75,10 +75,10 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5">
-        <p className="w-80"> Total # Linked to Care</p>
+      <label className="grid gap-2">
+        <p className="md:w-80"> Total # Linked to Care</p>
         <input
-          className="border-black  p-4 w-20 rounded"
+          className="border-black  w-20 rounded"
           type="number"
           onWheelCapture={(e) => e.target.blur()}
           onKeyUp={handleMaxNumber}
@@ -92,10 +92,10 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <label className="flex gap-5">
-        <p className="w-80"> Which services were they referred to? </p>
+      <label className="grid md:flex gap-5">
+        <p className="md:w-80"> Which services were they referred to? </p>
         <input
-          className="border-black  p-4  rounded "
+          className="border-black rounded w-96 "
           type="text"
           /* placeholder="Please specify" */
           name="hivServicesReferredTo"

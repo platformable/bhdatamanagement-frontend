@@ -9,13 +9,13 @@ const PostEventReportSection6 = ({eventForm,setEventForm}) => {
     </h1>
     <input type="text" 
     name="locationAddress" 
-    className='border-black rounded mt-7 p-4 text-lg w-full'
+    className='border-black rounded mt-5 p-2 text-lg w-134'
     onChange={(e)=>{
       setEventForm((previous) => ({
       ...previous,
       [e.target.name]: e.target.value,
     }))}}
-    placeholder='' 
+    placeholder='Please type address' 
 
 />
   </div>

@@ -40,12 +40,12 @@ const SexualOrientationSurveySection = ({
   };
   return (
     <div className="grid grid-cols-1 gap-7">
-      <h2 className="font-black">
+      <h1 className="font-black">
         Sexual orientation: How many people doing{" "}
         {typeOfTestForTitles(typeOfTest)} testing identified with the following
         sexual orientation?
-      </h2>
-      <label className="flex flex-col gap-5">
+      </h1>
+      <label className="flex flex-col gap-2">
         <h3 className="w-60 gap-x-5 text-lg">Gay or lesbian</h3>
         <input
           type="number"
@@ -58,7 +58,7 @@ const SexualOrientationSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-60 gap-x-5">Straight or heterosexual</h3>
         <input
           type="number"
@@ -71,7 +71,7 @@ const SexualOrientationSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-60 gap-x-5">Bisexual</h3>
         <input
           type="number"
@@ -84,7 +84,7 @@ const SexualOrientationSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-60 gap-x-5">Queer</h3>
         <input
           type="number"
@@ -97,7 +97,7 @@ const SexualOrientationSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-60 gap-x-5">Questioning or not sure</h3>
         <input
           type="number"
@@ -110,7 +110,7 @@ const SexualOrientationSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-60 gap-x-5">Unknown</h3>
         <input
           type="number"
@@ -123,7 +123,7 @@ const SexualOrientationSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-60 gap-x-5">Decline to answer</h3>
         <input
           type="number"

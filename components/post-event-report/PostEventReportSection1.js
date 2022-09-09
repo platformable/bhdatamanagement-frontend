@@ -11,7 +11,7 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
   return (
     <div className="px-7 mt-10">
       <h1 className="font-black">
-      Where do you work?
+      What is the city location of the event?
       </h1>
       <div className="mt-7 grid grid-cols-1  gap-5">
         {workArea.map((area, index) => {

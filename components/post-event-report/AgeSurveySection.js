@@ -56,7 +56,7 @@ const AgeSurveySection = ({
         Age: How many people were in each of the following age groups for{" "}
         {typeOfTestForTitles(typeOfTest)} Testing?
       </h1>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">Under 15</h3>
         <input
           type="number"
@@ -69,7 +69,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">16-19</h3>
         <input
           type="number"
@@ -82,7 +82,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">20-24</h3>
         <input
           type="number"
@@ -95,7 +95,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">25-29</h3>
         <input
           type="number"
@@ -108,7 +108,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">30-34</h3>
         <input
           type="number"
@@ -121,7 +121,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">35-39</h3>
         <input
           type="number"
@@ -134,7 +134,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">40-44</h3>
         <input
           type="number"
@@ -147,7 +147,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">45-49</h3>
         <input
           type="number"
@@ -160,7 +160,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">50-54</h3>
         <input
           type="number"
@@ -173,7 +173,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">55-59</h3>
         <input
           type="number"
@@ -186,7 +186,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">60-64</h3>
         <input
           type="number"
@@ -199,7 +199,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">65-69</h3>
         <input
           type="number"
@@ -212,7 +212,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">70+</h3>
         <input
           type="number"
@@ -225,7 +225,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-5">
+      <label className="flex flex-col gap-2">
         <h3 className="w-80">Declined to answer</h3>
         <input
           type="number"
