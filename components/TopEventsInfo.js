@@ -6,7 +6,7 @@ const TopEventsInfo = ({event}) => {
         <section>
         <div
           id="event"
-          className="container mx-auto rounded  md:h-36 border-dark-violet"
+          className="container mx-auto rounded   border-dark-violet"
         >
           <div className="grid grid-cols-3 bg-black font-bold text-white h-12 px-7 items-center rounded-tl-lg rounded-tr-lg">
             <h2 className="">Event name</h2>

@@ -9,6 +9,10 @@ import Search from "../../components/SearchEvents";
 
 const EventsIndex = ({ events }) => {
   const [searchWord, setSearchWord] = useState("");
+  const { user, error, isLoading } = useUser();
+
+  const loggedUserRole =
+    user && user["https://lanuevatest.herokuapp.com/roles"];
 
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -115,6 +119,7 @@ const EventsIndex = ({ events }) => {
                   urlParticipantSurvey={`/events/${event.id}/participant-survey`}
                   urlUpload={`events/${event.id}/upload-event`}
                   urlPostEventSurvey={`events/${event.id}/post-event-survey`}
+                  userRole={loggedUserRole}
                 />
               );
             })}

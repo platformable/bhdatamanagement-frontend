@@ -8,10 +8,7 @@ const ResponseStatusModal = ({responseStatus, setShowResponseStatus}) => {
             >
                 <img src="/close-window-icon.svg" alt="close-window" title="close-window" className="rounded-tr"  width="20" /> 
             </button>
-            {responseStatus.success === true ?
-            <img src="/events/event_saved_icon.svg" alt="success request icon" /> :
-            <img src="/events/please_complete_popup_icon.svg" alt="failed request icon" />
-             }   
+       
             <p className="font-black text-white ">{responseStatus.statusMessage}</p>
                 
             </div>

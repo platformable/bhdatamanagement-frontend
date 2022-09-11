@@ -157,9 +157,9 @@ export const Upload_event = ({ event }) => {
 
       <section className="px-5 md:px-0">
         <div className="container mx-auto mb-5 mt-7">
-          <h3 className="font-black">
+          <h1 className="font-black">
             Upload your documents to the following events folders
-          </h3>
+          </h1>
         </div>
 
         <div className="container mx-auto">
@@ -180,12 +180,14 @@ export const Upload_event = ({ event }) => {
                 onChange={(event) => onHandleFile(event)}
                 accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx" 
                 />
+                <div className="flex justify-center">
                 <label
                   for="upload"
-                  className="text-black bg-white px-5 py-2 rounded-md cursor-pointer"
+                  className="text-black bg-white px-5 py-2 rounded-md cursor-pointer w-40"
                 >
                   Choose file
                 </label>
+                </div>
               </div>
               <div className="flex items-center justify-center">
               <button
@@ -242,12 +244,14 @@ export const Upload_event = ({ event }) => {
                 onChange={(event) => onHandleImageFile(event)}
                 accept=".jpeg,.jpg,.png"
                 />
+                <div className="flex justify-center">
                 <label
                   for="imgUpload"
-                  className="text-black bg-white px-5 py-2 rounded-md cursor-pointer"
+                  className="text-black bg-white px-5 py-2 rounded-md cursor-pointer w-40"
                 >
                   Choose file
                 </label>
+                </div>
               </div>
               <div className="flex items-center justify-center">
               <button

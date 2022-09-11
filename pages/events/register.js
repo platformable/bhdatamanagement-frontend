@@ -48,13 +48,13 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
     setEventForm({...eventForm, userID: userId})
   }, [userId])
   
-  console.log("eventForm",eventForm)
+ 
   
   const submitEventForm = async () => {
  
-    const isEmpty = Object.values(eventForm).some(value => !value)
+   /*  const isEmpty = Object.values(eventForm).some(value => !value) */
     
-    if (!isEmpty) {
+/*     if (!isEmpty) { */
         axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
             if (response.data.statusText==='OK') {
@@ -70,10 +70,10 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
             setShowResponseStatus(!showResponseStatus)
             console.error("error: ", error)
     });
-    } else {
+   /*  } else {
       setResponseStatus({ success: false, statusMessage: "Please complete all the fields"})
       setShowResponseStatus(!showResponseStatus)
-    }
+    } */
   }
   
 

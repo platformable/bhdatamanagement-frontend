@@ -73,7 +73,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             {/* <img src="/events/cardiovascular_disease_icon.svg" alt=""/> */}
             <p className="">Cardiovascular disease</p>    
         </label>
-        <label className="flex items-center">
+        <label className="flex items-center gap-x-5">
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"

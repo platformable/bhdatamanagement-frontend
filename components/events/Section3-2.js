@@ -40,7 +40,8 @@ const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
 
     return (
         <div className=''>
-            <h1 className='mb-7 font-black'>Which NYS Activity is being conducted (according to your framework plan)?</h1>
+            <h1 className='mb-1 font-black'>Which NYS Activity is being conducted?</h1>
+            <p className="mb-7">According to your framework plan</p>
             <div className='grid grid-cols-1 gap-5'>
             {fields && fields.map(activity => (
                 activity.value !== "Other" ? 

@@ -149,6 +149,24 @@ if(userid!=="All"){
                     </div>
                   </Link>
                 )}
+                 <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+            <Link href="/events">
+              <button id="myBtn">
+                <div className="">
+                  <div className="flex justify-center ">
+                    {/* <img
+                      src="/events/register_an_event_icon.svg"
+                      alt=""
+                      width={85}
+                    /> */}
+                  </div>
+                  <p className=" font-bold text-white uppercase">
+                    Manage <br /> existing events
+                  </p>
+                </div>{" "}
+              </button>
+            </Link>
+          </div>
                 <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
             <Link href="/events/reports/">
               <button id="myBtn">
@@ -167,7 +185,7 @@ if(userid!=="All"){
               </button>
             </Link>
           </div>
-          <div></div>
+
             <div></div>
             <div></div>
 
