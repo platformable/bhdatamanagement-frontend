@@ -1,7 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
 
-export default function EventsCardItems({userRole,eventdate,eventName,urlEdit,urlParticipantSurvey,urlUpload,urlPostEventSurvey}) {
+export default function EventsCardItems({id,selectedEventToDelete,setSelectedEventToDelete,setShowDeleteEventModal,showDeleteEventModal,userRole,eventdate,eventName,urlEdit,urlParticipantSurvey,urlUpload,urlPostEventSurvey}) {
+  
+  const handleDeleteEvent=(id,eventName)=>{
+    console.log(id)
+    setSelectedEventToDelete({id:id,eventname:eventName})
+    setShowDeleteEventModal(!showDeleteEventModal)
+  }
+  
+  
   return (
     <div className="events-card-item shadow-lg rounded-lg border-black p-5">
         {/* <div className="event-card-item-top flex justify-between my-2">
@@ -12,7 +20,7 @@ export default function EventsCardItems({userRole,eventdate,eventName,urlEdit,ur
             <h3 className="font-black pr-2">Event date</h3>
           </div>
         </div> */}
-        <div className="event-card-item-program-date      rounded-lg py-1">
+        <div className="event-card-item-program-date   h-20   rounded-lg py-1">
 
             <h3 className=" font-black">{eventName}</h3>
        
@@ -45,7 +53,7 @@ export default function EventsCardItems({userRole,eventdate,eventName,urlEdit,ur
           </Link>
         </div>
         {userRole==='Supervisor' &&  <div className="flex justify-center">
-        <button className="bg-black py-2 px-5 rounded-lg text-white">Delete event</button>
+        <button className="bg-black py-2 px-5 rounded-lg text-white" onClick={()=>handleDeleteEvent(id,eventName)}>Delete event</button>
         </div>}
        
       </div>

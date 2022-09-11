@@ -6,10 +6,14 @@ import PageTopHeading from "../../components/PageTopHeading";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import EventsCardItems from "../../components/events/EventsCardItems";
 import Search from "../../components/SearchEvents";
+import DeleteEventModal from "../../components/events/DeleteEventModal";
 
 const EventsIndex = ({ events }) => {
   const [searchWord, setSearchWord] = useState("");
   const { user, error, isLoading } = useUser();
+  const [selectedEventToDelete,setSelectedEventToDelete]=useState("")
+
+  const [showDeleteEventModal,setShowDeleteEventModal]=useState(false)
 
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
@@ -26,6 +30,8 @@ const EventsIndex = ({ events }) => {
     setSearchWord(word);
   };
   const ref = useRef();
+
+  console.log("selectedEventToDelete",selectedEventToDelete)
 
 
 
@@ -61,7 +67,7 @@ const EventsIndex = ({ events }) => {
             onChange={(e)=>setDateFilter({...dateFilter,startDate:e.target.value})}
            /*  onFocus={(e) => (e.target.type = "date")}
             onBlur={(e) => (e.target.type = "text")} */
-            className="border-black rounded-md p-3  text-sm"
+            className="border-black rounded-md p-3  text-sm w-44"
             />
           </div>
           <h3 className="text-center">and</h3>
@@ -71,7 +77,7 @@ const EventsIndex = ({ events }) => {
             onChange={(e)=>setDateFilter({...dateFilter,endDate:e.target.value})}
            /*  onFocus={(e) => (e.target.type = "date")}
             onBlur={(e) => (e.target.type = "text")} */
-            className="border-black rounded-md p-3  text-sm"
+            className="border-black rounded-md p-3  text-sm w-44"
             />
           </div>
         </div>
@@ -112,6 +118,7 @@ const EventsIndex = ({ events }) => {
               return (
                 <EventsCardItems
                 key={index}
+                id={event.id}
                   programName={event.programname}
                   eventdate={event.eventdate}
                   eventName={event.eventname}
@@ -120,6 +127,10 @@ const EventsIndex = ({ events }) => {
                   urlUpload={`events/${event.id}/upload-event`}
                   urlPostEventSurvey={`events/${event.id}/post-event-survey`}
                   userRole={loggedUserRole}
+                  setShowDeleteEventModal={setShowDeleteEventModal}
+                  showDeleteEventModal={showDeleteEventModal}
+                  setSelectedEventToDelete={setSelectedEventToDelete}
+                  selectedEventToDelete={selectedEventToDelete}
                 />
               );
             })}
@@ -206,6 +217,11 @@ const EventsIndex = ({ events }) => {
             </section>
           ))}
         </div>  */}
+        {showDeleteEventModal && <DeleteEventModal 
+        setShowDeleteEventModal={setShowDeleteEventModal} 
+        showDeleteEventModal={showDeleteEventModal}
+        selectedEventToDelete={selectedEventToDelete}
+        />}
       </div>
     </Layout>
   );
