@@ -11,7 +11,7 @@ export default function EventsCardItems({id,selectedEventToDelete,setSelectedEve
   
   
   return (
-    <div className="events-card-item shadow-lg rounded-lg border-black p-5">
+    <div className="events-card-item  rounded-lg border-black p-5">
         {/* <div className="event-card-item-top flex justify-between my-2">
           <div>
             <h3 className="font-black pl-2">Event name</h3>
@@ -32,22 +32,22 @@ export default function EventsCardItems({id,selectedEventToDelete,setSelectedEve
       
         <div className="events-card-item-btn-container grid md:grid-cols-2 grid-cols-2 gap-5 my-3 ">
             <Link href={urlEdit}>
-        <div className="events-card-item-btn bg-white text-black border-black p-5 flex justify-center items-center rounded-lg cursor-pointer shadow-xl hover:bg-black hover:text-white">
+        <div className="events-card-item-btn bg-white text-black border-black-md p-5 flex justify-center items-center rounded-lg cursor-pointer shadow-xl hover:bg-black hover:text-white">
               <p className="text-center">Edit</p>
           </div>
           </Link>
           <Link href={urlParticipantSurvey}> 
-          <div className="events-card-item-btn bg-white text-black border-black p-5 flex justify-center items-center rounded-lg cursor-pointer shadow-xl hover:bg-black hover:text-white">
+          <div className="events-card-item-btn bg-white text-black border-black-md p-5 flex justify-center items-center rounded-lg cursor-pointer shadow-xl hover:bg-black hover:text-white">
               <p className="text-center"> Participant survey</p>
           </div>
           </Link>
           <Link href={urlUpload}> 
-          <div className="events-card-item-btn bg-white text-black border-black p-5 flex justify-center items-center rounded-lg cursor-pointer shadow-xl hover:bg-black hover:text-white">
+          <div className="events-card-item-btn bg-white text-black border-black-md p-5 flex justify-center items-center rounded-lg cursor-pointer shadow-xl hover:bg-black hover:text-white">
               <p className="text-center">Upload docs, photos, etc</p>
           </div>
           </Link>
           <Link href={urlPostEventSurvey}> 
-          <div className="events-card-item-btn bg-white text-black border-black p-5 flex justify-center items-center rounded-lg cursor-pointer shadow-xl hover:bg-black hover:text-white">
+          <div className="events-card-item-btn bg-white text-black border-black-md p-5 flex justify-center items-center rounded-lg  cursor-pointer shadow-xl hover:bg-black hover:text-white">
               <p className="text-center">Complete post event survey</p>
           </div>
           </Link>

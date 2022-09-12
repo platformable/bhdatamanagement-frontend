@@ -144,6 +144,8 @@ export const Upload_event = ({ event }) => {
   //   imageFile ? onSubmitImageFile() : "";
   // }, [file, imageFile]);
 
+  console.log("imageFile",imageFile)
+
   return (
     <Layout showStatusHeader={true}>
       <ToastContainer autoClose={1500} />
@@ -163,16 +165,16 @@ export const Upload_event = ({ event }) => {
         </div>
 
         <div className="container mx-auto">
-          <div className="text-center mb-2 rounded-xl grid md:grid-cols-2 grid-cols-1 md:gap-y-0 gap-y-5">
+          <div className="text-center mb-2 rounded-xl flex flex-wrap md:no-wrap justify-between  md:gap-y-0 gap-y-5">
             <div
-              className="border-black w-134 shadow-lg rounded grid"
+              className="border-black w-134 shadow-lg rounded grid mb-5"
               style={{ gridTemplateColumns: "2fr 1fr" }}
             >
               <div className="bg-black pb-10 pt-5">
                 
                {loadingFile && <div className="flex justify-center"><Loader/></div>}
                 <h2 className="my-5 font-bold text-white uppercase">
-                  Upload documents 
+                  Upload <br /> documents 
                 </h2>
                 <input type="file" id="upload" 
                 hidden
@@ -183,13 +185,16 @@ export const Upload_event = ({ event }) => {
                 <div className="flex justify-center">
                 <label
                   for="upload"
-                  className="text-black bg-white px-5 py-2 rounded-md cursor-pointer w-40"
+                  className="text-black bg-white px-5 py-2 rounded-md cursor-pointer "
                 >
                   Choose file
                 </label>
                 </div>
+                <br />
+              {file && <span className="text-white text-xs mt-5">{file.name}</span>}
               </div>
-              <div className="flex items-center justify-center">
+              
+              <div className="flex items-center justify-center md:px-0 px-5">
               <button
                 type="submit"
                 onClick={onSubmitFile}
@@ -234,7 +239,7 @@ export const Upload_event = ({ event }) => {
               <div className="bg-black pb-10 pt-5">
               {loadingImgFile && <div className="flex justify-center"><Loader/></div>}
                 <h2 className="my-5 font-bold text-white uppercase">
-                  Upload photos
+                  Upload <br /> photos
                 </h2>
                 <input
                 id="imgUpload" 
@@ -247,13 +252,16 @@ export const Upload_event = ({ event }) => {
                 <div className="flex justify-center">
                 <label
                   for="imgUpload"
-                  className="text-black bg-white px-5 py-2 rounded-md cursor-pointer w-40"
+                  className="text-black bg-white px-5 py-2 rounded-md cursor-pointer 0"
                 >
                   Choose file
                 </label>
+                
                 </div>
+                <br />
+                {imageFile && <span className="text-white text-xs mt-5">{imageFile.name}</span>}
               </div>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center md:px-0 px-5">
               <button
                 type="submit"
                 onClick={onSubmitImageFile}
