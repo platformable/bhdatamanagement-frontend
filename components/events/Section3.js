@@ -4,7 +4,7 @@ const Section3 = ({eventForm, setEventForm, eventTypes,event}) => {
 
 
 
-    const [fields, setFields] = useState([])
+    const [fields, setFields] = useState()
 
 
 

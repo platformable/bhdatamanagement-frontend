@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 const Section7 = ({eventForm, setEventForm, locationTypes,event}) => {
    
-    const [fields, setFields] = useState([]);
+    const [fields, setFields] = useState(locationTypes);
 
     useEffect(() => {
         /* if (eventForm.programName) {
