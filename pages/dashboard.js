@@ -12,9 +12,11 @@ import Layout from "../components/Layout";
 import Router from "next/router";
 import Loader from "../components/Loader";
 
-export default function Dashboard() {
+export default function Dashboard({selectedProgram}) {
   const { user, error, isLoading } = useUser();
   const [loading, setLoading] = useState(true);
+
+  console.log("selectedPgroam",selectedProgram)
 
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
@@ -66,7 +68,7 @@ export default function Dashboard() {
 
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
               <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
-            <Link href="/events/register">
+            <Link href={`/events/${selectedProgram.toLowerCase()}/register`}>
             <div className=" ">
               <button id="myBtn" className="flex items-center">
                 
@@ -151,4 +153,13 @@ export default function Dashboard() {
 
 /* export const getServerSideProps = withPageAuthRequired(); */
 
-export const getServerSideProps = withPageAuthRequired();
+export const getServerSideProps = withPageAuthRequired({
+  async getServerSideProps(ctx) {
+   let {program}=ctx.query
+
+   
+    // access the user session
+    const session = getSession(ctx.req, ctx.res);
+    return { props: { selectedProgram: program } };
+  }
+});

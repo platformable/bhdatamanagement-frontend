@@ -53,7 +53,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             name="healthAreaOfFocusName"
             value="Breast cancer" 
             id="1" 
-            className=''
+            className='w-6 h-6'
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Breast cancer") ? "checked" : ""}
             />
@@ -66,7 +66,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             name="healthAreaOfFocusName"
             value="Cardiovascular disease" 
             id="2" 
-            className=''
+            className='w-6 h-6'
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Cardiovascular disease") ? "checked" : ""}
             />
@@ -79,7 +79,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             name="healthAreaOfFocusName"
             value="COVID-19" 
             id="3" 
-            className='mr-2 w-6 h-6'
+            className='w-6 h-6'
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("COVID-19") ? "checked" : ""}
             />
@@ -92,7 +92,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             name="healthAreaOfFocusName"
             value="Diabetes" 
             id="4" 
-            className='mr-2 w-6 h-6'
+            className='w-6 h-6'
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Diabetes") ? "checked" : ""}
             />
@@ -105,7 +105,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             name="healthAreaOfFocusName"
             value="Hepatitis C" 
             id="5" 
-            className='mr-2 w-6 h-6'
+            className='w-6 h-6'
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Hepatitis C") ? "checked" : ""}
             />
@@ -118,7 +118,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             name="healthAreaOfFocusName"
             value="HIV/AIDS" 
             id="6" 
-            className='mr-2 w-6 h-6'
+            className='w-6 h-6'
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("HIV/AIDS") || eventForm.programName==="NYS CMP" ? "checked" : ""}
             disable={eventForm.programName==="NYS CMP" ? 'disable' : ""}
@@ -132,7 +132,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             name="healthAreaOfFocusName"
             value="Mental health" 
             id="7" 
-            className='mr-2 w-6 h-6'
+            className='w-6 h-6'
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Mental health") ? "checked" : ""}
             />
@@ -145,7 +145,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             name="healthAreaOfFocusName"
             value="Obesity" 
             id="8" 
-            className='mr-2 w-6 h-6'
+            className='w-6 h-6'
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Obesity") ? "checked" : ""}
             />
@@ -158,7 +158,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             name="healthAreaOfFocusName"
             value="Prostate cancer" 
             id="9" 
-            className='mr-2 w-6 h-6'
+            className='w-6 h-6'
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Prostate cancer") ? "checked" : ""}
             />
@@ -171,7 +171,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             name="healthAreaOfFocusName"
             value="Sickle cell" 
             id="10" 
-            className='mr-2 w-6 h-6'
+            className='w-6 h-6'
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Sickle cell") ? "checked" : ""}
             />
@@ -184,7 +184,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             name="healthAreaOfFocusName"
             value="Maternal health" 
             id="11" 
-            className='mr-2 w-6 h-6'
+            className='w-6 h-6'
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("Maternal health") ? "checked" : ""}
             />
@@ -197,7 +197,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             name="healthAreaOfFocusName"
             id="12" 
             onChange={handleFormId} 
-            className='mr-2 w-6 h-6'
+            className='w-6 h-6'
             checked={eventForm.healthAreaOfFocusName.includes("Other") ? "checked" : ""}
               />
             <p className="mr-2">Other</p>

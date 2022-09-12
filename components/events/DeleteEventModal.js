@@ -10,17 +10,22 @@ const DeleteEventModal = ({id,eventname,setShowDeleteEventModal,showDeleteEventM
 
 
     const handleDeleteEvent = ()=>{
+        console.log("borrando event")
+        console.log(id)
 
-        axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL}/`,{ data: {id} })
+        axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/delete`,{ data: {id} })
         .then(response=>{
-          router.reload()
+            if(response.statusText==='OK'){
+                setShowDeleteEventModal(!showDeleteEventModal)
+                router.reload()
+            }
         })
         .catch(error=>console.log(error))
     };
 
     return (
         <div className='modal flex items-center '>
-            <div className='relative max-w-sm mx-auto bg-white p-10 rounded-md h-4/6'>
+            <div className='relative max-w-sm mx-auto bg-white p-10 rounded-md '>
             <button
             className="absolute  top-0 right-0"
             onClick={() => setShowDeleteEventModal(!showDeleteEventModal)}
@@ -38,7 +43,7 @@ const DeleteEventModal = ({id,eventname,setShowDeleteEventModal,showDeleteEventM
                      <p className='self-center text-center text-lg font-semibold '>Are you sure you want <br/>to delete: {selectedEventToDelete.eventname} event?</p>
                     <div className='w-full flex justify-between self-center'>
                         <button className='text-black font-semibold shadow-md bg-[#23D3AA] hover:text-white hover:bg-green-500 cursor-pointer rounded-md p-1 px-10 mx-1 my-5'
-                        onClick={()=> handleDeleteEvent()} >Yes</button>
+                        onClick={()=> handleDeleteEvent(id)} >Yes</button>
                         <button className='text-white font-semibold shadow-md bg-black hover:text-white hover:bg-blue-900 cursor-pointer rounded-md p-1 px-10 mx-1 my-5' 
                             onClick={() => setShowDeleteEventModal(!showDeleteEventModal)}>No
                         </button>

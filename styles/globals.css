@@ -337,6 +337,10 @@ input[type="number"] {
   border: 1px solid black;
 }
 
+.border-black-md {
+  border: 2px solid black;
+}
+
 .border-black-lg {
   border: 1px solid black;
   border-radius: 10px;

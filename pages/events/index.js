@@ -15,7 +15,7 @@ const EventsIndex = ({ events }) => {
 
   const [showDeleteEventModal,setShowDeleteEventModal]=useState(false)
 
-  const loggedUserRole =
+  const loggedUserRole = 
     user && user["https://lanuevatest.herokuapp.com/roles"];
 
   const [startDate, setStartDate] = useState("");
@@ -221,6 +221,7 @@ const EventsIndex = ({ events }) => {
         setShowDeleteEventModal={setShowDeleteEventModal} 
         showDeleteEventModal={showDeleteEventModal}
         selectedEventToDelete={selectedEventToDelete}
+        id={selectedEventToDelete.id}
         />}
       </div>
     </Layout>

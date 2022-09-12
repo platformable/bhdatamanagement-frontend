@@ -14,99 +14,19 @@ import DashboardClientCard from "../components/DashboardClientCard";
 import Layout from "../components/Layout";
 
 
-export default function SupervisorDashboard({  }) {
+export default function SupervisorDashboard({ selectedProgram }) {
   const { user, error, isLoading } = useUser();
   const [showModal, setShowModal] = useState(false);
 
   const userName = user && user['https://lanuevatest.herokuapp.com/name']
 
   const [showCreateClientModal, setShowCreateClientModal] = useState(false);
-  const loggedUserRole =
-    user && user["https://lanuevatest.herokuapp.com/roles"];
+  const loggedUserRole = 'Supervisor'
+    // user && user["https://lanuevatest.herokuapp.com/roles"];
   const userId = user?.sub;
   const [noDataMessage, setNoDataMessage] = useState(false);
 
-  /*   const [liveData,setLiveData]=useState(data) */
-
-  /* console.log("data",data) */
-
-  /* 
-  const getUserClients = ()=> {
-
-    if(loggedUserRole !=="Supervisor" && loggedUserRole !=="DES" ){
-
-      const allClients= liveData.filter(client=>client.clienthcwid===userId).sort((a, b) => a.clientfirstname.localeCompare(b.clientfirstname))
-      const userClients = allClients.map((client,index)=>{
-        console.log("loggedUserRole1",loggedUserRole)
-        return (<DashboardClientCard client={client} key={index} loggedUserRole={loggedUserRole}/>)
-      })
-      return userClients
-    } else {
-      console.log("loggedUserRole2",loggedUserRole)
-      const hasMsaForm=liveData.filter(client=>client.msa_form_id!==null).sort((a, b) => a.clientfirstname.localeCompare(b.clientfirstname))
-     const userClients= hasMsaForm.map((client,index)=>{
-     return  <DashboardClientCard client={client} key={index} loggedUserRole={loggedUserRole}/>
-      })
-      return userClients
-    }
-
-    
-   }
-   const searchByClientIdOrClientName = (text) => {
-    const result = data.filter(
-      (client, index) =>
-        client.clientfirstname.toLowerCase().includes(text.toLowerCase()) ||
-        client.clientid.toLowerCase().includes(text.toLowerCase())
-    );
-    setLiveData(result);
-
-    if (result.length <= 0) {
-      setNoDataMessage(true);
-    } else {
-      setNoDataMessage(false);
-    }
-  };
-
-  const searchByUserId =(userid)=>{
-    console.log(userid)
-    console.log("data antes",data)
-if(userid!=="All"){
-    setLiveData(data)
-    const result = data.filter((client, index) => client.clienthcwid.toLowerCase()===userid.toLowerCase());
-    setLiveData(result);
-    if (result.length <= 0) {
-      setNoDataMessage(true);
-    } else {
-      setNoDataMessage(false);
-    }
-} else {
-  setLiveData(data)
-  console.log("data despues",data)
-}
-
-
   
-  }
-
-
-  const notifyMessage = () => {
-    toast.success("A new client is being created!", {
-      position: toast.POSITION.TOP_CENTER,
-    });
-  };
-
-  const displayUserList = () => {
-   return hcworkers && hcworkers.map((user, index) => {
-
-      return (
-        <option className="text-black" value={user.user_id} key={index}>
-          {user.name} {user.lastname}
-        </option>
-      );
-    });
-  }; */
-
-
 
   return (
     <>
@@ -149,6 +69,24 @@ if(userid!=="All"){
                     </div>
                   </Link>
                 )}
+                 <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
+            <Link href={`/events/${selectedProgram.toLowerCase()}/register`}>
+            <div className=" ">
+              <button id="myBtn" className="flex items-center">
+                
+                 {/*  <img
+                    src="/events/register_an_event_icon.svg"
+                    alt=""
+                    width={85}
+                  /> */}
+               
+                <p className=" font-bold text-white uppercase">
+                  Register <br /> an Event
+                </p>
+              </button>
+              </div>
+            </Link>
+          </div>
                  <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
             <Link href="/events">
               <button id="myBtn">
@@ -220,4 +158,13 @@ if(userid!=="All"){
 
 /* export const getServerSideProps = withPageAuthRequired(); */
 
-export const getServerSideProps = withPageAuthRequired()
+export const getServerSideProps = withPageAuthRequired({
+  async getServerSideProps(ctx) {
+   let {program}=ctx.query
+
+   
+    // access the user session
+    const session = getSession(ctx.req, ctx.res);
+    return { props: { selectedProgram: program } };
+  }
+});

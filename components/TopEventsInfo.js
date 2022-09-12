@@ -3,18 +3,19 @@ import Link from 'next/link';
 
 const TopEventsInfo = ({event}) => {
     return (
-        <section>
+        <section className="md:px-0 px-5">
         <div
           id="event"
-          className="container mx-auto rounded   border-dark-violet"
+          className="container mx-auto rounded   border-black "
         >
-          <div className="grid grid-cols-3 bg-black font-bold text-white h-12 px-7 items-center rounded-tl-lg rounded-tr-lg">
-            <h2 className="">Event name</h2>
-            <h2 className="flex justify-end ">Event date</h2>
+          <div className="grid md:grid-cols-3 grid-cols-1 bg-black font-bold text-white  px-7 items-center rounded-sm rounded-tr-sm">
+          <h2 className="md:hidden block">Event</h2>
+            <h2 className="md:block hidden">Event name</h2>
+            <h2 className="md:block hidden flex md:justify-end justify-start">Event date</h2>
           </div>
-          <div className="grid grid-cols-3 py-6 px-7">
+          <div className="grid md:grid-cols-3 grid-cols-1 py-6 px-7">
             <h1 className="text-black">{event?.eventname}</h1>
-            <h1 className="flex justify-end">
+            <h1 className="flex md:justify-end justify-start">
               {new Date(event?.eventdate).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "numeric",
