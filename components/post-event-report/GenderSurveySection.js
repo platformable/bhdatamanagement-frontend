@@ -137,7 +137,7 @@ const GenderSurveySection = ({
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="">Declined to answer</h3>
+        <h3 className="">Decline to answer</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}

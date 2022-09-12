@@ -45,7 +45,7 @@ const PostEventReportSection2 = ({ eventForm, setEventForm }) => {
 
                 <input
                   type="text"
-                  placeholder="Please specify"
+                  // placeholder="Please specify"
                   onChange={(e) =>
                     setEventForm({
                       ...eventForm,

@@ -94,7 +94,7 @@ if(index===options.length-1){
      {option.value}
       </div>
      <input type="text" 
-          placeholder="Please specify" 
+          // placeholder="Please specify" 
           onChange={(e)=>setSurveyForm({...surveyForm,participantPRePResourceKnowledgeOther:e.target.value})}
           className="border-black rounded px-4 text-xl self-start p-1  w-134" />
     </label>

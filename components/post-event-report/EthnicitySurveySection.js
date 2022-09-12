@@ -137,7 +137,7 @@ const EthnicitySurveySection = ({
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 >Declined to answer</h3>
+        <h3 >Decline to answer</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}

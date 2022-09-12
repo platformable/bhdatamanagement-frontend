@@ -99,7 +99,7 @@ if(index===options.length-1){
       </div>
      
      <input type="text" 
-          placeholder="Please specify" 
+          // placeholder="Please specify" 
           onChange={(e)=>setSurveyForm({...eventForm,participantReferralOther:e.target.value})}
           className="border-black rounded px-4 self-start p-1 w-full text-xl w-134" />
     </label>

@@ -52,13 +52,13 @@ const EventsIndex = ({ events }) => {
         
         <Search searchFunction={searchFunction} />
 
-        <div className="flex items-center md:justify-end md:px-0 px-5 py-5 md:py-0 md:mr-10 mr-0">
+        <div className="flex items-center md:justify-end md:px-0 px-5 py-5 md:py-0  mr-0">
           {" "}
           <h3 className="flex">Filter by date</h3>
         </div>
 
-        <div className="grid items-center md:my-0 " style={{gridTemplateColumns:'2fr 1fr 2fr'}}>
-          <div className="">
+        <div className="flex flex-col gap-y-5 md:grid items-center md:my-0" style={{gridTemplateColumns:'2fr 0.8fr 2fr'}}>
+          <label className="w-full">
          
             <input type="date"
             ref={ref}
@@ -67,19 +67,19 @@ const EventsIndex = ({ events }) => {
             onChange={(e)=>setDateFilter({...dateFilter,startDate:e.target.value})}
            /*  onFocus={(e) => (e.target.type = "date")}
             onBlur={(e) => (e.target.type = "text")} */
-            className="border-black rounded-md p-3  text-sm w-44"
+            className="border-black rounded-md text-sm w-full"
             />
-          </div>
+          </label>
           <h3 className="text-center">and</h3>
-          <div className="flex justify-end">
+          <label className="flex justify-end w-full">
             <input type="date" 
             placeholder="end date"
             onChange={(e)=>setDateFilter({...dateFilter,endDate:e.target.value})}
            /*  onFocus={(e) => (e.target.type = "date")}
             onBlur={(e) => (e.target.type = "text")} */
-            className="border-black rounded-md p-3  text-sm w-44"
+            className="border-black rounded-md  text-sm w-full"
             />
-          </div>
+          </label>
         </div>
       </div>
 

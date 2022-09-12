@@ -10,7 +10,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
       </h2>
       <div className="mt-7 grid grid-cols-1 gap-y-7">
         <div className="flex flex-col items-start">
-          <h3 className="font-black">Sexual Health Concerns</h3>
+          <h3 className="font-black">Sexual health concerns</h3>
           <div className="">
           <label className="gap-x-5 flex text-lg items-center my-5">
               <input
@@ -97,7 +97,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
         </div>
 
         <div className="flex flex-col items-start">
-          <h3 className="font-black">Mental Health Concerns</h3>
+          <h3 className="font-black">Mental health concerns</h3>
 
 
           <div className="">
@@ -183,7 +183,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
           </div>
         </div>
         <div className="flex flex-col  items-start">
-          <h3 className="font-black">Diet/ Nutrition</h3>
+          <h3 className="font-black">Diet / Nutrition</h3>
           <div className="">
             
 
@@ -268,7 +268,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
           </div>
         </div>
         <div className="flex flex-col   items-start">
-          <h3 className="font-black"> Physical Activity/ Exercise</h3>
+          <h3 className="font-black"> Physical activity / Exercise</h3>
           <div className="">
           <label className="gap-x-5 flex text-lg items-center my-5">
           
@@ -352,7 +352,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
           
         </div>
         <div className="flex flex-col items-start">
-          <h3 className="font-black">Health Concerns (Chronic disease care)</h3>
+          <h3 className="font-black">Health concerns (Chronic disease care)</h3>
           <div className="">
             <label className="gap-x-5 flex text-lg items-center my-5">
               
@@ -602,7 +602,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
           </div>
         </div>
         <div className="flex flex-col items-start">
-          <h3 className="font-black">Substance Use Concerns</h3>
+          <h3 className="font-black">Substance use concerns</h3>
           <div className="">
           <label className="gap-x-5 flex text-lg items-center my-5">
               

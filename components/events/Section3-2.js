@@ -40,7 +40,7 @@ const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
 
     return (
         <div className=''>
-            <h1 className='mb-1 font-black'>Which NYS Activity is being conducted?</h1>
+            <h2 className='mb-1 font-black'>Which NYS Activity is being conducted?</h2>
             <p className="mb-7">According to your framework plan</p>
             <div className='grid grid-cols-1 gap-5'>
             {fields && fields.map(activity => (
@@ -58,19 +58,20 @@ const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
                     
                 </label>) :
                 
-                (<label className="flex items-center my-2 ">
+                (<label className="flex items-center  gap-x-5">
                     <input type="radio" 
                     name="nysActivity" 
-                    className='mr-2 w-6 h-6' 
+                    className='' 
                     id={activity.id}
                     onChange={handleForm}
                     value="Other"/>
-                    <p className="mr-2">Other</p>
+                    <p className="">Other</p>
                     <input type="text" 
                     name="nysActivity" 
                     onChange={handleForm}
                     className=' border rounded' 
-                    placeholder="Please specify here"/>
+                    // placeholder="Please specify here"
+                    />
                  </label>)
             ))}
              

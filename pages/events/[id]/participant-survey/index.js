@@ -57,22 +57,17 @@ const ParticipantSurvey = ({
         />
         <div className="container mx-auto md:px-0 px-5  items-center  rounded-lg shadow-lg">
 
-        <div className="participant-survey-head-table border rounded-t-lg py-3 px-5 bg-black text-white flex gap-x-5 ">
+        <div className="border rounded-t-lg py-3 px-7 bg-black text-white flex justify-between ">
                {/*  <p className="lg:text-lg flex items-center justify-center">Program</p> */}
-                <p className="lg:text-lg flex items-center ">Event name</p>
-                <p className="lg:text-lg flex items-center ">Event date</p>
+                <h2 className="flex items-center text-2xl">{event?.eventname}</h2>
+                <h2 className="flex items-center text-2xl">{new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</h2>
             </div>
           {/* TABLE HEAD END */}
-          <div className="participant-survey-head-table items-center gap-2 bg-white p-5">
+          <div className="flex items-center bg-white">
 
-            <div >
-              <p className=" text-lg">{event?.eventname}</p>
-            </div>
-            <div className="flex ">
-            <p className=" text-lg">  {new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</p>
-            </div>
-            <div className="grid md:grid-cols-4 grid-cols-1 mb-2 ">
-              <div className="text-center mr-5 rounded bg-black  border p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+            
+            <div className="grid md:grid-cols-6 grid-cols-1 gap-7 p-7">
+              <div className="text-center rounded bg-black  border p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
       
               <a id="myBtn" href={event.qrcode} download={event?.eventname}>
                 <div className="flex justify-center items-center">
@@ -88,7 +83,7 @@ const ParticipantSurvey = ({
               </a>
 
           </div>
-          <div className="text-center mr-5 rounded bg-black  border p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+          <div className="text-center rounded bg-black  border p-5 text-center shadow-xl   rounded-xl grid justify-center content-center">
   
               <button id="myBtn"
               onClick={()=>addToClipboard()}>
@@ -108,7 +103,7 @@ const ParticipantSurvey = ({
               {copyToClipboard && <span className="text-xs bg-green-300 p-1 rounded">Copied to clipboard</span>}
             
           </div>
-          <div className="text-center mr-5 rounded bg-black  border p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+          <div className="text-center rounded bg-black  border p-5 text-center shadow-xl   rounded-xl grid justify-center content-center">
 
           <ReactToPrint
                   trigger={() => <button id="myBtn">
@@ -134,7 +129,7 @@ const ParticipantSurvey = ({
               
  
           </div>
-          <div className="text-center mr-5 rounded bg-black  border p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+          <div className="text-center rounded bg-black  border p-5 text-center shadow-xl   rounded-xl grid justify-center content-center">
             
               <a id="myBtn" href={`/events/${event.id}/participant-survey/survey`} target="_blank" >
                 <div className="">

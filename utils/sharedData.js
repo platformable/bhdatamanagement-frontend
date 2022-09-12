@@ -5,7 +5,7 @@ export const shareData = {
     "Nassau/Suffolk",
     "Rochester",
     "Syracuse",
-    "Other (please specify)",
+    "Other",
   ],
   roles: [
     "Organizer",
@@ -13,8 +13,8 @@ export const shareData = {
     "Volunteer",
     "Support team member",
     "Community ambassador",
-    "Intern/apprentice",
-    "Other (please specify)",
+    "Intern / apprentice",
+    "Other",
   ],
   nysActivity: [
     "Block Association",
@@ -23,7 +23,7 @@ export const shareData = {
     "Conscientious Clinician",
     "Health Disparities Workshop",
     "Faith Without Walls",
-    "Other (please specify)",
+    "Other",
   ],
   nysPrograms: ["Leadership Training Institute", "HIV High Impact"],
   languages: [
@@ -131,7 +131,7 @@ export const roles = [
   {id:3,value:"Volunteer"},
   {id:4,value:"Support team member"},
   {id:5,value:"Community ambassador"},
-  {id:6,value:"Intern/apprentice"},
+  {id:6,value:"Intern / apprentice"},
   {id:7,value:"Other "},
 ];
 

@@ -9,7 +9,7 @@ export default function SearchEvents ({searchFunction}) {
                   <div className="flex border-1 border-black rounded-lg  rounded-lg">
                     <input
                       type="text"
-                      className="px-4 w-80 rounded-lg "
+                      className="px-4 md:w-80 rounded-lg "
                       placeholder=""
                       onChange={(e)=>searchFunction(e.target.value)}
                     />

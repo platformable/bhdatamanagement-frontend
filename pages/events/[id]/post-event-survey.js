@@ -632,7 +632,7 @@ console.log("eventForm",eventForm)
             <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm}/>
             </div>
-            <div className="mt-10 rounded-tl-md rounded-tr-md">
+            
             {/* <h3 className="px-7 font-black">Event organization and promotion</h3> */}
             <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm}/>
@@ -671,9 +671,6 @@ console.log("eventForm",eventForm)
 
             {eventForm.otherTesting && 
             <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm}/>}
-          </div>
-           
-
           </div>
           <div className="flex justify-center my-10">
           <button

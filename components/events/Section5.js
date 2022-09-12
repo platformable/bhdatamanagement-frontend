@@ -7,7 +7,7 @@ const Section5 = ({eventForm, setEventForm}) => {
       }
     return (
         <label className='mb-7 flex flex-col'>
-            <h1 className=' font-black mb-5'>What time will the event start?</h1> 
+            <h2 className=' font-black mb-5'>What time will the event start?</h2> 
             <input type="time" 
             name="eventStartTime" 
             className='border rounded p-2 text-lg w-40' 

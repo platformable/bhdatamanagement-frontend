@@ -10,10 +10,10 @@ const Section2 = ({eventForm, setEventForm,event}) => {
       }
     return (
         <div className=''>
-            <h1 className=' font-black'>What is the name of the event?</h1>
+            <h2 className=' font-black'>What is the name of the event?</h2>
             <p className="mb-7">Please only use letters and numbers in the name</p>
             <input type="text" 
-            className="w-134 p-2 border rounded text-lg" 
+            className="w-134 p-2 border-black rounded text-lg" 
             placeholder='' 
             onChange={handleForm}
             defaultValue={event?event.eventname:""}

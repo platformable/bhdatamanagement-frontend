@@ -89,9 +89,10 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
       <div className="container mx-auto border rounded-lg mb-10">
         <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
           <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} />
+         {eventForm.programName==='NYS CMP' && <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>} 
+
           <Section2 eventForm={eventForm} setEventForm={setEventForm} />
           <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/>
-         {eventForm.programName==='NYS CMP' && <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>} 
          
             <Section4 eventForm={eventForm} setEventForm={setEventForm} />
             <Section5 eventForm={eventForm} setEventForm={setEventForm} />
