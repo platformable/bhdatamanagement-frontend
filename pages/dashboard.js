@@ -160,6 +160,6 @@ export const getServerSideProps = withPageAuthRequired({
    
     // access the user session
     const session = getSession(ctx.req, ctx.res);
-    return { props: { selectedProgram: program } };
+    return { props: { selectedProgram: program ? program : "" } };
   }
 });

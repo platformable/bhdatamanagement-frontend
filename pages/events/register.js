@@ -48,7 +48,7 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
     setEventForm({...eventForm, userID: userId})
   }, [userId])
   
- 
+ console.log("register", eventForm)
   
   const submitEventForm = async () => {
  

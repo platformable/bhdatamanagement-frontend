@@ -10,7 +10,7 @@ const Section5 = ({eventForm, setEventForm}) => {
             <h2 className=' font-black mb-5'>What time will the event start?</h2> 
             <input type="time" 
             name="eventStartTime" 
-            className='border rounded p-2 text-lg w-40' 
+            className='border rounded p-2 text-lg w-48' 
             onChange={handleForm}
             defaultValue={eventForm.eventStartTime}
             />

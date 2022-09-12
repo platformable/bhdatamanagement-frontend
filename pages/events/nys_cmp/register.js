@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Section1 from "../../../components/events/Section1";
 import Section2 from "../../../components/events/Section2";
 import Section3 from "../../../components/events/Section3";
+import Section3_2 from "../../../components/events/Section3-2";
 import Section4 from "../../../components/events/Section4";
 import Section5 from "../../../components/events/Section5";
 import Section6 from "../../../components/events/Section6";
@@ -16,7 +17,6 @@ import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 import axios from "axios"
 import ResponseStatusModal from "../../../components/ResponseStatusModal";
-import Section3_2 from "../../../components/events/Section3-2";
 
 const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
   const router = useRouter()
@@ -26,8 +26,8 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
   const [eventForm, setEventForm] = useState({
     userID: "",
     eventDateCreated: new Date(),
-    programID: "",
-    programName: "nyscmp",
+    programID: "3",
+    programName: "NYS CMP",
     eventName: "",
     eventDate: "",
     eventStartTime: "",
@@ -35,8 +35,8 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
     eventLocationTypeID: "",
     eventLocationTypeName: "",
     // eventZipCode: "",
-    healthAreaOfFocusID: "",
-    healthAreaOfFocusName: [],
+    healthAreaOfFocusID: [6],
+    healthAreaOfFocusName: ["HIV/AIDS"],
     eventTypeID: "",
     eventTypeName: "",
     nysActivity:"",
@@ -46,10 +46,9 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
   
   useEffect(() => {
     setEventForm({...eventForm, userID: userId})
-    setEventForm({...eventForm, nysActivity: "NYS CMP"})
   }, [userId])
   
-  
+  console.log("nys state form",eventForm)
   const submitEventForm = async () => {
  
    /*  const isEmpty = Object.values(eventForm).some(value => !value) */

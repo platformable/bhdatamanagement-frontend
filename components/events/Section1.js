@@ -14,9 +14,7 @@ const Section1 = ({ eventForm, setEventForm, programs, event }) => {
     setEventForm((previous) => ({ ...previous, programID: e.target.id }));
   };
 
-  useEffect(() => {
-    console.log("eventForm", eventForm);
-  }, [eventForm.programName]);
+  
   return (
     <div className=" py-0 rounded">
       <h2 className="mb-7 font-black">Which program is your event for?</h2>

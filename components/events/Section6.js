@@ -11,7 +11,7 @@ const Section6 = ({eventForm, setEventForm}) => {
       </h2><br />
       <input type="time" 
       name="eventFinishTime" 
-      className='border rounded p-2 text-lg w-40' 
+      className='border rounded p-2 text-lg w-48' 
       onChange={handleForm}
       defaultValue={eventForm.eventFinishTime}
       />
