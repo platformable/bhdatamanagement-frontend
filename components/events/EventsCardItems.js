@@ -32,7 +32,7 @@ export default function EventsCardItems({id,selectedEventToDelete,setSelectedEve
       
         <div className="events-card-item-btn-container grid md:grid-cols-2 grid-cols-2 gap-5 my-3 ">
             <Link href={urlEdit}>
-        <div className="events-card-item-btn bg-white text-black border-black-md p-5 flex justify-center items-center rounded-lg cursor-pointer shadow-xl hover:bg-black hover:text-white">
+          <div className="events-card-item-btn bg-white text-black border-black-md p-5 flex justify-center items-center rounded-lg cursor-pointer shadow-xl hover:bg-black hover:text-white">
               <p className="text-center">Edit</p>
           </div>
           </Link>
