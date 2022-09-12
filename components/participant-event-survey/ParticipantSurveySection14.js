@@ -6,10 +6,10 @@ export const ParticipantSurveySection14 = ({surveyForm, setSurveyForm}) => {
   }
   return (
     <div className="px-7">
-      <h1 className="font-black">
+      <h2 className="font-black">
         {/* <span className="">14</span>  */}
         Please indicate what type of health insurance you have:
-      </h1>
+      </h2>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" id={1} value="Private" name="participantInsurance" onChange={handleForm}/>

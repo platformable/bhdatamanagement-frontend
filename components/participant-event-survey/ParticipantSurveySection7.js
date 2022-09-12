@@ -11,10 +11,10 @@ export const ParticipantSurveySection7 = ({ surveyForm, setSurveyForm }) => {
   };
   return (
     <div className="px-7">
-      <h1 className="font-black">
+      <h2 className="font-black">
         {/* <span className="">7</span>  */}
         What is your role?
-      </h1>
+      </h2>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
         {roles.map((option, index) => {
           if (index === roles.length - 1) {
@@ -35,7 +35,6 @@ export const ParticipantSurveySection7 = ({ surveyForm, setSurveyForm }) => {
                 <input
                   type="text"
                   name="participantRoleOther"
-                  placeholder="Please specify"
                   className="border-black p-4 w-72 rounded text-xl"
                   onChange={(e) => setSurveyForm({...surveyForm, [e.target.name]: e.target.value})}
                 />

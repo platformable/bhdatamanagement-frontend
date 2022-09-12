@@ -40,7 +40,7 @@ const Section3 = ({eventForm, setEventForm, eventTypes,event}) => {
 
     return (
         <div className=''>
-            <h1 className='mb-7 font-black'>What type of event is it?</h1>
+            <h2 className='mb-7 font-black'>What type of event is it?</h2>
             <div className='grid grid-cols-1 gap-5'>
             {fields && fields.map(eventType => (
                 eventType.name !== "Other" ? 
@@ -69,7 +69,8 @@ const Section3 = ({eventForm, setEventForm, eventTypes,event}) => {
                     name="eventTypeName" 
                     onChange={handleForm}
                     className='w-full p-2 border-dark-violet rounded' 
-                    placeholder="Please specify here"/>
+                    // placeholder="Please specify here"
+                    />
                  </label>)
             ))}
              

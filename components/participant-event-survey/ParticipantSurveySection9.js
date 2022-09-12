@@ -55,10 +55,10 @@ console.log("surveyForm",surveyForm)
 
   return (
     <div className="px-7">
-    <h1 className="font-black">
+    <h2 className="font-black">
       {/* <span className="">9</span>  */}
       Are you currently...? 
-    </h1>
+    </h2>
     <div className="mt-7 grid grid-cols-1 gap-5">
 
       {options?.map((option,index)=>{

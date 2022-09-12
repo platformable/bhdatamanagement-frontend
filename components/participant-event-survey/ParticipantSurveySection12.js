@@ -6,15 +6,14 @@ export const ParticipantSurveySection12 = ({surveyForm, setSurveyForm}) => {
   }
   return (
     <div className="px-7">
-      <h1 className="font-black mb-7">
+      <h2 className="font-black mb-7">
         Some people have made the following statements about their food
-        situation. Please answer whether the statements were OFTEN, SOMETIMES,
-        or NEVER true for you and your household in the last 12 months.
-      </h1>
-      <h1 className="font-black">
+        situation
+      </h2>
+      <h2 className="font-black">
         {/* <span className="">12</span>  */}
         Within the past 12 months, you worried that your food would run out before you got money to buy more.
-      </h1>
+      </h2>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
       <label className="flex gap-x-5 items-center">
           <input type="radio" className="" id={1} value="Often true" name="participantFoodInsecurity1" onChange={handleForm}/>

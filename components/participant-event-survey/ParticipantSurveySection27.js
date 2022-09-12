@@ -14,17 +14,14 @@ export const ParticipantSurveySection27 = ({surveyForm,setSurveyForm}) => {
       id:3,
       value:"Don’t know / Not sure"
     },
-    {
-      id:4,
-      value:"Refused"
-    }
+    
   ]
   return (
     <div className="px-7">
-    <h1 className="font-black">
+    <h2 className="font-black">
       {/* <span className="">27 </span>  */}
       Have you ever heard of U=U (Undetectable = Untransmittable)? 
-    </h1>
+    </h2>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {
           return (

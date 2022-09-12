@@ -5,7 +5,7 @@ export const shareData = {
     "Nassau/Suffolk",
     "Rochester",
     "Syracuse",
-    "Other (please specify)",
+    "Other",
   ],
   roles: [
     "Organizer",
@@ -13,8 +13,8 @@ export const shareData = {
     "Volunteer",
     "Support team member",
     "Community ambassador",
-    "Intern/apprentice",
-    "Other (please specify)",
+    "Intern / apprentice",
+    "Other",
   ],
   nysActivity: [
     "Block Association",
@@ -23,7 +23,7 @@ export const shareData = {
     "Conscientious Clinician",
     "Health Disparities Workshop",
     "Faith Without Walls",
-    "Other (please specify)",
+    "Other",
   ],
   nysPrograms: ["Leadership Training Institute", "HIV High Impact"],
   languages: [
@@ -76,7 +76,7 @@ export const shareData = {
     "Middle Eastern or North African",
     "Native Hawaiian or Other Pacific Islander",
     "White",
-    "Some other race or origin (please specify)",
+    "Some other race or origin",
     "Decline to answer",
   ],
   ethnicity: [
@@ -131,7 +131,7 @@ export const roles = [
   {id:3,value:"Volunteer"},
   {id:4,value:"Support team member"},
   {id:5,value:"Community ambassador"},
-  {id:6,value:"Intern/apprentice"},
+  {id:6,value:"Intern / apprentice"},
   {id:7,value:"Other "},
 ];
 
@@ -213,7 +213,7 @@ export const race = [
   {id:5,value:"Middle Eastern or North African"},
   {id:6,value:"Native Hawaiian or Other Pacific Islander"},
   {id:7,value:"White"},
-  {id:8,value:"Some other race or origin (please specify)"},
+  {id:8,value:"Some other race or origin"},
   {id:9,value:"Decline to answer"},
 ];
 

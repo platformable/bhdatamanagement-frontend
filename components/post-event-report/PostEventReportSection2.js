@@ -12,9 +12,9 @@ const PostEventReportSection2 = ({ eventForm, setEventForm }) => {
   };
   return (
     <div className="px-7 mt-10">
-      <h1 className="font-black">
+      <h2 className="font-black">
         What was your role at the event? 
-      </h1>
+      </h2>
       <h3>If you had more than one role, what
         was your MAIN role at this event?</h3>
       <div className="mt-7 grid grid-cols-1  gap-5">
@@ -45,7 +45,7 @@ const PostEventReportSection2 = ({ eventForm, setEventForm }) => {
 
                 <input
                   type="text"
-                  placeholder="Please specify"
+                  // placeholder="Please specify"
                   onChange={(e) =>
                     setEventForm({
                       ...eventForm,

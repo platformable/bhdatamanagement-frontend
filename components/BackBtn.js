@@ -8,14 +8,11 @@ const BackBtn = () => {
   return (
     <button
       onClick={() => router.back()}
-      className="bg-black text-white rounded px-2 cursor-pointer"
+      className="bg-black p-5 text-center text-white font-black rounded px-2 cursor-pointer text-lg"
     >
-       <p
-          className="p-5 flex bg-black gap-x-2 items-center font-black text-white rounded"
-          id=""
-        >
+       
           Back
-        </p>
+       
     </button>
   );
 };

@@ -43,9 +43,9 @@ const Section8 = ({event, eventForm, setEventForm}) => {
 
   return (
     <div className="rounded">
-      <h1 className="mb-7 font-black">
+      <h2 className="mb-7 font-black">
        What is the event's health area of focus?
-      </h1>
+      </h2>
       <div className="grid gap-5">
         <label className="flex items-center gap-5">
             <input 

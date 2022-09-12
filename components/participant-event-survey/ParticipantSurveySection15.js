@@ -7,10 +7,10 @@ export const ParticipantSurveySection15 = ({surveyForm, setSurveyForm}) => {
   
   return (
     <div className="px-7">
-    <h1 className="font-black">
+    <h2 className="font-black">
       {/* <span className="">15</span>  */}
       Would you say that in general your health is:
-    </h1>
+    </h2>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     <label className="flex gap-x-5 items-center">
           <input type="radio" className="" name="participantHealth" value="Excellent" onChange={handleForm}/>
@@ -34,7 +34,7 @@ export const ParticipantSurveySection15 = ({surveyForm, setSurveyForm}) => {
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" name="participantHealth" value="Don’t know/Not sure" onChange={handleForm}/>
-          <h3 className="">Don’t know/Not sure</h3>
+          <h3 className="">Don’t know / Not sure</h3>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" name="participantHealth" value="Decline to answer" onChange={handleForm}/>

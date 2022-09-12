@@ -10,9 +10,9 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
   };
   return (
     <div className="px-7 mt-10">
-      <h1 className="font-black">
+      <h2 className="font-black">
       What is the city location of the event?
-      </h1>
+      </h2>
       <div className="mt-7 grid grid-cols-1  gap-5">
         {workArea.map((area, index) => {
           if(index === workArea.length - 1) {
@@ -39,7 +39,7 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
                 
                 <input
                   type="text"
-                  placeholder="Please specify"
+                  // placeholder="Please specify"
                   onChange={(e) =>
                     setEventForm({
                       ...eventForm,

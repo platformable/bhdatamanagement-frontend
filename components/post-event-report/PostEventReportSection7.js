@@ -4,10 +4,10 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
 
   return (
     <div className="px-7 mt-10 rounded">
-      <h1 className=" font-black">
+      <h2 className=" font-black">
          Enter the event location name, eg. business name or faith-based
         organization name
-      </h1>
+      </h2>
       <div className="mt-7 grid grid-cols-1 gap-5">
       <label className="text-lg flex gap-x-5 items-center" >
         <input

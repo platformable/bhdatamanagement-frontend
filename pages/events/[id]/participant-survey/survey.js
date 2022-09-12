@@ -166,10 +166,10 @@ const Survey = ({data}) => {
       <div>
         <div className="h-88 flex flex-col items-center grandient-violet">
           <img src="/bh_logo.png" alt="black health data app management logo" width={400} className="pt-12"/>
-          <h1 className="leading-tight text-white py-12 text-center"><span className="italic">We want to hear from you</span> <br/> 
+          <h2 className="leading-tight text-white py-12 text-center"><span className="italic">We want to hear from you</span> <br/> 
 
           Your answers help us plan our services, demonstrate our focus on our community,<br/>
-          and help us meet our funding commitments</h1>
+          and help us meet our funding commitments</h2>
         </div>
         <ToastContainer autoClose={1500} />
         {/* <PageTopHeading
@@ -180,12 +180,12 @@ const Survey = ({data}) => {
       <main className="container mx-auto  md:px-0 px-5">
         <div id="event" className="container mx-auto rounded my-10 md:h-36 border-dark-violet">
           <div className="grid grid-cols-2 bg-violet font-bold text-white h-12 px-7 items-center rounded-tl-lg rounded-tr-lg">
-            <h2 className="">Event name</h2>
-            <h2 className="flex justify-end ">Event date</h2>
+            <h2 className="text-2xl">Event name</h2>
+            <h2 className="flex justify-end text-2xl">Event date</h2>
           </div>
           <div className="grid grid-cols-2 py-6 px-7">
-            <h1 className="text-black">{data[0]?.eventname}</h1>
-            <h1 className="flex justify-end">{new Date(data[0]?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</h1>
+            <h2 className="text-black text-2xl">{data[0]?.eventname}</h2>
+            <h2 className="flex justify-end text-2xl">{new Date(data[0]?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</h2>
           </div>
         </div>
         <div className="grid grid-cols-1 gap-y-10 border-dark-violet rounded-lg mb-10">
@@ -207,14 +207,14 @@ const Survey = ({data}) => {
           <ParticipantSurveySection16 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection17 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection18 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection19 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          {/* <ParticipantSurveySection19 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
           <ParticipantSurveySection20 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection21 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection22 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          {/* <ParticipantSurveySection21 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
+          {/* <ParticipantSurveySection22 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
           <ParticipantSurveySection23 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection24 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          {/* <ParticipantSurveySection24 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
           <ParticipantSurveySection25 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection26 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          {/* <ParticipantSurveySection26 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
           <ParticipantSurveySection27 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection28 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection29 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>

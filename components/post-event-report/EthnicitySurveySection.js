@@ -40,10 +40,10 @@ const EthnicitySurveySection = ({
   };
   return (
     <div className="grid grid-cols-1 gap-7">
-      <h1 className="font-black">
+      <h2 className="font-black">
         Ethnicity: How many people doing {typeOfTestForTitles(typeOfTest)}{" "}
         testing identified with the following Hispanic and Latin ethnicities?
-      </h1>
+      </h2>
 
       <label className="flex flex-col gap-2">
         <h3 className="">Not of Hispanic, Latino/a or Spanish origin</h3>
@@ -137,7 +137,7 @@ const EthnicitySurveySection = ({
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 >Declined to answer</h3>
+        <h3 >Decline to answer</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}

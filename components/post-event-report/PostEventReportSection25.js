@@ -7,8 +7,8 @@ const PostEventReportSection25 = ({ setEventForm }) => {
   };
   return (
     <div className="px-7 grid grid-cols-1 gap-7 mt-10">
-      <h1 className="font-black">Hepatitis C Testing</h1>
-      <label className="grid md:flex gap-5 items-center">
+      <h2 className="font-black">Hepatitis C Testing</h2>
+      <label className="grid md:flex gap-5 items-center items-center">
         <p className="md:w-80">Hepatitis C Testing Agency</p>
         <input
           className="border-black w-96"

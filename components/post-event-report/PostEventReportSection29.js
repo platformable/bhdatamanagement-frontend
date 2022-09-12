@@ -7,7 +7,7 @@ const PostEventReportSection29 = ({ setEventForm }) => {
   }
   return (
     <div className="px-7 grid grid-cols-1 gap-7 my-10">
-      <h1 className="font-black">COVID-19 Testing</h1>
+      <h2 className="font-black">COVID-19 Testing</h2>
       <label className="grid md:flex gap-5 items-center">
         <p className="md:w-80 ">COVID-19 Testing Agency</p>
         <input

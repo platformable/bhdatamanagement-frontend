@@ -11,9 +11,9 @@ const PostEventReportSection3 = ({ setEventForm, eventForm }) => {
   };
   return (
     <div className="px-7 mt-10">
-      <h1 className="font-black">
+      <h2 className="font-black">
         Which NYS Activity was conducted (according to your framework plan)?
-      </h1>
+      </h2>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
         {nysActivity.map((activity, index) => {
           if (index === nysActivity.length - 1) {
@@ -41,7 +41,7 @@ const PostEventReportSection3 = ({ setEventForm, eventForm }) => {
                 </div>
                 <input
                   type="text"
-                  placeholder="Please specify"
+                  // placeholder="Please specify"
                   className="border border-black rounded px-4 self-start p-1 "
                   onChange={(e) =>
                     setEventForm({

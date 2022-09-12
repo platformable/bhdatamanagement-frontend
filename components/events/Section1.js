@@ -19,7 +19,7 @@ const Section1 = ({ eventForm, setEventForm, programs, event }) => {
   }, [eventForm.programName]);
   return (
     <div className=" py-0 rounded">
-      <h1 className="mb-7 font-black">Which program is your event for?</h1>
+      <h2 className="mb-7 font-black">Which program is your event for?</h2>
       <div className="grid grid-cols-1 gap-5">
         {programs &&
           programs.map((program) =>
@@ -78,6 +78,7 @@ const Section1 = ({ eventForm, setEventForm, programs, event }) => {
                   defaultChecked={
                     program.id === event?.programid ? "checked" : ""
                   }
+                  // checked={program.name === "NYS CMP"?'checked' : ""}
                 />
                 {program.name}
               </label>
@@ -86,7 +87,7 @@ const Section1 = ({ eventForm, setEventForm, programs, event }) => {
                 <input
                   type="radio"
                   name="program"
-                  className="mr-2 w-6 h-6"
+                  className=""
                   value="Other"
                   id={program.id}
                   onChange={handleFormId}
@@ -96,7 +97,7 @@ const Section1 = ({ eventForm, setEventForm, programs, event }) => {
                   onChange={handleForm}
                   type="text"
                   className="ml-3 p-1 text-base border-dark-violet rounded"
-                  placeholder="Please specify here"
+                  // placeholder="Please specify here"
                 />
               </label>
             )

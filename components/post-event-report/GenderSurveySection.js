@@ -41,10 +41,10 @@ const GenderSurveySection = ({
   };
   return (
     <div className="grid grid-cols-1 gap-7">
-      <h1 className="font-black">
+      <h2 className="font-black">
         Gender: How many people identified as the following for{" "}
         {typeOfTestForTitles(typeOfTest)} Testing?
-      </h1>
+      </h2>
       <label className="flex flex-col gap-2">
         <h3 className="">Female</h3>
         <input

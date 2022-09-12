@@ -11,25 +11,25 @@ const PostEventReportSection22 = ({eventForm, setEventForm}) => {
   return (
     <>
       <div className="px-7 rounded mt-10">
-        <h1 className="font-black">
+        <h2 className="font-black">
           What testing was done at the event
-        </h1>
+        </h2>
         <div className="grid mt-7 grid-cols-1 gap-5">
-          <p className="flex gap-x-5">
+          <label className="flex  gap-x-5">
             <input type="checkbox" className="" name="hivTesting" onChange={handleForm} />
          {' '} HIV Testing
-          </p>
-          <p className="flex gap-x-5">
+          </label>
+          <label className="flex  gap-x-5">
             <input type="checkbox" className="" name="stiTesting" onChange={handleForm} />
             {' '}  STI Testing
-          </p>
+          </label>
 
-          <p className="flex gap-x-5">
+          <label className="flex  gap-x-5">
             <input type="checkbox" className="" name="hepCTesting" onChange={handleForm} />
             {' '}   Hep C Testing
-          </p>
+          </label>
 
-        {/*   <p className="flex gap-x-5">
+        {/*   <label className="flex  gap-x-5">
             <input
               type="checkbox" className=""
               name="bloodPressureTesting"
@@ -37,9 +37,9 @@ const PostEventReportSection22 = ({eventForm, setEventForm}) => {
             />
           {' '} Blood Pressure Testing
 
-          </p>
+          </label>
 
-          <p className="flex gap-x-5">
+          <label className="flex  gap-x-5">
             <input
               type="checkbox" className=""
               name="cholesterolTesting"
@@ -47,17 +47,17 @@ const PostEventReportSection22 = ({eventForm, setEventForm}) => {
             />
          {' '}  Cholesterol Testing
 
-          </p> */}
+          </label> */}
 
-          <p className="flex gap-x-5">
+          <label className="flex  gap-x-5">
             <input type="checkbox" className="" name="covidTesting" onChange={handleForm} />
             {' '}  COVID-19 Testing
-          </p>
+          </label>
 
-      {/*     <p className="flex gap-x-5">
+      {/*     <label className="flex  gap-x-5">
             <input type="checkbox" className="" name="otherTesting" onChange={handleForm} />
             {' '}  Other Testing
-          </p> */}
+          </label> */}
         </div>
       </div>
     </>

@@ -45,10 +45,10 @@ const RaceSurveySection = ({
   };
   return (
     <div className="grid grid-cols-1 gap-7">
-      <h1 className="font-black">
+      <h2 className="font-black">
         Race: How many people identified with the following for racial identity
         during {typeOfTestForTitles(typeOfTest)} Testing?
-      </h1>
+      </h2>
       <label className="flex flex-col gap-2">
         <h3 className="">Black or African American</h3>
         <input
@@ -154,7 +154,7 @@ const RaceSurveySection = ({
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="">Declined to answer</h3>
+        <h3 className="">Decline to answer</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}

@@ -37,7 +37,7 @@ export default function Header({showStatus}) {
               {showStatus ? <>
               <Link href="/api/auth/logout">
                 <a
-                  className={`${styles.btnIndexPage}  btn-index-page text-white p-4 rounded flex  mt-1 self-start`}
+                  className={`${styles.btnIndexPage}  btn-index-page text-white p-4 rounded flex text-lg mt-1 self-start`}
                 >
                   Logout
                 </a>

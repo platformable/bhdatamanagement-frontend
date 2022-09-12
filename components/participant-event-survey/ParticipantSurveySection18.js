@@ -3,16 +3,16 @@ import React from "react";
 export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
   return (
     <div className="px-7">
-      <h1 className="font-black">
+      <h2 className="font-black">
         {/* <span className="">18</span> */}
          How comfortable are you discussing the
         following with your provider? 
-      </h1>
+      </h2>
       <div className="mt-7 grid grid-cols-1 gap-y-7">
         <div className="flex flex-col items-start">
-          <h3 className="font-black">Sexual Health Concerns</h3>
+          <h3 className="font-black">Sexual health concerns</h3>
           <div className="">
-          <label className="gap-x-5 flex items-center my-5">
+          <label className="gap-x-5 flex text-lg items-center my-5">
               <input
                 type="radio"
                 name="participantComfortSex"
@@ -25,9 +25,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              very comfortable
+              Very comfortable
             </label>
-          <label className="gap-x-5 flex items-center my-5">
+          <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -41,12 +41,12 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              comfortable
+              Comfortable
             </label>
            
 
 
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               <input
                 type="radio"
                 name="participantComfortSex"
@@ -59,10 +59,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              neutral
+              Neutral
             </label>
            
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               <input
                 type="radio"
                 name="participantComfortSex"
@@ -75,9 +75,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              very uncomfortable
+              Very Uncomfortable
             </label>
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -91,17 +91,17 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              uncomfortable
+              Uncomfortable
             </label>
           </div>
         </div>
 
         <div className="flex flex-col items-start">
-          <h3 className="font-black">Mental Health Concerns</h3>
+          <h3 className="font-black">Mental health concerns</h3>
 
 
           <div className="">
-          <label className="gap-x-5 flex items-center my-5">
+          <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -114,10 +114,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />very comfortable
+              />Very comfortable
             </label>
             
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -130,9 +130,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />comfortable
+              />Comfortable
             </label>
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -145,10 +145,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />neutral
+              />Neutral
             </label>
           
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -162,10 +162,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              uncomfortable
+              Uncomfortable
             </label>
             
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               <input
                 type="radio"
                 name="participantComfortMentalHealth"
@@ -178,16 +178,16 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              very uncomfortable
+              Very Uncomfortable
             </label>
           </div>
         </div>
         <div className="flex flex-col  items-start">
-          <h3 className="font-black">Diet/ Nutrition</h3>
+          <h3 className="font-black">Diet / Nutrition</h3>
           <div className="">
             
 
-          <label className="gap-x-5 flex items-center my-5">
+          <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -200,10 +200,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />very comfortable
+              />Very comfortable
             </label>
 
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -216,9 +216,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />comfortable
+              />Comfortable
             </label>
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -231,11 +231,11 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />neutral
+              />Neutral
             </label>
         
 
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -248,9 +248,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />uncomfortable
+              />Uncomfortable
             </label>
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -263,14 +263,14 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />very uncomfortable
+              />Very Uncomfortable
             </label>
           </div>
         </div>
         <div className="flex flex-col   items-start">
-          <h3 className="font-black"> Physical Activity/ Exercise</h3>
+          <h3 className="font-black"> Physical activity / Exercise</h3>
           <div className="">
-          <label className="gap-x-5 flex items-center my-5">
+          <label className="gap-x-5 flex text-lg items-center my-5">
           
           <input
             type="radio"
@@ -283,10 +283,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                 [e.target.name]: Number(e.target.value),
               }))
             }
-          />very comfortable
+          />Very comfortable
         </label>
 
-        <label className="gap-x-5 flex items-center my-5">
+        <label className="gap-x-5 flex text-lg items-center my-5">
           
           <input
             type="radio"
@@ -299,10 +299,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                 [e.target.name]: Number(e.target.value),
               }))
             }
-          />comfortable
+          />Comfortable
         </label>
           
-          <label className="gap-x-5 flex items-center my-5">
+          <label className="gap-x-5 flex text-lg items-center my-5">
           
             <input
               type="radio"
@@ -315,10 +315,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   [e.target.name]: Number(e.target.value),
                 }))
               }
-            />neutral
+            />Neutral
           </label>
          
-          <label className="gap-x-5 flex items-center my-5">
+          <label className="gap-x-5 flex text-lg items-center my-5">
           
           <input
             type="radio"
@@ -331,9 +331,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                 [e.target.name]: Number(e.target.value),
               }))
             }
-          />uncomfortable
+          />Uncomfortable
         </label>
-          <label className="gap-x-5 flex items-center my-5">
+          <label className="gap-x-5 flex text-lg items-center my-5">
           
           <input
             type="radio"
@@ -346,15 +346,15 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                 [e.target.name]: Number(e.target.value),
               }))
             }
-          />very uncomfortable
+          />Very Uncomfortable
         </label>
           </div>
           
         </div>
         <div className="flex flex-col items-start">
-          <h3 className="font-black">Health Concerns (Chronic disease care)</h3>
+          <h3 className="font-black">Health concerns (Chronic disease care)</h3>
           <div className="">
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -367,9 +367,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />very uncomfortable
+              />Very Uncomfortable
             </label>
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -382,9 +382,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />uncomfortable
+              />Uncomfortable
             </label>
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -397,9 +397,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />neutral
+              />Neutral
             </label>
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -412,9 +412,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />comfortable
+              />Comfortable
             </label>
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               <input
                 type="radio"
                 name="participantComfortHealth"
@@ -427,14 +427,14 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              very comfortable
+              Very comfortable
             </label>
           </div>
         </div>
         <div className="flex flex-col items-start">
           <h3 className="font-black">Medications</h3>
           <div className="">
-          <label className="gap-x-5 flex items-center my-5">
+          <label className="gap-x-5 flex text-lg items-center my-5">
               <input
                 type="radio"
                 name="participantComfortMedications"
@@ -447,10 +447,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              very comfortable
+              Very comfortable
             </label>
 
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -464,10 +464,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              comfortable
+              Comfortable
             </label>
            
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -480,11 +480,11 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />neutral
+              />Neutral
             </label>
             
          
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               <input
                 type="radio"
                 name="participantComfortMedications"
@@ -497,9 +497,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              uncomfortable
+              Uncomfortable
             </label>
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               <input
                 type="radio"
                 name="participantComfortMedications"
@@ -512,7 +512,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              very uncomfortable
+              Very Uncomfortable
             </label>
           </div>
         </div>
@@ -521,7 +521,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
             Health screens (Mammogram, Colonoscopy, PSAs etc.)
           </h3>
           <div className="">
-          <label className="gap-x-5 flex items-center my-5">
+          <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -534,11 +534,11 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />very comfortable
+              />Very comfortable
             </label>
            
            
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -551,9 +551,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />comfortable
+              />Comfortable
             </label>
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -566,9 +566,9 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />neutral
+              />Neutral
             </label>
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -581,10 +581,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />uncomfortable
+              />Uncomfortable
             </label>
           
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -597,14 +597,14 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />very uncomfortable
+              />Very Uncomfortable
             </label>
           </div>
         </div>
         <div className="flex flex-col items-start">
-          <h3 className="font-black">Substance Use Concerns</h3>
+          <h3 className="font-black">Substance use concerns</h3>
           <div className="">
-          <label className="gap-x-5 flex items-center my-5">
+          <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -617,10 +617,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />very comfortable
+              />Very comfortable
             </label>
 
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -633,10 +633,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              /> comfortable
+              />Comfortable
             </label>
            
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -649,10 +649,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />neutral
+              />Neutral
             </label>
            
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -665,10 +665,10 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />uncomfortable
+              />Uncomfortable
             </label>
            
-            <label className="gap-x-5 flex items-center my-5">
+            <label className="gap-x-5 flex text-lg items-center my-5">
               
               <input
                 type="radio"
@@ -681,7 +681,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />very uncomfortable
+              />Very Uncomfortable
             </label>
           </div>
         </div>
