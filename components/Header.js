@@ -23,13 +23,13 @@ export default function Header({showStatus}) {
           />
         </Link>
         <div id="head-user" className="flex justify-end items-center">
-          <div className="flex gap-x-3 ">
+          <div className="grid md:flex gap-x-5">
             {/* <img src="/user_icon.svg" alt="" width={32} /> */}
             <div>
               {showStatus ? (
                 <>
                   <h3 className="font-black">{userName}</h3>
-                  <h6 className="">{userRole}</h6>
+                  <h4 className="text-right md:text-left">{userRole}</h4>
                 </>
               ) : null}
             </div>
@@ -37,7 +37,7 @@ export default function Header({showStatus}) {
               {showStatus ? <>
               <Link href="/api/auth/logout">
                 <a
-                  className={`${styles.btnIndexPage}  btn-index-page text-white p-4 rounded flex text-lg mt-1 self-start`}
+                  className={`${styles.btnIndexPage}  btn-index-page text-white p-4 rounded flex justify-center text-lg mt-1 `}
                 >
                   Logout
                 </a>
