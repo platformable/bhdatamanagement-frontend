@@ -68,7 +68,7 @@ export default function ChooseProgram() {
                 <Link
                   href={{
                     pathname: loggedUserRole==='Supervisor' ? "/supervisorDashboard" : "dashboard",
-                    query: { program: "NYS CMP" },
+                    query: { program: "NYS_CMP" },
                   }}
                 >
                   <div className=" ">
