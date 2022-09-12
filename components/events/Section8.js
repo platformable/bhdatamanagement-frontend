@@ -27,7 +27,6 @@ const Section8 = ({event, eventForm, setEventForm}) => {
    
         const filteredData=data.areas.filter(oldValues=> oldValues != e.target.value) 
         const filteredIds=data.ids.filter(oldValues=> oldValues != e.target.id) 
-console.log("filtrados", filteredIds)
         isValueOnData?
          setData(previous => ({...previous, areas: filteredData, ids : filteredIds}))
          :
