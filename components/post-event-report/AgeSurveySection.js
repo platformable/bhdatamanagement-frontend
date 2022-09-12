@@ -52,10 +52,10 @@ const AgeSurveySection = ({
   };
   return (
     <div className="grid gap-7">
-      <h1 className="font-black">
+      <h2 className="font-black">
         Age: How many people were in each of the following age groups for{" "}
         {typeOfTestForTitles(typeOfTest)} Testing?
-      </h1>
+      </h2>
       <label className="flex flex-col gap-2">
         <h3 className="w-80">Under 15</h3>
         <input

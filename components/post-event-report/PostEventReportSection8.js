@@ -13,9 +13,9 @@ const handleForm = (e) => {
 }
   return (
     <div className="px-7 mt-10 rounded">
-      <h1 className="font-black">
+      <h2 className="font-black">
         Resources Distributed:
-      </h1>
+      </h2>
       <div className="mt-7 grid grid-cols-1 text-lg gap-7">
         {resourcesDistributed &&
           resourcesDistributed.map((resource, index) => (

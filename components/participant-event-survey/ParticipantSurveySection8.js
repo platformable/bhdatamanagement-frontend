@@ -7,10 +7,10 @@ export const ParticipantSurveySection8 = ({surveyForm, setSurveyForm}) => {
   }
   return (
     <div className="px-7">
-    <h1 className="font-black">
+    <h2 className="font-black">
       {/* <span className="">8</span>  */}
       What is the highest grade or year of school you completed? 
-    </h1>
+    </h2>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     <label className="flex gap-x-5 items-center">
           <input type="radio" className="" id={1} name="participantEducation" value="Never attended school or only attended kindergarten" onChange={handleForm}/>

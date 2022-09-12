@@ -7,10 +7,10 @@ export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
   }
   return (
     <div className="px-7">
-      <h1 className="font-black">
+      <h2 className="font-black">
         {/* <span className="">5</span>  */}
         How do you describe yourself? 
-      </h1>
+      </h2>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
       {gender.map(option => (
         <label className="flex gap-x-5 items-center">

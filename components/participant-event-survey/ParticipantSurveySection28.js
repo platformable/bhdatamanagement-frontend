@@ -4,31 +4,25 @@ export const ParticipantSurveySection28 = ({surveyForm,setSurveyForm}) => {
   const options=[
     {
       id:1,
-      value:"Not at all aware "
+      value:"Yes"
     },
     {
       id:2,
-      value:"Slightly aware"
+      value:"No"
     },
     {
       id:3,
-      value:"Somewhat aware"
+      value:"Don’t know / Not sure"
     },
-    {
-      id:4,
-      value:"Moderately aware"
-    },
-    {
-      id:5,
-      value:"Extremely aware "
-    }
+    
+    
   ]
   return (
     <div className="px-7">
-    <h1 className="font-black">
+    <h2 className="font-black">
       {/* <span className="">28 </span>  */}
       Are you aware of HIV testing resources within your community?  
-    </h1>
+    </h2>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {
           return (

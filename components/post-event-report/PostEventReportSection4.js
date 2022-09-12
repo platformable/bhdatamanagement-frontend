@@ -28,9 +28,9 @@ const PostEventReportSection4 = ({setEventForm,eventForm}) => {
  
   return (
 <div className="px-7 mt-10">
-      <h1 className="font-black">
+      <h2 className="font-black">
         Is this part of:
-      </h1>
+      </h2>
       <div className="mt-7 grid grid-cols-1  gap-5">
         <label className="flex items-center gap-x-5">
             <input 

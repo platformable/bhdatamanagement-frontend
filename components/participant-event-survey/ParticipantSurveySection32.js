@@ -76,10 +76,10 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
   ]
   return (
     <div className="px-7 ">
-    <h1 className="font-black">
+    <h2 className="font-black">
       {/* <span className="">32 </span>  */}
       How did you hear about this event?  
-    </h1>
+    </h2>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {
 

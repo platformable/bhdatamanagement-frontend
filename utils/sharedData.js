@@ -76,7 +76,7 @@ export const shareData = {
     "Middle Eastern or North African",
     "Native Hawaiian or Other Pacific Islander",
     "White",
-    "Some other race or origin (please specify)",
+    "Some other race or origin",
     "Decline to answer",
   ],
   ethnicity: [
@@ -213,7 +213,7 @@ export const race = [
   {id:5,value:"Middle Eastern or North African"},
   {id:6,value:"Native Hawaiian or Other Pacific Islander"},
   {id:7,value:"White"},
-  {id:8,value:"Some other race or origin (please specify)"},
+  {id:8,value:"Some other race or origin"},
   {id:9,value:"Decline to answer"},
 ];
 

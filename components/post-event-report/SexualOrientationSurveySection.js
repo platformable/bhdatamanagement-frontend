@@ -40,11 +40,11 @@ const SexualOrientationSurveySection = ({
   };
   return (
     <div className="grid grid-cols-1 gap-7">
-      <h1 className="font-black">
+      <h2 className="font-black">
         Sexual orientation: How many people doing{" "}
         {typeOfTestForTitles(typeOfTest)} testing identified with the following
         sexual orientation?
-      </h1>
+      </h2>
       <label className="flex flex-col gap-2">
         <h3 className="w-60 gap-x-5 text-lg">Gay or lesbian</h3>
         <input
@@ -124,7 +124,7 @@ const SexualOrientationSurveySection = ({
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="w-60 gap-x-5">Decline to answer</h3>
+        <h3 className="w-60 gap-x-5">Declined to answer</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}

@@ -39,7 +39,7 @@ const DemographicSurveySection = ({setEventForm, eventForm, typeOfTest}) => {
   
   return (
     <div className=''>
-      <h1 className='mb-10'>Demographics</h1>
+      <h2 className='mb-10'>Demographics</h2>
       <div className='grid grid-cols-1 gap-10'>
       <GenderSurveySection setEventForm={setEventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber}/>
       <AgeSurveySection setEventForm={setEventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber}/>

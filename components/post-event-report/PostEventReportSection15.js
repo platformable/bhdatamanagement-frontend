@@ -13,9 +13,9 @@ const PostEventReportSection15 = ({eventForm, setEventForm}) => {
  
   return (
     <div className="px-7 mt-10 rounded">
-      <h1 className="font-black">
+      <h2 className="font-black">
         How many people attended the event <br/>
-      </h1>
+      </h2>
       <h3>If it was street outreach / canvassing, how many people did you engage with and provide resources to?</h3>
 
       <label className='mt-7 flex gap-5'>

@@ -15,17 +15,14 @@ export const ParticipantSurveySection21 = ({surveyForm,setSurveyForm}) => {
       id:3,
       value:"Don’t know / Not sure"
     },
-    {
-      id:4,
-      value:"Refused"
-    }
+    
   ]
   return (
     <div className="px-7">
-    <h1 className="font-black">
+    <h2 className="font-black">
       {/* <span className="">21 </span>  */}
       Have you ever had an HIV test?
-    </h1>
+    </h2>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {
           return (

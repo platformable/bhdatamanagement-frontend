@@ -207,14 +207,14 @@ const Survey = ({data}) => {
           <ParticipantSurveySection16 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection17 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection18 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection19 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          {/* <ParticipantSurveySection19 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
           <ParticipantSurveySection20 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection21 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection22 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          {/* <ParticipantSurveySection21 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
+          {/* <ParticipantSurveySection22 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
           <ParticipantSurveySection23 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection24 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          {/* <ParticipantSurveySection24 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
           <ParticipantSurveySection25 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection26 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          {/* <ParticipantSurveySection26 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
           <ParticipantSurveySection27 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection28 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection29 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>

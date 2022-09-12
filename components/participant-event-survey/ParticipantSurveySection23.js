@@ -56,10 +56,10 @@ export const ParticipantSurveySection23 = ({ surveyForm, setSurveyForm }) => {
   }, [data]);
   return (
     <div className="px-7">
-      <h1 className="font-black">
+      <h2 className="font-black">
         {/* <span className="">23 </span> */}
         Which of the following can put you at risk for sexually transmitted HIV?
-      </h1>
+      </h2>
       <h3 className="font-normal">Select all that apply</h3>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
         {options?.map((option, index) => {

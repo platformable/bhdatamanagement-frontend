@@ -22,12 +22,11 @@ export const ParticipantSurveySection20 = ({ surveyForm, setSurveyForm }) => {
 
   return (
     <div className="px-7">
-      <h1 className="font-black mb-7">
+      <h2 className="font-black mb-7">
         {/* <span className="">20 </span>   */}
-        Over the{" "}
-        <span className="underline underline-offset-1">last 2 weeks</span>, how
+        Over the last 2 weeks, how
         often have you been bothered by the following problems?
-      </h1>
+      </h2>
       <div className="grid  grid-cols-1 gap-7">
   
         <div className="flex flex-col gap-y-5 items-start rounded">

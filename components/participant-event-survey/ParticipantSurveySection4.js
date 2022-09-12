@@ -7,10 +7,10 @@ export const ParticipantSurveySection4 = ({surveyForm, setSurveyForm}) => {
   }
   return (
     <div className="px-7">
-      <h1 className="font-black">
+      <h2 className="font-black">
         {/* <span className="">4</span>  */}
         Are you of Hispanic, Latino/a, or Spanish origin?
-      </h1>
+      </h2>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
       {ethnicity.map(option => (
         <label className="flex gap-x-5 items-center">

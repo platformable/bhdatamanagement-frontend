@@ -45,7 +45,7 @@ export const ParticipantSurveySection30 = ({surveyForm,setSurveyForm}) => {
     },
     {
       id:5,
-      value:"Health screens (mammogram, prostate cancer screening, etc.)"
+      value:"Health screens (Mammogram, prostate cancer screening, etc.)"
     },
     {
       id:6,
@@ -57,7 +57,7 @@ export const ParticipantSurveySection30 = ({surveyForm,setSurveyForm}) => {
     },
     {
       id:8,
-      value:"Substance use treatment/ Services"
+      value:"Substance use treatment / services"
     },
     {
       id:9,
@@ -70,10 +70,10 @@ export const ParticipantSurveySection30 = ({surveyForm,setSurveyForm}) => {
   ]
   return (
     <div className="px-7">
-    <h1 className="font-black">
+    <h2 className="font-black">
       {/* <span className="">30 </span>  */}
       What services would you like to obtain more information about?   
-    </h1>
+    </h2>
     <h3>Select all that apply</h3>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     {options.map((option, index) => {

@@ -4,9 +4,9 @@ const PostEventReportSection6 = ({eventForm,setEventForm}) => {
 
   return (
     <div className="px-7 mt-10 rounded">
-    <h1 className="font-black">
+    <h2 className="font-black">
       What was the event location address
-    </h1>
+    </h2>
     <input type="text" 
     name="locationAddress" 
     className='border-black rounded mt-5 p-2 text-lg w-134'

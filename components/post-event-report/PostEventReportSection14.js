@@ -21,9 +21,9 @@ const [data,setData]=useState(false)
 // console.log("eventForm",eventForm)
   return (
     <div className="px-7 mt-10 rounded">
-      <h1 className="font-black">
+      <h2 className="font-black">
         Please check off all of the following events that you are aware happened today.
-      </h1>
+      </h2>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
         {eventChecklist &&
           eventChecklist.map((eventItem, index) => (

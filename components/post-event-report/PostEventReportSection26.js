@@ -8,8 +8,8 @@ const PostEventReportSection26 = ({ setEventForm }) => {
   };
   return (
     <div className="px-7 grid grid-cols-1 mt-10 gap-7">
-      <h1 className="font-black">STI Testing</h1>
-      <label className="grid md:flex gap-5">
+      <h2 className="font-black">STI Testing</h2>
+      <label className="grid md:flex gap-5 items-center">
         <p className="md:w-80">STI Testing Agency</p>
         <input
           className="border-black "
@@ -83,7 +83,7 @@ const PostEventReportSection26 = ({ setEventForm }) => {
         />
       </label>
 
-      <label className="grid md:flex gap-5">
+      <label className="grid md:flex gap-5 items-center">
         <p className="md:w-80">Which services were they referred to ?</p>
         <input
           className="border-black "
