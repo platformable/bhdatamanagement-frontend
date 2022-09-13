@@ -13,10 +13,12 @@ const NysReportPage = ({ eventReport }) => {
   const [headers, setHeaders] = useState([]);
 
   useEffect(() => {
+    const cerohoursDate = new Date(selectedDate.start).setHours(0)
+    console.log("selectedDate", selectedDate)
     const selectedReports = eventReport.filter(
-      (report) =>
-        new Date(report.eventdate) >= new Date(selectedDate.start) &&
-        new Date(report.eventdate) <= new Date(selectedDate.finish)
+      (report) => 
+          new Date(report.eventdate) >= new Date(new Date(selectedDate.start).toLocaleString("en-US", {timeZone: "America/New_York"})).setHours(0) &&
+          new Date(report.eventdate) <= new Date(selectedDate.finish)
     );
     setSelectedCSV(selectedReports);
 
@@ -33,28 +35,31 @@ const NysReportPage = ({ eventReport }) => {
         backBtn={true}
         dashboardBtn={true}
       />
-      <section className="container mx-auto">
+      <section className="container mx-auto px-5 md:px-0">
         <p className="font-bold text-xl">Choose the data range:</p>
-        <div className="grid grid-cols-4">
+        <div className="grid md:grid-cols-3 my-7 gap-7">
           <div className="grid grid-cols-1 gap-5">
-            <div className="border-black p-5 flex justify-between">
+            <label className="border-black p-5 flex justify-between">
               Start date:
               <input
                 type="date"
-                onChange={(e) =>
+                onChange={(e) => {
+                  // console.log(new Date(e.target.value))
+
                   setSelectedDate({ ...selectedDate, start: e.target.value })
-                }
+                }}
               />
-            </div>
-            <div className="border-black p-5 flex justify-between">
+            </label>
+            <label className="border-black p-5 flex justify-between">
               Finish date:
               <input
                 type="date"
-                onChange={(e) =>
+                onChange={(e) =>{
+                  // console.log(new Date(new Date(e.target.value).toLocaleString("en-US", {timeZone: "America/New_York"})).setHours(0), "new date")
                   setSelectedDate({ ...selectedDate, finish: e.target.value })
-                }
+                }}
               />
-            </div>
+            </label>
           </div>
           {selectedCSV && (
             <ExportCSV

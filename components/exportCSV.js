@@ -787,7 +787,7 @@ const ExportCSV = ({ csvData, fileName }) => {
 
   return (
     <CSVLink headers={headers} data={orderedData} filename={fileName} separator=";">
-      <button className="text-2xl text-white bg-black rounded shadow-xl p-5 w-52 ml-5">
+      <button className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full">
         DOWNLOAD CSV DATASET
       </button>
     </CSVLink>

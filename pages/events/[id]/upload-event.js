@@ -158,23 +158,23 @@ export const Upload_event = ({ event }) => {
       <TopEventsInfo event={event}/>
 
       <section className="px-5 md:px-0">
-        <div className="container mx-auto mb-5 mt-7">
+        <div className="container mx-auto my-10">
           <h1 className="font-black">
             Upload your documents to the following events folders
           </h1>
         </div>
 
         <div className="container mx-auto">
-          <div className="text-center mb-2 rounded-xl flex flex-wrap md:no-wrap justify-between  md:gap-y-0 gap-y-5">
+          <div className="text-center mb-7 rounded-xl  md:no-wrap md:justify-center  grid gap-y-10 lg:gap-x-40 xl:grid-cols-2 md:gap-y-10">
             <div
-              className="border-black w-134 shadow-lg rounded grid mb-5"
+              className="border-black  shadow-lg rounded grid"
               style={{ gridTemplateColumns: "2fr 1fr" }}
             >
-              <div className="bg-black pb-10 pt-5">
+              <div className="bg-black py-5">
                 
                {loadingFile && <div className="flex justify-center"><Loader/></div>}
-                <h2 className="my-5 font-bold text-white uppercase">
-                  Upload <br /> documents 
+                <h2 className="mb-5 font-bold text-white uppercase">
+                  Upload documents 
                 </h2>
                 <input type="file" id="upload" 
                 hidden
@@ -191,7 +191,7 @@ export const Upload_event = ({ event }) => {
                 </label>
                 </div>
                 <br />
-              {file && <span className="text-white text-xs mt-5">{file.name}</span>}
+              {file ? <h3 className="text-white ">{file.name}</h3> : <h3 className="text-white">No file chosen</h3>}
               </div>
               
               <div className="flex items-center justify-center md:px-0 px-5">
@@ -206,7 +206,7 @@ export const Upload_event = ({ event }) => {
 
               {/* <h2 className="my-5 font-bold text-black uppercase">
                 Upload documents
-                <br /> and flyers
+                and flyers
               </h2>
               <input
                 type="file"
@@ -231,15 +231,15 @@ export const Upload_event = ({ event }) => {
 
 
 
-          <div className="flex justify-end">
+          {/* <div className="flex justify-end"> */}
             <div
-              className="border-black w-134 shadow-lg rounded grid"
+              className="border-black  shadow-lg rounded grid"
               style={{ gridTemplateColumns: "2fr 1fr" }}
             >
-              <div className="bg-black pb-10 pt-5">
+              <div className="bg-black py-5">
               {loadingImgFile && <div className="flex justify-center"><Loader/></div>}
-                <h2 className="my-5 font-bold text-white uppercase">
-                  Upload <br /> photos
+                <h2 className="mb-5 font-bold text-white uppercase">
+                  Upload photos
                 </h2>
                 <input
                 id="imgUpload" 
@@ -259,7 +259,8 @@ export const Upload_event = ({ event }) => {
                 
                 </div>
                 <br />
-                {imageFile && <span className="text-white text-xs mt-5">{imageFile.name}</span>}
+                {imageFile ? <h3 className="text-white ">{imageFile.name}</h3> : <h3 className="text-white">No file chosen</h3>}
+
               </div>
               <div className="flex items-center justify-center md:px-0 px-5">
               <button
@@ -345,7 +346,6 @@ export const Upload_event = ({ event }) => {
               </div>
               </div>
             </div> */}
-          </div>
         </div>
       </section>
     </Layout>

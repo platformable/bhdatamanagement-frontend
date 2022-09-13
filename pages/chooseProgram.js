@@ -78,7 +78,7 @@ export default function ChooseProgram() {
                 >
                   <div className=" ">
                     <button id="myBtn" className="flex items-center"
-                    onClick={()=> dispatch(updateProgramName({programName:'NYS CMP'}))}
+                    onClick={()=> dispatch(updateProgramName({programName:'NYS_CMP'}))}
                     >
                       <p className=" font-bold text-white uppercase">
                         NYS CMP

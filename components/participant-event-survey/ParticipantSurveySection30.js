@@ -57,7 +57,7 @@ export const ParticipantSurveySection30 = ({surveyForm,setSurveyForm}) => {
     },
     {
       id:8,
-      value:"Substance use treatment / services"
+      value:"Substance use treatment/services"
     },
     {
       id:9,
