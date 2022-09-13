@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Section1 from "../../../components/events/Section1";
 import Section2 from "../../../components/events/Section2";
 import Section3 from "../../../components/events/Section3";
+import Section3_2 from "../../../components/events/Section3-2";
 import Section4 from "../../../components/events/Section4";
 import Section5 from "../../../components/events/Section5";
 import Section6 from "../../../components/events/Section6";
@@ -10,6 +11,7 @@ import Section8 from "../../../components/events/Section8";
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import { useRouter } from 'next/router'
+import { nysActivity } from "../../../utils/sharedData";
 
 import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
@@ -37,6 +39,8 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
     healthAreaOfFocusID: event?.healthareaoffocusid || [],
     healthAreaOfFocusName: event?.healthareaoffocusname|| [],
     eventTypeID: event?.eventtypeid || "",
+    nysActivity:event?.nysactivity || "",
+    nysActivityOther:event?.nysactivityother || "",
     eventTypeName: event?.eventtypename,
   });
   const userId = user && user.sub;
@@ -45,8 +49,7 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
     setEventForm({...eventForm, userID: userId})
   }, [userId])
   
-  console.log("eventForm",eventForm)
-  
+
   const submitEventForm = async () => {
 
     const isEmpty = Object.values(eventForm).some(value => !value)
@@ -85,7 +88,9 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
       />
       <div className="container mx-auto md:px-0 px-5 mb-10 items-center">
         <div className="register-envent-form-container  grid gap-10 bg-white border rounded-lg p-7 mb-5 pb-10 shadow-lg">
-          <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} event={event}/>
+          {/* <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} event={event}/>
+          <Section2 eventForm={eventForm} setEventForm={setEventForm} event={event}/> */}
+          <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes} event={event}/>
             <Section4 eventForm={eventForm} setEventForm={setEventForm} event={event}/>

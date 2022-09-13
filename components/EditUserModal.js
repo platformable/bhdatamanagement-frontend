@@ -113,6 +113,7 @@ export default function EditUserModal({selectedUser, setShowEditUserModal, showE
                 className="select-add-edit-supervisor block w-full mt-1 text-black rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
                 <option value="Program Worker">Program Worker</option>
+                <option value="NYS Program Worker" default>NYS Program Worker</option>
                 <option value="Intern">Intern</option>
                 <option value="Partner">Partner</option>
                 <option value="Supervisor">Supervisor</option>

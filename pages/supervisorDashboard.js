@@ -129,8 +129,8 @@ export default function SupervisorDashboard({ selectedProgram }) {
           </div>
 
             <div></div>
-            <div></div>
-
+         
+            <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
                 <Link href="/historicalData">
                     <div className="text-center mr-5 ">
                       <div className="rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
@@ -145,7 +145,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
                       </div>{" "}
                     </div>
                   </Link>
-                  
+                  </div>
               
 
               

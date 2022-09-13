@@ -38,14 +38,7 @@ export default function ChooseProgram() {
     });
   };
 
-  useEffect(() => {
-    loggedUserRole === "Supervisor"
-      ? router.push("/supervisorDashboard")
-      : setLoading(false);
-    loggedUserStatus === "No Active"
-      ? router.push("/api/auth/logout")
-      : setLoading(false);
-  }, [loggedUserRole, loggedUserStatus]);
+ 
 
   return (
     <>
@@ -76,7 +69,7 @@ export default function ChooseProgram() {
                     pathname: loggedUserRole==='Supervisor' ? "/supervisorDashboard" : "dashboard",
                   }}
                 >
-                  <div className=" ">
+                  <div className="">
                     <button id="myBtn" className="flex items-center"
                     onClick={()=> dispatch(updateProgramName({programName:'NYS_CMP'}))}
                     >
