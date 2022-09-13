@@ -38,14 +38,7 @@ export default function ChooseProgram() {
     });
   };
 
-  useEffect(() => {
-    loggedUserRole === "Supervisor"
-      ? router.push("/supervisorDashboard")
-      : setLoading(false);
-    loggedUserStatus === "No Active"
-      ? router.push("/api/auth/logout")
-      : setLoading(false);
-  }, [loggedUserRole, loggedUserStatus]);
+ 
 
   return (
     <>

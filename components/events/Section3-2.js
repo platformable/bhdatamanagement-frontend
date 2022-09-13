@@ -40,9 +40,12 @@ const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
             <h2 className='mb-1 font-black'>Which NYS Activity is being conducted?</h2>
             <p className="mb-7">According to your framework plan</p>
             <div className='grid grid-cols-1 gap-5'>
-            {fields && fields.map(activity => (
+            {fields && fields.map(activity => {
+               
+                return (
                 activity.value !== "Other" ? 
 
+                
                 (<label className='text-lg flex items-center gap-5' key={activity.id}>
                     <input type="radio" 
                     name="nysActivity" 
@@ -50,6 +53,7 @@ const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
                     value={activity.value} 
                     id={activity.id} 
                     onChange={handleForm}
+                    defaultChecked={activity.value===eventForm.nysActivity ?'checked':""}
                     />
                     {activity.value}
                     
@@ -67,10 +71,11 @@ const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
                     name="nysActivity" 
                     onChange={handleForm}
                     className=' border rounded' 
+                    defaultChecked={activity.value===activity.value ?'checked':""}
                     // placeholder="Please specify here"
                     />
                  </label>)
-            ))}
+            )})}
              
             </div>
         </div>

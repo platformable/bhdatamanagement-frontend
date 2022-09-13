@@ -88,8 +88,7 @@ const EventsIndex = ({ events }) => {
           sortedEventsByDate
             ?.filter((event, index) => {
             
-              var startDate = new Date(dateFilter.startDate);
-              var endDate = new Date(dateFilter.endDate);
+            
 
               if (searchWord === "" && startDate===null && endDate===null) {
                 return event;
@@ -101,16 +100,17 @@ const EventsIndex = ({ events }) => {
               } 
             })
             .filter((event,index)=>{
+              var startDate = new Date(new Date(dateFilter.startDate).toLocaleString("en-US", {timeZone: "America/New_York"}))
+              var endDate = new Date(dateFilter.endDate)
               if (startDate !==null && endDate !==null){
                 let filterPass = true
                 const date = new Date(event.eventdate)
                 if (dateFilter.startDate) {
-                  filterPass = filterPass && (new Date(dateFilter.startDate)-1 <= date)
+                  filterPass = filterPass && (new Date(startDate) <= date)
                 }
                 if (dateFilter.endDate) {
-                  filterPass = filterPass && (new Date(dateFilter.endDate)-1 >= date)
+                  filterPass = filterPass && (new Date(dateFilter.endDate) >= date)
                 }
-                //if filterPass comes back `false` the row is filtered out
                 return filterPass
               }
             })
