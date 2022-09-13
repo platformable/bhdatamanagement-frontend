@@ -33,6 +33,7 @@ const handleForm = (e) => {
                   let {value} = e.target
                   value > 500 && (e.target.value = 500) 
                 }}
+                onKeyDown={(e)=>e.target.keyCode !== 69}
               />
               
             </label>
