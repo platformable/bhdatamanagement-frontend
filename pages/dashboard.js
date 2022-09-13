@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { Dropbox } from "dropbox";
 import { useRouter } from "next/router";
 
+import { useSelector, useDispatch } from 'react-redux'
+
 import Layout from "../components/Layout";
 import Loader from "../components/Loader";
 
@@ -16,6 +18,10 @@ export default function Dashboard({selectedProgram}) {
   const [loading, setLoading] = useState(true);
 
   console.log("selectedPgroam",selectedProgram)
+
+  const program = useSelector((state)=>state.programs.value.programName)
+
+
 
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
@@ -68,7 +74,7 @@ export default function Dashboard({selectedProgram}) {
 
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
               <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
-            <Link href={`/events/${selectedProgram.toLowerCase()}/register`}>
+            <Link href={`/events/${program.toLowerCase()}/register`}>
             <div className=" ">
               <button id="myBtn" className="flex items-center">
                 
@@ -151,15 +157,8 @@ export default function Dashboard({selectedProgram}) {
   );
 }
 
-/* export const getServerSideProps = withPageAuthRequired(); */
 
-export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-   let {program}=ctx.query
 
-   
-    // access the user session
-    const session = getSession(ctx.req, ctx.res);
-    return { props: { selectedProgram: program ? program : "" } };
-  }
-});
+
+export const getServerSideProps = withPageAuthRequired();
+

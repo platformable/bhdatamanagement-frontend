@@ -8,6 +8,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { Dropbox } from "dropbox";
 import { useRouter } from "next/router";
 
+import { useSelector, useDispatch } from 'react-redux'
+import { updateProgramName } from '../slices/programsSlice'
+
 import Layout from "../components/Layout";
 import Router from "next/router";
 import Loader from "../components/Loader";
@@ -15,6 +18,9 @@ import Loader from "../components/Loader";
 export default function ChooseProgram() {
   const { user, error, isLoading } = useUser();
   const [loading, setLoading] = useState(true);
+
+
+  const dispatch=useDispatch()
 
   const loggedUserRole = 
     user && user["https://lanuevatest.herokuapp.com/roles"];
@@ -68,11 +74,12 @@ export default function ChooseProgram() {
                 <Link
                   href={{
                     pathname: loggedUserRole==='Supervisor' ? "/supervisorDashboard" : "dashboard",
-                    query: { program: "NYS_CMP" },
                   }}
                 >
                   <div className=" ">
-                    <button id="myBtn" className="flex items-center">
+                    <button id="myBtn" className="flex items-center"
+                    onClick={()=> dispatch(updateProgramName({programName:'NYS CMP'}))}
+                    >
                       <p className=" font-bold text-white uppercase">
                         NYS CMP
                       </p>
