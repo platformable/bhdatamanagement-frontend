@@ -2,13 +2,10 @@ import React, {useEffect, useState} from 'react';
 
 const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
 
-
-
-    const [fields, setFields] = useState([])
-
-
+    const [fields, setFields] = useState(nysActivity);
 
     useEffect(() => {
+
         if (eventForm.programName && !event) {
             const programNameConverted = convertStringTocompareWithProgramName(eventForm?.programName)
             //const eventProgramNameConverted = convertStringTocompareWithProgramName(event?.programname)
@@ -22,7 +19,7 @@ const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
             const filtered = nysActivity.filter(type => event?type[programNameConverted] === 1: type[eventProgramNameConverted] === "1")
             setFields(filtered)
         } 
-
+        
 
     }, [eventForm.programName])
 

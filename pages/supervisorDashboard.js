@@ -160,6 +160,6 @@ export default function SupervisorDashboard({ selectedProgram }) {
   );
 }
 
-/* export const getServerSideProps = withPageAuthRequired(); */
 
 export const getServerSideProps = withPageAuthRequired();
+

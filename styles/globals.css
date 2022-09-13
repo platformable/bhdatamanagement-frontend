@@ -425,8 +425,33 @@ table th {
   gap: 5px;
   grid-template-columns: 1.5fr 1.5fr 1.5fr 2fr 1.5fr 1.5fr 1fr 1fr;
 }
+/*FORM & QUESTION BODY */
+.form-body {
+  display: grid;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  gap: 40px;
+  border-radius: 8px;
+}
+.question-body {
+  display: grid;
+}
+.question-body > h2 {
+  margin-bottom: 28px;
+}
+.question-body > div {
+  display: grid;
+  gap: 20px;
+}
+.question-body > div > label {
+  display: flex;
+  gap: 20px;
+}
+.question-body > div > label > p,
+.question-body > div > label {
+  font-size: 18px;
+}
 
-/* Event Input form styles */
 input[type="radio"],
 input[type="checkbox"] {
   min-height: 30px;
@@ -436,13 +461,13 @@ label > input[type="text"],
 label > input[type="radio"],
 label > input[type="number"],
 label > input[type="date"],
-label > input[type="time"] {
+label > input[type="time"],
+label > textarea {
   border: 1px solid black;
   padding: 8px 16px;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 18px;
 }
-
 
 @media (min-width: 768px) {
   .w-134 {
@@ -484,7 +509,7 @@ label > input[type="time"] {
 /* LABELS */
 label {
   display: flex;
-  font-size: 20px;
+  font-size: 18px;
 }
 /*
 label > div {

@@ -39,6 +39,7 @@ import { ParticipantSurveySection6 } from "../../../../components/participant-ev
 import { ParticipantSurveySection7 } from "../../../../components/participant-event-survey/ParticipantSurveySection7";
 import { ParticipantSurveySection8 } from "../../../../components/participant-event-survey/ParticipantSurveySection8";
 import { ParticipantSurveySection9 } from "../../../../components/participant-event-survey/ParticipantSurveySection9";
+import { ParticipantSurveySection34 } from "../../../../components/participant-event-survey/ParticipantSurveySection34";
 
 const Survey = ({data}) => {
 
@@ -188,7 +189,7 @@ const Survey = ({data}) => {
             <h2 className="flex justify-end text-2xl">{new Date(data[0]?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</h2>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-y-10 border-dark-violet rounded-lg mb-10">
+        <div className="form-body border-dark-violet mb-10">
           <ParticipantSurveySection1 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection2 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection3 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>

@@ -11,7 +11,6 @@ import { useRouter } from "next/router";
 import { useSelector, useDispatch } from 'react-redux'
 
 import Layout from "../components/Layout";
-import Router from "next/router";
 import Loader from "../components/Loader";
 
 export default function Dashboard({selectedProgram}) {
@@ -30,6 +29,7 @@ export default function Dashboard({selectedProgram}) {
     user && user["https://lanuevatest.herokuapp.com/activestatus"];
   const userId = user?.sub;
   const router = useRouter();
+  console.log(router)
 
   const userName = user && user["https://lanuevatest.herokuapp.com/name"];
 
@@ -157,6 +157,8 @@ export default function Dashboard({selectedProgram}) {
   );
 }
 
-/* export const getServerSideProps = withPageAuthRequired(); */
+
+
 
 export const getServerSideProps = withPageAuthRequired();
+

@@ -4,7 +4,7 @@ const Section3 = ({eventForm, setEventForm, eventTypes,event}) => {
 
 
 
-    const [fields, setFields] = useState([])
+    const [fields, setFields] = useState()
 
 
 
@@ -12,14 +12,14 @@ const Section3 = ({eventForm, setEventForm, eventTypes,event}) => {
         if (eventForm.programName && !event) {
             const programNameConverted = convertStringTocompareWithProgramName(eventForm?.programName)
             //const eventProgramNameConverted = convertStringTocompareWithProgramName(event?.programname)
-            const filtered = eventTypes.filter(type => type[programNameConverted] === "1")
+            const filtered = eventTypes.filter(type => type[programNameConverted] === true)
             setFields(filtered)
         } 
 
         if (eventForm.programName && event) {
             const programNameConverted = convertStringTocompareWithProgramName(eventForm?.programName)
             const eventProgramNameConverted = convertStringTocompareWithProgramName(event?.programname)
-            const filtered = eventTypes.filter(type => event?type[programNameConverted] === "1": type[eventProgramNameConverted] === "1")
+            const filtered = eventTypes.filter(type => event?type[programNameConverted] === true: type[eventProgramNameConverted] === "1")
             setFields(filtered)
         } 
 

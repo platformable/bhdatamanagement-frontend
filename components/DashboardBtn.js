@@ -1,21 +1,21 @@
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { useRouter } from 'next/router';
 
 
 const DashboardBtn = () => {
+  const router= useRouter()
+
   return (
-    <button>
-      <Link href="/dashboard">
-        <p
-          className="p-5 bg-black text-center font-black text-white rounded cursor-pointer"
-          id=""
-        >
-      {/*     <Image src="/supervisor/dashboard_icon.svg" width={22} height={20} /> */}
-          Dashboard
-        </p>
-      </Link>
-    </button>
+    <button
+    onClick={() => router.push("/dashboard")}
+    className="bg-black text-white rounded p-5 cursor-pointer"
+  >
+     <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
+     Dashboard
+
+     </p>
+     
+  </button>
   );
 };
 

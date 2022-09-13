@@ -27,14 +27,13 @@ const Section8 = ({event, eventForm, setEventForm}) => {
    
         const filteredData=data.areas.filter(oldValues=> oldValues != e.target.value) 
         const filteredIds=data.ids.filter(oldValues=> oldValues != e.target.id) 
-
         isValueOnData?
          setData(previous => ({...previous, areas: filteredData, ids : filteredIds}))
          :
         setData((previous)=>({
           ...previous,
           areas: [...filteredData, e.target.value],
-          ids: [...filteredIds, e.target.id]
+          ids: [...filteredIds, Number(e.target.id)]
     }))
     };
     const handleFormId = (e) => {
