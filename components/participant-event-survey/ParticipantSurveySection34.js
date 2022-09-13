@@ -7,16 +7,16 @@ export const ParticipantSurveySection34 = () => {
       Have you ever heard of PEP (Post-Exposure Prophylaxis)?
       </h2>
       <div>
-        <label>
-          <input type="radio" />
+        <label >
+          <input type="radio"name="pep" />
           <p>Yes</p>
         </label>
-        <label>
-          <input type="radio" />
+        <label name="pep">
+          <input type="radio"name="pep" />
           <p>No</p>
         </label>
-        <label>
-          <input type="radio" />
+        <label name="pep">
+          <input type="radio" name="pep" />
           <p>Don’t know / Not sure</p>
         </label>
       </div>
