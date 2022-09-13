@@ -21,7 +21,7 @@ export default function Dashboard({selectedProgram}) {
 
   const program = useSelector((state)=>state.programs.value.programName)
 
-
+console.log("program",program)
 
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];

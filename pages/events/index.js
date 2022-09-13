@@ -105,10 +105,10 @@ const EventsIndex = ({ events }) => {
                 let filterPass = true
                 const date = new Date(event.eventdate)
                 if (dateFilter.startDate) {
-                  filterPass = filterPass && (new Date(dateFilter.startDate) <= date)
+                  filterPass = filterPass && (new Date(dateFilter.startDate)-1 <= date)
                 }
                 if (dateFilter.endDate) {
-                  filterPass = filterPass && (new Date(dateFilter.endDate) >= date)
+                  filterPass = filterPass && (new Date(dateFilter.endDate)-1 >= date)
                 }
                 //if filterPass comes back `false` the row is filtered out
                 return filterPass

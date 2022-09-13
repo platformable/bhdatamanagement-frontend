@@ -98,6 +98,7 @@ console.log("userData",userData)
               >
                 <option value={null} disabled>Select</option>
                 <option value="Program Worker" default>Program Worker</option>
+                <option value="NYS Program Worker" default>NYS Program Worker</option>
                 <option value="Intern">Intern</option>
                 <option value="Partner">Partner</option>
                 <option value="Supervisor">Supervisor</option>
