@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
+import TopEventsInfo from "../../../components/TopEventsInfo";
 
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
@@ -504,9 +505,15 @@ console.log("eventForm",eventForm)
 
         />
         <div className="container mx-auto md:px-0 px-5 items-center">
-          <div className="post-envent-form-container  border-black grid gap-1 bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
+
+
+      <TopEventsInfo event={event} />
+
+
+
+          <div className="post-envent-form-container mt-10 border-black grid gap-1 bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
             <section className="event p-5 rounded">
-              <div className="flex justify-between items-center ">
+             {/*  <div className="flex justify-between items-center ">
                 <h3 className="mb-3 font-black ">Event</h3>
               </div>
               <div style={programAndAreaStyles}>
@@ -612,12 +619,11 @@ console.log("eventForm",eventForm)
                       className="px-10 py-2 flex  justify-center items-center font-bold"
                       id="myBtn"
                     >
-                      {/* <img src="/events/edit_event_icon_button.svg" alt="" /> */}
                       <p className="ml-2 font-black">Edit event</p>
                     </a>
                   </button>
                 </Link>
-              </div>
+              </div> */}
             </section>
 
             <div className="rounded-tl-md rounded-tr-md">
