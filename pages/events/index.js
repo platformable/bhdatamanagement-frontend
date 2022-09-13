@@ -48,16 +48,21 @@ const EventsIndex = ({ events }) => {
         backBtn={true}
       />
 
-      <div className="container mx-auto grid md:grid-cols-3 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 md:gap-5">
-        <div className="block md:flex md:justify-end">
+
+      <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5">
+        
         <Search searchFunction={searchFunction} />
-        </div>
-        <div className=" block md:flex md:items-center items-start md:justify-end md:px-5 py-5 md:py-0  mr-0">
+
+        <div className="flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
+
           {" "}
-          <h3 className="flex">Filter by date</h3>
+          <h3 className="">Filter by date</h3>
         </div>
 
-        <div className="block md:flex flex-col gap-y-5 md:grid items-center md:my-0" style={{gridTemplateColumns:'2fr 0.8fr 2fr'}}>
+
+        <div className="flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0" >
+        
+
           <label className="w-full">
          
             <input type="date"

@@ -54,7 +54,7 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
 
     const isEmpty = Object.values(eventForm).some(value => !value)
     
-    if (!isEmpty) {
+    // if (!isEmpty) {
         axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
             console.log("response",response)
@@ -72,10 +72,10 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
             setShowResponseStatus(!showResponseStatus)
             console.error("error: ", error)
     });
-    } else {
-      setResponseStatus({ success: false, statusMessage: "Please complete all the fields"})
-      setShowResponseStatus(!showResponseStatus)
-    }
+    // } else {
+    //   setResponseStatus({ success: false, statusMessage: "Please complete all the fields"})
+    //   setShowResponseStatus(!showResponseStatus)
+    // }
   }
   
   return (

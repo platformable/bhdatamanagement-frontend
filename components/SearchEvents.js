@@ -2,8 +2,10 @@ import React from "react";
 
 export default function SearchEvents({ searchFunction }) {
   return (
-    <div className="block md:flex justify-start   items-center">
-      <p className="md:mr-5 mr-0 md:block">Search</p>
+
+    <div className="flex justify-start items-center md:px-0 ">
+                <p className="mr-5 md:block">Search</p>
+
 
       <div className="block md:flex ">
         <div className="block md:flex border-1  rounded-lg  rounded-lg w-full w-80">
