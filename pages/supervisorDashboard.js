@@ -11,12 +11,16 @@ import "react-toastify/dist/ReactToastify.css";
 import { Dropbox } from "dropbox";
 import DashboardClientCard from "../components/DashboardClientCard";
 
+import { useSelector, useDispatch } from 'react-redux'
+
 import Layout from "../components/Layout";
 
 
 export default function SupervisorDashboard({ selectedProgram }) {
   const { user, error, isLoading } = useUser();
   const [showModal, setShowModal] = useState(false);
+
+  const program = useSelector((state)=>state.programs.value.programName)
 
   const userName = user && user['https://lanuevatest.herokuapp.com/name']
 
@@ -70,7 +74,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
                   </Link>
                 )}
                  <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
-            <Link href={`/events/${selectedProgram.toLowerCase()}/register`}>
+            <Link href={`/events/${program.toLowerCase()}/register`}>
             <div className=" ">
               <button id="myBtn" className="flex items-center">
                 
@@ -158,13 +162,4 @@ export default function SupervisorDashboard({ selectedProgram }) {
 
 /* export const getServerSideProps = withPageAuthRequired(); */
 
-export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-   let {program}=ctx.query
-
-   
-    // access the user session
-    const session = getSession(ctx.req, ctx.res);
-    return { props: { selectedProgram: program } };
-  }
-});
+export const getServerSideProps = withPageAuthRequired();
