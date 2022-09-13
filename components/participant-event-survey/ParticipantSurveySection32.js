@@ -47,7 +47,7 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
     },
     {
       id:5,
-      value:"Signs / Flyers "
+      value:"Signs/flyers "
     },
     {
       id:6,

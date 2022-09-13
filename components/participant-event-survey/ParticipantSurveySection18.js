@@ -178,7 +178,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              Very Uncomfortable
+              Very uncomfortable
             </label>
           </div>
         </div>
@@ -263,7 +263,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />Very Uncomfortable
+              />Very uncomfortable
             </label>
           </div>
         </div>
@@ -346,7 +346,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                 [e.target.name]: Number(e.target.value),
               }))
             }
-          />Very Uncomfortable
+          />Very uncomfortable
         </label>
           </div>
           
@@ -367,7 +367,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />Very Uncomfortable
+              />Very uncomfortable
             </label>
             <label className="gap-x-5 flex text-lg items-center my-5">
               
@@ -512,7 +512,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                   }))
                 }
               />
-              Very Uncomfortable
+              Very uncomfortable
             </label>
           </div>
         </div>
@@ -597,7 +597,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />Very Uncomfortable
+              />Very uncomfortable
             </label>
           </div>
         </div>
@@ -681,7 +681,7 @@ export const ParticipantSurveySection18 = ({ surveyForm, setSurveyForm }) => {
                     [e.target.name]: Number(e.target.value),
                   }))
                 }
-              />Very Uncomfortable
+              />Very uncomfortable
             </label>
           </div>
         </div>

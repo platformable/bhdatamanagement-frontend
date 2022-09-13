@@ -196,7 +196,10 @@ const Survey = ({data}) => {
           <ParticipantSurveySection4 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection5 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection6 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection7 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection32 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection33 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+
+          {/* <ParticipantSurveySection7 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
           <ParticipantSurveySection8 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection9 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection10 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
@@ -215,15 +218,13 @@ const Survey = ({data}) => {
           <ParticipantSurveySection23 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           {/* <ParticipantSurveySection24 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
           <ParticipantSurveySection25 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+          <ParticipantSurveySection34 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           {/* <ParticipantSurveySection26 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
           <ParticipantSurveySection27 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection28 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection29 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection30 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection31 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection32 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection33 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-
         </div>
 
         <div className="flex justify-center">
