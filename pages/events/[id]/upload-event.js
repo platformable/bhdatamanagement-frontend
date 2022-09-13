@@ -170,7 +170,7 @@ export const Upload_event = ({ event }) => {
               className="border-black  shadow-lg rounded grid"
               style={{ gridTemplateColumns: "2fr 1fr" }}
             >
-              <div className="bg-black py-5">
+              <div className="bg-black py-5 grid items-center justify-center justify-items-center">
                 
                {loadingFile && <div className="flex justify-center"><Loader/></div>}
                 <h2 className="mb-5 font-bold text-white uppercase">
@@ -191,7 +191,7 @@ export const Upload_event = ({ event }) => {
                 </label>
                 </div>
                 <br />
-              {file ? <h3 className="text-white ">{file.name}</h3> : <h3 className="text-white">No file chosen</h3>}
+              {file ? <p className="text-white overflow-hidden w-4/5">{file.name}</p> : <p className="text-white overflow-hidden w-4/5">No file chosen</p>}
               </div>
               
               <div className="flex items-center justify-center md:px-0 px-5">
@@ -236,7 +236,7 @@ export const Upload_event = ({ event }) => {
               className="border-black  shadow-lg rounded grid"
               style={{ gridTemplateColumns: "2fr 1fr" }}
             >
-              <div className="bg-black py-5">
+              <div className="bg-black py-5 grid items-center justify-center justify-items-center">
               {loadingImgFile && <div className="flex justify-center"><Loader/></div>}
                 <h2 className="mb-5 font-bold text-white uppercase">
                   Upload photos
@@ -259,7 +259,7 @@ export const Upload_event = ({ event }) => {
                 
                 </div>
                 <br />
-                {imageFile ? <h3 className="text-white ">{imageFile.name}</h3> : <h3 className="text-white">No file chosen</h3>}
+                {imageFile ? <p className="text-white overflow-hidden  w-4/5">{imageFile.name}</p> : <p className="text-white overflow-hidden w-4/5">No file chosen</p>}
 
               </div>
               <div className="flex items-center justify-center md:px-0 px-5">

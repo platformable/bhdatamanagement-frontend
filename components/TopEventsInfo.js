@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const TopEventsInfo = ({event}) => {
     return (
-        <section className="md:px-0 ">
+        <section className="md:px-0 px-5">
         <div
           id="event"
           className="container mx-auto rounded-xl   border-black "
