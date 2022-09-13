@@ -9,7 +9,7 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
     gap: "5px",
   };
   return (
-    <div className="px-7 mt-10">
+    <div className="px-7">
       <h2 className="font-black">
       What is the city location of the event?
       </h2>
