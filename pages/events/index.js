@@ -49,18 +49,17 @@ const EventsIndex = ({ events }) => {
       />
 
 
-      <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5">
+      <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5">
         
         <Search searchFunction={searchFunction} />
 
-        <div className="flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
+        <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
 
-          {" "}
           <h3 className="">Filter by date</h3>
         </div>
 
 
-        <div className="flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0" >
+        <div className="block md:flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0" >
         
 
           <label className="w-full">
@@ -75,7 +74,7 @@ const EventsIndex = ({ events }) => {
             className="border-black rounded-md text-sm w-full"
             />
           </label>
-          <h3 className="text-left md:text-center py-5 md:py-0">and</h3>
+          <h3 className="text-left md:text-center md:py-5 md:py-0 py-5">and</h3>
           <label className="flex justify-end w-full">
             <input type="date" 
             placeholder="end date"
@@ -88,7 +87,7 @@ const EventsIndex = ({ events }) => {
         </div>
       </div>
 
-      <div className="events-cards-container grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5">
+      <div className="events-cards-container grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5">
         {sortedEventsByDate &&
           sortedEventsByDate
             ?.filter((event, index) => {

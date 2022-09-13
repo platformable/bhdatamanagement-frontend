@@ -3,7 +3,7 @@ import React from "react";
 export default function SearchEvents({ searchFunction }) {
   return (
 
-    <div className="flex justify-start items-center md:px-0 ">
+    <div className="block md:flex justify-start items-center md:px-0 ">
                 <p className="mr-5 md:block">Search</p>
 
 
