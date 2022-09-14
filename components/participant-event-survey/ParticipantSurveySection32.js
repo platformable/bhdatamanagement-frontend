@@ -101,7 +101,8 @@ if(index===options.length-1){
      <input type="text" 
           // placeholder="Please specify" 
           onChange={(e)=>setSurveyForm({...surveyForm,participantReferralOther:e.target.value})}
-          className="border-black rounded px-4 self-start p-1 w-full text-xl w-134" />
+
+          className="border-black rounded p-4 self-start p-1 w-full text-lg w-134" />
     </label>
 
   )

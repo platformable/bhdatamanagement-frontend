@@ -100,6 +100,7 @@ const Survey = ({data}) => {
     participantHIVKnowledge: [],
     participantCondomUse: "",
     participantPrEPKnowledge: "",
+    participantPEPKnowledge: "",
     participantPrEPUse: "",
     participantUKnowledge: "",
     participantTestResourceKnowledge: "",

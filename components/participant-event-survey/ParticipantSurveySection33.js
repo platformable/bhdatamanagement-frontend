@@ -9,7 +9,7 @@ export const ParticipantSurveySection33 = ({surveyForm,setSurveyForm}) => {
       </h2>
       
         <textarea
-        className="mt-7 p-2 block w-full h-52 bg-white break-all border-black rounded-md overflow-hidden"
+        className="mt-7 p-4 text-lg block w-full h-52 bg-white break-all border-black rounded-md overflow-hidden"
         role="textbox"
         name="participantSuggestions"
         placeholder=""
