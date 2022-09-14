@@ -2,7 +2,7 @@ import React from 'react'
 
 export const ParticipantSurveySection33 = ({surveyForm,setSurveyForm}) => {
   return (
-    <div className="px-7 mb-7">
+    <div className="px-7">
       <h2 className=" font-black">
         {/* <span className="">33 </span> */}
         Do you have any comments or suggestions? 
