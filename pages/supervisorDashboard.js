@@ -20,7 +20,16 @@ export default function SupervisorDashboard({ selectedProgram }) {
   const { user, error, isLoading } = useUser();
   const [showModal, setShowModal] = useState(false);
 
-  const program = useSelector((state)=>state.programs.value.programName)
+    
+  const programFromLocalStorage = () => { 
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem('program');
+      const localStorageProgram = saved !== null ? JSON.parse(saved) : "";
+      return localStorageProgram.programName;
+    }
+   }
+
+  const program = useSelector((state)=>state.programs.value.programName) || programFromLocalStorage()
 
   const userName = user && user['https://lanuevatest.herokuapp.com/name']
 
@@ -30,7 +39,6 @@ export default function SupervisorDashboard({ selectedProgram }) {
   const userId = user?.sub;
   const [noDataMessage, setNoDataMessage] = useState(false);
 
-  
 
   return (
     <>
@@ -74,7 +82,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
                   </Link>
                 )}
                  <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
-            <Link href={`/events/${program.toLowerCase()}/register`}>
+            <Link href={`/events/${program?.toLowerCase()}/register`}>
             <div className=" ">
               <button id="myBtn" className="flex items-center">
                 

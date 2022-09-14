@@ -20,7 +20,7 @@ export default function SearchEvents({ searchFunction }) {
               type="search"
               onChange={(e) => searchFunction(e.target.value)}
               id="default-search"
-              class="block p-4 w-full text-sm border-black text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
+              class="block p-4 w-full text-sm border-black text-black rounded-lg border border-gray-300 "
               required
             />
 

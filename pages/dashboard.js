@@ -17,11 +17,18 @@ export default function Dashboard({selectedProgram}) {
   const { user, error, isLoading } = useUser();
   const [loading, setLoading] = useState(true);
 
-  console.log("selectedPgroam",selectedProgram)
+  const programFromLocalStorage = () => { 
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem('program');
+      const initial = saved !== null ? JSON.parse(saved) : "";
+      return initial.programName;
+    }
+   }
 
-  const program = useSelector((state)=>state.programs.value.programName)
+  const program = useSelector((state)=>state.programs.value.programName) || programFromLocalStorage()
+ 
 
-console.log("program",program)
+
 
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
@@ -33,7 +40,7 @@ console.log("program",program)
 
   const userName = user && user["https://lanuevatest.herokuapp.com/name"];
 
-  console.log("user", user);
+
   const notifyMessage = () => {
     toast.success("A new client is being created!", {
       position: toast.POSITION.TOP_CENTER,
@@ -74,7 +81,8 @@ console.log("program",program)
 
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
               <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
-            <Link href={`/events/${program.toLowerCase()}/register`}>
+            <Link href={`/events/${program?.toLowerCase()}/register`}>
+
             <div className=" ">
               <button id="myBtn" className="flex items-center">
                 
