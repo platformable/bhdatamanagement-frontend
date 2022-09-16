@@ -27,7 +27,7 @@ const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
     const  capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1)
 
     const handleForm = (e) => {
-        setEventForm(previous => ({...previous, nysActivity: e.target.value}))
+        setEventForm(previous => ({...previous, nysActivity: e.target.value, nysActivityOther: ""}))
     }
     const handleFormId = (e) => {
 
@@ -65,15 +65,18 @@ const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
                     className='' 
                     id={activity.id}
                     onChange={handleForm}
-                    value="Other"/>
+                    value="Other"
+                    defaultChecked={activity.value === eventForm.nysActivity?'checked':""}
+                    />
                     <p className="">Other</p>
                     <input type="text" 
-                    name="nysActivity" 
-                    onChange={handleForm}
-                    className=' border rounded' 
-                    defaultChecked={activity.value===activity.value ?'checked':""}
-                    // placeholder="Please specify here"
-                    />
+                    name="nysActivityOther" 
+                    onChange={(e) =>
+                        setEventForm(previous => ({...previous, nysActivityOther: e.target.value}))
+                    }
+                    className='border rounded' 
+                    value={eventForm.nysActivityOther}
+/>
                  </label>)
             )})}
              
