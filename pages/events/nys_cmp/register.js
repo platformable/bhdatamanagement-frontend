@@ -8,6 +8,8 @@ import Section5 from "../../../components/events/Section5";
 import Section6 from "../../../components/events/Section6";
 import Section7 from "../../../components/events/Section7";
 import Section8 from "../../../components/events/Section8";
+import Section9 from "../../../components/events/Section9";
+import EventDescription from "../../../components/events/EventDescription";
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import { useRouter } from 'next/router'
@@ -40,7 +42,13 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
     eventTypeID: "",
     eventTypeName: "",
     nysActivity:"",
-    nysActivityOther:""
+    nysActivityOther:"",
+    onlineInPersonEventType:"",
+inPersonEventTypeID:null,
+inPersonEventTypeName:"",
+onlineEventTypeID:null,
+onlineEventTypeName:"",
+eventDescription:""
   });
   const userId = user && user.sub
   
@@ -51,17 +59,14 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
   console.log("nys state form",eventForm)
   const submitEventForm = async () => {
  
-   /*  const isEmpty = Object.values(eventForm).some(value => !value) */
-    
-/*     if (!isEmpty) { */
         axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
             if (response.data.statusText==='OK') {
               setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
               setShowResponseStatus(!showResponseStatus)
-              /* setTimeout(()=>{
+              setTimeout(()=>{
                  router.push("/events") 
-              },1500) */
+              },1500)
             } 
         })
         .catch(function (error) {
@@ -69,10 +74,6 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
             setShowResponseStatus(!showResponseStatus)
             console.error("error: ", error)
     });
-   /*  } else {
-      setResponseStatus({ success: false, statusMessage: "Please complete all the fields"})
-      setShowResponseStatus(!showResponseStatus)
-    } */
   }
   
 
@@ -90,12 +91,14 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
           {/* <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} /> */}
           <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} />
+          <EventDescription eventForm={eventForm} setEventForm={setEventForm}/>
           <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/>
           <Section4 eventForm={eventForm} setEventForm={setEventForm} />
           <Section5 eventForm={eventForm} setEventForm={setEventForm} />
           <Section6 eventForm={eventForm} setEventForm={setEventForm} />
           <Section7 eventForm={eventForm} setEventForm={setEventForm} locationTypes={locationTypes}/>
           <Section8 eventForm={eventForm} setEventForm={setEventForm} />
+          <Section9 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
         </div>
         
       </div>   

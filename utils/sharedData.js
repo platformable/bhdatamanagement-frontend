@@ -351,4 +351,25 @@ export const resourcesDistributed = [
   //   name:"COVID vaccine site referral information/details",
   //   dataFieldName:"covidVaccineSiteReferralDetails"
   // },
-];
+]
+
+export const inPersonEventTypeName =[
+  {id:1,value:'Vaccine and/or COVID-19 Testing Event',nyscmp:true},
+{id:2,value:'Outreach/Community Event',nyscmp:true},
+{id:3,value:'Day of Action (including community awareness days)',nyscmp:true},
+{id:4,value:'Workshop/Training',nyscmp:true},
+{id:5,value:'Town Hall',nyscmp:true},
+{id:6,value:'Door Knocking',nyscmp:true},
+{id:7,value:'Capacity Building Training',nyscmp:false},
+{id:8,value:'Community Advisory Board Meeting',nyscmp:false}
+]
+
+export const onlineEventTypeName=[
+  {id:1,value:	'Workshop/Training',nyscmp:	true},
+{id:2,value:	'Town Hall',nyscmp:	true},
+{id:3,value:	'Webinar',nyscmp:true},
+{id:4,value:	'Meeting',nyscmp:true},
+{id:5,value:	'Capacity Building Training', nyscmp:false},
+{id:6,value:	'Community Advisory Board',nyscmp:	false},
+]
+
