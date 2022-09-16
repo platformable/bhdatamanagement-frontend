@@ -114,6 +114,12 @@ export const shareData = {
     "Prepared meals",
     "Hand sanitizers",
     "COVID vaccine site referral information/details",
+    "Male condoms",
+    "Female condoms",
+    "Lubricant",
+    "Referral lists",
+    "Dental dam",
+    "Promotional materials"
   ],
 };
 
@@ -210,6 +216,7 @@ export const eventChecklist = [
       "For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
     dataField: "reminderPostEvaluationSurvey",
   },
+  
 ];
 
 export const gender = [
@@ -345,6 +352,35 @@ export const resourcesDistributed = [
     source: "/post_Event_report/hand_sanitizers_icon.svg",
     name: "Hand sanitizers",
     dataFieldName: "handSanitizers",
+  },{
+    id: 7,
+    name: "Male condoms",
+    dataFieldName: "maleCondoms",
+  },
+  {
+    id: 8,
+    name:"Female condoms",
+    dataFieldName: "femaleCondoms",
+  },
+  {
+    id: 9,
+    name:"Lubricants",
+    dataFieldName: "lubricants",
+  },
+  {
+    id: 7,
+    name: "Referral lists",
+    dataFieldName: "referralLists",
+  },
+  {
+    id: 8,
+    name:"Dental dam",
+    dataFieldName: "dentalDam",
+  },
+  {
+    id: 9,
+    name:"Promotional materials",
+    dataFieldName: "promotionalMaterial",
   },
   // { id:14,
   //   source: "/post_Event_report/COVID_site_referral_icon.svg",

@@ -6,6 +6,7 @@ const dataFieldStrings = (raiz) => {
   const TransgenderMale = raiz + "TransgenderMale";
   const GenderNonConforming = raiz + "GenderNonConforming";
   const NonBinary = raiz + "NonBinary";
+  const NotSureQuestioning = raiz + "NotSureQuestioning"
   const OtherGenderIdentity = raiz + "OtherGenderIdentity";
   const GenderDeclinedToAnswer = raiz + "GenderDeclinedToAnswer";
 
@@ -16,6 +17,7 @@ const dataFieldStrings = (raiz) => {
     TransgenderMale,
     GenderNonConforming,
     NonBinary,
+    NotSureQuestioning,
     OtherGenderIdentity,
     GenderDeclinedToAnswer,
   ];
@@ -124,7 +126,7 @@ const GenderSurveySection = ({
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="">Other gender identity</h3>
+        <h3 className="">Not sure / Questioning</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -137,7 +139,7 @@ const GenderSurveySection = ({
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="">Decline to answer</h3>
+        <h3 className="">Other gender identity</h3>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -145,6 +147,19 @@ const GenderSurveySection = ({
         defaultValue={0}
           maxLength={3}
           name={fields[7]}
+          onChange={handleForm}
+          className="border-black p-4  rounded w-20"
+        />
+      </label>
+      <label className="flex flex-col gap-2">
+        <h3 className="">Decline to answer</h3>
+        <input
+          type="number"
+          onWheelCapture={disableWheelInputNumber}
+          onKeyUp={handleMaxNumber}
+        defaultValue={0}
+          maxLength={3}
+          name={fields[8]}
           onChange={handleForm}
           className="border-black p-4  rounded w-20"
         />
