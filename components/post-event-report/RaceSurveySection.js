@@ -11,6 +11,7 @@ const dataFieldStrings = (raiz) => {
   const hivWhite = raiz + "White";
   const hivSomeOtherRace = raiz + "SomeOtherRace";
   const hivRaceDeclinedToAnswer = raiz + "RaceDeclinedToAnswer";
+  const hivMoreThanOneRace = raiz + "MoreThanOneRace"
 
   return [
     hivBlackOrAfricanAmerican,
@@ -21,6 +22,7 @@ const dataFieldStrings = (raiz) => {
     hivNativeHawaiianOrOtherPacificIslander,
     hivWhite,
     hivSomeOtherRace,
+    hivMoreThanOneRace,
     hivRaceDeclinedToAnswer,
   ];
 };
@@ -30,7 +32,8 @@ const RaceSurveySection = ({
   typeOfTest,
   typeOfTestForTitles,
   handleMaxNumber,
-  disableWheelInputNumber
+  disableWheelInputNumber,
+  isNumberKey
 }) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest]);
 
@@ -50,7 +53,7 @@ const RaceSurveySection = ({
         during {typeOfTestForTitles(typeOfTest)} Testing?
       </h2>
       <label className="flex flex-col gap-2">
-        <h3 className="">Black or African American</h3>
+        <p className="">Black or African American</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -60,10 +63,12 @@ const RaceSurveySection = ({
           className="border-black p-4 w-20 rounded"
           name={fields[0]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="">Hispanic, Latino/a or Spanish</h3>
+        <p className="">Hispanic, Latino/a or Spanish</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -73,10 +78,12 @@ const RaceSurveySection = ({
           className="border-black p-4 w-20 rounded"
           name={fields[1]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="">Asian</h3>
+        <p className="">Asian</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -86,10 +93,12 @@ const RaceSurveySection = ({
           className="border-black p-4 w-20 rounded"
           name={fields[2]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="">American Indian or Alaska Native</h3>
+        <p className="">American Indian or Alaska Native</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -99,10 +108,12 @@ const RaceSurveySection = ({
           className="border-black p-4 w-20 rounded"
           name={fields[3]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="">Middle Eastern or North African</h3>
+        <p className="">Middle Eastern or North African</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -112,10 +123,12 @@ const RaceSurveySection = ({
           className="border-black p-4 w-20 rounded"
           name={fields[4]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="">Native Hawaiian or Other Pacific Islander</h3>
+        <p className="">Native Hawaiian or Other Pacific Islander</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -125,10 +138,12 @@ const RaceSurveySection = ({
           className="border-black p-4 w-20 rounded"
           name={fields[5]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="">White</h3>
+        <p className="">White</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -138,10 +153,12 @@ const RaceSurveySection = ({
           className="border-black p-4 w-20 rounded"
           name={fields[6]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="">Some other race or origin</h3>
+        <p className="">Some other race or origin</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -151,10 +168,12 @@ const RaceSurveySection = ({
           className="border-black p-4 w-20 rounded"
           name={fields[7]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="">Decline to answer</h3>
+        <p className="">More than one race/ethnicity</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -164,6 +183,23 @@ const RaceSurveySection = ({
           className="border-black p-4 w-20 rounded"
           name={fields[8]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
+        />
+      </label>
+      <label className="flex flex-col gap-2">
+        <p className="">Decline to answer</p>
+        <input
+          type="number"
+          onWheelCapture={disableWheelInputNumber}
+          onKeyUp={handleMaxNumber}
+        defaultValue={0}
+          maxLength={3}
+          className="border-black p-4 w-20 rounded"
+          name={fields[9]}
+          onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
     </div>

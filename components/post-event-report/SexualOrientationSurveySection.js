@@ -25,7 +25,8 @@ const SexualOrientationSurveySection = ({
   typeOfTest,
   typeOfTestForTitles,
   handleMaxNumber,
-  disableWheelInputNumber
+  disableWheelInputNumber,
+  isNumberKey
 }) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest]);
 
@@ -46,7 +47,7 @@ const SexualOrientationSurveySection = ({
         sexual orientation?
       </h2>
       <label className="flex flex-col gap-2">
-        <h3 className="w-60 gap-x-5 text-lg">Gay or lesbian</h3>
+        <p className="w-60 gap-x-5 text-lg">Gay or lesbian</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -56,10 +57,12 @@ const SexualOrientationSurveySection = ({
           className="border-black p-4  rounded w-20"
           name={fields[0]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="w-60 gap-x-5">Straight or heterosexual</h3>
+        <p className="w-60 gap-x-5">Straight or heterosexual</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -69,10 +72,12 @@ const SexualOrientationSurveySection = ({
           className="border-black p-4  rounded w-20"
           name={fields[1]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="w-60 gap-x-5">Bisexual</h3>
+        <p className="w-60 gap-x-5">Bisexual</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -82,10 +87,12 @@ const SexualOrientationSurveySection = ({
           className="border-black p-4  rounded w-20"
           name={fields[2]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="w-60 gap-x-5">Queer</h3>
+        <p className="w-60 gap-x-5">Queer</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -95,10 +102,12 @@ const SexualOrientationSurveySection = ({
           className="border-black p-4  rounded w-20"
           name={fields[3]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="w-60 gap-x-5">Questioning or not sure</h3>
+        <p className="w-60 gap-x-5">Questioning or not sure</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -108,10 +117,12 @@ const SexualOrientationSurveySection = ({
           className="border-black p-4  rounded w-20"
           name={fields[4]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="w-60 gap-x-5">Unknown</h3>
+        <p className="w-60 gap-x-5">Unknown</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -121,10 +132,12 @@ const SexualOrientationSurveySection = ({
           className="border-black p-4  rounded w-20"
           name={fields[5]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 className="w-60 gap-x-5">Decline to answer</h3>
+        <p className="w-60 gap-x-5">Decline to answer</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -134,6 +147,8 @@ const SexualOrientationSurveySection = ({
           className="border-black p-4  rounded w-20"
           name={fields[6]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+
         />
       </label>
     </div>

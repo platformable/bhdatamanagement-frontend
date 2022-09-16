@@ -51,8 +51,8 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
               [e.target.name]:e.target.value
             }))}
           type="text"
-          className="p-4 text-base border-black rounded w-60"
-          placeholder=""
+          className="p-4 text-base border-black rounded w-72"
+          placeholder="Eg. Inwood Gourmet Deli"
         />
       </label>
 

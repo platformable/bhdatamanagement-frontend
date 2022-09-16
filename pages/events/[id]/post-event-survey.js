@@ -46,6 +46,7 @@ import PostEventReportSection26 from "../../../components/post-event-report/Post
 import PostEventReportSection27 from "../../../components/post-event-report/PostEventReportSection27";
 import PostEventReportSection28 from "../../../components/post-event-report/PostEventReportSection28";
 import PostEventReportSection29 from "../../../components/post-event-report/PostEventReportSection29";
+import PostEventReportSection30 from "../../../components/post-event-report/PostEventReportSection30";
 
 
 const PostEventReport = ({
@@ -85,6 +86,7 @@ const PostEventReport = ({
         locationAddress : '',
         locationName : '',
         locationNameOther : '',
+        nysPrimaryRiskGroup: "",
         masks : 0,
         covidLiterature : 0,
         vaccineRelatedLiterature : 0,
@@ -99,6 +101,12 @@ const PostEventReport = ({
         // preparedMeals : 0,
         handSanitizers : 0,
         // covidVaccineSiteReferralDetails : 0,
+        maleCondoms: 0,
+        femaleCondoms: 0,
+        lubricant: 0,
+        referralLists: 0,
+        dentalDam: 0,
+        promotionalMaterial: 0,
         staffPresent : 0,
         internPresent : 0,
         adultVolunteers : 0,
@@ -433,7 +441,23 @@ const PostEventReport = ({
         otherQueer : 0,
         otherQuestioningOrNotSure : 0,
         otherSexualOrientationUnknown : 0,
-        otherSexualOrientationDeclinedToAnswer : 0
+        otherSexualOrientationDeclinedToAnswer : 0,
+        reminderPostEvaluationSurvy :false,
+        hivGenderNotSureQuestioning : 0,
+        altAgeHivUnder13 : 0,
+        altAgeHiv13_18 : 0,
+        altAgeHiv19_24 : 0,
+        hivMoreThanOneRace : 0,
+        stiGenderNotSureQuestioning : 0,
+        altAgeStiUnder13 : 0,
+        altAgeSti13_18 : 0,
+        altAgeSti19_24 : 0,
+        stiMoreThanOneRace : 0,
+        hepCGenderNotSureQuestioning : 0,
+        altAgeHepCUnder13 : 0,
+        altAgeHepC13_18 : 0,
+        altAgeHepC19_24 : 0,
+        hepCMoreThanOneRace : 0
   });
   const userId = user && user.sub;
 const router = useRouter()
@@ -464,9 +488,9 @@ const router = useRouter()
             });
             setShowResponseStatus(!showResponseStatus);
             notifyMessage()
-            setTimeout(()=>{
-              router.back()
-            },1500)
+            // setTimeout(()=>{
+            //   router.back()
+            // },1500)
           }
         })
         .catch(function (error) {
@@ -636,6 +660,7 @@ console.log("eventForm",eventForm)
             <PostEventReportSection5 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection6 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection30 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm}/>
             </div>
             
