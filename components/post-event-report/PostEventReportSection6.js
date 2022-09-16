@@ -7,9 +7,10 @@ const PostEventReportSection6 = ({eventForm,setEventForm}) => {
     <h2 className="font-black">
       What was the event location address
     </h2>
+    <label>
     <input type="text" 
     name="locationAddress" 
-    className='border-black rounded mt-5 p-2 text-lg w-134'
+    className='border-black rounded mt-5  text-lg w-134'
     onChange={(e)=>{
       setEventForm((previous) => ({
       ...previous,
@@ -18,6 +19,8 @@ const PostEventReportSection6 = ({eventForm,setEventForm}) => {
     placeholder='Please type address' 
 
 />
+    </label>
+    
   </div>
   )
 }

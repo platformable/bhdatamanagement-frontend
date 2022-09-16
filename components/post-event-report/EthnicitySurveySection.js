@@ -25,7 +25,8 @@ const EthnicitySurveySection = ({
   setEventForm,
   typeOfTestForTitles,
   handleMaxNumber,
-  disableWheelInputNumber
+  disableWheelInputNumber,
+  isNumberKey
 }) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest]);
 
@@ -46,7 +47,7 @@ const EthnicitySurveySection = ({
       </h2>
 
       <label className="flex flex-col gap-2">
-        <h3 className="">Not of Hispanic, Latino/a or Spanish origin</h3>
+        <p className="">Not of Hispanic, Latino/a or Spanish origin</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -56,10 +57,12 @@ const EthnicitySurveySection = ({
           className="border-black p-4 rounded  w-20"
           name={fields[0]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
+        
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 >Mexican, Mexican American or Chicano</h3>
+        <p >Mexican, Mexican American or Chicano</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -69,10 +72,11 @@ const EthnicitySurveySection = ({
           className="border-black p-4 rounded  w-20"
           name={fields[1]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 >Puerto Rican</h3>
+        <p >Puerto Rican</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -82,10 +86,11 @@ const EthnicitySurveySection = ({
           className="border-black p-4 rounded  w-20"
           name={fields[2]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 >Cuban</h3>
+        <p >Cuban</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -95,10 +100,11 @@ const EthnicitySurveySection = ({
           className="border-black p-4 rounded  w-20"
           name={fields[3]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 >Dominican</h3>
+        <p >Dominican</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -108,10 +114,11 @@ const EthnicitySurveySection = ({
           className="border-black p-4 rounded  w-20"
           name={fields[4]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 >Ecuadorian</h3>
+        <p >Ecuadorian</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -121,10 +128,11 @@ const EthnicitySurveySection = ({
           className="border-black p-4 rounded  w-20"
           name={fields[5]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 >Other Hispanic, Latino/a, or Spanish origin</h3>
+        <p >Other Hispanic, Latino/a, or Spanish origin</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -134,10 +142,11 @@ const EthnicitySurveySection = ({
           className="border-black p-4 rounded  w-20"
           name={fields[6]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
         />
       </label>
       <label className="flex flex-col gap-2">
-        <h3 >Decline to answer</h3>
+        <p >Decline to answer</p>
         <input
           type="number"
           onWheelCapture={disableWheelInputNumber}
@@ -147,6 +156,7 @@ const EthnicitySurveySection = ({
           className="border-black p-4 rounded  w-20"
           name={fields[7]}
           onChange={handleForm}
+          onKeyDown={isNumberKey}
         />
       </label>
     </div>

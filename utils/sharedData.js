@@ -364,8 +364,8 @@ export const resourcesDistributed = [
   },
   {
     id: 9,
-    name:"Lubricants",
-    dataFieldName: "lubricants",
+    name:"Lubricant",
+    dataFieldName: "lubricant",
   },
   {
     id: 7,
