@@ -40,7 +40,7 @@ const Section9 = ({eventForm, setEventForm,event}) => {
             </div>
 
             <div className="my-5">
-            {eventForm?.onlineInPersonEventType==='Online' &&  <h2 className='mt-10 mb-5 font-black'>Type of Event Name</h2>}
+            {eventForm?.onlineInPersonEventType==='Online' &&  <h2 className='mt-10 mb-5 font-black'>What type of online event is it?</h2>}
                 {
                     eventForm?.onlineInPersonEventType==='Online' ?  (
                         onlineEventTypeName && onlineEventTypeName.filter((option)=>option.nyscmp===true).map((option,index) => {
@@ -68,7 +68,7 @@ const Section9 = ({eventForm, setEventForm,event}) => {
 
 
              <div className="my-5">
-            {eventForm?.onlineInPersonEventType==='In-person' &&  <h2 className='mt-10 mb-5 font-black'>Type of Event Name</h2>}
+            {eventForm?.onlineInPersonEventType==='In-person' &&  <h2 className='mt-10 mb-5 font-black'>What type of event location will the event be held at?</h2>}
                 {
                     eventForm?.onlineInPersonEventType==='In-person' ?  (
                         inPersonEventTypeName && inPersonEventTypeName.filter((option)=>option.nyscmp===true).map((option,index) => {

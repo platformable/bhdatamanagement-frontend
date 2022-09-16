@@ -9,6 +9,7 @@ import Section6 from "../../../components/events/Section6";
 import Section7 from "../../../components/events/Section7";
 import Section8 from "../../../components/events/Section8";
 import Section9 from "../../../components/events/Section9";
+import Loader from "../../../components/Loader";
 import EventDescription from "../../../components/events/EventDescription";
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
@@ -25,6 +26,7 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
   const { user, error, isLoading } = useUser();
   const [showResponseStatus, setShowResponseStatus] = useState(false)
   const [responseStatus, setResponseStatus] = useState ({})
+  const [loading,setLoading]=useState(false)
   const [eventForm, setEventForm] = useState({
     userID: "",
     eventDateCreated: new Date(),
@@ -34,12 +36,12 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
     eventDate: "",
     eventStartTime: "",
     eventFinishTime: "",
-    eventLocationTypeID: "",
+    eventLocationTypeID: null,
     eventLocationTypeName: "",
     // eventZipCode: "",
     healthAreaOfFocusID: [6],
     healthAreaOfFocusName: ["HIV/AIDS"],
-    eventTypeID: "",
+    eventTypeID: null,
     eventTypeName: "",
     nysActivity:"",
     nysActivityOther:"",
@@ -57,11 +59,14 @@ eventDescription:""
   }, [userId])
   
   console.log("nys state form",eventForm)
+
   const submitEventForm = async () => {
- 
+    
+    setLoading(true)
         axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
             if (response.data.statusText==='OK') {
+              setLoading(false)
               setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
               setShowResponseStatus(!showResponseStatus)
               setTimeout(()=>{
@@ -92,17 +97,22 @@ eventDescription:""
           <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} />
           <EventDescription eventForm={eventForm} setEventForm={setEventForm}/>
-          <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/>
+          <Section9 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
+        {/*   <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/> */}
           <Section4 eventForm={eventForm} setEventForm={setEventForm} />
           <Section5 eventForm={eventForm} setEventForm={setEventForm} />
           <Section6 eventForm={eventForm} setEventForm={setEventForm} />
-          <Section7 eventForm={eventForm} setEventForm={setEventForm} locationTypes={locationTypes}/>
+          {/* <Section7 eventForm={eventForm} setEventForm={setEventForm} locationTypes={locationTypes}/> */}
           <Section8 eventForm={eventForm} setEventForm={setEventForm} />
-          <Section9 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
+          
         </div>
         
-      </div>   
+      </div>
+      <div className="flex justify-center">
+       {loading && <Loader/>} 
+        </div>   
       <div className="flex justify-center my-10">
+        
         <button className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold" onClick={submitEventForm}>
             <img src="/check-save-and-finish.svg" alt="register event icon" className="mr-2"/>
             Create event

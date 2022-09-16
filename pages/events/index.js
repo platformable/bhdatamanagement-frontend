@@ -126,7 +126,7 @@ const EventsIndex = ({ events }) => {
                   programName={event.programname}
                   eventdate={event.eventdate}
                   eventName={event.eventname}
-                  urlEdit={`events/${event.id}/edit`}
+                  urlEdit={`events/${event.id}/nys_cmp/edit`}
                   urlParticipantSurvey={`/events/${event.id}/participant-survey`}
                   urlUpload={`events/${event.id}/upload-event`}
                   urlPostEventSurvey={`events/${event.id}/post-event-survey`}

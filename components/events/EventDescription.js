@@ -1,6 +1,6 @@
 import React from "react";
 
-const EventDescription = ({eventForm,setEventForm}) => {
+const EventDescription = ({eventForm,setEventForm,event}) => {
   
   return (
     <div className="">
@@ -17,6 +17,7 @@ const EventDescription = ({eventForm,setEventForm}) => {
             [e.target.name]:e.target.value
           }))
         }
+        defaultValue={event?event.eventdescription:""}
       />
      
     </div>
