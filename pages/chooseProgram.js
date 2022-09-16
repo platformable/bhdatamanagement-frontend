@@ -31,7 +31,7 @@ export default function ChooseProgram() {
 
   const userName = user && user["https://lanuevatest.herokuapp.com/name"];
 
-  console.log("user", user);
+  console.log("user", loggedUserRole);
   const notifyMessage = () => {
     toast.success("A new client is being created!", {
       position: toast.POSITION.TOP_CENTER,
@@ -39,6 +39,12 @@ export default function ChooseProgram() {
   };
 
  
+useEffect(()=>{
+  if (loggedUserRole==='Supervisor'){
+    router.push('/supervisorDashboard')
+  }
+},[loggedUserRole])
+
 
   return (
     <>
