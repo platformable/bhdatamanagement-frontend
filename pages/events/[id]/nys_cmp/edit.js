@@ -12,6 +12,7 @@ import Section9 from "../../../../components/events/Section9";
 import EventDescription from "../../../../components/events/EventDescription";
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
+import Loader from '../../../../components/Loader'
 import { useRouter } from 'next/router'
 import { nysActivity } from "../../../../utils/sharedData";
 
@@ -25,6 +26,7 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
   const { user, error, isLoading } = useUser();
   const [showResponseStatus, setShowResponseStatus] = useState(false)
   const [responseStatus, setResponseStatus] = useState ({})
+  const [loading,setLoading]=useState(false)
   const [eventForm, setEventForm] = useState({
     eventid: event?.id,
     userID: "",
@@ -35,17 +37,23 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
     eventDate: event?.eventdate.split('T')[0] || "",
     eventStartTime: event?.eventstarttime|| "",
     eventFinishTime: event?.eventfinishtime|| "",
-    eventLocationTypeID: event?.eventlocationtypeid || "",
+    eventLocationTypeID: event?.eventlocationtypeid || null,
     eventLocationTypeName: event?.eventlocationtypename,
     // eventZipCode: "",
     healthAreaOfFocusID: event?.healthareaoffocusid || [],
     healthAreaOfFocusName: event?.healthareaoffocusname|| [],
-    eventTypeID: event?.eventtypeid || "",
+    eventTypeID: event?.eventtypeid || null,
     nysActivity:event?.nysactivity || "",
     nysActivityOther:event?.nysactivityother || "",
     eventTypeName: event?.eventtypename,
 
-    eventDescription:event?.eventdescription
+    eventDescription:event?.eventdescription,
+    onlineInPersonEventType:event?.onlineinpersoneventtype || "",
+inPersonEventTypeID:event.inpersoneventtypeid || null,
+inPersonEventTypeName:event?.inpersoneventtypename || "",
+onlineEventTypeID:null,
+onlineEventTypeName:event?.onlineeventtypename || "",
+
   });
   const userId = user && user.sub;
   
@@ -53,18 +61,17 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
     setEventForm({...eventForm, userID: userId})
   }, [userId])
   
-
   const submitEventForm = async () => {
-
+    setLoading(true)
     const isEmpty = Object.values(eventForm).some(value => !value)
     
     // if (!isEmpty) {
         axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
-            console.log("response",response)
 
             if (response.data.statusText==='OK') {
-              setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
+                setLoading(false)
+              setResponseStatus({ success: true, statusMessage: "Your Event has been updated"})
               setShowResponseStatus(!showResponseStatus)
               setTimeout(()=>{
                 router.push("/events") 
@@ -76,10 +83,6 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
             setShowResponseStatus(!showResponseStatus)
             console.error("error: ", error)
     });
-    // } else {
-    //   setResponseStatus({ success: false, statusMessage: "Please complete all the fields"})
-    //   setShowResponseStatus(!showResponseStatus)
-    // }
   }
   
   return (
@@ -97,13 +100,17 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
           <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <EventDescription eventForm={eventForm} setEventForm={setEventForm} event={event}/>
+          <Section9 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
     {/*       <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes} event={event}/> */}
             <Section4 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
             <Section5 eventForm={eventForm} setEventForm={setEventForm} />
             <Section6 eventForm={eventForm} setEventForm={setEventForm} />
-          <Section7 eventForm={eventForm} setEventForm={setEventForm} locationTypes={locationTypes} event={event}/>
+      {/*     <Section7 eventForm={eventForm} setEventForm={setEventForm} locationTypes={locationTypes} event={event}/> */}
           <Section8 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
         </div>
+        <div className="flex justify-center">
+       {loading && <Loader/>} 
+        </div> 
         <div className="py-5 flex justify-center">
         <button className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold" onClick={submitEventForm}>
             {/* <img src="/check-save-and-finish.svg" alt="register event icon" className="mr-2"/> */}

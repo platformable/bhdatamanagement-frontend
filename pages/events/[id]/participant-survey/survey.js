@@ -206,7 +206,7 @@ const Survey = ({data}) => {
           <ParticipantSurveySection10 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection11 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection12 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection13 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
+       {/*    <ParticipantSurveySection13 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
           <ParticipantSurveySection14 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection15 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
           <ParticipantSurveySection16 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>

@@ -5,7 +5,6 @@ import {inPersonEventTypeName,onlineEventTypeName} from '../../utils/sharedData'
 const Section9 = ({eventForm, setEventForm,event}) => {
 
 
-    console.log("inPersonEventTypeName",inPersonEventTypeName)
     const options = [
         {
             id:1,
@@ -33,7 +32,11 @@ const Section9 = ({eventForm, setEventForm,event}) => {
                     className='' 
                     id={option.id}
                     onChange={handleForm}
-                    value={option.value}/>
+                    value={option.value}
+                    defaultChecked={
+                        options.value === event?.onlineInPersonEventType ? "checked" : ""
+                      }
+                    />
                     <p className="">{option.value}</p>
                  </label>)
                 })}
@@ -57,7 +60,9 @@ const Section9 = ({eventForm, setEventForm,event}) => {
                                     inPersonEventTypeName:"",
                                     inPersonEventTypeID:null                                
                                 }))}}
-                                  value={option.value}/>
+                                  value={option.value}
+                                  
+                                  />
                                   <p className="">{option.value}</p>
                                </label>
                               )
@@ -85,7 +90,11 @@ const Section9 = ({eventForm, setEventForm,event}) => {
                                     onlineEventTypeID:null,
                                     onlineEventTypeName:"",
                                 }))}}
-                                  value={option.value}/>
+                                  value={option.value}
+                                  defaultChecked={
+                                    option.id === event?.inpersoneventtypeid ? "checked" : ""
+                                  }
+                                  />
                                   <p className="">{option.value}</p>
                                </label>
                               )

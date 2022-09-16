@@ -39,7 +39,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
     const handleFormId = (e) => {
       setEventForm(previous => ({...previous,  healthAreaOfFocusID : e.target.id}))
     };
-console.log("areas focus", eventForm)
+
   return (
     <div className="rounded">
       <h2 className="mb-7 font-black">

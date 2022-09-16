@@ -223,9 +223,9 @@ export const gender = [
 ];
 
 export const age = [
-  { id: 1, value: "Under 15" },
-  { id: 2, value: "16-19" },
-  { id: 3, value: "20-24" },
+  { id: 1, value: "Under 13" },
+  { id: 2, value: "13-18" },
+  { id: 3, value: "19-24" },
   { id: 4, value: "25-29" },
   { id: 5, value: "30-34" },
   { id: 6, value: "35-39" },
@@ -236,6 +236,7 @@ export const age = [
   { id: 11, value: "60-64" },
   { id: 12, value: "65-69" },
   { id: 13, value: "70+" },
+  { id: 14, value: "Decline to answer" },
 ];
 
 export const race = [
