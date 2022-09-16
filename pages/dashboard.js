@@ -76,7 +76,7 @@ export default function Dashboard({selectedProgram}) {
               </section>
 
               <h1 className="font-black  md:px-0 px-5">
-                What do you want <span className="">to do</span> today?
+                What do you want <span className="">to do</span> today {program && `in ${program.split("_").join(" ")}`}? 
               </h1>
 
               <div className="grid md:grid-cols-6 grid-cols-1 gap-5 mb-2 px-5 md:px-0 my-10">

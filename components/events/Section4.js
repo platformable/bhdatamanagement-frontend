@@ -10,7 +10,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
                 <h2 className='font-black mb-5'>What date is the event?</h2>
                 <input type="date" 
                 name="eventDate" 
-                className='border rounded p-2 text-lg w-48' 
+                className='border rounded p-2 text-lg w-48 uppercase' 
                 onChange={handleForm}
                 value={eventForm.eventDate}
                 />

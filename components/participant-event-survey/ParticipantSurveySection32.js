@@ -8,24 +8,25 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
   const [data,setData]=useState([])
 
   const handleForm=(value)=>{
-    const isValueOnData=data?.includes(value)
+    // const isValueOnData=data?.includes(value)
    
-    const filteredData=data.filter(oldValues=> oldValues !=value) 
+    // const filteredData=data.filter(oldValues=> oldValues !=value) 
     
-    isValueOnData?
-    setData(filteredData) :
-    setData((previous)=>([
-      ...previous,value
-    ]))
+    // isValueOnData?
+    // setData(filteredData) :
+    // setData((previous)=>([
+    //   ...previous,value
+    // ]))
+    setSurveyForm((prev) => ({...prev,participantReferral: value }))
 
   }
 
-  useEffect(()=>{
-    setSurveyForm((previous) => ({
-      ...previous,
-      participantReferral: data,
-    }))
-  },[data])
+  // useEffect(()=>{
+  //   setSurveyForm((previous) => ({
+  //     ...previous,
+  //     participantReferral: data,
+  //   }))
+  // },[data])
 
 
   const options=[
@@ -88,7 +89,7 @@ if(index===options.length-1){
     <label className="text-lg flex flex-col md:flex-row gap-y-5 md:gap-x-5 items-start md:items-center" key={index}>
       <div className='flex gap-x-5'>
       <input
-        type="checkbox"
+        type="radio"
         name="participantReferral"
         className=""
         value={option.value}
@@ -111,7 +112,7 @@ if(index===options.length-1){
           return (
             <label className="text-lg flex gap-x-5 items-center" key={index}>
               <input
-                type="checkbox"
+                type="radio"
                 name="participantReferral"
                 className=""
                 value={option.value}
