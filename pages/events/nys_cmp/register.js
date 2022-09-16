@@ -44,9 +44,9 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
     nysActivity:"",
     nysActivityOther:"",
     onlineInPersonEventType:"",
-inPersonEventTypeID:"",
+inPersonEventTypeID:null,
 inPersonEventTypeName:"",
-onlineEventTypeID:"",
+onlineEventTypeID:null,
 onlineEventTypeName:"",
 eventDescription:""
   });

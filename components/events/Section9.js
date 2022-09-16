@@ -55,7 +55,7 @@ const Section9 = ({eventForm, setEventForm,event}) => {
                                     onlineEventTypeName: e.target.value,
                                     onlineEventTypeID:Number(option.id),
                                     inPersonEventTypeName:"",
-                                    inPersonEventTypeNameID:""                                
+                                    inPersonEventTypeID:null                                
                                 }))}}
                                   value={option.value}/>
                                   <p className="">{option.value}</p>
@@ -81,8 +81,8 @@ const Section9 = ({eventForm, setEventForm,event}) => {
                                   id={option.id}
                                   onChange={(e)=>{setEventForm(previous => ({...previous, 
                                     inPersonEventTypeName: e.target.value,
-                                    inPersonEventTypeNameID:Number(option.id),
-                                    onlineEventTypeID:"",
+                                    inPersonEventTypeID:Number(option.id),
+                                    onlineEventTypeID:null,
                                     onlineEventTypeName:"",
                                 }))}}
                                   value={option.value}/>
