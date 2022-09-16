@@ -62,10 +62,10 @@ export default function SupervisorDashboard({ selectedProgram }) {
               <h1 className="font-black  md:px-0 px-5">
                 What do you want <span className="">to do</span> today?
               </h1>
-              <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
+              <div className="grid md:grid-cols-6 gap-5 px-5 md:px-0 grid-cols-1 mb-2 my-10">
                 {loggedUserRole === "Supervisor" && (
                   <Link href="/users">
-                    <div className="text-center mr-5 rounded bg-black text-white p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+                    <div className="text-center rounded bg-black text-white p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
                       <div className="">
                         <button id="myBtn">
                           <div className="flex justify-center">
@@ -81,9 +81,11 @@ export default function SupervisorDashboard({ selectedProgram }) {
                     </div>
                   </Link>
                 )}
+
                  <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
             {/* <Link href={`/events/${program?.toLowerCase()}/register`}> */}
             <Link href={`/events/nys_cmp/register`}>
+
             <div className=" ">
               <button id="myBtn" className="flex items-center">
                 
@@ -100,7 +102,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
               </div>
             </Link>
           </div>
-                 <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+                 <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
             <Link href="/events">
               <button id="myBtn">
                 <div className="">
@@ -118,7 +120,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
               </button>
             </Link>
           </div>
-                <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+                <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
             <Link href="/events/reports/">
               <button id="myBtn">
                 <div className="">
@@ -139,19 +141,17 @@ export default function SupervisorDashboard({ selectedProgram }) {
 
             <div></div>
          
-            <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+            <div className=" rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
                 <Link href="/historicalData">
-                    <div className="text-center mr-5 ">
-                      <div className="rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
-                        <button id="myBtn">
+                    <div className="">
+                      <button className="rounded bg-black  text-center shadow-xl  rounded-xl grid justify-center content-center">
                           <div className="flex justify-center">
                             {/* <img src="/download_historical_data_icon.svg" alt="" width={85}/> */}
                           </div>
                           <p className="font-bold text-white uppercase">
                             Download <br /> Historical Data
                           </p>
-                        </button>
-                      </div>{" "}
+                      </button>{" "}
                     </div>
                   </Link>
                   </div>

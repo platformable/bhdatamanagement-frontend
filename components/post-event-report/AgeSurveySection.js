@@ -225,7 +225,7 @@ const AgeSurveySection = ({
           onChange={handleForm}
         />
       </label>
-      <label className="flex flex-col gap-2">
+      {/* <label className="flex flex-col gap-2">
         <h3 className="w-80">Decline to answer</h3>
         <input
           type="number"
@@ -237,7 +237,7 @@ const AgeSurveySection = ({
           className="border-black p-4 w-20 rounded "
           onChange={handleForm}
         />
-      </label>
+      </label> */}
     </div>
   );
 };

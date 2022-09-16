@@ -17,12 +17,13 @@ export const shareData = {
     "Other",
   ],
   nysActivity: [
-    "Block Association",
-    "Strategic Planning Group",
     "Campus Approach",
-    "Conscientious Clinician",
-    "Health Disparities Workshop",
+    "Conscientious Clinician™",
+    "Health Disparities Workshop/Town Hall",
     "Faith Without Walls",
+    "Leadership Training Institute",
+    "Legislative Leadership Zoom",
+    "Health Equity Group Sessions",
     "Other",
   ],
   nysPrograms: ["Leadership Training Institute", "HIV High Impact"],
@@ -117,167 +118,207 @@ export const shareData = {
 };
 
 export const workArea = [
-  {id:1,value:"NYC"},
-  {id:2,value:"Buffalo"},
-  {id:3,value:"Nassau/Suffolk"},
-  {id:4,value:"Rochester"},
-  {id:5,value:"Syracuse"},
-  {id:6,value:"Other"},
+  { id: 1, value: "NYC" },
+  { id: 2, value: "Buffalo" },
+  { id: 3, value: "Nassau/Suffolk" },
+  { id: 4, value: "Rochester" },
+  { id: 5, value: "Syracuse" },
+  { id: 6, value: "Other" },
 ];
 
 export const roles = [
-  {id:1,value:"Organizer"},
-  {id:2,value:"Facilitator/Presenter/MC"},
-  {id:3,value:"Volunteer"},
-  {id:4,value:"Support team member"},
-  {id:5,value:"Community ambassador"},
-  {id:6,value:"Intern / apprentice"},
-  {id:7,value:"Other "},
+  { id: 1, value: "Organizer" },
+  { id: 2, value: "Facilitator/Presenter/MC" },
+  { id: 3, value: "Volunteer" },
+  { id: 4, value: "Support team member" },
+  { id: 5, value: "Community ambassador" },
+  { id: 6, value: "Intern / apprentice" },
+  { id: 7, value: "Other " },
 ];
 
 export const nysActivity = [
-  {id:1,value:"Block Association",nyscmp:1},
-  {id:2,value:"Strategic Planning Group",nyscmp:1},
-  {id:3,value:"Campus Approach",nyscmp:1},
-  {id:4,value:"Conscientious Clinician",nyscmp:1},
-  {id:5,value:"Health Disparities Workshop",nyscmp:1},
-  {id:6,value:"Faith Without Walls",nyscmp:1},
-  {id:7,value:"Other",nyscmp:1},
+  { id: 1, value: "Campus Approach", nyscmp: 1 },
+  { id: 2, value: "Conscientious Clinician™", nyscmp: 1 },
+  { id: 3, value: "Health Disparities Workshop/Town Hall", nyscmp: 1 },
+  { id: 4, value: "Faith Without Walls", nyscmp: 1 },
+  { id: 5, value: "Leadership Training Institute", nyscmp: 1 },
+  { id: 6, value: "Legislative Leadership Zoom", nyscmp: 1 },
+  { id: 7, value: "Health Equity Group Sessions", nyscmp: 1 },
+  { id: 8, value: "Other", nyscmp: 1 },
 ];
 
 export const nysPrograms = [
-{id:1,value:"Leadership Training Institute"}, 
-{id:2,value:"HIV High Impact"},
+  { id: 1, value: "Leadership Training Institute" },
+  { id: 2, value: "HIV High Impact" },
 ];
 
 export const languages = [
-  {id:1,value:"English"},
-  {id:2,value:"Spanish"},
-  {id:3,value:"French"},
-  {id:4,value:"African languages"},
-  {id:5,value:"Haitian-Creole"},
+  { id: 1, value: "English" },
+  { id: 2, value: "Spanish" },
+  { id: 3, value: "French" },
+  { id: 4, value: "African languages" },
+  { id: 5, value: "Haitian-Creole" },
 ];
 
 export const eventChecklist = [
-  {id:1,event:"Participants completed a sign in registration at the start of the session (online).",
-  dataField:"participantRegistrationForm"},
-  {id:2,event:"The event started on time.",
-dataField:"eventStartedOnTime"},
-  {id:3,event:"The event finished on time.",
-dataField:"eventFinishedOnTime"},
-  {id:4,event:"For meetings/workshops/training/town halls/webinars: Participants were greeted by someone from the program.",
-dataField:"participantGreeted"},
-  {id:5,event:"Resources were available to participants.",
-dataField:"resourcesAvailable"},
-  {id:6,event:"If photos were taken, participants signed a photo usage form.",
-dataField:"photoRelease"},
-  {id:7,event:"Hand sanitizer was available.",
-dataField:"handSanitizerAvailable"},
-  {id:8,event:"For meetings/workshops/training/town halls/webinars: Participants were reminded that the workshop area is a safe space and to treat each other respectfully and within the workshop guidelines.",
-dataField:"reminderSafeSpace"},
-  {id:9,event:"For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
-dataField:"reminderPostEvaluationSurvey"},
+  {
+    id: 1,
+    event:
+      "Participants completed a sign in registration at the start of the session (online).",
+    dataField: "participantRegistrationForm",
+  },
+  {
+    id: 2,
+    event: "The event started on time.",
+    dataField: "eventStartedOnTime",
+  },
+  {
+    id: 3,
+    event: "The event finished on time.",
+    dataField: "eventFinishedOnTime",
+  },
+  {
+    id: 4,
+    event:
+      "For meetings/workshops/training/town halls/webinars: Participants were greeted by someone from the program.",
+    dataField: "participantGreeted",
+  },
+  {
+    id: 5,
+    event: "Resources were available to participants.",
+    dataField: "resourcesAvailable",
+  },
+  {
+    id: 6,
+    event: "If photos were taken, participants signed a photo usage form.",
+    dataField: "photoRelease",
+  },
+  {
+    id: 7,
+    event: "Hand sanitizer was available.",
+    dataField: "handSanitizerAvailable",
+  },
+  {
+    id: 8,
+    event:
+      "For meetings/workshops/training/town halls/webinars: Participants were reminded that the workshop area is a safe space and to treat each other respectfully and within the workshop guidelines.",
+    dataField: "reminderSafeSpace",
+  },
+  {
+    id: 9,
+    event:
+      "For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
+    dataField: "reminderPostEvaluationSurvey",
+  },
 ];
 
 export const gender = [
-  {id:1,value:"Female"},
-  {id:2,value:"Male"},
-  {id:3,value:"Transgender female"},
-  {id:4,value:"Transgender male"},
-  {id:5,value:"Gender non-conforming"},
-  {id:6,value:"Non-binary"},
-  {id:7,value:"Other gender identity"},
+  { id: 1, value: "Female" },
+  { id: 2, value: "Male" },
+  { id: 3, value: "Transgender female" },
+  { id: 4, value: "Transgender male" },
+  { id: 5, value: "Gender non-conforming" },
+  { id: 6, value: "Non-binary" },
+  { id: 7, value: "Other gender identity" },
 ];
 
 export const age = [
-  {id:1,value:"Under 15"},
-  {id:2,value:"16-19"},
-  {id:3,value:"20-24"},
-  {id:4,value:"25-29"},
-  {id:5,value:"30-34"},
-  {id:6,value:"35-39"},
-  {id:7,value:"40-44"},
-  {id:8,value:"45-49"},
-  {id:9,value:"50-54"},
-  {id:10,value:"55-59"},
-  {id:11,value:"60-64"},
-  {id:12,value:"65-69"},
-  {id:13,value:"70+"},
+  { id: 1, value: "Under 15" },
+  { id: 2, value: "16-19" },
+  { id: 3, value: "20-24" },
+  { id: 4, value: "25-29" },
+  { id: 5, value: "30-34" },
+  { id: 6, value: "35-39" },
+  { id: 7, value: "40-44" },
+  { id: 8, value: "45-49" },
+  { id: 9, value: "50-54" },
+  { id: 10, value: "55-59" },
+  { id: 11, value: "60-64" },
+  { id: 12, value: "65-69" },
+  { id: 13, value: "70+" },
 ];
 
 export const race = [
-  {id:1,value:"Black or African American"},
-  {id:2,value:"Hispanic, Latino/a or Spanish"},
-  {id:3,value:"Asian"},
-  {id:4,value:"American Indian or Alaska Native"},
-  {id:5,value:"Middle Eastern or North African"},
-  {id:6,value:"Native Hawaiian or Other Pacific Islander"},
-  {id:7,value:"White"},
-  {id:8,value:"Some other race or origin"},
-  {id:9,value:"Decline to answer"},
+  { id: 1, value: "Black or African American" },
+  { id: 2, value: "Hispanic, Latino/a or Spanish" },
+  { id: 3, value: "Asian" },
+  { id: 4, value: "American Indian or Alaska Native" },
+  { id: 5, value: "Middle Eastern or North African" },
+  { id: 6, value: "Native Hawaiian or Other Pacific Islander" },
+  { id: 7, value: "White" },
+  { id: 8, value: "Some other race or origin" },
+  { id: 9, value: "Decline to answer" },
 ];
 
 export const ethnicity = [
-  {id:1,value:"Not of Hispanic, Latino/a or Spanish origin"},
-  {id:2,value:"Mexican, Mexican American or Chicano"},
-  {id:3,value:"Puerto Rican"},
-  {id:4,value:"Cuban"},
-  {id:5,value:"Dominican"},
-  {id:6,value:"Ecuadorian"},
-  {id:7,value:"Other Hispanic, Latino/a, or Spanish origin"},
-  {id:8,value:"Decline to answer"},
+  { id: 1, value: "Not of Hispanic, Latino/a or Spanish origin" },
+  { id: 2, value: "Mexican, Mexican American or Chicano" },
+  { id: 3, value: "Puerto Rican" },
+  { id: 4, value: "Cuban" },
+  { id: 5, value: "Dominican" },
+  { id: 6, value: "Ecuadorian" },
+  { id: 7, value: "Other Hispanic, Latino/a, or Spanish origin" },
+  { id: 8, value: "Decline to answer" },
 ];
 
 export const sexualOrientation = [
-  {id:1,value:"Gay or lesbian"},
-  {id:2,value:"Straight or heterosexual"},
-  {id:3,value:"Bisexual"},
-  {id:4,value:"Queer"},
-  {id:5,value:"Questioning or not sure"},
-  {id:6,value:"Unknown"},
-  {id:7,value:"Decline to answer"},
+  { id: 1, value: "Gay or lesbian" },
+  { id: 2, value: "Straight or heterosexual" },
+  { id: 3, value: "Bisexual" },
+  { id: 4, value: "Queer" },
+  { id: 5, value: "Questioning or not sure" },
+  { id: 6, value: "Unknown" },
+  { id: 7, value: "Decline to answer" },
 ];
 
-export const resourcesDistributed= [
-  { id:1,
+export const resourcesDistributed = [
+  {
+    id: 1,
     source: "/post_Event_report/mask_icon.svg",
-    name:"Masks",
-    dataFieldName:"masks"
+    name: "Masks",
+    dataFieldName: "masks",
   },
-  { id:2,
+  {
+    id: 2,
     source: "/post_Event_report/COVID_literature_icon.svg",
-    name:"COVID literature",
-    dataFieldName:"covidLiterature"
+    name: "COVID literature",
+    dataFieldName: "covidLiterature",
   },
-  { id:3,
+  {
+    id: 3,
     source: "/post_Event_report/COVID_literature_icon.svg",
-    name:"Vaccine related literature",
-    dataFieldName:"vaccineRelatedLiterature"
+    name: "Vaccine related literature",
+    dataFieldName: "vaccineRelatedLiterature",
   },
-  { id:4,
+  {
+    id: 4,
     source: "/post_Event_report/COVID_literature_icon.svg",
-    name:"HIV literature",
-    dataFieldName:"hivLiterature"
+    name: "HIV literature",
+    dataFieldName: "hivLiterature",
   },
-  { id:5,
+  {
+    id: 5,
     source: "/post_Event_report/COVID_literature_icon.svg",
-    name:"HepC literature",
-    dataFieldName:"hepCLiterature"
+    name: "HepC literature",
+    dataFieldName: "hepCLiterature",
   },
-  { id:6,
+  {
+    id: 6,
     source: "/post_Event_report/COVID_literature_icon.svg",
-    name:"PrEP literature",
-    dataFieldName:"prepLiterature"
+    name: "PrEP literature",
+    dataFieldName: "prepLiterature",
   },
-  { id:7,
+  {
+    id: 7,
     source: "/post_Event_report/safer_sex_kit_icon.svg",
-    name:"Safer sex kits",
-    dataFieldName:"saferSexKits"
+    name: "Safer sex kits",
+    dataFieldName: "saferSexKits",
   },
-  { id:8,
+  {
+    id: 8,
     source: "/post_Event_report/COVID_literature_icon.svg",
-    name:"Health disparities literature",
-    dataFieldName:"healthDisparitiesLiterature"
+    name: "Health disparities literature",
+    dataFieldName: "healthDisparitiesLiterature",
   },
   // { id:9,
   //   source: "/post_Event_report/bags_boxes_of_food_icon.svg",
@@ -299,10 +340,11 @@ export const resourcesDistributed= [
   //   name:"Prepared meals",
   //   dataFieldName:"preparedMeals"
   // },
-  { id: 9,
+  {
+    id: 9,
     source: "/post_Event_report/hand_sanitizers_icon.svg",
-    name:"Hand sanitizers",
-    dataFieldName:"handSanitizers"
+    name: "Hand sanitizers",
+    dataFieldName: "handSanitizers",
   },
   // { id:14,
   //   source: "/post_Event_report/COVID_site_referral_icon.svg",
@@ -330,3 +372,4 @@ export const onlineEventTypeName=[
 {id:5,value:	'Capacity Building Training', nyscmp:false},
 {id:6,value:	'Community Advisory Board',nyscmp:	false},
 ]
+

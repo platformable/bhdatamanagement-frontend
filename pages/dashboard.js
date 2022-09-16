@@ -76,11 +76,11 @@ export default function Dashboard({selectedProgram}) {
               </section>
 
               <h1 className="font-black  md:px-0 px-5">
-                What do you want <span className="">to do</span> today?
+                What do you want <span className="">to do</span> today {program && `in ${program.split("_").join(" ")}`}? 
               </h1>
 
-              <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
-              <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
+              <div className="grid md:grid-cols-6 grid-cols-1 gap-5 mb-2 px-5 md:px-0 my-10">
+              <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
             <Link href={`/events/${program?.toLowerCase()}/register`}>
 
             <div className=" ">
@@ -99,7 +99,7 @@ export default function Dashboard({selectedProgram}) {
               </div>
             </Link>
           </div>
-          <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
+          <div className="text-center rounded gap-5 bg-black px-5 md:px-0 p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
             <Link href="/events">
               <button id="myBtn">
                 <div className="">
@@ -117,7 +117,7 @@ export default function Dashboard({selectedProgram}) {
               </button>
             </Link>
           </div>
-          <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+          <div className="text-center rounded gap-5 bg-black px-5 md:px-0 p-5 text-center shadow-xl   rounded-xl grid justify-center content-center">
             <Link href="/events/reports/">
               <button id="myBtn">
                 <div className="">
@@ -140,7 +140,7 @@ export default function Dashboard({selectedProgram}) {
             <div></div>
                 <Link href="/historicalData">
                   <button id="myBtn">
-                    <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+                    <div className="text-center rounded gap-5 bg-black px-5 md:px-0 p-5 text-center shadow-xl   rounded-xl grid justify-center content-center">
                       <div className="">
                         <div className="flex justify-center">
                           {/* <img
