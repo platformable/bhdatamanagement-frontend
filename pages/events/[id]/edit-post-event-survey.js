@@ -493,9 +493,9 @@ const router = useRouter()
             });
             setShowResponseStatus(!showResponseStatus);
             notifyMessage()
-            // setTimeout(()=>{
-            //   router.back()
-            // },1500)
+            setTimeout(()=>{
+              router.back()
+            },1500)
           }
         })
         .catch(function (error) {
