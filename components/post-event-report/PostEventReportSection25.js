@@ -1,19 +1,22 @@
 import React from "react";
 import DemographicSurveySection from "./DemographicSurveySection";
-const PostEventReportSection25 = ({ eventForm={eventForm}, setEventForm }) => {
+const PostEventReportSection25 = ({
+  eventForm = { eventForm },
+  setEventForm, isNumberKey
+}) => {
   const handleMaxNumber = (e) => {
     let { value } = e.target;
     value > 100 && (e.target.value = 100);
   };
   const handleNumberForm = (e) => {
-    let {value} = e.target
-      let finalValue;
-      value > 100 ? finalValue = 100:finalValue=value
-      setEventForm((previous) => ({
-        ...previous,
-        [e.target.name]:Number(finalValue)
-      }))
-}
+    let { value } = e.target;
+    let finalValue;
+    value > 100 ? (finalValue = 100) : (finalValue = value);
+    setEventForm((previous) => ({
+      ...previous,
+      [e.target.name]: Number(finalValue),
+    }));
+  };
   return (
     <div className="px-7 grid grid-cols-1 gap-7 mt-10">
       <h2 className="font-black">Hepatitis C Testing</h2>
@@ -30,6 +33,7 @@ const PostEventReportSection25 = ({ eventForm={eventForm}, setEventForm }) => {
               [e.target.name]: e.target.value,
             }))
           }
+          defaultValue={eventForm.hepCTestingAgency || ""}
         />
       </label>
       <label className="grid gap-2 items-center">
@@ -37,8 +41,9 @@ const PostEventReportSection25 = ({ eventForm={eventForm}, setEventForm }) => {
         <input
           className="border-black w-20"
           type="number"
+          onKeyDown={isNumberKey}
           onWheelCapture={(e) => e.target.blur()}
-          defaultValue={0}
+          defaultValue={eventForm.hepCTestedTotal || 0}
           onKeyUp={handleMaxNumber}
           /* placeholder="type a number" */
           name="hepCTestedTotal"
@@ -50,8 +55,9 @@ const PostEventReportSection25 = ({ eventForm={eventForm}, setEventForm }) => {
         <input
           className="border-black w-20"
           type="number"
+          onKeyDown={isNumberKey}
           onWheelCapture={(e) => e.target.blur()}
-          defaultValue={0}
+          defaultValue={eventForm.hepCReactiveResults || 0}
           onKeyUp={handleMaxNumber}
           /* placeholder="type a number" */
           name="hepCReactiveResults"
@@ -63,8 +69,9 @@ const PostEventReportSection25 = ({ eventForm={eventForm}, setEventForm }) => {
         <input
           className="border-black w-20 "
           type="number"
+          onKeyDown={isNumberKey}
           onWheelCapture={(e) => e.target.blur()}
-          defaultValue={0}
+          defaultValue={eventForm.hepCLinkedToCare || 0}
           onKeyUp={handleMaxNumber}
           /* placeholder="type a number" */
           name="hepCLinkedToCare"
@@ -84,10 +91,16 @@ const PostEventReportSection25 = ({ eventForm={eventForm}, setEventForm }) => {
               [e.target.name]: e.target.value,
             }))
           }
+          defaultValue={eventForm.hepCServicesReferredTo || ""}
+
         />
       </label>
 
-      <DemographicSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest="hepC" />
+      <DemographicSurveySection
+        setEventForm={setEventForm}
+        eventForm={eventForm}
+        typeOfTest="hepC"
+      />
     </div>
   );
 };

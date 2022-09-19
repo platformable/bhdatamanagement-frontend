@@ -467,6 +467,17 @@ const router = useRouter()
     
   // }, [userId]);
 
+  const isNumberKey = (e) => {
+    const invalidChars = [
+      "-",
+      "+",
+      "e",
+    ];
+    if (invalidChars.includes(e.key)) {
+      e.preventDefault();
+    } 
+}
+
   const notifyMessage= ()=>{
     toast.success("Survey saved!", {
       position: toast.POSITION.TOP_CENTER,
@@ -653,55 +664,55 @@ console.log("eventForm",eventForm)
             <div className="rounded-tl-md rounded-tr-md">
             {/* <h3 className="px-7 mt-10 font-black">Event details</h3> */}
             
-            <PostEventReportSection1 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection2 eventForm={eventForm} setEventForm={setEventForm}/>
-            {/* <PostEventReportSection3 eventForm={eventForm} setEventForm={setEventForm} /> */}
-            {/* <PostEventReportSection4 eventForm={eventForm} setEventForm={setEventForm}/> */}
-            <PostEventReportSection5 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection6 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection30 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection1 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection2 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            {/* <PostEventReportSection3 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} /> */}
+            {/* <PostEventReportSection4 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/> */}
+            <PostEventReportSection5 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection6 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection30 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             </div>
             
             {/* <h3 className="px-7 font-black">Event organization and promotion</h3> */}
-            <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection11 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection12 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection13 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection14 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection15 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection16 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection17 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection18 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection19 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection21 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection11 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection12 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection13 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection14 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection15 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection16 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection17 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection18 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection19 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection21 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             
             {eventForm.eventTestingDone && 
-            <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm}/> } 
+            <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/> } 
             
             {eventForm.hivTesting && 
-            <PostEventReportSection23 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection23 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
             
             {eventForm.stiTesting && 
-            <PostEventReportSection26 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection26 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
 
             {eventForm.hepCTesting && 
-            <PostEventReportSection25 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection25 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
 
             {eventForm.bloodPressureTesting && 
-            <PostEventReportSection27 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection27 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
 
             {eventForm.cholesterolTesting && 
-            <PostEventReportSection28 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection28 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
           
             {eventForm.covidTesting && 
-            <PostEventReportSection29 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection29 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
 
             {eventForm.otherTesting && 
-            <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
           </div>
           <div className="flex justify-center my-10">
           <button

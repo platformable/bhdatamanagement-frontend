@@ -1,7 +1,7 @@
 import React from 'react';
 import { resourcesDistributed } from '../../utils/sharedData';
 
-const PostEventReportSection8 = ({eventForm,setEventForm}) => {
+const PostEventReportSection8 = ({eventForm,setEventForm, isNumberKey}) => {
 const handleForm = (e) => {
   let {value} = e.target
     let finalValue;
@@ -33,7 +33,8 @@ const handleForm = (e) => {
                   let {value} = e.target
                   value > 500 && (e.target.value = 500) 
                 }}
-                onKeyDown={(e)=>e.target.keyCode !== 69}
+                onKeyDown={isNumberKey}
+
                 
               />
               

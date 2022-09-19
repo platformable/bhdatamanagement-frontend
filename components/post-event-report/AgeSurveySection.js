@@ -51,7 +51,7 @@ const AgeSurveySection = ({
   disableWheelInputNumber,
 }) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest]);
-
+console.log(fields)
   const handleForm = (e) => {
     console.log("e.target.value", e.target.name);
   };
@@ -68,7 +68,7 @@ const AgeSurveySection = ({
             type="number"
             onWheelCapture={disableWheelInputNumber}
             onKeyUp={handleMaxNumber}
-            defaultValue={fields[index] ??  0}
+            defaultValue={eventForm[field.ddbb_label] ?? 0}
             maxLength={3}
             name={fields.ddbb_label}
             className="border-black p-4 w-20 rounded "

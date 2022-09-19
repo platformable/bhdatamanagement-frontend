@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PostEventReportSection10 = ({eventForm,setEventForm}) => {
+const PostEventReportSection10 = ({eventForm,setEventForm, isNumberKey}) => {
   const handleForm = (e) => {
     let {value} = e.target
       let finalValue;
@@ -29,6 +29,7 @@ const PostEventReportSection10 = ({eventForm,setEventForm}) => {
         className="p-4 border-black rounded w-20"
         name="internPresent"
         onChange={handleForm}
+        onKeyDown={isNumberKey}
       />
     </label>
     </div>

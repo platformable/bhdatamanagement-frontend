@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PostEventReportSection5 = ({eventForm,setEventForm}) => {
+const PostEventReportSection5 = ({eventForm,setEventForm, isNumberKey}) => {
 
   return (
     <div className="px-7 mt-10">
@@ -22,11 +22,13 @@ const PostEventReportSection5 = ({eventForm,setEventForm}) => {
       }}
       onWheelCapture={(e) => e.target.blur()}
       onChange={(e)=>{
+        e.target.value.length < 6 &&
         setEventForm((previous) => ({
         ...previous,
         [e.target.name]: Number(e.target.value),
       }))}}
       defaultValue={eventForm?.zipCode}
+      onKeyDown={isNumberKey}
       />
       </label>
       
