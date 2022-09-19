@@ -1,7 +1,7 @@
 import React from "react";
 import DemographicSurveySection from "./DemographicSurveySection";
 
-const PostEventReportSection24 = ({ eventForm, setEventForm }) => {
+const PostEventReportSection24 = ({ eventForm, setEventForm, isNumberKey }) => {
   const handleMaxNumber = (e) => {
     let { value } = e.target;
     value > 100 && (e.target.value = 100);

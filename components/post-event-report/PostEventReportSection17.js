@@ -1,6 +1,6 @@
 import React from "react";
 
-const PostEventReportSection17 = ({eventForm, setEventForm}) => {
+const PostEventReportSection17 = ({eventForm, setEventForm, isNumberKey}) => {
   const handleForm = (e) => {
     let {value} = e.target
       let finalValue;
@@ -31,6 +31,7 @@ const PostEventReportSection17 = ({eventForm, setEventForm}) => {
         defaultValue={eventForm?.sendEmail || 0 }
         name="sendEmail"
         onChange={handleForm}
+        onKeyDown={isNumberKey}
       />
     </label>
     </div>

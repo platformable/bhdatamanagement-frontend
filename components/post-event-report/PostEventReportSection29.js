@@ -1,19 +1,19 @@
 import React from "react";
 
-const PostEventReportSection29 = ({ eventForm, setEventForm }) => {
+const PostEventReportSection29 = ({ eventForm, setEventForm, isNumberKey }) => {
   const handleMaxNumber = (e) => {
-    let {value} = e.target
-    value > 100 && (e.target.value = 100)
-  }
+    let { value } = e.target;
+    value > 100 && (e.target.value = 100);
+  };
   const handleNumberForm = (e) => {
-    let {value} = e.target
-      let finalValue;
-      value > 100 ? finalValue = 100:finalValue=value
-      setEventForm((previous) => ({
-        ...previous,
-        [e.target.name]:Number(finalValue)
-      }))
-}
+    let { value } = e.target;
+    let finalValue;
+    value > 100 ? (finalValue = 100) : (finalValue = value);
+    setEventForm((previous) => ({
+      ...previous,
+      [e.target.name]: Number(finalValue),
+    }));
+  };
   return (
     <div className="px-7 grid grid-cols-1 gap-7 my-10">
       <h2 className="font-black">COVID-19 Testing</h2>
@@ -45,6 +45,7 @@ const PostEventReportSection29 = ({ eventForm, setEventForm }) => {
           name="covidTestedTotal"
           defaultValue={eventForm.covidTestedTotal || 0}
           onChange={handleNumberForm}
+          onKeyDown={isNumberKey}
         />
       </label>
     </div>

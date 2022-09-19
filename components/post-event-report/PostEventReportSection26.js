@@ -1,20 +1,20 @@
 import React from "react";
 import DemographicSurveySection from "./DemographicSurveySection";
 
-const PostEventReportSection26 = ({ eventForm, setEventForm }) => {
+const PostEventReportSection26 = ({ eventForm, setEventForm, isNumberKey }) => {
   const handleMaxNumber = (e) => {
     let { value } = e.target;
     value > 100 && (e.target.value = 100);
   };
   const handleNumberForm = (e) => {
-    let {value} = e.target
-      let finalValue;
-      value > 100 ? finalValue = 100:finalValue=value
-      setEventForm((previous) => ({
-        ...previous,
-        [e.target.name]:Number(finalValue)
-      }))
-}
+    let { value } = e.target;
+    let finalValue;
+    value > 100 ? (finalValue = 100) : (finalValue = value);
+    setEventForm((previous) => ({
+      ...previous,
+      [e.target.name]: Number(finalValue),
+    }));
+  };
   return (
     <div className="px-7 grid grid-cols-1 mt-10 gap-7">
       <h2 className="font-black">STI Testing</h2>
@@ -40,6 +40,7 @@ const PostEventReportSection26 = ({ eventForm, setEventForm }) => {
         <input
           className="border-black w-20"
           type="number"
+          onKeyDown={isNumberKey}
           onWheelCapture={(e) => e.target.blur()}
           defaultValue={eventForm.stiTestedTotal || 0}
           // placeholder="Type a number"
@@ -54,6 +55,7 @@ const PostEventReportSection26 = ({ eventForm, setEventForm }) => {
         <input
           className="border-black w-20"
           type="number"
+          onKeyDown={isNumberKey}
           onWheelCapture={(e) => e.target.blur()}
           defaultValue={eventForm.stiReactiveResults || 0}
           // placeholder="Type a number"
@@ -68,6 +70,7 @@ const PostEventReportSection26 = ({ eventForm, setEventForm }) => {
         <input
           className="border-black w-20 "
           type="number"
+          onKeyDown={isNumberKey}
           onWheelCapture={(e) => e.target.blur()}
           defaultValue={eventForm.stiLinkedToCare || 0}
           // placeholder="Type a number"
@@ -94,7 +97,11 @@ const PostEventReportSection26 = ({ eventForm, setEventForm }) => {
         />
       </label>
 
-      <DemographicSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest="sti" />
+      <DemographicSurveySection
+        setEventForm={setEventForm}
+        eventForm={eventForm}
+        typeOfTest="sti"
+      />
     </div>
   );
 };

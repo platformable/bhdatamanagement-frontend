@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 
-const PostEventReportSection16 = ({eventForm, setEventForm}) => {
+const PostEventReportSection16 = ({eventForm, setEventForm, isNumberKey}) => {
   const handleForm = (e) => {
     let {value} = e.target
       let finalValue;
@@ -29,7 +29,7 @@ const PostEventReportSection16 = ({eventForm, setEventForm}) => {
         defaultValue={0 || eventForm.textOrCall}
         name="textOrCall"
         onChange={handleForm}
-        
+        onKeyDown={isNumberKey}
       />
     </label>
     </div>

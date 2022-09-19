@@ -1,7 +1,7 @@
 import React from "react";
 import DemographicSurveySection from "./DemographicSurveySection";
 
-const PostEventReportSection23 = ({ eventForm, setEventForm }) => {
+const PostEventReportSection23 = ({ eventForm, setEventForm, isNumberKey}) => {
   const handleMaxNumber = (e) => {
     eventForm[e.target.name] >= 100 && (e.target.value = 100) 
     let { value } = e.target;
@@ -16,6 +16,7 @@ const PostEventReportSection23 = ({ eventForm, setEventForm }) => {
           [e.target.name]:Number(finalValue)
         }))
   }
+  
   return (
     <div className="px-7 grid grid-cols-1 gap-7 mt-10">
       <h2 className="font-black">HIV Testing</h2>
@@ -41,11 +42,12 @@ const PostEventReportSection23 = ({ eventForm, setEventForm }) => {
         <input
           className="border-black  w-20 rounded"
           type="number"
+        onKeyDown={isNumberKey}
         defaultValue={eventForm?.hivTestedTotal || 0 }
           onWheelCapture={(e) => e.target.blur()}
           onKeyUp={handleMaxNumber}
           name="hivTestedTotal"
-          onChange={(e) =>onChange={handleNumberForm}}
+          onChange={handleNumberForm}
         />
       </label>
       <label className="grid gap-2">
@@ -53,6 +55,7 @@ const PostEventReportSection23 = ({ eventForm, setEventForm }) => {
         <input
           className="border-black  w-20 rounded"
           type="number"
+        onKeyDown={isNumberKey}
         defaultValue={eventForm?.hivReactiveResults || 0 }
           onWheelCapture={(e) => e.target.blur()}
           onKeyUp={handleMaxNumber}
@@ -66,6 +69,7 @@ const PostEventReportSection23 = ({ eventForm, setEventForm }) => {
         <input
           className="border-black  w-20 rounded"
           type="number"
+        onKeyDown={isNumberKey}
         defaultValue={eventForm?.prepReferrals || 0 }
           onWheelCapture={(e) => e.target.blur()}
           onKeyUp={handleMaxNumber}
@@ -79,6 +83,7 @@ const PostEventReportSection23 = ({ eventForm, setEventForm }) => {
         <input
           className="border-black  w-20 rounded"
           type="number"
+        onKeyDown={isNumberKey}
         defaultValue={eventForm?.hivLinkedToCare || 0 }
           onWheelCapture={(e) => e.target.blur()}
           onKeyUp={handleMaxNumber}
