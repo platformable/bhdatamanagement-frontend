@@ -26,6 +26,7 @@ const PostEventReportSection5 = ({eventForm,setEventForm}) => {
         ...previous,
         [e.target.name]: Number(e.target.value),
       }))}}
+      defaultValue={eventForm?.zipCode}
       />
       </label>
       
