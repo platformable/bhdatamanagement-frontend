@@ -43,8 +43,7 @@ const SexualOrientationSurveySection = ({
   return (
     <div className="grid grid-cols-1 gap-7">
       <h2 className="font-black">
-        Sexual orientation: How many people doing{" "}
-        {typeOfTestForTitles(typeOfTest)} testing identified with the following
+        Sexual orientation: How many people doing testing identified with the following
         sexual orientation?
       </h2>
       <label className="flex flex-col gap-2">
@@ -71,7 +70,7 @@ const SexualOrientationSurveySection = ({
         defaultValue={eventForm[fields[1]] || 0}
           maxLength={3}
           className="border-black p-4  rounded w-20"
-          name={fields[0]}
+          name={fields[1]}
           onChange={handleForm}
           onKeyDown={isNumberKey}
 

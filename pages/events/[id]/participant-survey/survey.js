@@ -139,11 +139,11 @@ const Survey = ({ data }) => {
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-          setResponseStatus({
+/*           setResponseStatus({
             success: true,
             statusMessage: "Your Event has been saved",
           });
-          setShowResponseStatus(!showResponseStatus);
+          setShowResponseStatus(!showResponseStatus); */
           notifyMessage();
           setTimeout(()=>{
             router.push("https://nblch.org")
