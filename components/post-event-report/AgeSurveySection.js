@@ -24,9 +24,9 @@ const dataFieldStrings = (raiz) => {
     { ddbb_label: altAgeUnder13, label: "Under 13" },
     { ddbb_label: altAge13_18, label: "13-18" },
     { ddbb_label: altAge19_24, label: "19-24" },
-    { ddbb_label: hivUnder15, label: "Under 15" },
-    { ddbb_label: hiv16_19, label: "16-19" },
-    { ddbb_label: hiv20_24, label: "20-24" },
+    // { ddbb_label: hivUnder15, label: "Under 15" },
+    // { ddbb_label: hiv16_19, label: "16-19" },
+    // { ddbb_label: hiv20_24, label: "20-24" },
     { ddbb_label: hiv25_29, label: "25-29" },
     { ddbb_label: hiv30_34, label: "30-34" },
     { ddbb_label: hiv35_39, label: "35-39" },
@@ -37,7 +37,9 @@ const dataFieldStrings = (raiz) => {
     { ddbb_label: hiv60_64, label: "60-64" },
     { ddbb_label: hiv65_69, label: "65-69" },
     { ddbb_label: hiv70, label: "70+" },
+
 /*     { ddbb_label: declinedToAnswer, label: "Declined to answer" }, */
+
   ];
 };
 
@@ -51,7 +53,6 @@ const AgeSurveySection = ({
   disableWheelInputNumber,
 }) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest]);
-console.log(fields)
   const handleForm = (e) => {
     console.log("e.target.value", e.target.name);
   };
