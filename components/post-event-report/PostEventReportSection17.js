@@ -26,7 +26,8 @@ const PostEventReportSection17 = ({eventForm, setEventForm}) => {
         }}
         maxLength={4}
         className="p-4 border-black rounded w-20"
-        defaultValue={0}
+        // defaultChecked={program.id===event?.programid?'checked':""}
+        defaultValue={eventForm?.sendEmail || 0 }
         name="sendEmail"
         onChange={handleForm}
       />
