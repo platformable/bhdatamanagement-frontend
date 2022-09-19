@@ -43,7 +43,7 @@ export const shareData = {
     "If photos were taken, participants signed a photo usage form.",
     "Hand sanitizer was available.",
     "For meetings/workshops/training/town halls/webinars: Participants were reminded that the workshop area is a safe space and to treat each other respectfully and within the workshop guidelines.",
-    "For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
+    // "For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
   ],
   gender: [
     "Female",
@@ -210,12 +210,12 @@ export const eventChecklist = [
       "For meetings/workshops/training/town halls/webinars: Participants were reminded that the workshop area is a safe space and to treat each other respectfully and within the workshop guidelines.",
     dataField: "reminderSafeSpace",
   },
-  {
-    id: 9,
-    event:
-      "For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
-    dataField: "reminderPostEvaluationSurvey",
-  },
+  // {
+  //   id: 9,
+  //   event:
+  //     "For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
+  //   dataField: "reminderPostEvaluationSurvey",
+  // },
   
 ];
 
