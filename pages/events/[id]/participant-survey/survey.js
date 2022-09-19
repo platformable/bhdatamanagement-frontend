@@ -50,7 +50,7 @@ const Survey = ({ data }) => {
   };
 
   console.log("data", data);
-  console.log("dadawdwada", showDemographicsForm);
+
   const [surveyForm, setSurveyForm] = useState({
     eventID: data[0]?.id,
     eventName: data[0]?.eventname,
