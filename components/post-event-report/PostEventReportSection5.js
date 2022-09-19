@@ -22,6 +22,7 @@ const PostEventReportSection5 = ({eventForm,setEventForm, isNumberKey}) => {
       }}
       onWheelCapture={(e) => e.target.blur()}
       onChange={(e)=>{
+        e.target.value.length < 6 &&
         setEventForm((previous) => ({
         ...previous,
         [e.target.name]: Number(e.target.value),
