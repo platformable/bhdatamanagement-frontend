@@ -129,6 +129,19 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             <input 
             type="checkbox" 
             name="healthAreaOfFocusName"
+            value="Maternal health" 
+            id="11" 
+            className='w-6 h-6'
+            onChange={handleForm}
+            defaultChecked={eventForm.healthAreaOfFocusName.includes("Maternal health") ? "checked" : ""}
+            />
+            {/* <img src="/events/Maternal_health_icon.svg" alt=""/> */}
+            <p className="">Maternal Health</p>    
+        </label>
+        <label className="flex items-center gap-x-5">
+            <input 
+            type="checkbox" 
+            name="healthAreaOfFocusName"
             value="Mental health" 
             id="7" 
             className='w-6 h-6'
@@ -177,19 +190,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             {/* <img src="/events/sickle_cell_icon.svg" alt=""/> */}
             <p className="">Sickle cell</p>    
         </label>
-        <label className="flex items-center gap-x-5">
-            <input 
-            type="checkbox" 
-            name="healthAreaOfFocusName"
-            value="Maternal health" 
-            id="11" 
-            className='w-6 h-6'
-            onChange={handleForm}
-            defaultChecked={eventForm.healthAreaOfFocusName.includes("Maternal health") ? "checked" : ""}
-            />
-            {/* <img src="/events/Maternal_health_icon.svg" alt=""/> */}
-            <p className="">Maternal Health</p>    
-        </label>
+        
         {/* <label className="flex items-center gap-x-5 col-start-2 col-end-6">
             <input 
             type="checkbox" 

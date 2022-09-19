@@ -5,6 +5,7 @@ import {inPersonEventTypeName,onlineEventTypeName} from '../../utils/sharedData'
 const Section9 = ({eventForm, setEventForm,event}) => {
 
 
+
     const options = [
         {
             id:1,
@@ -34,7 +35,7 @@ const Section9 = ({eventForm, setEventForm,event}) => {
                     onChange={handleForm}
                     value={option.value}
                     defaultChecked={
-                        options.value === event?.onlineInPersonEventType ? "checked" : ""
+                        option.value === eventForm?.onlineInPersonEventType  ? "checked" : ""
                       }
                     />
                     <p className="">{option.value}</p>

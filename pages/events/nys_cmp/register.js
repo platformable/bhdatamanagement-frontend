@@ -97,7 +97,7 @@ eventDescription:""
           <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} />
           <EventDescription eventForm={eventForm} setEventForm={setEventForm}/>
-          <Section9 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
+          <Section9 eventForm={eventForm} setEventForm={setEventForm} />
         {/*   <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/> */}
           <Section4 eventForm={eventForm} setEventForm={setEventForm} />
           <Section5 eventForm={eventForm} setEventForm={setEventForm} />

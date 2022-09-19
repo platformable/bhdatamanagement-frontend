@@ -282,52 +282,57 @@ export const sexualOrientation = [
 export const resourcesDistributed = [
   {
     id: 1,
-    source: "/post_Event_report/mask_icon.svg",
-    name: "Masks",
-    dataFieldName: "masks",
-  },
-  {
-    id: 2,
-    source: "/post_Event_report/COVID_literature_icon.svg",
-    name: "COVID literature",
-    dataFieldName: "covidLiterature",
-  },
-  {
-    id: 3,
-    source: "/post_Event_report/COVID_literature_icon.svg",
-    name: "Vaccine related literature",
-    dataFieldName: "vaccineRelatedLiterature",
-  },
-  {
-    id: 4,
-    source: "/post_Event_report/COVID_literature_icon.svg",
-    name: "HIV literature",
-    dataFieldName: "hivLiterature",
-  },
-  {
-    id: 5,
-    source: "/post_Event_report/COVID_literature_icon.svg",
-    name: "HepC literature",
-    dataFieldName: "hepCLiterature",
-  },
-  {
-    id: 6,
-    source: "/post_Event_report/COVID_literature_icon.svg",
-    name: "PrEP literature",
-    dataFieldName: "prepLiterature",
-  },
-  {
-    id: 7,
     source: "/post_Event_report/safer_sex_kit_icon.svg",
     name: "Safer sex kits",
     dataFieldName: "saferSexKits",
   },
   {
-    id: 8,
+    id: 2,
+    source: "/post_Event_report/COVID_literature_icon.svg",
+    name: "HIV literature",
+    dataFieldName: "hivLiterature",
+  },
+   
+  {
+    id: 3,
+    source: "/post_Event_report/COVID_literature_icon.svg",
+    name: "HepC literature",
+    dataFieldName: "hepCLiterature",
+  },
+  {
+    id: 4,
+    source: "/post_Event_report/COVID_literature_icon.svg",
+    name: "PrEP literature",
+    dataFieldName: "prepLiterature",
+  },
+  {
+    id: 5,
     source: "/post_Event_report/COVID_literature_icon.svg",
     name: "Health disparities literature",
     dataFieldName: "healthDisparitiesLiterature",
   },
+  {
+    id: 6,
+    source: "/post_Event_report/mask_icon.svg",
+    name: "Masks",
+    dataFieldName: "masks",
+  },
+  {
+    id: 7,
+    source: "/post_Event_report/COVID_literature_icon.svg",
+    name: "COVID literature",
+    dataFieldName: "covidLiterature",
+  },
+  {
+    id: 8,
+    source: "/post_Event_report/COVID_literature_icon.svg",
+    name: "Vaccine related literature",
+    dataFieldName: "vaccineRelatedLiterature",
+  },
+ 
+
+  
+
   // { id:9,
   //   source: "/post_Event_report/bags_boxes_of_food_icon.svg",
   //   name:"Bags/boxes of food",
@@ -354,35 +359,35 @@ export const resourcesDistributed = [
     name: "Hand sanitizers",
     dataFieldName: "handSanitizers",
   },{
-    id: 7,
+    id: 10,
     name: "Male condoms",
     dataFieldName: "maleCondoms",
   },
   {
-    id: 8,
+    id: 11,
     name:"Female condoms",
     dataFieldName: "femaleCondoms",
   },
   {
-    id: 9,
+    id: 12,
     name:"Lubricant",
     dataFieldName: "lubricant",
   },
   {
-    id: 7,
+    id: 13,
     name: "Referral lists",
     dataFieldName: "referralLists",
   },
   {
-    id: 8,
-    name:"Dental dam",
+    id: 14,
+    name:"Dental dams",
     dataFieldName: "dentalDam",
   },
-  {
-    id: 9,
-    name:"Promotional materials",
-    dataFieldName: "promotionalMaterial",
-  },
+  // {
+  //   id: 9,
+  //   name:"Promotional materials",
+  //   dataFieldName: "promotionalMaterial",
+  // },
   // { id:14,
   //   source: "/post_Event_report/COVID_site_referral_icon.svg",
   //   name:"COVID vaccine site referral information/details",

@@ -82,24 +82,29 @@ export default function SupervisorDashboard({ selectedProgram }) {
                   </Link>
                 )}
 
-                 <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
-            {/* <Link href={`/events/${program?.toLowerCase()}/register`}> */}
+         {/*  <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
+             <Link href={`/events/${program?.toLowerCase()}/register`}> 
             <Link href={`/events/nys_cmp/register`}>
-
-            <div className=" ">
               <button id="myBtn" className="flex items-center">
-                
-                 {/*  <img
-                    src="/events/register_an_event_icon.svg"
-                    alt=""
-                    width={85}
-                  /> */}
-               
                 <p className=" font-bold text-white uppercase">
                   Register <br /> an Event
                 </p>
               </button>
-              </div>
+
+            </Link>
+          </div> */}
+
+      <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+            <Link href="/events/nys_cmp/register">
+              <button id="myBtn">
+                <div className="">
+                  <div className="flex justify-center ">
+                  </div>
+                  <p className=" font-bold text-white uppercase">
+                    Create<br />Report
+                  </p>
+                </div>{" "}
+              </button>
             </Link>
           </div>
                  <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
@@ -120,16 +125,11 @@ export default function SupervisorDashboard({ selectedProgram }) {
               </button>
             </Link>
           </div>
-                <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+          <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
             <Link href="/events/reports/">
               <button id="myBtn">
                 <div className="">
                   <div className="flex justify-center ">
-                    {/* <img
-                      src="/events/register_an_event_icon.svg"
-                      alt=""
-                      width={85}
-                    /> */}
                   </div>
                   <p className=" font-bold text-white uppercase">
                     Create<br />Report
