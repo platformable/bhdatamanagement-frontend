@@ -139,11 +139,11 @@ const Survey = ({ data }) => {
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-          // setResponseStatus({
-          //   success: true,
-          //   statusMessage: "Your Event has been saved",
-          // });
-          //setShowResponseStatus(!showResponseStatus);
+          setResponseStatus({
+            success: true,
+            statusMessage: "Your Event has been saved",
+          });
+          setShowResponseStatus(!showResponseStatus);
           notifyMessage();
           setTimeout(()=>{
             router.push("https://nblch.org")
@@ -180,10 +180,10 @@ const Survey = ({ data }) => {
           />
           <h2 className="leading-tight text-white py-12 text-center">
             <span className="italic">We want to hear from you</span> <br />
-            Your answers help us plan our services, demonstrate our focus on our
-            community,
-            <br />
-            and help us meet our funding commitments
+            Your answers help us plan our services, demonstrate our focus on our community, <br />
+and help us meet our funding commitments <br />
+All your answers are completely anonymous, we respect your privacy and thank you for your time and effort
+
           </h2>
         </div>
         <ToastContainer autoClose={1500} />

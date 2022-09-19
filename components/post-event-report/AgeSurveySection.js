@@ -16,7 +16,7 @@ const dataFieldStrings = (raiz) => {
   const hiv60_64 = raiz + "60_64";
   const hiv65_69 = raiz + "65_69";
   const hiv70 = raiz + "70";
-  const declinedToAnswer = raiz + "AgeDeclinedToAnswer";
+/*   const declinedToAnswer = raiz + "AgeDeclinedToAnswer"; */
   const altAgeUnder13 = "altAge" + patologyWord + "Under13";
   const altAge13_18 = "altAge" + patologyWord + "13_18";
   const altAge19_24 = "altAge" + patologyWord + "19_24";
@@ -37,7 +37,9 @@ const dataFieldStrings = (raiz) => {
     { ddbb_label: hiv60_64, label: "60-64" },
     { ddbb_label: hiv65_69, label: "65-69" },
     { ddbb_label: hiv70, label: "70+" },
-    // { ddbb_label: declinedToAnswer, label: "Declined to answer" },
+
+/*     { ddbb_label: declinedToAnswer, label: "Declined to answer" }, */
+
   ];
 };
 
