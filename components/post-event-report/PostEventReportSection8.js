@@ -27,13 +27,14 @@ const handleForm = (e) => {
                 name={resource.dataFieldName}
                 className=" w-20 p-4 border-black rounded"
                 id={index}
-                defaultValue={0}
+                defaultValue={0 || eventForm[resource.dataFieldName]}
                 onChange={handleForm}
                 onKeyUp={(e) => {
                   let {value} = e.target
                   value > 500 && (e.target.value = 500) 
                 }}
                 onKeyDown={(e)=>e.target.keyCode !== 69}
+                
               />
               
             </label>

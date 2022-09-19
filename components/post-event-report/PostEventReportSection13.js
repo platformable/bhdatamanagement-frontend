@@ -44,6 +44,7 @@ const PostEventReportSection13 = ({eventForm, setEventForm}) => {
                 value={lang.value}
                 id={index}
                 onChange={(e)=>handleForm(e.target.value)}
+                defaultChecked={eventForm.languages.includes(lang.value) ? 'checked' : ""}
               />
               {lang.value}
             </label>
