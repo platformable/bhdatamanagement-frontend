@@ -60,11 +60,11 @@ const DemographicSurveySection = ({setEventForm, eventForm, typeOfTest}) => {
     <div className=''>
       <h2 className='mb-10'>Demographics</h2>
       <div className='grid grid-cols-1 gap-10'>
-      <GenderSurveySection setEventForm={setEventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
-      <AgeSurveySection setEventForm={setEventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
-      <RaceSurveySection setEventForm={setEventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
-      <EthnicitySurveySection setEventForm={setEventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
-      <SexualOrientationSurveySection setEventForm={setEventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
+      <GenderSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
+      <AgeSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
+      <RaceSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
+      <EthnicitySurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
+      <SexualOrientationSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
       </div>
      
     </div>

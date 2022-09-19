@@ -4,25 +4,25 @@ import {languages} from "../../utils/sharedData";
 
 const PostEventReportSection13 = ({eventForm, setEventForm}) => {
   
-  const [data,setData]=useState([])
+  const [data,setData]=useState([...eventForm.languages])
 
   const handleForm=(value)=>{
     const isValueOnData=data?.includes(value)
    
     const filteredData=data.filter(oldValues=> oldValues != value) 
-    
+
     isValueOnData?
     setData(filteredData) :
     setData((previous)=>([
       ...previous,value
     ]))
-
+    
   }
 
   useEffect(()=>{
     setEventForm((previous) => ({
       ...previous,
-      languages: data,
+      languages: data ,
     }))
   },[data])
 

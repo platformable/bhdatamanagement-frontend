@@ -19,6 +19,8 @@ const PostEventReportSection20 = ({eventForm,setEventForm}) => {
             [e.target.name]:e.target.value
           }))
         }
+        defaultValue={eventForm.eventQuestions || "" }
+
       />
     </div>
   )

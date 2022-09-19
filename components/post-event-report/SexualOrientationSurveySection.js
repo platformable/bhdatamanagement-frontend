@@ -22,6 +22,7 @@ const dataFieldStrings = (raiz) => {
 };
 const SexualOrientationSurveySection = ({
   setEventForm,
+  eventForm,
   typeOfTest,
   typeOfTestForTitles,
   handleMaxNumber,
@@ -52,7 +53,7 @@ const SexualOrientationSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           className="border-black p-4  rounded w-20"
           name={fields[0]}
@@ -67,10 +68,10 @@ const SexualOrientationSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[1]] || 0}
           maxLength={3}
           className="border-black p-4  rounded w-20"
-          name={fields[1]}
+          name={fields[0]}
           onChange={handleForm}
           onKeyDown={isNumberKey}
 
@@ -82,7 +83,7 @@ const SexualOrientationSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[2]] || 0}
           maxLength={3}
           className="border-black p-4  rounded w-20"
           name={fields[2]}
@@ -97,7 +98,7 @@ const SexualOrientationSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[3]] || 0}
           maxLength={3}
           className="border-black p-4  rounded w-20"
           name={fields[3]}
@@ -112,7 +113,7 @@ const SexualOrientationSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[4]] || 0}
           maxLength={3}
           className="border-black p-4  rounded w-20"
           name={fields[4]}
@@ -127,7 +128,7 @@ const SexualOrientationSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[5]] || 0}
           maxLength={3}
           className="border-black p-4  rounded w-20"
           name={fields[5]}
@@ -142,7 +143,7 @@ const SexualOrientationSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[6]] || 0}
           maxLength={3}
           className="border-black p-4  rounded w-20"
           name={fields[6]}

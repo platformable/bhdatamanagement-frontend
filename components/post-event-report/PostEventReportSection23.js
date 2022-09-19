@@ -1,11 +1,21 @@
 import React from "react";
 import DemographicSurveySection from "./DemographicSurveySection";
 
-const PostEventReportSection23 = ({ setEventForm }) => {
+const PostEventReportSection23 = ({ eventForm, setEventForm }) => {
   const handleMaxNumber = (e) => {
+    eventForm[e.target.name] >= 100 && (e.target.value = 100) 
     let { value } = e.target;
     value > 100 && (e.target.value = 100);
   };
+  const handleNumberForm = (e) => {
+      let {value} = e.target
+        let finalValue;
+        value > 100 ? finalValue = 100:finalValue=value
+        setEventForm((previous) => ({
+          ...previous,
+          [e.target.name]:Number(finalValue)
+        }))
+  }
   return (
     <div className="px-7 grid grid-cols-1 gap-7 mt-10">
       <h2 className="font-black">HIV Testing</h2>
@@ -22,6 +32,8 @@ const PostEventReportSection23 = ({ setEventForm }) => {
               [e.target.name]: e.target.value,
             }))
           }
+          defaultValue={eventForm.hivTestingAgency || "" }
+          
         />
       </label>
       <label className="grid gap-2">
@@ -29,16 +41,11 @@ const PostEventReportSection23 = ({ setEventForm }) => {
         <input
           className="border-black  w-20 rounded"
           type="number"
+        defaultValue={eventForm?.hivTestedTotal || 0 }
           onWheelCapture={(e) => e.target.blur()}
           onKeyUp={handleMaxNumber}
-          defaultValue={0}
           name="hivTestedTotal"
-          onChange={(e) =>
-            setEventForm((prev) => ({
-              ...prev,
-              [e.target.name]: Number(e.target.value),
-            }))
-          }
+          onChange={(e) =>onChange={handleNumberForm}}
         />
       </label>
       <label className="grid gap-2">
@@ -46,16 +53,12 @@ const PostEventReportSection23 = ({ setEventForm }) => {
         <input
           className="border-black  w-20 rounded"
           type="number"
+        defaultValue={eventForm?.hivReactiveResults || 0 }
           onWheelCapture={(e) => e.target.blur()}
           onKeyUp={handleMaxNumber}
-          defaultValue={0}
+          
           name="hivReactiveResults"
-          onChange={(e) =>
-            setEventForm((prev) => ({
-              ...prev,
-              [e.target.name]: Number(e.target.value),
-            }))
-          }
+          onChange={handleNumberForm}
         />
       </label>
       <label className="grid gap-2">
@@ -63,16 +66,12 @@ const PostEventReportSection23 = ({ setEventForm }) => {
         <input
           className="border-black  w-20 rounded"
           type="number"
+        defaultValue={eventForm?.prepReferrals || 0 }
           onWheelCapture={(e) => e.target.blur()}
           onKeyUp={handleMaxNumber}
-          defaultValue={0}
+          
           name="prepReferrals"
-          onChange={(e) =>
-            setEventForm((prev) => ({
-              ...prev,
-              [e.target.name]: Number(e.target.value),
-            }))
-          }
+          onChange={handleNumberForm}
         />
       </label>
       <label className="grid gap-2">
@@ -80,16 +79,12 @@ const PostEventReportSection23 = ({ setEventForm }) => {
         <input
           className="border-black  w-20 rounded"
           type="number"
+        defaultValue={eventForm?.hivLinkedToCare || 0 }
           onWheelCapture={(e) => e.target.blur()}
           onKeyUp={handleMaxNumber}
-          defaultValue={0}
+          
           name="hivLinkedToCare"
-          onChange={(e) =>
-            setEventForm((prev) => ({
-              ...prev,
-              [e.target.name]: Number(e.target.value),
-            }))
-          }
+          onChange={handleNumberForm}
         />
       </label>
       <label className="grid md:flex gap-5 items-center">
@@ -97,6 +92,8 @@ const PostEventReportSection23 = ({ setEventForm }) => {
         <input
           className="border-black rounded w-96 "
           type="text"
+          defaultValue={eventForm?.hivServicesReferredTo || "" }
+
           /* placeholder="Please specify" */
           name="hivServicesReferredTo"
           onChange={(e) =>
@@ -107,7 +104,7 @@ const PostEventReportSection23 = ({ setEventForm }) => {
           }
         />
       </label>
-      <DemographicSurveySection setEventForm={setEventForm} typeOfTest="hiv" />
+      <DemographicSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest="hiv" />
     </div>
   );
 };

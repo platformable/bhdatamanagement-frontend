@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 
 const PostEventReportSection19 = ({eventForm,setEventForm}) => {
  
@@ -19,6 +20,8 @@ const PostEventReportSection19 = ({eventForm,setEventForm}) => {
             [e.target.name]:e.target.value
           }))
         }
+        defaultValue={eventForm.eventChallenges || "" }
+
       />
     </div>
   )

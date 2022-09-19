@@ -3,7 +3,7 @@ import React from 'react'
 const PostEventReportSection30 = ({eventForm, setEventForm}) => {
     const options = [
         "IDU",
-        "MSM  ",
+        "MSM",
         "MSM / IDU",
         "Sex involving transgender",
         "Heterosexual contact",
@@ -22,6 +22,7 @@ const PostEventReportSection30 = ({eventForm, setEventForm}) => {
                     name="nysPrimaryRiskGroup"
                     className="my-3"
                     value={opt}
+                    defaultValue={eventForm.nysPrimaryRiskGroup || ""}
                     onChange={(e) =>
                       setEventForm((previous) => ({
                         ...previous,

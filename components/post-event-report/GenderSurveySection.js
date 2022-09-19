@@ -6,7 +6,7 @@ const dataFieldStrings = (raiz) => {
   const TransgenderMale = raiz + "TransgenderMale";
   const GenderNonConforming = raiz + "GenderNonConforming";
   const NonBinary = raiz + "NonBinary";
-  const NotSureQuestioning = raiz + "GenderNotSureQuestioning"
+  const NotSureQuestioning = raiz + "GenderNotSureQuestioning";
   const OtherGenderIdentity = raiz + "OtherGenderIdentity";
   const GenderDeclinedToAnswer = raiz + "GenderDeclinedToAnswer";
 
@@ -24,19 +24,20 @@ const dataFieldStrings = (raiz) => {
 };
 const GenderSurveySection = ({
   setEventForm,
+  eventForm,
   typeOfTest,
   typeOfTestForTitles,
   handleMaxNumber,
   disableWheelInputNumber,
-  isNumberKey
+  isNumberKey,
 }) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest]);
 
   const handleForm = (e) => {
-    let {value} = e.target
+    let { value } = e.target;
     let finalValue;
-    value > 100 ? finalValue = 100:finalValue=value
-   
+    value > 100 ? (finalValue = 100) : (finalValue = value);
+
     setEventForm((prev) => ({
       ...prev,
       [e.target.name]: Number(finalValue),
@@ -54,7 +55,7 @@ const GenderSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+          defaultValue={eventForm[fields[0]] ?? 0}
           maxLength={3}
           name={fields[0]}
           onChange={handleForm}
@@ -68,7 +69,7 @@ const GenderSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+          defaultValue={eventForm[fields[1]] ?? 0}
           maxLength={3}
           name={fields[1]}
           onChange={handleForm}
@@ -82,7 +83,7 @@ const GenderSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+          defaultValue={eventForm[fields[2]] ?? 0}
           maxLength={3}
           name={fields[2]}
           onChange={handleForm}
@@ -96,7 +97,7 @@ const GenderSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+          defaultValue={eventForm[fields[3]] ?? 0}
           maxLength={3}
           name={fields[3]}
           onChange={handleForm}
@@ -110,7 +111,7 @@ const GenderSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+          defaultValue={eventForm[fields[4]] ?? 0}
           maxLength={3}
           name={fields[4]}
           onChange={handleForm}
@@ -124,7 +125,7 @@ const GenderSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+          defaultValue={eventForm[fields[5]] ?? 0}
           maxLength={3}
           name={fields[5]}
           onChange={handleForm}
@@ -138,9 +139,9 @@ const GenderSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+          defaultValue={eventForm[fields[6]] ?? 0}
           maxLength={3}
-          name={fields[6]}
+          name={fields[0]}
           onChange={handleForm}
           onKeyDown={isNumberKey}
           className="border-black p-4  rounded w-20"
@@ -152,7 +153,7 @@ const GenderSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+          defaultValue={eventForm[fields[7]] ?? 0}
           maxLength={3}
           name={fields[7]}
           onChange={handleForm}
@@ -166,7 +167,7 @@ const GenderSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+          defaultValue={eventForm[fields[8]] ?? 0}
           maxLength={3}
           name={fields[8]}
           onChange={handleForm}
