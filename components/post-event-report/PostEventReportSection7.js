@@ -22,7 +22,7 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
               [e.target.name]:e.target.value
             }))
           }
-          // defaultChecked={program.id === event?.programid ? "checked" : ""}
+          defaultChecked={eventForm.locationName === 'Black Health Office' ? "checked" : ""}
         />
         Black Health Office
       </label>
@@ -39,6 +39,7 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
               [e.target.name]:e.target.value
             }))
           }
+          defaultChecked={eventForm.locationName === 'Other' ? "checked" : ""}
         />
         Other
           </divc>
@@ -53,6 +54,7 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
           type="text"
           className="p-4 text-base border-black rounded w-72"
           placeholder="Eg. Inwood Gourmet Deli"
+          defaultValue={eventForm.locationNameOther}
         />
       </label>
 

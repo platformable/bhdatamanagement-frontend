@@ -3,7 +3,7 @@ import React from 'react'
 const PostEventReportSection30 = ({eventForm, setEventForm}) => {
     const options = [
         "IDU",
-        "MSM  ",
+        "MSM",
         "MSM / IDU",
         "Sex involving transgender",
         "Heterosexual contact",
@@ -28,6 +28,7 @@ const PostEventReportSection30 = ({eventForm, setEventForm}) => {
                         [e.target.name]: e.target.value,
                       }))
                     }
+                    defaultChecked={opt.value===eventForm.nysPrimaryRiskGroup ? 'checked': ""}
                   />
                   <p className="my-3 mx-5">{opt}</p>
                 </label>

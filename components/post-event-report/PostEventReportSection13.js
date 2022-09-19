@@ -4,7 +4,7 @@ import {languages} from "../../utils/sharedData";
 
 const PostEventReportSection13 = ({eventForm, setEventForm}) => {
   
-  const [data,setData]=useState([])
+  const [data,setData]=useState([...eventForm.languages])
 
   const handleForm=(value)=>{
     const isValueOnData=data?.includes(value)
@@ -44,6 +44,7 @@ const PostEventReportSection13 = ({eventForm, setEventForm}) => {
                 value={lang.value}
                 id={index}
                 onChange={(e)=>handleForm(e.target.value)}
+                defaultChecked={eventForm.languages.includes(lang.value) ? 'checked' : ""}
               />
               {lang.value}
             </label>

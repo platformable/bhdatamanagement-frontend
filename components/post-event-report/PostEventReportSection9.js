@@ -25,11 +25,12 @@ const PostEventReportSection9 = ({eventForm,setEventForm}) => {
           value > 100 && (e.target.value = 100) 
         }}
         maxLength={3}
-        defaultValue={0}
+        defaultValue={0 || eventForm.staffPresent}
         className="p-4 border-black rounded w-20"
 
         name="staffPresent"
         onChange={handleForm}
+  
       />
     </label>
       </div>
