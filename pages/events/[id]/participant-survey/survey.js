@@ -148,7 +148,7 @@ const Survey = ({ data }) => {
           setTimeout(()=>{
             router.push("https://nblch.org")
 
-            },2000) 
+            },1000) 
         }
       })
       .catch(function (error) {

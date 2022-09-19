@@ -482,7 +482,7 @@ const router = useRouter()
  
     // if (!isEmpty) {
       axios
-        .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/create`, eventForm)
+        .put(`${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/update`, eventForm)
         .then((response) => {
           if (response.data.statusText === "OK") {
             setResponseStatus({
