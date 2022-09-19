@@ -25,7 +25,7 @@ const PostEventReportSection10 = ({eventForm,setEventForm}) => {
           value > 100 && (e.target.value = 100) 
         }}
         maxLength={3}
-        defaultValue={0}
+        defaultValue={0 || eventForm.internPresent}
         className="p-4 border-black rounded w-20"
         name="internPresent"
         onChange={handleForm}

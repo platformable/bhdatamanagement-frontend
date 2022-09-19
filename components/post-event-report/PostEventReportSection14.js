@@ -34,6 +34,7 @@ const [data,setData]=useState(false)
                 className=""
                 id={index}
                 onChange={(e)=>handleForm(e.target.name)}
+                defaultChecked={eventForm[eventItem.dataField]? 'checked': ''}
               />
               <p className='text-lg'>{eventItem.event}</p>
             </label>

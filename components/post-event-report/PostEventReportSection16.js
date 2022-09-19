@@ -26,9 +26,10 @@ const PostEventReportSection16 = ({eventForm, setEventForm}) => {
         }}
         maxLength={4}
         className="p-4 border-black rounded w-20"
-        defaultValue={0}
+        defaultValue={0 || eventForm.textOrCall}
         name="textOrCall"
         onChange={handleForm}
+        
       />
     </label>
     </div>
