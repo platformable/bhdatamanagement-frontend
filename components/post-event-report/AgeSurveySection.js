@@ -43,6 +43,7 @@ const dataFieldStrings = (raiz) => {
 
 const AgeSurveySection = ({
   setEventForm,
+  eventForm,
   typeOfTest,
   typeOfTestForTitles,
   handleMaxNumber,
@@ -61,13 +62,13 @@ const AgeSurveySection = ({
         {typeOfTestForTitles(typeOfTest)} Testing?
       </h2>
       {fields.map((field, index) => (
-        <label className="flex flex-col gap-2">
+        <label className="flex flex-col gap-2" key={index}>
           <p className="w-80">{field.label}</p>
           <input
             type="number"
             onWheelCapture={disableWheelInputNumber}
             onKeyUp={handleMaxNumber}
-            defaultValue={0}
+            defaultValue={fields[index] ??  0}
             maxLength={3}
             name={fields.ddbb_label}
             className="border-black p-4 w-20 rounded "
@@ -80,7 +81,8 @@ const AgeSurveySection = ({
                 [field.ddbb_label]: Number(finalValue),
               }));
             }}
-            // onKeyDown={isNumberKey}
+            onKeyDown={isNumberKey}
+
           />
         </label>
       ))}
@@ -90,7 +92,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[]}
           className="border-black p-4 w-20 rounded "
@@ -103,7 +105,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[]}
           className="border-black p-4 w-20 rounded "
@@ -116,7 +118,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[]}
           className="border-black p-4 w-20 rounded "
@@ -129,7 +131,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[]}
           className="border-black p-4 w-20 rounded "
@@ -142,7 +144,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[]}
           className="border-black p-4 w-20 rounded "
@@ -155,7 +157,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[]}
           className="border-black p-4 w-20 rounded "
@@ -168,7 +170,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[]}
           className="border-black p-4 w-20 rounded "
@@ -181,7 +183,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[]}
           className="border-black p-4 w-20 rounded "
@@ -194,7 +196,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[]}
           className="border-black p-4 w-20 rounded "
@@ -207,7 +209,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[]}
           className="border-black p-4 w-20 rounded "
@@ -220,7 +222,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[0]}
           className="border-black p-4 w-20 rounded "
@@ -233,7 +235,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[1]}
           className="border-black p-4 w-20 rounded "
@@ -246,7 +248,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-        defaultValue={0}
+        defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[2]}
           className="border-black p-4 w-20 rounded "
@@ -259,7 +261,7 @@ const AgeSurveySection = ({
           type="number"
           onWheelCapture={disableWheelInputNumber}
           onKeyUp={handleMaxNumber}
-          defaultValue={0}
+          defaultValue={eventForm[fields[0]] || 0}
           maxLength={3}
           name={fields[3]}
           className="border-black p-4 w-20 rounded "

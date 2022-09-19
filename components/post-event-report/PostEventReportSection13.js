@@ -10,19 +10,19 @@ const PostEventReportSection13 = ({eventForm, setEventForm}) => {
     const isValueOnData=data?.includes(value)
    
     const filteredData=data.filter(oldValues=> oldValues != value) 
-    
+
     isValueOnData?
     setData(filteredData) :
     setData((previous)=>([
       ...previous,value
     ]))
-
+    
   }
 
   useEffect(()=>{
     setEventForm((previous) => ({
       ...previous,
-      languages: data,
+      languages: data ,
     }))
   },[data])
 

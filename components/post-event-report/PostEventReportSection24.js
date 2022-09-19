@@ -1,7 +1,7 @@
 import React from "react";
 import DemographicSurveySection from "./DemographicSurveySection";
 
-const PostEventReportSection24 = ({ setEventForm }) => {
+const PostEventReportSection24 = ({ eventForm, setEventForm }) => {
   const handleMaxNumber = (e) => {
     let { value } = e.target;
     value > 100 && (e.target.value = 100);
@@ -14,6 +14,7 @@ const PostEventReportSection24 = ({ setEventForm }) => {
         <input
           className="border-black "
           type="text"
+          defaultValue={eventForm?.otherTestingType || "" }
           // placeholder="Please specify"
           name="otherTestingType"
           onChange={(e) =>
@@ -29,6 +30,7 @@ const PostEventReportSection24 = ({ setEventForm }) => {
         <input
           className="border-black "
           type="text"
+          defaultValue={eventForm?.otherTestingAgency || "" }
           // placeholder="type a number"
           name="otherTestingAgency"
           onChange={(e) =>
@@ -80,6 +82,7 @@ const PostEventReportSection24 = ({ setEventForm }) => {
         <input
           className="border-black "
           type="text"
+          defaultValue={eventForm?.otherServicesReferredTo || "" }
           // placeholder="type a number"
           name="otherServicesReferredTo"
           onChange={(e) =>

@@ -20,7 +20,7 @@ const PostEventReportSection21 = ({eventForm,setEventForm}) => {
               [e.target.name]: true,
             }))
           }
-          // defaultChecked={program.id === event?.programid ? "checked" : ""}
+          defaultChecked={eventForm.eventTestingDone === true ? "checked" : ""}
         />
         Yes
       </p>

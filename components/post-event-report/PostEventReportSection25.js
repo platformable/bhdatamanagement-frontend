@@ -1,10 +1,19 @@
 import React from "react";
 import DemographicSurveySection from "./DemographicSurveySection";
-const PostEventReportSection25 = ({ setEventForm }) => {
+const PostEventReportSection25 = ({ eventForm={eventForm}, setEventForm }) => {
   const handleMaxNumber = (e) => {
     let { value } = e.target;
     value > 100 && (e.target.value = 100);
   };
+  const handleNumberForm = (e) => {
+    let {value} = e.target
+      let finalValue;
+      value > 100 ? finalValue = 100:finalValue=value
+      setEventForm((previous) => ({
+        ...previous,
+        [e.target.name]:Number(finalValue)
+      }))
+}
   return (
     <div className="px-7 grid grid-cols-1 gap-7 mt-10">
       <h2 className="font-black">Hepatitis C Testing</h2>
@@ -33,12 +42,7 @@ const PostEventReportSection25 = ({ setEventForm }) => {
           onKeyUp={handleMaxNumber}
           /* placeholder="type a number" */
           name="hepCTestedTotal"
-          onChange={(e) =>
-            setEventForm((prev) => ({
-              ...prev,
-              [e.target.name]: e.target.value,
-            }))
-          }
+          onChange={handleNumberForm}
         />
       </label>
       <label className="grid gap-2 items-center">
@@ -51,12 +55,7 @@ const PostEventReportSection25 = ({ setEventForm }) => {
           onKeyUp={handleMaxNumber}
           /* placeholder="type a number" */
           name="hepCReactiveResults"
-          onChange={(e) =>
-            setEventForm((prev) => ({
-              ...prev,
-              [e.target.name]: e.target.value,
-            }))
-          }
+          onChange={handleNumberForm}
         />
       </label>
       <label className="grid gap-2 items-center">
@@ -69,12 +68,7 @@ const PostEventReportSection25 = ({ setEventForm }) => {
           onKeyUp={handleMaxNumber}
           /* placeholder="type a number" */
           name="hepCLinkedToCare"
-          onChange={(e) =>
-            setEventForm((prev) => ({
-              ...prev,
-              [e.target.name]: e.target.value,
-            }))
-          }
+          onChange={handleNumberForm}
         />
       </label>
       <label className="grid md:flex gap-5 items-center">
@@ -93,7 +87,7 @@ const PostEventReportSection25 = ({ setEventForm }) => {
         />
       </label>
 
-      <DemographicSurveySection setEventForm={setEventForm} typeOfTest="hepC" />
+      <DemographicSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest="hepC" />
     </div>
   );
 };

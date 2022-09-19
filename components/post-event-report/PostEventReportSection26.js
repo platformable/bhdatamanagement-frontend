@@ -1,11 +1,20 @@
 import React from "react";
 import DemographicSurveySection from "./DemographicSurveySection";
 
-const PostEventReportSection26 = ({ setEventForm }) => {
+const PostEventReportSection26 = ({ eventForm, setEventForm }) => {
   const handleMaxNumber = (e) => {
     let { value } = e.target;
     value > 100 && (e.target.value = 100);
   };
+  const handleNumberForm = (e) => {
+    let {value} = e.target
+      let finalValue;
+      value > 100 ? finalValue = 100:finalValue=value
+      setEventForm((previous) => ({
+        ...previous,
+        [e.target.name]:Number(finalValue)
+      }))
+}
   return (
     <div className="px-7 grid grid-cols-1 mt-10 gap-7">
       <h2 className="font-black">STI Testing</h2>
@@ -15,7 +24,7 @@ const PostEventReportSection26 = ({ setEventForm }) => {
           className="border-black "
           type="text"
           // placeholder="Please specify"
-
+          defaultValue={eventForm.stiTestingAgency || ""}
           name="stiTestingAgency"
           onChange={(e) =>
             setEventForm((prev) => ({
@@ -32,16 +41,11 @@ const PostEventReportSection26 = ({ setEventForm }) => {
           className="border-black w-20"
           type="number"
           onWheelCapture={(e) => e.target.blur()}
-          defaultValue={0}
+          defaultValue={eventForm.stiTestedTotal || 0}
           // placeholder="Type a number"
-          onKeyUp={handleMaxNumber}
+          onKey={handleMaxNumber}
           name="stiTestedTotal"
-          onChange={(e) =>
-            setEventForm((prev) => ({
-              ...prev,
-              [e.target.name]: e.target.value,
-            }))
-          }
+          onChange={handleNumberForm}
         />
       </label>
 
@@ -51,16 +55,11 @@ const PostEventReportSection26 = ({ setEventForm }) => {
           className="border-black w-20"
           type="number"
           onWheelCapture={(e) => e.target.blur()}
-          defaultValue={0}
+          defaultValue={eventForm.stiReactiveResults || 0}
           // placeholder="Type a number"
-          onKeyUp={handleMaxNumber}
+          onKey={handleMaxNumber}
           name="stiReactiveResults"
-          onChange={(e) =>
-            setEventForm((prev) => ({
-              ...prev,
-              [e.target.name]: e.target.value,
-            }))
-          }
+          onChange={handleNumberForm}
         />
       </label>
 
@@ -70,16 +69,11 @@ const PostEventReportSection26 = ({ setEventForm }) => {
           className="border-black w-20 "
           type="number"
           onWheelCapture={(e) => e.target.blur()}
-          defaultValue={0}
+          defaultValue={eventForm.stiLinkedToCare || 0}
           // placeholder="Type a number"
-          onKeyUp={handleMaxNumber}
+          onKey={handleMaxNumber}
           name="stiLinkedToCare"
-          onChange={(e) =>
-            setEventForm((prev) => ({
-              ...prev,
-              [e.target.name]: e.target.value,
-            }))
-          }
+          onChange={handleNumberForm}
         />
       </label>
 
@@ -89,7 +83,7 @@ const PostEventReportSection26 = ({ setEventForm }) => {
           className="border-black "
           type="text"
           // placeholder="Type a number"
-
+          defaultValue={eventForm.stiServicesReferr || ""}
           name="stiServicesReferredTo"
           onChange={(e) =>
             setEventForm((prev) => ({
@@ -100,7 +94,7 @@ const PostEventReportSection26 = ({ setEventForm }) => {
         />
       </label>
 
-      <DemographicSurveySection setEventForm={setEventForm} typeOfTest="sti" />
+      <DemographicSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest="sti" />
     </div>
   );
 };

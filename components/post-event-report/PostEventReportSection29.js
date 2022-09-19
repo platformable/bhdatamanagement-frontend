@@ -1,10 +1,19 @@
 import React from "react";
 
-const PostEventReportSection29 = ({ setEventForm }) => {
+const PostEventReportSection29 = ({ eventForm, setEventForm }) => {
   const handleMaxNumber = (e) => {
     let {value} = e.target
     value > 100 && (e.target.value = 100)
   }
+  const handleNumberForm = (e) => {
+    let {value} = e.target
+      let finalValue;
+      value > 100 ? finalValue = 100:finalValue=value
+      setEventForm((previous) => ({
+        ...previous,
+        [e.target.name]:Number(finalValue)
+      }))
+}
   return (
     <div className="px-7 grid grid-cols-1 gap-7 my-10">
       <h2 className="font-black">COVID-19 Testing</h2>
@@ -15,6 +24,7 @@ const PostEventReportSection29 = ({ setEventForm }) => {
           type="text"
           //placeholder="Please specify"
           name="covidTestingAgency"
+          defaultValue={eventForm.covidTestingAgency || ""}
           onChange={(e) =>
             setEventForm((prev) => ({
               ...prev,
@@ -29,17 +39,12 @@ const PostEventReportSection29 = ({ setEventForm }) => {
           className="border-black p-4"
           type="number"
           onWheelCapture={(e) => e.target.blur()}
-          defaultValue={0}
           onKeyUp={handleMaxNumber}
           maxLength={3}
           //placeholder="type a number"
           name="covidTestedTotal"
-          onChange={(e) =>
-            setEventForm((prev) => ({
-              ...prev,
-              [e.target.name]: Number(e.target.value),
-            }))
-          }
+          defaultValue={eventForm.covidTestedTotal || 0}
+          onChange={handleNumberForm}
         />
       </label>
     </div>

@@ -59,6 +59,8 @@ const EditPostEventReport = ({
   const { user, error, isLoading } = useUser();
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
+ console.log("event",event)
+
   const [eventForm, setEventForm] = useState({
     // userID: "",
     eventID : Number(event?.id),
@@ -111,7 +113,9 @@ const EditPostEventReport = ({
         internPresent : 0 || event?.internpresent,
         adultVolunteers : 0 || event?.adultvolunteers,
         youthVolunteers : 0 || event?.youthvolunteers,
+
         languages:event?.languages,
+
         participantRegistrationForm : false || event?.participantregistrationform,
         eventStartedOnTime : false || event?.eventstartedontime,
         eventFinishedOnTime : false || event?.eventfinishedontime,
@@ -461,7 +465,6 @@ const EditPostEventReport = ({
   });
   const userId = user && user.sub;
 const router = useRouter()
- console.log("event",event)
   // useEffect(() => {
   //   setEventForm({ ...eventForm, userID: userId });
     
