@@ -145,9 +145,10 @@ const Survey = ({ data }) => {
           // });
           //setShowResponseStatus(!showResponseStatus);
           notifyMessage();
-          /* setTimeout(()=>{
-              router.back()
-            },1500) */
+          setTimeout(()=>{
+            router.push("https://nblch.org")
+
+            },2000) 
         }
       })
       .catch(function (error) {
