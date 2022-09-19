@@ -59,11 +59,11 @@ const EditPostEventReport = ({
   const { user, error, isLoading } = useUser();
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
- console.log("event",event)
+
 
   const [eventForm, setEventForm] = useState({
     // userID: "",
-    eventID : Number(event?.id),
+    eventID : Number(event?.eventid),
     eventDateCreated: new Date(),
     // programID: event?.programid,
     programName: event?.programname,
@@ -461,7 +461,9 @@ const EditPostEventReport = ({
         altAgeHepCUnder13 : 0 || event?.altagehepcunder13,
         altAgeHepC13_18 : 0 || event?.altagehepc13_18,
         altAgeHepC19_24 : 0 || event?.altagehepc19_24,
-        hepCMoreThanOneRace : 0 || event?.hepcmorethanonerace
+        hepCMoreThanOneRace : 0 || event?.hepcmorethanonerace,
+        username:event?.username,
+        userlastname:event?.userlastname,
   });
   const userId = user && user.sub;
 const router = useRouter()
@@ -536,10 +538,12 @@ console.log("eventForm",eventForm)
 
       <TopEventsInfo event={event} />
 
+      <p className="p-5">Event registered by {eventForm.username} {eventForm.userlastname}</p>
 
-
-          <div className="post-envent-form-container mt-10 border-black grid gap-1 bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
-            <section className="event p-5 rounded">
+          <div className="post-envent-form-container  border-black grid gap-1 bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
+           
+         
+            <section className="event py-5 rounded">
              {/*  <div className="flex justify-between items-center ">
                 <h3 className="mb-3 font-black ">Event</h3>
               </div>

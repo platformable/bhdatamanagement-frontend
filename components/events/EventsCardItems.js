@@ -1,7 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 
-export default function EventsCardItems({id,selectedEventToDelete,setSelectedEventToDelete,setShowDeleteEventModal,showDeleteEventModal,userRole,eventdate,eventName,urlEdit,urlParticipantSurvey,urlUpload,urlPostEventSurvey}) {
+export default function EventsCardItems({id,
+  selectedEventToDelete,setSelectedEventToDelete,
+  setShowDeleteEventModal,showDeleteEventModal,
+  userRole,eventdate,eventName,urlEdit,urlParticipantSurvey,
+  urlUpload,urlPostEventSurvey,urlEditPostEventSurvey,
+  postEventReportId
+
+}) {
   
   const handleDeleteEvent=(id,eventName)=>{
     console.log(id)
@@ -21,12 +28,8 @@ export default function EventsCardItems({id,selectedEventToDelete,setSelectedEve
           </div>
         </div> */}
         <div className="event-card-item-program-date   h-20   rounded-lg py-1">
-
             <h3 className=" font-black">{eventName}</h3>
-       
-  
             <h3 className=" font-black">{eventdate && new Date(eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</h3>
- 
         </div>
         
       
@@ -46,9 +49,9 @@ export default function EventsCardItems({id,selectedEventToDelete,setSelectedEve
               <p className="text-center">Upload docs, photos, etc</p>
           </div>
           </Link>
-          <Link href={urlPostEventSurvey}> 
+          <Link href={postEventReportId ? urlEditPostEventSurvey: urlPostEventSurvey}> 
           <div className="events-card-item-btn bg-white text-black border-black-md p-5 flex justify-center items-center rounded-lg  cursor-pointer shadow-xl hover:bg-black hover:text-white">
-              <p className="text-center">Complete post event survey</p>
+              <p className="text-center">{postEventReportId ? "Edit post event survey": "Complete post event survey"}</p>
           </div>
           </Link>
         </div>

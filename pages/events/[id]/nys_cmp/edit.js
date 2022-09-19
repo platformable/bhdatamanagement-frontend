@@ -100,8 +100,8 @@ userlastname:event?.userlastname,
       />
       
       <div className="container mx-auto md:px-0 px-5 mb-10 items-center">
-      <p className="my-5">Event registered by {eventForm.username} {eventForm.userlastname}</p>
-        <div className="register-envent-form-container  grid gap-10 bg-white border rounded-lg p-7 mb-5 pb-10 shadow-lg">
+      <p className="p-5">Event registered by {eventForm.username} {eventForm.userlastname}</p>
+        <div className="register-envent-form-container  grid gap-10 bg-white border-black rounded-lg p-7 mb-5 pb-10 shadow-lg">
           {/* <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} event={event}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} event={event}/> */}
           <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>

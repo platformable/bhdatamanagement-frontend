@@ -31,7 +31,7 @@ const EventsIndex = ({ events }) => {
   };
   const ref = useRef();
 
-  console.log("selectedEventToDelete",selectedEventToDelete)
+  console.log("events",events)
 
 
 
@@ -39,7 +39,7 @@ const EventsIndex = ({ events }) => {
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
   );
 
-  console.log(dateFilter)
+
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
@@ -130,11 +130,13 @@ const EventsIndex = ({ events }) => {
                   urlParticipantSurvey={`/events/${event.id}/participant-survey`}
                   urlUpload={`events/${event.id}/upload-event`}
                   urlPostEventSurvey={`events/${event.id}/post-event-survey`}
+                  urlEditPostEventSurvey={`events/${event.id}/edit-post-event-survey`}
                   userRole={loggedUserRole}
                   setShowDeleteEventModal={setShowDeleteEventModal}
                   showDeleteEventModal={showDeleteEventModal}
                   setSelectedEventToDelete={setSelectedEventToDelete}
                   selectedEventToDelete={selectedEventToDelete}
+                  postEventReportId={event.posteventreportid}
                 />
               );
             })}
