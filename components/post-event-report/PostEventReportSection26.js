@@ -86,7 +86,7 @@ const PostEventReportSection26 = ({ eventForm, setEventForm, isNumberKey }) => {
           className="border-black "
           type="text"
           // placeholder="Type a number"
-          defaultValue={eventForm.stiServicesReferr || ""}
+          defaultValue={eventForm.stiServicesReferredTo || ""}
           name="stiServicesReferredTo"
           onChange={(e) =>
             setEventForm((prev) => ({

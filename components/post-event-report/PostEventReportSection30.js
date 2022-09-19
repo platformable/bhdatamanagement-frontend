@@ -22,14 +22,13 @@ const PostEventReportSection30 = ({eventForm, setEventForm}) => {
                     name="nysPrimaryRiskGroup"
                     className="my-3"
                     value={opt}
-                    defaultValue={eventForm.nysPrimaryRiskGroup || ""}
                     onChange={(e) =>
                       setEventForm((previous) => ({
                         ...previous,
                         [e.target.name]: e.target.value,
                       }))
                     }
-                    defaultChecked={opt.value===eventForm.nysPrimaryRiskGroup ? 'checked': ""}
+                    defaultChecked={opt === eventForm.nysPrimaryRiskGroup ? 'checked': ""}
                   />
                   <p className="my-3 mx-5">{opt}</p>
                 </label>

@@ -39,6 +39,7 @@ const RaceSurveySection = ({
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest]);
 
   const handleForm = (e) => {
+    console.log("name: ",e.target.name)
     let { value } = e.target;
     let finalValue;
     value > 100 ? (finalValue = 100) : (finalValue = value);
@@ -146,7 +147,7 @@ const RaceSurveySection = ({
           defaultValue={eventForm[fields[6]] ?? 0}
           maxLength={3}
           className="border-black p-4 w-20 rounded"
-          name={fields[0]}
+          name={fields[6]}
           onChange={handleForm}
           onKeyDown={isNumberKey}
         />
