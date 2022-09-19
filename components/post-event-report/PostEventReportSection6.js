@@ -17,7 +17,7 @@ const PostEventReportSection6 = ({eventForm,setEventForm}) => {
       [e.target.name]: e.target.value,
     }))}}
     placeholder='Please type address' 
-
+    defaultValue={eventForm.locationAddress}
 />
     </label>
     

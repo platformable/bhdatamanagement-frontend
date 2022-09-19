@@ -383,11 +383,11 @@ export const resourcesDistributed = [
     name:"Dental dams",
     dataFieldName: "dentalDam",
   },
-  // {
-  //   id: 9,
-  //   name:"Promotional materials",
-  //   dataFieldName: "promotionalMaterial",
-  // },
+  {
+    id: 15,
+    name:"Promotional materials",
+    dataFieldName: "promotionalMaterial",
+  },
   // { id:14,
   //   source: "/post_Event_report/COVID_site_referral_icon.svg",
   //   name:"COVID vaccine site referral information/details",

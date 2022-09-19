@@ -39,6 +39,7 @@ const PostEventReportSection2 = ({ eventForm, setEventForm }) => {
                         [e.target.name]: role.value,
                       }))
                     }
+                    defaultChecked={role.value===eventForm.mainRole ? 'checked' : ''}
                   />
                   {role.value}
                 </div>
@@ -75,6 +76,7 @@ const PostEventReportSection2 = ({ eventForm, setEventForm }) => {
                       [e.target.name]: role.value,
                     }))
                   }
+                  defaultChecked={role.value===eventForm.mainRole ? 'checked' : ''}
                 />
                 {role.value}
               </label>
