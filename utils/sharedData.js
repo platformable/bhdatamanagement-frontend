@@ -243,7 +243,7 @@ export const age = [
   { id: 11, value: "60-64" },
   { id: 12, value: "65-69" },
   { id: 13, value: "70+" },
-  { id: 14, value: "Decline to answer" },
+ /*  { id: 14, value: "Decline to answer" }, */
 ];
 
 export const race = [
