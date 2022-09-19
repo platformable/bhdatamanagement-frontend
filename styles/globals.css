@@ -435,6 +435,8 @@ table th {
 }
 .question-body {
   display: grid;
+  padding-left: 28px;
+  padding-right: 28px;
 }
 .question-body > h2 {
   margin-bottom: 28px;

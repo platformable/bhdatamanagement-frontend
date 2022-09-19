@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useRouter } from 'next/router'
-import { ToastContainer,toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import axios from "axios";
 
-import {ParticipantSurveySection1} from "../../../../components/participant-event-survey/ParticipantSurveySection1";
+import { ParticipantSurveySection1 } from "../../../../components/participant-event-survey/ParticipantSurveySection1";
 import { ParticipantSurveySection10 } from "../../../../components/participant-event-survey/ParticipantSurveySection10";
 import { ParticipantSurveySection11 } from "../../../../components/participant-event-survey/ParticipantSurveySection11";
 import { ParticipantSurveySection12 } from "../../../../components/participant-event-survey/ParticipantSurveySection12";
@@ -41,20 +41,20 @@ import { ParticipantSurveySection8 } from "../../../../components/participant-ev
 import { ParticipantSurveySection9 } from "../../../../components/participant-event-survey/ParticipantSurveySection9";
 import { ParticipantSurveySection34 } from "../../../../components/participant-event-survey/ParticipantSurveySection34";
 
-const Survey = ({data}) => {
-
-  const notifyMessage= ()=>{
+const Survey = ({ data }) => {
+  const [showDemographicsForm, setShowDemographicsForm] = useState(false);
+  const notifyMessage = () => {
     toast.success("Survey saved!", {
       position: toast.POSITION.TOP_CENTER,
     });
-   }
+  };
 
-  console.log("data",data)
-
+  console.log("data", data);
+  console.log("dadawdwada", showDemographicsForm);
   const [surveyForm, setSurveyForm] = useState({
-    eventID:data[0]?.id,
-    eventName:data[0]?.eventname,
-    eventDate:data[0]?.eventdate,
+    eventID: data[0]?.id,
+    eventName: data[0]?.eventname,
+    eventDate: data[0]?.eventdate,
     participantZipCode: 0,
     ageID: 0,
     participantAgeRange: "",
@@ -105,7 +105,7 @@ const Survey = ({data}) => {
     participantUKnowledge: "",
     participantTestResourceKnowledge: "",
     participantPRePResourceKnowledge: [],
-    participantPRePResourceKnowledgeOther:"",
+    participantPRePResourceKnowledgeOther: "",
     interestHIV: false,
     interestPrEP: false,
     interestHepC: false,
@@ -118,60 +118,72 @@ const Survey = ({data}) => {
     interestOther: "",
     participantVote: false,
     participantReferral: [],
-    participantReferralOther:"",
+    participantReferralOther: "",
     participantSuggestions: "",
-  })
-  console.log("form",surveyForm)
+  });
+  console.log("form", surveyForm);
 
-  const router = useRouter()
+  const router = useRouter();
 
-
+  const handleDemographicsSurvey = (e) => {
+    e.target.value === "true" ? 
+    setShowDemographicsForm((prev) => true):
+    setShowDemographicsForm((prev) => false)
+  };
   const submitParticipantSurvey = async () => {
-
-
- 
     // if (!isEmpty) {
-      axios
-        .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/create`, surveyForm)
-        .then((response) => {
-          if (response.data.statusText === "OK") {
-            // setResponseStatus({
-            //   success: true,
-            //   statusMessage: "Your Event has been saved",
-            // });
-            //setShowResponseStatus(!showResponseStatus);
-            notifyMessage()
-            /* setTimeout(()=>{
+    axios
+      .post(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/create`,
+        surveyForm
+      )
+      .then((response) => {
+        if (response.data.statusText === "OK") {
+          // setResponseStatus({
+          //   success: true,
+          //   statusMessage: "Your Event has been saved",
+          // });
+          //setShowResponseStatus(!showResponseStatus);
+          notifyMessage();
+          /* setTimeout(()=>{
               router.back()
             },1500) */
-          }
-        })
-        .catch(function (error) {
-          // setResponseStatus({
-          //   success: false,
-          //   statusMessage: "Request Failed",
-          // });
-          // setShowResponseStatus(!showResponseStatus);
-          console.error("error: ", error);
-        });
-  //   } else {
-  //     setResponseStatus({
-  //       success: false,
-  //       statusMessage: "Please complete all the fields",
-  //     });
-  //     setShowResponseStatus(!showResponseStatus);
-  //  }
+        }
+      })
+      .catch(function (error) {
+        // setResponseStatus({
+        //   success: false,
+        //   statusMessage: "Request Failed",
+        // });
+        // setShowResponseStatus(!showResponseStatus);
+        console.error("error: ", error);
+      });
+    //   } else {
+    //     setResponseStatus({
+    //       success: false,
+    //       statusMessage: "Please complete all the fields",
+    //     });
+    //     setShowResponseStatus(!showResponseStatus);
+    //  }
   };
 
   return (
     <>
       <div>
         <div className="h-88 flex flex-col items-center grandient-violet">
-          <img src="/bh_logo.png" alt="black health data app management logo" width={400} className="pt-12"/>
-          <h2 className="leading-tight text-white py-12 text-center"><span className="italic">We want to hear from you</span> <br/> 
-
-          Your answers help us plan our services, demonstrate our focus on our community,<br/>
-          and help us meet our funding commitments</h2>
+          <img
+            src="/bh_logo.png"
+            alt="black health data app management logo"
+            width={400}
+            className="pt-12"
+          />
+          <h2 className="leading-tight text-white py-12 text-center">
+            <span className="italic">We want to hear from you</span> <br />
+            Your answers help us plan our services, demonstrate our focus on our
+            community,
+            <br />
+            and help us meet our funding commitments
+          </h2>
         </div>
         <ToastContainer autoClose={1500} />
         {/* <PageTopHeading
@@ -179,71 +191,194 @@ const Survey = ({data}) => {
           dashboardBtn={false}
           pageTitle={"Participant event survey"}
         /> */}
-      <main className="container mx-auto  md:px-0 px-5">
-        <div id="event" className="container mx-auto rounded my-10 md:h-36 border-dark-violet">
-          <div className="grid grid-cols-2 bg-violet font-bold text-white h-12 px-7 items-center rounded-tl-lg rounded-tr-lg">
-            <h2 className="text-2xl">Event name</h2>
-            <h2 className="flex justify-end text-2xl">Event date</h2>
-          </div>
-          <div className="grid grid-cols-2 py-6 px-7">
-            <h2 className="text-black text-2xl">{data[0]?.eventname}</h2>
-            <h2 className="flex justify-end text-2xl">{new Date(data[0]?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</h2>
-          </div>
-        </div>
-        <div className="form-body border-dark-violet mb-10">
-          <ParticipantSurveySection1 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection2 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection3 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection4 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection5 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection6 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection32 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection33 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-
-          {/* <ParticipantSurveySection7 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-          <ParticipantSurveySection8 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection9 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection10 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection11 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection12 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-       {/*    <ParticipantSurveySection13 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-          <ParticipantSurveySection14 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection15 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection16 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection17 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection18 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          {/* <ParticipantSurveySection19 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-          <ParticipantSurveySection20 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          {/* <ParticipantSurveySection21 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-          {/* <ParticipantSurveySection22 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-          <ParticipantSurveySection23 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          {/* <ParticipantSurveySection24 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-          <ParticipantSurveySection25 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection34 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          {/* <ParticipantSurveySection26 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-          <ParticipantSurveySection27 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection28 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection29 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection30 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-          <ParticipantSurveySection31 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/>
-        </div>
-
-        <div className="flex justify-center">
-        <h3>Thank you! Your answers help us plan our services, demonstrate our focus on our community, and help us meet our funding commitments.</h3>
-        </div>
-
-        <div className="flex justify-center my-10">
-        
-          <button
-            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-            /* onClick={(e)=>{router.push("https://nblch.org/")}} */
-            onClick={submitParticipantSurvey}
+        <main className="container mx-auto  md:px-0 px-5">
+          <div
+            id="event"
+            className="container mx-auto rounded my-10 md:h-36 border-dark-violet"
           >
-            Save
-          </button>
+            <div className="grid grid-cols-2 bg-violet font-bold text-white h-12 px-7 items-center rounded-tl-lg rounded-tr-lg">
+              <h2 className="text-2xl">Event name</h2>
+              <h2 className="flex justify-end text-2xl">Event date</h2>
+            </div>
+            <div className="grid grid-cols-2 py-6 px-7">
+              <h2 className="text-black text-2xl">{data[0]?.eventname}</h2>
+              <h2 className="flex justify-end text-2xl">
+                {new Date(data[0]?.eventdate).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "numeric",
+                  day: "numeric",
+                })}
+              </h2>
+            </div>
+          </div>
+          <div className="form-body border-dark-violet mb-10">
+            <ParticipantSurveySection1
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection2
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection3
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection4
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection5
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection6
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection32
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection23
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection25
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection34
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection27
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection28
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection29
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            {/* <ParticipantSurveySection7 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
+            <div className="question-body">
+              <h2 className="font-black">
+                If you have time, could you please answer some further
+                demographics and community health needs questions to help us
+                better plan future services?
+              </h2>
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name="demographicsForm"
+                    onChange={handleDemographicsSurvey}
+                    value={true}
+                  />
+                  <p>Yes</p>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="demographicsForm"
+                    onChange={handleDemographicsSurvey}
+                    value={false}
+                  />
+                  <p>No</p>
+                </label>
+              </div>
+            </div>
+            
+            {showDemographicsForm && (
+              <>
+                <ParticipantSurveySection8
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+                <ParticipantSurveySection9
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+                <ParticipantSurveySection10
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+                <ParticipantSurveySection11
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+                <ParticipantSurveySection12
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+                {/*    <ParticipantSurveySection13 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
+                <ParticipantSurveySection14
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+                <ParticipantSurveySection15
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+                <ParticipantSurveySection16
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+                <ParticipantSurveySection17
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+                <ParticipantSurveySection18
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+                {/* <ParticipantSurveySection19 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
+                <ParticipantSurveySection20
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+                {/* <ParticipantSurveySection21 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
+                {/* <ParticipantSurveySection22 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
+                {/* <ParticipantSurveySection24 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
+                {/* <ParticipantSurveySection26 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
+                <ParticipantSurveySection30
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+                <ParticipantSurveySection31
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
+               
+              </>
+            )}
+            <ParticipantSurveySection33
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                />
           </div>
 
-          </main>
+          <div className="flex justify-center">
+            <h3>
+              Thank you! Your answers help us plan our services, demonstrate our
+              focus on our community, and help us meet our funding commitments.
+            </h3>
+          </div>
+
+          <div className="flex justify-center my-10">
+            <button
+              className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
+              /* onClick={(e)=>{router.push("https://nblch.org/")}} */
+              onClick={submitParticipantSurvey}
+            >
+              Save
+            </button>
+          </div>
+        </main>
       </div>
     </>
   );
@@ -252,11 +387,11 @@ const Survey = ({data}) => {
 export default Survey;
 
 export async function getServerSideProps(req) {
-  let {id}= req.params
+  let { id } = req.params;
   // Fetch data from external API
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`)
-  const data = await res.json()
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`);
+  const data = await res.json();
 
   // Pass data to the page via props
-  return { props: { data } }
+  return { props: { data } };
 }
