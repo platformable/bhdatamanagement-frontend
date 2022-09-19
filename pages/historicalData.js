@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
-import Link from "next/link";
-import Image from "next/image";
-import nysProgramIcon from "../public/NYS_programs_icon.svg";
-import oefIcon from "../public/OEF_icon.svg";
-import bhIcon from "../public/BH_social_media_icon.svg";
 import Search from "../components/Search";
 import ProgramCard from "../components/ProgramCard";
-import { data } from "autoprefixer";
-
+import PageTopHeading from "../components/PageTopHeading";
 export default function HistoricalData() {
   const [searchWord, setSearchWord] = useState("");
 
@@ -120,26 +114,14 @@ export default function HistoricalData() {
       <div id="historicalData">
         <section className="py-5 bg-white">
           <div className="container mx-auto ">
-            <div className="flex btn-dashboard">
-              <Link href="/dashboard">
-                <a
-                  className="px-2 py-2  flex bg-black gap-x-2 items-center font-black text-white rounded"
-                  id=""
-                >
-                 {/*  <Image
-                    src="/supervisor/dashboard_icon.svg"
-                    width={22}
-                    height={20}
-                  /> */}
-                  Dashboard
-                </a>
-              </Link>
-            </div>
-
-            <div className="search-box grid md:grid-cols-2 grid-cols-1  items-center my-5 space-between">
-              <h2 className="font-black">
-                Which dataset do you want to download?
-              </h2>
+           
+            <PageTopHeading
+        backBtn={true}
+        dashboardBtn={true}
+        pageTitle={"Which dataset do you want to download?"}
+      />
+ 
+            <div className="search-box grid w-full  grid-cols-1  items-center my-5 justify-end">
 
               <Search searchFunction={searchFunction} />
             </div>

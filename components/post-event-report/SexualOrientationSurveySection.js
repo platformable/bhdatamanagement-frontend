@@ -71,7 +71,7 @@ const SexualOrientationSurveySection = ({
         defaultValue={eventForm[fields[1]] || 0}
           maxLength={3}
           className="border-black p-4  rounded w-20"
-          name={fields[0]}
+          name={fields[1]}
           onChange={handleForm}
           onKeyDown={isNumberKey}
 
