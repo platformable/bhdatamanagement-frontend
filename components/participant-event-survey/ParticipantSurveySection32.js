@@ -8,25 +8,25 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
   const [data,setData]=useState([])
 
   const handleForm=(value)=>{
-    // const isValueOnData=data?.includes(value)
+ /*    const isValueOnData=data?.includes(value)
    
-    // const filteredData=data.filter(oldValues=> oldValues !=value) 
+    const filteredData=data.filter(oldValues=> oldValues !=value) 
     
-    // isValueOnData?
-    // setData(filteredData) :
-    // setData((previous)=>([
-    //   ...previous,value
-    // ]))
+    isValueOnData?
+    setData(filteredData) :
+    setData((previous)=>([
+      ...previous,value
+    ])) */
     setSurveyForm((prev) => ({...prev,participantReferral: value }))
 
   }
 
-  // useEffect(()=>{
-  //   setSurveyForm((previous) => ({
-  //     ...previous,
-  //     participantReferral: data,
-  //   }))
-  // },[data])
+/*   useEffect(()=>{
+    setSurveyForm((previous) => ({
+      ...previous,
+      participantReferral: data,
+    }))
+  },[data]) */
 
 
   const options=[
@@ -48,11 +48,11 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
     },
     {
       id:5,
-      value:"Signs/flyers "
+      value:"Signs/flyers"
     },
     {
       id:6,
-      value:"Referral from local health provider or services "
+      value:"Referral from local health provider or services"
     },
     {
       id:7,

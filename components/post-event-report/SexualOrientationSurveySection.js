@@ -43,8 +43,7 @@ const SexualOrientationSurveySection = ({
   return (
     <div className="grid grid-cols-1 gap-7">
       <h2 className="font-black">
-        Sexual orientation: How many people doing{" "}
-        {typeOfTestForTitles(typeOfTest)} testing identified with the following
+        Sexual orientation: How many people doing testing identified with the following
         sexual orientation?
       </h2>
       <label className="flex flex-col gap-2">
