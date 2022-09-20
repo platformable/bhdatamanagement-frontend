@@ -104,7 +104,7 @@ const Survey = ({ data }) => {
     participantPrEPUse: "",
     participantUKnowledge: "",
     participantTestResourceKnowledge: "",
-    participantPRePResourceKnowledge: [],
+    participantPRePResourceKnowledge: "",
     participantPRePResourceKnowledgeOther: "",
     interestHIV: false,
     interestPrEP: false,
@@ -117,7 +117,7 @@ const Survey = ({ data }) => {
     interestChronic: false,
     interestOther: "",
     participantVote: false,
-    participantReferral: [],
+    participantReferral: "",
     participantReferralOther: "",
     participantSuggestions: "",
   });
