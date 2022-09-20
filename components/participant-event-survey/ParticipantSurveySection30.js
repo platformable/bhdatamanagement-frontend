@@ -100,18 +100,18 @@ if(index===options.length-1){
       <div className='flex gap-x-5'>
       <input
         type="checkbox"
-        name={"Other"}
+        name={"interestOther"}
         className=""
         value={option.value}
         id={index}
         //defaultChecked={program.id===event?.programid?'checked':""}
-        onChange={(e)=>handleForm(e.target.value,'Other')}
+        onChange={(e)=>handleForm(e.target.value,'interestOther')}
       />
      {option.value}
       </div>
      <input type="text" 
           // placeholder="Please specify" 
-          onChange={(e)=>setSurveyForm({...surveyForm,participantPRePResourceKnowledgeOther:e.target.value})}
+          onChange={(e)=>setSurveyForm({...surveyForm,interestOtherText: e.target.value})}
           className="border-black rounded px-4 text-xl self-start p-1  w-134" />
     </label>
 

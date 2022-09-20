@@ -50,7 +50,7 @@ const Survey = ({ data }) => {
   };
 
   console.log("data", data);
-
+  console.log("dadawdwada", showDemographicsForm);
   const [surveyForm, setSurveyForm] = useState({
     eventID: data[0]?.id,
     eventName: data[0]?.eventname,
@@ -104,7 +104,7 @@ const Survey = ({ data }) => {
     participantPrEPUse: "",
     participantUKnowledge: "",
     participantTestResourceKnowledge: "",
-    participantPRePResourceKnowledge: "",
+    participantPRePResourceKnowledge: [],
     participantPRePResourceKnowledgeOther: "",
     interestHIV: false,
     interestPrEP: false,
@@ -115,11 +115,12 @@ const Survey = ({ data }) => {
     interestMentalHealth: false,
     interestSubstance: false,
     interestChronic: false,
-    interestOther: "",
     participantVote: false,
-    participantReferral: "",
+    participantReferral: [],
     participantReferralOther: "",
     participantSuggestions: "",
+    interestOther: false,
+    interestOtherText: "",
   });
   console.log("form", surveyForm);
 
@@ -139,11 +140,11 @@ const Survey = ({ data }) => {
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-/*           setResponseStatus({
+          setResponseStatus({
             success: true,
             statusMessage: "Your Event has been saved",
           });
-          setShowResponseStatus(!showResponseStatus); */
+          setShowResponseStatus(!showResponseStatus);
           notifyMessage();
           setTimeout(()=>{
             router.push("https://nblch.org")
