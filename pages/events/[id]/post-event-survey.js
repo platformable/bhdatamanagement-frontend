@@ -701,17 +701,27 @@ console.log("eventForm",eventForm)
             
             <PostEventReportSection1 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection2 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection31 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection32 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection35 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+
             {/* <PostEventReportSection3 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} /> */}
             {/* <PostEventReportSection4 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/> */}
             <PostEventReportSection5 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection37 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            
             <PostEventReportSection6 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection36 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            
             <PostEventReportSection30 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             </div>
             
             {/* <h3 className="px-7 font-black">Event organization and promotion</h3> */}
             <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection38 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+           
             <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection11 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection12 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
@@ -724,14 +734,8 @@ console.log("eventForm",eventForm)
            
            
            
-            <PostEventReportSection31 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
-            <PostEventReportSection32 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection33 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection34 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
-            <PostEventReportSection35 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
-            <PostEventReportSection36 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
-            <PostEventReportSection37 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
-            <PostEventReportSection38 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection39 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection40 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
            

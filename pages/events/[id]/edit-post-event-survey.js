@@ -681,17 +681,28 @@ console.log("eventForm",eventForm)
             
             <PostEventReportSection1 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection2 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection31 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection32 eventForm={eventForm} setEventForm={setEventForm} />
+            {/* <PostEventReportSection33 eventForm={eventForm} setEventForm={setEventForm} /> */}
+            {/* <PostEventReportSection34 eventForm={eventForm} setEventForm={setEventForm} /> */}
+            <PostEventReportSection35 eventForm={eventForm} setEventForm={setEventForm} />
             {/* <PostEventReportSection3 eventForm={eventForm} setEventForm={setEventForm} /> */}
             {/* <PostEventReportSection4 eventForm={eventForm} setEventForm={setEventForm}/> */}
             <PostEventReportSection5 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection37 eventForm={eventForm} setEventForm={setEventForm} />
+
             <PostEventReportSection6 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection30 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection36 eventForm={eventForm} setEventForm={setEventForm} />
+
             <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm}/>
             </div>
             
             {/* <h3 className="px-7 font-black">Event organization and promotion</h3> */}
             <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection38 eventForm={eventForm} setEventForm={setEventForm} />
+
             <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection11 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection12 eventForm={eventForm} setEventForm={setEventForm}/>
@@ -706,14 +717,7 @@ console.log("eventForm",eventForm)
 
 
 
-            <PostEventReportSection31 eventForm={eventForm} setEventForm={setEventForm} />
-            <PostEventReportSection32 eventForm={eventForm} setEventForm={setEventForm} />
-            <PostEventReportSection33 eventForm={eventForm} setEventForm={setEventForm} />
-            <PostEventReportSection34 eventForm={eventForm} setEventForm={setEventForm} />
-            <PostEventReportSection35 eventForm={eventForm} setEventForm={setEventForm} />
-            <PostEventReportSection36 eventForm={eventForm} setEventForm={setEventForm} />
-            <PostEventReportSection37 eventForm={eventForm} setEventForm={setEventForm} />
-            <PostEventReportSection38 eventForm={eventForm} setEventForm={setEventForm} />
+            
             <PostEventReportSection39 eventForm={eventForm} setEventForm={setEventForm} />
             <PostEventReportSection40 eventForm={eventForm} setEventForm={setEventForm} />
 
@@ -722,7 +726,7 @@ console.log("eventForm",eventForm)
 
 
             <PostEventReportSection19 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm}/>
+            {/* <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm}/> */}
             <PostEventReportSection21 eventForm={eventForm} setEventForm={setEventForm}/>
             
             {eventForm.eventTestingDone && 
