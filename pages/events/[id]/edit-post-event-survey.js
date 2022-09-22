@@ -732,25 +732,25 @@ console.log("eventForm",eventForm)
             {eventForm.eventTestingDone && 
             <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm}/> } 
             
-            {eventForm.hivTesting && 
+            {(eventForm.hivTesting && eventForm.eventTestingDone ) && 
             <PostEventReportSection23 eventForm={eventForm} setEventForm={setEventForm}/>}
             
-            {eventForm.stiTesting && 
+            {(eventForm.stiTesting && eventForm.eventTestingDone ) && 
             <PostEventReportSection26 eventForm={eventForm} setEventForm={setEventForm}/>}
 
-            {eventForm.hepCTesting && 
+            {(eventForm.hepCTesting && eventForm.eventTestingDone ) && 
             <PostEventReportSection25 eventForm={eventForm} setEventForm={setEventForm}/>}
 
-            {eventForm.bloodPressureTesting && 
+            {(eventForm.bloodPressureTesting && eventForm.eventTestingDone ) && 
             <PostEventReportSection27 eventForm={eventForm} setEventForm={setEventForm}/>}
 
-            {eventForm.cholesterolTesting && 
+            {(eventForm.cholesterolTesting && eventForm.eventTestingDone ) && 
             <PostEventReportSection28 eventForm={eventForm} setEventForm={setEventForm}/>}
           
-            {eventForm.covidTesting && 
+            {(eventForm.covidTesting && eventForm.eventTestingDone ) && 
             <PostEventReportSection29 eventForm={eventForm} setEventForm={setEventForm}/>}
 
-            {eventForm.otherTesting && 
+            {(eventForm.otherTesting && eventForm.eventTestingDone ) && 
             <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm}/>}
           </div>
           <div className="flex justify-center my-10">
