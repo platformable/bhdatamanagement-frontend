@@ -1,6 +1,6 @@
 import React from "react";
 
-const PostEventReportSection31 = (eventForm, setEventForm, isNumberKey) => {
+const PostEventReportSection31 = ({eventForm, setEventForm, isNumberKey}) => {
   const options = ["Staff", "Guest professional"];
   return (
     <div className="px-7 question-body">
