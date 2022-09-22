@@ -1,10 +1,10 @@
 import React from 'react';
 
-const PostEventReportSection33 = () => {
+const PostEventReportSection33 = (eventForm, setEventForm, isNumberKey) => {
     return (
-        <div>
-            
-        </div>
+        <>
+        </>
+       
     );
 }
 
