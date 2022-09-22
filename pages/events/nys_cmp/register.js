@@ -100,7 +100,6 @@ additionalMaterials:""
           <Section2 eventForm={eventForm} setEventForm={setEventForm} />
           <EventDescription eventForm={eventForm} setEventForm={setEventForm}/>
           <AdditionalMaterial eventForm={eventForm} setEventForm={setEventForm}/>
-
           <Section9 eventForm={eventForm} setEventForm={setEventForm} />
         {/*   <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/> */}
           <Section4 eventForm={eventForm} setEventForm={setEventForm} />
