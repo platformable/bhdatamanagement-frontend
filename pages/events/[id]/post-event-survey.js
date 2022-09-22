@@ -15,6 +15,7 @@ import Image from "next/image";
 import { ToastContainer,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 import PostEventReportSection1 from "../../../components/post-event-report/PostEventReportSection1";
 import PostEventReportSection2 from "../../../components/post-event-report/PostEventReportSection2";
 import PostEventReportSection3 from "../../../components/post-event-report/PostEventReportSection3";
@@ -71,6 +72,13 @@ const PostEventReport = ({
   const { user, error, isLoading } = useUser();
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
+
+
+
+  const loggedUsername=user['https://lanuevatest.herokuapp.com/name']
+  const loggedUserLastname=user['https://lanuevatest.herokuapp.com/lastname']
+
+
   const [eventForm, setEventForm] = useState({
     // userID: "",
     eventID : Number(event?.id),
@@ -472,6 +480,7 @@ const PostEventReport = ({
         hepCMoreThanOneRace : 0,
 
         datePostEventSurvey:new Date(),
+        namePostEventSurvey:loggedUsername + ' ' + loggedUserLastname,
         sessionPresenter:"",
         guestSpeakers:"",
         nameGuestSpeakers:"",
@@ -481,6 +490,12 @@ const PostEventReport = ({
         staffPresentNames:"",
   });
   const userId = user && user.sub;
+
+
+
+
+  
+
 const router = useRouter()
 // console.log("event",event)
   // useEffect(() => {

@@ -474,14 +474,15 @@ const EditPostEventReport = ({
         username:event?.username,
         userlastname:event?.userlastname,
 
-        datePostEventSurvey:event?.datePostEventSurvey,
-        sessionPresenter:event?.sessionPresenter,
-        guestSpeakers:event?.guestSpeakers,
-        nameGuestSpeakers:event?.nameGuestSpeakers,
-        partnerOrganization1:event?.partnerOrganization1,
-        additionalZipCodes:event?.additionalZipCodes,
-        totalEventAttendees:0 || event?.totalEventAttendees,
-        staffPresentNames:event?.staffPresentNames,
+        datePostEventSurvey:event?.dateposteventsurvey,
+        namePostEventSurvey:event?.nameposteventsurvey,
+        sessionPresenter:event?.sessionpresenter,
+        guestSpeakers:event?.guestspeakers,
+        nameGuestSpeakers:event?.nameguestspeakers,
+        partnerOrganization1:event?.partnerorganization1,
+        additionalZipCodes:event?.additionalzipcodes,
+        totalEventAttendees:0 || event?.totaleventattendees,
+        staffPresentNames:event?.staffpresentnames,
   });
   const userId = user && user.sub;
 const router = useRouter()
