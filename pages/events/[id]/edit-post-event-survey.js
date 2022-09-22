@@ -48,7 +48,16 @@ import PostEventReportSection28 from "../../../components/post-event-report/Post
 import PostEventReportSection29 from "../../../components/post-event-report/PostEventReportSection29";
 import PostEventReportSection30 from "../../../components/post-event-report/PostEventReportSection30";
 
-
+import PostEventReportSection31 from "../../../components/post-event-report/PostEventReportSection31";
+import PostEventReportSection32 from "../../../components/post-event-report/PostEventReportSection32";
+import PostEventReportSection33 from "../../../components/post-event-report/PostEventReportSection33";
+import PostEventReportSection34 from "../../../components/post-event-report/PostEventReportSection34";
+import PostEventReportSection35 from "../../../components/post-event-report/PostEventReportSection35";
+import PostEventReportSection36 from "../../../components/post-event-report/PostEventReportSection36";
+import PostEventReportSection37 from "../../../components/post-event-report/PostEventReportSection37";
+import PostEventReportSection38 from "../../../components/post-event-report/PostEventReportSection38";
+import PostEventReportSection39 from "../../../components/post-event-report/PostEventReportSection39";
+import PostEventReportSection40 from "../../../components/post-event-report/PostEventReportSection40";
 const EditPostEventReport = ({
   event,
   programs,
@@ -682,6 +691,26 @@ console.log("eventForm",eventForm)
             <PostEventReportSection16 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection17 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection18 eventForm={eventForm} setEventForm={setEventForm}/>
+
+
+
+
+
+            <PostEventReportSection31 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection32 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection33 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection34 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection35 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection36 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection37 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection38 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection39 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection40 eventForm={eventForm} setEventForm={setEventForm} />
+
+
+
+
+
             <PostEventReportSection19 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm}/>
             <PostEventReportSection21 eventForm={eventForm} setEventForm={setEventForm}/>

@@ -11,16 +11,16 @@ const PostEventReportSection30 = ({eventForm, setEventForm}) => {
 
     ]
   return (
-    <div className='px-7  mt-10'>
+    <div className='px-7 question-body '>
         <h2 className='font-black'>Which primary risk group is your event targeting?</h2>
-        <p className="mb-5">Required for AIRS</p>
+        <p className="">Required for AIRS</p>
         <div>
             {options.map(opt => (
                 <label >
                      <input
                     type="radio"
                     name="nysPrimaryRiskGroup"
-                    className="my-3"
+                    className=""
                     value={opt}
                     onChange={(e) =>
                       setEventForm((previous) => ({
@@ -30,7 +30,7 @@ const PostEventReportSection30 = ({eventForm, setEventForm}) => {
                     }
                     defaultChecked={opt === eventForm.nysPrimaryRiskGroup ? 'checked': ""}
                   />
-                  <p className="my-3 mx-5">{opt}</p>
+                  <p className="">{opt}</p>
                 </label>
             ))}
         </div>

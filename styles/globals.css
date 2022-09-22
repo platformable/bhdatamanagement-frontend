@@ -437,13 +437,15 @@ table th {
   display: grid;
   padding-left: 28px;
   padding-right: 28px;
+  margin-top: 40px;
 }
-.question-body > h2 {
-  margin-bottom: 28px;
+.question-body > p {
+  margin-top: 4px;
 }
 .question-body > div {
   display: grid;
   gap: 20px;
+  margin-top: 28px;
 }
 .question-body > div > label {
   display: flex;

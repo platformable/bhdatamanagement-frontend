@@ -49,6 +49,18 @@ import PostEventReportSection29 from "../../../components/post-event-report/Post
 import PostEventReportSection30 from "../../../components/post-event-report/PostEventReportSection30";
 
 
+import PostEventReportSection31 from "../../../components/post-event-report/PostEventReportSection31";
+import PostEventReportSection32 from "../../../components/post-event-report/PostEventReportSection32";
+import PostEventReportSection33 from "../../../components/post-event-report/PostEventReportSection33";
+import PostEventReportSection34 from "../../../components/post-event-report/PostEventReportSection34";
+import PostEventReportSection35 from "../../../components/post-event-report/PostEventReportSection35";
+import PostEventReportSection36 from "../../../components/post-event-report/PostEventReportSection36";
+import PostEventReportSection37 from "../../../components/post-event-report/PostEventReportSection37";
+import PostEventReportSection38 from "../../../components/post-event-report/PostEventReportSection38";
+import PostEventReportSection39 from "../../../components/post-event-report/PostEventReportSection39";
+import PostEventReportSection40 from "../../../components/post-event-report/PostEventReportSection40";
+
+
 const PostEventReport = ({
   event,
   programs,
@@ -686,8 +698,32 @@ console.log("eventForm",eventForm)
             <PostEventReportSection16 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection17 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection18 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+           
+           
+           
+            <PostEventReportSection31 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection32 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection33 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection34 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection35 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection36 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection37 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection38 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection39 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection40 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+           
+           
+           
+           
+           
+           
             <PostEventReportSection19 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
-            <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+           
+           
+           
+           
+           
+           {/*  <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/> */}
             <PostEventReportSection21 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             
             {eventForm.eventTestingDone && 

@@ -11,6 +11,7 @@ import Section8 from "../../../components/events/Section8";
 import Section9 from "../../../components/events/Section9";
 import Loader from "../../../components/Loader";
 import EventDescription from "../../../components/events/EventDescription";
+import AdditionalMaterial from "../../../components/events/AdditionalMaterial";
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import { useRouter } from 'next/router'
@@ -50,7 +51,8 @@ inPersonEventTypeID:null,
 inPersonEventTypeName:"",
 onlineEventTypeID:null,
 onlineEventTypeName:"",
-eventDescription:""
+eventDescription:"",
+additionalMaterials:""
   });
   const userId = user && user.sub
   
@@ -97,6 +99,7 @@ eventDescription:""
           <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} />
           <EventDescription eventForm={eventForm} setEventForm={setEventForm}/>
+          <AdditionalMaterial eventForm={eventForm} setEventForm={setEventForm}/>
           <Section9 eventForm={eventForm} setEventForm={setEventForm} />
         {/*   <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/> */}
           <Section4 eventForm={eventForm} setEventForm={setEventForm} />
