@@ -10,6 +10,7 @@ import Section7 from "../../../../components/events/Section7";
 import Section8 from "../../../../components/events/Section8";
 import Section9 from "../../../../components/events/Section9";
 import EventDescription from "../../../../components/events/EventDescription";
+import AdditionalMaterial from "../../../../components/events/AdditionalMaterial";
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import Loader from '../../../../components/Loader'
@@ -55,6 +56,7 @@ onlineEventTypeID:null,
 onlineEventTypeName:event?.onlineeventtypename || "",
 username:event?.username,
 userlastname:event?.userlastname,
+additionalMaterials:event?.additionalmaterials
 
 
   });
@@ -107,6 +109,7 @@ userlastname:event?.userlastname,
           <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <EventDescription eventForm={eventForm} setEventForm={setEventForm} event={event}/>
+          <AdditionalMaterial eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <Section9 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
     {/*       <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes} event={event}/> */}
             <Section4 eventForm={eventForm} setEventForm={setEventForm} event={event}/>

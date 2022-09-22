@@ -1,4 +1,4 @@
-export const shareData = {
+/* export const shareData = {
   workArea: [
     "NYC",
     "Buffalo",
@@ -43,7 +43,7 @@ export const shareData = {
     "If photos were taken, participants signed a photo usage form.",
     "Hand sanitizer was available.",
     "For meetings/workshops/training/town halls/webinars: Participants were reminded that the workshop area is a safe space and to treat each other respectfully and within the workshop guidelines.",
-    // "For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
+     "For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
   ],
   gender: [
     "Female",
@@ -121,7 +121,7 @@ export const shareData = {
     "Dental dam",
     "Promotional materials"
   ],
-};
+}; */
 
 export const workArea = [
   { id: 1, value: "NYC" },
@@ -148,8 +148,8 @@ export const nysActivity = [
   { id: 3, value: "Health Disparities Workshop/Town Hall", nyscmp: 1 },
   { id: 4, value: "Faith Without Walls", nyscmp: 1 },
   { id: 5, value: "Leadership Training Institute", nyscmp: 1 },
-  { id: 6, value: "Legislative Leadership Zoom", nyscmp: 1 },
-  { id: 7, value: "Health Equity Group Sessions", nyscmp: 1 },
+  { id: 6, value: "Legislative Leadership Zoom", nyscmp: 0 },
+  { id: 7, value: "Health Equity Group Sessions", nyscmp: 0 },
   { id: 8, value: "Other", nyscmp: 1 },
 ];
 
@@ -398,10 +398,10 @@ export const resourcesDistributed = [
 export const inPersonEventTypeName =[
   {id:1,value:'Vaccine and/or COVID-19 Testing Event',nyscmp:true},
 {id:2,value:'Outreach/Community Event',nyscmp:true},
-{id:3,value:'Day of Action (including community awareness days)',nyscmp:true},
+{id:3,value:'Day of Action (including community awareness days)',nyscmp:false},
 {id:4,value:'Workshop/Training',nyscmp:true},
 {id:5,value:'Town Hall',nyscmp:true},
-{id:6,value:'Door Knocking',nyscmp:true},
+{id:6,value:'Door Knocking',nyscmp:false},
 {id:7,value:'Capacity Building Training',nyscmp:false},
 {id:8,value:'Community Advisory Board Meeting',nyscmp:false}
 ]
