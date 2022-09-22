@@ -54,8 +54,8 @@ inPersonEventTypeID:event.inpersoneventtypeid || null,
 inPersonEventTypeName:event?.inpersoneventtypename || "",
 onlineEventTypeID:null,
 onlineEventTypeName:event?.onlineeventtypename || "",
-username:event?.username,
-userlastname:event?.userlastname,
+createdByLastname:event?.createdbylastname,
+createdByName:event?.createdbyname,
 additionalMaterials:event?.additionalmaterials
 
 
@@ -67,7 +67,7 @@ additionalMaterials:event?.additionalmaterials
   }, [userId])
   
 
-  console.log("eventForm",eventForm)
+  console.log("edit eventForm",eventForm)
   const submitEventForm = async () => {
     setLoading(true)
     const isEmpty = Object.values(eventForm).some(value => !value)
@@ -102,7 +102,8 @@ additionalMaterials:event?.additionalmaterials
       />
       
       <div className="container mx-auto md:px-0 px-5 mb-10 items-center">
-      <p className="p-5">Event registered by {eventForm.username} {eventForm.userlastname}</p>
+      <p className="p-5">Event registered by {eventForm.createdByName} {eventForm.createdByLastname} </p>
+
         <div className="register-envent-form-container  grid gap-10 bg-white border-black rounded-lg p-7 mb-5 pb-10 shadow-lg">
           {/* <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} event={event}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} event={event}/> */}

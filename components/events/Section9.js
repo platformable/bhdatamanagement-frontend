@@ -62,7 +62,9 @@ const Section9 = ({eventForm, setEventForm,event}) => {
                                     inPersonEventTypeID:null                                
                                 }))}}
                                   value={option.value}
-                                  
+                                  defaultChecked={
+                                    option.value === eventForm?.onlineEventTypeName  ? "checked" : ""
+                                  }
                                   />
                                   <p className="">{option.value}</p>
                                </label>

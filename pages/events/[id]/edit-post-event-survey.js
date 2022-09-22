@@ -557,8 +557,10 @@ console.log("eventForm",eventForm)
 
       <TopEventsInfo event={event} />
 
-      <p className="p-5">Event registered by {eventForm.username} {eventForm.userlastname}</p>
-
+      <div className="my-5 flex justify-between">
+      <p className="px-5">Event registered by {eventForm.username} {eventForm.userlastname} on {new Date(eventForm.eventDateCreated).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</p>
+      <p className="px-5">Event completed by {eventForm.namePostEventSurvey} on {new Date(eventForm.datePostEventSurvey).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</p>
+      </div>
           <div className="post-envent-form-container  border-black grid gap-1 bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
            
          

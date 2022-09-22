@@ -16,7 +16,7 @@ const PostEventReportSection35 = ({eventForm,setEventForm,event}) => {
               [e.target.name]: e.target.value,
             }))
           }
-          defaultValue={event ? event.partnerOrganization1 : ""}
+          defaultValue={eventForm ? eventForm.partnerOrganization1 : ""}
         />
       </label>
     </div>

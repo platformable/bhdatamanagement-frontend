@@ -52,7 +52,9 @@ inPersonEventTypeName:"",
 onlineEventTypeID:null,
 onlineEventTypeName:"",
 eventDescription:"",
-additionalMaterials:""
+additionalMaterials:"",
+createdByName:user && user["https://lanuevatest.herokuapp.com/name"],
+createdByLastname:user && user["https://lanuevatest.herokuapp.com/lastname"]
   });
   const userId = user && user.sub
   
