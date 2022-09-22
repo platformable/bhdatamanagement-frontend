@@ -473,6 +473,15 @@ const EditPostEventReport = ({
         hepCMoreThanOneRace : 0 || event?.hepcmorethanonerace,
         username:event?.username,
         userlastname:event?.userlastname,
+
+        datePostEventSurvey:event?.datePostEventSurvey,
+        sessionPresenter:event?.sessionPresenter,
+        guestSpeakers:event?.guestSpeakers,
+        nameGuestSpeakers:event?.nameGuestSpeakers,
+        partnerOrganization1:event?.partnerOrganization1,
+        additionalZipCodes:event?.additionalZipCodes,
+        totalEventAttendees:0 || event?.totalEventAttendees,
+        staffPresentNames:event?.staffPresentNames,
   });
   const userId = user && user.sub;
 const router = useRouter()

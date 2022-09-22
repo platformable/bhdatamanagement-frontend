@@ -469,7 +469,16 @@ const PostEventReport = ({
         altAgeHepCUnder13 : 0,
         altAgeHepC13_18 : 0,
         altAgeHepC19_24 : 0,
-        hepCMoreThanOneRace : 0
+        hepCMoreThanOneRace : 0,
+
+        datePostEventSurvey:new Date(),
+        sessionPresenter:"",
+        guestSpeakers:"",
+        nameGuestSpeakers:"",
+        partnerOrganization1:"",
+        additionalZipCodes:"",
+        totalEventAttendees:0,
+        staffPresentNames:"",
   });
   const userId = user && user.sub;
 const router = useRouter()
