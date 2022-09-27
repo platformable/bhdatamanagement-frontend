@@ -14,6 +14,7 @@ import DashboardClientCard from "../components/DashboardClientCard";
 import { useSelector, useDispatch } from 'react-redux'
 
 import Layout from "../components/Layout";
+import ReportProblem from "../components/ReportProblem";
 
 
 export default function SupervisorDashboard({ selectedProgram }) {
@@ -50,7 +51,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
       </Head>
 
       <Layout showStatusHeader={true}>
-        <main className="">
+        <main className="h-screen flex flex-col justify-between">
           <section id="dashboard-client-list">
             <div className="container mx-auto">
               <section className="py-5">
@@ -161,6 +162,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
               </div>
             </div>
           </section>
+          <ReportProblem />
         </main>
       </Layout>
 

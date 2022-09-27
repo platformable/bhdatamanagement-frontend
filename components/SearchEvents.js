@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector  } from 'react-redux';
 
 export default function SearchEvents({ searchFunction }) {
+  const eventSearchWord = useSelector(state => state.eventsSearchWord.value.word)
+
   return (
 
     <div className="block md:flex justify-start items-center md:px-0 ">
@@ -20,7 +23,8 @@ export default function SearchEvents({ searchFunction }) {
               type="search"
               onChange={(e) => searchFunction(e.target.value)}
               id="default-search"
-              class="block p-4 w-full text-sm border-black text-black rounded-lg border border-gray-300 "
+              class="block p-4 pr-9 w-full text-lg border-black text-black rounded-lg border border-gray-300 "
+              defaultValue={eventSearchWord}
               required
             />
 

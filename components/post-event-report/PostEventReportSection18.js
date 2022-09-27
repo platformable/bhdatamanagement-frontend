@@ -4,7 +4,7 @@ const PostEventReportSection18 = ({eventForm,setEventForm}) => {
   
   return (
     <div className="px-7 mt-10 rounded">
-       <h2 className="mb-7 font-black">In regards to HIV/AIDS prevention and reducing stigma / discrimination, please: <br/>Describe the event including highlights and partners</h2>
+       <h2 className="mb-7 font-black">Please describe the event: <br/>Describe the event including highlights, partners, event objectives and outcomes, etc</h2>
 
       <textarea
         className="p-4 block w-full text-lg h-52 bg-white break-all border-black rounded-md overflow-hidden"

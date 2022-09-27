@@ -7,9 +7,12 @@ import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import EventsCardItems from "../../components/events/EventsCardItems";
 import Search from "../../components/SearchEvents";
 import DeleteEventModal from "../../components/events/DeleteEventModal";
-
+import { useSelector, useDispatch } from 'react-redux';
+import { searchEventByName } from "../../slices/eventsSearchWordSlice";
 const EventsIndex = ({ events }) => {
-  const [searchWord, setSearchWord] = useState("");
+  const eventSearchWord = useSelector(state => state.eventsSearchWord.value.word)
+  const [searchWord, setSearchWord] = useState(eventSearchWord || "");
+  const dispatch=useDispatch()
   const { user, error, isLoading } = useUser();
   const [selectedEventToDelete,setSelectedEventToDelete]=useState("")
 
@@ -28,10 +31,11 @@ const EventsIndex = ({ events }) => {
 
   const searchFunction = (word) => {
     setSearchWord(word);
+    dispatch(searchEventByName({word}))
   };
   const ref = useRef();
 
-  console.log("events",events)
+  // console.log("events",events)
 
 
 
@@ -51,7 +55,7 @@ const EventsIndex = ({ events }) => {
 
       <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5">
         
-        <Search searchFunction={searchFunction} />
+        <Search searchFunction={searchFunction}  />
 
         <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
 
