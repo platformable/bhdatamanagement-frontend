@@ -756,25 +756,25 @@ console.log("eventForm",eventForm)
             {eventForm.eventTestingDone && 
             <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/> } 
             
-            {eventForm.hivTesting && 
+            {(eventForm.hivTesting && eventForm.eventTestingDone) && 
             <PostEventReportSection23 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
             
-            {eventForm.stiTesting && 
+            {(eventForm.stiTesting && eventForm.eventTestingDone) && 
             <PostEventReportSection26 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
 
-            {eventForm.hepCTesting && 
+            {(eventForm.hepCTesting && eventForm.eventTestingDone) && 
             <PostEventReportSection25 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
 
-            {eventForm.bloodPressureTesting && 
+            {(eventForm.bloodPressureTesting && eventForm.eventTestingDone) && 
             <PostEventReportSection27 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
 
-            {eventForm.cholesterolTesting && 
+            {(eventForm.cholesterolTesting && eventForm.eventTestingDone) && 
             <PostEventReportSection28 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
           
-            {eventForm.covidTesting && 
+            {(eventForm.covidTesting && eventForm.eventTestingDone) && 
             <PostEventReportSection29 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
 
-            {eventForm.otherTesting && 
+            {(eventForm.otherTesting && eventForm.eventTestingDone) && 
             <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
           </div>
           <div className="flex justify-center my-10">

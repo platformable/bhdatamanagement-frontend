@@ -11,7 +11,7 @@ const NysReportPage = ({ eventReport }) => {
   });
   const [selectedCSV, setSelectedCSV] = useState([]);
   const [headers, setHeaders] = useState([]);
-
+  const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
   useEffect(() => {
     const cerohoursDate = new Date(selectedDate.start).setHours(0)
     console.log("selectedDate", selectedDate)
@@ -64,7 +64,7 @@ const NysReportPage = ({ eventReport }) => {
           {selectedCSV && (
             <ExportCSV
               csvData={selectedCSV}
-              fileName="event_post_survey_report.csv"
+              fileName={`NYS_CMP_Monthly_Funding_Report_Data_${csvNowDate.split(",")[0]}.csv`}
             />
           )}
         </div>

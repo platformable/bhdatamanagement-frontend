@@ -150,7 +150,8 @@ export const nysActivity = [
   { id: 5, value: "Leadership Training Institute", nyscmp: 1 },
   { id: 6, value: "Legislative Leadership Zoom", nyscmp: 0 },
   { id: 7, value: "Health Equity Group Sessions", nyscmp: 0 },
-  { id: 8, value: "Other", nyscmp: 1 },
+  { id: 8, value: "Strategic Planning", nyscmp: 1 },
+  { id: 9, value: "Other", nyscmp: 1 },
 ];
 
 export const nysPrograms = [
@@ -216,7 +217,6 @@ export const eventChecklist = [
   //     "For meetings/workshops/training/town halls/webinars: Participants completed a post-workshop evaluation form",
   //   dataField: "reminderPostEvaluationSurvey",
   // },
-  
 ];
 
 export const gender = [
@@ -243,7 +243,7 @@ export const age = [
   { id: 11, value: "60-64" },
   { id: 12, value: "65-69" },
   { id: 13, value: "70+" },
- /*  { id: 14, value: "Decline to answer" }, */
+  /*  { id: 14, value: "Decline to answer" }, */
 ];
 
 export const race = [
@@ -292,7 +292,7 @@ export const resourcesDistributed = [
     name: "HIV literature",
     dataFieldName: "hivLiterature",
   },
-   
+
   {
     id: 3,
     source: "/post_Event_report/COVID_literature_icon.svg",
@@ -329,9 +329,6 @@ export const resourcesDistributed = [
     name: "Vaccine related literature",
     dataFieldName: "vaccineRelatedLiterature",
   },
- 
-
-  
 
   // { id:9,
   //   source: "/post_Event_report/bags_boxes_of_food_icon.svg",
@@ -358,19 +355,20 @@ export const resourcesDistributed = [
     source: "/post_Event_report/hand_sanitizers_icon.svg",
     name: "Hand sanitizers",
     dataFieldName: "handSanitizers",
-  },{
+  },
+  {
     id: 10,
     name: "Male condoms",
     dataFieldName: "maleCondoms",
   },
   {
     id: 11,
-    name:"Female condoms",
+    name: "Female condoms",
     dataFieldName: "femaleCondoms",
   },
   {
     id: 12,
-    name:"Lubricant",
+    name: "Lubricant",
     dataFieldName: "lubricant",
   },
   {
@@ -380,12 +378,12 @@ export const resourcesDistributed = [
   },
   {
     id: 14,
-    name:"Dental dams",
+    name: "Dental dams",
     dataFieldName: "dentalDam",
   },
   {
     id: 15,
-    name:"Promotional materials",
+    name: "Promotional materials",
     dataFieldName: "promotionalMaterial",
   },
   // { id:14,
@@ -393,25 +391,28 @@ export const resourcesDistributed = [
   //   name:"COVID vaccine site referral information/details",
   //   dataFieldName:"covidVaccineSiteReferralDetails"
   // },
-]
+];
 
-export const inPersonEventTypeName =[
-  {id:1,value:'Vaccine and/or COVID-19 Testing Event',nyscmp:true},
-{id:2,value:'Outreach/Community Event',nyscmp:true},
-{id:3,value:'Day of Action (including community awareness days)',nyscmp:false},
-{id:4,value:'Workshop/Training',nyscmp:true},
-{id:5,value:'Town Hall',nyscmp:true},
-{id:6,value:'Door Knocking',nyscmp:false},
-{id:7,value:'Capacity Building Training',nyscmp:false},
-{id:8,value:'Community Advisory Board Meeting',nyscmp:false}
-]
+export const inPersonEventTypeName = [
+  { id: 1, value: "Vaccine and/or COVID-19 Testing Event", nyscmp: true },
+  { id: 2, value: "Outreach/Community Event", nyscmp: true },
+  {
+    id: 3,
+    value: "Day of Action (including community awareness days)",
+    nyscmp: false,
+  },
+  { id: 4, value: "Workshop/Training", nyscmp: true },
+  { id: 5, value: "Town Hall", nyscmp: true },
+  { id: 6, value: "Door Knocking", nyscmp: false },
+  { id: 7, value: "Capacity Building Training", nyscmp: false },
+  { id: 8, value: "Community Advisory Board Meeting", nyscmp: false },
+];
 
-export const onlineEventTypeName=[
-  {id:1,value:	'Workshop/Training',nyscmp:	true},
-{id:2,value:	'Town Hall',nyscmp:	true},
-{id:3,value:	'Webinar',nyscmp:true},
-{id:4,value:	'Meeting',nyscmp:true},
-{id:5,value:	'Capacity Building Training', nyscmp:false},
-{id:6,value:	'Community Advisory Board',nyscmp:	false},
-]
-
+export const onlineEventTypeName = [
+  { id: 1, value: "Workshop/Training", nyscmp: true },
+  { id: 2, value: "Town Hall", nyscmp: true },
+  { id: 3, value: "Webinar", nyscmp: true },
+  { id: 4, value: "Meeting", nyscmp: true },
+  { id: 5, value: "Capacity Building Training", nyscmp: false },
+  { id: 6, value: "Community Advisory Board", nyscmp: false },
+];

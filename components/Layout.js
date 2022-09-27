@@ -8,7 +8,7 @@ export default function Layout({children, showStatusHeader}) {
   return (
   <>
   <Header showStatus={showStatus}/>
-    <main>{children}</main>
+    {children}
   </>
   )
 }

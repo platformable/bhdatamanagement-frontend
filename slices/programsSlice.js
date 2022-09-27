@@ -5,9 +5,9 @@ export const programSlice = createSlice({
   initialState:{value : {programName:""}},
   reducers: {
     updateProgramName:(state,action)=>{
-      if(typeof window !==undefined){
-        window.localStorage.setItem('program',JSON.stringify(action.payload))
-      }
+      // if(typeof window !==undefined){
+      //   window.localStorage.setItem('program',JSON.stringify(action.payload))
+      // }
         state.value=action.payload
     }
   },
