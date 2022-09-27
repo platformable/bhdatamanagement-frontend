@@ -1,82 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from 'next/router';
-import Layout from "../../../components/Layout";
+import React,{useState} from 'react';
+import Layout from '../../../components/Layout'
 import PageTopHeading from "../../../components/PageTopHeading";
-import TopEventsInfo from "../../../components/TopEventsInfo";
-
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
-import axios from "axios";
-import ResponseStatusModal from "../../../components/ResponseStatusModal";
+const AirsForm = ({event,selectedEventId}) => {
 
-import Link from "next/link";
-import Image from "next/image";
+    console.log("event",event)
 
-import { ToastContainer,toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-import PostEventReportSection1 from "../../../components/post-event-report/PostEventReportSection1";
-import PostEventReportSection2 from "../../../components/post-event-report/PostEventReportSection2";
-import PostEventReportSection3 from "../../../components/post-event-report/PostEventReportSection3";
-import PostEventReportSection4 from "../../../components/post-event-report/PostEventReportSection4";
-import PostEventReportSection5 from "../../../components/post-event-report/PostEventReportSection5";
-import PostEventReportSection6 from "../../../components/post-event-report/PostEventReportSection6";
-import PostEventReportSection7 from "../../../components/post-event-report/PostEventReportSection7";
-import PostEventReportSection8 from "../../../components/post-event-report/PostEventReportSection8";
-import PostEventReportSection9 from "../../../components/post-event-report/PostEventReportSection9";
-import PostEventReportSection10 from "../../../components/post-event-report/PostEventReportSection10";
-
-import PostEventReportSection11 from "../../../components/post-event-report/PostEventReportSection11";
-import PostEventReportSection12 from "../../../components/post-event-report/PostEventReportSection12";
-import PostEventReportSection13 from "../../../components/post-event-report/PostEventReportSection13";
-import PostEventReportSection14 from "../../../components/post-event-report/PostEventReportSection14";
-import PostEventReportSection15 from "../../../components/post-event-report/PostEventReportSection15";
-import PostEventReportSection16 from "../../../components/post-event-report/PostEventReportSection16";
-import PostEventReportSection17 from "../../../components/post-event-report/PostEventReportSection17";
-import PostEventReportSection18 from "../../../components/post-event-report/PostEventReportSection18";
-import PostEventReportSection19 from "../../../components/post-event-report/PostEventReportSection19";
-import PostEventReportSection20 from "../../../components/post-event-report/PostEventReportSection20";
-
-import PostEventReportSection21 from "../../../components/post-event-report/PostEventReportSection21";
-import PostEventReportSection22 from "../../../components/post-event-report/PostEventReportSection22";
-import PostEventReportSection23 from "../../../components/post-event-report/PostEventReportSection23";
-import PostEventReportSection24 from "../../../components/post-event-report/PostEventReportSection24";
-import PostEventReportSection25 from "../../../components/post-event-report/PostEventReportSection25";
-import PostEventReportSection26 from "../../../components/post-event-report/PostEventReportSection26";
-import PostEventReportSection27 from "../../../components/post-event-report/PostEventReportSection27";
-import PostEventReportSection28 from "../../../components/post-event-report/PostEventReportSection28";
-import PostEventReportSection29 from "../../../components/post-event-report/PostEventReportSection29";
-import PostEventReportSection30 from "../../../components/post-event-report/PostEventReportSection30";
-
-import PostEventReportSection31 from "../../../components/post-event-report/PostEventReportSection31";
-import PostEventReportSection32 from "../../../components/post-event-report/PostEventReportSection32";
-import PostEventReportSection33 from "../../../components/post-event-report/PostEventReportSection33";
-import PostEventReportSection34 from "../../../components/post-event-report/PostEventReportSection34";
-import PostEventReportSection35 from "../../../components/post-event-report/PostEventReportSection35";
-import PostEventReportSection36 from "../../../components/post-event-report/PostEventReportSection36";
-import PostEventReportSection37 from "../../../components/post-event-report/PostEventReportSection37";
-import PostEventReportSection38 from "../../../components/post-event-report/PostEventReportSection38";
-import PostEventReportSection39 from "../../../components/post-event-report/PostEventReportSection39";
-import PostEventReportSection40 from "../../../components/post-event-report/PostEventReportSection40";
-const EditPostEventReport = ({
-  event,
-  programs,
-  locationTypes,
-  areasOfFocus,
-  eventTypes,
-  selectedEventId
-}) => {
-  const { user, error, isLoading } = useUser();
-  const [showResponseStatus, setShowResponseStatus] = useState(false);
-  const [responseStatus, setResponseStatus] = useState({});
-
-
-  const [eventForm, setEventForm] = useState({
-    // userID: "",
-    eventID : Number(event?.eventid),
-    eventDateCreated: new Date(),
-    // programID: event?.programid,
-    programName: event?.programname,
+    const [formData,setFormData]=useState({
+        startTime:event?.eventstarttime,
+        endTime:event?.eventsendtime,
+        programName: event?.programname,
     eventName: event?.eventname,
     eventDate: event && new Date(event.eventdate),
     eventStartTime: event?.eventstarttime,
@@ -123,9 +57,7 @@ const EditPostEventReport = ({
         internPresent : 0 || event?.internpresent,
         adultVolunteers : 0 || event?.adultvolunteers,
         youthVolunteers : 0 || event?.youthvolunteers,
-
         languages:event?.languages,
-
         participantRegistrationForm : false || event?.participantregistrationform,
         eventStartedOnTime : false || event?.eventstartedontime,
         eventFinishedOnTime : false || event?.eventfinishedontime,
@@ -474,7 +406,6 @@ const EditPostEventReport = ({
         hepCMoreThanOneRace : 0 || event?.hepcmorethanonerace,
         username:event?.username,
         userlastname:event?.userlastname,
-
         datePostEventSurvey:event?.dateposteventsurvey,
         namePostEventSurvey:event?.nameposteventsurvey,
         sessionPresenter:event?.sessionpresenter,
@@ -484,320 +415,30 @@ const EditPostEventReport = ({
         additionalZipCodes:event?.additionalzipcodes,
         totalEventAttendees:0 || event?.totaleventattendees,
         staffPresentNames:event?.staffpresentnames,
-  });
-  const userId = user && user.sub;
-const router = useRouter()
-  // useEffect(() => {
-  //   setEventForm({ ...eventForm, userID: userId });
+    })
     
-  // }, [userId]);
 
-  const notifyMessage= ()=>{
-    toast.success("Survey saved!", {
-      position: toast.POSITION.TOP_CENTER,
-    });
-   }
-
-  const submitPostEventForm = async () => {
-    const isEmpty = Object.values(eventForm).some((value) => !value);
-
- 
-    // if (!isEmpty) {
-      axios
-        .put(`${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/update`, eventForm)
-        .then((response) => {
-          if (response.data.statusText === "OK") {
-            setResponseStatus({
-              success: true,
-              statusMessage: "Your Event has been saved",
-            });
-            setShowResponseStatus(!showResponseStatus);
-            notifyMessage()
-            setTimeout(()=>{
-              router.back()
-            },1500)
-          }
-        })
-        .catch(function (error) {
-          setResponseStatus({
-            success: false,
-            statusMessage: "Request Failed",
-          });
-          setShowResponseStatus(!showResponseStatus);
-          console.error("error: ", error);
-        });
-  //   } else {
-  //     setResponseStatus({
-  //       success: false,
-  //       statusMessage: "Please complete all the fields",
-  //     });
-  //     setShowResponseStatus(!showResponseStatus);
-  //  }
-  };
-
-  const programAndAreaStyles = {
-    display: "grid",
-    gridTemplateColumns: "2fr 3fr",
-    gap: "20px",
-  };
-
-
-console.log("event",event)
-  return (
-    <>
-      <Layout showStatusHeader={true}>
-      <ToastContainer autoClose={1500}/>
-        <PageTopHeading
+    console.log("formData",formData)
+    return (
+        <Layout>
+            <PageTopHeading
           backBtn={true}
           dashboardBtn={true}
-          pageTitle={"Edit post event survey"}
+          pageTitle={"AIRS form"}
 
         />
-        <div className="container mx-auto md:px-0 px-5 items-center">
+        </Layout>
+    );
+}
+
+export default AirsForm;
 
 
-      <TopEventsInfo event={event} />
-
-      
-{/*       <div className="flex my-5 justify-center">
-        <Link href={`/events/${selectedEventId}/airs-form`}>
-          <button className="bg-black text-white rounded px-2 mr-2 flex inline-block">
-            <a className="px-3 py-2 font-bold" id="myBtn">
-              <p className="font-black">AIRS form</p>
-            </a>
-          </button>
-        </Link>
-      </div> */}
-
-      <div className="my-5 flex justify-between">
-      <p className="px-5">Event registered by {eventForm.username} {eventForm.userlastname} on {new Date(eventForm.eventDateCreated).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</p>
-      <p className="px-5">Event completed by {eventForm.namePostEventSurvey} on {new Date(eventForm.datePostEventSurvey).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</p>
-      </div>
-          <div className="post-envent-form-container  border-black grid gap-1 bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
-           
-         
-            <section className="event py-5 rounded">
-             {/*  <div className="flex justify-between items-center ">
-                <h3 className="mb-3 font-black ">Event</h3>
-              </div>
-              <div style={programAndAreaStyles}>
-                <div>
-                  <p className="font-black">Program</p>
-                  <input
-                    type="text"
-                    value={event?.programname}
-                    id="program"
-                    className=" rounded self-start p-1 w-full  px-2 "
-                    disabled
-                  />
-                </div>
-                <div>
-                  <p className="font-black">Health area of focus</p>
-                  <input
-                    type="text"
-
-                    value={event.healthareaoffocusname.join(", ")}
-
-                    id="program"
-                    className=" rounded self-start p-1 w-full  px-2 "
-                    disabled
-                  />
-                </div>
-              </div>
-              <div className="my-5">
-                <p className="font-black">Event name</p>
-                <input
-                  type="text"
-                  value={event?.eventname}
-                  id="program"
-                  className=" rounded self-start p-1 w-full  px-2 "
-                  disabled
-                />
-              </div>
-
-              <div className="grid md:grid-cols-2 grid-cols-1">
-                <div className="grid md:grid-cols-3 grid-cols1 gap-5">
-                  <div>
-                    <p className="font-black">Event date</p>
-                    <input
-                      type="text"
-                      value={event && new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}
-                      id="program"
-                      className=" rounded self-start p-1 w-full  px-2 "
-                      disabled
-                    />
-                  </div>
-
-                  <div>
-                    <p className="font-black">Start time</p>
-                    <input
-                      type="time"
-                      value={event?.eventstarttime}
-                      id="program"
-                      className=" rounded self-start p-1 w-full  px-2 "
-                      disabled
-                    />
-                  </div>
-
-                  <div>
-                    <p className="font-black">End time</p>
-                    <input
-                      type="time"
-                      value={event?.eventfinishtime}
-                      id="program"
-                      className=" rounded self-start p-1 w-full  px-2 "
-                      disabled
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="my-5">
-                <p className="font-black">Event location</p>
-                <input
-                  type="text"
-                  value={event?.eventlocationtypename}
-                  id="program"
-                  className=" rounded self-start p-1 w-full  px-2 "
-                  disabled
-                />
-              </div>
-
-              <div className="my-5">
-                <p className="font-black">Type of event</p>
-                <input
-                  type="text"
-                  value={event?.eventtypename}
-                  id="program"
-                  className=" rounded self-start p-1 w-full  px-2 "
-                  disabled
-                />
-              </div>
-
-              <div className="flex justify-center ">
-                <Link href={`/events/${event?.id}/edit`}>
-
-                  <button className="bg-black text-white rounded px-2 mr-2 ">
-
-                    <a
-                      className="px-10 py-2 flex  justify-center items-center font-bold"
-                      id="myBtn"
-                    >
-                      <p className="ml-2 font-black">Edit event</p>
-                    </a>
-                  </button>
-                </Link>
-              </div> */}
-            </section>
-
-            <div className="rounded-tl-md rounded-tr-md">
-            {/* <h3 className="px-7 mt-10 font-black">Event details</h3> */}
-            
-            <PostEventReportSection1 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection2 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection31 eventForm={eventForm} setEventForm={setEventForm} />
-            <PostEventReportSection32 eventForm={eventForm} setEventForm={setEventForm} />
-            {/* <PostEventReportSection33 eventForm={eventForm} setEventForm={setEventForm} /> */}
-            {/* <PostEventReportSection34 eventForm={eventForm} setEventForm={setEventForm} /> */}
-            <PostEventReportSection35 eventForm={eventForm} setEventForm={setEventForm} />
-            {/* <PostEventReportSection3 eventForm={eventForm} setEventForm={setEventForm} /> */}
-            {/* <PostEventReportSection4 eventForm={eventForm} setEventForm={setEventForm}/> */}
-            <PostEventReportSection5 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection37 eventForm={eventForm} setEventForm={setEventForm} />
-
-            <PostEventReportSection6 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection30 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection36 eventForm={eventForm} setEventForm={setEventForm} />
-
-            <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm}/>
-            </div>
-            
-            {/* <h3 className="px-7 font-black">Event organization and promotion</h3> */}
-            <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection38 eventForm={eventForm} setEventForm={setEventForm} />
-
-            <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection11 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection12 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection13 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection14 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection15 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection16 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection17 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection18 eventForm={eventForm} setEventForm={setEventForm}/>
-
-
-
-
-
-            
-            <PostEventReportSection39 eventForm={eventForm} setEventForm={setEventForm} />
-            <PostEventReportSection40 eventForm={eventForm} setEventForm={setEventForm} />
-
-
-
-
-
-            <PostEventReportSection19 eventForm={eventForm} setEventForm={setEventForm}/>
-            {/* <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm}/> */}
-            <PostEventReportSection21 eventForm={eventForm} setEventForm={setEventForm}/>
-            
-            {eventForm.eventTestingDone && 
-            <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm}/> } 
-            
-            {(eventForm.hivTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection23 eventForm={eventForm} setEventForm={setEventForm}/>}
-            
-            {(eventForm.stiTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection26 eventForm={eventForm} setEventForm={setEventForm}/>}
-
-            {(eventForm.hepCTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection25 eventForm={eventForm} setEventForm={setEventForm}/>}
-
-            {(eventForm.bloodPressureTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection27 eventForm={eventForm} setEventForm={setEventForm}/>}
-
-            {(eventForm.cholesterolTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection28 eventForm={eventForm} setEventForm={setEventForm}/>}
-          
-            {(eventForm.covidTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection29 eventForm={eventForm} setEventForm={setEventForm}/>}
-
-            {(eventForm.otherTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm}/>}
-          </div>
-          <div className="flex justify-center my-10">
-          <button
-            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-            onClick={submitPostEventForm}
-          >
-           {/*  <img
-              src="/check-save-and-finish.svg"
-              alt="register event icon"
-              className="mr-2"
-            /> */}
-            Save
-          </button>
-          </div>
-        </div>
-      </Layout>
-      {showResponseStatus && (
-        <ResponseStatusModal
-          setShowResponseStatus={setShowResponseStatus}
-          responseStatus={responseStatus}
-        />
-      )}
-    </>
-  );
-};
-
-export default EditPostEventReport;
 
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const { id } = ctx.params;
-    const [event, programs, locationTypes, areasOfFocus, eventTypes] =
+    const [event,programs,locationTypes,areasOfFocus,eventTypes,selectedEventId] =
       await Promise.all([
         fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/event/${id}`)
           .then((r) => r.json())
@@ -819,11 +460,11 @@ export const getServerSideProps = withPageAuthRequired({
     return {
       props: {
         event: event,
+        selectedEventId:id,
         programs: programs,
         locationTypes: locationTypes,
         areasOfFocus: areasOfFocus,
         eventTypes: eventTypes,
-        selectedEventId:id
       },
     };
   },
