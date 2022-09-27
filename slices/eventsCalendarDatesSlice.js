@@ -8,8 +8,8 @@ export const eventsCalendarDatesSlice = createSlice({
      /*  if(typeof window !==undefined){
         window.localStorage.setItem('program',JSON.stringify(action.payload))
       } */
-      state = { ...state, value:action.payload };
-/*         state.value=action.payload */
+      /* state = { ...state, ...action.payload }; */
+        state.value=action.payload
     },
     updateEndDate:(state,action)=>{
       /*  if(typeof window !==undefined){

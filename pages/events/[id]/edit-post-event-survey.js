@@ -556,6 +556,15 @@ console.log("eventForm",eventForm)
 
 
       <TopEventsInfo event={event} />
+      <div className="flex my-5 justify-center">
+        <Link href={`/events/`}>
+          <button className="bg-black text-white rounded px-2 mr-2 flex inline-block">
+            <a className="px-3 py-2 font-bold" id="myBtn">
+              <p className="font-black">AIRS form</p>
+            </a>
+          </button>
+        </Link>
+      </div>
 
       <div className="my-5 flex justify-between">
       <p className="px-5">Event registered by {eventForm.username} {eventForm.userlastname} on {new Date(eventForm.eventDateCreated).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</p>
