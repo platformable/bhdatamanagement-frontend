@@ -40,7 +40,7 @@ const EventsIndex = ({ events }) => {
 
   // console.log("events",events)
 
-  const dispatch=useDispatch()
+
 
   const startDate = useSelector((state)=>state.eventCalendarDates.value.startDate) 
   const endDate = useSelector((state)=>state.eventCalendarDates.value.endDate) 
