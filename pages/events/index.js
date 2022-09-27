@@ -40,7 +40,7 @@ const EventsIndex = ({ events }) => {
 
   // console.log("events",events)
 
-  const dispatch=useDispatch()
+
 
   const startDate = useSelector((state)=>state.eventCalendarDates.value.startDate) 
   const endDate = useSelector((state)=>state.eventCalendarDates.value.endDate) 
@@ -81,7 +81,7 @@ const EventsIndex = ({ events }) => {
             id="start" 
             placeholder="start date"
             onChange={(e)=>{
-              // dispatch(updateStartDate({startDate:e.target.value}))
+            /*   dispatch(updateStartDate({startDate:e.target.value})) */
               setDateFilter({...dateFilter,startDate:e.target.value})
             }}
             defaultValue={startDate}
@@ -93,7 +93,7 @@ const EventsIndex = ({ events }) => {
             <input type="date" 
             placeholder="end date"
             onChange={(e)=>{
-              // dispatch(updateEndDate({endDate:e.target.value}))
+              /* dispatch(updateEndDate({endDate:e.target.value})) */
               setDateFilter({...dateFilter,endDate:e.target.value})}}
             defaultValue={endDate}
             className="border-black rounded-md  text-sm w-full"

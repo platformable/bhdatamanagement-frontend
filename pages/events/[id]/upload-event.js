@@ -15,6 +15,8 @@ export const Upload_event = ({ event }) => {
   const [loadingFile,setLoadingFile]=useState(false)
   const [loadingImgFile,setLoadingImgFile]=useState(false)
 
+  console.log("event",event)
+
   const onSubmitFile = async (e) => {
     setLoadingFile(!loadingFile)
     const form = new FormData();
@@ -30,7 +32,7 @@ export const Upload_event = ({ event }) => {
       autorename: false,
       mode: "add",
       mute: false,
-      path: `${event?.folderpath}/${fileName}`,
+      path: `/data governance app/events/nys cmp/${event.eventname}-${event.eventdate.split('T')[0]}/${fileName}`,
       strict_conflict: false,
     };
 
@@ -84,7 +86,7 @@ export const Upload_event = ({ event }) => {
       autorename: false,
       mode: "add",
       mute: false,
-      path: `${event?.folderpath}/Images/${fileName}`,
+      path: `/data governance app/events/nys cmp/${event.eventname}-${event.eventdate.split('T')[0]}/Images/${fileName}`,
       strict_conflict: false,
     };
 
