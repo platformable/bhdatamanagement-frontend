@@ -7,6 +7,8 @@ import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import EventsCardItems from "../../components/events/EventsCardItems";
 import Search from "../../components/SearchEvents";
 import DeleteEventModal from "../../components/events/DeleteEventModal";
+import { useSelector, useDispatch } from 'react-redux'
+import {updateStartDate,updateEndDate } from '../../slices/eventsCalendarDatesSlice'
 
 const EventsIndex = ({ events }) => {
   const [searchWord, setSearchWord] = useState("");
@@ -18,8 +20,8 @@ const EventsIndex = ({ events }) => {
   const loggedUserRole = 
     user && user["https://lanuevatest.herokuapp.com/roles"];
 
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+/*   const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState(""); */
 
   const [dateFilter, setDateFilter] = useState({
     startDate: null,
@@ -33,7 +35,12 @@ const EventsIndex = ({ events }) => {
 
   console.log("events",events)
 
+  const dispatch=useDispatch()
 
+  const startDate = useSelector((state)=>state.eventCalendarDates.value.startDate) 
+  const endDate = useSelector((state)=>state.eventCalendarDates.value.endDate) 
+  console.log("startDate desde toolkit",startDate)
+  console.log("endDate desde toolkit",endDate)
 
   const sortedEventsByDate = events.sort(
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
@@ -68,9 +75,11 @@ const EventsIndex = ({ events }) => {
             ref={ref}
             id="start" 
             placeholder="start date"
-            onChange={(e)=>setDateFilter({...dateFilter,startDate:e.target.value})}
-           /*  onFocus={(e) => (e.target.type = "date")}
-            onBlur={(e) => (e.target.type = "text")} */
+            onChange={(e)=>{
+              // dispatch(updateStartDate({startDate:e.target.value}))
+              setDateFilter({...dateFilter,startDate:e.target.value})
+            }}
+            defaultValue={startDate}
             className="border-black rounded-md text-sm w-full"
             />
           </label>
@@ -78,9 +87,10 @@ const EventsIndex = ({ events }) => {
           <label className="flex justify-end w-full">
             <input type="date" 
             placeholder="end date"
-            onChange={(e)=>setDateFilter({...dateFilter,endDate:e.target.value})}
-           /*  onFocus={(e) => (e.target.type = "date")}
-            onBlur={(e) => (e.target.type = "text")} */
+            onChange={(e)=>{
+              // dispatch(updateEndDate({endDate:e.target.value}))
+              setDateFilter({...dateFilter,endDate:e.target.value})}}
+            defaultValue={endDate}
             className="border-black rounded-md  text-sm w-full"
             />
           </label>
@@ -91,7 +101,7 @@ const EventsIndex = ({ events }) => {
         {sortedEventsByDate &&
           sortedEventsByDate
             ?.filter((event, index) => {
-              if (searchWord === "" && startDate===null && endDate===null) {
+              if (searchWord === "" && dateFilter.startDate===null && dateFilter.endDate===null) {
                 return event;
               } 
               if (event.programname.toLowerCase().includes(searchWord.toLowerCase()) ||
@@ -108,9 +118,11 @@ const EventsIndex = ({ events }) => {
                 const date = new Date(event.eventdate)
                 if (dateFilter.startDate) {
                   filterPass = filterPass && (new Date(startDate) <= date)
+                  
                 }
                 if (dateFilter.endDate) {
                   filterPass = filterPass && (new Date(dateFilter.endDate) >= date)
+                
                 }
                 return filterPass
               }
