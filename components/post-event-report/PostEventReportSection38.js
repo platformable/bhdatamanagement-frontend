@@ -19,7 +19,7 @@ const PostEventReportSection38 = ({ eventForm,
                 [e.target.name]: e.target.value,
               }))
             }
-            defaultValue={event ? event.staffPresentNames : ""}
+            defaultValue={eventForm ? eventForm.staffPresentNames : ""}
           />
         </label>
       </div>

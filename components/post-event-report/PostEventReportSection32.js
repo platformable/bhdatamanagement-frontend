@@ -39,6 +39,7 @@ const PostEventReportSection32 = ({ eventForm, setEventForm, isNumberKey }) => {
                       [e.target.name]: e.target.value,
                     }))
                   }
+                  defaultValue={eventForm && eventForm.nameGuestSpeakers}
                 />
               </label>
           </>

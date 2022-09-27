@@ -91,9 +91,6 @@ const EventsIndex = ({ events }) => {
         {sortedEventsByDate &&
           sortedEventsByDate
             ?.filter((event, index) => {
-            
-            
-
               if (searchWord === "" && startDate===null && endDate===null) {
                 return event;
               } 
