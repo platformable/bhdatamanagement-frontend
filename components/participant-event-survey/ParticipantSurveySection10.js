@@ -24,7 +24,7 @@ export const ParticipantSurveySection10 = ({surveyForm, setSurveyForm}) => {
             name="participantLiving"
             onChange={handleForm}
           />
-          <h3 className="">I have a steady place to live</h3>
+          <p className="">I have a steady place to live</p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input
@@ -35,10 +35,10 @@ export const ParticipantSurveySection10 = ({surveyForm, setSurveyForm}) => {
             name="participantLiving"
             onChange={handleForm}
           />
-          <h3 className="">
+          <p className="">
             I have a place to live today, but I am worried about losing it in
             the future
-          </h3>
+          </p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input
@@ -49,12 +49,12 @@ export const ParticipantSurveySection10 = ({surveyForm, setSurveyForm}) => {
             name="participantLiving"
             onChange={handleForm}
           />
-          <h3 className="">
+          <p className="">
             I do not have a steady place to live (I am temporarily staying with
             others, in a hotel, in a shelter, living outside on the street, on a
             beach, in a car, abandoned building, bus or train station, or in a
             park){" "}
-          </h3>
+          </p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input
@@ -65,7 +65,7 @@ export const ParticipantSurveySection10 = ({surveyForm, setSurveyForm}) => {
             name="participantLiving"
             onChange={handleForm}
           />
-          <h3 className="">Decline to answer</h3>
+          <p className="">Decline to answer</p>
         </label>
       </div>
     </div>

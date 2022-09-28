@@ -34,7 +34,7 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
                   }
                   defaultChecked={area.value === eventForm.workArea ? "checked" : ""}
                 />
-                <h3>{area.value}</h3>
+                <p>{area.value}</p>
                 
                 </div>
                 
@@ -69,7 +69,7 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
                   }
                   defaultChecked={area.value === eventForm.workArea ? "checked" : ""}
                 />
-                <h3>{area.value}</h3>
+                <p>{area.value}</p>
               </label>
             )}
           

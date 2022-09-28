@@ -14,31 +14,31 @@ export const ParticipantSurveySection15 = ({surveyForm, setSurveyForm}) => {
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
     <label className="flex gap-x-5 items-center">
           <input type="radio" className="" name="participantHealth" value="Excellent" onChange={handleForm}/>
-          <h3 className="">Excellent</h3>
+          <p className="">Excellent</p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" name="participantHealth" value="Very good" onChange={handleForm}/>
-          <h3 className="">Very good </h3>
+          <p className="">Very good </p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" name="participantHealth" value="Good" onChange={handleForm}/>
-          <h3 className="">Good</h3>
+          <p className="">Good</p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" name="participantHealth" value="Fair" onChange={handleForm}/>
-          <h3 className="">Fair</h3>
+          <p className="">Fair</p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" name="participantHealth" value="Poor" onChange={handleForm}/>
-          <h3 className="">Poor</h3>
+          <p className="">Poor</p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" name="participantHealth" value="Don’t know/Not sure" onChange={handleForm}/>
-          <h3 className="">Don’t know / Not sure</h3>
+          <p className="">Don’t know / Not sure</p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" name="participantHealth" value="Decline to answer" onChange={handleForm}/>
-          <h3 className="">Decline to answer</h3>
+          <p className="">Decline to answer</p>
         </label>
     </div>
   </div>

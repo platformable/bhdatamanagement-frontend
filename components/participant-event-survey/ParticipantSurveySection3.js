@@ -44,12 +44,12 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
         {/* <span className="">3</span>  */}
         Do you identify as:
       </h2>
-      <h3>Select all that apply</h3>
+      <p>Select all that apply</p>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
       {race.map(option => (
         <label className="flex gap-x-5 items-center">
         <input type="checkbox" className="" value={option.value} id={option.id} onChange={handleForm} name="participantRace" />
-        <h3 className="">{option.value}</h3>
+        <hp className="">{option.value}</hp>
       </label>
       ))}
        

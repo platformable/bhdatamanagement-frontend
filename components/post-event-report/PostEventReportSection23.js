@@ -21,7 +21,7 @@ const PostEventReportSection23 = ({ eventForm, setEventForm, isNumberKey}) => {
     <div className="px-7 grid grid-cols-1 gap-7 mt-10">
       <h2 className="font-black">HIV Testing</h2>
       <label className="grid md:flex gap-5 items-center">
-        <h3 className="md:w-80"> HIV Testing Agency</h3>
+        <p className="md:w-80"> HIV Testing Agency</p>
         <input
           className="border-black rounded w-96"
           type="text"
@@ -38,7 +38,7 @@ const PostEventReportSection23 = ({ eventForm, setEventForm, isNumberKey}) => {
         />
       </label>
       <label className="grid gap-2">
-        <h3 className="md:w-80"> Total tested for HIV</h3>
+        <p className="md:w-80"> Total tested for HIV</p>
         <input
           className="border-black  w-20 rounded"
           type="number"
@@ -51,7 +51,7 @@ const PostEventReportSection23 = ({ eventForm, setEventForm, isNumberKey}) => {
         />
       </label>
       <label className="grid gap-2">
-        <h3 className="md:w-80"> Total # of Reactive Results</h3>
+        <p className="md:w-80"> Total # of Reactive Results</p>
         <input
           className="border-black  w-20 rounded"
           type="number"
@@ -65,7 +65,7 @@ const PostEventReportSection23 = ({ eventForm, setEventForm, isNumberKey}) => {
         />
       </label>
       <label className="grid gap-2">
-        <h3 className="md:w-80"> Total # of PrEP Referrals</h3>
+        <p className="md:w-80"> Total # of PrEP Referrals</p>
         <input
           className="border-black  w-20 rounded"
           type="number"
@@ -79,7 +79,7 @@ const PostEventReportSection23 = ({ eventForm, setEventForm, isNumberKey}) => {
         />
       </label>
       <label className="grid gap-2">
-        <h3 className="md:w-80"> Total # Linked to Care</h3>
+        <p className="md:w-80"> Total # Linked to Care</p>
         <input
           className="border-black  w-20 rounded"
           type="number"
@@ -93,7 +93,7 @@ const PostEventReportSection23 = ({ eventForm, setEventForm, isNumberKey}) => {
         />
       </label>
       <label className="grid md:flex gap-5 items-center">
-        <h3 className="md:w-80"> Which services were they referred to? </h3>
+        <p className="md:w-80"> Which services were they referred to? </p>
         <input
           className="border-black rounded w-96 "
           type="text"

@@ -29,7 +29,7 @@ export const ParticipantSurveySection7 = ({ surveyForm, setSurveyForm }) => {
                   onChange={handleForm}
                   name="participantRole"
                 />
-                <h3 className="">{option.value}</h3>
+                <p className="">{option.value}</p>
                 </div>
                 
                 <input
@@ -51,7 +51,7 @@ export const ParticipantSurveySection7 = ({ surveyForm, setSurveyForm }) => {
                   onChange={handleForm}
                   name="participantRole"
                 />
-                <h3 className="">{option.value}</h3>
+                <p className="">{option.value}</p>
               </label>
             );
           }

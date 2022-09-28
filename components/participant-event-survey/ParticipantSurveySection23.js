@@ -60,7 +60,7 @@ export const ParticipantSurveySection23 = ({ surveyForm, setSurveyForm }) => {
         {/* <span className="">23 </span> */}
         Which of the following can put you at risk for sexually transmitted HIV?
       </h2>
-      <h3 className="font-normal">Select all that apply</h3>
+      <p className="font-normal">Select all that apply</p>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
         {options?.map((option, index) => {
           return (
