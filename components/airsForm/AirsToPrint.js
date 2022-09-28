@@ -468,22 +468,19 @@ const AirsToPrint = React.forwardRef((props,ref) => {
  
   return (
     <div ref={ref}>
-    <Layout>
 
-
-<h2 className="font-black text-center my-5">
+<h2 className="font-black text-center mt-2 mb-2">
       Community Level Intervention 
       </h2>
       <div className="container mx-auto ">
      
-        <div className="airs-form-container  border-black grid  bg-white rounded-lg shadow-lg py-10 my-10">
+        <div className="airs-form-container   bg-white  shadow-lg  mb-10">
             <AirsEventSession event={event}/>
             <AirsDemographics event={event}/>
             <AirsMaterials event={event} />
 
         </div>
       </div>
-    </Layout>
     </div>
   );
 });
