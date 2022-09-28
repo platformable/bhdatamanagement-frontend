@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Dropbox } from "dropbox";
 import { useRouter } from "next/router";
+import ReportProblem from "../components/ReportProblem"
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -66,7 +67,7 @@ export default function Dashboard({selectedProgram}) {
       </Head>
 
       <Layout showStatusHeader={true}>
-        <main className="h-screen">
+        <main className="">
           <section id="dashboard-client-list">
             <div className="container mx-auto py-5">
               <section className="py-5">
@@ -159,8 +160,12 @@ export default function Dashboard({selectedProgram}) {
               </div>
             </div>
           </section>
+        <ReportProblem />
+
         </main>
+
       </Layout>
+
     </>
   );
 }
