@@ -30,9 +30,9 @@ export const ParticipantSurveySection20 = ({ surveyForm, setSurveyForm }) => {
       <div className="grid  grid-cols-1 gap-7">
   
         <div className="flex flex-col gap-y-5 items-start rounded">
-          <h3 className="font-black">
+          <h2 className="font-black">
           Little interest or pleasure in doing things
-          </h3>
+          </h2>
           <div className="grid grid-cols-1 gap-y-5">
             {options.map((option, index) => {
               return (
@@ -59,9 +59,9 @@ export const ParticipantSurveySection20 = ({ surveyForm, setSurveyForm }) => {
         </div>
 
         <div className="flex flex-col gap-y-5 items-start rounded ">
-          <h3 className="font-black">
+          <h2 className="font-black">
             Feeling down, depressed or hopeless
-          </h3>
+          </h2>
           <div className="grid grid-cols-1 gap-y-5">
             {options.map((option, index) => {
               return (
