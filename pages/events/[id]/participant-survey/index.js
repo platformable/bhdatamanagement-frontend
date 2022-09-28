@@ -40,7 +40,7 @@ const ParticipantSurvey = ({
 
   const addToClipboard=()=>{
     if(typeof window !=='undefined'){
-      navigator.clipboard.writeText(`http://www.bh.platformable.com/events/${event.id}/participant_survey`)
+      navigator.clipboard.writeText(`https://bh.platformable.com/events/${event.id}/participant-survey/survey`)
     }
     setCopyToClipboard(!copyToClipboard)
     setTimeout(()=>{

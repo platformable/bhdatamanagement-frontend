@@ -556,9 +556,9 @@ console.log("event",event)
         <div className="container mx-auto md:px-0 px-5 items-center">
 
 
-      <TopEventsInfo event={event} />
+      <TopEventsInfo event={event} airs={true} selectedEventId={selectedEventId}/>
 
-      
+
 {/*       <div className="flex my-5 justify-center">
         <Link href={`/events/${selectedEventId}/airs-form`}>
           <button className="bg-black text-white rounded px-2 mr-2 flex inline-block">
@@ -569,9 +569,9 @@ console.log("event",event)
         </Link>
       </div> */}
 
-      <div className="my-5 flex justify-between">
+      <div className="my-5 ">
       <p className="px-5">Event registered by {eventForm.username} {eventForm.userlastname} on {new Date(eventForm.eventDateCreated).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</p>
-      <p className="px-5">Event completed by {eventForm.namePostEventSurvey} on {new Date(eventForm.datePostEventSurvey).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</p>
+      <p className="px-5">Post-event survey completed by {eventForm.namePostEventSurvey} on {new Date(eventForm.datePostEventSurvey).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</p>
       </div>
           <div className="post-envent-form-container  border-black grid gap-1 bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
            

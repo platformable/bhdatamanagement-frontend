@@ -473,14 +473,16 @@ const AirsForm = ({ event, selectedEventId }) => {
         pageTitle={"AIRS form"}
       />
 
-      <div className="container mx-auto">
-      <h2 className="font-black text-center">
-      Community Leve intervetion
+
+<h2 className="font-black text-center my-5">
+      Community Level Intervention 
       </h2>
-        <div className="airs-form-container  border-black grid gap-1 bg-white rounded-lg p-5 mb-10  shadow-lg">
+      <div className="container mx-auto ">
+     
+        <div className="airs-form-container  border-black grid  bg-white rounded-lg shadow-lg py-10">
             <AirsEventSession event={event}/>
             <AirsDemographics event={event}/>
-            <AirsMaterials event={event}/>
+            <AirsMaterials event={event} />
 
         </div>
       </div>

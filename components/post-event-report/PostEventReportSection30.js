@@ -13,7 +13,7 @@ const PostEventReportSection30 = ({eventForm, setEventForm}) => {
   return (
     <div className='px-7 question-body '>
         <h2 className='font-black'>Which primary risk group is your event targeting?</h2>
-        <p className="">Required for AIRS</p>
+        {/* <p className="">Required for AIRS</p> */}
         <div>
             {options.map(opt => (
                 <label >

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const TopEventsInfo = ({event}) => {
+const TopEventsInfo = ({event,airs,selectedEventId}) => {
     return (
         <section className="md:px-0 px-5">
         <div
@@ -12,6 +12,7 @@ const TopEventsInfo = ({event}) => {
             <h2 className="md:hidden block text-2xl">Event</h2>
             <h2 className="md:block hidden text-2xl ">Event name</h2>
             <h2 className="md:flex hidden md:col-start-3 text-2xl md:justify-end justify-start">Event date</h2>
+           
           </div>
           <div className="grid md:grid-cols-4 grid-cols-1 gap-5 md:gap-0 py-6 px-7 items-center">
             <h2 className="text-black text-2xl md:col-start-1 md:col-end-3">{event?.eventname}</h2>
@@ -30,6 +31,15 @@ const TopEventsInfo = ({event}) => {
                   </a>
                 </button>
               </Link>
+            {airs && 
+              <Link href={`/events/${selectedEventId}/airs-form`}>
+                <button className="bg-black text-white rounded px-2 mr-2 flex items-end inline-block">
+                  <a className="px-3 py-2 font-bold" id="myBtn">
+                    <p className="font-black">AIRS Form</p>
+                  </a>
+                </button>
+              </Link>
+              }     
             </div>
           </div>
         </div>

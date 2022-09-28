@@ -27,7 +27,7 @@ const PostEventReportSection5 = ({eventForm,setEventForm, isNumberKey}) => {
         ...previous,
         [e.target.name]: Number(e.target.value),
       }))}}
-      defaultValue={eventForm?.zipCode}
+      defaultValue={eventForm?.zipCode!==0 ?eventForm?.zipCode : ""}
       onKeyDown={isNumberKey}
       />
       </label>
