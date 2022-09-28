@@ -11,11 +11,12 @@ const Section2 = ({eventForm, setEventForm,event}) => {
     return (
         <div className=''>
             <h2 className=' font-black'>What is the name of the event?</h2>
-            <p className="mb-7">Please only use letters and numbers in the name</p>
+            <p className="mb-7">Please put the city name first, then the name of the event
+                    <br/>Please only use letters and numbers in the name</p>
             <label>
             <input type="text" 
             className="w-134 p-2 border-black rounded text-lg" 
-            placeholder='' 
+            placeholder='Syracuse: Community HIV Forum' 
             onChange={handleForm}
             defaultValue={event?event.eventname:""}
             />
