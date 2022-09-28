@@ -16,14 +16,14 @@ const AirsEventSession = ({ event }) => {
       </div>
       <div className=" grid grid-cols-12 divide-black divide-x">
       <p className="px-3 py-1 col-start-1 col-end-4 border-r">* ENCOUNTER: </p>
-      <p className="px-3 py-1 col-start-4 col-end-8 border-r"></p>
+      <p className="px-3 py-1 col-start-4 col-end-8 border-r">✔️  36 Community Mobilization</p> 
       <p className="px-3 py-1 col-start-8 col-end-9 border-r text-center">OR</p>
       <p className="px-3 py-1 col-start-9 col-end-13"></p>
 
       </div>
       <div className=" grid grid-cols-12 divide-black divide-x">
       <p className="px-3 py-1 col-start-1 col-end-4 border-r">* SERVICE: </p>
-      <p className="px-3 py-1 col-start-4 col-end-8 border-r"></p>
+      <p className="px-3 py-1 col-start-4 col-end-8 border-r">✔️  118 Community Mobilization</p>
       <p className="px-3 py-1 col-start-8 col-end-9 border-r text-center">OR</p>
       <p className="px-3 py-1 col-start-9 col-end-13"></p>
 

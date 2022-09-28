@@ -66,7 +66,7 @@ console.log("surveyForm",surveyForm)
           <label className="flex gap-x-5 items-center" key={index}>
           <input type="checkbox" className="" id={option.id} value={option.value} name="participantEmployment"
           onChange={handleForm}/>
-          <h3 className="">{option.value}</h3>
+          <p className="">{option.value}</p>
        </label>
         )
       })}

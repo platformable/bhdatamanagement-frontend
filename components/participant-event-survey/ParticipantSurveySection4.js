@@ -15,7 +15,7 @@ export const ParticipantSurveySection4 = ({surveyForm, setSurveyForm}) => {
       {ethnicity.map(option => (
         <label className="flex gap-x-5 items-center">
         <input type="radio" className="" value={option.value} id={option.id} onChange={handleForm} name="participantEthnicity" />
-        <h3 className="">{option.value}</h3>
+        <p className="">{option.value}</p>
       </label>
       ))}
         

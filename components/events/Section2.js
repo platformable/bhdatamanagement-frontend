@@ -16,7 +16,7 @@ const Section2 = ({eventForm, setEventForm,event}) => {
             <label>
             <input type="text" 
             className="w-134 p-2 border-black rounded text-lg" 
-            placeholder='Syracuse: Community HIV Forum' 
+            placeholder='Eg. Syracuse: Community HIV Forum' 
             onChange={handleForm}
             defaultValue={event?event.eventname:""}
             />

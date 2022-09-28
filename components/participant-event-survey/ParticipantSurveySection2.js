@@ -16,7 +16,7 @@ export const ParticipantSurveySection2 = ({surveyForm, setSurveyForm}) => {
         {age.map(opt => (
           <label className="flex gap-x-5 items-center">
           <input type="radio" className="border-black rounded" value={opt.value} id={opt.id} name="participantAgeRange" onChange={handleForm} />
-          <h3 className="w-40">{opt.value}</h3>
+          <p className="w-40">{opt.value}</p>
         </label>
         ))}
         

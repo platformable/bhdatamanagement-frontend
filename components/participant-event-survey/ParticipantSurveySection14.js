@@ -13,27 +13,27 @@ export const ParticipantSurveySection14 = ({surveyForm, setSurveyForm}) => {
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" id={1} value="Private" name="participantInsurance" onChange={handleForm}/>
-          <h3 className="">Private</h3>
+          <p className="">Private</p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" id={2} value="Public" name="participantInsurance" onChange={handleForm}/>
-          <h3 className="">Public</h3>
+          <p className="">Public</p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" id={3} value="Both private and public" name="participantInsurance" onChange={handleForm}/>
-          <h3 className="">Both private and public </h3>
+          <p className="">Both private and public </p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" id={4} value="Uninsured" name="participantInsurance" onChange={handleForm}/>
-          <h3 className="">Uninsured</h3>
+          <p className="">Uninsured</p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" id={5} value="Not sure" name="participantInsurance" onChange={handleForm}/>
-          <h3 className="">Not sure</h3>
+          <p className="">Not sure</p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" id={6} value="Decline to answer" name="participantInsurance" onChange={handleForm}/>
-          <h3 className="">Decline to answer </h3>
+          <p className="">Decline to answer </p>
         </label>
         
       </div>

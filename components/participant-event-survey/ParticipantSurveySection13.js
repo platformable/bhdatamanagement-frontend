@@ -13,19 +13,19 @@ export const ParticipantSurveySection13 = ({surveyForm, setSurveyForm}) => {
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" value="Often true" name="participantFoodInsecurity2" onChange={handleForm}/>
-          <h3 className="">Often true  </h3>
+          <p className="">Often true  </p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" value="Sometimes true" name="participantFoodInsecurity2" onChange={handleForm}/>
-          <h3 className="">Sometimes true  </h3>
+          <p className="">Sometimes true  </p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" value="Never true" name="participantFoodInsecurity2" onChange={handleForm}/>
-          <h3 className="">Never true  </h3>
+          <p className="">Never true  </p>
         </label>
         <label className="flex gap-x-5 items-center">
           <input type="radio" className="" value="Decline to answer" name="participantFoodInsecurity2" onChange={handleForm}/>
-          <h3 className="">Decline to answer</h3>
+          <p className="">Decline to answer</p>
         </label>
     </div>
   </div>
