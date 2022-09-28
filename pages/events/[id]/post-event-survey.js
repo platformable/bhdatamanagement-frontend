@@ -571,7 +571,7 @@ console.log("eventForm",eventForm)
         <PageTopHeading
           backBtn={true}
           dashboardBtn={true}
-          pageTitle={"Post event survey"}
+          pageTitle={"Post-event survey"}
 
         />
         <div className="container mx-auto md:px-0 px-5 items-center">
