@@ -6,12 +6,12 @@ const AirsDemographics = ({event}) => {
     console.log(event.hivTestedTotal,event.stiTestedTotal,event.hepCTestedTotal,event.covidTestedTotal)
     const demographiscknown = event.hivtestedtotal+event.stitestedtotal+event.hepctestedtotal+event.covidtestedtotal
     return (
-        <div className="border-black  mx-5">
+        <div className="border-black  ">
             <h2 className=" text-center my-5">* Demographics of participants</h2>
 
    
 
-            <div className="grid md:grid-cols-2 grid-cols-1">
+            <div className="grid grid-cols-2 ">
                 <div id="totalParticipants" className="">
                     <div className="border-black p-5">
                     <h2 className="font-black">* Total Participants</h2>
@@ -42,8 +42,6 @@ const AirsDemographics = ({event}) => {
                     <div className="flex gap-x-5"><p className="w-60">TRANSGENDER MAN/BOY: </p><p className="underline">{demographiscknown} </p></div>
                     <div className="flex gap-x-5"><p className="w-60">NON-BINARY PERSON: </p><p className="underline">{demographiscknown} </p></div>
                     <div className="flex gap-x-5"><p className="w-60">GENDER NON-CONFORMING PERSON: </p><p className="underline">{demographiscknown} </p></div>
-
-                    
                     </div>
                 </div>
                 <div className="border-black p-5 ">
@@ -61,7 +59,7 @@ const AirsDemographics = ({event}) => {
                 </div>
             </div>
             <h2 className="font-black  p-5">* PRIMARY RISK</h2>
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-x-5">
+        <div className="grid grid-cols-3 gap-x-5">
 
             <div className="p-5"> 
                 
@@ -82,6 +80,11 @@ const AirsDemographics = ({event}) => {
             </div>
 
         </div>
+
+
+
+
+        
             
            
         </div>

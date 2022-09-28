@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { useRouter } from 'next/router';
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import TopEventsInfo from "../../../components/TopEventsInfo";
-
+import ReactToPrint from 'react-to-print'
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
+import AirsToPrint from "../../../components/airsForm/AirsToPrint";
 
 import axios from "axios";
 import ResponseStatusModal from "../../../components/ResponseStatusModal";
@@ -69,7 +70,7 @@ const EditPostEventReport = ({
   const { user, error, isLoading } = useUser();
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
-
+  let componentRef = useRef();
 
   const [eventForm, setEventForm] = useState({
     // userID: "",
@@ -788,6 +789,16 @@ console.log("event",event)
           responseStatus={responseStatus}
         />
       )}
+
+
+
+            <ReactToPrint
+                  trigger={() => <button className="bg-yellow-500 hover:bg-yellow-300 px-5 py-1 rounded text-white inline-block ">Print</button>}
+                  content={() => componentRef.current} />
+          
+              <div style={{display:'none'}}>
+                <AirsToPrint ref={componentRef} event={event} />
+              </div>
     </>
   );
 };

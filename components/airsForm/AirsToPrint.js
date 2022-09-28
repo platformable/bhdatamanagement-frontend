@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import Layout from "../../../components/Layout";
-import PageTopHeading from "../../../components/PageTopHeading";
+import Layout from "../../components/Layout";
+import PageTopHeading from "../../components/PageTopHeading";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
-import AirsEventSession from "../../../components/airsForm/AirsEventSession";
-import AirsDemographics from "../../../components/airsForm/AirsDemographics";
-import AirsMaterials from "../../../components/airsForm/AirsMaterials";
+import AirsEventSession from "../../components/airsForm/AirsEventSession";
+import AirsDemographics from "../../components/airsForm/AirsDemographics";
+import AirsMaterials from "../../components/airsForm/AirsMaterials";
 
-const AirsForm = ({ event, selectedEventId }) => {
+const AirsToPrint = React.forwardRef((props,ref) => {
+    let {event} = props
   console.log("event", event);
 
   const [formData, setFormData] = useState({
@@ -464,14 +465,10 @@ const AirsForm = ({ event, selectedEventId }) => {
     staffPresentNames: event?.staffpresentnames,
   });
 
-  console.log("formData", formData);
+ 
   return (
+    <div ref={ref}>
     <Layout>
-      <PageTopHeading
-        backBtn={true}
-        dashboardBtn={true}
-        pageTitle={"AIRS form"}
-      />
 
 
 <h2 className="font-black text-center my-5">
@@ -487,10 +484,12 @@ const AirsForm = ({ event, selectedEventId }) => {
         </div>
       </div>
     </Layout>
+    </div>
   );
-};
+});
 
-export default AirsForm;
+AirsToPrint.displayName = 'AirsToPrint';
+export default AirsToPrint;
 
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {

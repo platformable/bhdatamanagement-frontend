@@ -362,6 +362,14 @@ input[type="number"] {
   border-left: 1px solid var(--darkBlue);
 }
 
+.border-t-black {
+  border-top:1px solid black
+}
+
+.border-b-black {
+  border-bottom:1px solid black
+}
+
 /*Client profile style */
 
 .border-r-dark-blue {
