@@ -6,10 +6,6 @@ export const ParticipantSurveySection12 = ({surveyForm, setSurveyForm}) => {
   }
   return (
     <div className="px-7">
-      <h2 className="font-black mb-7">
-        Some people have made the following statements about their food
-        situation
-      </h2>
       <h2 className="font-black">
         {/* <span className="">12</span>  */}
         Within the past 12 months, you worried that your food would run out before you got money to buy more.
