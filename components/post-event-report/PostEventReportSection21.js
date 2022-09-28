@@ -5,7 +5,7 @@ const PostEventReportSection21 = ({eventForm,setEventForm}) => {
   return (
     <div className="px-7 rounded mt-10">
       <h2 className=" font-black">
-        Was testing done at the event
+        Was testing done at the event?
       </h2>
       <div className="mt-7 grid grid-cols-1 gap-5">
       <p className="text-lg flex items-center" >
