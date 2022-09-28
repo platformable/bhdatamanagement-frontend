@@ -468,10 +468,12 @@ const AirsToPrint = React.forwardRef((props,ref) => {
  
   return (
     <div ref={ref}>
-
-<h2 className="font-black text-center mt-2 mb-2">
+<div className="flex gap-x-5 px-5 my-1">
+  <img src="https://dummyimage.com/50x50/000/fff&text=AIRS+LOGO" alt="" />
+<h4 className="font-black text-center mt-2 mb-2">
       Community Level Intervention 
-      </h2>
+      </h4>
+      </div>
       <div className="container mx-auto ">
      
         <div className="airs-form-container   bg-white  shadow-lg  mb-10">

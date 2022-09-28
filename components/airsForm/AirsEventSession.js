@@ -21,7 +21,7 @@ const AirsEventSession = ({ event }) => {
         </p>
       </div>
       <div className="text-xxs px-3 py-1 text-center">
-        <p className="text-sm">EVENT / SESSION</p>
+        <p className="text-xxs">EVENT / SESSION</p>
       </div>
       <div className="text-xxs  grid grid-cols-12 divide-black divide-x">
         <p className="text-xxs px-3 py-1 col-start-1 col-end-4 border-r">
@@ -59,12 +59,12 @@ const AirsEventSession = ({ event }) => {
           ✔️ 118 Community Mobilization
         </p>
       </div>
-      <div className="text-xxs flex gap-x-10 items-start px-3 py-3">
+      <div className="text-xxs flex gap-x-10 items-start px-3 py-1">
         <p className="text-xxs">* START TIME: {event?.eventstarttime} </p>
         <p className="text-xxs">* FINISH TIME: {event?.eventfinishtime} </p>
       </div>
       <div className="text-xxs grid grid-cols-2 divide-black divide-x">
-        <div className="text-xxs border-r px-3 py-3 grid gap-y-3">
+        <div className="text-xxs border-r px-3 py-3 grid gap-y-1">
           <p className="text-xxs ">* LOCATION: *CDC SETTING TYPE:</p>
           <p>
             {event?.inpersoneventtypename === "In-Person" &&
@@ -83,15 +83,15 @@ const AirsEventSession = ({ event }) => {
             {event?.onlineinpersoneventtype === "Online" ? "99 OTHER" : ""}
           </p>
         </div>
-        <div className="text-xxs px-3 py-3 grid gap-y-5">
+        <div className="text-xxs px-3 py-3 grid gap-y-1">
           <p className="text-xxs">* SESSION PRESENTED BY: </p>
-          <div className="flex gap-5 items-center">
+          <div className="flex gap-x-5 items-center">
             <label className="text-xxs">
               <input
                 readOnly
                 type="checkbox"
                 checked={event?.sessionpresenter === "Staff" ? "checked" : ""}
-                className="w-2 h-2 pointer-events-none mr-5"
+                className=" pointer-events-none mr-5"
               />
               STAFF
             </label>
@@ -105,7 +105,7 @@ const AirsEventSession = ({ event }) => {
                     ? "checked"
                     : ""
                 }
-                className="w-2 h-2 pointer-events-none mr-5"
+                className=" pointer-events-none mr-5"
               />
               GUEST PROFESSIONAL
             </label>

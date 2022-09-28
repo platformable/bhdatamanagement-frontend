@@ -10,7 +10,7 @@ const AirsMaterials = ({ event }) => {
   return (
     <div className="mx-5 divide-y divide-black border-t-0 border-b border-b-black border-x border-x-black">
       <div className="grid grid-cols-3 gap-x-1 ">
-        <p className="text-center col-start-1 col-end-4 italic my-1 text-sm">MATERIALS PROVIDED:</p>
+        <p className="text-center col-start-1 col-end-4 italic my-1 text-xxs">MATERIALS PROVIDED:</p>
 
         <div className="px-3 py-2 grid grid-cols-2 items-center ">
           <p className="w-20 underline italic text-xs">Type</p>
