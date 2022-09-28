@@ -4,6 +4,7 @@ import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import TopEventsInfo from "../../../components/TopEventsInfo";
 import ReactToPrint from 'react-to-print'
+import { useReactToPrint } from 'react-to-print';
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import AirsToPrint from "../../../components/airsForm/AirsToPrint";
 
@@ -493,6 +494,11 @@ const router = useRouter()
     
   // }, [userId]);
 
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
+
   const notifyMessage= ()=>{
     toast.success("Survey saved!", {
       position: toast.POSITION.TOP_CENTER,
@@ -557,7 +563,7 @@ console.log("event",event)
         <div className="container mx-auto md:px-0 px-5 items-center">
 
 
-      <TopEventsInfo event={event} airs={true} selectedEventId={selectedEventId}/>
+      <TopEventsInfo event={event} airs={true} selectedEventId={selectedEventId} handlePrint={handlePrint}/>
 
 
 {/*       <div className="flex my-5 justify-center">
@@ -792,9 +798,9 @@ console.log("event",event)
 
 
 
-            <ReactToPrint
+           {/*  <ReactToPrint
                   trigger={() => <button className="bg-yellow-500 hover:bg-yellow-300 px-5 py-1 rounded text-white inline-block ">Print</button>}
-                  content={() => componentRef.current} />
+                  content={() => componentRef.current} /> */}
           
               <div style={{display:'none'}}>
                 <AirsToPrint ref={componentRef} event={event} />

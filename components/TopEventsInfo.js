@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const TopEventsInfo = ({event,airs,selectedEventId}) => {
+const TopEventsInfo = ({event,airs,selectedEventId,handlePrint}) => {
     return (
         <section className="md:px-0 px-5">
         <div
@@ -32,13 +32,13 @@ const TopEventsInfo = ({event,airs,selectedEventId}) => {
                 </button>
               </Link>
             {airs && 
-              <Link href={`/events/${selectedEventId}/airs-form`}>
-                <button className="bg-black text-white rounded px-2 mr-2 flex items-end inline-block">
+              
+                <button className="bg-black text-white rounded px-2 mr-2 flex items-end inline-block" onClick={handlePrint}>
                   <a className="px-3 py-2 font-bold" id="myBtn">
                     <p className="font-black">AIRS Form</p>
                   </a>
                 </button>
-              </Link>
+           
               }     
             </div>
           </div>
