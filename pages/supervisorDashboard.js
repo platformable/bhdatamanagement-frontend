@@ -51,7 +51,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
       </Head>
 
       <Layout showStatusHeader={true}>
-        <main className="h-screen flex flex-col justify-between">
+        <main className="">
           <section id="dashboard-client-list">
             <div className="container mx-auto">
               <section className="py-5">
