@@ -86,11 +86,11 @@ h6 {
   --middleWhite: #f5f0f6;
 }
 
-[type="“checkbox”"],
+/* [type="“checkbox”"],
 [type="“radio”"] {
   height: 44px !important;
   width: 24px !important;
-}
+} */
 
 .lne-text-white {
   color: white !important;
@@ -481,6 +481,10 @@ label > textarea {
   font-size: 18px;
 }
 
+.airs-form-container .checkbox-normal-size {
+  min-width: 13px ;
+  min-height: 13px ;
+}
 @media (min-width: 768px) {
   .w-134 {
     width: 536px;
