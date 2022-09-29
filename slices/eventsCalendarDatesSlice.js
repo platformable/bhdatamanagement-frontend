@@ -10,15 +10,13 @@ export const eventsCalendarDatesSlice = createSlice({
       } */
 
       /* state.value=action.payload */
-     
-      return {...state, value:action.payload}
+      return {...state, value:{...action.payload}}
     },
     updateEndDate:(state,action)=>{
       /*  if(typeof window !==undefined){
          window.localStorage.setItem('program',JSON.stringify(action.payload))
        } */
-       /* state.value=action.payload */
-       return {...state, value:action.payload}
+       return {...state, value:{...action.payload}}
      }
   },
 })
