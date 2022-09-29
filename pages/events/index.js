@@ -47,6 +47,12 @@ const EventsIndex = ({ events }) => {
   console.log("startDate desde toolkit",startDate)
   console.log("endDate desde toolkit",endDate)
 
+
+const state= useSelector((state)=>console.log(state))
+
+console.log("state",state)
+
+
   const sortedEventsByDate = events.sort(
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
   );
@@ -93,7 +99,7 @@ const EventsIndex = ({ events }) => {
             <input type="date" 
             placeholder="end date"
             onChange={(e)=>{
-              /* dispatch(updateEndDate({endDate:e.target.value})) */
+          /*     dispatch(updateEndDate({endDate:e.target.value})) */
               setDateFilter({...dateFilter,endDate:e.target.value})}}
             defaultValue={endDate}
             className="border-black rounded-md  text-sm w-full"
