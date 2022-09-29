@@ -471,7 +471,7 @@ const smallCheckbox = {
 }
 
   return (
-    <div ref={ref}>
+    <div ref={ref} >
       <div className="flex items-center gap-x-52 container mx-auto px-5 py-3 my-1 ">
         <img src="/airs_toprint/airs-form-logo.png" alt="airs form logo" width={45} />
         <h4 className="font-black justify-self-center text-center mt-2 mb-2">

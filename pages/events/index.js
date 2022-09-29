@@ -38,6 +38,10 @@ const EventsIndex = ({ events }) => {
   };
   const ref = useRef();
 
+
+  const handleStartDate=()=>{
+    dispatch(updateStartDate(dateFilter))
+  }
   // console.log("events",events)
 
 
@@ -89,7 +93,6 @@ console.log("state",state)
             onChange={(e)=>{
               setDateFilter({...dateFilter,startDate:e.target.value})
               dispatch(updateStartDate({...dateFilter,startDate:e.target.value}))
-
             }}
             defaultValue={startDate}
             className="border-black rounded-md text-sm w-full"
@@ -101,9 +104,11 @@ console.log("state",state)
             placeholder="end date"
             onChange={(e)=>{
               setDateFilter({...dateFilter,endDate:e.target.value})
-              dispatch(updateEndDate({...dateFilter, endDate:e.target.value})) 
-            
-            }}
+              dispatch(updateStartDate({...dateFilter,endDate:e.target.value}))
+            }
+              
+            }
+              
             defaultValue={endDate}
             className="border-black rounded-md  text-sm w-full"
             />
