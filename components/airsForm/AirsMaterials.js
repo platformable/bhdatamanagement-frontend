@@ -75,8 +75,8 @@ const AirsMaterials = ({ event }) => {
       <p className="px-3 py-1 text-xs">Notes:</p>
     
     <div className="px-3 py-1"> 
-      <p className="text-xs">{eventhighlights}</p>
-      <p className="text-xs">{eventchallenges}</p>
+      <p className="text-xxs">{eventhighlights}</p>
+      <p className="text-xxs">{eventchallenges}</p>
       </div>
     </div>
   );

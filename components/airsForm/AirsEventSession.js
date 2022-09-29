@@ -91,7 +91,7 @@ const AirsEventSession = ({ event }) => {
                 readOnly
                 type="checkbox"
                 checked={event?.sessionpresenter === "Staff" ? "checked" : ""}
-                className=" pointer-events-none mr-5"
+                className="pointer-events-none mr-5"
               />
               STAFF
             </label>
