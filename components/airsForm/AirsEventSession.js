@@ -61,8 +61,8 @@ const AirsEventSession = ({ event}) => {
         </p>
       </div>
       <div className="text-xxs flex gap-x-10 items-start px-3 py-1">
-        <p className="font-bold text-xxs">* START TIME: {event?.eventstarttime} </p>
-        <p className="font-bold text-xxs">* FINISH TIME: {event?.eventfinishtime} </p>
+        <p className="font-bold text-xxs">* START TIME: {new Date("2022/09/03   "+event?.eventstarttime).toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true})} </p>
+        <p className="font-bold text-xxs">* FINISH TIME: {new Date("2022/09/03   "+event?.eventfinishtime).toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true})} </p>
       </div>
       <div className="text-xxs grid grid-cols-2 divide-black divide-x">
         <div className="text-xxs border-r px-3 py-1 grid gap-y-1">
@@ -72,22 +72,21 @@ const AirsEventSession = ({ event}) => {
             <p className="font-bold text-xxs ">
                 {event?.onlineinpersoneventtype === "In-Person" &&
                 event?.eventlocationtypename === "Community based organization site"
-                  ? "✔️ "
+                  ? "✔️ 01 CBO"
                   : ""}
-                  01 CBO
+                  
               </p>
               <p className="font-bold text-xxs ">
                 {event?.onlineinpersoneventtype === "In-Person" &&
                 event?.eventlocationtypename !== "Community based organization site"
-                  ? "✔️ "
+                  ? "✔️ 02 COMMUNITY SETTING"
                   : ""}
-                  02 COMMUNITY SETTING
+                  
               </p>
             </div>
 
             <p className="font-bold text-xxs">
-              {event?.onlineinpersoneventtype === "Online" ? "✔️" : ""}
-              99 OTHER
+              {event?.onlineinpersoneventtype === "Online" ? "✔️ 99 OTHER" : ""}
             </p> 
           </div>
         </div>
