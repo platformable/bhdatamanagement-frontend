@@ -16,18 +16,18 @@ const AirsMaterials = ({ event }) => {
           <p className="w-20 underline italic text-xs">Type</p>
           <p className="w-20 underline italic text-xs">Quantity</p>
           <label className="text-xxs my-1 italic ">
-            {/* <input type="checkbox" className="pointer-events-none mr-5 " /> */}
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
             100 MaleCondoms
           </label>
           <p className="ml-10 text-xs">{event.malecondoms}</p>
 
           <label className="text-xxs my-1 italic ">
-            {/* <input type="checkbox" className="pointer-events-none mr-5 " /> */}
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
             205 Safer Sex Kits
           </label>
           <p className="ml-10 text-xs">{event?.safersexkits}</p>
           <label className="text-xxs my-1 italic ">
-            {/* <input type="checkbox" className="pointer-events-none mr-5 " /> */}
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
             460 Female Condoms
           </label>
           <p className="ml-10 text-xs">{event.femalecondoms}</p>
@@ -36,34 +36,34 @@ const AirsMaterials = ({ event }) => {
           <p className="w-20 underline italic text-xs">Type</p>
           <p className="w-20 underline italic text-xs">Quantity</p>
           <label className="text-xxs my-1 italic ">
-            {/* <input type="checkbox" className="pointer-events-none mr-5 " /> */}
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
             220 Lubricant
           </label>
           <p className="ml-10 text-xs">{event.lubricant}</p>
 
           <label className="text-xxs my-1 italic ">
-            {/* <input type="checkbox" className="pointer-events-none mr-5 " /> */}
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
             260 ReferralLists
           </label>
           <p className="ml-10 text-xs">{event.referrallists}</p>
           <label className="text-xxs my-1 italic ">
-            {/* <input type="checkbox" className="pointer-events-none mr-5 " /> */}
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
             300 Literature
           </label>
           <p className="ml-10 text-xs">{literature}</p>
         </div>
 
-        <div className="px-3 py-2 grid grid-cols-2 items-center ">
+        <div className="px-3 py-2 grid grid-cols-2 grid-rows-4 items-center ">
           <p className="w-20 underline italic text-xs">Type</p>
           <p className="w-20 underline italic text-xs">Quantity</p>
           <label className="text-xxs my-1 italic ">
-            {/* <input type="checkbox" className="pointer-events-none mr-5 " /> */}
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
             470 Dental Dam 
           </label>
           <p className="ml-10 text-xs">{dentaldam}</p>
 
           <label className="text-xxs my-1 italic ">
-            {/* <input type="checkbox" className="pointer-events-none mr-5 " /> */}
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
             PromotionalMaterials
           </label>
           <p className="ml-10 text-xs">{promotionalmaterial}</p>
@@ -72,11 +72,12 @@ const AirsMaterials = ({ event }) => {
       </div>
 
     
-      <p className="px-3 py-1 text-xs">Notes:</p>
     
     <div className="px-3 py-1"> 
-      <p className="text-xxs">{eventhighlights}</p>
-      <p className="text-xxs">{eventchallenges}</p>
+    <p className="mb-1 text-xs underline">Notes</p>
+
+      <p className="text-xxs ">{eventhighlights}sdkhsajdhaskjdhashdlsadlksaldksalkdhklsdhlñkahdla </p>
+      <p className="text-xxs ">{eventchallenges}dshaoidhsad sadbsabdasdbadauda d sa8dbkjsa dsaviud sadiuasd aui diusa iudauid aisu duias dsavd ashd iua dha sidu sahdadsa</p>
       </div>
     </div>
   );

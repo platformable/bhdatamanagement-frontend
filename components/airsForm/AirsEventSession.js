@@ -1,7 +1,8 @@
 import React from "react";
 
-const AirsEventSession = ({ event }) => {
+const AirsEventSession = ({ event}) => {
   console.log(event);
+  
   return (
     <section className="divide-y divide-black border-t-2 border-t-black border-x border-x-black mx-5">
       <div className="text-xxs  grid grid-cols-2 divide-black ">
@@ -64,7 +65,7 @@ const AirsEventSession = ({ event }) => {
         <p className="text-xxs">* FINISH TIME: {event?.eventfinishtime} </p>
       </div>
       <div className="text-xxs grid grid-cols-2 divide-black divide-x">
-        <div className="text-xxs border-r px-3 py-3 grid gap-y-1">
+        <div className="text-xxs border-r px-3 py-1 grid gap-y-1">
           <p className="text-xxs ">* LOCATION: *CDC SETTING TYPE:</p>
           <p>
             {event?.inpersoneventtypename === "In-Person" &&
@@ -83,7 +84,7 @@ const AirsEventSession = ({ event }) => {
             {event?.onlineinpersoneventtype === "Online" ? "99 OTHER" : ""}
           </p>
         </div>
-        <div className="text-xxs px-3 py-3 grid gap-y-1">
+        <div className="text-xxs px-3 py-1 grid gap-y-1">
           <p className="text-xxs">* SESSION PRESENTED BY: </p>
           <div className="flex gap-x-5 items-center">
             <label className="text-xxs">
@@ -91,7 +92,7 @@ const AirsEventSession = ({ event }) => {
                 readOnly
                 type="checkbox"
                 checked={event?.sessionpresenter === "Staff" ? "checked" : ""}
-                className="pointer-events-none mr-5"
+                className="checkbox-normal-size pointer-events-none mr-2"
               />
               STAFF
             </label>
@@ -105,7 +106,7 @@ const AirsEventSession = ({ event }) => {
                     ? "checked"
                     : ""
                 }
-                className=" pointer-events-none mr-5"
+                className="checkbox-normal-size pointer-events-none mr-2"
               />
               GUEST PROFESSIONAL
             </label>
@@ -113,7 +114,7 @@ const AirsEventSession = ({ event }) => {
         </div>
       </div>
       <div className="text-xxs  grid grid-cols-2 divide-black divide-x">
-        <div className="text-xxs border-r grid grid-cols-1 gap-y-5 items-start px-3 py-3">
+        <div className="text-xxs border-r grid grid-cols-1 gap-y-5 items-start px-3 py-1">
           <p className="text-xxs italic">
             Organization: ´{event?.partnerorganization1}
           </p>
@@ -122,7 +123,7 @@ const AirsEventSession = ({ event }) => {
             Additional Zip codes covered: {event?.additionalzipcodes}
           </p>
         </div>
-        <div className="text-xxs grid grid-cols-1 gap-y-3 items-start px-3 py-3">
+        <div className="text-xxs grid grid-cols-1 gap-y-3 items-start px-3 py-1">
           <p className="text-xxs italic">Session staffed by:</p>
           <p className="text-xxs ">* STAFF: {event?.staffpresentnames}</p>
         </div>
