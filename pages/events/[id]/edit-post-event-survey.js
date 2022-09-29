@@ -496,6 +496,7 @@ const router = useRouter()
 
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
+    documentTitle:`AIRS_NYS_CMP_${event.eventname}_${new Date(event.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}`
   });
 
 
@@ -798,9 +799,9 @@ console.log("event",event)
 
 
 
-            <ReactToPrint
+            {/* <ReactToPrint
                   trigger={() => <button className="bg-yellow-500 hover:bg-yellow-300 px-5 py-1 rounded text-white inline-block ">Print</button>}
-                  content={() => componentRef.current} /> 
+                  content={() => componentRef.current} />  */}
           
               <div style={{display:'none'}}>
                 <AirsToPrint ref={componentRef} event={event} />

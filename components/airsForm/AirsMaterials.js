@@ -16,57 +16,57 @@ const AirsMaterials = ({ event }) => {
           <p className="w-20 underline italic text-xs">Type</p>
           <p className="w-20 underline italic text-xs">Quantity</p>
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.malecondoms !== 0 ? "checked" : ""}/>
             100 MaleCondoms
           </label>
-          <p className="ml-10 text-xs">{event.malecondoms}</p>
+          <p className=" text-xs">{event.malecondoms}</p>
 
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.safersexkits !== 0 ? "checked" : ""} />
             205 Safer Sex Kits
           </label>
-          <p className="ml-10 text-xs">{event?.safersexkits}</p>
+          <p className=" text-xs">{event?.safersexkits}</p>
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.femalecondoms !== 0 ? "checked" : ""}/>
             460 Female Condoms
           </label>
-          <p className="ml-10 text-xs">{event.femalecondoms}</p>
+          <p className=" text-xs">{event.femalecondoms}</p>
         </div>
         <div className="px-3 py-2 grid grid-cols-2 items-center ">
           <p className="w-20 underline italic text-xs">Type</p>
           <p className="w-20 underline italic text-xs">Quantity</p>
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.lubricant !== 0 ? "checked" : ""} />
             220 Lubricant
           </label>
-          <p className="ml-10 text-xs">{event.lubricant}</p>
+          <p className=" text-xs">{event.lubricant}</p>
 
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.referrallists !== 0 ? "checked" : ""}/>
             260 ReferralLists
           </label>
-          <p className="ml-10 text-xs">{event.referrallists}</p>
+          <p className=" text-xs">{event.referrallists}</p>
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.literature !== 0 ? "checked" : ""}/>
             300 Literature
           </label>
-          <p className="ml-10 text-xs">{literature}</p>
+          <p className=" text-xs">{literature}</p>
         </div>
 
         <div className="px-3 py-2 grid grid-cols-2 grid-rows-4 items-center ">
           <p className="w-20 underline italic text-xs">Type</p>
           <p className="w-20 underline italic text-xs">Quantity</p>
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.dentaldam !== 0 ? "checked" : ""}/>
             470 Dental Dam 
           </label>
-          <p className="ml-10 text-xs">{dentaldam}</p>
+          <p className=" text-xs">{dentaldam}</p>
 
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " />
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.promotionalmaterial !== 0 ? "checked" : ""}/>
             PromotionalMaterials
           </label>
-          <p className="ml-10 text-xs">{promotionalmaterial}</p>
+          <p className=" text-xs">{promotionalmaterial}</p>
  
         </div>
       </div>

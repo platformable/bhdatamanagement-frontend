@@ -44,7 +44,7 @@ const AirsDemographics = ({event}) => {
                     <div className='py-2 px-3  leading-5'>
                     <p className="font-bold grid text-xxs">* RACE / ETHNICITY</p>
 
-                        <div className="flex gap-x-5"><p className="font-bold text-xxs w-60">HISPANIC::</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
+                        <div className="flex gap-x-5"><p className="font-bold text-xxs w-60">HISPANIC:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
                         <div className="flex gap-x-5 "><p className="font-bold text-xxs w-60">(NH) WHITE: </p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
                         <div className="flex gap-x-5 "><p className="font-bold text-xxs w-60">(NH) BLACK OR AFRICAN AMERICAN:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
                         <div className="flex gap-x-5 "><p className="font-bold text-xxs w-60">(NH) ASIAN:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
@@ -68,20 +68,50 @@ const AirsDemographics = ({event}) => {
 
             <div className="py-2 px-3"> 
                 
-                <div className="flex gap-x-5"><p className="font-bold w-20 text-xxs">IDU:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
-                    <div className="flex gap-x-5"><p className="font-bold w-20 text-xxs">MSM:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
+                <div className="flex gap-x-5"><p className="font-bold w-20 text-xxs">IDU:</p><input
+                readOnly
+                type="checkbox"
+                checked={event?.nysprimaryriskgroup === "IDU" ? "checked" : ""}
+                className="checkbox-normal-size pointer-events-none mr-2"
+              /></div>
+                    <div className="flex gap-x-5"><p className="font-bold w-20 text-xxs">MSM:</p><input
+                readOnly
+                type="checkbox"
+                checked={event?.nysprimaryriskgroup === "MSM" ? "checked" : ""}
+                className="checkbox-normal-size pointer-events-none mr-2"
+              /></div>
             </div>
 
             <div className="py-2 px-3"> 
            
-                <div className="flex gap-x-5"><p className="font-bold w-60 text-xxs">MSM / IDU:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
-                    <div className="flex gap-x-5"><p className="font-bold w-60 text-xxs">SEX INVOLVING TRANSGENDER:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
+                <div className="flex gap-x-5"><p className="font-bold w-60 text-xxs">MSM / IDU:</p><input
+                readOnly
+                type="checkbox"
+                checked={event?.nysprimaryriskgroup === "MSM / IDU" ? "checked" : ""}
+                className="checkbox-normal-size pointer-events-none mr-2"
+              /></div>
+                    <div className="flex gap-x-5"><p className="font-bold w-60 text-xxs">SEX INVOLVING TRANSGENDER:</p><input
+                readOnly
+                type="checkbox"
+                checked={event?.nysprimaryriskgroup === "SEX INVOLVING TRANSGENDER" ? "checked" : ""}
+                className="checkbox-normal-size pointer-events-none mr-2"
+              /></div>
             </div>
 
             <div className="py-2 px-3"> 
                 
-                <div className="flex gap-x-5"><p className="font-bold w-60 text-xxs">HETEROSEXUAL CONTACT:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
-                    <div className="flex gap-x-5"><p className="font-bold w-60 text-xxs">OTHER / RISK NOT INDENTIFIED:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
+                <div className="flex gap-x-5"><p className="font-bold w-60 text-xxs">HETEROSEXUAL CONTACT:</p><input
+                readOnly
+                type="checkbox"
+                checked={event?.nysprimaryriskgroup === "HETEROSEXUAL CONTACT" ? "checked" : ""}
+                className="checkbox-normal-size pointer-events-none mr-2"
+              /></div>
+                    <div className="flex gap-x-5"><p className="font-bold w-60 text-xxs">OTHER / RISK NOT INDENTIFIED:</p><input
+                readOnly
+                type="checkbox"
+                checked={event?.nysprimaryriskgroup === "OTHER / RISK NOT INDENTIFIED" ? "checked" : ""}
+                className="checkbox-normal-size pointer-events-none mr-2"
+              /></div>
             </div>
 
         </div>
