@@ -5,6 +5,7 @@ import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import AirsEventSession from "../../components/airsForm/AirsEventSession";
 import AirsDemographics from "../../components/airsForm/AirsDemographics";
 import AirsMaterials from "../../components/airsForm/AirsMaterials";
+import { Footer } from "./Footer";
 
 const AirsToPrint = React.forwardRef((props, ref) => {
   let { event } = props;
@@ -471,9 +472,9 @@ const smallCheckbox = {
 
   return (
     <div ref={ref}>
-      <div className="flex gap-x-5 container mx-auto px-5 my-1">
+      <div className="flex items-center gap-x-5 container mx-auto px-5 my-1 ">
         <img src="https://dummyimage.com/50x50/000/fff&text=AIRS+LOGO" alt="" />
-        <h4 className="font-black text-center mt-2 mb-2">
+        <h4 className="font-black justify-self-center text-center mt-2 mb-2">
           Community Level Intervention
         </h4>
       </div>
@@ -483,6 +484,8 @@ const smallCheckbox = {
           <AirsDemographics event={event} />
           <AirsMaterials event={event} />
         </div>
+        <Footer />
+
       </div>
     </div>
   );
