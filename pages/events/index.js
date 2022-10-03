@@ -214,7 +214,7 @@ const EventsIndex = ({ events }) => {
                               }
                             )}
                         </div>
-                        <Link href={`events/${event.id}/edit`}>
+                        <Link href={`events/${event.id}/nys_cmp/edit`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Edit event</p>
                           </div>
@@ -232,11 +232,11 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-
-                        <Link href={`events/${event.id}/post-event-survey`}>
+                              
+                        <Link href={event.posteventreportid ? `events/${event.id}/edit-post-event-survey`: `events/${event.id}/post-event-survey`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center text-center">
                             <p className="leading-5 text-center">
-                              Complete post-event survey
+                            {event.posteventreportid ? "Edit ": "Complete "} post-event survey
                             </p>
                           </div>
                         </Link>
