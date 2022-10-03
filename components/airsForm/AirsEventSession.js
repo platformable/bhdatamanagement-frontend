@@ -120,7 +120,7 @@ const AirsEventSession = ({ event}) => {
         </div>
       </div>
       <div className="text-xxs  grid grid-cols-2 divide-black divide-x">
-        <div className="text-xxs border-r grid grid-cols-1 gap-y-5 items-start px-3 py-1">
+        <div className="text-xxs border-r grid grid-cols-1 gap-y-2 items-start px-3 py-1">
           <p className=" text-xxs italic">
             Organization: ´{event?.partnerorganization1}
           </p>
@@ -129,7 +129,7 @@ const AirsEventSession = ({ event}) => {
             Additional Zip codes covered: {event?.additionalzipcodes}
           </p>
         </div>
-        <div className="text-xxs grid grid-cols-1 gap-y-3 items-start px-3 py-1">
+        <div className="text-xxs grid grid-cols-1 gap-y-1 items-start px-3 py-1">
           <p className=" text-xxs italic">Session staffed by:</p>
           <p className="font-bold text-xxs ">* STAFF: {event?.staffpresentnames}</p>
         </div>
