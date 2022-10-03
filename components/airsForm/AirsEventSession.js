@@ -10,7 +10,7 @@ const AirsEventSession = ({ event}) => {
           * DATE:{" "}
           {new Date(event?.eventdate).toLocaleDateString("en-US", {
             year: "numeric",
-            month: "numeric",
+            month: "long",
             day: "numeric",
           })}
         </p>

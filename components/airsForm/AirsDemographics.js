@@ -14,8 +14,15 @@ const AirsDemographics = ({event}) => {
             <div className="grid grid-cols-2 divide-x divide-y divide-black">
                 <div id="totalParticipants" className="border-t-black divide-y divide-black">
                     
-
+                <div className="leading-5 py-2 border px-3">
+                    <p className="font-bold text-xxs">* TOTAL PARTICIPANTS</p>
+                    <p className="font-bold text-xxs">Demographics known: {demographiscknown} </p>
+                    <p className="font-bold text-xxs">Demographics unknown: {demographiscknown} </p>
+                    </div>
                     <div id="gender" className="leading-5 py-2 px-3">
+                    
+
+
                     <p className="font-bold text-xxs">* GENDER</p>
 
                     <div className="flex gap-x-5 "><p className="font-bold text-xxs w-60">WOMAN/GIRL:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
@@ -29,7 +36,10 @@ const AirsDemographics = ({event}) => {
                     <div className="flex gap-x-5 "><p className="font-bold text-xxs w-60">CHOSE NOT TO RESPOND: </p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
                     
                     </div>
-                    <div id="gender" className="leading-5 py-2 px-3">
+             
+                </div>
+                <div className="divide-y divide-black">
+                <div id="gender" className="leading-5 py-2 px-3">
                     <p className="font-bold grid text-xxs">* AGE GROUPS</p>
 
                     <div className="flex gap-x-5 "><p className="font-bold text-xxs w-60">WOMAN/GIRL:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
@@ -39,10 +49,9 @@ const AirsDemographics = ({event}) => {
                     <div className="flex gap-x-5 "><p className="font-bold text-xxs w-60">NON-BINARY PERSON: </p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
                     <div className="flex gap-x-5 "><p className="font-bold text-xxs w-60">GENDER NON-CONFORMING PERSON: </p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
                     </div>
-                </div>
-                <div className="divide-y divide-black">
                     <div className='py-2 px-3  leading-5'>
                     <p className="font-bold grid text-xxs">* RACE / ETHNICITY</p>
+                    <p className=" text-xxs">(NH) = NON-HISPANIC</p>
 
                         <div className="flex gap-x-5"><p className="font-bold text-xxs w-60">HISPANIC:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
                         <div className="flex gap-x-5 "><p className="font-bold text-xxs w-60">(NH) WHITE: </p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
@@ -55,11 +64,11 @@ const AirsDemographics = ({event}) => {
                         <div className="flex gap-x-5 "><p className="font-bold text-xxs w-60">UNKNOWN / UNREPORTED:</p><p className="font-bold underline text-xxs">{demographiscknown} </p></div>
 
                     </div>
-                    <div className="leading-5 py-2 px-3">
+               {/*      <div className="leading-5 py-2 px-3">
                     <p className="font-bold text-xxs">* TOTAL PARTICIPANTS</p>
                     <p className="font-bold text-xxs">Demographics known: {demographiscknown} </p>
                     <p className="font-bold text-xxs">Demographics unknown: {demographiscknown} </p>
-                    </div>
+                    </div> */}
                 </div>
                 
             </div>
