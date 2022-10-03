@@ -1,30 +1,30 @@
 import React, {useState, useEffect} from 'react';
+import {inPersonEventLocationType} from "../../utils/sharedData"
 
-const Section7 = ({eventForm, setEventForm, locationTypes,event}) => {
-   
-    const [fields, setFields] = useState(locationTypes);
+const Section7 = ({eventForm, setEventForm,event}) => {
+    
 
-    useEffect(() => {
-        /* if (eventForm.programName) {
-            const programNameConverted = convertStringTocompareWithProgramName(eventForm.programName)
-            const filtered = locationTypes.filter(locationType => locationType[programNameConverted] === "1" )
-            setFields(filtered)
-        } */
-        if (eventForm.programName && !event) {
-            const programNameConverted = convertStringTocompareWithProgramName(eventForm?.programName)
-            //const eventProgramNameConverted = convertStringTocompareWithProgramName(event?.programname)
-            const filtered = locationTypes.filter(locationType => locationType[programNameConverted] === "1")
-            setFields(filtered)
-        } 
+    // useEffect(() => {
+    //     /* if (eventForm.programName) {
+    //         const programNameConverted = convertStringTocompareWithProgramName(eventForm.programName)
+    //         const filtered = inPersonEventLocationType.filter(locationType => locationType[programNameConverted] === "1" )
+    //         setFields(filtered)
+    //     } */
+    //     if (eventForm.programName && !event) {
+    //         const programNameConverted = convertStringTocompareWithProgramName(eventForm?.programName)
+    //         //const eventProgramNameConverted = convertStringTocompareWithProgramName(event?.programname)
+    //         const filtered = inPersonEventLocationType.filter(locationType => locationType[programNameConverted] === "true")
+    //         setFields(filtered)
+    //     } 
 
-        if (eventForm.programName && event) {
-            const programNameConverted = convertStringTocompareWithProgramName(eventForm?.programName)
-            const eventProgramNameConverted = convertStringTocompareWithProgramName(event?.programname)
-            const filtered = locationTypes.filter(locationType => event?locationType[programNameConverted] === "1": locationType[eventProgramNameConverted] === "1")
-            setFields(filtered)
-        } 
+    //     if (eventForm.programName && event) {
+    //         const programNameConverted = convertStringTocompareWithProgramName(eventForm?.programName)
+    //         const eventProgramNameConverted = convertStringTocompareWithProgramName(event?.programname)
+    //         const filtered = inPersonEventLocationType.filter(locationType => event?locationType[programNameConverted] === "true": locationType[eventProgramNameConverted] === "true")
+    //         setFields(filtered)
+    //     } 
 
-    }, [eventForm.programName]);
+    // }, [eventForm.programName]);
 
     const convertStringTocompareWithProgramName = (string) => string.toLowerCase().replace(/\s/g, '');
     const  capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
@@ -41,34 +41,40 @@ const Section7 = ({eventForm, setEventForm, locationTypes,event}) => {
         <div className=''>
             <h2 className='mb-7 font-black'>What type of event location will the event be held at?</h2>
              <div className='grid grid-cols-1 gap-5'>
-                {fields && fields.map(location => (
-                    location.name !== "Other" ?
-
-                    <label className='text-lg flex items-center gap-5' key={location.id}>
+                {inPersonEventLocationType && inPersonEventLocationType.map(location => (
+                    location.value !== "Other" ?
+                    (<>
+                     <label className='text-lg flex items-center gap-5' key={location.id}>
                     <input type="radio" 
                     name="eventLocationTypeName" 
                     className='' 
-                    value={location.name} 
+                    value={location.value} 
                     id={location.id}
                     onChange={handleForm}
-                    defaultChecked={location.name===eventForm.eventLocationTypeName ?'checked':""}
+                    defaultChecked={location.value===eventForm.eventLocationTypeName ?'checked':""}
                     />
-                    {location.name}
-                    </label> :
+                    {location.value}
+                    </label>
+                    </>)
+                    :
 
-                    <label className="flex items-center p-2 my-2">
+                    (<>
+                    <label className="flex items-center flex gap-x-5">
                     <input type="radio" 
-                    name="eventLocationTypeId" className='' 
+                    name="eventLocationTypeName" className='' 
                     id={location.id}
-                    onChange={handleFormId}/>
-                    <p className="mr-2">Other</p>
+                    onChange={handleFormId}
+                    defaultChecked={eventForm.eventLocationTypeName === "Other"?'checked':""}
+                    
+                    />
+                    <p className="">Other</p>
                     <input type="text" 
                     name="eventLocationTypeName"
                     onChange={handleForm} 
-                    className='w-full p-2 border-dark-violet rounded' 
+                    className='w-96 border-dark-violet rounded' 
                     // placeholder="Please specify here"
                     />
-                </label>
+                </label></>)
 
                 ))}
                 

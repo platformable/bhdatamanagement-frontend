@@ -407,6 +407,24 @@ export const inPersonEventTypeName = [
   { id: 7, value: "Capacity Building Training", nyscmp: false },
   { id: 8, value: "Community Advisory Board Meeting", nyscmp: false },
 ];
+export const inPersonEventLocationType = [
+  {
+    id: 0,
+    value: "College/School/Trades school/community-based learning center",
+    nyscmp: true,
+  },
+  { id: 1, value: "Community based organization site", nyscmp: true },
+  { id: 2, value: "COVID vaccine location", nyscmp: true },
+  { id: 3, value: "COVID-19 Testing location", nyscmp: true },
+  { id: 4, value: "Faith based location/Place of worship", nyscmp: true },
+  { id: 5, value: "Food Bank/Pantry/Food Kitchen", nyscmp: true },
+  { id: 6, value: "Hospital/Clinic", nyscmp: true },
+  { id: 7, value: "Local neighborhood small business", nyscmp: true },
+  { id: 8, value: "Park/Playground", nyscmp: true },
+  { id: 9, value: "Public housing location", nyscmp: true },
+  { id: 10, value: "Public transportation hub or station", nyscmp: true },
+  { id: 11, value: "Other", nyscmp: true },
+];
 
 export const onlineEventTypeName = [
   { id: 1, value: "Meeting", nyscmp: true },

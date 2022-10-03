@@ -148,11 +148,12 @@ createdByLastname:user && user["https://lanuevatest.herokuapp.com/lastname"]
           <EventDescription eventForm={eventForm} setEventForm={setEventForm}/>
           <AdditionalMaterial eventForm={eventForm} setEventForm={setEventForm}/>
           <Section9 eventForm={eventForm} setEventForm={setEventForm} />
+          {eventForm?.onlineInPersonEventType === "In-person" && 
+          <Section7 eventForm={eventForm} setEventForm={setEventForm} /> } 
         {/*   <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/> */}
           <Section4 eventForm={eventForm} setEventForm={setEventForm} />
           <Section5 eventForm={eventForm} setEventForm={setEventForm} />
           <Section6 eventForm={eventForm} setEventForm={setEventForm} />
-          {/* <Section7 eventForm={eventForm} setEventForm={setEventForm} locationTypes={locationTypes}/> */}
           <Section8 eventForm={eventForm} setEventForm={setEventForm} />
           
         </div>

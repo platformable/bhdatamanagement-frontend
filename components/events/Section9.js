@@ -76,7 +76,7 @@ const Section9 = ({eventForm, setEventForm,event}) => {
 
 
              <div className="my-5">
-            {eventForm?.onlineInPersonEventType==='In-person' &&  <h2 className='mt-10 mb-5 font-black'>What type of event location will the event be held at?</h2>}
+            {eventForm?.onlineInPersonEventType==='In-person' &&  <h2 className='mt-10 mb-5 font-black'>What type of in-person event is it?</h2>}
                 {
                     eventForm?.onlineInPersonEventType==='In-person' ?  (
                         inPersonEventTypeName && inPersonEventTypeName.filter((option)=>option.nyscmp===true).map((option,index) => {
@@ -104,6 +104,7 @@ const Section9 = ({eventForm, setEventForm,event}) => {
                               })
                     ):""
                 }
+                
              </div>
         </div>
     );
