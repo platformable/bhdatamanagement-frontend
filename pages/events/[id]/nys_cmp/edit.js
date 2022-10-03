@@ -112,6 +112,8 @@ additionalMaterials:event?.additionalmaterials
           <EventDescription eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <AdditionalMaterial eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <Section9 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
+          {eventForm?.onlineInPersonEventType === "In-person" && 
+            <Section7 eventForm={eventForm} setEventForm={setEventForm} event={event} />}
     {/*       <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes} event={event}/> */}
             <Section4 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
             <Section5 eventForm={eventForm} setEventForm={setEventForm} />
