@@ -71,8 +71,8 @@ const Section7 = ({eventForm, setEventForm,event}) => {
                     <input type="text" 
                     name="eventLocationTypeName"
                     onChange={handleForm} 
-                    className='w-96 border-dark-violet rounded' 
-                    // placeholder="Please specify here"
+                    className='w-96 border-dark-violet rounded ' 
+                    placeholder="Eg. Sporting facility"
                     />
                 </label></>)
 
