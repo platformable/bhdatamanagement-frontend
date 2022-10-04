@@ -47,11 +47,11 @@ const Section7 = ({eventForm, setEventForm,event}) => {
                      <label className='text-lg flex items-center gap-5' key={location.id}>
                     <input type="radio" 
                     name="eventLocationTypeName" 
-                    className='' 
+                    className="" 
                     value={location.value} 
                     id={location.id}
                     onChange={handleForm}
-                    defaultChecked={location.value===eventForm.eventLocationTypeName ?'checked':""}
+                    defaultChecked={location.value===eventForm?.eventLocationTypeName ?'checked':""}
                     />
                     {location.value}
                     </label>
@@ -64,7 +64,7 @@ const Section7 = ({eventForm, setEventForm,event}) => {
                     name="eventLocationTypeName" className='' 
                     id={location.id}
                     onChange={handleFormId}
-                    defaultChecked={eventForm.eventLocationTypeName === "Other"?'checked':""}
+                    defaultChecked={eventForm?.eventLocationTypeName === "Other"?'checked':""}
                     
                     />
                     <p className="">Other</p>

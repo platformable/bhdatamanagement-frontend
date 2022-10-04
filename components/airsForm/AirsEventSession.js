@@ -67,27 +67,32 @@ const AirsEventSession = ({ event}) => {
       <div className="text-xxs grid grid-cols-2 divide-black divide-x">
         <div className="text-xxs border-r px-3 py-1 grid gap-y-1">
           <p className="font-bold text-xxs ">* LOCATION: *CDC SETTING TYPE:</p>
-          <div className="grid grid-cols-2">
-            <div>
-            <p className="font-bold text-xxs ">
-                {event?.onlineinpersoneventtype === "In-Person" &&
-                event?.eventlocationtypename === "Community based organization site"
-                  ? "✔️ 01 CBO"
-                  : ""}
-                  
-              </p>
-              <p className="font-bold text-xxs ">
-                {event?.onlineinpersoneventtype === "In-Person" &&
-                event?.eventlocationtypename !== "Community based organization site"
-                  ? "✔️ 02 COMMUNITY SETTING"
-                  : ""}
+          <div className="grid grid-cols-2 items-start">
+            <div className="">
+              <p className="font-bold text-xxs flex items-center mb-1">
+              <input type="checkbox" className="checkbox-normal-size mr-2" checked={event?.onlineinpersoneventtype === "In-Person" &&
+                  event?.eventlocationtypename === "Community based organization site"
+                    ? "checked"
+                    : ""}/>
+                  01 CBO
+                    
+                </p>
+                
+              <p className="font-bold text-xxs flex items-center ">
+                <input type="checkbox" className="checkbox-normal-size mr-2" checked={event?.onlineinpersoneventtype === "In-Person" &&
+                  event?.eventlocationtypename !== "Community based organization site"
+                  ? "checked"
+                  : ""}/>
+                 02 COMMUNITY SETTING
                   
               </p>
             </div>
+            <p className="font-bold text-xxs flex items-center">
+                <input type="checkbox" className="checkbox-normal-size mr-2" checked={event?.onlineinpersoneventtype === "Online" ? "checked" : ""}/>
+                99 OTHER
+              </p> 
 
-            <p className="font-bold text-xxs">
-              {event?.onlineinpersoneventtype === "Online" ? "✔️ 99 OTHER" : ""}
-            </p> 
+            
           </div>
         </div>
         <div className="text-xxs px-3 py-1 grid gap-y-1">
