@@ -117,6 +117,12 @@ const EventsIndex = ({ events }) => {
       </div>
 
       <div className="events-cards-container grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
+      {/*  HEAD TABLE  */}
+      <div className="container mx-auto existing-events-head-table rounded-t-lg py-3 px-7 bg-black text-white">
+        {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
+        <p className="lg:text-xl font-bold flex items-center ">Event name</p>
+        <p className="lg:text-xl font-bold flex items-center ">Event date</p>
+      </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
         <div className="events-index-btn-container grid grid-cols-1 gap-3 p-0">
@@ -163,7 +169,6 @@ const EventsIndex = ({ events }) => {
               })
               .map((event, index) => {
                 return (
-                
                   <>
                     <div className="sm:hidden w-full">
                       <EventsCardItems
@@ -186,15 +191,6 @@ const EventsIndex = ({ events }) => {
                       />
                     </div>
                     <div className="hidden sm:block">
-                      <div className="existing-events-head-table rounded-t-lg py-3 px-7 bg-black text-white">
-                        {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
-                        <p className="lg:text-xl font-bold flex items-center ">
-                          Event name
-                        </p>
-                        <p className="lg:text-xl font-bold flex items-center ">
-                          Event date
-                        </p>
-                      </div>
                       <section
                         key={index}
                         className={`existing-events-head-table px-7 py-7  rounded shadow-md`}
@@ -232,11 +228,18 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-                              
-                        <Link href={event.posteventreportid ? `events/${event.id}/edit-post-event-survey`: `events/${event.id}/post-event-survey`}>
+
+                        <Link
+                          href={
+                            event.posteventreportid
+                              ? `events/${event.id}/edit-post-event-survey`
+                              : `events/${event.id}/post-event-survey`
+                          }
+                        >
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center text-center">
                             <p className="leading-5 text-center">
-                            {event.posteventreportid ? "Edit ": "Complete "} post-event survey
+                              {event.posteventreportid ? "Edit " : "Complete "}{" "}
+                              post-event survey
                             </p>
                           </div>
                         </Link>

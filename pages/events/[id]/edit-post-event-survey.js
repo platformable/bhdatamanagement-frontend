@@ -803,7 +803,7 @@ console.log("event",event)
                   trigger={() => <button className="bg-yellow-500 hover:bg-yellow-300 px-5 py-1 rounded text-white inline-block ">Print</button>}
                   content={() => componentRef.current} />  */}
           
-              <div style={{display:'block'}}>
+              <div style={{display:'none'}}>
                 <AirsToPrint ref={componentRef} event={event} />
               </div>
     </>

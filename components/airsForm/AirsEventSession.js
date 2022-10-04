@@ -72,21 +72,21 @@ const AirsEventSession = ({ event}) => {
             <p className="font-bold text-xxs ">
                 {event?.onlineinpersoneventtype === "In-Person" &&
                 event?.eventlocationtypename === "Community based organization site"
-                  ? "✔️ 01 CBO"
-                  : ""}
+                  ? "✔️ "
+                  : ""}01 CBO
                   
               </p>
               <p className="font-bold text-xxs ">
                 {event?.onlineinpersoneventtype === "In-Person" &&
                 event?.eventlocationtypename !== "Community based organization site"
-                  ? "✔️ 02 COMMUNITY SETTING"
-                  : ""}
+                  ? "✔️ "
+                  : ""}02 COMMUNITY SETTING
                   
               </p>
             </div>
 
             <p className="font-bold text-xxs">
-              {event?.onlineinpersoneventtype === "Online" ? "✔️ 99 OTHER" : ""}
+              {event?.onlineinpersoneventtype === "Online" ? "✔️ " : ""}99 OTHER
             </p> 
           </div>
         </div>
