@@ -70,7 +70,7 @@ const AirsEventSession = ({ event}) => {
           <div className="grid grid-cols-2 items-start">
             <div className="">
               <p className="font-bold text-xxs flex items-center mb-1">
-              <input type="checkbox" className="checkbox-normal-size mr-2" checked={event?.onlineinpersoneventtype === "In-Person" &&
+              <input type="checkbox" className="checkbox-normal-size mr-2" checked={event?.onlineinpersoneventtype === "In-person" &&
                   event?.eventlocationtypename === "Community based organization site"
                     ? "checked"
                     : ""}/>
@@ -79,7 +79,7 @@ const AirsEventSession = ({ event}) => {
                 </p>
                 
               <p className="font-bold text-xxs flex items-center ">
-                <input type="checkbox" className="checkbox-normal-size mr-2" checked={event?.onlineinpersoneventtype === "In-Person" &&
+                <input type="checkbox" className="checkbox-normal-size mr-2" checked={event?.onlineinpersoneventtype === "In-person" &&
                   event?.eventlocationtypename !== "Community based organization site"
                   ? "checked"
                   : ""}/>

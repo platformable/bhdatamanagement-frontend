@@ -486,6 +486,10 @@ const EditPostEventReport = ({
         additionalZipCodes:event?.additionalzipcodes,
         totalEventAttendees:0 || event?.totaleventattendees,
         staffPresentNames:event?.staffpresentnames,
+        demographicsKnown: event?.demographicsknown || "",
+        airsFormGender: event?.airsformgender || [],
+        airsFormAge: event?.airsformage || [],
+        airsFormRaceEthnicity: event?.airsformraceethnicity || [],
   });
   const userId = user && user.sub;
 const router = useRouter()
@@ -548,7 +552,16 @@ const router = useRouter()
     gridTemplateColumns: "2fr 3fr",
     gap: "20px",
   };
-
+  const isNumberKey = (e) => {
+    const invalidChars = [
+      "-",
+      "+",
+      "e",
+    ];
+    if (invalidChars.includes(e.key)) {
+      e.preventDefault();
+    } 
+}
 
 console.log("event",event)
   return (
@@ -701,79 +714,72 @@ console.log("event",event)
             <div className="rounded-tl-md rounded-tr-md">
             {/* <h3 className="px-7 mt-10 font-black">Event details</h3> */}
             
-            <PostEventReportSection1 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection2 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection31 eventForm={eventForm} setEventForm={setEventForm} />
-            <PostEventReportSection32 eventForm={eventForm} setEventForm={setEventForm} />
-            {/* <PostEventReportSection33 eventForm={eventForm} setEventForm={setEventForm} /> */}
-            {/* <PostEventReportSection34 eventForm={eventForm} setEventForm={setEventForm} /> */}
-            <PostEventReportSection35 eventForm={eventForm} setEventForm={setEventForm} />
-            {/* <PostEventReportSection3 eventForm={eventForm} setEventForm={setEventForm} /> */}
-            {/* <PostEventReportSection4 eventForm={eventForm} setEventForm={setEventForm}/> */}
-            <PostEventReportSection5 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection37 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection1 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection2 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection31 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+            <PostEventReportSection32 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+            {/* <PostEventReportSection33 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} /> */}
+            {/* <PostEventReportSection34 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} /> */}
+            <PostEventReportSection35 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+            {/* <PostEventReportSection3 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} /> */}
+            {/* <PostEventReportSection4 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/> */}
+            <PostEventReportSection5 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection37 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
 
-            <PostEventReportSection6 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection30 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection36 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection6 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection30 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection36 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
 
-            <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             </div>
             
             {/* <h3 className="px-7 font-black">Event organization and promotion</h3> */}
-            <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection38 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection38 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
 
-            <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection11 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection12 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection13 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection14 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection15 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection16 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection17 eventForm={eventForm} setEventForm={setEventForm}/>
-            <PostEventReportSection18 eventForm={eventForm} setEventForm={setEventForm}/>
-
-
-
-
-
-            
-            <PostEventReportSection39 eventForm={eventForm} setEventForm={setEventForm} />
-            <PostEventReportSection40 eventForm={eventForm} setEventForm={setEventForm} />
+            <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection11 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection12 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection13 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection14 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection15 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection39 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            {eventForm.demographicsKnown === "Demographics known" && 
+            <PostEventReportSection40 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+          }        
+            <PostEventReportSection16 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection17 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection18 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
 
 
-
-
-
-            <PostEventReportSection19 eventForm={eventForm} setEventForm={setEventForm}/>
-            {/* <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm}/> */}
-            <PostEventReportSection21 eventForm={eventForm} setEventForm={setEventForm}/>
+            <PostEventReportSection19 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            {/* <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/> */}
+            <PostEventReportSection21 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             
             {eventForm.eventTestingDone && 
-            <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm}/> } 
+            <PostEventReportSection22  eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/> } 
             
             {(eventForm.hivTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection23 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection23 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
             
             {(eventForm.stiTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection26 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection26 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
 
             {(eventForm.hepCTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection25 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection25 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
 
             {(eventForm.bloodPressureTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection27 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection27 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
 
             {(eventForm.cholesterolTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection28 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection28 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
           
             {(eventForm.covidTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection29 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection29 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
 
             {(eventForm.otherTesting && eventForm.eventTestingDone ) && 
-            <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm}/>}
+            <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
           </div>
           <div className="flex justify-center my-10">
           <button
@@ -803,7 +809,7 @@ console.log("event",event)
                   trigger={() => <button className="bg-yellow-500 hover:bg-yellow-300 px-5 py-1 rounded text-white inline-block ">Print</button>}
                   content={() => componentRef.current} />  */}
           
-              <div style={{display:'block'}}>
+              <div style={{display:'none'}}>
                 <AirsToPrint ref={componentRef} event={event} />
               </div>
     </>

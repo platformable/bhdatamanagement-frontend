@@ -487,20 +487,17 @@ const PostEventReport = ({
         additionalZipCodes:"",
         totalEventAttendees:0,
         staffPresentNames:"",
+        demographicsKnown: "",
+        airsFormGender: [],
+        airsFormAge: [],
+        airsFormRaceEthnicity: [],
   });
   const userId = user && user.sub;
 
 
 
-
-  
-
 const router = useRouter()
-// console.log("event",event)
-  // useEffect(() => {
-  //   setEventForm({ ...eventForm, userID: userId });
-    
-  // }, [userId]);
+
 
   const isNumberKey = (e) => {
     const invalidChars = [
@@ -728,26 +725,15 @@ console.log("eventForm",eventForm)
             <PostEventReportSection13 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection14 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection15 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PostEventReportSection39 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            {eventForm.demographicsKnown === "Demographics known" && 
+            <PostEventReportSection40 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+          }            
             <PostEventReportSection16 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection17 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection18 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
            
-           
-           
-            <PostEventReportSection33 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
-            <PostEventReportSection34 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
-            <PostEventReportSection39 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
-            <PostEventReportSection40 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
-           
-           
-           
-           
-           
-           
             <PostEventReportSection19 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
-           
-           
-           
            
            
            {/*  <PostEventReportSection20 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/> */}
