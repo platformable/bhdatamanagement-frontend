@@ -20,7 +20,8 @@ const Section4 = ({eventForm, setEventForm,event}) => {
                 name="eventDate" 
                 className='border rounded p-2 text-lg w-48 uppercase' 
                 onChange={handleForm}
-                value={finaldate}
+
+                defaultValue={finaldate}
                 />
         </label>
     );
