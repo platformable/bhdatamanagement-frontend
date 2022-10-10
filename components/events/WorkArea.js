@@ -1,6 +1,9 @@
 import React from "react";
 import { workArea } from "../../utils/sharedData";
-const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
+
+
+
+const WorkArea = ({ eventForm, setEventForm,event }) => {
   const styles = {
     display: "grid",
     // gridTemplateColumns: "repeat(1,1fr)",
@@ -9,9 +12,9 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
     gap: "5px",
   };
   return (
-    <div className="px-7">
+    <div className="">
       <h2 className="font-black">
-      What is the city location of the event?
+      Where do you work?
       </h2>
       <div className="mt-7 grid grid-cols-1  gap-5">
         {workArea.map((area, index) => {
@@ -26,13 +29,12 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
                   value={area.value}
                   id={area.id}
                   //defaultChecked={program.id===event?.programid?'checked':""}
-                  onChange={(e) => {
-                  setEventForm((previous) => ({
-                    ...previous,
-                    [e.target.name]: area.value,
-                  }))
+                  onChange={(e) =>
+                    setEventForm((previous) => ({
+                      ...previous,
+                      [e.target.name]: area.value,
+                    }))
                   }
-                }
                   defaultChecked={area.value === eventForm.workArea ? "checked" : ""}
                 />
                 <p>{area.value}</p>
@@ -81,4 +83,4 @@ const PostEventReportSection1 = ({ eventForm, setEventForm }) => {
   );
 };
 
-export default PostEventReportSection1;
+export default WorkArea;

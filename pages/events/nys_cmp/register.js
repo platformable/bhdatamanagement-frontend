@@ -9,6 +9,10 @@ import Section6 from "../../../components/events/Section6";
 import Section7 from "../../../components/events/Section7";
 import Section8 from "../../../components/events/Section8";
 import Section9 from "../../../components/events/Section9";
+import WorkArea from '../../../components/events/WorkArea'
+import ZipCode from '../../../components/events/ZipCode'
+import LocationAddress from '../../../components/events/LocationAddress'
+import LocationName from '../../../components/events/LocationName'
 import Loader from "../../../components/Loader";
 import EventDescription from "../../../components/events/EventDescription";
 import AdditionalMaterial from "../../../components/events/AdditionalMaterial";
@@ -54,7 +58,15 @@ onlineEventTypeName:"",
 eventDescription:"",
 additionalMaterials:"",
 createdByName:user && user["https://lanuevatest.herokuapp.com/name"],
-createdByLastname:user && user["https://lanuevatest.herokuapp.com/lastname"]
+createdByLastname:user && user["https://lanuevatest.herokuapp.com/lastname"],
+
+workArea:"",
+workAreaOther:"",
+locationName:"",
+locationNameOther:"",
+locationAddress:"",
+eventZipCode:""
+
   });
   const userId = user && user.sub
   
@@ -142,14 +154,20 @@ createdByLastname:user && user["https://lanuevatest.herokuapp.com/lastname"]
       />
       <div className="container mx-auto border rounded-lg mb-10">
         <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
+        
+          
           {/* <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} /> */}
           <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
+          <WorkArea eventForm={eventForm} setEventForm={setEventForm}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} />
           <EventDescription eventForm={eventForm} setEventForm={setEventForm}/>
           <AdditionalMaterial eventForm={eventForm} setEventForm={setEventForm}/>
           <Section9 eventForm={eventForm} setEventForm={setEventForm} />
           {eventForm?.onlineInPersonEventType === "In-person" && 
           <Section7 eventForm={eventForm} setEventForm={setEventForm} /> } 
+          <LocationName eventForm={eventForm} setEventForm={setEventForm}/>
+          <LocationAddress eventForm={eventForm} setEventForm={setEventForm}/>
+          <ZipCode eventForm={eventForm} setEventForm={setEventForm}/>
         {/*   <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes}/> */}
           <Section4 eventForm={eventForm} setEventForm={setEventForm} />
           <Section5 eventForm={eventForm} setEventForm={setEventForm} />

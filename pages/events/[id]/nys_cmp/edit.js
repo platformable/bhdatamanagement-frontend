@@ -11,6 +11,10 @@ import Section8 from "../../../../components/events/Section8";
 import Section9 from "../../../../components/events/Section9";
 import EventDescription from "../../../../components/events/EventDescription";
 import AdditionalMaterial from "../../../../components/events/AdditionalMaterial";
+import WorkArea from '../../../../components/events/WorkArea'
+import ZipCode from '../../../../components/events/ZipCode'
+import LocationAddress from '../../../../components/events/LocationAddress'
+import LocationName from '../../../../components/events/LocationName'
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import Loader from '../../../../components/Loader'
@@ -56,7 +60,13 @@ onlineEventTypeID:null,
 onlineEventTypeName:event?.onlineeventtypename || "",
 createdByLastname:event?.createdbylastname,
 createdByName:event?.createdbyname,
-additionalMaterials:event?.additionalmaterials
+additionalMaterials:event?.additionalmaterials,
+workArea:event?.workarea,
+workAreaOther:event?.workareaother,
+locationName:event?.locationname,
+locationNameOther:event?.locationnameother,
+locationAddress:event?.locationaddress,
+eventZipCode:event?.eventzipcode
 
 
   });
@@ -108,12 +118,16 @@ additionalMaterials:event?.additionalmaterials
           {/* <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} event={event}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} event={event}/> */}
           <Section3_2 eventForm={eventForm} setEventForm={setEventForm} nysActivity={nysActivity}/>
+          <WorkArea eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <Section2 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <EventDescription eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <AdditionalMaterial eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           <Section9 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
           {eventForm?.onlineInPersonEventType === "In-person" && 
             <Section7 eventForm={eventForm} setEventForm={setEventForm} event={event} />}
+               <LocationName eventForm={eventForm} setEventForm={setEventForm} event={event}/>
+          <LocationAddress eventForm={eventForm} setEventForm={setEventForm} event={event}/>
+          <ZipCode eventForm={eventForm} setEventForm={setEventForm} event={event}/>
     {/*       <Section3 eventForm={eventForm} setEventForm={setEventForm} eventTypes={eventTypes} event={event}/> */}
             <Section4 eventForm={eventForm} setEventForm={setEventForm} event={event}/>
             <Section5 eventForm={eventForm} setEventForm={setEventForm} />
