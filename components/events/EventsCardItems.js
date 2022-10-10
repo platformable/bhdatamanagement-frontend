@@ -46,7 +46,7 @@ export default function EventsCardItems({id,
           </Link>
           <Link href={urlUpload}> 
           <div className="events-card-item-btn bg-white text-black border-black-md p-5 flex justify-center items-center rounded-lg cursor-pointer shadow-xl hover:bg-black hover:text-white">
-              <p className="text-center">Upload docs, photos, etc</p>
+              <p className="text-center">Upload docs & photos, etc.</p>
           </div>
           </Link>
           <Link href={postEventReportId ? urlEditPostEventSurvey: urlPostEventSurvey}> 
