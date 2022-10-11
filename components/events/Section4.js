@@ -19,10 +19,11 @@ const Section4 = ({eventForm, setEventForm,event}) => {
         const date = new Date(event?.eventdate);
         const result = new Intl.DateTimeFormat('en-US', options).format(date);
         console.log("result", result)
-
         const splitted = result.split("/")
         return `${splitted[2]}-${splitted[0]}-${splitted[1]}`
       };
+
+       
 
       const crearFecha = () => {
         const dates = new Date(event.eventdate);
