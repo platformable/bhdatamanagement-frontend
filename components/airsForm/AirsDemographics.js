@@ -33,8 +33,8 @@ const AirsDemographics = ({event}) => {
         { value: "More than one race / ethnicity" },
         { value: "Unknown / unreported" },
       ];
-    console.log(event.hivTestedTotal,event.stiTestedTotal,event.hepCTestedTotal,event.covidTestedTotal)
-    const demographiscknown = event.hivtestedtotal+event.stitestedtotal+event.hepctestedtotal+event.covidtestedtotal
+    console.log(event?.hivTestedTotal,event?.stiTestedTotal,event?.hepCTestedTotal,event?.covidTestedTotal)
+    const demographiscknown = event?.hivtestedtotal+event?.stitestedtotal+event?.hepctestedtotal+event?.covidtestedtotal
     return (
         <div className="border-black  mx-5 ">
             <p className="font-bold  text-center my-2 text-xs">* Demographics of participants</p>
@@ -47,8 +47,8 @@ const AirsDemographics = ({event}) => {
                 <div className="leading-5 py-2 border px-3 flex justify-between">
                     <p className="font-bold text-xxs">* TOTAL PARTICIPANTS</p>
                    <div className='pr-10 grid'>
-                    <p className="flex gap-x-5 justify-end text-xxs font-bold ">DEMOGRAPHICS KNOWN: <p className='font-bold underline text-xxs'>{event.demographiscknown === "Demographics known" ? "X" : ""}</p> </p>
-                    <p className="flex gap-x-5 justify-end text-xxs font-bold ">DEMOGRAPHICS UNKNOWN: <p className='font-bold underline text-xxs'>{event.demographiscknown === "Demographics unknown" ? "X" : ""}</p> </p>
+                    <p className="flex gap-x-5 justify-end text-xxs font-bold ">DEMOGRAPHICS KNOWN: <p className='font-bold underline text-xxs'>{event?.demographiscknown === "Demographics known" ? "X" : ""}</p> </p>
+                    <p className="flex gap-x-5 justify-end text-xxs font-bold ">DEMOGRAPHICS UNKNOWN: <p className='font-bold underline text-xxs'>{event?.demographiscknown === "Demographics unknown" ? "X" : ""}</p> </p>
                    </div>
                 
                     </div>
@@ -61,7 +61,7 @@ const AirsDemographics = ({event}) => {
                     <div className='pr-10'>
                     {genderOptions.map(opt => (
                         <>
-                        <div className="flex gap-x-5 text-right "><p className="font-bold text-xxs w-60 uppercase">{opt.value}</p><p className="font-bold underline text-xxs">{event.airsformgender.includes(opt.value)? "X" : ""} </p></div>
+                        <div className="flex gap-x-5 text-right "><p className="font-bold text-xxs w-60 uppercase">{opt.value}</p><p className="font-bold underline text-xxs">{event?.airsformgender?.includes(opt.value)? "X" : ""} </p></div>
                         </>
                     ))}
                     </div>
@@ -73,7 +73,7 @@ const AirsDemographics = ({event}) => {
                     <div className='pr-10'>
                     {ageOptions.map(opt => (
                         <>
-                        <div className="flex gap-x-5 text-right "><p className="font-bold text-xxs w-60 uppercase">{opt.value}</p><p className="font-bold underline text-xxs">{event.airsformage.includes(opt.value)? "X" : ""} </p></div>
+                        <div className="flex gap-x-5 text-right "><p className="font-bold text-xxs w-60 uppercase">{opt.value}</p><p className="font-bold underline text-xxs">{event?.airsformage?.includes(opt.value)? "X" : ""} </p></div>
                         </>
                     ))}
                     </div>
@@ -88,7 +88,7 @@ const AirsDemographics = ({event}) => {
                              <p className="italic text-xxs text-right">(NH) = NON-HISPANIC</p>
                              {ethnicityOptions.map(opt => (
                         <>
-                        <div className="flex gap-x-5 text-right "><p className="font-bold text-xxs w-60 uppercase">{opt.value}</p><p className="font-bold underline text-xxs">{event.airsformraceethnicity.includes(opt.value)? "X" : ""} </p></div>
+                        <div className="flex gap-x-5 text-right "><p className="font-bold text-xxs w-60 uppercase">{opt.value}</p><p className="font-bold underline text-xxs">{event?.airsformraceethnicity?.includes(opt.value)? "X" : ""} </p></div>
                         </>
                     ))}
                         </div>
