@@ -47,7 +47,7 @@ const EventsIndex = ({ events }) => {
     const result = new Intl.DateTimeFormat('en-US', options).format(date);
     console.log("result", result)
     const splitted = result.split("/")
-    return `${splitted[0]}-${splitted[1]}-${splitted[2]}`
+    return `${splitted[0]}/${splitted[1]}/${splitted[2]}`
   };
   const searchFunction = (word) => {
     setSearchWord(word);
