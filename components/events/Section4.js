@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Section4 = ({eventForm, setEventForm,event}) => {
-    const date =new Date(event.eventdate);
+    const date =new Date(event?.eventdate);
    /*  var ms = new Date(date).getTime() + 86400000; */
    var ms = new Date(date).getTime()
     var tomorrow = new Date(ms).toLocaleDateString().replace('/','-').replace('/','-');
