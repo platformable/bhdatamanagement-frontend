@@ -260,8 +260,8 @@ const EventsIndex = ({ events }) => {
                           {event.eventname}
                         </div>
                         <div className="flex items-center lg:text-xl font-bold mr-2">
-                          {event.eventdate && new Date(event?.eventdate).toLocaleDateString('en-US',{timeZone:'America/New_York'})
-                            //crearFecha2(event)
+                          {event.eventdate && 
+                            crearFecha2(event)
                             }
                         </div>
                         <Link href={`events/${event.id}/nys_cmp/edit`}>
