@@ -12,12 +12,12 @@ const Section4 = ({eventForm, setEventForm,event}) => {
 
 
   
-      const dates = new Date(event?.eventdate);
+  /*     const dates = new Date(event?.eventdate);
       const newFinalDate=new Intl.DateTimeFormat('en-US').format(dates).replace('/','-').replace('/','-')
       const prefinaldate=newFinalDate.split('-')
 
       const finalDate = `${prefinaldate[2]}-${prefinaldate[0]<10?0+prefinaldate[0]:prefinaldate[0]}-${prefinaldate[1]<10?0+prefinaldate[1]:prefinaldate[1]}`
-      console.log("finalfinal",finalDate)
+      console.log("finalfinal",finalDate) */
 
 
       const crearFecha2 = () => {
@@ -45,7 +45,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
                 className='border rounded p-2 text-lg w-48 uppercase' 
                 onChange={handleForm}
 
-                defaultValue={finalDate}
+                defaultValue={crearFecha2()}
                 />
         </label>
     );
