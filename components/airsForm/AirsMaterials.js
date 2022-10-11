@@ -7,6 +7,7 @@ const AirsMaterials = ({ event }) => {
         
         } = event
     const literature = covidliterature + vaccinerelatedliterature  + hivliterature + hepcliterature + prepliterature + healthdisparitiesliterature
+    console.log("literature",literature)
   return (
     <div className="mx-5 divide-y divide-black border-t-0 border-b border-b-black border-x border-x-black">
       <div className="grid grid-cols-3 gap-x-1 ">
@@ -47,7 +48,7 @@ const AirsMaterials = ({ event }) => {
           </label>
           <p className=" text-xs">{event.referrallists}</p>
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.literature !== 0 ? "checked" : ""}/>
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={literature !== 0 ? "checked" : ""}/>
             300 Literature
           </label>
           <p className=" text-xs">{literature}</p>

@@ -696,7 +696,7 @@ console.log("eventForm",eventForm)
             <div className="rounded-tl-md rounded-tr-md">
             {/* <h3 className="px-7 mt-10 font-black">Event details</h3> */}
             
-            <PostEventReportSection1 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            {/* <PostEventReportSection1 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/> */}
             <PostEventReportSection2 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection31 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection32 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
