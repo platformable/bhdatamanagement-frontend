@@ -64,7 +64,43 @@ const EventsIndex = ({ events }) => {
   const sortedEventsByDate = events.sort(
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
   );
-
+  function makeIcsFile(date, summary, description) {
+    let icsFile
+    var test =
+      "BEGIN:VCALENDAR\n" +
+      "CALSCALE:GREGORIAN\n" +
+      "METHOD:PUBLISH\n" +
+      "PRODID:-//Test Cal//EN\n" +
+      "VERSION:2.0\n" +
+      "BEGIN:VEVENT\n" +
+      "UID:test-1\n" +
+      "DTSTART;VALUE=DATE:" +
+      date.start +
+      "\n" +
+      "DTEND;VALUE=DATE:" +
+      date.end +
+      "\n" +
+      "SUMMARY:" +
+      summary +
+      "\n" +
+      "DESCRIPTION:" +
+      description +
+      "\n" +
+      "END:VEVENT\n" +
+      "END:VCALENDAR";
+  
+    var data = new File([test], { type: "text/plain" });
+  
+    // If we are replacing a previously generated file we need to
+    // manually revoke the object URL to avoid memory leaks.
+    if (icsFile !== null) {
+      window.URL.revokeObjectURL(icsFile);
+    }
+  
+    icsFile = window.URL.createObjectURL(data);
+  
+    return icsFile;
+  }
   console.log(sortedEventsByDate);
   return (
     <Layout showStatusHeader={true}>
@@ -122,6 +158,7 @@ const EventsIndex = ({ events }) => {
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
         <p className="lg:text-xl font-bold flex items-center ">Event name</p>
         <p className="lg:text-xl font-bold flex items-center ">Event date</p>
+
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
@@ -243,6 +280,11 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
+                        {/* <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
+                            <a className="leading-5" href={makeIcsFile({start: event?.eventstarttime,end: event?.eventfinishtime }, event?.eventname, event?.eventdescription)} download>
+                              ICS file
+                            </a>
+                          </div> */}
                       </section>
                     </div>
                   </>

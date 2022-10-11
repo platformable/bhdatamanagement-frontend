@@ -82,7 +82,7 @@ eventZipCode:""
         axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
             if (response.data.statusText==='OK') {
-              makeIcsFile({start: eventForm.eventStartTime,end: eventForm.eventStartTime}, eventForm.eventName, eventForm.eventDescription)
+              // makeIcsFile({start: eventForm.eventStartTime,end: eventForm.eventStartTime}, eventForm.eventName, eventForm.eventDescription)
               setLoading(false)
               setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
               setShowResponseStatus(!showResponseStatus)
@@ -105,43 +105,7 @@ eventZipCode:""
     event = event.join("");
     return event;
   }
-  function makeIcsFile(date, summary, description) {
-    let icsFile
-    var test =
-      "BEGIN:VCALENDAR\n" +
-      "CALSCALE:GREGORIAN\n" +
-      "METHOD:PUBLISH\n" +
-      "PRODID:-//Test Cal//EN\n" +
-      "VERSION:2.0\n" +
-      "BEGIN:VEVENT\n" +
-      "UID:test-1\n" +
-      "DTSTART;VALUE=DATE:" +
-      date.start +
-      "\n" +
-      "DTEND;VALUE=DATE:" +
-      date.end +
-      "\n" +
-      "SUMMARY:" +
-      summary +
-      "\n" +
-      "DESCRIPTION:" +
-      description +
-      "\n" +
-      "END:VEVENT\n" +
-      "END:VCALENDAR";
   
-    var data = new File([test], { type: "text/plain" });
-  
-    // If we are replacing a previously generated file we need to
-    // manually revoke the object URL to avoid memory leaks.
-    if (icsFile !== null) {
-      window.URL.revokeObjectURL(icsFile);
-    }
-  
-    icsFile = window.URL.createObjectURL(data);
-  
-    return icsFile;
-  }
 
 
   return (
