@@ -47,7 +47,7 @@ const EventsIndex = ({ events }) => {
     const result = new Intl.DateTimeFormat('en-US', options).format(date);
     console.log("result", result)
     const splitted = result.split("/")
-    return `${splitted[2]}-${splitted[0]}-${splitted[1]}`
+    return `${splitted[0]}-${splitted[1]}-${splitted[2]}`
   };
   const searchFunction = (word) => {
     setSearchWord(word);
@@ -260,8 +260,8 @@ const EventsIndex = ({ events }) => {
                           {event.eventname}
                         </div>
                         <div className="flex items-center lg:text-xl font-bold mr-2">
-                          {event.eventdate &&
-                            crearFecha2(event)
+                          {event.eventdate && new Date(event?.eventdate).toLocaleDateString('en-US',{timeZone:'America/New_York'})
+                            //crearFecha2(event)
                             }
                         </div>
                         <Link href={`events/${event.id}/nys_cmp/edit`}>
