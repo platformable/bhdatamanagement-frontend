@@ -33,7 +33,7 @@ const AirsDemographics = ({event}) => {
         { value: "More than one race / ethnicity" },
         { value: "Unknown / unreported" },
       ];
-    console.log(event?.hivTestedTotal,event?.stiTestedTotal,event?.hepCTestedTotal,event?.covidTestedTotal)
+    console.log("airscompoentn",event)
     const demographiscknown = event?.hivtestedtotal+event?.stitestedtotal+event?.hepctestedtotal+event?.covidtestedtotal
     return (
         <div className="border-black  mx-5 ">
@@ -45,10 +45,10 @@ const AirsDemographics = ({event}) => {
                 <div id="left-container" className="border-t-black divide-y divide-black">
                     
                 <div className="leading-5 py-2 border px-3 flex justify-between">
-                    <p className="font-bold text-xxs">* TOTAL PARTICIPANTS</p>
+                    <p className="font-bold text-xxs mr-5">* TOTAL PARTICIPANTS: {event?.totalattendees}</p>
                    <div className='pr-10 grid'>
-                    <p className="flex gap-x-5 justify-end text-xxs font-bold ">DEMOGRAPHICS KNOWN: <p className='font-bold underline text-xxs'>{event?.demographiscknown === "Demographics known" ? "X" : ""}</p> </p>
-                    <p className="flex gap-x-5 justify-end text-xxs font-bold ">DEMOGRAPHICS UNKNOWN: <p className='font-bold underline text-xxs'>{event?.demographiscknown === "Demographics unknown" ? "X" : ""}</p> </p>
+                    <p className="flex gap-x-5 justify-end text-xxs font-bold ">DEMOGRAPHICS KNOWN: <p className='font-bold underline text-xxs'>{event?.demographicsknown === "Demographics known" ? "X" : ""}</p> </p>
+                    <p className="flex gap-x-5 justify-end text-xxs font-bold ">DEMOGRAPHICS UNKNOWN: <p className='font-bold underline text-xxs'>{event?.demographicsknown === "Demographics unknown" ? "X" : ""}</p> </p>
                    </div>
                 
                     </div>
