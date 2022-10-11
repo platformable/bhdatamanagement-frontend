@@ -12,7 +12,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
 
 
   
-      const dates = new Date(event.eventdate);
+      const dates = new Date(event?.eventdate);
       const newFinalDate=new Intl.DateTimeFormat('en-US').format(dates).replace('/','-').replace('/','-')
       const prefinaldate=newFinalDate.split('-')
 
