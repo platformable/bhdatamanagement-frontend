@@ -3,7 +3,7 @@ import React from 'react';
 const Section4 = ({eventForm, setEventForm,event}) => {
 
 
-    const date =new Date(event?.eventdate);
+
 
 
 
@@ -57,7 +57,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
                 className='border rounded p-2 text-lg w-48 uppercase' 
                 onChange={handleForm}
                 /* defaultValue={event?.eventdate.split('T')[0]} */
-                defaultValue={event?.eventdate.split('T')[0]}
+                defaultValue={event && event?.eventdate.split('T')[0]}
                 />
         </label>
     );
