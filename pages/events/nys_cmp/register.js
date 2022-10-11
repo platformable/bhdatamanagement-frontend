@@ -65,7 +65,9 @@ workAreaOther:"",
 locationName:"",
 locationNameOther:"",
 locationAddress:"",
-eventZipCode:""
+eventZipCode:"",
+icsUrlFile: ""
+
 
   });
   const userId = user && user.sub
@@ -75,20 +77,73 @@ eventZipCode:""
   }, [userId])
   
   console.log("nys state form",eventForm)
+ function makeIcsFile(event) {
+    function convertDate(date, time) {
+      console.log("this is the time", time)
+      const dateParts = date.split("T")[0]
+      const dateString = dateParts.split("-").join("")
+      const timeString = time.split(":").join("") + "00"
+      console.log("this is the time stirng ", timeString)
 
+      return dateString + "T" + timeString + "Z"
+    }
+    //   Name of Event
+    // Date of Event
+    // Start Time of Event
+    // Finish Time of Event
+    // Online or in-person
+    // Event type
+    // Event location name
+    // Event location address
+    // Zip code
+    // City Location
+    let icsFile
+    let test =
+      "BEGIN:VCALENDAR\n" +
+      "CALSCALE:GREGORIAN\n" +
+      "METHOD:PUBLISH\n" +
+      "PRODID:-//Black Health//EN\n" +
+      "VERSION:2.0\n" +
+      "BEGIN:VEVENT\n" +
+      "UID:test-1\n" +
+      `DTSTART;TZID=America/New_York:${convertDate(event?.eventDate, event?.eventStartTime)}` +
+      "\n" +
+      `DTEND;TZID=America/New_York:${convertDate(event?.eventDate, event?.eventFinishTime)}` +
+      "\n" +
+      "SUMMARY:" + event?.eventName +
+      "\n" +
+      "DESCRIPTION:" + "(" + event?.onlineInPersonEventType + ") - " + (event.inPersonEventTypeName === "" ? event.onlineEventTypeName : event.inPersonEventTypeName) + " - "+ event?.eventDescription +
+      "\n" +
+      "LOCATION:" + event?.locationAddress + ", " + event?.locationName + ", " + String(event?.eventZipCode) +
+      "\n" +
+      "END:VEVENT\n" +
+      "END:VCALENDAR";
+  
+    var data = new File([test],{ type: "text/calendar" });
+  
+    // If we are replacing a previously generated file we need to
+    // manually revoke the object URL to avoid memory leaks.
+    if (icsFile !== null) {
+      window.URL.revokeObjectURL(icsFile);
+    }
+  
+    icsFile = window.URL.createObjectURL(data);
+    setEventForm((prev)=> ({...prev, icsUrlFile: icsFile}))
+  
+    // return icsFile;
+  }
   const submitEventForm = async () => {
-    
+    makeIcsFile(eventForm)
     setLoading(true)
-        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
+        axios.post(`http://localhost:3500/events`, eventForm)
         .then(response => {
             if (response.data.statusText==='OK') {
-              // makeIcsFile({start: eventForm.eventStartTime,end: eventForm.eventStartTime}, eventForm.eventName, eventForm.eventDescription)
               setLoading(false)
               setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
               setShowResponseStatus(!showResponseStatus)
-              setTimeout(()=>{
-                 router.push("/events") 
-              },1500)
+              // setTimeout(()=>{
+              //    router.push("/events") 
+              // },1500)
             } 
         })
         .catch(function (error) {

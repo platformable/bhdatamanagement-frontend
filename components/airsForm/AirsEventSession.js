@@ -1,4 +1,5 @@
 import React from "react";
+import { crearFecha2 } from "../../utils/helpers";
 
 const AirsEventSession = ({ event}) => {
   console.log(event);
@@ -8,11 +9,7 @@ const AirsEventSession = ({ event}) => {
       <div className="text-xxs  grid grid-cols-2 divide-black ">
         <p className="font-bold  text-xxs px-3 py-1 ">
           * DATE:{" "}
-          {new Date(event?.eventdate).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
+          {crearFecha2(event)}
         </p>
         <p className="font-bold text-xxs px-3 py-1 ">* PROGRAM: BCBS CDI - Mobilization</p>
       </div>

@@ -19,19 +19,21 @@ const Section4 = ({eventForm, setEventForm,event}) => {
       const finalDate = `${prefinaldate[2]}-${prefinaldate[0]<10?0+prefinaldate[0]:prefinaldate[0]}-${prefinaldate[1]<10?0+prefinaldate[1]:prefinaldate[1]}`
       console.log("finalfinal",finalDate) */
 
-
-      const crearFecha2 = () => {
+      const crearFecha2 = (event) => {
         let options = {
             year: "numeric",
             month: "2-digit",
             day: "2-digit",
           };
         options.timeZone = 'UTC';
-        const date = new Date(event?.eventdate);
-        const result = new Intl.DateTimeFormat('en-US', options).format(date);
-        console.log("result", result)
-        const splitted = result.split("/")
-        return `${splitted[2]}-${splitted[0]}-${splitted[1]}`
+        let result;
+        if (event) {
+         const date = new Date(event?.eventdate);
+          result = new Intl.DateTimeFormat('en-US', options).format(date);
+          console.log("result", result)
+          const splitted = result.split("/")
+          return `${splitted[2]}-${splitted[0]}-${splitted[1]}`
+        }
       };
 
     const handleForm = (e) => {
@@ -45,7 +47,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
                 className='border rounded p-2 text-lg w-48 uppercase' 
                 onChange={handleForm}
 
-                defaultValue={crearFecha2()}
+                defaultValue={crearFecha2(event)}
                 />
         </label>
     );
