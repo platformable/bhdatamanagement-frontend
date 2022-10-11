@@ -1,7 +1,13 @@
 import React from 'react';
 
 const Section4 = ({eventForm, setEventForm,event}) => {
+
+
     const date =new Date(event?.eventdate);
+    console.log("eventdate",event.eventdate)
+    console.log("date",date.toLocaleDateString('en-US'))
+
+
    /*  var ms = new Date(date).getTime() + 86400000; */
 
 /*    var ms = new Date(date).getTime()
@@ -12,15 +18,20 @@ const Section4 = ({eventForm, setEventForm,event}) => {
 
 
   
-  /*     const dates = new Date(event?.eventdate);
+   /*    const dates = new Date(event?.eventdate);
       const newFinalDate=new Intl.DateTimeFormat('en-US').format(dates).replace('/','-').replace('/','-')
+      const newFinalDate2=new Intl.DateTimeFormat('en-US').format(dates)
+      console.log("newFinalDate",newFinalDate)
+      console.log("newFinalDate2",newFinalDate2)
       const prefinaldate=newFinalDate.split('-')
 
       const finalDate = `${prefinaldate[2]}-${prefinaldate[0]<10?0+prefinaldate[0]:prefinaldate[0]}-${prefinaldate[1]<10?0+prefinaldate[1]:prefinaldate[1]}`
-      console.log("finalfinal",finalDate) */
+      console.log("finalDate",finalDate) */
 
 
-      const crearFecha2 = () => {
+
+/*       const crearFecha2 = () => {
+
         let options = {
             year: "numeric",
             month: "2-digit",
@@ -32,7 +43,9 @@ const Section4 = ({eventForm, setEventForm,event}) => {
         console.log("result", result)
         const splitted = result.split("/")
         return `${splitted[2]}-${splitted[0]}-${splitted[1]}`
-      };
+
+      }; */
+
 
     const handleForm = (e) => {
         setEventForm(previous => ({...previous, eventDate: e.target.value}))
