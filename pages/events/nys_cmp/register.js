@@ -97,14 +97,7 @@ eventZipCode:""
             console.error("error: ", error)
     });
   }
-  function convertDate(date) {
-    console.log(date)
-    var event = new Date(date).toISOString();
-    event = event.split("T")[0];
-    event = event.split("-");
-    event = event.join("");
-    return event;
-  }
+ 
   
 
 

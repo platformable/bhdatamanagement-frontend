@@ -36,7 +36,19 @@ const EventsIndex = ({ events }) => {
     startDate: null,
     endDate: null,
   });
-
+  const crearFecha2 = (event) => {
+    let options = { 
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      };
+    options.timeZone = 'UTC';
+    const date = new Date(event?.eventdate);
+    const result = new Intl.DateTimeFormat('en-US', options).format(date);
+    console.log("result", result)
+    const splitted = result.split("/")
+    return `${splitted[2]}-${splitted[0]}-${splitted[1]}`
+  };
   const searchFunction = (word) => {
     setSearchWord(word);
     dispatch(searchEventByName({ word }));
@@ -64,9 +76,19 @@ const EventsIndex = ({ events }) => {
   const sortedEventsByDate = events.sort(
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
   );
-  function makeIcsFile(date, summary, description) {
+  function convertDate(date, time) {
+    const hoursandmins = time.split(":")
+    var event = new Date(date).setTime(hoursandmins[0], hoursandmins[1])
+    console.log(event)
+
+    // event = event.split("T")[0];
+    // event = event.split("-");
+    // event = event.join("");
+    // return event;
+  }
+  function makeIcsFile(event) {
     let icsFile
-    var test =
+    let test =
       "BEGIN:VCALENDAR\n" +
       "CALSCALE:GREGORIAN\n" +
       "METHOD:PUBLISH\n" +
@@ -75,21 +97,22 @@ const EventsIndex = ({ events }) => {
       "BEGIN:VEVENT\n" +
       "UID:test-1\n" +
       "DTSTART;VALUE=DATE:" +
-      date.start +
+      convertDate(event?.eventdate, event?.eventstarttime) +
       "\n" +
-      "DTEND;VALUE=DATE:" +
-      date.end +
-      "\n" +
+      // "DTEND;VALUE=DATE:" +
+      // convertDate(event?.eventfinishtime) +
+      // "\n" +
       "SUMMARY:" +
-      summary +
+      event?.eventname +
       "\n" +
       "DESCRIPTION:" +
-      description +
+      event.eventdescription +
       "\n" +
+      "LOCATION:" + event?.locationaddress
       "END:VEVENT\n" +
       "END:VCALENDAR";
   
-    var data = new File([test], { type: "text/plain" });
+    var data = new File([test],{ type: "text/plain" });
   
     // If we are replacing a previously generated file we need to
     // manually revoke the object URL to avoid memory leaks.
@@ -238,14 +261,8 @@ const EventsIndex = ({ events }) => {
                         </div>
                         <div className="flex items-center lg:text-xl font-bold mr-2">
                           {event.eventdate &&
-                            new Date(event?.eventdate).toLocaleDateString(
-                              "en-US",
-                              {
-                                year: "numeric",
-                                month: "numeric",
-                                day: "numeric",
-                              }
-                            )}
+                            crearFecha2(event)
+                            }
                         </div>
                         <Link href={`events/${event.id}/nys_cmp/edit`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
@@ -281,7 +298,8 @@ const EventsIndex = ({ events }) => {
                           </div>
                         </Link>
                         {/* <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
-                            <a className="leading-5" href={makeIcsFile({start: event?.eventstarttime,end: event?.eventfinishtime }, event?.eventname, event?.eventdescription)} download>
+                            <a className="leading-5" href={makeIcsFile(event)}
+                             download="invite.ics">
                               ICS file
                             </a>
                           </div> */}

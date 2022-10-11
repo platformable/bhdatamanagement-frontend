@@ -2,9 +2,11 @@ import React from 'react';
 
 const Section4 = ({eventForm, setEventForm,event}) => {
 
+
     const date =new Date(event?.eventdate);
     console.log("eventdate",event.eventdate)
     console.log("date",date.toLocaleDateString('en-US'))
+
 
    /*  var ms = new Date(date).getTime() + 86400000; */
 
@@ -27,7 +29,9 @@ const Section4 = ({eventForm, setEventForm,event}) => {
       console.log("finalDate",finalDate) */
 
 
+
 /*       const crearFecha2 = () => {
+
         let options = {
             year: "numeric",
             month: "2-digit",
@@ -39,7 +43,9 @@ const Section4 = ({eventForm, setEventForm,event}) => {
         console.log("result", result)
         const splitted = result.split("/")
         return `${splitted[2]}-${splitted[0]}-${splitted[1]}`
+
       }; */
+
 
     const handleForm = (e) => {
         setEventForm(previous => ({...previous, eventDate: e.target.value}))
@@ -52,7 +58,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
                 className='border rounded p-2 text-lg w-48 uppercase' 
                 onChange={handleForm}
 
-                defaultValue={event?.eventdate.split('T')[0]}
+                defaultValue={crearFecha2()}
                 />
         </label>
     );
