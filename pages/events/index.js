@@ -45,7 +45,6 @@ const EventsIndex = ({ events }) => {
     options.timeZone = 'UTC';
     const date = new Date(event?.eventdate);
     const result = new Intl.DateTimeFormat('en-US', options).format(date);
-    console.log("result", result)
     const splitted = result.split("/")
     return `${splitted[0]}/${splitted[1]}/${splitted[2]}`
   };
@@ -67,6 +66,9 @@ const EventsIndex = ({ events }) => {
     (state) => state.eventCalendarDates.value.endDate
   );
 
+  // console.log("startDate desde toolkit", startDate);
+  // console.log("endDate desde toolkit", endDate);
+
 
   const state = useSelector((state) => console.log(state));
 
@@ -75,53 +77,12 @@ const EventsIndex = ({ events }) => {
   const sortedEventsByDate = events.sort(
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
   );
+
   function convertDate(date, time) {
     const hoursandmins = time.split(":")
     var event = new Date(date).setTime(hoursandmins[0], hoursandmins[1])
 
-    // event = event.split("T")[0];
-    // event = event.split("-");
-    // event = event.join("");
-    // return event;
-  }
-  function makeIcsFile(event) {
-    let icsFile
-    let test =
-      "BEGIN:VCALENDAR\n" +
-      "CALSCALE:GREGORIAN\n" +
-      "METHOD:PUBLISH\n" +
-      "PRODID:-//Test Cal//EN\n" +
-      "VERSION:2.0\n" +
-      "BEGIN:VEVENT\n" +
-      "UID:test-1\n" +
-      "DTSTART;VALUE=DATE:" +
-      convertDate(event?.eventdate, event?.eventstarttime) +
-      "\n" +
-      // "DTEND;VALUE=DATE:" +
-      // convertDate(event?.eventfinishtime) +
-      // "\n" +
-      "SUMMARY:" +
-      event?.eventname +
-      "\n" +
-      "DESCRIPTION:" +
-      event.eventdescription +
-      "\n" +
-      "LOCATION:" + event?.locationaddress
-      "END:VEVENT\n" +
-      "END:VCALENDAR";
-  
-    var data = new File([test],{ type: "text/plain" });
-  
-    // If we are replacing a previously generated file we need to
-    // manually revoke the object URL to avoid memory leaks.
-    if (icsFile !== null) {
-      window.URL.revokeObjectURL(icsFile);
-    }
-  
-    icsFile = window.URL.createObjectURL(data);
-  
-    return icsFile;
-  }
+
   console.log(sortedEventsByDate);
   return (
     <Layout showStatusHeader={true}>
@@ -296,11 +257,11 @@ const EventsIndex = ({ events }) => {
                           </div>
                         </Link>
                         {/* <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
-                            <a className="leading-5" href={makeIcsFile(event)}
+                            <a className="leading-5" href={event?.icsurlfile}
                              download="invite.ics">
                               ICS file
                             </a>
-                          </div> */}
+                          </div>  */}
                       </section>
                     </div>
                   </>

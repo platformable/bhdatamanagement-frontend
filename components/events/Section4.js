@@ -29,7 +29,9 @@ const Section4 = ({eventForm, setEventForm,event}) => {
 
 
 
-      const crearFecha2 = (event) => {
+
+   const crearFecha2 = () => {
+
 
         let options = {
             year: "numeric",
@@ -37,6 +39,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
             day: "2-digit",
           };
         options.timeZone = 'UTC';
+
         const date = new Date(event?.eventdate);
         const result = new Intl.DateTimeFormat('en-US', options).format(date);
         console.log("result", result)
@@ -56,6 +59,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
                 name="eventDate" 
                 className='border rounded p-2 text-lg w-48 uppercase' 
                 onChange={handleForm}
+
                 /* defaultValue={event?.eventdate.split('T')[0]} */
                 defaultValue={event && crearFecha2(event)}
                 />

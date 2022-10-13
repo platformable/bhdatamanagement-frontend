@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { crearFecha2 } from '../utils/helpers';
 
 const TopEventsInfo = ({event,airs,selectedEventId,handlePrint}) => {
     return (
@@ -17,11 +18,7 @@ const TopEventsInfo = ({event,airs,selectedEventId,handlePrint}) => {
           <div className="grid md:grid-cols-4 grid-cols-1 gap-5 md:gap-0 py-6 px-7 items-center">
             <h2 className="text-black text-2xl md:col-start-1 md:col-end-3">{event?.eventname}</h2>
             <h2 className="flex md:justify-end text-2xl md:col-start-3 justify-start">
-              {new Date(event?.eventdate).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "numeric",
-                day: "numeric",
-              })}
+              {crearFecha2(event)}
             </h2>
             <div className="flex items-center justify-center md:col-start-4 md:justify-end text-center">
               <Link href={`/events/${event?.eventid}/nys_cmp/edit`}>
