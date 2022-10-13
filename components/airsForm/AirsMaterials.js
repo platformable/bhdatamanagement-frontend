@@ -17,18 +17,18 @@ const AirsMaterials = ({ event }) => {
           <p className="w-20 underline italic text-xs">Type</p>
           <p className="w-20 underline italic text-xs">Quantity</p>
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.malecondoms !== 0 ? "checked" : ""}/>
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " defaultChecked={event?.malecondoms !== 0 ? "checked" : ""}/>
             100 MaleCondoms
           </label>
           <p className=" text-xs">{event.malecondoms}</p>
 
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.safersexkits !== 0 ? "checked" : ""} />
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " defaultChecked={event?.safersexkits !== 0 ? "checked" : ""} />
             205 Safer Sex Kits
           </label>
           <p className=" text-xs">{event?.safersexkits}</p>
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.femalecondoms !== 0 ? "checked" : ""}/>
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " defaultChecked={event?.femalecondoms !== 0 ? "checked" : ""}/>
             460 Female Condoms
           </label>
           <p className=" text-xs">{event.femalecondoms}</p>
@@ -37,18 +37,18 @@ const AirsMaterials = ({ event }) => {
           <p className="w-20 underline italic text-xs">Type</p>
           <p className="w-20 underline italic text-xs">Quantity</p>
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.lubricant !== 0 ? "checked" : ""} />
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " defaultChecked={event?.lubricant !== 0 ? "checked" : ""} />
             220 Lubricant
           </label>
           <p className=" text-xs">{event.lubricant}</p>
 
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={event?.referrallists !== 0 ? "checked" : ""}/>
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " defaultChecked={event?.referrallists !== 0 ? "checked" : ""}/>
             260 ReferralLists
           </label>
           <p className=" text-xs">{event.referrallists}</p>
           <label className="text-xxs my-1 italic ">
-            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " checked={literature !== 0 ? "checked" : ""}/>
+            <input type="checkbox" className="checkbox-normal-size pointer-events-none mr-2 " defaultChecked={literature !== 0 ? "checked" : ""}/>
             300 Literature
           </label>
           <p className=" text-xs">{literature}</p>

@@ -59,7 +59,7 @@ const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
                     
                 </label>) :
                 
-                (<label className="flex items-center  gap-x-5">
+                (<label className="flex items-center  gap-x-5" key={activity.id}>
                     <input type="radio" 
                     name="nysActivity" 
                     className='' 

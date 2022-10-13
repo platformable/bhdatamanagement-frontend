@@ -24,7 +24,7 @@ const ZipCode = ({eventForm,setEventForm}) => {
       type="number" 
       placeholder="Eg. 10027"
       className="border-black rounded p-4 self-start w-32"
-      maxlength={5}
+      maxLength={5}
       name="eventZipCode"
       // max={9999}
       // min={0}
