@@ -45,7 +45,6 @@ const EventsIndex = ({ events }) => {
     options.timeZone = 'UTC';
     const date = new Date(event?.eventdate);
     const result = new Intl.DateTimeFormat('en-US', options).format(date);
-    console.log("result", result)
     const splitted = result.split("/")
     return `${splitted[0]}/${splitted[1]}/${splitted[2]}`
   };
@@ -66,8 +65,8 @@ const EventsIndex = ({ events }) => {
   const endDate = useSelector(
     (state) => state.eventCalendarDates.value.endDate
   );
-  console.log("startDate desde toolkit", startDate);
-  console.log("endDate desde toolkit", endDate);
+  // console.log("startDate desde toolkit", startDate);
+  // console.log("endDate desde toolkit", endDate);
 
   const state = useSelector((state) => console.log(state));
 
@@ -297,12 +296,12 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-                        {/* <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
+                         {/* <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <a className="leading-5" href={makeIcsFile(event)}
                              download="invite.ics">
                               ICS file
                             </a>
-                          </div> */}
+                          </div>  */}
                       </section>
                     </div>
                   </>
