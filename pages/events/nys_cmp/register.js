@@ -119,8 +119,8 @@ icsUrlFile: ""
       "\n" +
       "LOCATION:" + event?.locationAddress + ", " + event?.locationName + ", " + String(event?.eventZipCode) +
       "\n" +
-      "METHOD:PUBLISH"
-      +
+      "METHOD:PUBLISH\n"
+      + 
       "END:VEVENT\n" +
       "END:VCALENDAR";
   
@@ -145,9 +145,9 @@ icsUrlFile: ""
   };
 
   const submitEventForm = async () => {
-    makeIcsFile(eventForm)
+    // makeIcsFile(eventForm)
     setLoading(true)
-        axios.post(`http://localhost:3500/events`, eventForm)
+        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
             if (response.data.statusText==='OK') {
               setLoading(false)
