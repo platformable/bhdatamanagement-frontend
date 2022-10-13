@@ -119,6 +119,8 @@ icsUrlFile: ""
       "\n" +
       "LOCATION:" + event?.locationAddress + ", " + event?.locationName + ", " + String(event?.eventZipCode) +
       "\n" +
+      "METHOD:PUBLISH"
+      +
       "END:VEVENT\n" +
       "END:VCALENDAR";
   

@@ -36,6 +36,63 @@ const EventsIndex = ({ events }) => {
     startDate: null,
     endDate: null,
   });
+  function makeIcsFile(event) {
+    function convertDate(date, time) {
+      console.log("this is the time", time)
+      const dateParts = date.split("T")[0]
+      const dateString = dateParts.split("-").join("")
+      const timeString = time.split(":").join("") + "00"
+      console.log("this is the time stirng ", timeString)
+
+      return dateString + "T" + timeString + "Z"
+    }
+    //   Name of Event
+    // Date of Event
+    // Start Time of Event
+    // Finish Time of Event
+    // Online or in-person
+    // Event type
+    // Event location name
+    // Event location address
+    // Zip code
+    // City Location
+    let icsFile
+    let test =
+      "BEGIN:VCALENDAR\n" +
+      "CALSCALE:GREGORIAN\n" +
+      "METHOD:PUBLISH\n" +
+      "PRODID:-//Black Health//EN\n" +
+      "VERSION:2.0\n" +
+      "BEGIN:VEVENT\n" +
+      "UID:test-1\n" +
+      `DTSTART;TZID=America/New_York:${convertDate(event?.eventdate, event?.eventstarttime)}` +
+      "\n" +
+      `DTEND;TZID=America/New_York:${convertDate(event?.eventdate, event?.eventfinishtime)}` +
+      "\n" +
+      "SUMMARY:" + event?.eventname +
+      "\n" +
+      "DESCRIPTION:" + "(" + event?.onlineinpersoneventtype + ") - " + (event.inPersonEventTypeName === "" ? event.onlineEventTypeName : event.inPersonEventTypeName) + " - "+ event?.eventdescription +
+      "\n" +
+      "LOCATION:" + event?.locationaddress + ", " + event?.locationname + ", " + String(event?.eventzipcode) +
+      "\n" +
+      "METHOD:PUBLISH"
+      +
+      "END:VEVENT\n" +
+      "END:VCALENDAR";
+  
+    var data = new File([test],{ type: "text/calendar" });
+  
+    // If we are replacing a previously generated file we need to
+    // manually revoke the object URL to avoid memory leaks.
+    if (icsFile !== null) {
+      window.URL.revokeObjectURL(icsFile);
+    }
+  
+    icsFile = window.URL.createObjectURL(data);
+  
+    return icsFile;
+  }
+
   const crearFecha2 = (event) => {
     let options = { 
         year: "numeric",
@@ -249,12 +306,12 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-                        {/* <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
-                            <a className="leading-5" href={event?.icsurlfile}
+                        <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
+                            <a className="leading-5" href={makeIcsFile(event)}
                              download="invite.ics">
                               ICS file
                             </a>
-                          </div>  */}
+                          </div> 
                       </section>
                     </div>
                   </>
