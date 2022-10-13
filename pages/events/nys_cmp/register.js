@@ -145,7 +145,7 @@ icsUrlFile: ""
   const submitEventForm = async () => {
     makeIcsFile(eventForm)
     setLoading(true)
-        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}`, eventForm)
+        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
             if (response.data.statusText==='OK') {
               setLoading(false)
