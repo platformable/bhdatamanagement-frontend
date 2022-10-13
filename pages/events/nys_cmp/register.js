@@ -39,8 +39,8 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
     programName: "NYS CMP",
     eventName: "",
     eventDate: "",
-    eventStartTime: "",
-    eventFinishTime: "",
+    eventStartTime: "00:00",
+    eventFinishTime: "12:00",
     eventLocationTypeID: null,
     eventLocationTypeName: "",
     // eventZipCode: "",
@@ -84,7 +84,7 @@ eventZipCode:""
             if (response.data.statusText==='OK') {
               // makeIcsFile({start: eventForm.eventStartTime,end: eventForm.eventStartTime}, eventForm.eventName, eventForm.eventDescription)
               setLoading(false)
-              setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
+              setResponseStatus({ success: true, statusMessage: "Your event is being saved"})
               setShowResponseStatus(!showResponseStatus)
               setTimeout(()=>{
                  router.push("/events") 
