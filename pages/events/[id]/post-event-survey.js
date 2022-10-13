@@ -579,7 +579,7 @@ console.log("eventForm",eventForm)
 
 
           <div className="post-envent-form-container mt-10 border-black grid gap-1 bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
-            <section className="event p-5 rounded">
+            {/* <section className="event pb-5 rounded"> */}
              {/*  <div className="flex justify-between items-center ">
                 <h3 className="mb-3 font-black ">Event</h3>
               </div>
@@ -691,7 +691,7 @@ console.log("eventForm",eventForm)
                   </button>
                 </Link>
               </div> */}
-            </section>
+            {/* </section> */}
 
             <div className="rounded-tl-md rounded-tr-md">
             {/* <h3 className="px-7 mt-10 font-black">Event details</h3> */}
