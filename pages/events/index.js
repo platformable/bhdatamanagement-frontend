@@ -45,8 +45,9 @@ const EventsIndex = ({ events }) => {
     options.timeZone = 'UTC';
     const date = new Date(event?.eventdate);
     const result = new Intl.DateTimeFormat('en-US', options).format(date);
+    console.log("result", result)
     const splitted = result.split("/")
-    return `${splitted[0]}/${splitted[1]}/${splitted[2]}`
+    return `${splitted[2]}-${splitted[0]}-${splitted[1]}`
   };
   const searchFunction = (word) => {
     setSearchWord(word);
@@ -65,23 +66,16 @@ const EventsIndex = ({ events }) => {
   const endDate = useSelector(
     (state) => state.eventCalendarDates.value.endDate
   );
-
-  // console.log("startDate desde toolkit", startDate);
-  // console.log("endDate desde toolkit", endDate);
-
+  console.log("startDate desde toolkit", startDate);
+  console.log("endDate desde toolkit", endDate);
 
   const state = useSelector((state) => console.log(state));
 
-
+  console.log("state", state);
 
   const sortedEventsByDate = events.sort(
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
   );
-
-  function convertDate(date, time) {
-    const hoursandmins = time.split(":")
-    var event = new Date(date).setTime(hoursandmins[0], hoursandmins[1])
-
 
   console.log(sortedEventsByDate);
   return (
@@ -219,7 +213,7 @@ const EventsIndex = ({ events }) => {
                           {event.eventname}
                         </div>
                         <div className="flex items-center lg:text-xl font-bold mr-2">
-                          {event.eventdate && new Date(event.eventdate).toLocaleDateString('en-US')
+                          {event.eventdate && new Date(event?.eventdate).toLocaleDateString('en-US')
                             /* crearFecha2(event) */
                             }
                         </div>

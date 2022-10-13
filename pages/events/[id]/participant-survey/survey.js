@@ -205,7 +205,7 @@ All your answers are completely anonymous, we respect your privacy and thank you
             <div className="grid grid-cols-2 py-6 px-7">
               <h2 className="text-black text-2xl">{data[0]?.eventname}</h2>
               <h2 className="flex justify-end text-2xl">
-                {new Date(data[0]?.eventdate).toLocaleDateString("en-US", {
+                {new Date(surveyForm.eventDate).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "numeric",
                   day: "numeric",
