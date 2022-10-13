@@ -26,7 +26,7 @@ const LocationName = ({eventForm,setEventForm}) => {
         Black Health Office
       </label>
       <label className="text-lg flex flex-col md:flex-row gap-y-5 md:gap-x-5 items-start md:items-center">
-          <divc className="flex gap-5">
+          <div className="flex gap-5">
           <input
           type="radio"
           name="locationName"
@@ -41,7 +41,7 @@ const LocationName = ({eventForm,setEventForm}) => {
           defaultChecked={eventForm.locationName === 'Other' ? "checked" : ""}
         />
         Other
-          </divc>
+          </div>
         
         <input
         name="locationNameOther"

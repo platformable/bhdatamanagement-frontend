@@ -39,7 +39,7 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
     programID: event?.programid || "",
     programName: event?.programname || "",
     eventName: event?.eventname || "",  
-    eventDate: event?.eventdate.split('T')[0] || "",
+    eventDate: event?.eventdate || "",
     eventStartTime: event?.eventstarttime|| "",
     eventFinishTime: event?.eventfinishtime|| "",
     eventLocationTypeID: event?.eventlocationtypeid || null,

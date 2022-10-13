@@ -43,7 +43,7 @@ const Section7 = ({eventForm, setEventForm,event}) => {
              <div className='grid grid-cols-1 gap-5'>
                 {inPersonEventLocationType && inPersonEventLocationType.map(location => (
                     location.value !== "Other" ?
-                    (<>
+                    (<div key={location.id}>
                      <label className='text-lg flex items-center gap-5' key={location.id}>
                     <input type="radio" 
                     name="eventLocationTypeName" 
@@ -55,10 +55,10 @@ const Section7 = ({eventForm, setEventForm,event}) => {
                     />
                     {location.value}
                     </label>
-                    </>)
+                    </div>)
                     :
 
-                    (<>
+                    (<div key={location.id}>
                     <label className="flex items-center flex gap-x-5">
                     <input type="radio" 
                     name="eventLocationTypeName" className='' 
@@ -74,7 +74,7 @@ const Section7 = ({eventForm, setEventForm,event}) => {
                     className='w-96 border-dark-violet rounded ' 
                     placeholder="Eg. Sporting facility"
                     />
-                </label></>)
+                </label></div>)
 
                 ))}
                 

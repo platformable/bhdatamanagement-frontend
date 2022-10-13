@@ -120,7 +120,7 @@ const Section8 = ({event, eventForm, setEventForm}) => {
             className='w-6 h-6'
             onChange={handleForm}
             checked={eventForm.healthAreaOfFocusName.includes("HIV/AIDS") || eventForm.programName==="NYS CMP" ? "checked" : ""}
-            disabled={eventForm.programName==="NYS_CMP" ? "disabled" : "false"}
+            disabled={eventForm.programName==="NYS_CMP" ? "disabled" : false}
             />
             {/* <img src="/events/HIV_icon.svg" alt=""/> */}
             <p className="">HIV/AIDS</p>    

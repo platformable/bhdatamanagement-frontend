@@ -8,8 +8,8 @@ const Section4 = ({eventForm, setEventForm,event}) => {
 
 
    /*  var ms = new Date(date).getTime() + 86400000; */
-
-/*    var ms = new Date(date).getTime()
+/*    const date = new Date(event?.eventdate)
+   var ms = new Date(date).getTime()
     var tomorrow = new Date(ms).toLocaleDateString().replace('/','-').replace('/','-');
     const prefinaldate=tomorrow.split('-')
     const finaldate=`${prefinaldate[2]}-${prefinaldate[0]}-${prefinaldate[1]}`
@@ -17,7 +17,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
 
 
   
-     /*  const dates = new Date(event?.eventdate);
+    /*   const dates = new Date(event?.eventdate);
       const newFinalDate=new Intl.DateTimeFormat('en-US').format(dates).replace('/','-').replace('/','-')
       const newFinalDate2=new Intl.DateTimeFormat('en-US').format(dates)
       console.log("newFinalDate",newFinalDate)
@@ -48,7 +48,8 @@ const Section4 = ({eventForm, setEventForm,event}) => {
 
       };
 
-
+const fecha = event?.eventdate
+console.log("event",fecha)
     const handleForm = (e) => {
         setEventForm(previous => ({...previous, eventDate: e.target.value}))
       }
@@ -61,7 +62,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
                 onChange={handleForm}
 
                 /* defaultValue={event?.eventdate.split('T')[0]} */
-                defaultValue={event && crearFecha2(event)}
+                defaultValue={event?.eventdate.split('T')[0]}
                 />
         </label>
     );

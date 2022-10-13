@@ -73,10 +73,10 @@ const PostEventReport = ({
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
 
+console.log("event",event)
 
-
-  const loggedUsername=user['https://lanuevatest.herokuapp.com/name']
-  const loggedUserLastname=user['https://lanuevatest.herokuapp.com/lastname']
+  const loggedUsername=user && user['https://lanuevatest.herokuapp.com/name']
+  const loggedUserLastname=user && user['https://lanuevatest.herokuapp.com/lastname']
 
 
   const [eventForm, setEventForm] = useState({
@@ -102,8 +102,8 @@ const PostEventReport = ({
         nysActivity : '',
         nysActivityOther : '',
         nysPrograms : [],
-        zipCode : 0,
-        locationAddress : '',
+        zipCode : 0 || event?.eventzipcode,
+        locationAddress : '' || event?.locationaddress,
         locationName : '',
         locationNameOther : '',
         nysPrimaryRiskGroup: "",
