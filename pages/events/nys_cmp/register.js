@@ -23,6 +23,9 @@ import { nysActivity } from "../../../utils/sharedData";
 
 import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 import axios from "axios"
 import ResponseStatusModal from "../../../components/ResponseStatusModal";
 
@@ -76,6 +79,13 @@ eventZipCode:""
   
   console.log("nys state form",eventForm)
 
+
+  const notifyMessage = () => {
+    toast.success("The event is being created", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
   const submitEventForm = async () => {
     
     setLoading(true)
@@ -84,11 +94,16 @@ eventZipCode:""
             if (response.data.statusText==='OK') {
               // makeIcsFile({start: eventForm.eventStartTime,end: eventForm.eventStartTime}, eventForm.eventName, eventForm.eventDescription)
               setLoading(false)
-              setResponseStatus({ success: true, statusMessage: "Your event is being saved"})
-              setShowResponseStatus(!showResponseStatus)
-              setTimeout(()=>{
-                 router.push("/events") 
-              },1500)
+              //setResponseStatus({ success: true, statusMessage: "Your event is being saved"})
+              //setShowResponseStatus(!showResponseStatus)
+              // setTimeout(()=>{
+              //    router.push("/events") 
+              // },1500)
+
+              notifyMessage();
+            setTimeout(() => {
+              router.push("/events") 
+            }, 30000);
             } 
         })
         .catch(function (error) {
@@ -104,6 +119,7 @@ eventZipCode:""
   return (
     <>
     <Layout showStatusHeader={true}>
+    <ToastContainer autoClose={30000} />
       <PageTopHeading
         backBtn={true}
         dashboardBtn={true}
