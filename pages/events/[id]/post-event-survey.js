@@ -709,7 +709,6 @@ console.log("eventForm",eventForm)
             
             <PostEventReportSection6 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection7 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
-            {/* <PostEventReportSection36 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/> */}
             
             <PostEventReportSection30 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection8 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
