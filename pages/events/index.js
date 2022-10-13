@@ -75,6 +75,7 @@ const EventsIndex = ({ events }) => {
       "\n" +
       "LOCATION:" + event?.locationaddress + ", " + event?.locationname + ", " + String(event?.eventzipcode) +
       "\n" +
+      "CLASS:PUBLIC\n"
       "METHOD:PUBLISH"
       +
       "END:VEVENT\n" +
@@ -295,12 +296,12 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-                        <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
+                        {/* <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <a className="leading-5" href={makeIcsFile(event)}
                              download="invite.ics">
                               ICS file
                             </a>
-                          </div> 
+                          </div>  */}
                       </section>
                     </div>
                   </>
