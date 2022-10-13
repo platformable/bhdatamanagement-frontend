@@ -5,7 +5,7 @@ import PageTopHeading from "../../../../components/PageTopHeading";
 
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
-import axios from "axios";
+import { crearFecha2 } from "../../../../utils/helpers";
 
 import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 import ReactToPrint from 'react-to-print'
@@ -47,6 +47,7 @@ const ParticipantSurvey = ({
       setCopyToClipboard(false)
     },500 )
   }
+  
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -60,7 +61,7 @@ const ParticipantSurvey = ({
         <div className="border rounded-t-lg py-3 px-7 bg-black text-white flex justify-between ">
                {/*  <p className="lg:text-lg flex items-center justify-center">Program</p> */}
                 <h2 className="flex items-center text-2xl">{event?.eventname}</h2>
-                <h2 className="flex items-center text-2xl">{new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}</h2>
+                <h2 className="flex items-center text-2xl">{crearFecha2(event)}</h2>
             </div>
           {/* TABLE HEAD END */}
           <div className="flex items-center bg-white">

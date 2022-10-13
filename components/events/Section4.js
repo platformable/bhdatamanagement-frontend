@@ -3,9 +3,8 @@ import React from 'react';
 const Section4 = ({eventForm, setEventForm,event}) => {
 
 
-    const date =new Date(event?.eventdate);
-    console.log("eventdate",event.eventdate)
-    console.log("date",date.toLocaleDateString('en-US'))
+
+
 
 
    /*  var ms = new Date(date).getTime() + 86400000; */
@@ -18,7 +17,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
 
 
   
-   /*    const dates = new Date(event?.eventdate);
+  /*     const dates = new Date(event?.eventdate);
       const newFinalDate=new Intl.DateTimeFormat('en-US').format(dates).replace('/','-').replace('/','-')
       const newFinalDate2=new Intl.DateTimeFormat('en-US').format(dates)
       console.log("newFinalDate",newFinalDate)

@@ -23,6 +23,9 @@ import { nysActivity } from "../../../utils/sharedData";
 
 import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 import axios from "axios"
 import ResponseStatusModal from "../../../components/ResponseStatusModal";
 
@@ -39,8 +42,8 @@ const Register = ({programs,locationTypes, areasOfFocus, eventTypes}) => {
     programName: "NYS CMP",
     eventName: "",
     eventDate: "",
-    eventStartTime: "",
-    eventFinishTime: "",
+    eventStartTime: "00:00",
+    eventFinishTime: "12:00",
     eventLocationTypeID: null,
     eventLocationTypeName: "",
     // eventZipCode: "",
@@ -132,6 +135,13 @@ icsUrlFile: ""
   
     // return icsFile;
   }
+
+  const notifyMessage = () => {
+    toast.success("The event is being created", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
   const submitEventForm = async () => {
     makeIcsFile(eventForm)
     setLoading(true)
@@ -139,11 +149,16 @@ icsUrlFile: ""
         .then(response => {
             if (response.data.statusText==='OK') {
               setLoading(false)
-              setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
-              setShowResponseStatus(!showResponseStatus)
+              //setResponseStatus({ success: true, statusMessage: "Your event is being saved"})
+              //setShowResponseStatus(!showResponseStatus)
               // setTimeout(()=>{
               //    router.push("/events") 
               // },1500)
+
+              notifyMessage();
+            setTimeout(() => {
+              router.push("/events") 
+            }, 30000);
             } 
         })
         .catch(function (error) {
@@ -159,6 +174,7 @@ icsUrlFile: ""
   return (
     <>
     <Layout showStatusHeader={true}>
+    <ToastContainer autoClose={30000} />
       <PageTopHeading
         backBtn={true}
         dashboardBtn={true}
