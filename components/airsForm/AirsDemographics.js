@@ -128,7 +128,7 @@ const AirsDemographics = ({event}) => {
                     <div className="flex gap-x-5"><p className="font-bold w-60 text-xxs">SEX INVOLVING TRANSGENDER:</p><input
                 readOnly
                 type="checkbox"
-                checked={event?.nysprimaryriskgroup === "SEX INVOLVING TRANSGENDER" ? "checked" : ""}
+                checked={event?.nysprimaryriskgroup === "Sex involving transgender" ? "checked" : ""}
                 className="checkbox-normal-size pointer-events-none mr-2"
               /></div>
             </div>
@@ -138,13 +138,13 @@ const AirsDemographics = ({event}) => {
                 <div className="flex gap-x-5"><p className="font-bold w-60 text-xxs">HETEROSEXUAL CONTACT:</p><input
                 readOnly
                 type="checkbox"
-                checked={event?.nysprimaryriskgroup === "HETEROSEXUAL CONTACT" ? "checked" : ""}
+                checked={event?.nysprimaryriskgroup === "Heterosexual contact" ? "checked" : ""}
                 className="checkbox-normal-size pointer-events-none mr-2"
               /></div>
                     <div className="flex gap-x-5"><p className="font-bold w-60 text-xxs">OTHER / RISK NOT INDENTIFIED:</p><input
                 readOnly
                 type="checkbox"
-                checked={event?.nysprimaryriskgroup === "OTHER / RISK NOT INDENTIFIED" ? "checked" : ""}
+                checked={event?.nysprimaryriskgroup === "Other / Risk not identified" ? "checked" : ""}
                 className="checkbox-normal-size pointer-events-none mr-2"
               /></div>
             </div>
