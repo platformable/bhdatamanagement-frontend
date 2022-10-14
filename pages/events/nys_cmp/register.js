@@ -74,13 +74,11 @@ icsUrlFile: ""
   });
   const userId = user && user.sub
   
-  useEffect(() => {
-    setEventForm({...eventForm, userID: userId})
-
-  }, [userId])
+  
   
   console.log("nys state form",eventForm)
  async function makeIcsFile() {
+  console.log("making the file")
     function convertDate(date, time) {
       const dateParts = date.split("T")[0]
       const dateString = dateParts.split("-").join("")
@@ -167,7 +165,7 @@ icsUrlFile: ""
   };
 
   const submitEventForm = async () => {
-    await makeIcsFile(eventForm)
+    //await makeIcsFile(eventForm)
     setLoading(true)
         await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
@@ -193,13 +191,21 @@ icsUrlFile: ""
     });
   }
  
-  
+  useEffect(() => {
+    setEventForm({...eventForm, userID: userId})
+    makeIcsFile(eventForm)
+
+  }, [userId,eventForm.eventDate,
+    eventForm.eventDate, eventForm.eventStartTime,
+    eventForm.eventName,eventForm.eventDescription,eventForm.eventFinishTime, eventForm.eventZipCode,
+    eventForm.onlineEventTypeName, eventForm.inPersonEventTypeName
+  ])
 
 
   return (
     <>
     <Layout showStatusHeader={true}>
-    <ToastContainer autoClose={30000} />
+    <ToastContainer autoClose={15000} />
       <PageTopHeading
         backBtn={true}
         dashboardBtn={true}
