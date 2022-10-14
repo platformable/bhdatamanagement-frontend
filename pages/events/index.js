@@ -381,7 +381,7 @@ const EventsIndex = ({ events }) => {
                           <div className="flex justify-center">
                             <button
                               className="bg-black lg:text-lg py-2 px-5 rounded-lg text-white"
-                              onClick={() => handleDeleteEvent(id, eventName)}
+                              onClick={() => handleDeleteEvent(event?.id, event?.eventname)}
                             >
                               Delete event
                             </button>
