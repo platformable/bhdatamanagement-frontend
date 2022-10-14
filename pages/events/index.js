@@ -38,63 +38,131 @@ const EventsIndex = ({ events }) => {
   });
   function makeIcsFile(event) {
     function convertDate(date, time) {
-      console.log("this is the time", time)
-      const dateParts = date.split("T")[0]
-      const dateString = dateParts.split("-").join("")
-      const timeString = time.split(":").join("") + "00"
-      console.log("this is the time stirng ", timeString)
+      const dateParts = date.split("T")[0];
+      const dateString = dateParts.split("-").join("");
+      const timeString = time.split(":").join("");
 
-      return dateString + "T" + timeString + "Z"
+      return dateString + "T" + timeString;
     }
-    //   Name of Event
-    // Date of Event
-    // Start Time of Event
-    // Finish Time of Event
-    // Online or in-person
-    // Event type
-    // Event location name
-    // Event location address
-    // Zip code
-    // City Location
-    let icsFile
-    let test =
-      "BEGIN:VCALENDAR\n" +
-      "CALSCALE:GREGORIAN\n" +
-      "METHOD:PUBLISH\n" +
-      "PRODID:-//Black Health//EN\n" +
-      "VERSION:2.0\n" +
-      "BEGIN:VEVENT\n" +
-      "UID:test-1\n" +
-      `DTSTART;TZID=America/New_York:${convertDate(event?.eventdate, event?.eventstarttime)}` +
+
+    const textData =
+      "BEGIN:VCALENDAR" +
       "\n" +
-      `DTEND;TZID=America/New_York:${convertDate(event?.eventdate, event?.eventfinishtime)}` +
+      "VERSION:2.0" +
       "\n" +
-      "SUMMARY:" + event?.eventname +
+      "PRODID:-//Black Health v1.0//EN" +
       "\n" +
-      "DESCRIPTION:" + "(" + event?.onlineinpersoneventtype + ") - " + (event.inPersonEventTypeName === "" ? event.onlineEventTypeName : event.inPersonEventTypeName) + " - "+ event?.eventdescription +
+      "CALSCALE:GREGORIAN" +
       "\n" +
-      "LOCATION:" + event?.locationaddress + ", " + event?.locationname + ", " + String(event?.eventzipcode) +
+      "METHOD:PUBLISH" +
       "\n" +
-      "CLASS:PUBLIC\n"
-      "METHOD:PUBLISH"
-      +
-      "END:VEVENT\n" +
+      "X-WR-CALNAME:Events - Black Health" +
+      "\n" +
+      "X-MS-OLK-FORCEINSPECTOROPEN:TRUE" +
+      "\n" +
+      "BEGIN:VTIMEZONE" +
+      "\n" +
+      "TZID:America/New_York" +
+      "\n" +
+      "TZURL:http://tzurl.org/zoneinfo-outlook/America/New_York" +
+      "\n" +
+      "X-LIC-LOCATION:America/New_York" +
+      "\n" +
+      "BEGIN:DAYLIGHT" +
+      "\n" +
+      "TZOFFSETFROM:-0500" +
+      "\n" +
+      "TZOFFSETTO:-0400" +
+      "\n" +
+      "TZNAME:CEST" +
+      "\n" +
+      "DTSTART:19700329T020000" +
+      "\n" +
+      "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU" +
+      "\n" +
+      "END:DAYLIGHT" +
+      "\n" +
+      "BEGIN:STANDARD" +
+      "\n" +
+      "TZOFFSETFROM:-0400" +
+      "\n" +
+      "TZOFFSETTO:-0500" +
+      "\n" +
+      "TZNAME:CET" +
+      "\n" +
+      "DTSTART:19701025T030000" +
+      "\n" +
+      "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU" +
+      "\n" +
+      "END:STANDARD" +
+      "\n" +
+      "END:VTIMEZONE" +
+      "\n" +
+      "BEGIN:VEVENT" +
+      "\n" +
+      "DTSTAMP:20220129T115020Z" +
+      "\n" +
+      `DTSTART:${convertDate(event?.eventdate, event?.eventstarttime)}` +
+      "\n" +
+      `DTEND:${convertDate(event?.eventdate, event?.eventfinishtime)}` +
+      "\n" +
+      "STATUS:CONFIRMED" +
+      "\n" +
+      "SUMMARY:" +
+      event?.eventname +
+      "\n" +
+      "DESCRIPTION:" +
+      "(" +
+      event?.onlineinpersoneventtype +
+      ") - " +
+      (event.inPersonEventTypeName === ""
+        ? event.onlineEventTypeName
+        : event.inPersonEventTypeName) +
+      " - " +
+      event?.eventdescription +
+      "\n" +
+      "ORGANIZER;CN=Meetup Reminder:MAILTO:info@meetup.com" +
+      "\n" +
+      "CLASS:PUBLIC" +
+      "\n" +
+      // "CREATED:20220119T120306Z" + "\n" +
+      // "GEO:41.40;2.17" + "\n" +
+      "LOCATION:" +
+      event?.locationaddress +
+      ", " +
+      event?.locationname +
+      ", " +
+      String(event?.eventzipcode) +
+      "\n" +
+      // "URL:https://www.meetup.com/Life-Drawing/events/283355921/" + "\n" +
+      "SEQUENCE:2" +
+      "\n" +
+      // "LAST-MODIFIED:20220119T120306Z" + "\n" +
+      "UID:event_283355921@black_health_data_app_management" +
+      "\n" +
+      "END:VEVENT" +
+      "\n" +
       "END:VCALENDAR";
-  
-    var data = new File([test],{ type: "text/calendar" });
-  
+
+    let icsFile;
+
+    var data = new File([textData], { type: "text/calendar" });
+
     // If we are replacing a previously generated file we need to
     // manually revoke the object URL to avoid memory leaks.
     if (icsFile !== null) {
       window.URL.revokeObjectURL(icsFile);
     }
-  
+
     icsFile = window.URL.createObjectURL(data);
-  
+
     return icsFile;
   }
-
-  
+  const handleDeleteEvent=(id,eventName)=>{
+    console.log(id)
+    setSelectedEventToDelete({id:id,eventname:eventName})
+    setShowDeleteEventModal(!showDeleteEventModal)
+  }
   const searchFunction = (word) => {
     setSearchWord(word);
     dispatch(searchEventByName({ word }));
@@ -180,7 +248,6 @@ const EventsIndex = ({ events }) => {
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
         <p className="lg:text-xl font-bold flex items-center ">Event name</p>
         <p className="lg:text-xl font-bold flex items-center ">Event date</p>
-
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
@@ -220,6 +287,7 @@ const EventsIndex = ({ events }) => {
                     filterPass = filterPass && new Date(startDate) <= date;
                   }
                   if (dateFilter.endDate) {
+                    console.log("dateFilter", dateFilter.endDate >= date);
                     filterPass =
                       filterPass && new Date(dateFilter.endDate) >= date;
                   }
@@ -259,9 +327,13 @@ const EventsIndex = ({ events }) => {
                           {event.eventname}
                         </div>
                         <div className="flex items-center lg:text-xl font-bold mr-2">
-                          {event.eventdate && new Date(event?.eventdate).toLocaleDateString('en-US')
+                          {
+                            event.eventdate &&
+                              new Date(event?.eventdate).toLocaleDateString(
+                                "en-US"
+                              )
                             /* crearFecha2(event) */
-                            }
+                          }
                         </div>
                         <Link href={`events/${event.id}/nys_cmp/edit`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
@@ -296,12 +368,25 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-                        {/* <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
-                            <a className="leading-5" href={makeIcsFile(event)}
-                             download="invite.ics">
-                              ICS file
-                            </a>
-                          </div>  */}
+                        <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center">
+                          <a
+                            className="leading-5  lg:text-lg p-2 font-bold"
+                            href={makeIcsFile(event)}
+                            download="invite.ics"
+                          >
+                            Download calendar file
+                          </a>
+                        </div>
+                        {loggedUserRole === "Supervisor" && (
+                          <div className="flex justify-center">
+                            <button
+                              className="bg-black lg:text-lg py-2 px-5 rounded-lg text-white"
+                              onClick={() => handleDeleteEvent(id, eventName)}
+                            >
+                              Delete event
+                            </button>
+                          </div>
+                        )}
                       </section>
                     </div>
                   </>
