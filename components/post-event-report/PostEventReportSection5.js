@@ -6,6 +6,7 @@ const PostEventReportSection5 = ({eventForm,setEventForm, isNumberKey}) => {
     <div className="px-7 mt-10">
       <h2 className="font-black">What was the primary zip code of the event location?</h2>
       <p>In what zip code were you hoping the participants at the event will be coming from?</p>
+      <p>To change this value, go to Edit Event after saving this Post-event Survey.</p>
     <div className="flex gap-x-5 items-center mt-7">
       <p>Zip code</p>
       <label>

@@ -18,6 +18,7 @@ const LocationAddress = ({eventForm,setEventForm}) => {
     }))}}
     placeholder='Type full address' 
     defaultValue={eventForm.locationAddress}
+    
 />
     </label>
     

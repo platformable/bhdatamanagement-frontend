@@ -7,6 +7,7 @@ const PostEventReportSection6 = ({eventForm,setEventForm}) => {
     <h2 className="font-black">
       What was the event location address
     </h2>
+    <p>To change this value, go to Edit Event after saving this Post-event Survey.</p>
     <label>
     <input type="text" 
     name="locationAddress" 
@@ -18,6 +19,7 @@ const PostEventReportSection6 = ({eventForm,setEventForm}) => {
     }))}}
     placeholder='Please type address' 
     defaultValue={eventForm.locationAddress}
+    disabled
 />
     </label>
     

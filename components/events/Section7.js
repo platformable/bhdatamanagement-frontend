@@ -31,10 +31,10 @@ const Section7 = ({eventForm, setEventForm,event}) => {
 
 
     const handleForm = (e) => {
-        setEventForm(previous => ({...previous, eventLocationTypeName: capitalizeFirstLetter(e.target.value),  eventLocationTypeID: e.target.id}))
+        setEventForm(previous => ({...previous, eventLocationTypeName: capitalizeFirstLetter(e.target.value),  eventLocationTypeID: Number(e.target.id)}))
       };
     const handleFormId = (e) => {
-        setEventForm(previous => ({...previous, eventLocationTypeID: e.target.id}))
+        setEventForm(previous => ({...previous, eventLocationTypeID: Number(e.target.id)}))
     };
 
     return (

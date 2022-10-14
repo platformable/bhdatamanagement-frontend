@@ -8,6 +8,7 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
          Enter the event location name, eg. business name or faith-based
         organization name
       </h2>
+      <p>To change this value, go to Edit Event after saving this Post-event Survey.</p>
       <div className="mt-7 grid grid-cols-1 gap-5">
       <label className="text-lg flex gap-x-5 items-center" >
         <input
@@ -22,6 +23,7 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
               [e.target.name]:e.target.value
             }))
           }
+          disabled
           defaultChecked={eventForm.locationName === 'Black Health Office' ? "checked" : ""}
         />
         Black Health Office
@@ -40,6 +42,7 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
             }))
           }
           defaultChecked={eventForm.locationName === 'Other' ? "checked" : ""}
+          disabled
         />
         Other
           </divc>
@@ -55,6 +58,7 @@ const PostEventReportSection7 = ({eventForm,setEventForm}) => {
           className="p-4 text-base border-black rounded w-72"
           placeholder="Eg. Inwood Gourmet Deli"
           defaultValue={eventForm.locationNameOther}
+          disabled
         />
       </label>
 
