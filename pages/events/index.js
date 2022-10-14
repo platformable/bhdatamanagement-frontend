@@ -368,15 +368,15 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-                       {/*  <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center">
+                        <div className={`cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center ${event?.icsurlfile==='' || event?.icsurlfile===null? 'pointer-events-none':''}`}>
                           <a
                             className="leading-5  lg:text-lg p-2 font-bold"
-                            href="#"
-                            download="invite.ics"
+                            href={event?.icsurlfile}
+                            download={`${event?.eventname}.ics`}
                           >
                             Download calendar file
                           </a>
-                        </div> */}
+                        </div>
                         {loggedUserRole === "Supervisor" && (
                           <div className="flex justify-center">
                             <button

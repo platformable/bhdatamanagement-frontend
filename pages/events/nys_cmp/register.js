@@ -178,9 +178,9 @@ icsUrlFile: ""
               // },1500)
 
               notifyMessage();
-            // setTimeout(() => {
-            //   router.push("/events") 
-            // }, 30000);
+            setTimeout(() => {
+              router.push("/events") 
+            }, 15000);
             } 
         })
         .catch(function (error) {
