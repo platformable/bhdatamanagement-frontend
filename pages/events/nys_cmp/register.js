@@ -62,7 +62,6 @@ eventDescription:"",
 additionalMaterials:"",
 createdByName:user && user["https://lanuevatest.herokuapp.com/name"],
 createdByLastname:user && user["https://lanuevatest.herokuapp.com/lastname"],
-
 workArea:"",
 workAreaOther:"",
 locationName:"",
@@ -77,65 +76,88 @@ icsUrlFile: ""
   
   useEffect(() => {
     setEventForm({...eventForm, userID: userId})
+
   }, [userId])
   
   console.log("nys state form",eventForm)
- function makeIcsFile(event) {
+ async function makeIcsFile() {
     function convertDate(date, time) {
-      console.log("this is the time", time)
       const dateParts = date.split("T")[0]
       const dateString = dateParts.split("-").join("")
-      const timeString = time.split(":").join("") + "00"
-      console.log("this is the time stirng ", timeString)
+      const timeString = time.split(":").join("") 
 
-      return dateString + "T" + timeString + "Z"
+      return dateString + "T" + timeString
     }
-    //   Name of Event
-    // Date of Event
-    // Start Time of Event
-    // Finish Time of Event
-    // Online or in-person
-    // Event type
-    // Event location name
-    // Event location address
-    // Zip code
-    // City Location
-    let icsFile
-    let test =
-      "BEGIN:VCALENDAR\n" +
-      "CALSCALE:GREGORIAN\n" +
-      "METHOD:PUBLISH\n" +
-      "PRODID:-//Black Health//EN\n" +
-      "VERSION:2.0\n" +
-      "BEGIN:VEVENT\n" +
-      "UID:test-1\n" +
-      `DTSTART;TZID=America/New_York:${convertDate(event?.eventDate, event?.eventStartTime)}` +
+    async function blobToBase64(blob) {
+      return new Promise((resolve, _) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.readAsDataURL(blob);
+      });
+    }
+    // let icsFile
+    const textData = 
+    "BEGIN:VCALENDAR" + "\n" +
+    "VERSION:2.0" + "\n" +
+    "PRODID:-//Black Health v1.0//EN" + "\n" +
+    "CALSCALE:GREGORIAN" + "\n" +
+    "METHOD:PUBLISH" + "\n" +
+    "X-WR-CALNAME:Events - Black Health" + "\n" +
+    "X-MS-OLK-FORCEINSPECTOROPEN:TRUE" + "\n" +
+    "BEGIN:VTIMEZONE" + "\n" +
+    "TZID:America/New_York" + "\n" +
+    "TZURL:http://tzurl.org/zoneinfo-outlook/America/New_York" + "\n" +
+    "X-LIC-LOCATION:America/New_York" + "\n" +
+    "BEGIN:DAYLIGHT" + "\n" +
+    "TZOFFSETFROM:-0500" + "\n" +
+    "TZOFFSETTO:-0400" + "\n" +
+    "TZNAME:CEST" + "\n" +
+    "DTSTART:19700329T020000" + "\n" +
+    "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU" + "\n" +
+    "END:DAYLIGHT" + "\n" +
+    "BEGIN:STANDARD" + "\n" +
+    "TZOFFSETFROM:-0400" + "\n" +
+    "TZOFFSETTO:-0500" + "\n" +
+    "TZNAME:CET" + "\n" +
+    "DTSTART:19701025T030000" + "\n" +
+    "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU" + "\n" +
+    "END:STANDARD" + "\n" +
+    "END:VTIMEZONE" + "\n" +
+    "BEGIN:VEVENT" + "\n" +
+    "DTSTAMP:20220129T115020Z" + "\n" +
+    `DTSTART:${convertDate(eventForm?.eventDate, eventForm?.eventStartTime)}` +
+    "\n" +
+    `DTEND:${convertDate(eventForm?.eventDate, eventForm?.eventFinishTime)}` +
+    "\n" +
+    "STATUS:CONFIRMED" + "\n" +
+    "SUMMARY:" + eventForm?.eventName + "\n" +
+    "DESCRIPTION:" + "(" + eventForm?.onlineInPersonEventType + ") - " + (eventForm?.inPersonEventTypeName === "" ? eventForm?.onlineEventTypeName : eventForm?.inPersonEventTypeName) + " - "+ eventForm?.eventDescription +
       "\n" +
-      `DTEND;TZID=America/New_York:${convertDate(event?.eventDate, event?.eventFinishTime)}` +
-      "\n" +
-      "SUMMARY:" + event?.eventName +
-      "\n" +
-      "DESCRIPTION:" + "(" + event?.onlineInPersonEventType + ") - " + (event.inPersonEventTypeName === "" ? event.onlineEventTypeName : event.inPersonEventTypeName) + " - "+ event?.eventDescription +
-      "\n" +
-      "LOCATION:" + event?.locationAddress + ", " + event?.locationName + ", " + String(event?.eventZipCode) +
-      "\n" +
-      "METHOD:PUBLISH\n"
-      + 
-      "END:VEVENT\n" +
-      "END:VCALENDAR";
+    "ORGANIZER;CN=Meetup Reminder:MAILTO:info@meetup.com" + "\n" +
+    "CLASS:PUBLIC" + "\n" +
+    // "CREATED:20220119T120306Z" + "\n" +
+    // "GEO:41.40;2.17" + "\n" +
+    "LOCATION:" + eventForm?.locationAddress + ", " + eventForm?.locationName + ", " + String(eventForm?.eventZipCode) +
+    "\n" +
+    // "URL:https://www.meetup.com/Life-Drawing/events/283355921/" + "\n" +
+    "SEQUENCE:2" + "\n" +
+    // "LAST-MODIFIED:20220119T120306Z" + "\n" +
+    "UID:event_283355921@black_health_data_app_management" + "\n" +
+    "END:VEVENT" + "\n" +
+    "END:VCALENDAR"
   
-    var data = new File([test],{ type: "text/calendar" });
-  
+    var data = new File([textData],{ type: "text/calendar" });
     // If we are replacing a previously generated file we need to
     // manually revoke the object URL to avoid memory leaks.
-    if (icsFile !== null) {
-      window.URL.revokeObjectURL(icsFile);
-    }
+    // if (icsFile !== null) {
+    //   window.URL.revokeObjectURL(icsFile);
+    // }
   
-    icsFile = window.URL.createObjectURL(data);
-    setEventForm((prev)=> ({...prev, icsUrlFile: icsFile}))
-  
-    // return icsFile;
+    // icsFile = window.URL.createObjectURL(data);
+    let IcsfileEncodedToBase64 = await blobToBase64(data) 
+    const result = await IcsfileEncodedToBase64
+    
+    setEventForm((prev)=> ({...prev, icsUrlFile: result}))
   }
 
   const notifyMessage = () => {
@@ -145,9 +167,9 @@ icsUrlFile: ""
   };
 
   const submitEventForm = async () => {
-    // makeIcsFile(eventForm)
+    await makeIcsFile(eventForm)
     setLoading(true)
-        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
+        await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
             if (response.data.statusText==='OK') {
               setLoading(false)
@@ -158,12 +180,13 @@ icsUrlFile: ""
               // },1500)
 
               notifyMessage();
-            setTimeout(() => {
-              router.push("/events") 
-            }, 30000);
+            // setTimeout(() => {
+            //   router.push("/events") 
+            // }, 30000);
             } 
         })
         .catch(function (error) {
+            setLoading(false)
             setResponseStatus({ success: false, statusMessage: "Request Failed"})
             setShowResponseStatus(!showResponseStatus)
             console.error("error: ", error)

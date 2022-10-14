@@ -28,8 +28,8 @@ const AirsDemographics = ({event}) => {
         { value: "(NH) White" },
         { value: "(NH) Black or African American" },
         { value: "(NH) Asian" },
-        { value: "(NH) Native Hawaiian or Pacific Islander:" },
-        { value: "(NH) American Indian or Alaskan Native:" },
+        { value: "(NH) Native Hawaiian or Pacific Islander" },
+        { value: "(NH) American Indian or Alaskan Native" },
         { value: "More than one race / ethnicity" },
         { value: "Unknown / unreported" },
       ];

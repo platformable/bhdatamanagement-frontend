@@ -510,7 +510,7 @@ label > textarea {
 /* EVENTS TABLE  */
 .existing-events-head-table {
   display: grid;
-  grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr ;
+  grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1fr 1fr;
   /* grid-template-columns: 130px 390px 130px 190px 190px 190px 190px; */
   gap: 30px;
 }
