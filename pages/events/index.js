@@ -14,6 +14,7 @@ import {
   updateStartDate,
   updateEndDate,
 } from "../../slices/eventsCalendarDatesSlice";
+import { useEffect } from "react";
 
 const EventsIndex = ({ events }) => {
   const eventSearchWord = useSelector(
@@ -36,7 +37,13 @@ const EventsIndex = ({ events }) => {
     startDate: null,
     endDate: null,
   });
-  /* function makeIcsFile(event) {
+  // async function downloadCalendar (base64) {
+    
+  // }
+  useEffect(() => {
+    events.map(event => {event.url_calendar = makeIcsFile(event)})
+  }, [])
+   function makeIcsFile(event) {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];
       const dateString = dateParts.split("-").join("");
@@ -157,7 +164,7 @@ const EventsIndex = ({ events }) => {
     icsFile = window.URL.createObjectURL(data);
 
     return icsFile;
-  } */
+  } 
   const handleDeleteEvent=(id,eventName)=>{
     console.log(id)
     setSelectedEventToDelete({id:id,eventname:eventName})
@@ -368,10 +375,10 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-                        <div className={`cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center ${event?.icsurlfile==='' || event?.icsurlfile===null? 'pointer-events-none':''}`}>
+                        <div className={`cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center`}>
                           <a
                             className="leading-5  lg:text-lg p-2 font-bold"
-                            href={event?.icsurlfile}
+                            href={event?.url_calendar}
                             download={`${event?.eventname}.ics`}
                           >
                             Download calendar file
