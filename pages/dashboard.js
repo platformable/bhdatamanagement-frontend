@@ -130,7 +130,7 @@ export default function Dashboard({selectedProgram}) {
                     /> */}
                   </div>
                   <p className=" font-bold text-white uppercase">
-                    Create<br />Report
+                    DATA AND<br />REPORTS
                   </p>
                 </div>{" "}
               </button>

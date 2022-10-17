@@ -74,8 +74,6 @@ icsUrlFile: ""
   });
   const userId = user && user.sub
   
-  
-  
   console.log("nys state form",eventForm)
  async function makeIcsFile() {
   console.log("making the file")
@@ -86,64 +84,13 @@ icsUrlFile: ""
 
       return dateString + "T" + timeString
     }
-    async function blobToBase64(blob) {
-      return new Promise((resolve, _) => {
-        const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result);
-        reader.readAsDataURL(blob);
-      });
-    }
+
     // let icsFile
     const textData = 
-    "BEGIN:VCALENDAR" + "\n" +
-    "VERSION:2.0" + "\n" +
-    "PRODID:-//Black Health v1.0//EN" + "\n" +
-    "CALSCALE:GREGORIAN" + "\n" +
-    "METHOD:PUBLISH" + "\n" +
-    "X-WR-CALNAME:Events - Black Health" + "\n" +
-    "X-MS-OLK-FORCEINSPECTOROPEN:TRUE" + "\n" +
-    "BEGIN:VTIMEZONE" + "\n" +
-    "TZID:America/New_York" + "\n" +
-    "TZURL:http://tzurl.org/zoneinfo-outlook/America/New_York" + "\n" +
-    "X-LIC-LOCATION:America/New_York" + "\n" +
-    "BEGIN:DAYLIGHT" + "\n" +
-    "TZOFFSETFROM:-0500" + "\n" +
-    "TZOFFSETTO:-0400" + "\n" +
-    "TZNAME:CEST" + "\n" +
-    "DTSTART:19700329T020000" + "\n" +
-    "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU" + "\n" +
-    "END:DAYLIGHT" + "\n" +
-    "BEGIN:STANDARD" + "\n" +
-    "TZOFFSETFROM:-0400" + "\n" +
-    "TZOFFSETTO:-0500" + "\n" +
-    "TZNAME:CET" + "\n" +
-    "DTSTART:19701025T030000" + "\n" +
-    "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU" + "\n" +
-    "END:STANDARD" + "\n" +
-    "END:VTIMEZONE" + "\n" +
-    "BEGIN:VEVENT" + "\n" +
-    "DTSTAMP:20220129T115020Z" + "\n" +
-    `DTSTART:${convertDate(eventForm?.eventDate, eventForm?.eventStartTime)}` +
-    "\n" +
-    `DTEND:${convertDate(eventForm?.eventDate, eventForm?.eventFinishTime)}` +
-    "\n" +
-    "STATUS:CONFIRMED" + "\n" +
-    "SUMMARY:" + eventForm?.eventName + "\n" +
-    "DESCRIPTION:" + "(" + eventForm?.onlineInPersonEventType + ") - " + (eventForm?.inPersonEventTypeName === "" ? eventForm?.onlineEventTypeName : eventForm?.inPersonEventTypeName) + " - "+ eventForm?.eventDescription +
-      "\n" +
-    "ORGANIZER;CN=Meetup Reminder:MAILTO:info@meetup.com" + "\n" +
-    "CLASS:PUBLIC" + "\n" +
-    // "CREATED:20220119T120306Z" + "\n" +
-    // "GEO:41.40;2.17" + "\n" +
-    "LOCATION:" + eventForm?.locationAddress + ", " + eventForm?.locationName + ", " + String(eventForm?.eventZipCode) +
-    "\n" +
+    `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Black Health v1.0//EN\nCALSCALE:GREGORIAN\nMETHOD:PUBLISH\nX-WR-CALNAME:Events - Black Health\nX-MS-OLK-FORCEINSPECTOROPEN:TRUE\nBEGIN:VTIMEZONE\nTZID:America/New_York\nTZURL:http://tzurl.org/zoneinfo-outlook/America/New_York\nX-LIC-LOCATION:America/New_York\nBEGIN:DAYLIGHT\nTZOFFSETFROM:-0500\nTZOFFSETTO:-0400\nTZNAME:CEST\nDTSTART:19700329T020000\nRRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU\nEND:DAYLIGHT\nBEGIN:STANDARD\nTZOFFSETFROM:-0400\nTZOFFSETTO:-0500\nTZNAME:CET\nDTSTART:19701025T030000\nRRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU\nEND:STANDARD\nEND:VTIMEZONE\nBEGIN:VEVENT\nDTSTAMP:20220129T115020Z\nDTSTART:${convertDate(eventForm?.eventDate, eventForm?.eventStartTime)}\nDTEND:${convertDate(eventForm?.eventDate, eventForm?.eventFinishTime)}\nSTATUS:CONFIRMED\nSUMMARY:${eventForm?.eventName}\nDESCRIPTION:${eventForm?.onlineInPersonEventType} - ${eventForm?.inPersonEventTypeName === "" ? eventForm?.onlineEventTypeName : eventForm?.inPersonEventTypeName} - ${eventForm?.eventDescription}\nORGANIZER;CN=Black Health:MAILTO:info@meetup.com\nCLASS:PUBLIC\nLOCATION:${eventForm?.locationAddress}, ${eventForm?.locationName}, ${String(eventForm?.eventZipCode)}\nSEQUENCE:2\nUID:event_283355921@black_health_data_app_management\nEND:VEVENT\nEND:VCALENDAR`
     // "URL:https://www.meetup.com/Life-Drawing/events/283355921/" + "\n" +
-    "SEQUENCE:2" + "\n" +
-    // "LAST-MODIFIED:20220119T120306Z" + "\n" +
-    "UID:event_283355921@black_health_data_app_management" + "\n" +
-    "END:VEVENT" + "\n" +
-    "END:VCALENDAR"
-  
+    // "GEO:41.40;2.17" + "\n" +
+
     var data = new File([textData],{ type: "text/calendar" });
     // If we are replacing a previously generated file we need to
     // manually revoke the object URL to avoid memory leaks.
@@ -152,10 +99,8 @@ icsUrlFile: ""
     // }
   
     // icsFile = window.URL.createObjectURL(data);
-    let IcsfileEncodedToBase64 = await blobToBase64(data) 
-    const result = await IcsfileEncodedToBase64
     
-    setEventForm((prev)=> ({...prev, icsUrlFile: result}))
+    setEventForm((prev)=> ({...prev, icsUrlFile: textData}))
   }
 
   const notifyMessage = () => {
@@ -165,30 +110,28 @@ icsUrlFile: ""
   };
 
   const submitEventForm = async () => {
-    //await makeIcsFile(eventForm)
-    setLoading(true)
-        await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
-        .then(response => {
-            if (response.data.statusText==='OK') {
-              setLoading(false)
-              //setResponseStatus({ success: true, statusMessage: "Your event is being saved"})
-              //setShowResponseStatus(!showResponseStatus)
-              // setTimeout(()=>{
-              //    router.push("/events") 
-              // },1500)
+    console.log(eventForm.icsUrlFile)
+    await makeIcsFile(eventForm)
+     setLoading(true)
+         await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
+         .then(response => {
+             if (response.data.statusText==='OK') {
+               setLoading(false)
+               //setResponseStatus({ success: true, statusMessage: "Your event is being saved"})
+               //setShowResponseStatus(!showResponseStatus)
 
               notifyMessage();
-            setTimeout(() => {
-              router.push("/events") 
-            }, 15000);
-            } 
-        })
-        .catch(function (error) {
+              setTimeout(() => {
+               router.push("/events") 
+             }, 15000);
+             } 
+         })
+         .catch(function (error) {
             setLoading(false)
-            setResponseStatus({ success: false, statusMessage: "Request Failed"})
-            setShowResponseStatus(!showResponseStatus)
-            console.error("error: ", error)
-    });
+    //         setResponseStatus({ success: false, statusMessage: "Request Failed"})
+    //         setShowResponseStatus(!showResponseStatus)
+           console.error("error: ", error)
+     });
   }
  
   useEffect(() => {
@@ -276,3 +219,4 @@ export const getServerSideProps = withPageAuthRequired({
     },
   });
 
+  
