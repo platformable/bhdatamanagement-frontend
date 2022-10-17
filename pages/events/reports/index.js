@@ -12,10 +12,10 @@ const CreateReport = () => {
      <div>
      
      <Link href="/events/reports/nysReportPage">
-      <button className="bg-black text-white p-5 rounded mb-5">Download DRAFT MONTHLY REPORT NYS CMP</button>
+      <button className="bg-black text-white p-5 rounded mb-5">NYS CMP Dataset</button>
       </Link> <br />
      <Link href="/events/reports/nysReportPage">
-      <button className="bg-black text-white p-5 rounded">Download CSV FOR NYS FUNDING REPORT</button>
+      <button className="bg-black text-white p-5 rounded">Draft NYS CMP Monthly Report</button>
       </Link>
      </div>
           

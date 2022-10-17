@@ -119,16 +119,14 @@ const EventsIndex = ({ events }) => {
       event?.eventname +
       "\n" +
       "DESCRIPTION:" +
-      "(" +
       event?.onlineinpersoneventtype +
-      ") - " +
-      (event.inPersonEventTypeName === ""
-        ? event.onlineEventTypeName
-        : event.inPersonEventTypeName) +
+      " - " +
+      (event.onlineeventtypename
+        || event.inpersoneventtypename) +
       " - " +
       event?.eventdescription +
       "\n" +
-      "ORGANIZER;CN=Meetup Reminder:MAILTO:info@meetup.com" +
+      "ORGANIZER;CN=Black Health:MAILTO:info@meetup.com" +
       "\n" +
       "CLASS:PUBLIC" +
       "\n" +
@@ -141,7 +139,7 @@ const EventsIndex = ({ events }) => {
       ", " +
       String(event?.eventzipcode) +
       "\n" +
-      // "URL:https://www.meetup.com/Life-Drawing/events/283355921/" + "\n" +
+      "URL:https://nblch.org" + "\n" +
       "SEQUENCE:2" +
       "\n" +
       // "LAST-MODIFIED:20220119T120306Z" + "\n" +
@@ -154,7 +152,6 @@ const EventsIndex = ({ events }) => {
     let icsFile;
 
     var data = new File([textData], { type: "text/calendar" });
-
     // If we are replacing a previously generated file we need to
     // manually revoke the object URL to avoid memory leaks.
     if (icsFile !== null) {
@@ -327,7 +324,7 @@ const EventsIndex = ({ events }) => {
                     <div className="hidden sm:block">
                       <section
                         key={index}
-                        className={`existing-events-head-table px-7 py-7  rounded shadow-md`}
+                        className={`${loggedUserRole === "Supervisor" ? "supervisor-existing-events-head-table" : "existing-events-head-table"} px-7 py-7  rounded shadow-md`}
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
                         <div className="flex items-center lg:text-xl font-bold ">
