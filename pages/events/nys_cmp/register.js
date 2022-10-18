@@ -19,7 +19,7 @@ import AdditionalMaterial from "../../../components/events/AdditionalMaterial";
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import { useRouter } from 'next/router'
-import { nysActivity } from "../../../utils/sharedData";
+import { nysActivity, NYSZipCodesAndBoroughs } from "../../../utils/sharedData";
 
 import {  useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
@@ -68,7 +68,8 @@ locationName:"",
 locationNameOther:"",
 locationAddress:"",
 eventZipCode:"",
-icsUrlFile: ""
+icsUrlFile: "",
+borough:""
 
 
   });
@@ -133,15 +134,28 @@ icsUrlFile: ""
            console.error("error: ", error)
      });
   }
+
+
+  const getCity=(zipcode,array)=>{
+    const searchZipcode=array.filter(code=>code.zipcode===zipcode)
+    console.log("searchZipcode",searchZipcode)
+    if(searchZipcode.length>0){
+     setEventForm({...eventForm,borough:searchZipcode[0].borought}) 
+    } else {
+      setEventForm({...eventForm,borough:""}) 
+    }
+  }
  
   useEffect(() => {
     setEventForm({...eventForm, userID: userId})
     makeIcsFile(eventForm)
+    getCity(eventForm.eventZipCode,NYSZipCodesAndBoroughs)
 
   }, [userId,eventForm.eventDate,
     eventForm.eventDate, eventForm.eventStartTime,
     eventForm.eventName,eventForm.eventDescription,eventForm.eventFinishTime, eventForm.eventZipCode,
-    eventForm.onlineEventTypeName, eventForm.inPersonEventTypeName
+    eventForm.onlineEventTypeName, eventForm.inPersonEventTypeName,
+    eventForm.eventZipCode
   ])
 
 
