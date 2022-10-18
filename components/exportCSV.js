@@ -26,6 +26,7 @@ const orderDataset = (data) => {
     data.locationname,
     data.locationnameother,
     data.locationaddress,
+    data.borough,
     data.zipcode,
     data.additionalzipcodes,
     data.eventdate,
@@ -84,7 +85,6 @@ const orderDataset = (data) => {
     data.sendemail,
     data.eventhighlights,
     data.eventchallenges,
-    data.eventquestions,
     data.eventtestingdone,
     data.hivtesting,
     data.stitesting,
@@ -282,6 +282,7 @@ const ExportCSV = ({ csvData, fileName }) => {
   "locationName",
   "locationNameOther",
   "locationAddress",
+  "borough",
   "eventZipCode",
   "additionalZipCodes",
   "eventDate",
@@ -340,7 +341,6 @@ const ExportCSV = ({ csvData, fileName }) => {
   "sendEmail",
   "eventHighlights",
   "eventChallenges",
-  "eventQuestions",
   "eventTestingDone",
   "hivTesting",
   "stiTesting",
@@ -519,7 +519,7 @@ const ExportCSV = ({ csvData, fileName }) => {
     //use ";" as separator for testing 
     <CSVLink headers={headers} data={orderedData} filename={fileName} separator=",">
       <button className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full">
-      Download <br/>NYS CMD<br/> dataset
+      Download <br/>CSV<br/> dataset
       </button>
     </CSVLink>
   );

@@ -11,7 +11,7 @@ const NysReportPage = ({ eventReport }) => {
   });
   const [selectedCSV, setSelectedCSV] = useState([]);
   const [headers, setHeaders] = useState([]);
-  const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
+  const csvNowDate = new Date().toLocaleString("en-US", {month: "numeric", day: "numeric", year: "numeric"})
   useEffect(() => {
     const cerohoursDate = new Date(selectedDate.start).setHours(0)
     console.log("selectedDate", selectedDate)
@@ -31,7 +31,7 @@ const NysReportPage = ({ eventReport }) => {
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Download the CSV dataset for the NYS CMD report"}
+        pageTitle={"Download NYS CMD dataset"}
         backBtn={true}
         dashboardBtn={true}
       />
@@ -64,7 +64,7 @@ const NysReportPage = ({ eventReport }) => {
           {selectedCSV && (
             <ExportCSV
               csvData={selectedCSV}
-              fileName={`NYS_CMP_Monthly_Funding_Report_Data_${csvNowDate.split(",")[0]}.csv`}
+              fileName={`NYS CMP Event Data Download ${csvNowDate.split(",")[0]}.csv`}
             />
           )}
         </div>
