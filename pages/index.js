@@ -6,14 +6,14 @@ import { useUser, getSession } from '@auth0/nextjs-auth0';
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const { user, error, isLoading } = useUser();
+  // const { user, error, isLoading } = useUser();
   /*   const {data} = getSession() */
-  const loggedUserStatus = user && user["https://lanuevatest.herokuapp.com/activestatus"];
+  // const loggedUserStatus = user && user["https://lanuevatest.herokuapp.com/activestatus"];
   const router = useRouter()
   
-useEffect(()=>{
-console.log(user)
-},[user])
+// useEffect(()=>{
+// console.log(user)
+// },[user])
 
   return (
     <div >
@@ -38,12 +38,12 @@ console.log(user)
           {/* <img src="/main/Black_Health_logo_welcome.svg" /> */}
         <div className="text-center pt-20 flex flex-col items-center">
           <h1 className="font-black mb-5">Welcome</h1>
-          <Link href={ `/chooseProgram`} >
+          <Link href={ `/api/auth/login`} >
             <a className='w-52'>
             <p className={`${styles.btnIndexPage} bg-black text-white flex items-center justify-between font-bold px-9 py-1  rounded-md test cursor-pointer`}>
             {/* <img src="/client/user-icon.svg" /> */}
             Login / Register</p>
-          {user && <h3 className="my-5 font-black">{user.name}</h3>} 
+          {/* {user && <h3 className="my-5 font-black">{user.name}</h3>}  */}
             </a>
    
             
