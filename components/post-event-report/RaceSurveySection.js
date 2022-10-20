@@ -6,8 +6,7 @@ const dataFieldStrings = (raiz) => {
   const hivAsian = raiz + "Asian";
   const hivAmericanIndianOrAlaskaNative = raiz + "AmericanIndianOrAlaskaNative";
   const hivMiddleEasternOrNorthAfrican = raiz + "MiddleEasternOrNorthAfrican";
-  const hivNativeHawaiianOrOtherPacificIslander =
-    raiz + "NativeHawaiianOrOtherPacificIslander";
+  const hivNativeHawaiianOrOtherPacificIslander = raiz + "NativeHawaiianOrOtherPacificIslander";
   const hivWhite = raiz + "White";
   const hivSomeOtherRace = raiz + "SomeOtherRace";
   const hivRaceDeclinedToAnswer = raiz + "RaceDeclinedToAnswer";

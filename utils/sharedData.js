@@ -329,27 +329,6 @@ export const resourcesDistributed = [
     name: "Vaccine related literature",
     dataFieldName: "vaccineRelatedLiterature",
   },
-
-  // { id:9,
-  //   source: "/post_Event_report/bags_boxes_of_food_icon.svg",
-  //   name:"Bags/boxes of food",
-  //   dataFieldName:"bagsBoxesFood"
-  // },
-  // { id:10,
-  //   source: "/post_Event_report/poster_icon.svg",
-  //   name:"Posters",
-  //   dataFieldName:"posters"
-  // },
-  // { id:11,
-  //   source: "/post_Event_report/ther_event_leaflets_icon.svg",
-  //   name:"Other event leaflets",
-  //   dataFieldName:"otherEventLeaflets"
-  // },
-  // { id:12,
-  //   source: "/post_Event_report/prepared_meal_icon.svg",
-  //   name:"Prepared meals",
-  //   dataFieldName:"preparedMeals"
-  // },
   {
     id: 9,
     source: "/post_Event_report/hand_sanitizers_icon.svg",
@@ -386,11 +365,7 @@ export const resourcesDistributed = [
     name: "Promotional materials",
     dataFieldName: "promotionalMaterial",
   },
-  // { id:14,
-  //   source: "/post_Event_report/COVID_site_referral_icon.svg",
-  //   name:"COVID vaccine site referral information/details",
-  //   dataFieldName:"covidVaccineSiteReferralDetails"
-  // },
+  
 ];
 
 export const inPersonEventTypeName = [

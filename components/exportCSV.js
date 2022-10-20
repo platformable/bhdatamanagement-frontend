@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
 const orderDataset = (data) => {
-  console.log("data =>",data)
+  const reverseDate = (date) => {
+    const splitted = new Date(date).toISOString().split("T")
+    const reverse = splitted[0].split('-');
+    const result=reverse[1]+'/'+reverse[2]+'/'+reverse[0];
+    return result;
+  }
   return [
     data.eventid,
     data.userid,
     data.name,
     data.lastname,
-    data.eventdatecreated,
+    reverseDate(data.eventdatecreated),
     data.programid,
     data.programname,
     data.nysactivity,
@@ -20,7 +25,7 @@ const orderDataset = (data) => {
     data.onlineinpersoneventtype,
     data.inpersoneventtypeid,
     data.inpersoneventtypename,
-    data.eventlocationtypeid,
+    data.eventlocationtypename,
     data.onlineeventtypeid,
     data.onlineeventtypename,
     data.locationname,
@@ -29,12 +34,12 @@ const orderDataset = (data) => {
     data.borough,
     data.zipcode,
     data.additionalzipcodes,
-    data.eventdate,
+    reverseDate(data.eventdate),
     data.eventstarttime,
     data.eventfinishtime,
     data.healthareaoffocusname,
     data.nameposteventsurvey,
-    data.dateposteventsurvey,
+    reverseDate(data.dateposteventsurvey),
     data.mainrole,
     data.mainroleother,
     data.sessionpresenter,
@@ -276,7 +281,7 @@ const ExportCSV = ({ csvData, fileName }) => {
   "onlineInPersonEventType",
   "inPersonEventTypeID",
   "inPersonEventTypeName",
-  "eventLocationTypeID",
+  "eventLocationTypeName",
   "onlineEventTypeID",
   "onlineEventTypeName",
   "locationName",

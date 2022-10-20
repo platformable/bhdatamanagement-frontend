@@ -16,7 +16,6 @@ const dataFieldStrings = (raiz) => {
   const hiv60_64 = raiz + "60_64";
   const hiv65_69 = raiz + "65_69";
   const hiv70 = raiz + "70";
-/*   const declinedToAnswer = raiz + "AgeDeclinedToAnswer"; */
   const altAgeUnder13 = "altAge" + patologyWord + "Under13";
   const altAge13_18 = "altAge" + patologyWord + "13_18";
   const altAge19_24 = "altAge" + patologyWord + "19_24";
@@ -24,9 +23,6 @@ const dataFieldStrings = (raiz) => {
     { ddbb_label: altAgeUnder13, label: "Under 13" },
     { ddbb_label: altAge13_18, label: "13-18" },
     { ddbb_label: altAge19_24, label: "19-24" },
-    // { ddbb_label: hivUnder15, label: "Under 15" },
-    // { ddbb_label: hiv16_19, label: "16-19" },
-    // { ddbb_label: hiv20_24, label: "20-24" },
     { ddbb_label: hiv25_29, label: "25-29" },
     { ddbb_label: hiv30_34, label: "30-34" },
     { ddbb_label: hiv35_39, label: "35-39" },
@@ -87,188 +83,7 @@ const AgeSurveySection = ({
           />
         </label>
       ))}
-      {/* <label className="flex flex-col gap-2">
-        <p className="w-80">{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label>
-      <label className="flex flex-col gap-2">
-        <p className="w-80">{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label>
-      <label className="flex flex-col gap-2">
-        <p className="w-80">{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label>
-      <label className="flex flex-col gap-2">
-        <p className="w-80">{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label>
-      <label className="flex flex-col gap-2">
-        <p className="w-80">{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        /> */}
-      {/* </label>
-      <label className="flex flex-col gap-2">
-        <p className="w-80">{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label>
-      <label className="flex flex-col gap-2">
-        <p className="w-80">{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label>
-      <label className="flex flex-col gap-2">
-        <p className="w-80">{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label>
-      <label className="flex flex-col gap-2">
-        <p className="w-80">{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label>
-      <label className="flex flex-col gap-2">
-        <p className="w-80">{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label>
-      <label className="flex flex-col gap-2">
-        <p className="w-80">{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[0]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label>
-      <label className="flex flex-col gap-2">
-        <p className="w-80">{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[1]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label>
-      <label className="flex flex-col gap-2">
-        <p className="w-80+{field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-        defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[2]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label> */}
-      {/* <label className="flex flex-col gap-2">
-        <p className="w-80">Decline {field.label}</p>
-        <input
-          type="number"
-          onWheelCapture={disableWheelInputNumber}
-          onKeyUp={handleMaxNumber}
-          defaultValue={eventForm[fields[0]] || 0}
-          maxLength={3}
-          name={fields[3]}
-          className="border-black p-4 w-20 rounded "
-          onChange={handleForm}
-        />
-      </label> */}
+     
     </div>
   );
 };
