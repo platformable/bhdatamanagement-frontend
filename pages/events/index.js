@@ -159,6 +159,12 @@ const EventsIndex = ({ events }) => {
     }
 
     icsFile = window.URL.createObjectURL(data);
+    const  link = document.createElement('a');
+    link.href = icsFile;
+    link.download = `${event?.eventname}.ics`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 
     return icsFile;
   } 
