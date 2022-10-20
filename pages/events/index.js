@@ -37,12 +37,7 @@ const EventsIndex = ({ events }) => {
     startDate: null,
     endDate: null,
   });
-  // async function downloadCalendar (base64) {
-    
-  // }
-  useEffect(() => {
-    events.map(event => {event.url_calendar = makeIcsFile(event)})
-  }, [])
+  
    function makeIcsFile(event) {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];
@@ -378,7 +373,7 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-                        <div className={`cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center`}>
+                        <div onClick={() => makeIcsFile(event)} className={`cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center`}>
                           <a
                             className="leading-5  lg:text-lg p-2 font-bold"
                             href={event?.url_calendar}

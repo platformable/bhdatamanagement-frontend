@@ -38,7 +38,7 @@ export default function Home() {
           {/* <img src="/main/Black_Health_logo_welcome.svg" /> */}
         <div className="text-center pt-20 flex flex-col items-center">
           <h1 className="font-black mb-5">Welcome</h1>
-          <Link href={ `/api/auth/login`} >
+          <Link href={ `/chooseProgram`} >
             <a className='w-52'>
             <p className={`${styles.btnIndexPage} bg-black text-white flex items-center justify-between font-bold px-9 py-1  rounded-md test cursor-pointer`}>
             {/* <img src="/client/user-icon.svg" /> */}
