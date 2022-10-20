@@ -215,6 +215,9 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
               />
             </label>
           </div>
+          <button className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full">
+          Generate <br/>Data
+      </button>
         </div>
       </section>
       <div>
@@ -242,19 +245,14 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
 }
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
-    const [events, eventsOutput, areasOfFocus, eventTypes] = await Promise.all([
+    const [events, eventsOutput,] = await Promise.all([
       fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`).then((r) =>
         r.json()
       ),
       fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/nys_events_output`
       ).then((r) => r.json()),
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/health_area_of_focus`).then(
-        (r) => r.json()
-      ),
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/event_type`).then((r) =>
-        r.json()
-      ),
+      
     ]);
     return { props: { events, eventsOutput } };
   },

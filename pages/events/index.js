@@ -17,6 +17,7 @@ import {
 import { useEffect } from "react";
 
 const EventsIndex = ({ events }) => {
+  const linkRef = useRef()
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -37,12 +38,11 @@ const EventsIndex = ({ events }) => {
     startDate: null,
     endDate: null,
   });
-  // async function downloadCalendar (base64) {
-    
-  // }
-  useEffect(() => {
-    events.map(event => {event.url_calendar = makeIcsFile(event)})
-  }, [])
+  
+  const downloadIcs = (event) => {
+    linkRef.current.href = makeIcsFile(event)
+    linkRef.current.click()
+   }
    function makeIcsFile(event) {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];
@@ -372,8 +372,9 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-                        <div className={`cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center`}>
+                        <div onClick={() => downloadIcs(event)}  className={`cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center`}>
                           <a
+                            ref={linkRef}
                             className="leading-5  lg:text-lg p-2 font-bold"
                             href={event?.url_calendar}
                             download={`${event?.eventname}.ics`}
