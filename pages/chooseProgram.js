@@ -16,34 +16,34 @@ import Router from "next/router";
 import Loader from "../components/Loader";
 
 export default function ChooseProgram() {
-  const { user, error, isLoading } = useUser();
+  // const { user, error, isLoading } = useUser();
   const [loading, setLoading] = useState(true);
 
 
   const dispatch=useDispatch()
 
-  const loggedUserRole = 
-    user && user["https://lanuevatest.herokuapp.com/roles"];
-  const loggedUserStatus =
-    user && user["https://lanuevatest.herokuapp.com/activestatus"];
-  const userId = user?.sub;
-  const router = useRouter();
+  // const loggedUserRole = 
+  //   user && user["https://lanuevatest.herokuapp.com/roles"];
+  // const loggedUserStatus =
+  //   user && user["https://lanuevatest.herokuapp.com/activestatus"];
+  // const userId = user?.sub;
+  // const router = useRouter();
 
-  const userName = user && user["https://lanuevatest.herokuapp.com/name"];
+  // const userName = user && user["https://lanuevatest.herokuapp.com/name"];
 
-  console.log("user", loggedUserRole);
-  const notifyMessage = () => {
-    toast.success("A new client is being created!", {
-      position: toast.POSITION.TOP_CENTER,
-    });
-  };
+  // console.log("user", loggedUserRole);
+  // const notifyMessage = () => {
+  //   toast.success("A new client is being created!", {
+  //     position: toast.POSITION.TOP_CENTER,
+  //   });
+  // };
 
  
-useEffect(()=>{
-  if (loggedUserRole==='Supervisor'){
-    router.push('/supervisorDashboard')
-  }
-},[loggedUserRole])
+// useEffect(()=>{
+//   if (loggedUserRole==='Supervisor'){
+//     router.push('/supervisorDashboard')
+//   }
+// },[loggedUserRole])
 
 
   return (
@@ -60,14 +60,14 @@ useEffect(()=>{
           <section id="dashboard-client-list">
             <div className="container mx-auto py-5">
               <section className="py-5">
-                <h1 className="font-black  md:px-0 px-5">Hello {userName}</h1>
+                {/* <h1 className="font-black  md:px-0 px-5">Hello {userName}</h1> */}
               </section>
 
               <h1 className="font-black  md:px-0 px-5">
                 Which program are you working on today?
               </h1>
 
-              <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
+              {/* <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
                 {loggedUserRole==='Supervisor' || loggedUserRole === 'Program Worker' || loggedUserRole === 'NYS Program Worker' ?
                 <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
                 <Link
@@ -88,7 +88,7 @@ useEffect(()=>{
               </div>
             : null
             }
-              </div>
+              </div> */}
             </div>
           </section>
         </main>
@@ -99,4 +99,4 @@ useEffect(()=>{
 
 /* export const getServerSideProps = withPageAuthRequired(); */
 
-export const getServerSideProps = withPageAuthRequired();
+// export const getServerSideProps = withPageAuthRequired();
