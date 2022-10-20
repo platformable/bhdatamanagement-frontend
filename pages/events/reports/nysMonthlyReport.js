@@ -215,21 +215,13 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
               />
             </label>
           </div>
-          <button className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full">
+          <button type="button" onClick={downloadDoc}className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full">
           Generate <br/>Data
       </button>
         </div>
       </section>
-      <div>
-          <button type="button" onClick={downloadDoc}>
-        Click to generate document
-      </button>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          margin: "2rem 5rem",
-        }}
+      <section className="container mx-auto px-5 md:px-0">
+      <div className="grid grid-cols-1 lg:grid-cols-2"
       >
         <TypeOfEventChart getHrefImage={getHrefImage} chartData={selectedEvents}/>
         <EventLocationChart getHrefImage={getHrefImage} chartData={selectedEvents}/>
@@ -239,7 +231,7 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
         <RaceChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/>
         <SexualOrientationChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/>
       </div>
-          </div>
+          </section>
     </Layout>
   );
 }
