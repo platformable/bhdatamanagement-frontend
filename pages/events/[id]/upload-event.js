@@ -161,9 +161,10 @@ export const Upload_event = ({ event }) => {
 
       <section className="px-5 md:px-0">
         <div className="container mx-auto my-10">
-          <h1 className="font-black">
+          <h1 className="font-black mb-1">
             Upload your documents to the following events folders
           </h1>
+          <p>Click the choose button and choose the file from your computer, then press the save button. Files are saved one at a time.</p>
         </div>
 
         <div className="container mx-auto">
