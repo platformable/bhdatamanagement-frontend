@@ -41,7 +41,7 @@ const EventsIndex = ({ events }) => {
     
   // }
   useEffect(() => {
-    events.map(event => {event.url_calendar = makeIcsFile(event)})
+    // events.map(event => {event.url_calendar = makeIcsFile(event)})
   }, [])
    function makeIcsFile(event) {
     function convertDate(date, time) {
@@ -159,6 +159,13 @@ const EventsIndex = ({ events }) => {
     }
 
     icsFile = window.URL.createObjectURL(data);
+
+    const  link = document.createElement('a');
+    link.href = icsFile;
+    link.download = `${event?.eventname}.ics`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 
     return icsFile;
   } 
@@ -372,11 +379,11 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-                        <div className={`cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center`}>
+                        <div  onClick={()=> makeIcsFile(event)} className={`cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center`}>
                           <a
                             className="leading-5  lg:text-lg p-2 font-bold"
-                            href={event?.url_calendar}
-                            download={`${event?.eventname}.ics`}
+                            href={'#'}
+              
                           >
                             Download calendar file
                           </a>
