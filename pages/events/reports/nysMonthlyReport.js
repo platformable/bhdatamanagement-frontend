@@ -2,25 +2,25 @@ import { useEffect, useState } from "react";
 import Layout from "../../../components/Layout";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import PageTopHeading from "../../../components/PageTopHeading";
-import TypeOfEventChart from "../../../components/nys-monthly-report/TypeOfEventChart";
-import EventLocationChart from "../../../components/nys-monthly-report/EventLocationChart";
-import ResourcesDistributedChart from "../../../components/nys-monthly-report/ResourcesDistributedChart";
-import GenderIdentityChart from "../../../components/nys-monthly-report/GenderIdentityChart";
-import AgeChart from "../../../components/nys-monthly-report/AgeChart";
-import RaceChart from "../../../components/nys-monthly-report/RaceChart";
-import SexualOrientationChart from "../../../components/nys-monthly-report/SexualOrientationChart";
-
+import PrioritiesSection from "../../../components/nys-monthly-report/PrioritiesSection";
+import ResourcesSection from "../../../components/nys-monthly-report/ResourcesSection";
+import CommunitySection from "../../../components/nys-monthly-report/CommunitySection";
+import ChallengesSection from "../../../components/nys-monthly-report/ChallengesSection";
 
 export default function nysMonthlyReport({ events, eventsOutput }) {
   const [selectedEvents, setSelectedEvents] = useState([]);
   const [selectedEventsOutputs, setSelectedEventsOutputs] = useState([]);
-
+  const [generateReport, setGenerateReport]  = useState(false)
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
   });
   const [imagesRefs, setImagesRefs] = useState({});
-  
+
+    const getHrefImage = async (link, name) => {
+        setImagesRefs((prev) => ({ ...prev, [name]: link }));
+    };
+
   const TestsDoneSection = {
     "COVID testing events": 0,
     "HIV testing events": 0
@@ -53,12 +53,6 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
     setSelectedEvents(selectedReports);
     setSelectedEventsOutputs(selectedEventOutputsReports);
   }, [selectedDate]);
-
-  const getHrefImage = async (link, name) => {
-    console.log("file", link);
-    setImagesRefs((prev) => ({ ...prev, [name]: link }));
-  };
-
  
   return (
     <Layout showStatusHeader={true}>
@@ -86,23 +80,19 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
               />
             </label>
           </div>
-          <button type="button" className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full">
+          <button type="button" onClick={() => setGenerateReport(prev => (!prev))} className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full">
           Generate <br/>DATA AND CHARTS
       </button>
         </div>
       </section>
-      <section className="container mx-auto px-5 md:px-0">
-      <div className="grid grid-cols-1 lg:grid-cols-2"
-      >
-        <TypeOfEventChart getHrefImage={getHrefImage} chartData={selectedEvents}/>
-        <EventLocationChart getHrefImage={getHrefImage} chartData={selectedEvents}/>
-        <ResourcesDistributedChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/>
-        <GenderIdentityChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/>
-        <AgeChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/>
-        <RaceChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/>
-        <SexualOrientationChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/>
-      </div>
-          </section>
+      {generateReport && selectedDate.start && selectedDate.finish && (
+        <section className="container mx-auto px-5 md:px-0">
+            <PrioritiesSection selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
+            <ResourcesSection selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
+            <CommunitySection selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
+            <ChallengesSection selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs}/>
+        </section>
+      )}
     </Layout>
   );
 }
