@@ -32,7 +32,7 @@ ChartJS.register(
   Title
 );
 
-const TypeOfEventChart = ({ chartData,getHrefImage}) => {
+const TypeOfEventChart = ({ chartData, getHrefImage }) => {
   const typeOfEventsCounts = {
     "COVID-19 vaccine / testing": 0,
     "Outreach/Community Event": 0,
@@ -43,29 +43,28 @@ const TypeOfEventChart = ({ chartData,getHrefImage}) => {
     "Online: Town hall": 0,
     "Online: Webinar": 0,
     "Door knocking": 0,
-  }
-  const [stadistics, setStadistics] = useState([])
- useEffect(() => {
-  stadistics = chartData?.map(event =>{
-    event.inpersoneventtypename !== null || event.inpersoneventtypename !== "" ? 
-    typeOfEventsCounts[event.inpersoneventtypename]++ : 
-    typeOfEventsCounts[event.onlineeventtypename]++
-  })
-  setStadistics(Object.values(typeOfEventsCounts))
- }, [chartData]);
+  };
+  const [stadistics, setStadistics] = useState([]);
+  useEffect(() => {
+    stadistics = chartData?.map((event) => {
+      event.inpersoneventtypename !== null || event.inpersoneventtypename !== ""
+        ? typeOfEventsCounts[event.inpersoneventtypename]++
+        : typeOfEventsCounts[event.onlineeventtypename]++;
+    });
+    setStadistics(Object.values(typeOfEventsCounts));
+  }, [chartData]);
 
-
- const typeOfEvents = [
-  "COVID-19 vaccine / testing",
-  "Outreach/Community Event",
-  "Day of action",
-  "In person: Workshop",
-  "In person: Town hall",
-  "Online: Workshop",
-  "Online: Town hall",
-  "Online: Webinar",
-  "Door knocking",
-   ];
+  const typeOfEvents = [
+    "COVID-19 vaccine / testing",
+    "Outreach/Community Event",
+    "Day of action",
+    "In person: Workshop",
+    "In person: Town hall",
+    "Online: Workshop",
+    "Online: Town hall",
+    "Online: Webinar",
+    "Door knocking",
+  ];
 
   const options = {
     plugins: {
@@ -111,10 +110,10 @@ const TypeOfEventChart = ({ chartData,getHrefImage}) => {
         max: 80,
       },
     },
-  }; 
+  };
 
   const data = {
-    labels:  typeOfEvents,
+    labels: typeOfEvents,
     datasets: [
       {
         type: "bar",
@@ -124,7 +123,6 @@ const TypeOfEventChart = ({ chartData,getHrefImage}) => {
         borderColor: "white",
         borderWidth: 2,
       },
-      
     ],
   };
   const printDatasetAtEvent = (dataset) => {
@@ -148,15 +146,20 @@ const TypeOfEventChart = ({ chartData,getHrefImage}) => {
 
     console.log(elements.length);
   };
-  
+
   const chartRef = useRef();
 
-  const exportChart = async() => {
+  const exportChart = async () => {
     const name = "typeOfEvent";
-    const href =  chartRef.current.toBase64Image();
-    getHrefImage(href, name)
-  }
-
+    const href = chartRef.current.toBase64Image();
+    await fetch(href)
+    .then(res => res.blob())
+    .then(blob => {
+      const data = [new ClipboardItem({ [blob.type]: blob })]
+      navigator.clipboard.write(data)
+    })
+    getHrefImage(href, name);
+  };
 
   const onClick = (event) => {
     const { current } = chartRef;
@@ -172,18 +175,20 @@ const TypeOfEventChart = ({ chartData,getHrefImage}) => {
 
   return (
     <div>
-        <input type="radio" onChange={exportChart} />
-
-    <Chart
-      type="bar"
-      ref={chartRef}
-      data={data}
-      options={options}
-      onClick={onClick}
-
-    />
+      <Chart
+        type="bar"
+        ref={chartRef}
+        data={data}
+        options={options}
+        onClick={onClick}
+      />
+      <button
+        onClick={exportChart}
+        className="px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
+      >
+        Copy to clipboard
+      </button>
     </div>
-    
   );
 };
 

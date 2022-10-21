@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import {
   Chart as ChartJS,
   LinearScale,
@@ -33,46 +33,7 @@ ChartJS.register(
 );
 
 const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
-  console.log(chartData)
-  const resourcesCounts = {
-    "Safer sex kits": 0,
-    "HIV literature": 0,
-    "HepC literature": 0,
-    "PrEP literature": 0,
-    "Health disparities literature": 0,
-    "Masks": 0,
-    "COVID literature": 0,
-    "Vaccine related literature": 0,
-    "Hand sanitizers": 0,
-    "Male condoms": 0,
-    "Female condoms": 0,
-    "Lubricant": 0,
-    "Referral lists": 0,
-    "Dental dams": 0,
-    "Promotional materials": 0,
-  };
-
-  const [stadistics, setStadistics] = useState([])
-  useEffect(() => {
-    const resourcesCountsResults = chartData?.map(event => { 
-      resourcesCounts["Safer sex kits"] = resourcesCounts["Safer sex kits"] + event?.safersexkits
-      resourcesCounts["HIV literature"] = resourcesCounts["HIV literature"] + event?.hivliterature
-      resourcesCounts["HepC literature"] = resourcesCounts["HepC literature"] + event?.hepcliterature
-      resourcesCounts["PrEP literature"] = resourcesCounts["HepC literature"] + event?.prepliterature
-      resourcesCounts["Health disparities literature"] =resourcesCounts["Health disparities literature"] + event?.healthdisparitiesliterature
-      resourcesCounts["Masks"] = resourcesCounts["Masks"] + event?.masks
-      resourcesCounts["COVID literature"] = resourcesCounts["COVID literature"] + event?.covidliterature
-      resourcesCounts["Vaccine related literature"] =resourcesCounts["Vaccine related literature"] + event?.vaccinerelatedliterature
-      resourcesCounts["Hand sanitizers"] =resourcesCounts["Hand sanitizers"] + event?.handsanitizers
-      resourcesCounts["Male condoms"] = resourcesCounts["Male condoms"] + event?.malecondoms
-      resourcesCounts["Female condoms"] =resourcesCounts["Female condoms"] + event?.femalecondoms
-      resourcesCounts["Lubricant"] = resourcesCounts["Lubricant"] + event?.lubricant
-      resourcesCounts["Referral lists"] =resourcesCounts["Referral lists"] + event?.referrallists
-      resourcesCounts["Dental dams"] = resourcesCounts["Dental dams"] + event?.dentaldam
-      resourcesCounts["Promotional materials"] = resourcesCounts["Promotional materials"] + event?.promotionalmaterial
-     })
-    setStadistics(Object.values(resourcesCounts))
-  }, [chartData]);
+  
 
   const options = {
     plugins: {
@@ -146,7 +107,7 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
         type: "bar",
         label: "# of new resources",
         backgroundColor: "#3c9648",
-        data: stadistics,
+        data: Object.values(chartData),
         borderColor: "white",
         borderWidth: 2,
       },
@@ -200,7 +161,6 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
 
   return (
     <div>
-      <input type="radio" onChange={exportChart} />
 
       <Chart
         type="bar"
@@ -209,6 +169,11 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
         options={options}
         onClick={onClick}
       />
+      <button
+        className="my-5 px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
+      >
+        Copy to clipboard
+      </button>
     </div>
   );
 };

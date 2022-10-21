@@ -176,8 +176,6 @@ const EventLocationChart = ({ chartData, getHrefImage }) => {
 
   return (
     <div>
-      <input type="radio" onChange={exportChart} />
-
       <Chart
         type="bar"
         ref={chartRef}
@@ -185,6 +183,11 @@ const EventLocationChart = ({ chartData, getHrefImage }) => {
         options={options}
         onClick={onClick}
       />
+       <button
+        className="px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
+      >
+        Copy to clipboard
+      </button>
     </div>
   );
 };
