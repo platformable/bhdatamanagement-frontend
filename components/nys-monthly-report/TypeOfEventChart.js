@@ -18,7 +18,6 @@ import {
   getElementAtEvent,
   getElementsAtEvent,
 } from "react-chartjs-2";
-
 ChartJS.register(
   LinearScale,
   CategoryScale,
@@ -31,8 +30,10 @@ ChartJS.register(
   Tooltip,
   Title
 );
-
+import useCopyToClipboard from "../../utils/useCopyToClipboard";
 const TypeOfEventChart = ({ chartData, getHrefImage }) => {
+  const [value, copy] = useCopyToClipboard()
+
   const typeOfEventsCounts = {
     "COVID-19 vaccine / testing": 0,
     "Outreach/Community Event": 0,
@@ -152,14 +153,15 @@ const TypeOfEventChart = ({ chartData, getHrefImage }) => {
   const exportChart = async () => {
     const name = "typeOfEvent";
     const href = chartRef.current.toBase64Image();
-    await fetch(href)
-    .then(res => res.blob())
-    .then(blob => {
-      const data = [new ClipboardItem({ [blob.type]: blob })]
-      navigator.clipboard.write(data)
-    })
     getHrefImage(href, name);
   };
+
+  const imageToClipboard = async () => {
+    const href = chartRef.current.toBase64Image();
+    await fetch(href)
+    .then(res => res.blob())
+    .then(blob => copy(blob))
+  }
 
   const onClick = (event) => {
     const { current } = chartRef;
@@ -183,8 +185,8 @@ const TypeOfEventChart = ({ chartData, getHrefImage }) => {
         onClick={onClick}
       />
       <button
-        onClick={exportChart}
-        className="px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
+        onClick={imageToClipboard}
+        className="px-5 my-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
       >
         Copy to clipboard
       </button>

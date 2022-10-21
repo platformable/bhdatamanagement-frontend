@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef } from "react";
+import useCopyToClipboard from "../../utils/useCopyToClipboard";
 import {
   Chart as ChartJS,
   LinearScale,
@@ -33,6 +34,7 @@ ChartJS.register(
 );
 
 const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
+  const [value, copy] = useCopyToClipboard()
   
 
   const options = {
@@ -142,10 +144,15 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
     const name = "resourcesDistributed";
     const href = chartRef.current.toBase64Image();
     getHrefImage(href, name);
-    // console.log(href)
   }, []);
 
-  //   useEffect(()=> exportChart(), [])
+  const imageToClipboard = async () => {
+    const href = chartRef.current.toBase64Image();
+    await fetch(href)
+    .then(res => res.blob())
+    .then(blob => copy(blob))
+  }
+
 
   const onClick = (event) => {
     const { current } = chartRef;
@@ -170,6 +177,7 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
         onClick={onClick}
       />
       <button
+        onClick={imageToClipboard}
         className="my-5 px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
       >
         Copy to clipboard

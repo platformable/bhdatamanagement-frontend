@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
+import useCopyToClipboard from '../../utils/useCopyToClipboard';
 import ResourcesDistributedChart from "./ResourcesDistributedChart";
 
 
 const ResourcesSection = ({selectedEvents, selectedEventsOutputs, getHrefImage}) => {
   const [stadistics, setStadistics] = useState([])
-  
+  const [value, copy] = useCopyToClipboard()
   const resourcesCounts = {
     "Safer sex kits": 0,
     "HIV literature": 0,
@@ -43,11 +44,18 @@ const ResourcesSection = ({selectedEvents, selectedEventsOutputs, getHrefImage})
      })
     setStadistics(resourcesCounts)
   }, [selectedEventsOutputs]);
+
+  const textToClipboard = async (htmlID) => {
+    const element = document.getElementById(htmlID)
+    console.log(element.innerHTML)
+    const blob = new Blob([element.textContent], { type: 'text/plain' })
+    await copy(blob)
+  }
   return (
     <div className='grid gap-7'>
       <ResourcesDistributedChart getHrefImage={getHrefImage} chartData={stadistics}/> 
       <div className='flex flex-col gap-5 items-center'>
-        <table className='text-lg w-2/5 '>
+        <table id="resources-table" className='text-lg w-2/5 '>
         <thead>
           <tr>
             <th className='px-3'>Promotional Item</th>
@@ -64,6 +72,7 @@ const ResourcesSection = ({selectedEvents, selectedEventsOutputs, getHrefImage})
         </tbody>
         </table>
         <button
+            onClick={() => textToClipboard("resources-table")}
             className="px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
           >
             Copy to clipboard
@@ -74,3 +83,4 @@ const ResourcesSection = ({selectedEvents, selectedEventsOutputs, getHrefImage})
 }
 
 export default ResourcesSection
+
