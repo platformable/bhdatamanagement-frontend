@@ -33,6 +33,7 @@ ChartJS.register(
 );
 
 const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
+  console.log(chartData)
   const resourcesCounts = {
     "Safer sex kits": 0,
     "HIV literature": 0,
@@ -53,7 +54,7 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
 
   const [stadistics, setStadistics] = useState([])
   useEffect(() => {
-    const resourcesCountsResults = chartData.map(event => { 
+    const resourcesCountsResults = chartData?.map(event => { 
       resourcesCounts["Safer sex kits"] = resourcesCounts["Safer sex kits"] + event?.safersexkits
       resourcesCounts["HIV literature"] = resourcesCounts["HIV literature"] + event?.hivliterature
       resourcesCounts["HepC literature"] = resourcesCounts["HepC literature"] + event?.hepcliterature
@@ -145,7 +146,7 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
         type: "bar",
         label: "# of new resources",
         backgroundColor: "#3c9648",
-        data: chartData,
+        data: stadistics,
         borderColor: "white",
         borderWidth: 2,
       },
