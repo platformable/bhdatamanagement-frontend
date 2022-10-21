@@ -3,7 +3,6 @@ import Layout from "../../../components/Layout";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import PageTopHeading from "../../../components/PageTopHeading";
 import PrioritiesSection from "../../../components/nys-monthly-report/PrioritiesSection";
-import Section2 from "../../../components/nys-monthly-report/ResourcesSection";
 import ResourcesSection from "../../../components/nys-monthly-report/ResourcesSection";
 import CommunitySection from "../../../components/nys-monthly-report/CommunitySection";
 import ChallengesSection from "../../../components/nys-monthly-report/ChallengesSection";
