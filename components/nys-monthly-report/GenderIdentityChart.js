@@ -31,8 +31,10 @@ ChartJS.register(
   Tooltip,
   Title
 );
-
+import useCopyToClipboard from "../../utils/useCopyToClipboard";
 const GenderIdentityChart = ({ chartData,getHrefImage}) => {
+
+  const [value, copy] = useCopyToClipboard()
   const [stadistics, setStadistics] = useState([])
   const gendersCounts = {
     "Female": 0,
@@ -175,9 +177,16 @@ const GenderIdentityChart = ({ chartData,getHrefImage}) => {
     printElementsAtEvent(getElementsAtEvent(current, event));
   };
 
+  const imageToClipboard = async () => {
+    const href = chartRef.current.toBase64Image();
+    await fetch(href)
+    .then(res => res.blob())
+    .then(blob => copy(blob))
+  }
+
   return (
     <div>
-        <input type="radio" onChange={exportChart} />
+        {/* <input type="radio" onChange={exportChart} /> */}
 
     <Chart
       type="bar"
@@ -186,6 +195,13 @@ const GenderIdentityChart = ({ chartData,getHrefImage}) => {
       options={options}
       onClick={onClick}
     />
+
+        <button
+        onClick={imageToClipboard}
+        className="px-5 my-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
+      >
+        Copy to clipboard
+      </button>
     </div>
     
   );

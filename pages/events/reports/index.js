@@ -15,9 +15,9 @@ const CreateReport = () => {
      <Link href="/events/reports/nysReportPage">
       <button className="bg-black text-white p-5 rounded mb-5">NYS CMP dataset</button>
       </Link> <br />
-      {/* <Link href="/events/reports/nysMonthlyReport">
+      <Link href="/events/reports/nysMonthlyReport">
       <button className="bg-black text-white p-5 rounded mb-5">NYS monthly draft report</button>
-      </Link> <br /> */}
+      </Link> <br />
 
   {/*    <Link href="/events/reports/nysReportPage">
       <button className="bg-black text-white p-5 rounded">Draft NYS CMP Monthly Report</button>

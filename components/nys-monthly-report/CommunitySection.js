@@ -5,8 +5,7 @@ import RaceChart from "./RaceChart";
 import SexualOrientationChart from "./SexualOrientationChart";
 const CommunitySection = ({selectedEvents, selectedEventsOutputs, getHrefImage}) => {
 
-  console.log("selectedEventCommunity",selectedEvents)
-  console.log("selectedEventsOutputs",selectedEventsOutputs)
+
 
   const [allTests,setAllTests]=useState({
     total:0,
@@ -218,7 +217,7 @@ const getGenderTested=()=>{
     hivSexualOrientationDeclinedToAnswer:allTests.hivSexualOrientationDeclinedToAnswer+event.hivsexualorientationdeclinedtoanswer
   })))
 }
-console.log(console.log(Object.keys(allTests)))
+
 useEffect(()=>{
   getActiveTesting(selectedEventsOutputs)
   getTestingTotals(selectedEventsOutputs)
@@ -237,24 +236,26 @@ function handleCopy (){
   return (
     <>
     <h1 className="font-black">Community</h1>
-    <button onClick={handleCopy} className='px-5 mt-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow'>Copy list to clipboard</button>
+    <button onClick={handleCopy} className='px-5 mt-5 mb-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow'>Copy list to clipboard</button>
+    
     <div id="communityText">
     <p>{`There were ${allTests.covidTesting} COVID-19 testing events, ${allTests.hivTesting} HIV testing events,  and ${allTests.covidTesting} COVID testing event held in June.
-`}</p>
-    <p>{`At the HIV testing events,  ${allTests.hivTestedTotal}  people were tested, including ${allTests.hivFemale}  women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNonConforming} not sure/questioning,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
+`}</p> <br />
+<p>{`At the HIV testing events,  ${allTests.hivTestedTotal}  people were tested, including ${allTests.hivFemale}  women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNonConforming} not sure/questioning,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
 `}</p> 
-
-    <p>{`At the HIV testing events, ${allTests.hivTestedTotal} people were tested, including ${allTests.hivFemale} women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNotSureQuestioning} non-binary,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
+<br />
+<p>{`At the HIV testing events, ${allTests.hivTestedTotal} people were tested, including ${allTests.hivFemale} women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNotSureQuestioning} non-binary,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
 `}</p>
-        
-    <p>{`Of the people tested, ${allTests.hivBlackOrAfricanAmerican} people identified as Black or African American, ${allTests.hivHispanic} Hispanic, ${allTests.hivAsian} Asian, ${allTests.hivAmericanIndianOrAlaskaNative} American Indian or Alaska Native, Middle Eastern or North African, ${allTests.hivNativeHawaiianOrOtherPacificIslander} Native Hawaiian or Other Pacific Islander, ${allTests.hivWhite} white, ${allTests.hivMoreThanOneRace} more than one race ${allTests.hivSomeOtherRace}+${allTests.hivMiddleEasternOrNorthAfrican} some other race, and ${allTests.hivRaceDeclinedToAnswer} unknown/unreported. ${allTests.altAgeHivUnder13} people under 13 were tested, ${allTests.altAgeHiv13_18} between 13 and 18,  ${allTests.altAgeHiv19_24} between 19-24 , ${allTests.hiv25_29} + ${allTests.hiv30_34} between 25 to 34, ${allTests.hiv35_39} + ${allTests.hiv40_44} between 35 and 44, and ${allTests.hiv45_49} + ${allTests.hiv50_54} ${allTests.hiv55_59} + ${allTests.hiv60_64} + ${allTests.hiv65_69} + ${allTests.hiv70} were over 45.
-`}</p>
+<br />
+<p>{`Of the people tested, ${allTests.hivBlackOrAfricanAmerican} people identified as Black or African American, ${allTests.hivHispanic} Hispanic, ${allTests.hivAsian} Asian, ${allTests.hivAmericanIndianOrAlaskaNative} American Indian or Alaska Native, Middle Eastern or North African, ${allTests.hivNativeHawaiianOrOtherPacificIslander} Native Hawaiian or Other Pacific Islander, ${allTests.hivWhite} white, ${allTests.hivMoreThanOneRace} more than one race ${allTests.hivSomeOtherRace}+${allTests.hivMiddleEasternOrNorthAfrican} some other race, and ${allTests.hivRaceDeclinedToAnswer} unknown/unreported. ${allTests.altAgeHivUnder13} people under 13 were tested, ${allTests.altAgeHiv13_18} between 13 and 18,  ${allTests.altAgeHiv19_24} between 19-24 , ${allTests.hiv25_29} + ${allTests.hiv30_34} between 25 to 34, ${allTests.hiv35_39} + ${allTests.hiv40_44} between 35 and 44, and ${allTests.hiv45_49} + ${allTests.hiv50_54} ${allTests.hiv55_59} + ${allTests.hiv60_64} + ${allTests.hiv65_69} + ${allTests.hiv70} were over 45.
+`}</p><br />
 
-     <p>{`Of those tested, ${allTests.hivGayOrLesbian} identified as gay or lesbian, ${allTests.hivStraightOrHeterosexual} as straight or heterosexual,  ${allTests.hivBisexual} as bisexual, ${allTests.hivQueer} as queer,  ${allTests.hivQuestioningOrNotSure} as questioning or not sure, ${allTests.hivSexualOrientationUnknown} as unknown, and ${allTests.hivSexualOrientationDeclinedToAnswer} declined to answer.`}</p>
-    </div>
-        <GenderIdentityChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/>
-        <AgeChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/>
-        <RaceChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/>
+<p>{`Of those tested, ${allTests.hivGayOrLesbian} identified as gay or lesbian, ${allTests.hivStraightOrHeterosexual} as straight or heterosexual,  ${allTests.hivBisexual} as bisexual, ${allTests.hivQueer} as queer,  ${allTests.hivQuestioningOrNotSure} as questioning or not sure, ${allTests.hivSexualOrientationUnknown} as unknown, and ${allTests.hivSexualOrientationDeclinedToAnswer} declined to answer.
+`}</p>
+    </div> <br /> <br />
+        <GenderIdentityChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/> <br />
+        <AgeChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/> <br />
+        <RaceChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/> <br />
         <SexualOrientationChart getHrefImage={getHrefImage} chartData={selectedEventsOutputs}/>
         
     </>

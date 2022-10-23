@@ -31,10 +31,10 @@ ChartJS.register(
   Tooltip,
   Title
 );
-
+import useCopyToClipboard from "../../utils/useCopyToClipboard";
 const RaceChart = ({ chartData,getHrefImage}) => {
   const [stadistics, setStadistics] = useState([])
-
+  const [value, copy] = useCopyToClipboard()
   const raceCounts = {
     "Black or African American": 0,
     "Hispanic, Latino/a or Spanish": 0,
@@ -164,7 +164,12 @@ const RaceChart = ({ chartData,getHrefImage}) => {
    
   }, [])
 
-  // useEffect(()=> exportChart(), [])
+  const imageToClipboard = async () => {
+    const href = chartRef.current.toBase64Image();
+    await fetch(href)
+    .then(res => res.blob())
+    .then(blob => copy(blob))
+  }
 
   const onClick = (event) => {
     const { current } = chartRef;
@@ -180,7 +185,7 @@ const RaceChart = ({ chartData,getHrefImage}) => {
 
   return (
     <div>
-        <input type="radio" onChange={exportChart} />
+        {/* <input type="radio" onChange={exportChart} /> */}
 
     <Chart
       type="bar"
@@ -190,6 +195,12 @@ const RaceChart = ({ chartData,getHrefImage}) => {
       onClick={onClick}
         
     />
+    <button
+        onClick={imageToClipboard}
+        className="px-5 my-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
+      >
+        Copy to clipboard
+      </button>
     </div>
     
   );

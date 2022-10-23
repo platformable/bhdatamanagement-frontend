@@ -13,21 +13,23 @@ const ChallengesSection = ({selectedEvents, selectedEventsOutputs}) => {
 
   
   return (
-    <div className="px-5">
-      <h1>Challenges</h1>
-      <p>{`${selectedEventsOutputs.length} delivery challenges were reported and are listed below.`}</p>
-      <button onClick={handleCopy} className='px-5 mt-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow'>Copy list to clipboard</button>
+    <div className="px-5 my-5">
+      <h1 className="font-black">Challenges</h1>
+      <p>{`${selectedEventsOutputs.filter(event=>event.eventchallenges!=="").length} delivery challenges were reported and are listed below.`}</p>
+      
       <ul id="challengesList">
       {
         selectedEventsOutputs.map(event=>{
           if(event.eventchallenges!==""){
           return (
 
-          <li key={event.id} style={{listStyleType:'disc'}}>{event.eventchallenges}</li>
+          <li key={event.id} style={{listStyleType:'disc'}}> <p>{event.eventchallenges}</p></li>
 
           )}
         })
       }</ul>
+
+<button onClick={handleCopy} className='px-5 mt-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow'>Copy list to clipboard</button>
     </div>
   )
 }

@@ -31,8 +31,10 @@ ChartJS.register(
   Tooltip,
   Title
 );
+import useCopyToClipboard from "../../utils/useCopyToClipboard";
 
 const AgeChart = ({ chartData,getHrefImage}) => {
+  const [value, copy] = useCopyToClipboard()
   const ageCounts = {
     "Under 13": 0,
     "13-18": 0,
@@ -178,7 +180,12 @@ const AgeChart = ({ chartData,getHrefImage}) => {
     // console.log(href)
   }, [])
 
-  // useEffect(()=> exportChart(), [])
+  const imageToClipboard = async () => {
+    const href = chartRef.current.toBase64Image();
+    await fetch(href)
+    .then(res => res.blob())
+    .then(blob => copy(blob))
+  }
 
   const onClick = (event) => {
     const { current } = chartRef;
@@ -194,7 +201,7 @@ const AgeChart = ({ chartData,getHrefImage}) => {
 
   return (
     <div>
-        <input type="radio" onChange={exportChart} />
+        {/* <input type="radio" onChange={exportChart} /> */}
 
     <Chart
       type="bar"
@@ -204,6 +211,12 @@ const AgeChart = ({ chartData,getHrefImage}) => {
       onClick={onClick}
 
     />
+    <button
+        onClick={imageToClipboard}
+        className="px-5 my-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
+      >
+        Copy to clipboard
+      </button>
     </div>
     
   );
