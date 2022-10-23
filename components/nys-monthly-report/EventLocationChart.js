@@ -31,9 +31,11 @@ ChartJS.register(
   Tooltip,
   Title
 );
+import useCopyToClipboard from "../../utils/useCopyToClipboard";
 
 const EventLocationChart = ({ chartData, getHrefImage }) => {
   const [stadistics, setStadistics] = useState([])
+  const [value, copy] = useCopyToClipboard()
   const eventLocationsCounts = {
     "Virtual / Online": 0,
     "College/School/Trades school/community-based learning center": 0,
@@ -160,7 +162,12 @@ const EventLocationChart = ({ chartData, getHrefImage }) => {
     getHrefImage(href, name);
   }, []);
 
-  //   useEffect(()=> exportChart(), [])
+  const imageToClipboard = async () => {
+    const href = chartRef.current.toBase64Image();
+    await fetch(href)
+    .then(res => res.blob())
+    .then(blob => copy(blob))
+  };
 
   const onClick = (event) => {
     const { current } = chartRef;
@@ -176,8 +183,6 @@ const EventLocationChart = ({ chartData, getHrefImage }) => {
 
   return (
     <div>
-      <input type="radio" onChange={exportChart} />
-
       <Chart
         type="bar"
         ref={chartRef}
@@ -185,6 +190,12 @@ const EventLocationChart = ({ chartData, getHrefImage }) => {
         options={options}
         onClick={onClick}
       />
+       <button
+        onClick={imageToClipboard}
+        className="my-5 px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
+      >
+        Copy to clipboard
+      </button>
     </div>
   );
 };

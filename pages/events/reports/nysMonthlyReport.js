@@ -86,7 +86,7 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
         </div>
       </section>
       {generateReport && selectedDate.start && selectedDate.finish && (
-        <section className="container mx-auto px-5 md:px-0">
+        <section className="container mx-auto w-3/5 px-5 md:px-0">
             <PrioritiesSection selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
             <ResourcesSection selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
             <CommunitySection selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
