@@ -239,7 +239,7 @@ function handleCopy (){
     <button onClick={handleCopy} className='px-5 mt-5 mb-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow'>Copy list to clipboard</button>
     
     <div id="communityText">
-    <p>{`There were ${allTests.covidTesting} COVID-19 testing events, ${allTests.hivTesting} HIV testing events,  and ${allTests.covidTesting} COVID testing event held in June.
+    <p>{`There were ${allTests.covidTesting} HIV testing events, ${allTests.hivTesting} STI testing events, ${allTests.hepcTesting} Hepatitis C testing events, and  ${allTests.covidTesting} COVID testing events.
 `}</p> <br />
 <p>{`At the HIV testing events,  ${allTests.hivTestedTotal}  people were tested, including ${allTests.hivFemale}  women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNonConforming} not sure/questioning,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
 `}</p> 
