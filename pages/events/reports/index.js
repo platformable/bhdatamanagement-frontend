@@ -19,11 +19,11 @@ const CreateReport = () => {
                 NYS CMP dataset
               </button>
             </Link>
-            <Link href="/events/reports/nysMonthlyReport">
+            {/* <Link href="/events/reports/nysMonthlyReport">
               <button className="bg-black text-white p-5 rounded mb-5">
                 Data and charts for monthly NYS CMP report
               </button>
-            </Link>
+            </Link> */}
             {/* <Link href="/events/reports/nysParticipantSurveyReport">
               <button className="bg-black text-white p-5 rounded mb-5">
                 NYS CMP Participant Survey dataset

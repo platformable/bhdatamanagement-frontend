@@ -388,18 +388,16 @@ const CommunitySection = ({
 
   return (
     <section>
-      <h1 className="font-black mb-2">Community</h1>
-      <button
-        onClick={handleCopy}
-        className="px-5 mb-7 text-lg border hover:bg-black hover:text-white rounded shadow"
-      >
-        Copy list to clipboard
-      </button>
-      <div id="communityText">
-        <p>{`There were ${allTests.covidTesting} COVID-19 testing events, ${allTests.hivTesting} HIV testing events,  and ${allTests.covidTesting} COVID testing event held in June.
-`}</p>{" "}
-        <br />
-        <p>{`At the HIV testing events,  ${allTests.hivTestedTotal}  people were tested, including ${allTests.hivFemale}  women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNonConforming} not sure/questioning,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
+    <h1 className="font-black">Community</h1>
+    <button onClick={handleCopy} className='px-5 mt-2 mb-7 text-lg border hover:bg-black hover:text-white rounded shadow'>Copy list to clipboard</button>
+    
+    <div id="communityText">
+    <p>{`There were ${allTests.covidTesting} HIV testing events, ${allTests.hivTesting} STI testing events, ${allTests.hepcTesting} Hepatitis C testing events, and  ${allTests.covidTesting} COVID testing events.
+`}</p> <br />
+<p>{`At the HIV testing events,  ${allTests.hivTestedTotal}  people were tested, including ${allTests.hivFemale}  women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNonConforming} not sure/questioning,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
+`}</p> 
+<br />
+<p>{`At the HIV testing events, ${allTests.hivTestedTotal} people were tested, including ${allTests.hivFemale} women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNotSureQuestioning} non-binary,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
 `}</p>
         <br />
         <p>{`At the HIV testing events, ${allTests.hivTestedTotal} people were tested, including ${allTests.hivFemale} women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNotSureQuestioning} non-binary,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
