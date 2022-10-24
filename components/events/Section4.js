@@ -48,8 +48,6 @@ const Section4 = ({eventForm, setEventForm,event}) => {
 
       };
 
-const fecha = event?.eventdate
-console.log("event",fecha)
     const handleForm = (e) => {
         setEventForm(previous => ({...previous, eventDate: e.target.value}))
       }
