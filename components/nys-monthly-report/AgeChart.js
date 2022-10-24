@@ -33,7 +33,7 @@ ChartJS.register(
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 
-const AgeChart = ({ chartData,getHrefImage}) => {
+const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
   const [value, copy] = useCopyToClipboard()
   const ageCounts = {
     "Under 13": 0,
@@ -71,7 +71,14 @@ const AgeChart = ({ chartData,getHrefImage}) => {
     setStadistics(Object.values(ageCounts))
     }, [chartData]);
 
-    
+  let values = stadistics.filter(value => Number.isFinite(value));
+  let maxValue = Math.max.apply(null, values);
+  const reversedDate  = {
+    start: new Date(selectedDate.start).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"}),
+    finish: new Date(selectedDate.finish).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"})
+  }
+
+
   const options = {
     plugins: {
       legend: {
@@ -79,7 +86,7 @@ const AgeChart = ({ chartData,getHrefImage}) => {
       },
       title: {
         display: true,
-        text: "Age",
+        text: `Age - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
         position: "top",
         font: {
           size: 18,
@@ -113,7 +120,7 @@ const AgeChart = ({ chartData,getHrefImage}) => {
           precision: 0,
         },
         min: 0,
-        max: 15,
+        max: maxValue,
       },
     },
   };

@@ -33,7 +33,7 @@ ChartJS.register(
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 
-const EventLocationChart = ({ chartData, getHrefImage }) => {
+const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
   const [stadistics, setStadistics] = useState([])
   const [value, copy] = useCopyToClipboard()
   const eventLocationsCounts = {
@@ -56,6 +56,14 @@ const EventLocationChart = ({ chartData, getHrefImage }) => {
    })
    setStadistics(Object.values(eventLocationsCounts))
   }, [chartData]);
+
+  let values = stadistics.filter(value => Number.isFinite(value));
+  let maxValue = Math.max.apply(null, values);
+  const reversedDate  = {
+    start: new Date(selectedDate.start).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"}),
+    finish: new Date(selectedDate.finish).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"})
+  }
+
   const options = {
     plugins: {
       legend: {
@@ -63,7 +71,7 @@ const EventLocationChart = ({ chartData, getHrefImage }) => {
       },
       title: {
         display: true,
-        text: "Event location",
+        text: `Event location - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData.length}`,
         position: "top",
         font: {
           size: 18,
@@ -97,7 +105,7 @@ const EventLocationChart = ({ chartData, getHrefImage }) => {
           precision: 0,
         },
         min: 0,
-        max: 10,
+        max: maxValue,
       },
     },
   };

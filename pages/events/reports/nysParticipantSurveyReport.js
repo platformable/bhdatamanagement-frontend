@@ -3,7 +3,9 @@ import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import ExportCSV from "../../../components/exportCSV";
-const NysReportPage = ({ eventReport,  }) => {
+import ExportPaticipantCSV from "../../../components/ExportParticipantCSV";
+const NysParticipantSurveyReport = ({ participantReport }) => {
+  console.log("report", participantReport);
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -14,15 +16,13 @@ const NysReportPage = ({ eventReport,  }) => {
   useEffect(() => {
     const cerohoursDate = new Date(selectedDate.start).setHours(0)
     console.log("selectedDate", selectedDate)
-    const selectedReports = eventReport.filter(
+    const selectedReports = participantReport.filter(
       (report) => 
           new Date(report.eventdate) >= new Date(new Date(selectedDate.start).toLocaleString("en-US", {timeZone: "America/New_York"})).setHours(0) &&
           new Date(report.eventdate) <= new Date(selectedDate.finish)
     );
     setSelectedCSV(selectedReports);
 
-    // const headers = Object.keys(eventReport[0]).map(key => ({"label": key, "key": key}))
-    // setHeaders(headers)
   }, [selectedDate]);
 
   console.log("selected", selectedCSV);
@@ -30,7 +30,7 @@ const NysReportPage = ({ eventReport,  }) => {
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Download the CSV for NYS CMD events"}
+        pageTitle={"Download the CSV for NYS CMD participant survey outputs"}
         backBtn={true}
         dashboardBtn={true}
       />
@@ -61,9 +61,9 @@ const NysReportPage = ({ eventReport,  }) => {
             </label>
           </div>
           {selectedCSV && (
-            <ExportCSV
+            <ExportPaticipantCSV
               csvData={selectedCSV}
-              fileName={`NYS_CMP_Event_Data_${csvNowDate.split(",")[0]}.csv`}
+              fileName={`NYS_CMP_Participant_Survey_Data_${csvNowDate.split(",")[0]}.csv`}
             />
           )}
         </div>
@@ -72,17 +72,17 @@ const NysReportPage = ({ eventReport,  }) => {
   );
 };
 
-export default NysReportPage;
+export default NysParticipantSurveyReport;
 
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/nys_events_output`
-      );
-    const eventReport = await response.json();
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs`
+    )
+    const participantReport = await response.json()   
     return {
       props: {
-        eventReport: eventReport,
+        participantReport: participantReport
       },
     };
   },

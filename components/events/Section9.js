@@ -80,7 +80,7 @@ const Section9 = ({ eventForm, setEventForm, event }) => {
                   >
                     <input
                       type="radio"
-                      name="inPersonEventTypeName"
+                      name="OnlineEventTypeName"
                       className=""
                       id={option.id}
                       onChange={(e) => {

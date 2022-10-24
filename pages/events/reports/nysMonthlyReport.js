@@ -6,6 +6,7 @@ import PrioritiesSection from "../../../components/nys-monthly-report/Priorities
 import ResourcesSection from "../../../components/nys-monthly-report/ResourcesSection";
 import CommunitySection from "../../../components/nys-monthly-report/CommunitySection";
 import ChallengesSection from "../../../components/nys-monthly-report/ChallengesSection";
+import ExportPaticipantCSV from "../../../components/ExportParticipantCSV";
 
 export default function nysMonthlyReport({ events, eventsOutput }) {
   const [selectedEvents, setSelectedEvents] = useState([]);
@@ -86,11 +87,11 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
         </div>
       </section>
       {generateReport && selectedDate.start && selectedDate.finish && (
-        <section className="container mx-auto w-3/5 px-5 md:px-0">
-            <PrioritiesSection selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
-            <ResourcesSection selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
-            <CommunitySection selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
-            <ChallengesSection selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs}/>
+        <section className="container mx-auto w-3/5 px-5 md:px-0 grid gap-24 mb-12">
+            <PrioritiesSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
+            <ResourcesSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
+            <CommunitySection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
+            <ChallengesSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs}/>
         </section>
       )}
     </Layout>

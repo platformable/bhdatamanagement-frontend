@@ -31,7 +31,8 @@ ChartJS.register(
   Title
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
-const TypeOfEventChart = ({ chartData, getHrefImage }) => {
+const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
+  // console.log("type of event chart", new Date(selectedDate.start).toLocaleDateString("en-US", {month:"numeric"}))
   const [value, copy] = useCopyToClipboard()
 
   const typeOfEventsCounts = {
@@ -45,26 +46,39 @@ const TypeOfEventChart = ({ chartData, getHrefImage }) => {
     "Online: Webinar": 0,
     "Door knocking": 0,
   };
+ 
   const [stadistics, setStadistics] = useState([]);
   useEffect(() => {
     stadistics = chartData?.map((event) => {
       event.inpersoneventtypename !== null || event.inpersoneventtypename !== ""
         ? typeOfEventsCounts[event.inpersoneventtypename]++
-        : typeOfEventsCounts[event.onlineeventtypename]++;
+        : null;
+
+      event.onlineeventtypename !== null || event.onlineeventtypename !== ""
+      ? typeOfEventsCounts[event.onlineeventtypename]++
+      : null
+      
     });
     setStadistics(Object.values(typeOfEventsCounts));
+    
   }, [chartData]);
 
+  let values = stadistics.filter(value => Number.isFinite(value));
+  let maxValue = Math.max.apply(null, values);
+  const reversedDate  = {
+    start: new Date(selectedDate.start).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"}),
+    finish: new Date(selectedDate.finish).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"})
+  }
+
   const typeOfEvents = [
-    "COVID-19 vaccine / testing",
-    "Outreach/Community Event",
-    "Day of action",
-    "In person: Workshop",
-    "In person: Town hall",
-    "Online: Workshop",
-    "Online: Town hall",
+    "Online: Meeting",
+    "Online: Town Hall",
     "Online: Webinar",
-    "Door knocking",
+    "Online: Workshop/Training",
+    "In-person: Outreach/Community Event",
+    "In-person: Town Hall",
+    "In-person: Vaccine and/or COVID-19 Testing Event",
+    "In-person: Workshop/Training",
   ];
 
   const options = {
@@ -74,7 +88,7 @@ const TypeOfEventChart = ({ chartData, getHrefImage }) => {
       },
       title: {
         display: true,
-        text: "Type of Event",
+        text: `Type of Event - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
         position: "top",
         font: {
           size: 18,
@@ -108,7 +122,7 @@ const TypeOfEventChart = ({ chartData, getHrefImage }) => {
           precision: 0,
         },
         min: 0,
-        max: 80,
+        max: maxValue,
       },
     },
   };
