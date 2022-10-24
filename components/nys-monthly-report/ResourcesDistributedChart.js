@@ -33,10 +33,11 @@ ChartJS.register(
   Title
 );
 
-const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
+const ResourcesDistributedChart = ({ chartData, getHrefImage, reversedDate}) => {
   const [value, copy] = useCopyToClipboard()
+  let values = Object.values(chartData).filter(value => Number.isFinite(value));
+  let maxValue = Math.max.apply(null, values);
   
-
   const options = {
     plugins: {
       legend: {
@@ -44,7 +45,7 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
       },
       title: {
         display: true,
-        text: "Resources Distributed",
+        text: `Resources Distributed - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
         position: "top",
         font: {
           size: 18,
@@ -78,7 +79,7 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage }) => {
           precision: 0,
         },
         min: 0,
-        max: 2500,
+        max: maxValue,
       },
     },
   };

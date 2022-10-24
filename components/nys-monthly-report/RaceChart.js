@@ -32,7 +32,7 @@ ChartJS.register(
   Title
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
-const RaceChart = ({ chartData,getHrefImage}) => {
+const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
   const [stadistics, setStadistics] = useState([])
   const [value, copy] = useCopyToClipboard()
   const raceCounts = {
@@ -63,6 +63,13 @@ const RaceChart = ({ chartData,getHrefImage}) => {
     setStadistics(Object.values(raceCounts))
    }, [chartData]);
 
+   let values = stadistics.filter(value => Number.isFinite(value));
+   let maxValue = Math.max.apply(null, values);
+   const reversedDate  = {
+    start: new Date(selectedDate.start).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"}),
+    finish: new Date(selectedDate.finish).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"})
+  }
+
   const options = {
     plugins: {
       legend: {
@@ -70,7 +77,7 @@ const RaceChart = ({ chartData,getHrefImage}) => {
       },
       title: {
         display: true,
-        text: "Race",
+        text: `Race - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
         position: "top",
         font: {
           size: 18,
@@ -104,7 +111,7 @@ const RaceChart = ({ chartData,getHrefImage}) => {
           precision: 0,
         },
         min: 0,
-        max: 15,
+        max: maxValue,
       },
     },
   };

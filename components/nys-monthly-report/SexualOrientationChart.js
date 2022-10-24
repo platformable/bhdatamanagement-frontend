@@ -32,7 +32,7 @@ ChartJS.register(
   Title
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
-const SexualOrientationChart = ({ chartData,getHrefImage}) => {
+const SexualOrientationChart = ({ chartData,getHrefImage, selectedDate}) => {
   const [value, copy] = useCopyToClipboard()
   const sexualOrientationCounts = {
     "Gay or lesbian": 0,
@@ -58,6 +58,13 @@ const SexualOrientationChart = ({ chartData,getHrefImage}) => {
   setStadistics(Object.values(sexualOrientationCounts))
  }, [chartData]);
 
+ let values = stadistics.filter(value => Number.isFinite(value));
+  let maxValue = Math.max.apply(null, values);
+  const reversedDate  = {
+    start: new Date(selectedDate.start).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"}),
+    finish: new Date(selectedDate.finish).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"})
+  }
+
   const options = {
     plugins: {
       legend: {
@@ -65,7 +72,7 @@ const SexualOrientationChart = ({ chartData,getHrefImage}) => {
       },
       title: {
         display: true,
-        text: "Sexual orientation",
+        text: `Sexual Orientation - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
         position: "top",
         font: {
           size: 18,
@@ -99,7 +106,7 @@ const SexualOrientationChart = ({ chartData,getHrefImage}) => {
           precision: 0,
         },
         min: 0,
-        max: 15,
+        max: maxValue,
       },
     },
   };
