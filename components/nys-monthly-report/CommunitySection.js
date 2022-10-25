@@ -404,6 +404,7 @@ const CommunitySection = ({
       testCount.altAgeHivUnder13 += event.altagehivunder13  
       testCount.altAgeHiv13_18 += event.altagehiv13_18  
       testCount.altAgeHiv19_2 += event.altagehiv19_2  
+      testCount.altAgeHiv19_24+=event.altagehiv19_24
       testCount.hiv25_29 += event.hiv25_29  
       testCount.hiv30_34 += event.hiv30_34  
       testCount.hiv35_39 += event.hiv35_39  
@@ -442,7 +443,7 @@ const CommunitySection = ({
   return (
     <section>
     <h1 className="font-black">Community</h1>
-    <button onClick={handleCopy} className='px-5 mt-2 mb-7 text-lg border hover:bg-black hover:text-white rounded shadow'>Copy list to clipboard</button>
+    <button onClick={handleCopy} className='px-5 mt-2 mb-7 text-lg border hover:bg-black hover:text-white rounded shadow'>Copy to clipboard</button>
     
     <div id="communityText">
     <p>{`There were ${!allTests.hivTesting ? 0 : allTests.hivTesting} HIV testing events, ${!allTests.sitTesting ? 0 : allTests.sitTesting} STI testing events, ${!allTests.hepcTesting? 0 : allTests.hepcTesting} Hepatitis C testing events, and  ${!allTests.covidTesting ? 0 : allTests.covidTesting} COVID testing events.

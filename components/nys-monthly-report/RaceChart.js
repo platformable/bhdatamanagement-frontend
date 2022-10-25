@@ -51,16 +51,16 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
   };
   useEffect(() => {
     stadistics = chartData?.map(event =>{
-      raceCounts["Black or African American"] = event?.hivblackorafricanamerican 
-      raceCounts["Hispanic, Latino/a or Spanish"] = event?.hivhispanic 
+      raceCounts["Black or African American"] += event?.hivblackorafricanamerican 
+      raceCounts["Hispanic, Latino/a or Spanish"] += event?.hivhispanic 
       raceCounts["Asian"] = event?.hivasian 
-      raceCounts["American Indian or Alaska Native"] = event?.hivamericanindianoralaskanative 
-      raceCounts["Middle Eastern or North African"] = event?.hivmiddleeasternornorthafrican 
-      raceCounts["Native Hawaiian or Other Pacific Islander"] = event?.hivnativehawaiianorotherpacificislander 
+      raceCounts["American Indian or Alaska Native"] += event?.hivamericanindianoralaskanative 
+      raceCounts["Middle Eastern or North African"] += event?.hivmiddleeasternornorthafrican 
+      raceCounts["Native Hawaiian or Other Pacific Islander"] += event?.hivnativehawaiianorotherpacificislander 
       raceCounts["White"] = event?.hivwhite 
-      raceCounts["Some other race or origin"] = event?.hivsomeotherrace 
-      raceCounts["More than one race/ethnicity"] = event?.hivmorethanonerace 
-      raceCounts["Decline to answer"] = event?.hivracedeclinedtoanswer
+      raceCounts["Some other race or origin"] += event?.hivsomeotherrace 
+      raceCounts["More than one race/ethnicity"] += event?.hivmorethanonerace 
+      raceCounts["Decline to answer"] += event?.hivracedeclinedtoanswer
     })
     setStadistics(Object.values(raceCounts))
    }, [chartData]);

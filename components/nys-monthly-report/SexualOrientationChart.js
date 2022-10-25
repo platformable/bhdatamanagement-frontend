@@ -49,13 +49,13 @@ const SexualOrientationChart = ({ chartData,getHrefImage, selectedDate}) => {
   const [stadistics, setStadistics] = useState([])
  useEffect(() => {
   stadistics = chartData?.map(event =>{
-    sexualOrientationCounts["Gay or lesbian"] = event?.hivgayorlesbian 
-    sexualOrientationCounts["Straight or heterosexual"] = event?.hivstraightorheterosexual 
-    sexualOrientationCounts["Bisexual"] = event?.hivbisexual 
-    sexualOrientationCounts["Queer"] = event?.hivqueer 
-    sexualOrientationCounts["Questioning or not sure"] = event?.hivquestioningornotsure 
-    sexualOrientationCounts["Unknown"] = event?.hivsexualorientationunknown 
-    sexualOrientationCounts["Decline to answer"] = event?.hivsexualorientationdeclinedtoanswer
+    sexualOrientationCounts["Gay or lesbian"] += event?.hivgayorlesbian 
+    sexualOrientationCounts["Straight or heterosexual"] += event?.hivstraightorheterosexual 
+    sexualOrientationCounts["Bisexual"] += event?.hivbisexual 
+    sexualOrientationCounts["Queer"] += event?.hivqueer 
+    sexualOrientationCounts["Questioning or not sure"] += event?.hivquestioningornotsure 
+    sexualOrientationCounts["Unknown"] += event?.hivsexualorientationunknown 
+    sexualOrientationCounts["Decline to answer"] += event?.hivsexualorientationdeclinedtoanswer
   })
   setStadistics(Object.values(sexualOrientationCounts))
  }, [chartData]);
