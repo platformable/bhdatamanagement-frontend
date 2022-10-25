@@ -88,7 +88,7 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
       },
       title: {
         display: true,
-        text: `Ages tested for HIV NYS CMP ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
+        text: `Ages tested for HIV NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
         position: "top",
         font: {
           size: 18,
