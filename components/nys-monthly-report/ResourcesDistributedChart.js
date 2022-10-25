@@ -19,6 +19,7 @@ import {
   getElementAtEvent,
   getElementsAtEvent,
 } from "react-chartjs-2";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(
   LinearScale,
@@ -30,7 +31,8 @@ ChartJS.register(
   LineElement,
   Legend,
   Tooltip,
-  Title
+  Title,
+  ChartDataLabels
 );
 
 const ResourcesDistributedChart = ({ chartData, getHrefImage, reversedDate}) => {
@@ -45,7 +47,7 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage, reversedDate}) => 
       },
       title: {
         display: true,
-        text: `Resources Distributed - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
+        text: `Resources Distributed NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
         position: "top",
         font: {
           size: 18,
@@ -79,36 +81,19 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage, reversedDate}) => 
           precision: 0,
         },
         min: 0,
-        max: maxValue,
+        max: maxValue + (maxValue / 3),
       },
     },
   };
 
-  
-  const resourcesDistributed = [
-    "Safer sex kits",
-    "HIV literature",
-    "HepC literature",
-    "PrEP literature",
-    "Health disparities literature",
-    "Masks",
-    "COVID literature",
-    "Vaccine related literature",
-    "Hand sanitizers",
-    "Male condoms",
-    "Female condoms",
-    "Lubricant",
-    "Referral lists",
-    "Dental dams",
-    "Promotional materials",
-  ];
+
 
   const data = {
-    labels: resourcesDistributed,
+    labels: Object.keys(chartData),
     datasets: [
       {
         type: "bar",
-        label: "# of new resources",
+        label: "# of resources",
         backgroundColor: "#3c9648",
         data: Object.values(chartData),
         borderColor: "white",

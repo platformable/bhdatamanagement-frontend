@@ -17,6 +17,7 @@ import {
 import { useEffect } from "react";
 
 const EventsIndex = ({ events }) => {
+  console.log("events", events)
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -285,22 +286,17 @@ const EventsIndex = ({ events }) => {
                 }
               })
               .filter((event, index) => {
-                var startDate = new Date(
-                  new Date(dateFilter.startDate).toLocaleString("en-US", {
-                    timeZone: "America/New_York",
-                  })
-                );
-                var endDate = new Date(dateFilter.endDate);
+                var startDate = new Date(new Date(dateFilter?.startDate).setHours(0))
+                var endDate = new Date(new Date(dateFilter?.endDate).setHours(23))
                 if (startDate !== null && endDate !== null) {
                   let filterPass = true;
                   const date = new Date(event.eventdate);
                   if (dateFilter.startDate) {
-                    filterPass = filterPass && new Date(startDate) <= date;
+                    filterPass = filterPass && startDate <= date;
                   }
                   if (dateFilter.endDate) {
-                    console.log("dateFilter", dateFilter.endDate >= date);
                     filterPass =
-                      filterPass && new Date(dateFilter.endDate) >= date;
+                      filterPass && endDate >= date;
                   }
                   return filterPass;
                 }

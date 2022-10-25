@@ -9,7 +9,7 @@ const ResourcesSection = ({
 }) => {
   const [stadistics, setStadistics] = useState([]);
   const [value, copy] = useCopyToClipboard();
-
+console.log("resources  section", selectedEventsOutputs)
   const reversedDate = {
     start: new Date(selectedDate.start).toLocaleDateString("en-US", {
       month: "numeric",
@@ -24,21 +24,14 @@ const ResourcesSection = ({
   };
 
   const resourcesCounts = {
-    "Safer sex kits": 0,
+    "Masks": 0,
+    "COVID literature": 0,
+    "Vaccine literature": 0,
     "HIV literature": 0,
     "HepC literature": 0,
     "PrEP literature": 0,
+    "Safer sex kits": 0,
     "Health disparities literature": 0,
-    Masks: 0,
-    "COVID literature": 0,
-    "Vaccine related literature": 0,
-    "Hand sanitizers": 0,
-    "Male condoms": 0,
-    "Female condoms": 0,
-    Lubricant: 0,
-    "Referral lists": 0,
-    "Dental dams": 0,
-    "Promotional materials": 0,
   };
 
   useEffect(() => {
@@ -51,15 +44,8 @@ const ResourcesSection = ({
         event?.healthdisparitiesliterature;
       resourcesCounts["Masks"] += event?.masks;
       resourcesCounts["COVID literature"] += event?.covidliterature;
-      resourcesCounts["Vaccine related literature"] +=
+      resourcesCounts["Vaccine literature"] +=
         event?.vaccinerelatedliterature;
-      resourcesCounts["Hand sanitizers"] += event?.handsanitizers;
-      resourcesCounts["Male condoms"] += event?.malecondoms;
-      resourcesCounts["Female condoms"] += event?.femalecondoms;
-      resourcesCounts["Lubricant"] += event?.lubricant;
-      resourcesCounts["Referral lists"] += event?.referrallists;
-      resourcesCounts["Dental dams"] += event?.dentaldam;
-      resourcesCounts["Promotional materials"] += event?.promotionalmaterial;
     });
     setStadistics(resourcesCounts);
   }, [selectedEventsOutputs]);

@@ -9,7 +9,8 @@ const CommunitySection = ({
   getHrefImage,
   selectedDate,
 }) => {
-  const [allTests, setAllTests] = useState({
+  const [allTests, setAllTests] = useState({});
+  const testCount = {
     total: 0,
     hivTesting: 0,
     hivTesting: 0,
@@ -56,7 +57,7 @@ const CommunitySection = ({
     hivQuestioningOrNotSure: 0,
     hivSexualOrientationUnknown: 0,
     hivSexualOrientationDeclinedToAnswer: 0,
-  });
+  }
 
   const getActiveTesting = (selectedEventsOutputs) => {
     const hivTesting = selectedEventsOutputs.filter(
@@ -374,12 +375,61 @@ const CommunitySection = ({
   };
 
   useEffect(() => {
-    getActiveTesting(selectedEventsOutputs);
-    getTestingTotals(selectedEventsOutputs);
-    getGenderTested(selectedEventsOutputs);
-    getRaceTested(selectedEventsOutputs);
-    getAgeTested(selectedEventsOutputs);
-  }, []);
+    const allTestsDoneResults = selectedEventsOutputs.map(event => {
+      testCount.total += event.total  
+      testCount.hivTesting += event.hivtesting  
+      testCount.sitTesting += event.sittesting  
+      testCount.hepcTesting += event.hepctesting  
+      testCount.covidTesting += event.covidtesting  
+      testCount.hivTestedTotal += event.hivtestedtotal  
+      testCount.hivFemale += event.hivfemale  
+      testCount.hivMale += event.hivmale  
+      testCount.hivTransgenderFemale += event.hivtransgenderfemale  
+      testCount.hivTransgenderMale += event.hivtransgendermale  
+      testCount.hivGenderNonConforming += event.hivgendernonconforming  
+      testCount.hivNonBinary += event.hivnonbinary  
+      testCount.hivGenderNotSureQuestioning += event.hivgendernotsurequestioning  
+      testCount.hivOtherGenderIdentity += event.hivothergenderidentity  
+      testCount.hivGenderDeclinedToAnswer += event.hivgenderdeclinedtoanswer  
+      testCount.hivBlackOrAfricanAmerican += event.hivblackorafricanamerican  
+      testCount.hivHispanic += event.hivhispanic  
+      testCount.hivAsian += event.hivasian  
+      testCount.hivAmericanIndianOrAlaskaNative += event.hivamericanindianoralaskanative  
+      testCount.hivNativeHawaiianOrOtherPacificIslander += event.hivnativehawaiianorotherpacificislander  
+      testCount.hivWhite += event.hivwhite  
+      testCount.hivMoreThanOneRace += event.hivmorethanonerace  
+      testCount.hivSomeOtherRace += event.hivsomeotherrace  
+      testCount.hivMiddleEasternOrNorthAfrican += event.hivmiddleeasternornorthafrican  
+      testCount.hivRaceDeclinedToAnswer += event.hivracedeclinedtoanswer  
+      testCount.altAgeHivUnder13 += event.altagehivunder13  
+      testCount.altAgeHiv13_18 += event.altagehiv13_18  
+      testCount.altAgeHiv19_2 += event.altagehiv19_2  
+      testCount.hiv25_29 += event.hiv25_29  
+      testCount.hiv30_34 += event.hiv30_34  
+      testCount.hiv35_39 += event.hiv35_39  
+      testCount.hiv40_44 += event.hiv40_44  
+      testCount.hiv45_49 += event.hiv45_49  
+      testCount.hiv50_54 += event.hiv50_54  
+      testCount.hiv55_59 += event.hiv55_59  
+      testCount.hiv60_64 += event.hiv60_64  
+      testCount.hiv65_69 += event.hiv65_69  
+      testCount.hiv70 += event.hiv70  
+      testCount.hivGayOrLesbian += event.hivgayorlesbian  
+      testCount.hivStraightOrHeterosexual += event.hivstraightorheterosexual  
+      testCount.hivBisexual += event.hivbisexual  
+      testCount.hivQueer += event.hivqueer  
+      testCount.hivQuestioningOrNotSure += event.hivquestioningornotsure  
+      testCount.hivSexualOrientationUnknown += event.hivsexualorientationunknown  
+      testCount.hivSexualOrientationDeclinedToAnswer += event.hivsexualorientationdeclinedtoanswer 
+      
+      setAllTests(testCount)
+   })
+    // getActiveTesting(selectedEventsOutputs);
+    // getTestingTotals(selectedEventsOutputs);
+    // getGenderTested(selectedEventsOutputs);
+    // getRaceTested(selectedEventsOutputs);
+    // getAgeTested(selectedEventsOutputs);
+  }, [selectedEventsOutputs]);
 
   function handleCopy() {
     const data = document.querySelector("#communityText").textContent;
@@ -392,7 +442,7 @@ const CommunitySection = ({
     <button onClick={handleCopy} className='px-5 mt-2 mb-7 text-lg border hover:bg-black hover:text-white rounded shadow'>Copy list to clipboard</button>
     
     <div id="communityText">
-    <p>{`There were ${allTests.covidTesting} HIV testing events, ${allTests.hivTesting} STI testing events, ${allTests.hepcTesting} Hepatitis C testing events, and  ${allTests.covidTesting} COVID testing events.
+    <p>{`There were ${!allTests.hivTesting ? 0 : allTests.hivTesting} HIV testing events, ${!allTests.sitTesting ? 0 : allTests.sitTesting} STI testing events, ${!allTests.hepcTesting? 0 : allTests.hepcTesting} Hepatitis C testing events, and  ${!allTests.covidTesting ? 0 : allTests.covidTesting} COVID testing events.
 `}</p> <br />
 <p>{`At the HIV testing events,  ${allTests.hivTestedTotal}  people were tested, including ${allTests.hivFemale}  women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNonConforming} not sure/questioning,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
 `}</p> 

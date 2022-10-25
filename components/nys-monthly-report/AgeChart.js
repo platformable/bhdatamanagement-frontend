@@ -18,6 +18,7 @@ import {
   getElementAtEvent,
   getElementsAtEvent,
 } from "react-chartjs-2";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(
   LinearScale,
@@ -29,7 +30,8 @@ ChartJS.register(
   LineElement,
   Legend,
   Tooltip,
-  Title
+  Title,
+  ChartDataLabels
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 
@@ -54,19 +56,19 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
     const [stadistics, setStadistics] = useState([])
     useEffect(() => {
     stadistics = chartData?.map(event =>{
-      ageCounts["Under 13"] = event?.altagehivunder13 + event?.altagestiunder13 + event?.altagehepcunder13
-      ageCounts["13-18"] = event?.altagehiv13_18 + event?.altagesti13_18 + event?.altagehepc13_18
-      ageCounts["19-24"] = event?.altagehiv19_24 + event?.altagesti19_24 + event?.altagehepc19_24
-      ageCounts["25-29"] = event?.hiv25_29 + event?.sti25_29 + event?.hepc25_29
-      ageCounts["30-34"] = event?.hiv30_34 + event?.sti30_34 + event?.hepc30_34
-      ageCounts["35-39"] = event?.hiv35_39 + event?.sti35_39 + event?.hepc35_39
-      ageCounts["40-44"] = event?.hiv40_44 + event?.sti40_44 + event?.hepc40_44
-      ageCounts["45-49"] = event?.hiv45_49 + event?.sti45_49 + event?.hepc45_49
-      ageCounts["50-54"] = event?.hiv50_54 + event?.sti50_54 + event?.hepc50_54
-      ageCounts["55-59"] = event?.hiv55_59 + event?.sti55_59 + event?.hepc55_59
-      ageCounts["60-64"] = event?.hiv60_64 + event?.sti60_64 + event?.hepc60_64
-      ageCounts["65-69"] = event?.hiv65_69 + event?.sti65_69 + event?.hepc65_69
-      ageCounts["70+"] = event?.hiv70 + event?.sti70 + event?.hepc70
+      ageCounts["Under 13"] = event?.altagehivunder13
+      ageCounts["13-18"] = event?.altagehiv13_18
+      ageCounts["19-24"] = event?.altagehiv19_24
+      ageCounts["25-29"] = event?.hiv25_29
+      ageCounts["30-34"] = event?.hiv30_34
+      ageCounts["35-39"] = event?.hiv35_39
+      ageCounts["40-44"] = event?.hiv40_44
+      ageCounts["45-49"] = event?.hiv45_49
+      ageCounts["50-54"] = event?.hiv50_54
+      ageCounts["55-59"] = event?.hiv55_59
+      ageCounts["60-64"] = event?.hiv60_64
+      ageCounts["65-69"] = event?.hiv65_69
+      ageCounts["70+"] = event?.hiv70
     })
     setStadistics(Object.values(ageCounts))
     }, [chartData]);
@@ -86,7 +88,7 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
       },
       title: {
         display: true,
-        text: `Age - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
+        text: `Ages tested for HIV NYS CMP ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
         position: "top",
         font: {
           size: 18,
@@ -120,7 +122,7 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
           precision: 0,
         },
         min: 0,
-        max: maxValue,
+        max: maxValue + (maxValue / 3),
       },
     },
   };

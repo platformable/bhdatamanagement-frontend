@@ -12,6 +12,8 @@ import {
   Tooltip,
   Title,
 } from "chart.js";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 import {
   Chart,
   getDatasetAtEvent,
@@ -28,7 +30,8 @@ ChartJS.register(
   LineElement,
   Legend,
   Tooltip,
-  Title
+  Title,
+  ChartDataLabels
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
@@ -36,17 +39,16 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
   const [value, copy] = useCopyToClipboard()
 
   const typeOfEventsCounts = {
-    "COVID-19 vaccine / testing": 0,
+    "Meeting": 0,
+    "Town Hall": 0,
+    "Webinar": 0,
+    "Workshop/Training": 0,
     "Outreach/Community Event": 0,
-    "Day of action": 0,
-    "In person: Workshop": 0,
-    "In person: Town hall": 0,
-    "Online: Workshop": 0,
-    "Online: Town hall": 0,
-    "Online: Webinar": 0,
-    "Door knocking": 0,
+    "Town Hall": 0,
+    "Vaccine and/or COVID-19 Testing Event": 0,
+    "Workshop/Training": 0,
   };
- 
+  
   const [stadistics, setStadistics] = useState([]);
   useEffect(() => {
     stadistics = chartData?.map((event) => {
@@ -88,7 +90,7 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
       },
       title: {
         display: true,
-        text: `Type of Event - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
+        text: `Types of event NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
         position: "top",
         font: {
           size: 18,
@@ -122,7 +124,7 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
           precision: 0,
         },
         min: 0,
-        max: maxValue,
+        max: maxValue + (maxValue / 3),
       },
     },
   };
@@ -132,7 +134,7 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
     datasets: [
       {
         type: "bar",
-        label: "# of new events",
+        label: "# of events",
         backgroundColor: "#2B80F5",
         data: stadistics,
         borderColor: "white",

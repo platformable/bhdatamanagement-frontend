@@ -18,6 +18,7 @@ import {
   getElementAtEvent,
   getElementsAtEvent,
 } from "react-chartjs-2";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(
   LinearScale,
@@ -29,7 +30,8 @@ ChartJS.register(
   LineElement,
   Legend,
   Tooltip,
-  Title
+  Title,
+  ChartDataLabels
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 const SexualOrientationChart = ({ chartData,getHrefImage, selectedDate}) => {
@@ -47,13 +49,13 @@ const SexualOrientationChart = ({ chartData,getHrefImage, selectedDate}) => {
   const [stadistics, setStadistics] = useState([])
  useEffect(() => {
   stadistics = chartData?.map(event =>{
-    sexualOrientationCounts["Gay or lesbian"] = event?.hivgayorlesbian + event?.stigayorlesbian + event?.hepcgayorlesbian
-    sexualOrientationCounts["Straight or heterosexual"] = event?.hivstraightorheterosexual + event?.stistraightorheterosexual + event?.hepcstraightorheterosexual
-    sexualOrientationCounts["Bisexual"] = event?.hivbisexual + event?.stibisexual + event?.hepcbisexual
-    sexualOrientationCounts["Queer"] = event?.hivqueer + event?.stiqueer + event?.hepcqueer
-    sexualOrientationCounts["Questioning or not sure"] = event?.hivquestioningornotsure + event?.stiquestioningornotsure + event?.hepcquestioningornotsure
-    sexualOrientationCounts["Unknown"] = event?.hivsexualorientationunknown + event?.stisexualorientationunknown + event?.hepcsexualorientationunknown
-    sexualOrientationCounts["Decline to answer"] = event?.hivsexualorientationdeclinedtoanswer + event?.stisexualorientationdeclinedtoanswer + event?.hepcsexualorientationdeclinedtoanswer
+    sexualOrientationCounts["Gay or lesbian"] = event?.hivgayorlesbian 
+    sexualOrientationCounts["Straight or heterosexual"] = event?.hivstraightorheterosexual 
+    sexualOrientationCounts["Bisexual"] = event?.hivbisexual 
+    sexualOrientationCounts["Queer"] = event?.hivqueer 
+    sexualOrientationCounts["Questioning or not sure"] = event?.hivquestioningornotsure 
+    sexualOrientationCounts["Unknown"] = event?.hivsexualorientationunknown 
+    sexualOrientationCounts["Decline to answer"] = event?.hivsexualorientationdeclinedtoanswer
   })
   setStadistics(Object.values(sexualOrientationCounts))
  }, [chartData]);
@@ -72,7 +74,7 @@ const SexualOrientationChart = ({ chartData,getHrefImage, selectedDate}) => {
       },
       title: {
         display: true,
-        text: `Sexual Orientation - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
+        text: `Sexual Orientation tested for HIV NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
         position: "top",
         font: {
           size: 18,
@@ -106,7 +108,7 @@ const SexualOrientationChart = ({ chartData,getHrefImage, selectedDate}) => {
           precision: 0,
         },
         min: 0,
-        max: maxValue,
+        max: maxValue + (maxValue / 3),
       },
     },
   };

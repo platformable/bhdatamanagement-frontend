@@ -29,26 +29,20 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
   useEffect(() => {
     console.log("selectedDate", selectedDate);
     const selectedReports = events.filter(
-      (report) =>
-        new Date(report.eventdate) >=
-          new Date(
-            new Date(selectedDate.start).toLocaleString("en-US", {
-              timeZone: "America/New_York",
-            })
-          ).setHours(0) &&
-        new Date(report.eventdate) <= new Date(selectedDate.finish)
-      
+      (report) => {
+        const start = new Date(new Date(selectedDate.start).setHours(0))
+        const end = new Date(new Date(selectedDate.finish).setHours(23))
+        const eventdate = new Date(report?.eventdate)
+        return eventdate >= start && eventdate <= end
+      } 
     );
     const selectedEventOutputsReports = eventsOutput.filter(
-      (report) =>
-        new Date(report.eventdate) >=
-          new Date(
-            new Date(selectedDate.start).toLocaleString("en-US", {
-              timeZone: "America/New_York",
-            })
-          ).setHours(0) &&
-        new Date(report.eventdate) <= new Date(selectedDate.finish)
-
+      (report) => {
+        const start = new Date(new Date(selectedDate.start).setHours(0))
+        const end = new Date(new Date(selectedDate.finish).setHours(23))
+        const eventdate = new Date(report?.eventdate)
+        return eventdate >= start && eventdate <= end
+      } 
     );
     
     setSelectedEvents(selectedReports);

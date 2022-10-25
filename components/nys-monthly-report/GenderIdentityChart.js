@@ -18,6 +18,7 @@ import {
   getElementAtEvent,
   getElementsAtEvent,
 } from "react-chartjs-2";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(
   LinearScale,
@@ -29,7 +30,8 @@ ChartJS.register(
   LineElement,
   Legend,
   Tooltip,
-  Title
+  Title,
+  ChartDataLabels
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
@@ -47,18 +49,20 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
     "GenderDeclinedToAnswer": 0
   };
  useEffect(() => {
-  stadistics = chartData?.map((event, index) =>{
-    gendersCounts["Female"] = event?.hivfemale + event?.stifemale + event?.hepcfemale
-    gendersCounts["Male"] = event?.hivmale + event?.stimale + event?.hepcmale
-    gendersCounts["Female"] = event?.hivtransgenderfemale + event?.stitransgenderfemale + event?.hepctransgenderfemale
-    gendersCounts["Transgender female"] = event?.hivtransgendermale + event?.stitransgendermale + event?.hepctransgendermale
-    gendersCounts["Gender non-conforming"] = event?.hivgendernonconforming + event?.stigendernonconforming + event?.hepcgendernonconforming
-    gendersCounts["Non-binary"] = event?.hivnonbinary + event?.stinonbinary + event?.hepcnonbinary
-    gendersCounts["NotSureQuestioning"] = event?.hivnotsurequestioning + event?.stinotsurequestioning + event?.hepcnotsurequestioning
-    gendersCounts["OtherGenderIdentity"] = event?.hivothergenderidentity + event?.stiothergenderidentity + event?.hepcothergenderidentity
-    gendersCounts["GenderDeclinedToAnswer"] = event?.hivgenderdeclinedtoanswer + event?.stigenderdeclinedtoanswer + event?.hepcgenderdeclinedtoanswer
-  })
+  console.log(chartData)
 
+  stadistics = chartData?.map((event, index) =>{
+    
+    gendersCounts["Female"] = event?.hivfemale 
+    gendersCounts["Male"] = event?.hivmale 
+    gendersCounts["Female"] = event?.hivtransgenderfemale 
+    gendersCounts["Transgender female"] = event?.hivtransgendermale 
+    gendersCounts["Gender non-conforming"] = event?.hivgendernonconforming 
+    gendersCounts["Non-binary"] = event?.hivnonbinary 
+    gendersCounts["NotSureQuestioning"] = event?.hivnotsurequestioning 
+    gendersCounts["OtherGenderIdentity"] = event?.hivothergenderidentity 
+    gendersCounts["GenderDeclinedToAnswer"] = event?.hivgenderdeclinedtoanswer 
+  })
   setStadistics(Object.values(gendersCounts))
  }, [chartData]);
 
@@ -76,7 +80,7 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
       },
       title: {
         display: true,
-        text: `Gender identity - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
+        text: `Gender identity tested for HIV NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
         position: "top",
         font: {
           size: 18,
@@ -110,7 +114,7 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
           precision: 0,
         },
         min: 0,
-        max: maxValue,
+        max: maxValue + (maxValue / 3),
       },
     },
   };

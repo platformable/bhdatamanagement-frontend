@@ -18,6 +18,7 @@ import {
   getElementAtEvent,
   getElementsAtEvent,
 } from "react-chartjs-2";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(
   LinearScale,
@@ -29,7 +30,8 @@ ChartJS.register(
   LineElement,
   Legend,
   Tooltip,
-  Title
+  Title,
+  ChartDataLabels
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 
@@ -54,6 +56,7 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
    stadistics = chartData?.map(event =>{
      eventLocationsCounts[event.eventlocationtypename]++ 
    })
+   console.log(eventLocationsCounts)
    setStadistics(Object.values(eventLocationsCounts))
   }, [chartData]);
 
@@ -71,7 +74,7 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
       },
       title: {
         display: true,
-        text: `Event location - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData.length}`,
+        text: `Event Locations NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
         position: "top",
         font: {
           size: 18,
@@ -105,7 +108,7 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
           precision: 0,
         },
         min: 0,
-        max: maxValue,
+        max: maxValue + (maxValue / 3),
       },
     },
   };
@@ -131,7 +134,7 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
     datasets: [
       {
         type: "bar",
-        label: "# of new events",
+        label: "# of events",
         backgroundColor: "#3c9648",
         data: stadistics,
         borderColor: "white",

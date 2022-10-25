@@ -18,6 +18,7 @@ import {
   getElementAtEvent,
   getElementsAtEvent,
 } from "react-chartjs-2";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(
   LinearScale,
@@ -29,7 +30,8 @@ ChartJS.register(
   LineElement,
   Legend,
   Tooltip,
-  Title
+  Title,
+  ChartDataLabels
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
@@ -49,16 +51,16 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
   };
   useEffect(() => {
     stadistics = chartData?.map(event =>{
-      raceCounts["Black or African American"] = event?.hivblackorafricanamerican + event?.stiblackorafricanamerican + event?.hepcblackorafricanamerican
-      raceCounts["Hispanic, Latino/a or Spanish"] = event?.hivhispanic + event?.stihispanic + event?.hepchispanic
-      raceCounts["Asian"] = event?.hivasian + event?.stiasian + event?.hepcasian
-      raceCounts["American Indian or Alaska Native"] = event?.hivamericanindianoralaskanative + event?.stiamericanindianoralaskanative + event?.hepcamericanindianoralaskanative
-      raceCounts["Middle Eastern or North African"] = event?.hivmiddleeasternornorthafrican + event?.stimiddleeasternornorthafrican + event?.hepcmiddleeasternornorthafrican
-      raceCounts["Native Hawaiian or Other Pacific Islander"] = event?.hivnativehawaiianorotherpacificislander + event?.stinativehawaiianorotherpacificislander + event?.hepcnativehawaiianorotherpacificislander
-      raceCounts["White"] = event?.hivwhite + event?.stiwhite + event?.hepcwhite
-      raceCounts["Some other race or origin"] = event?.hivsomeotherrace + event?.stisomeotherrace + event?.hepcsomeotherrace
-      raceCounts["More than one race/ethnicity"] = event?.hivmorethanonerace + event?.stimorethanonerace + event?.hepcmorethanonerace
-      raceCounts["Decline to answer"] = event?.hivracedeclinedtoanswer + event?.stiracedeclinedtoanswer + event?.hepcracedeclinedtoanswer
+      raceCounts["Black or African American"] = event?.hivblackorafricanamerican 
+      raceCounts["Hispanic, Latino/a or Spanish"] = event?.hivhispanic 
+      raceCounts["Asian"] = event?.hivasian 
+      raceCounts["American Indian or Alaska Native"] = event?.hivamericanindianoralaskanative 
+      raceCounts["Middle Eastern or North African"] = event?.hivmiddleeasternornorthafrican 
+      raceCounts["Native Hawaiian or Other Pacific Islander"] = event?.hivnativehawaiianorotherpacificislander 
+      raceCounts["White"] = event?.hivwhite 
+      raceCounts["Some other race or origin"] = event?.hivsomeotherrace 
+      raceCounts["More than one race/ethnicity"] = event?.hivmorethanonerace 
+      raceCounts["Decline to answer"] = event?.hivracedeclinedtoanswer
     })
     setStadistics(Object.values(raceCounts))
    }, [chartData]);
@@ -77,7 +79,7 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
       },
       title: {
         display: true,
-        text: `Race - CMP NYS - ${reversedDate?.start}-${reversedDate?.finish} n=${chartData?.length}`,
+        text: `Races tested for HIV NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
         position: "top",
         font: {
           size: 18,
@@ -111,7 +113,7 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
           precision: 0,
         },
         min: 0,
-        max: maxValue,
+        max: maxValue + (maxValue / 3),
       },
     },
   };
