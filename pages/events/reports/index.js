@@ -15,20 +15,20 @@ const CreateReport = () => {
         <div>
           <section className="grid md:grid-cols-6 grid-cols-1 gap-5 mb-2 px-5 md:px-0 my-10">
             <Link href="/events/reports/nysReportPage">
-              <button className="bg-black text-white p-5 rounded mb-5">
+              <button className="bg-black text-white p-5 rounded uppercase font-bold">
                 NYS CMP dataset
               </button>
             </Link>
-            {/* <Link href="/events/reports/nysMonthlyReport">
-              <button className="bg-black text-white p-5 rounded mb-5">
+            <Link href="/events/reports/nysMonthlyReport">
+              <button className="bg-black text-white p-5 rounded uppercase font-bold">
                 Data and charts for monthly NYS CMP report
               </button>
-            </Link> */}
-            {/* <Link href="/events/reports/nysParticipantSurveyReport">
-              <button className="bg-black text-white p-5 rounded mb-5">
+            </Link> 
+             <Link href="/events/reports/nysParticipantSurveyReport">
+              <button className="bg-black text-white p-5 rounded uppercase font-bold">
                 NYS CMP Participant Survey dataset
               </button>
-            </Link> */}
+            </Link> 
           </section>
         </div>
       </div>

@@ -2,8 +2,19 @@ import React from "react";
 
 export const ParticipantSurveySection1 = ({ surveyForm, setSurveyForm }) => {
   const handleForm = (e) => {
+    e.target.value.length < 6 &&
     setSurveyForm({ ...surveyForm, [e.target.name]: Number(e.target.value) });
   };
+  const isNumberKey = (e) => {
+    const invalidChars = [
+      "-",
+      "+",
+      "e",
+    ];
+    if (invalidChars.includes(e.key)) {
+      e.preventDefault();
+    } 
+}
   return (
     <div className="px-7 mt-7">
       <h2 className="font-black">
@@ -20,11 +31,11 @@ export const ParticipantSurveySection1 = ({ surveyForm, setSurveyForm }) => {
             maxLength={5}
             name="participantZipCode"
             onKeyUp={(e) => {
-              e.target.value.length > 5 &&
-                (e.target.value = e.target.value.slice(0, 5));
+              e.target.value.length > 5 && (e.target.value = e.target.value.slice(0,5))
             }}
             onWheelCapture={(e) => e.target.blur()}
             onChange={handleForm}
+            onKeyDown={isNumberKey}
           />
         </label>
       </div>

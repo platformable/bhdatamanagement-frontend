@@ -141,8 +141,8 @@ const ExportPaticipantCSV = ({ csvData, fileName }) => {
   return (
     //use ";" as separator for testing 
     <CSVLink headers={headers} data={orderedData} filename={fileName} separator=",">
-      <button className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full">
-      Download participant csv
+      <button className="uppercase text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full">
+      Download participant surveys dataset
       </button>
     </CSVLink>
   );

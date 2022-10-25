@@ -56,9 +56,10 @@ const ParticipantSurvey = ({
           dashboardBtn={true}
           pageTitle={"Participant survey"}
         />
+        <p className="container mx-auto mb-3 text-lg">This participant survey is to collect demographics and some optional additional information from participants at your event.
+        <br/>Please check Additional Materials in the event for any additional event-specific surveys created by the data team. </p>
         <div className="container mx-auto md:px-0 px-5  items-center  rounded-lg shadow-lg">
-
-        <div className="border rounded-t-lg py-3 px-7 bg-black text-white flex justify-between ">
+         <div className="border rounded-t-lg py-3 px-7 bg-black text-white flex justify-between ">
                {/*  <p className="lg:text-lg flex items-center justify-center">Program</p> */}
                 <h2 className="flex items-center text-2xl">{event?.eventname}</h2>
                 <h2 className="flex items-center text-2xl">{new Date(event?.eventdate).toLocaleDateString("en-US", {

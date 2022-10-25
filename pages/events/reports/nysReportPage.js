@@ -4,6 +4,7 @@ import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import ExportCSV from "../../../components/exportCSV";
 const NysReportPage = ({ eventReport,  }) => {
+  // console.log("post events",eventReport)
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -12,12 +13,18 @@ const NysReportPage = ({ eventReport,  }) => {
   const [headers, setHeaders] = useState([]);
   const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
   useEffect(() => {
-    const cerohoursDate = new Date(selectedDate.start).setHours(0)
     console.log("selectedDate", selectedDate)
     const selectedReports = eventReport.filter(
-      (report) => 
-          new Date(report.eventdate) >= new Date(new Date(selectedDate.start).toLocaleString("en-US", {timeZone: "America/New_York"})).setHours(0) &&
-          new Date(report.eventdate) <= new Date(selectedDate.finish)
+      (report) => {
+        const start = new Date(new Date(selectedDate.start).setHours(0))
+        const end = new Date(new Date(selectedDate.finish).setHours(23))
+        const eventdate = new Date(report?.eventdate)
+        // console.log("start", start)
+        // console.log("end", end)
+        // console.log("eventdate", eventdate)
+        // console.log(eventdate >= start && eventdate <= end)
+        return eventdate >= start && eventdate <= end
+      } 
     );
     setSelectedCSV(selectedReports);
 
