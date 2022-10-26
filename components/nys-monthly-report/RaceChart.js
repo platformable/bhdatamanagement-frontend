@@ -44,7 +44,6 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
     "Native Hawaiian or Other Pacific Islander": 0,
     "American Indian or Alaska Native": 0,
     "More than one race/ethnicity": 0,
-    "Middle Eastern or North African": 0,
     "Other": 0,
     "Unknown/unreported": 0
   };
@@ -54,9 +53,9 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
       raceCounts["Hispanic"] += event?.hivhispanic 
       raceCounts["Asian"] += event?.hivasian 
       raceCounts["American Indian or Alaska Native"] += event?.hivamericanindianoralaskanative 
-      raceCounts["Middle Eastern or North African"] += event?.hivmiddleeasternornorthafrican 
+      raceCounts["Native Hawaiian or Other Pacific Islander"] += event?.hivnativehawaiianorotherpacificislander 
       raceCounts["White"] += event?.hivwhite 
-      raceCounts["Other"] += (event?.hivsomeotherrace + event?.hivnativehawaiianorotherpacificislander)
+      raceCounts["Other"] += (event?.hivsomeotherrace + event?.hivmiddleeasternornorthafrican)
       raceCounts["More than one race/ethnicity"] += event?.hivmorethanonerace 
       raceCounts["Unknown/unreported"] += event?.hivracedeclinedtoanswer
     })
