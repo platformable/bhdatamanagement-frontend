@@ -89,10 +89,10 @@ console.log("resources  section", selectedEventsOutputs)
           </tbody>
         </table>
         <button
-          onClick={() => textToClipboard("resources-table")}
-          className="px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
+          // onClick={() => textToClipboard("resources-table")}
+          className="px-5 py-2 text-lg border hover:bg-black pointer-events-none hover:text-white rounded shadow"
         >
-          Copy to clipboard
+          Select and right-click to copy the text 
         </button>
       </div>
     </section>

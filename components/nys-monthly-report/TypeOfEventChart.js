@@ -53,11 +53,11 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
   useEffect(() => {
     stadistics = chartData?.map((event) => {
       event.inpersoneventtypename !== null || event.inpersoneventtypename !== ""
-        ? typeOfEventsCounts[event.inpersoneventtypename]++
+        ? typeOfEventsCounts[event.inpersoneventtypename] += 1
         : null;
 
       event.onlineeventtypename !== null || event.onlineeventtypename !== ""
-      ? typeOfEventsCounts[event.onlineeventtypename]++
+      ? typeOfEventsCounts[event.onlineeventtypename] += 1
       : null
       
     });

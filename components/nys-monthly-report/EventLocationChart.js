@@ -54,6 +54,7 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
 }
   useEffect(() => {
    stadistics = chartData?.map(event =>{
+    event.onlineinpersoneventtype === "Online" && (eventLocationsCounts["Virtual / Online"] += 1)
      eventLocationsCounts[event.eventlocationtypename]++ 
    })
    console.log(eventLocationsCounts)

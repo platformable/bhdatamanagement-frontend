@@ -41,34 +41,21 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
     "Under 13": 0,
     "13-18": 0,
     "19-24": 0,
-    "25-29": 0,
-    "30-34": 0,
-    "35-39": 0,
-    "40-44": 0,
-    "45-49": 0,
-    "50-54": 0,
-    "55-59": 0,
-    "60-64": 0,
-    "65-69": 0,
-    "70+": 0 
+    "25-34": 0,
+    "35-44": 0,
+    "45+": 0,
+
   };
 
     const [stadistics, setStadistics] = useState([])
     useEffect(() => {
     stadistics = chartData?.map(event =>{
-      ageCounts["Under 13"] = event?.altagehivunder13
-      ageCounts["13-18"] = event?.altagehiv13_18
-      ageCounts["19-24"] = event?.altagehiv19_24
-      ageCounts["25-29"] = event?.hiv25_29
-      ageCounts["30-34"] = event?.hiv30_34
-      ageCounts["35-39"] = event?.hiv35_39
-      ageCounts["40-44"] = event?.hiv40_44
-      ageCounts["45-49"] = event?.hiv45_49
-      ageCounts["50-54"] = event?.hiv50_54
-      ageCounts["55-59"] = event?.hiv55_59
-      ageCounts["60-64"] = event?.hiv60_64
-      ageCounts["65-69"] = event?.hiv65_69
-      ageCounts["70+"] = event?.hiv70
+      ageCounts["Under 13"] += event?.altagehivunder13
+      ageCounts["13-18"] += event?.altagehiv13_18
+      ageCounts["19-24"] += event?.altagehiv19_24
+      ageCounts["25-34"] += (event?.hiv25_29 + event?.hiv30_34)
+      ageCounts["35-44"] += (event?.hiv35_39 + event?.hiv40_44)
+      ageCounts["45+"] += (event?.hiv45_49 + event?.hiv50_54 + event?.hiv55_59 + event?.hiv60_64 + event?.hiv65_69 + event?.hiv70)
     })
     setStadistics(Object.values(ageCounts))
     }, [chartData]);
@@ -129,19 +116,12 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
 
   
   const age = [
-    "Under 13",
-    "13-18",
-    "19-24",
-    "25-29",
-    "30-34",
-    "35-39",
-    "40-44",
-    "45-49",
-    "50-54",
-    "55-59",
-    "60-64",
-    "65-69",
-    "70+" 
+    "Children (Under 13)",
+    "Adolescents (13 to 18)",
+    "19 to 24",
+    "25 to 34",
+    "35 to 44",
+    "45 and over"
      ];
 
   const data = {

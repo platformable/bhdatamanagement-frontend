@@ -49,19 +49,16 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
     "GenderDeclinedToAnswer": 0
   };
  useEffect(() => {
-  console.log(chartData)
-
   stadistics = chartData?.map((event, index) =>{
-    
-    gendersCounts["Female"] = event?.hivfemale 
-    gendersCounts["Male"] = event?.hivmale 
-    gendersCounts["Female"] = event?.hivtransgenderfemale 
-    gendersCounts["Transgender female"] = event?.hivtransgendermale 
-    gendersCounts["Gender non-conforming"] = event?.hivgendernonconforming 
-    gendersCounts["Non-binary"] = event?.hivnonbinary 
-    gendersCounts["NotSureQuestioning"] = event?.hivnotsurequestioning 
-    gendersCounts["OtherGenderIdentity"] = event?.hivothergenderidentity 
-    gendersCounts["GenderDeclinedToAnswer"] = event?.hivgenderdeclinedtoanswer 
+    gendersCounts["Female"] += event?.hivfemale 
+    gendersCounts["Male"] += event?.hivmale 
+    gendersCounts["Female"] += event?.hivtransgenderfemale 
+    gendersCounts["Transgender female"] += event?.hivtransgendermale 
+    gendersCounts["Gender non-conforming"] += event?.hivgendernonconforming 
+    gendersCounts["Non-binary"] += event?.hivnonbinary 
+    gendersCounts["NotSureQuestioning"] += event?.hivnotsurequestioning 
+    gendersCounts["OtherGenderIdentity"] += event?.hivothergenderidentity 
+    gendersCounts["GenderDeclinedToAnswer"] += event?.hivgenderdeclinedtoanswer 
   })
   setStadistics(Object.values(gendersCounts))
  }, [chartData]);
