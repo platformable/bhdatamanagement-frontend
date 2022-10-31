@@ -14,7 +14,7 @@ const CommunitySection = ({
     total: 0,
     hivTesting: 0,
     hivTesting: 0,
-    sitTesting: 0,
+    stiTesting: 0,
     hepcTesting: 0,
     covidTesting: 0,
     hivTestedTotal: 0,
@@ -39,7 +39,7 @@ const CommunitySection = ({
     hivRaceDeclinedToAnswer: 0,
     altAgeHivUnder13: 0,
     altAgeHiv13_18: 0,
-    altAgeHiv19_2: 0,
+    altAgeHiv19_24: 0,
     hiv25_29: 0,
     hiv30_34: 0,
     hiv35_39: 0,
@@ -57,7 +57,7 @@ const CommunitySection = ({
     hivQuestioningOrNotSure: 0,
     hivSexualOrientationUnknown: 0,
     hivSexualOrientationDeclinedToAnswer: 0,
-  }
+  };
 
   const getActiveTesting = (selectedEventsOutputs) => {
     const hivTesting = selectedEventsOutputs.filter(
@@ -79,14 +79,14 @@ const CommunitySection = ({
       hepcTesting.length +
       covidTesting.length;
 
-    setAllTests((previous) => ({
-      ...previous,
-      total: total,
-      hivTesting: hivTesting.length,
-      sitTesting: sitTesting.length,
-      hepcTesting: hepcTesting.length,
-      covidTesting: covidTesting.length,
-    }));
+    // setAllTests((previous) => ({
+    //   ...previous,
+    //   total: total,
+    //   hivTesting: hivTesting.length,
+    //   sitTesting: sitTesting.length,
+    //   hepcTesting: hepcTesting.length,
+    //   covidTesting: covidTesting.length,
+    // }));
   };
 
   const getTestingTotals = (selectedEventsOutputs) => {
@@ -375,56 +375,59 @@ const CommunitySection = ({
   };
 
   useEffect(() => {
-    const allTestsDoneResults = selectedEventsOutputs.map(event => {
-      testCount.total += event.total  
-      testCount.hivTesting += event.hivtesting  
-      testCount.sitTesting += event.sittesting  
-      testCount.hepcTesting += event.hepctesting  
-      testCount.covidTesting += event.covidtesting  
-      testCount.hivTestedTotal += event.hivtestedtotal  
-      testCount.hivFemale += event.hivfemale  
-      testCount.hivMale += event.hivmale  
-      testCount.hivTransgenderFemale += event.hivtransgenderfemale  
-      testCount.hivTransgenderMale += event.hivtransgendermale  
-      testCount.hivGenderNonConforming += event.hivgendernonconforming  
-      testCount.hivNonBinary += event.hivnonbinary  
-      testCount.hivGenderNotSureQuestioning += event.hivgendernotsurequestioning  
-      testCount.hivOtherGenderIdentity += event.hivothergenderidentity  
-      testCount.hivGenderDeclinedToAnswer += event.hivgenderdeclinedtoanswer  
-      testCount.hivBlackOrAfricanAmerican += event.hivblackorafricanamerican  
-      testCount.hivHispanic += event.hivhispanic  
-      testCount.hivAsian += event.hivasian  
-      testCount.hivAmericanIndianOrAlaskaNative += event.hivamericanindianoralaskanative  
-      testCount.hivNativeHawaiianOrOtherPacificIslander += event.hivnativehawaiianorotherpacificislander  
-      testCount.hivWhite += event.hivwhite  
-      testCount.hivMoreThanOneRace += event.hivmorethanonerace  
-      testCount.hivSomeOtherRace += event.hivsomeotherrace  
-      testCount.hivMiddleEasternOrNorthAfrican += event.hivmiddleeasternornorthafrican  
-      testCount.hivRaceDeclinedToAnswer += event.hivracedeclinedtoanswer  
-      testCount.altAgeHivUnder13 += event.altagehivunder13  
-      testCount.altAgeHiv13_18 += event.altagehiv13_18  
-      testCount.altAgeHiv19_2 += event.altagehiv19_2  
-      testCount.altAgeHiv19_24+=event.altagehiv19_24
-      testCount.hiv25_29 += event.hiv25_29  
-      testCount.hiv30_34 += event.hiv30_34  
-      testCount.hiv35_39 += event.hiv35_39  
-      testCount.hiv40_44 += event.hiv40_44  
-      testCount.hiv45_49 += event.hiv45_49  
-      testCount.hiv50_54 += event.hiv50_54  
-      testCount.hiv55_59 += event.hiv55_59  
-      testCount.hiv60_64 += event.hiv60_64  
-      testCount.hiv65_69 += event.hiv65_69  
-      testCount.hiv70 += event.hiv70  
-      testCount.hivGayOrLesbian += event.hivgayorlesbian  
-      testCount.hivStraightOrHeterosexual += event.hivstraightorheterosexual  
-      testCount.hivBisexual += event.hivbisexual  
-      testCount.hivQueer += event.hivqueer  
-      testCount.hivQuestioningOrNotSure += event.hivquestioningornotsure  
-      testCount.hivSexualOrientationUnknown += event.hivsexualorientationunknown  
-      testCount.hivSexualOrientationDeclinedToAnswer += event.hivsexualorientationdeclinedtoanswer 
-      
-      setAllTests(testCount)
-   })
+    const allTestsDoneResults = selectedEventsOutputs.map((event) => {
+      testCount.hivTesting += Number(event.hivtesting);
+      testCount.stiTesting += Number(event.stitesting);
+      testCount.hepcTesting += Number(event.hepctesting);
+      testCount.covidTesting += Number(event.covidtesting);
+      testCount.hivTestedTotal += event.hivtestedtotal;
+      testCount.hivFemale += event.hivfemale;
+      testCount.hivMale += event.hivmale;
+      testCount.hivTransgenderFemale += event.hivtransgenderfemale;
+      testCount.hivTransgenderMale += event.hivtransgendermale;
+      testCount.hivGenderNonConforming += event.hivgendernonconforming;
+      testCount.hivNonBinary += event.hivnonbinary;
+      testCount.hivGenderNotSureQuestioning +=
+        event.hivgendernotsurequestioning;
+      testCount.hivOtherGenderIdentity += event.hivothergenderidentity;
+      testCount.hivGenderDeclinedToAnswer += event.hivgenderdeclinedtoanswer;
+      testCount.hivBlackOrAfricanAmerican += event.hivblackorafricanamerican;
+      testCount.hivHispanic += event.hivhispanic;
+      testCount.hivAsian += event.hivasian;
+      testCount.hivAmericanIndianOrAlaskaNative +=
+        event.hivamericanindianoralaskanative;
+      testCount.hivNativeHawaiianOrOtherPacificIslander +=
+        event.hivnativehawaiianorotherpacificislander;
+      testCount.hivWhite += event.hivwhite;
+      testCount.hivMoreThanOneRace += event.hivmorethanonerace;
+      testCount.hivSomeOtherRace += event.hivsomeotherrace;
+      testCount.hivMiddleEasternOrNorthAfrican +=
+        event.hivmiddleeasternornorthafrican;
+      testCount.hivRaceDeclinedToAnswer += event.hivracedeclinedtoanswer;
+      testCount.altAgeHivUnder13 += event.altagehivunder13;
+      testCount.altAgeHiv13_18 += event.altagehiv13_18;
+      testCount.altAgeHiv19_24 += event.altagehiv19_24;
+      testCount.hiv25_29 += event.hiv25_29;
+      testCount.hiv30_34 += event.hiv30_34;
+      testCount.hiv35_39 += event.hiv35_39;
+      testCount.hiv40_44 += event.hiv40_44;
+      testCount.hiv45_49 += event.hiv45_49;
+      testCount.hiv50_54 += event.hiv50_54;
+      testCount.hiv55_59 += event.hiv55_59;
+      testCount.hiv60_64 += event.hiv60_64;
+      testCount.hiv65_69 += event.hiv65_69;
+      testCount.hiv70 += event.hiv70;
+      testCount.hivGayOrLesbian += event.hivgayorlesbian;
+      testCount.hivStraightOrHeterosexual += event.hivstraightorheterosexual;
+      testCount.hivBisexual += event.hivbisexual;
+      testCount.hivQueer += event.hivqueer;
+      testCount.hivQuestioningOrNotSure += event.hivquestioningornotsure;
+      testCount.hivSexualOrientationUnknown +=
+        event.hivsexualorientationunknown;
+      testCount.hivSexualOrientationDeclinedToAnswer +=
+        event.hivsexualorientationdeclinedtoanswer;
+    });
+    setAllTests(testCount);
     // getActiveTesting(selectedEventsOutputs);
     // getTestingTotals(selectedEventsOutputs);
     // getGenderTested(selectedEventsOutputs);
@@ -442,22 +445,63 @@ const CommunitySection = ({
 
   return (
     <section>
-    <h1 className="font-black">Community</h1>
-    <button onClick={handleCopy} className='px-5 mt-2 mb-7 text-lg border hover:bg-black hover:text-white rounded shadow'>Copy to clipboard</button>
-    
-    <div id="communityText">
-    <p>{`There were ${!allTests.hivTesting ? 0 : allTests.hivTesting} HIV testing events, ${!allTests.sitTesting ? 0 : allTests.sitTesting} STI testing events, ${!allTests.hepcTesting? 0 : allTests.hepcTesting} Hepatitis C testing events, and  ${!allTests.covidTesting ? 0 : allTests.covidTesting} COVID testing events.
-`}</p> <br />
-<p>{`At the HIV testing events,  ${allTests.hivTestedTotal}  people were tested, including ${allTests.hivFemale}  women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNonConforming} not sure/questioning,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
-`}</p> 
-
+      <h1 className="font-black mb-7">Community</h1>
+      <div id="communityText">
+        <p>{`There were ${
+          !allTests.hivTesting ? 0 : allTests.hivTesting
+        } HIV testing events, ${
+          !allTests.stiTesting ? 0 : allTests.stiTesting
+        } STI testing events, ${
+          !allTests.hepcTesting ? 0 : allTests.hepcTesting
+        } Hepatitis C testing events, and  ${
+          !allTests.covidTesting ? 0 : allTests.covidTesting
+        } COVID testing events.
+`}</p>{" "}
         <br />
-        <p>{`Of the people tested, ${allTests.hivBlackOrAfricanAmerican} people identified as Black or African American, ${allTests.hivHispanic} Hispanic, ${allTests.hivAsian} Asian, ${allTests.hivAmericanIndianOrAlaskaNative} American Indian or Alaska Native, Middle Eastern or North African, ${allTests.hivNativeHawaiianOrOtherPacificIslander} Native Hawaiian or Other Pacific Islander, ${allTests.hivWhite} white, ${allTests.hivMoreThanOneRace} more than one race ${allTests.hivSomeOtherRace+allTests.hivMiddleEasternOrNorthAfrican} some other race, and ${allTests.hivRaceDeclinedToAnswer} unknown/unreported. ${allTests.altAgeHivUnder13} people under 13 were tested, ${allTests.altAgeHiv13_18} between 13 and 18,  ${allTests.altAgeHiv19_24} between 19-24 , ${allTests.hiv25_29+allTests.hiv30_34}  between 25 to 34, ${allTests.hiv35_39+allTests.hiv40_44}  between 35 and 44, and ${allTests.hiv45_49+allTests.hiv50_54+allTests.hiv55_59+allTests.hiv60_64+allTests.hiv65_69+allTests.hiv70}  were over 45.
+        <p>{`At the HIV testing events,  ${allTests.hivTestedTotal}  people were tested, including ${allTests.hivFemale}  women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNonConforming} not sure/questioning,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
 `}</p>
+        <br />
+        <p>{`Of the people tested, ${
+          allTests.hivBlackOrAfricanAmerican
+        } people identified as Black or African American, ${
+          allTests.hivHispanic
+        } Hispanic, ${allTests.hivAsian} Asian, ${
+          allTests.hivAmericanIndianOrAlaskaNative
+        } American Indian or Alaska Native, ${
+          allTests.hivNativeHawaiianOrOtherPacificIslander
+        } Native Hawaiian or Other Pacific Islander, ${
+          allTests.hivWhite
+        } white, ${allTests.hivMoreThanOneRace} more than one race, ${
+          allTests.hivSomeOtherRace + allTests.hivMiddleEasternOrNorthAfrican
+        } some other race, and ${
+          allTests.hivRaceDeclinedToAnswer
+        } unknown/unreported. 
+`}</p>
+        <br />
+        <p>
+          {allTests.altAgeHivUnder13} people under 13 were tested,{" "}
+          {allTests.altAgeHiv13_18} between 13 and 18, {" "}
+          {allTests.altAgeHiv19_24} between 19-24 , {" "}
+          {allTests.hiv25_29 + allTests.hiv30_34} between 25 to 34,{" "} 
+          {allTests.hiv35_39 + allTests.hiv40_44} between 35 and 44, and {" "}
+          {allTests.hiv45_49 +
+            allTests.hiv50_54 +
+            allTests.hiv55_59 +
+            allTests.hiv60_64 +
+            allTests.hiv65_69 +
+            allTests.hiv70}{" "}
+          were over 45.
+        </p>
         <br />
         <p>{`Of those tested, ${allTests.hivGayOrLesbian} identified as gay or lesbian, ${allTests.hivStraightOrHeterosexual} as straight or heterosexual,  ${allTests.hivBisexual} as bisexual, ${allTests.hivQueer} as queer,  ${allTests.hivQuestioningOrNotSure} as questioning or not sure, ${allTests.hivSexualOrientationUnknown} as unknown, and ${allTests.hivSexualOrientationDeclinedToAnswer} declined to answer.
 `}</p>
       </div>{" "}
+      <button
+        onClick={handleCopy}
+        className="px-5 my-7 text-lg border hover:bg-black hover:text-white rounded shadow"
+      >
+        Copy list to clipboard
+      </button>
       <br /> <br />
       <GenderIdentityChart
         getHrefImage={getHrefImage}

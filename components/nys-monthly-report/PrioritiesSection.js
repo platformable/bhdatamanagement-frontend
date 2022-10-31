@@ -54,9 +54,17 @@ const PrioritiesSection = ({
                     )
                 )}
             </div>
+
+            <button
+          // onClick={() => textToClipboard("resources-table")}
+          className="mt-7 px-5 py-2 text-lg border hover:bg-black pointer-events-none hover:text-white rounded shadow"
+        >
+          Select and right-click to copy the text 
+        </button>
           </div>
           <div>
-            <h1 className="font-black mb-7">List of online events</h1>
+            <h1 className="font-black mb-7">Online learning</h1>
+            
             <div  className="grid gap-7">
               {selectedEventsOutputs
                 ?.sort((a, b) => new Date(a.eventdate) - new Date(b.eventdate))
@@ -79,27 +87,26 @@ const PrioritiesSection = ({
                     )
                 )}
             </div>
+
+            <button
+          // onClick={() => textToClipboard("resources-table")}
+          className="mt-7 px-5 py-2 text-lg border hover:bg-black pointer-events-none hover:text-white rounded shadow"
+        >
+          Select and right-click to copy the text 
+        </button>
           </div>
-          <button onClick={handleCopy} className="px-5 mt-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow">
+          {/* <button onClick={handleCopy} className="px-5 mt-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow">
             Copy to clipboard
-          </button>
+          </button> */}
         </div>
       </div>
     </section>
   );
 };
 function copyText() {
-  /* Select text area by id*/
   var Text = document.getElementById("events-description");
   console.log(Text.innerHTML);
-  /* Select the text inside text area. */
-  // Text.select();
-
-  /* Copy selected text into clipboard */
   navigator.clipboard.writeText(Text.innerHTML);
 
-  /* Set the copied text as text for 
-  div with id clipboard */
-  // document.getElementById("clipboard").innerHTML = Text.value;
 }
 export default PrioritiesSection;

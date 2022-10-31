@@ -6,7 +6,10 @@ import PrioritiesSection from "../../../components/nys-monthly-report/Priorities
 import ResourcesSection from "../../../components/nys-monthly-report/ResourcesSection";
 import CommunitySection from "../../../components/nys-monthly-report/CommunitySection";
 import ChallengesSection from "../../../components/nys-monthly-report/ChallengesSection";
-import ExportPaticipantCSV from "../../../components/ExportParticipantCSV";
+import ExportCSV from "../../../components/exportCSV";
+import { CSVDownload, CSVLink } from "react-csv";
+
+
 
 export default function nysMonthlyReport({ events, eventsOutput }) {
   const [selectedEvents, setSelectedEvents] = useState([]);
@@ -26,6 +29,8 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
     "COVID testing events": 0,
     "HIV testing events": 0
   }
+  const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
+
   useEffect(() => {
     console.log("selectedDate", selectedDate);
     const selectedReports = events.filter(
@@ -58,7 +63,7 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
       />
       <section className="container mx-auto px-5 md:px-0 mb-14">
         <p className="font-bold text-xl">Choose the data range:</p>
-        <div className="grid md:grid-cols-3 my-7 gap-7">
+        <div className="flex  my-7 gap-7">
           <div className="grid grid-cols-1 gap-5">
             <label className="border-black p-5 flex justify-between">
               Start date:
@@ -68,25 +73,43 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
               />
             </label>
             <label className="border-black p-5 flex justify-between">
-              Finish date:
+              Finish date: 
               <input
                 type="date"
                 onChange={(e) => setSelectedDate({ ...selectedDate, finish: e.target.value })}
               />
             </label>
           </div>
-          <button type="button" onClick={() => setGenerateReport(prev => (!prev))} className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full">
-          Generate <br/>DATA AND CHARTS
+          <div id="">
+          <button type="button" onClick={() => {
+            setGenerateReport(prev => (!prev))
+          }} className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full">
+          GENERATE <br/>DATA AND CHARTS
       </button>
+          </div>
+      <ExportCSV  
+        csvData={selectedEventsOutputs}
+        fileName={`NYS_CMP_Event_Data_${csvNowDate.split(",")[0]}.csv`}
+        />
+
         </div>
       </section>
       {generateReport && selectedDate.start && selectedDate.finish && (
-        <section className="container mx-auto w-3/5 px-5 md:px-0 grid gap-24 mb-12">
-            <PrioritiesSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
-            <ResourcesSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
-            <CommunitySection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
-            <ChallengesSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs}/>
-        </section>
+        <>
+          {/* <CSVDownload 
+          data={selectedEventsOutputs}
+          filename={"dsadsa.csv"}
+          separator=";"
+          />; */}
+        
+          <section className="container mx-auto w-3/5 px-5 md:px-0 grid gap-24 mb-12">
+              <PrioritiesSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
+              <ResourcesSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
+              <CommunitySection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
+              <ChallengesSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs}/>
+          </section>
+          
+        </>
       )}
     </Layout>
   );

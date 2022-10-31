@@ -39,28 +39,25 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
   const [value, copy] = useCopyToClipboard()
   const raceCounts = {
     "Black or African American": 0,
-    "Hispanic, Latino/a or Spanish": 0,
+    "Hispanic": 0,
     "Asian": 0,
-    "American Indian or Alaska Native": 0,
-    "Middle Eastern or North African": 0,
     "Native Hawaiian or Other Pacific Islander": 0,
-    "White": 0,
-    "Some other race or origin": 0,
+    "American Indian or Alaska Native": 0,
     "More than one race/ethnicity": 0,
-    "Decline to answer": 0
+    "Other": 0,
+    "Unknown/unreported": 0
   };
   useEffect(() => {
     stadistics = chartData?.map(event =>{
       raceCounts["Black or African American"] += event?.hivblackorafricanamerican 
-      raceCounts["Hispanic, Latino/a or Spanish"] += event?.hivhispanic 
-      raceCounts["Asian"] = event?.hivasian 
+      raceCounts["Hispanic"] += event?.hivhispanic 
+      raceCounts["Asian"] += event?.hivasian 
       raceCounts["American Indian or Alaska Native"] += event?.hivamericanindianoralaskanative 
-      raceCounts["Middle Eastern or North African"] += event?.hivmiddleeasternornorthafrican 
       raceCounts["Native Hawaiian or Other Pacific Islander"] += event?.hivnativehawaiianorotherpacificislander 
-      raceCounts["White"] = event?.hivwhite 
-      raceCounts["Some other race or origin"] += event?.hivsomeotherrace 
+      raceCounts["White"] += event?.hivwhite 
+      raceCounts["Other"] += (event?.hivsomeotherrace + event?.hivmiddleeasternornorthafrican)
       raceCounts["More than one race/ethnicity"] += event?.hivmorethanonerace 
-      raceCounts["Decline to answer"] += event?.hivracedeclinedtoanswer
+      raceCounts["Unknown/unreported"] += event?.hivracedeclinedtoanswer
     })
     setStadistics(Object.values(raceCounts))
    }, [chartData]);
@@ -120,14 +117,14 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
 
   const race = [
     "Black or African American",
-    "Hispanic, Latino/a or Spanish",
+    "Hispanic",
     "Asian",
-    "American Indian or Alaska Native",
-    "Middle Eastern or North African",
     "Native Hawaiian or Other Pacific Islander",
-    "White",
-    "Some other race or origin",
-    "Decline to answer"];
+    "American Indian or Alaska Native",
+    "More than one race/ethnicity",
+    "Middle Eastern or North African",
+    "Other",
+    "Unknown/unreported"];
   const data = {
     labels:  race,
     datasets: [

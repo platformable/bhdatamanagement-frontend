@@ -27,13 +27,12 @@ const ChallengesSection = ({ selectedEvents, selectedEventsOutputs }) => {
           }
         })}
       </ul>
-
       <button
-        onClick={handleCopy}
-        className="px-5 mt-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
-      >
-        Copy list to clipboard
-      </button>
+          // onClick={() => textToClipboard("resources-table")}
+          className="mt-7 px-5 py-2 text-lg border hover:bg-black pointer-events-none hover:text-white rounded shadow"
+        >
+          Select and right-click to copy the text 
+        </button>
     </div>
   );
 };

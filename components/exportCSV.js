@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { CSVLink } from "react-csv";
 const orderDataset = (data) => {
   const reverseDate = (date) => {
@@ -260,7 +260,7 @@ const orderDataset = (data) => {
   ]
 };
 
-const ExportCSV = ({ csvData, fileName }) => {
+const ExportCSV = ({ csvData, fileName}) => {
   console.log("csv data",csvData)
   const [orderedData, setOrdereData] = useState([]);
   const headers = [
@@ -516,14 +516,13 @@ const ExportCSV = ({ csvData, fileName }) => {
    ]
   useEffect(() => {
     const data = csvData.map((dataset) => orderDataset(dataset));
-    // console.log("selected", csvData);
     setOrdereData(data);
   }, [csvData]);
 
   return (
     //use ";" as separator for testing 
     <CSVLink headers={headers} data={orderedData} filename={fileName} separator=",">
-      <button className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full">
+      <button  className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase">
       Download <br/>NYS CMD<br/> dataset
       </button>
     </CSVLink>
