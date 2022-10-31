@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { crearFecha2 } from '../utils/helpers';
 
 const TopEventsInfo = ({event,airs,selectedEventId,handlePrint}) => {
+  console.log(event?.eventid)
     return (
         <section className="md:px-0 px-5">
         <div
@@ -25,7 +26,7 @@ const TopEventsInfo = ({event,airs,selectedEventId,handlePrint}) => {
                 })}
             </h2>
             <div className="flex items-center justify-center md:col-start-4 md:justify-end text-center">
-              <Link href={`/events/${event?.eventid}/nys_cmp/edit`}>
+              <Link href={`/events/${event?.eventid || event?.id}/nys_cmp/edit`}>
                 <button className="bg-black text-white rounded px-2 mr-2 flex items-end inline-block">
                   <a className="px-3 py-2 font-bold" id="myBtn">
                     <p className="font-black">Edit event</p>
