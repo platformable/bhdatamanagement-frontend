@@ -500,7 +500,7 @@ const CommunitySection = ({
         onClick={handleCopy}
         className="px-5 my-7 text-lg border hover:bg-black hover:text-white rounded shadow"
       >
-        Copy list to clipboard
+        Copy text to clipboard
       </button>
       <br /> <br />
       <GenderIdentityChart

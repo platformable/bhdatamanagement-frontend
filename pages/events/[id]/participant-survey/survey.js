@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import axios from "axios";
+import { NYSZipCodesAndBoroughs } from "../../../../utils/sharedData";
 
 import { ParticipantSurveySection1 } from "../../../../components/participant-event-survey/ParticipantSurveySection1";
 import { ParticipantSurveySection10 } from "../../../../components/participant-event-survey/ParticipantSurveySection10";
@@ -106,22 +107,22 @@ const Survey = ({ data }) => {
     participantTestResourceKnowledge: "",
     participantPRePResourceKnowledge: "",
     participantPRePResourceKnowledgeOther: "",
-    interestHIV: false,
-    interestPrEP: false,
-    interestHepC: false,
-    interestImmigration: false,
-    interestScreens: false,
-    interestVaccines: false,
-    interestMentalHealth: false,
-    interestSubstance: false,
-    interestChronic: false,
-    participantVote: false,
+    interestHIV: "",
+    interestPrEP: "",
+    interestHepC: "",
+    interestImmigration: "",
+    interestScreens: "",
+    interestVaccines: "",
+    interestMentalHealth: "",
+    interestSubstance: "",
+    interestChronic: "",
+    participantVote: "",
     participantReferral: "",
     participantReferralOther: "",
     participantSuggestions: "",
-    interestOther: false,
+    interestOther: "",
     interestOtherText: "",
-    borough:data[0]?.borough || ""
+    participantBorough:""
   });
   console.log("form", surveyForm);
 
@@ -132,6 +133,17 @@ const Survey = ({ data }) => {
     setShowDemographicsForm((prev) => true):
     setShowDemographicsForm((prev) => false)
   };
+
+  const getCity = (zipcode, array) => {
+    const searchZipcode = array.filter((code) => code.zipcode === zipcode);
+    if (searchZipcode.length > 0) {
+      setSurveyForm({ ...surveyForm, participantBorough: searchZipcode[0].borought });
+    } else {
+      setSurveyForm({ ...surveyForm, participantBorough: "" });
+    }
+  };
+
+
   const submitParticipantSurvey = async () => {
     // if (!isEmpty) {
     axios
@@ -169,6 +181,12 @@ const Survey = ({ data }) => {
     //     setShowResponseStatus(!showResponseStatus);
     //  }
   };
+
+  useEffect(() => {
+
+    getCity(surveyForm.participantZipCode, NYSZipCodesAndBoroughs);
+  }, [surveyForm.participantZipCode,
+  ]);
 
   return (
     <>
