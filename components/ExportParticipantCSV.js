@@ -79,7 +79,7 @@ const ExportPaticipantCSV = ({ csvData, fileName }) => {
     "eventName",
     "eventDate",
     "participantZipCode",
-    "particpantBorough",
+    "participantBorough",
     "ageID",
     "participantAgeRange",
     "raceID",
