@@ -13,7 +13,7 @@ const CreateReport = () => {
       />
       <div className="container mx-auto">
         <div>
-          <section className="grid md:grid-cols-6 grid-cols-1 gap-5 mb-2 px-5 md:px-0 my-10">
+          <section className="grid grid-rows-3 md:grid-cols-6 grid-cols-1 gap-5 mb-2 px-5 md:px-0 my-10">
             <Link href="/events/reports/nysReportPage">
               <button className="bg-black text-white p-5 rounded uppercase font-bold">
                 NYS CMP dataset
