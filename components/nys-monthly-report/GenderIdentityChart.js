@@ -44,7 +44,7 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
     "Transgender man/boy": 0,
     "Non-binary person": 0,
     "Gender non-conforming person": 0,
-    "No sure/questioning": 0,
+    "Not sure/questioning": 0,
     "Gender not listed": 0,
     "Chose not to respond": 0,
 
@@ -57,7 +57,7 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
     gendersCounts["Transgender man/boy"] += event?.hivtransgendermale  
     gendersCounts["Non-binary person"] += event?.hivnonbinary
     gendersCounts["Gender non-conforming person"] += event?.hivgendernonconforming 
-    gendersCounts["No sure/questioning"] += event?.hivgendernotsurequestioning 
+    gendersCounts["Not sure/questioning"] += event?.hivgendernotsurequestioning 
     gendersCounts["Gender not listed"] += event?.hivothergenderidentity 
     gendersCounts["Chose not to respond"] += event?.hivgenderdeclinedtoanswer 
   })
@@ -104,7 +104,7 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
         beginAtZero: true,
         title: {
           display: true,
-          text: "# of participants",
+          text: "# of people tested",
           font: {
             weight: "bold",
           },
@@ -125,7 +125,7 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
     datasets: [
       {
         type: "bar",
-        label: "# of participants",
+        label: "# of people tested",
         backgroundColor: "#874fc2",
         data: stadistics,
         borderColor: "white",

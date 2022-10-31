@@ -99,7 +99,7 @@ const SexualOrientationChart = ({ chartData,getHrefImage, selectedDate}) => {
         beginAtZero: true,
         title: {
           display: true,
-          text: "# of participants",
+          text: "# of people tested",
           font: {
             weight: "bold",
           },
@@ -127,7 +127,7 @@ const SexualOrientationChart = ({ chartData,getHrefImage, selectedDate}) => {
     datasets: [
       {
         type: "bar",
-        label: "# of participants",
+        label: "# of people tested",
         backgroundColor: "#c42132",
         data: stadistics,
         borderColor: "white",

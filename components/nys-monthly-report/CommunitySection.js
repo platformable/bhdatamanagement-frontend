@@ -458,7 +458,7 @@ const CommunitySection = ({
         } COVID testing events.
 `}</p>{" "}
         <br />
-        <p>{`At the HIV testing events,  ${allTests.hivTestedTotal}  people were tested, including ${allTests.hivFemale}  women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNonConforming} not sure/questioning,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
+        <p>{`At the HIV testing events,  ${allTests.hivTestedTotal}  people were tested, including ${allTests.hivFemale}  women, ${allTests.hivMale} men, ${allTests.hivTransgenderFemale} transgender women, ${allTests.hivTransgenderMale} transgender men,  ${allTests.hivGenderNonConforming} gender non-conforming, ${allTests.hivNonBinary} non-binary, ${allTests.hivGenderNotSureQuestioning} not sure/questioning,  ${allTests.hivOtherGenderIdentity} other gender identity, and ${allTests.hivGenderDeclinedToAnswer} declined to answer.
 `}</p>
         <br />
         <p>{`Of the people tested, ${

@@ -40,6 +40,7 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
   const raceCounts = {
     "Black or African American": 0,
     "Hispanic": 0,
+    "White": 0,
     "Asian": 0,
     "Native Hawaiian or Other Pacific Islander": 0,
     "American Indian or Alaska Native": 0,
@@ -101,7 +102,7 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
         beginAtZero: true,
         title: {
           display: true,
-          text: "# of participants",
+          text: "# of people tested",
           font: {
             weight: "bold",
           },
@@ -115,22 +116,13 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
     },
   };
 
-  const race = [
-    "Black or African American",
-    "Hispanic",
-    "Asian",
-    "Native Hawaiian or Other Pacific Islander",
-    "American Indian or Alaska Native",
-    "More than one race/ethnicity",
-    "Middle Eastern or North African",
-    "Other",
-    "Unknown/unreported"];
+ 
   const data = {
-    labels:  race,
+    labels:  Object.keys(raceCounts),
     datasets: [
       {
         type: "bar",
-        label: "# of participants",
+        label: "# of people tested",
         backgroundColor: "#ebd61e",
         data: stadistics,
         borderColor: "white",

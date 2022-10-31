@@ -40,10 +40,10 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
   const [value, copy] = useCopyToClipboard()
   const eventLocationsCounts = {
     "Virtual / Online": 0,
-    "College/School/Trades school/community-based learning center": 0,
     "Community based organization site": 0,
     "COVID vaccine location": 0,
     "COVID-19 Testing location": 0,
+    "College/School/Trades school/community-based learning center": 0,
     "Faith based location/Place of worship": 0,
     "Food Bank/Pantry/Food Kitchen": 0,
     "Hospital/Clinic": 0,
@@ -131,7 +131,7 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
   ];
 
   const data = {
-    labels: eventLocations,
+    labels: Object.keys(eventLocationsCounts),
     datasets: [
       {
         type: "bar",
