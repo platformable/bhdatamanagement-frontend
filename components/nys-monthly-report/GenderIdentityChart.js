@@ -61,7 +61,6 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
     gendersCounts["Gender not listed"] += event?.hivothergenderidentity 
     gendersCounts["Chose not to respond"] += event?.hivgenderdeclinedtoanswer 
   })
-  console.log(gendersCounts)
 
   setStadistics(Object.values(gendersCounts))
  }, [chartData]);

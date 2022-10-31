@@ -428,7 +428,6 @@ const CommunitySection = ({
         event.hivsexualorientationdeclinedtoanswer;
     });
     setAllTests(testCount);
-
     // getActiveTesting(selectedEventsOutputs);
     // getTestingTotals(selectedEventsOutputs);
     // getGenderTested(selectedEventsOutputs);
@@ -440,6 +439,9 @@ const CommunitySection = ({
     const data = document.querySelector("#communityText").textContent;
     navigator.clipboard.writeText(data);
   }
+
+
+
 
   return (
     <section>
