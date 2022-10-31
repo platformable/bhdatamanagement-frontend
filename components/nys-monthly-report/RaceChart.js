@@ -102,7 +102,7 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
         beginAtZero: true,
         title: {
           display: true,
-          text: "# of participants",
+          text: "# of people tested",
           font: {
             weight: "bold",
           },
@@ -122,7 +122,7 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
     datasets: [
       {
         type: "bar",
-        label: "# of participants",
+        label: "# of people tested",
         backgroundColor: "#ebd61e",
         data: stadistics,
         borderColor: "white",

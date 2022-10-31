@@ -100,7 +100,7 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
         beginAtZero: true,
         title: {
           display: true,
-          text: "# of participants",
+          text: "# of people tested",
           font: {
             weight: "bold",
           },
@@ -129,7 +129,7 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
     datasets: [
       {
         type: "bar",
-        label: "# of participants",
+        label: "# of people tested",
         backgroundColor: "#3c9648",
         data: stadistics,
         borderColor: "white",
