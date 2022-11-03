@@ -37,7 +37,7 @@ console.log(user)
           <h1 className='font-black text-6xl text-center'>Data  Development</h1>
           {/* <img src="/main/Black_Health_logo_welcome.svg" /> */}
         <div className="text-center pt-20 flex flex-col items-center">
-          <h1 className="font-black mb-5">Welcome</h1>
+          <h1 className="font-black mb-5">Welcome Maradona</h1>
           <Link href={ `/chooseProgram`} >
             <a className='w-52'>
             <p className={`${styles.btnIndexPage} bg-black text-white flex items-center justify-between font-bold px-9 py-1  rounded-md test cursor-pointer`}>
