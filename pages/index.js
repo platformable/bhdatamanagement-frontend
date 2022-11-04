@@ -34,7 +34,7 @@ console.log(user)
       </header>
       <main className='h-full'>
         <div className="container mx-auto pt-20 h-4/6 grid gap-40 justify-around content-center px-5">
-          <h1 className='font-black text-6xl text-center'>Data Management App - Development</h1>
+          <h1 className='font-black text-6xl text-center'>Data Management App</h1>
           {/* <img src="/main/Black_Health_logo_welcome.svg" /> */}
         <div className="text-center pt-20 flex flex-col items-center">
           <h1 className="font-black mb-5">Welcome</h1>
