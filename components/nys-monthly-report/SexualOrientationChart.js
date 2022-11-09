@@ -34,6 +34,7 @@ ChartJS.register(
   ChartDataLabels
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
+import {reverseDate} from "../../utils/helpers";
 const SexualOrientationChart = ({ chartData,getHrefImage, selectedDate}) => {
   const [value, copy] = useCopyToClipboard()
   const sexualOrientationCounts = {
@@ -74,7 +75,7 @@ const SexualOrientationChart = ({ chartData,getHrefImage, selectedDate}) => {
       },
       title: {
         display: true,
-        text: `Sexual Orientation tested for HIV NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
+        text: `Sexual Orientation tested for HIV NYS CMP ${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}`,
         position: "top",
         font: {
           size: 18,

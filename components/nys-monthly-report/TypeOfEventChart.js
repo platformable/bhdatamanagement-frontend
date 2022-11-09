@@ -67,9 +67,17 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
 
   let values = stadistics.filter(value => Number.isFinite(value));
   let maxValue = Math.max.apply(null, values);
-  const reversedDate  = {
+ /*  const reversedDate  = {
     start: new Date(selectedDate.start).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"}),
     finish: new Date(selectedDate.finish).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"})
+  } */
+
+
+  const reverseDate = (date) => {
+    const splitted = new Date(date).toISOString().split("T")
+    const reverse = splitted[0].split('-');
+    const result=reverse[1]+'/'+reverse[2]+'/'+reverse[0];
+    return result;
   }
 
   const typeOfEvents = [
@@ -90,7 +98,7 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
       },
       title: {
         display: true,
-        text: `Types of event NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
+        text: `Types of event NYS CMP ${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}`,
         position: "top",
         font: {
           size: 18,

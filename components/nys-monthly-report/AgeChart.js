@@ -34,6 +34,7 @@ ChartJS.register(
   ChartDataLabels
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
+import {reverseDate} from "../../utils/helpers";
 
 const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
   const [value, copy] = useCopyToClipboard()
@@ -75,7 +76,7 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
       },
       title: {
         display: true,
-        text: `Ages tested for HIV NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
+        text: `Ages tested for HIV NYS CMP ${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}`,
         position: "top",
         font: {
           size: 18,
