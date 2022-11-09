@@ -35,35 +35,67 @@ ChartJS.register(
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
-  // console.log("type of event chart", new Date(selectedDate.start).toLocaleDateString("en-US", {month:"numeric"}))
   const [value, copy] = useCopyToClipboard()
 
-  const typeOfEventsCounts = {
-    "Meeting": 0,
-    "Town Hall": 0,
-    "Webinar": 0,
-    "Workshop/Training": 0,
+  const counts = {
+    "Online: Meeting": 0,
+    "Online: Town Hall": 0,
+    "Online: Webinar": 0,
+    "Online: Workshop/Training": 0,
     "Outreach/Community Event": 0,
     "Town Hall": 0,
     "Vaccine and/or COVID-19 Testing Event": 0,
     "Workshop/Training": 0,
-  };
-  
+  }
   const [stadistics, setStadistics] = useState([]);
   useEffect(() => {
-    stadistics = chartData?.map((event) => {
-      event.inpersoneventtypename !== null || event.inpersoneventtypename !== ""
-        ? typeOfEventsCounts[event.inpersoneventtypename] += 1
-        : null;
+  console.log("db",chartData)
 
-      event.onlineeventtypename !== null || event.onlineeventtypename !== ""
-      ? typeOfEventsCounts[event.onlineeventtypename] += 1
-      : null
-      
+    const datastadistics = chartData?.map((event, index) => {
+
+
+
+      if (event.inpersoneventtypename !== null || event.inpersoneventtypename !== "") {
+        console.log("type",event.inpersoneventtypename)
+        switch(event.inpersoneventtypename) {
+          case ("Outreach/Community Event"):
+            counts["Outreach/Community Event"] += 1
+            break;
+          case ("Town Hall"):
+            counts["Town Hall"] += 1
+            break;
+          case ("Vaccine and/or COVID-19 Testing Event"):
+            counts["Vaccine and/or COVID-19 Testing Event"] += 1
+            break;
+          case ("Workshop/Training"):
+            counts["Workshop/Training"] += 1
+            break;
+        }
+      }
+        
+
+      if (event.onlineeventtypename !== null || event.onlineeventtypename !== "") {
+        switch (event.onlineeventtypename){
+          case "Meeting":
+            counts["Meeting"] += 1
+            break;
+          case "Town Hall":
+            counts["Town Hall"] += 1
+            break;
+          case "Webinar":
+            counts["Webinar"] += 1
+            break;
+          case "Workshop/Training":
+            counts["Workshop/Training"] += 1
+            break;
+        }
+      }
+
+
     });
-    setStadistics(Object.values(typeOfEventsCounts));
-    
+    setStadistics(Object.values(counts));
   }, [chartData]);
+  console.log("stadistics", counts)
 
   let values = stadistics.filter(value => Number.isFinite(value));
   let maxValue = Math.max.apply(null, values);

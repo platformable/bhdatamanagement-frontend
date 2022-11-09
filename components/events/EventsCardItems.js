@@ -6,7 +6,7 @@ export default function EventsCardItems({id,
   setShowDeleteEventModal,showDeleteEventModal,
   userRole,eventdate,eventName,urlEdit,urlParticipantSurvey,
   urlUpload,urlPostEventSurvey,urlEditPostEventSurvey,
-  postEventReportId
+  postEventReportId, makeIcsFile, event
 
 }) {
   
@@ -54,10 +54,16 @@ export default function EventsCardItems({id,
               <p className="text-center">{postEventReportId ? "Edit post event survey": "Complete post event survey"}</p>
           </div>
           </Link>
-        </div>
-        {userRole==='Supervisor' &&  <div className="flex justify-center">
+          
+          <div className="events-card-item-btn bg-white text-black border-black-md p-5 flex justify-center items-center rounded-lg  cursor-pointer shadow-xl hover:bg-black hover:text-white">
+              <button className="text-center" onClick={() => makeIcsFile(event)}>Download calendar file</button>
+          </div>
+          
+          {userRole==='Supervisor' &&  <div className="flex justify-center">
         <button className="bg-black py-2 px-5 rounded-lg text-white" onClick={()=>handleDeleteEvent(id,eventName)}>Delete event</button>
         </div>}
+        </div>
+        
        
       </div>
   )
