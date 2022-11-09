@@ -19,7 +19,7 @@ import {
   getElementsAtEvent,
 } from "react-chartjs-2";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-
+import {reverseDate} from "../../utils/helpers";
 ChartJS.register(
   LinearScale,
   CategoryScale,
@@ -77,7 +77,7 @@ const RaceChart = ({ chartData,getHrefImage, selectedDate}) => {
       },
       title: {
         display: true,
-        text: `Races tested for HIV NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
+        text: `Races tested for HIV NYS CMP ${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}`,
         position: "top",
         font: {
           size: 18,

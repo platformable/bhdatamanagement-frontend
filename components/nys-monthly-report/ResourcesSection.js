@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 import ResourcesDistributedChart from "./ResourcesDistributedChart";
-
+import {reverseDate} from '../../utils/helpers'
 const ResourcesSection = ({
   selectedEventsOutputs,
   getHrefImage,
@@ -11,16 +11,8 @@ const ResourcesSection = ({
   const [value, copy] = useCopyToClipboard();
 console.log("resources  section", selectedEventsOutputs)
   const reversedDate = {
-    start: new Date(selectedDate.start).toLocaleDateString("en-US", {
-      month: "numeric",
-      day: "numeric",
-      year: "numeric",
-    }),
-    finish: new Date(selectedDate.finish).toLocaleDateString("en-US", {
-      month: "numeric",
-      day: "numeric",
-      year: "numeric",
-    }),
+    start: reverseDate(selectedDate.start),
+    finish: reverseDate(selectedDate.finish),
   };
 
   const resourcesCounts = {
