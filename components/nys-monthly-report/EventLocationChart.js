@@ -34,6 +34,7 @@ ChartJS.register(
   ChartDataLabels
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
+import {reverseDate} from "../../utils/helpers";
 
 const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
   const [stadistics, setStadistics] = useState([])
@@ -63,10 +64,7 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
 
   let values = stadistics.filter(value => Number.isFinite(value));
   let maxValue = Math.max.apply(null, values);
-  const reversedDate  = {
-    start: new Date(selectedDate.start).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"}),
-    finish: new Date(selectedDate.finish).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"})
-  }
+
 
   const options = {
     plugins: {
@@ -75,7 +73,7 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
       },
       title: {
         display: true,
-        text: `Event Locations NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
+        text: `Event Locations NYS CMP ${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}`,
         position: "top",
         font: {
           size: 18,

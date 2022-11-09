@@ -1,4 +1,4 @@
-exports.crearFecha2 = (event) => {
+/* exports.crearFecha2 = (event) => {
     let options = { 
         year: "numeric",
         month: "2-digit",
@@ -10,4 +10,11 @@ exports.crearFecha2 = (event) => {
     console.log("result", result)
     const splitted = result.split("/")
     return `${splitted[2]}-${splitted[0]}-${splitted[1]}`
-  };
+  }; */
+
+export const reverseDate = (date) => {
+    const splitted = new Date(date).toISOString().split("T")
+    const reverse = splitted[0].split('-');
+    const result=reverse[1]+'/'+reverse[2]+'/'+reverse[0];
+    return result;
+  }
