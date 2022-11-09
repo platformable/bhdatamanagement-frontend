@@ -256,7 +256,7 @@ const EventsIndex = ({ events }) => {
 
       <div className="events-cards-container grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
       {/*  HEAD TABLE  */}
-      <div className="container mx-auto existing-events-head-table rounded-t-lg py-3 px-7 bg-black text-white">
+      <div className={`hidden md:grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-events-head-table" : `existing-events-head-table`} container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
         <p className="lg:text-xl font-bold flex items-center ">Event name</p>
         <p className="lg:text-xl font-bold flex items-center ">Event date</p>
@@ -322,12 +322,14 @@ const EventsIndex = ({ events }) => {
                         setSelectedEventToDelete={setSelectedEventToDelete}
                         selectedEventToDelete={selectedEventToDelete}
                         postEventReportId={event.posteventreportid}
+                        makeIcsFile={makeIcsFile}
+                        event={event}
                       />
                     </div>
                     <div className="hidden sm:block">
                       <section
                         key={index}
-                        className={`${loggedUserRole === "Supervisor" ? "supervisor-existing-events-head-table" : "existing-events-head-table"} px-7 py-7  rounded shadow-md`}
+                        className={`grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-events-head-table" : "existing-events-head-table"} px-7 py-7  rounded shadow-md`}
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
                         <div className="flex items-center lg:text-xl font-bold ">

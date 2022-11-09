@@ -509,13 +509,13 @@ label > textarea {
 
 /* EVENTS TABLE  */
 .existing-events-head-table {
-  display: grid;
-  grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1fr ;
+  
+  grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr ;
   gap: 30px;
 }
 .supervisor-existing-events-head-table {
-  display: grid;
-  grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1fr 1fr;
+ 
+  grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 30px;
 }
 
