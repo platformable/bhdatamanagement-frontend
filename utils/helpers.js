@@ -47,7 +47,7 @@ export const removeValueFromArray = (value, data, setState) => {
     : setState((previous) => [...previous, value]);
 };
 
-exports.crearFecha2 = (event) => {
+export const crearFecha2 = (event) => {
     let options = { 
         year: "numeric",
         month: "2-digit",
