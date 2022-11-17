@@ -12,30 +12,32 @@ export const disableWheelInputNumber = (e) => {
   e.target.blur();
 };
 
-// this should be in onKeyUp
-export const isNumberKey = () => {
+
+// ***********************************************************
+// This 3 functions work together for input of type number 
+// this should be in onKeyDown
+export const isNumberKey = (e) => {
   const invalidChars = ["-", "+", "e"];
   if (invalidChars.includes(e.key)) {
     e.preventDefault();
   }
 }
-// this should be in onKeyDown
+
+
+// this should be in onKeyUp
 export const handleMaxNumber = (e) => {
   let { value } = e.target;
-  value > 100 && (e.target.value = 100);
+  value > 1000 && (e.target.value = 1000);
 };
 
 // this should be in onChange
-export const handleNumberWithLimitInForm = (e, limit, setState) => {
-  let { value } = e.target;
+export const handleNumberWithLimitInForm = (e, limit) => {
+  const {value} = e.target
   let finalValue;
   value > limit ? (finalValue = limit) : (finalValue = value);
-  setState((previous) => ({
-    ...previous,
-    [e.target.name]: Number(finalValue),
-  }));
+  return Number(finalValue)
 };
-
+//************************************************************
 // Manage values that comes from the server to fill edit forms 
 export const removeValueFromArray = (value, data, setState) => {
   const isValueOnData = data?.includes(value);

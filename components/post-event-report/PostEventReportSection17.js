@@ -1,10 +1,11 @@
 import React from "react";
-
-const PostEventReportSection17 = ({eventForm, setEventForm, isNumberKey}) => {
+import { handleMaxNumber, handleNumberWithLimitInForm, isNumberKey, disableWheelInputNumber } from "../../utils/helpers";
+const PostEventReportSection17 = ({eventForm, setEventForm}) => {
   const handleForm = (e) => {
     let {value} = e.target
       let finalValue;
       value > 1000 ? finalValue = 1000:finalValue=value
+      console.log("Send email value0", finalValue)
       setEventForm((previous) => ({
         ...previous,
         [e.target.name]:Number(finalValue)
@@ -19,18 +20,17 @@ const PostEventReportSection17 = ({eventForm, setEventForm, isNumberKey}) => {
         {/* <img src='/post_event_report/email_icon.svg' alt='adult volunteers icon' /> */}
       <input
         type="number"
-        onWheelCapture={(e) => e.target.blur()}
-        onKeyUp={(e) => {
-          let {value} = e.target
-          value > 1000 && (e.target.value = 1000) 
-        }}
-        
+        onWheelCapture={disableWheelInputNumber}
+        onKeyUp={handleMaxNumber}
         maxLength={4}
         className="p-4 border-black rounded w-20"
         // defaultChecked={program.id===event?.programid?'checked':""}
         defaultValue={eventForm?.sendEmail || 0 }
         name="sendEmail"
-        onChange={handleForm}
+        onChange={(e) =>  setEventForm((previous) => ({
+          ...previous,
+          [e.target.name]: handleNumberWithLimitInForm(e, 1000)
+        }))}
         onKeyDown={isNumberKey}
       />
     </label>
