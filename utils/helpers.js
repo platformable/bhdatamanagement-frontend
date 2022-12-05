@@ -60,4 +60,5 @@ export const crearFecha2 = (event) => {
     const result = new Intl.DateTimeFormat('en-US', options).format(date);
     const splitted = result.split("/")
     return `${splitted[2]}-${splitted[0]}-${splitted[1]}`
-  }; 
+  };
+
