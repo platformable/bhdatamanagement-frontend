@@ -88,7 +88,7 @@ const orderDataset = (data) => {
     data.airsformraceethnicity,
     data.textorcall,
     data.sendemail,
-    data.eventhighlights,
+    data.eventhighlights.split("\n").join(" "),
     data.eventchallenges,
     data.eventtestingdone,
     data.hivtesting,

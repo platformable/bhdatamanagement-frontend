@@ -4,8 +4,9 @@ const AirsMaterials = ({ event }) => {
     let {covidliterature , vaccinerelatedliterature  , hivliterature , hepcliterature ,
          prepliterature , healthdisparitiesliterature,dentaldam,promotionalmaterial,
          eventhighlights,eventchallenges
-        
         } = event
+    
+    
     const literature = covidliterature + vaccinerelatedliterature  + hivliterature + hepcliterature + prepliterature + healthdisparitiesliterature
     console.log("literature",literature)
   return (
@@ -77,8 +78,8 @@ const AirsMaterials = ({ event }) => {
     <div className="px-3 py-1"> 
     <p className="mb-1 text-xs underline">Notes</p>
 
-      <p className="text-xxs ">{eventhighlights}sdkhsajdhaskjdhashdlsadlksaldksalkdhklsdhlñkahdla </p>
-      <p className="text-xxs ">{eventchallenges}dshaoidhsad sadbsabdasdbadauda d sa8dbkjsa dsaviud sadiuasd aui diusa iudauid aisu duias dsavd ashd iua dha sidu sahdadsa</p>
+      <p className="text-xxs ">{eventhighlights} </p>
+      <p className="text-xxs whitespace-pre-wrap">{eventchallenges} </p>
       </div>
     </div>
   );

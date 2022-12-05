@@ -563,7 +563,7 @@ const router = useRouter()
     } 
 }
 
-console.log("event",event)
+console.log("form",eventForm)
   return (
     <>
       <Layout showStatusHeader={true}>

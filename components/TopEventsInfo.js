@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { crearFecha2 } from '../utils/helpers';
 
 const TopEventsInfo = ({event,airs,selectedEventId,handlePrint}) => {
-  console.log(event?.eventid)
     return (
         <section className="md:px-0 px-5">
         <div
