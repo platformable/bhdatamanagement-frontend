@@ -1,40 +1,39 @@
-import React,{useState,useEffect} from 'react'
-import Layout from '../../components/Layout'
-import PageTopHeading from '../../components/PageTopHeading'
+import React,{useState} from 'react'
+import Layout from '../../../components/Layout'
+import PageTopHeading from '../../../components/PageTopHeading'
 import axios from 'axios'
 import { useRouter } from 'next/router'
-import Loader from "../../components/Loader";
+import Loader from "../../../components/Loader";
+import { useUser, getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useUser, getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
+export default function edit({data,fbos}) {
 
-export default function create({fbos}) {
+  console.log("data",data)
 
     const router = useRouter()
     const [userData,setUserData]= useState({
-      name:"",
-      lastname:"",
-      email:"",
-      role:"",
-      isactive: "Active",
-      userFbo:"",
-      userAccessiblePrograms:[]
+      id:data.id,
+      name:data.name,
+      lastname:data.lastname,
+      email:data.email,
+      role:data.role,
+      isactive: data.isactive,
+      userFbo:data.userfbo,
+      userAccessiblePrograms:data.useraccessibleprograms
     })
-
-
-   
 
     const organizationOptions= [
         {
             id:1,
             name:'Amity Baptist Church'
         },
+
         {
             id:2,
             name:'Bethany Baptist Church (Manhattan)'
         },
-
         {
             id:3,
             name:'Christ Apostolic Church Int. (Bronx)'
@@ -57,24 +56,18 @@ export default function create({fbos}) {
         }
     ]
 
-
-    const [data,setData]=useState([])
-    const [saving,setSaving] = useState(false)
-
     const notifyMessage = () => {
-        toast.success("A new user is being created!", {
-          position: toast.POSITION.TOP_CENTER,
-        });
-      };
-
-
+      toast.success("User updated!", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    };
+    const [saving,setSaving] = useState(false)
     const addUser =  ()=> {
-        console.log("add user")
-        //const isEmpty = Object.values(userData).some(value => !value)
+        const isEmpty = Object.values(userData).some(value => !value)
     
-       // if (!isEmpty) {
+        if (!isEmpty) {
           setSaving(!saving)
-          axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers/create`,userData)
+          axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers/`,userData)
           .then(function (response) {
             notifyMessage()
             setTimeout(()=>{
@@ -86,38 +79,17 @@ export default function create({fbos}) {
             setSaving(false)
             console.log("client error",error);
           });
-       // }
+        }
         
       }
-
-      const handleForm=(value)=>{
-  
-        const isValueOnData=data?.includes(value)
-       
-        const filteredData=data.filter(oldValues=> oldValues != value) 
-    
-        isValueOnData?
-        setData(filteredData) :
-        setData((previous)=>([
-          ...previous,value
-        ]))
-        
-      }
-    
-      useEffect(()=>{
-        setUserData((previous) => ({
-          ...previous,
-          userAccessiblePrograms: data ,
-        }))
-      },[data])
     
       console.log("userData",userData)
 
   return (
     <Layout showStatusHeader={true}>
-    <ToastContainer autoClose={3000} />
+      <ToastContainer autoClose={3000} />
       <PageTopHeading
-        pageTitle={"Create authorized user"}
+        pageTitle={"Edit authorized user"}
         dashboardBtn={true}
         backBtn={true}
       />
@@ -144,6 +116,7 @@ export default function create({fbos}) {
                 onChange={(e) =>
                   setUserData({ ...userData, name: e.target.value })
                 }
+                value={userData.name}
               />
             </label>
             <label className="block">
@@ -155,6 +128,7 @@ export default function create({fbos}) {
                 onChange={(e) =>
                   setUserData({ ...userData, lastname: e.target.value })
                 }
+                value={userData.lastname}
               />
             </label>
             {/*   <label className="block">
@@ -177,6 +151,7 @@ export default function create({fbos}) {
                 onChange={(e) =>
                   setUserData({ ...userData, email: e.target.value })
                 }
+                value={userData.email}
               />
             </label>
 
@@ -188,47 +163,24 @@ export default function create({fbos}) {
                 }
                 className="select-add-edit-supervisor block text-[#00000065] border-black w-60 mt-1 rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
-                <option value={null}  default>
-                  Select
+                <option value={userData.role}  default>
+                {userData.role}
                 </option>
-                <option value="Supervisor">Supervisor</option>
-                <option value="Program Worker">Program Worker</option>
-              {/*   <optgroup label="Black Health Employee"> */}
-                <option value="Data Team">
-                  Data Team
-                </option>
-                <option value="Intern">Intern</option>
-               {/*  </optgroup> */}
+                {userData.role==='Supervisor'?null:<option value="Supervisor">Supervisor</option>}
+                {userData.role==='Program Worker'?null:<option value="Program Worker">Program Worker</option>}
+                <optgroup label="Black Health Employee">
+                {userData.role==='Data Team'?null:  <option value="Data Team">Data Team</option>}
+                {userData.role==='Intern'?null: <option value="Intern">Intern</option>}
+                </optgroup>
                 
-             {/*    <optgroup label="FBO Partner"> */}
-                <option value="FBO Login">FBO Login</option>
-                <option value="FBO Data Entry Specialist">FBO Data Entry Specialist</option>
-               {/*  </optgroup> */}
+                <optgroup label="FBO Partner">
+                {userData.role==='FBO Login'?null: <option value="FBO Login">FBO Login</option>}
+                {userData.role==='Data Entry Specialist'?null:<option value="Data Entry Specialist">Data Entry Specialist</option>}
+                </optgroup>
               </select>
             </label>
 
-            {/*  <label className="block">
-              <span className="ml-1 font-semibold">Organization</span>
-              <p className="ml-1 ">Choose one option</p>
-              <label className="text-lg flex gap-x-5 items-center" key={'area.id'}>
-                <input
-                  type="radio"
-                  name="workArea"
-                  className=""
-                  value={'area.value'}
-                  id={'area.id'}
-                  //defaultChecked={program.id===event?.programid?'checked':""}
-                  onChange={(e) =>
-                    setEventForm((previous) => ({
-                      ...previous,
-                      [e.target.name]:' area.value',
-                    }))
-                  }
-                  //defaultChecked={area.value === eventForm.workArea ? "checked" : ""}
-                />
-                <p>{'area.value'}</p>
-              </label>
-            </label> */}
+      
 
             {userData?.role==='FBO Login' || userData?.role==='FBO Data Entry Specialist' ? (
             
@@ -241,11 +193,12 @@ export default function create({fbos}) {
                     <label className="flex items-center  gap-x-5" key={index}>
                       <input
                         type="radio"
-                        name="onlineInPersonEventType"
+                        name=""
                         className=""
                         id={option.id}
                         onChange={(e)=>setUserData({...userData,userFbo:e.target.value})}
                         value={option.namefbo}
+                        checked={userData.userFbo===option.namefbo?true:false}
                       />
                       <p className="">{option.namefbo}</p>
                     </label>
@@ -262,15 +215,17 @@ export default function create({fbos}) {
               <p className="ml-1 mb-5">Choose Program</p>
               {programs &&
                 programs.map((program, index) => {
+                  console.log('program', program)
                   return (
                     <label className="flex items-center  gap-x-5" key={index}>
                       <input
                         type="checkbox"
-                        name=""
+                        name="onlineInPersonEventType"
                         className=""
                         id={program.id}
-                        onChange={(e)=>handleForm(e.target.value)}
+                        onChange={(e)=>setUserData({...userData,userAccessiblePrograms:e.target.value})}
                         value={program.name}
+                        defaultChecked={userData.userAccessiblePrograms.includes(program.name) ? 'checked' : ""}
                       />
                       <p className="">{program.name}</p>
                     </label>
@@ -285,6 +240,7 @@ export default function create({fbos}) {
             <label className="block">
               <span className="ml-1 font-semibold">Active / No active</span>
               <select
+               value={userData.isactive}
                 onChange={(e) =>
                   setUserData({ ...userData, isactive: e.target.value })
                 }
@@ -326,16 +282,21 @@ export default function create({fbos}) {
 
 
 export const getServerSideProps = withPageAuthRequired({
-    async getServerSideProps(ctx) {
-      const [fbos,] = await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) =>
+ 
+  async getServerSideProps(ctx) {
+    const {id} =ctx.params
+    const [data,fbos] = await Promise.all([
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers/${id}`).then((r) =>
+        r.json()
+      ),
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) =>
           r.json()
         ),
-      ]);
-      return { props: { fbos: fbos } };
-  
-      /*  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/clients`);
-      const data = await res.json();
-      return { props: { data } }; */
-    },
-  });
+    ]);
+    return { props: { data: data,fbos:fbos } };
+
+    /*  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/clients`);
+    const data = await res.json();
+    return { props: { data } }; */
+  },
+});

@@ -60,7 +60,7 @@ const day= date[2]
                 
                 <div className="head-row flex justify-center items-center">
                   <p className="md:text-base text-center flex cursor-pointer" 
-                   onClick={()=>handleSelectedUser(authorizeduser)}>
+                   onClick={()=>router.push(`/authorizedusers/${authorizeduser.id}/edit`)}>
                      <img src='/edit-icon.svg' alt=''/>
                   </p>
                 </div>
