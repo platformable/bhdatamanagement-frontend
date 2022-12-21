@@ -1,30 +1,27 @@
 import React, {useState} from "react";
 
 const address_validation_test = () => {
-  const [address, setAddress] = useState({
-    regionCode: "US",
-    locality: "",
-    addressLines: [],
+  const [data, setData] = useState({
+    address: {
+      regionCode: "US",
+      locality: "",
+      addressLines: []
+    }
   });
   const validateAddress = async () => {
     // const isEmpty = Object.values(address).some((e) => !e);
     // console.log(isEmpty)
+    
     try {
         // if (isEmpty) return 
       const res = await fetch(
-        `https://addressvalidation.googleapis.com/v1:validateAddress?key=${process.env.GOOGLE_ADDRESS_API_KEY}`,
+        `https://addressvalidation.googleapis.com/v1:validateAddress?key=${process.env.NEXT_PUBLIC_GOOGLE_VALIDATION}`,
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
           },
-          body: {
-            address: {
-              regionCode: "US",
-              locality: address.locality,
-              addressLines: address.addressLines,
-            },
-          },
+          body: JSON.stringify(data)
         }
       );
       const data = res.json()
@@ -33,6 +30,7 @@ const address_validation_test = () => {
       console.log(e);
     }
   };
+  console.log(data)
   return (
     <div className="container mx-auto flex flex-col gap-10 items-center py-24 h-screen">
       <label>
@@ -40,7 +38,10 @@ const address_validation_test = () => {
         <input
         //   onBlur={validateAddress}
           onChange={(e) =>
-            setAddress((prev) => ({ ...prev, locality: e.target.value }))
+            setData((prev) => ({ ...prev, address: {
+              ...prev.address,
+              locality: e.target.value
+            } }))
           }
           type="text"
         />
@@ -50,7 +51,10 @@ const address_validation_test = () => {
         <input
           onBlur={validateAddress}
           onChange={(e) =>
-            setAddress((prev) => ({ ...prev, addressLines: [...prev.addressLines,e.target.value] }))
+            setData((prev) => ({ ...prev, address: {
+              ...prev.address,
+              addressLines: [e.target.value]
+            } }))
           }
           type="text"
         />
