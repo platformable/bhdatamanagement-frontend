@@ -168,37 +168,12 @@ const handleForm=(e)=>{
                   Data Team
                 </option>
                 <option selected={userData?.role === "Program Worker"} value="Program Worker">Program Worker</option>
-                {/* <option selected={userData?.role === "Intern"} value="Intern">Intern</option> */}
-                {/* <option selected={userData?.role === "FBO Login"} value="FBO Login">FBO Login</option> */}
-                {/* <option selected={userData?.role === "FBO Data Entry Specialist"} value="FBO Data Entry Specialist">FBO Data Entry Specialist</option> */}
+                <option selected={userData?.role === "Intern"} value="Intern">Intern</option>
               </select>
             </label>
 
 
-            {userData?.role==='FBO Login' || userData?.role==='FBO Data Entry Specialist' ? (
-            
-            <div className="grid grid-cols-1 gap-1">
-              <h3 className="ml-1 font-black">Organizations</h3>
-              <p className="ml-1 mb-5">Choose on option</p>
-              {organizationOptions &&
-                organizationOptions.map((option, index) => {
-                  return (
-                    <label className="flex items-center  gap-x-5" key={index}>
-                      <input
-                        type="radio"
-                        name="onlineInPersonEventType"
-                        className=""
-                        id={option.id}
-                        onChange={(e)=>setUserData({...userData,userFbo:e.target.value})}
-                        value={option.name}
-                      />
-                      <p className="">{option.name}</p>
-                    </label>
-                  );
-                })}
-            </div>)
-            
-            :null}
+           
 
             {userData?.role==='Program Worker' ? (
             
