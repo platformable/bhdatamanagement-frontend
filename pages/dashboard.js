@@ -160,7 +160,7 @@ export default function Dashboard({selectedProgram}) {
               </div>
             </div>
           </section>
-        <ReportProblem />
+     {/*    <ReportProblem /> */}
 
         </main>
 

@@ -15,11 +15,11 @@ import Layout from "../components/Layout";
 import Router from "next/router";
 import Loader from "../components/Loader";
 
-export default function ChooseProgram() {
-  const { user, error, isLoading } = useUser();
+export default function ChooseProgram({user}) {
+  //const { user, error, isLoading } = useUser();
   const [loading, setLoading] = useState(true);
 
-
+console.log("user choose program:",user)
   const dispatch=useDispatch()
 
   const loggedUserRole = 
@@ -31,7 +31,7 @@ export default function ChooseProgram() {
 
   const userName = user && user["https://lanuevatest.herokuapp.com/name"];
 
-  console.log("user", loggedUserRole);
+
   const notifyMessage = () => {
     toast.success("A new client is being created!", {
       position: toast.POSITION.TOP_CENTER,
@@ -99,4 +99,4 @@ useEffect(()=>{
 
 /* export const getServerSideProps = withPageAuthRequired(); */
 
-export const getServerSideProps = withPageAuthRequired();
+export const getServerSideProps = withPageAuthRequired({});

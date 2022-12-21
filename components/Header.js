@@ -22,7 +22,22 @@ export default function Header({showStatus}) {
             className="cursor-pointer"
           />
         </Link>
-        <div id="head-user" className="flex justify-end items-center">
+      
+        <div id="head-user" className="flex justify-end items-center gap-x-5">
+        <a href="https://airtable.com/shr8tmgc0QnAvziz5"
+                className={`bg-black  px-10 py-2 rounded text-white inline-block  flex items-center`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Support
+              </a>
+              <a href="https://www.dropbox.com/scl/fo/qres5gmvvlgkit9io0qd8/h?dl=0&rlkey=sadaup1bpllmkcdcgyjrdiaym"
+                className={`${styles.btnIndexPage} bg-black  px-10 py-2 rounded text-white inline-block  flex items-center`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Guide
+              </a>
           <div className="grid md:flex gap-x-5">
             {/* <img src="/user_icon.svg" alt="" width={32} /> */}
             <div>

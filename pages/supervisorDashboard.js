@@ -162,7 +162,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
               </div>
             </div>
           </section>
-          <ReportProblem />
+         {/*  <ReportProblem /> */}
         </main>
       </Layout>
 
