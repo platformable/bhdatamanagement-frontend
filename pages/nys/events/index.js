@@ -1,19 +1,19 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../../components/Layout";
-import PageTopHeading from "../../components/PageTopHeading";
+import Layout from "../../../components/Layout";
+import PageTopHeading from "../../../components/PageTopHeading";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
-import EventsCardItems from "../../components/events/EventsCardItems";
-import Search from "../../components/SearchEvents";
-import DeleteEventModal from "../../components/events/DeleteEventModal";
+import EventsCardItems from "../../../components/events/EventsCardItems";
+import Search from "../../../components/SearchEvents";
+import DeleteEventModal from "../../../components/events/DeleteEventModal";
 import { useSelector, useDispatch } from "react-redux";
-import { searchEventByName } from "../../slices/eventsSearchWordSlice";
+import { searchEventByName } from "../../../slices/eventsSearchWordSlice";
 
 import {
   updateStartDate,
   updateEndDate,
-} from "../../slices/eventsCalendarDatesSlice";
+} from "../../../slices/eventsCalendarDatesSlice";
 import { useEffect } from "react";
 
 const EventsIndex = ({ events }) => {
@@ -349,7 +349,7 @@ const EventsIndex = ({ events }) => {
                             <p className="leading-5">Edit event</p>
                           </div>
                         </Link>
-                        <Link href={`/events/${event.id}/participant-survey`}>
+                        <Link href={`/nys/events/${event.id}/participant-survey`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Participant survey</p>
                           </div>

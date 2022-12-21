@@ -30,13 +30,7 @@ console.log("user choose program:",user)
   const router = useRouter();
 
   const userName = user && user["https://lanuevatest.herokuapp.com/name"];
-
-
-  const notifyMessage = () => {
-    toast.success("A new client is being created!", {
-      position: toast.POSITION.TOP_CENTER,
-    });
-  };
+  const userAccessiblePrograms=user && user['https://lanuevatest.herokuapp.com/useraccessibleprograms']
 
  
 useEffect(()=>{
@@ -45,6 +39,8 @@ useEffect(()=>{
   }
 },[loggedUserRole])
 
+
+console.log("userAccessiblePrograms",userAccessiblePrograms)
 
   return (
     <>
@@ -64,23 +60,40 @@ useEffect(()=>{
               </section>
 
               <h1 className="font-black  md:px-0 px-5">
-                Which program are you working on today?
+              What program are you working on today?
               </h1>
 
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
-                {loggedUserRole==='Supervisor' || loggedUserRole === 'Program Worker' || loggedUserRole === 'NYS Program Worker' ?
+                {loggedUserRole === 'Program Worker' && userAccessiblePrograms.includes('NYS CMP')?
                 <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
                 <Link
-                  href={{
-                    pathname: loggedUserRole==='Supervisor' ? "/supervisorDashboard" : "dashboard",
-                  }}
+                 href={'/nys'}
                 >
                   <div className="">
                     <button id="myBtn" className="flex items-center"
                     onClick={()=> dispatch(updateProgramName({programName:'NYS_CMP'}))}
                     >
                       <p className=" font-bold text-white uppercase">
-                        NYS CMP
+                        NYS 
+                      </p>
+                    </button>
+                  </div>
+                </Link>
+              </div>
+            : null
+            }
+
+          {loggedUserRole === 'Program Worker' && userAccessiblePrograms.includes('OEF')?
+                <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
+                <Link
+                  href={'/oef'}
+                >
+                  <div className="">
+                    <button id="myBtn" className="flex items-center"
+                    onClick={()=> dispatch(updateProgramName({programName:'NYS_CMP'}))}
+                    >
+                      <p className=" font-bold text-white uppercase">
+                        OEF
                       </p>
                     </button>
                   </div>
