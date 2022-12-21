@@ -43,7 +43,6 @@ console.log("user", data);
         }
 
     ]
-
     const programs=[
         {
             id:1,
@@ -56,12 +55,12 @@ console.log("user", data);
     ]
 
     const [saving,setSaving] = useState(false)
-    const addUser =  ()=> {
-        const isEmpty = Object.values(userData).some(value => !value)
+    const editUser =  ()=> {
+        // const isEmpty = Object.values(userData).some(value => !value)
     
-        if (!isEmpty) {
+        // if (!isEmpty) {
           setSaving(!saving)
-          axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/create`,userData)
+          axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`,userData)
           .then(function (response) {
             setShowModal(!showModal)
             notifyMessage()
@@ -74,7 +73,7 @@ console.log("user", data);
             setSaving(false)
             console.log("Not possible to add user, try again",error);
           });
-        }
+        // }
         
       }
     
@@ -143,10 +142,10 @@ console.log("user", data);
                   Select
                 </option>
                 <option selected={userData?.role === "Supervisor"} value="Supervisor">Supervisor</option>
-                <option selected={userData?.role === "Black Health Data Team"} value="Black Health Data Team">
-                  Black Health Data Team
+                <option selected={userData?.role === "Data Team"} value="Black Health Data Team">
+                  Data Team
                 </option>
-                <option selected={userData?.role === "Black Health Program Worker"} value="Black Health Program Worker">Black Health Program Worker</option>
+                <option selected={userData?.role === "Program Worker"} value="Black Health Program Worker">Program Worker</option>
                 <option selected={userData?.role === "FBO Login"} value="FBO Login">FBO Login</option>
                 <option selected={userData?.role === "FBO Data Entry Specialist"} value="FBO Data Entry Specialist">FBO Data Entry Specialist</option>
               </select>
@@ -223,7 +222,7 @@ console.log("user", data);
                 <div className="flex justify-center">
                   <button
                     className="px-4 py-2 mr-3 font-medium bg-[#23D3AA]  hover:bg-green-500 text-sm flex shadow-xl rounded-md"
-                    onClick={() => addUser()}
+                    onClick={() => editUser()}
                   >
                     {saving ? (
                       <Loader />
@@ -249,7 +248,7 @@ console.log("user", data);
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const {id}=ctx.params
-    const res = await fetch(`http://localhost:3500/users/${id}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${id}`)
     const data = await res.json()
     return { props: { data } };
 
