@@ -5,10 +5,14 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import Loader from "../../../components/Loader";
 import {  withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { useEffect } from 'react';
+import { ToastContainer, toast } from "react-toastify";
+
 
 
 export default function EditUser({data, user}) {
 console.log("user", data);
+const [program, setProgram] = useState(data?.useraccessibleprograms)
     const router = useRouter()
     const [userData,setUserData]= useState({
       name:data?.name||"",
@@ -17,8 +21,22 @@ console.log("user", data);
       role:"Program Worker"||"",
       isactive: data?.isactive||"",
       userFbo:"",
-      userAccessiblePrograms:""
+      userAccessiblePrograms: data?.useraccessibleprograms 
     })
+useEffect(() => {
+  setUserData((prev)=> ({...prev, userAccessiblePrograms: program}))
+}, [program])
+
+const handleForm=(e)=>{
+  const {value} = e.target 
+  const isValueOnData=program?.includes(value)
+  const filteredData=program.filter(oldValues=> oldValues != value)
+  isValueOnData?
+  setProgram(filteredData) :
+  setProgram((previous)=>([
+    ...previous,value
+  ]))
+}
 
     const organizationOptions= [
         {
@@ -53,7 +71,11 @@ console.log("user", data);
             name:'NYS CMP'
         }
     ]
-
+    const notifyMessage = () => {
+      toast.success("User is being updated", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    };
     const [saving,setSaving] = useState(false)
     const editUser =  ()=> {
         // const isEmpty = Object.values(userData).some(value => !value)
@@ -62,10 +84,9 @@ console.log("user", data);
           setSaving(!saving)
           axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`,userData)
           .then(function (response) {
-            setShowModal(!showModal)
             notifyMessage()
             setTimeout(()=>{
-              router.reload()
+              router.push("/users")
             },3000)
             
           })
@@ -81,6 +102,7 @@ console.log("user", data);
 
   return (
     <Layout showStatusHeader={true}>
+    <ToastContainer autoClose={3000} />
       <PageTopHeading
         pageTitle={"Edit user"}
         dashboardBtn={true}
@@ -142,12 +164,13 @@ console.log("user", data);
                   Select
                 </option>
                 <option selected={userData?.role === "Supervisor"} value="Supervisor">Supervisor</option>
-                <option selected={userData?.role === "Data Team"} value="Black Health Data Team">
+                <option selected={userData?.role === "Data Team"} value="Data Team">
                   Data Team
                 </option>
-                <option selected={userData?.role === "Program Worker"} value="Black Health Program Worker">Program Worker</option>
-                <option selected={userData?.role === "FBO Login"} value="FBO Login">FBO Login</option>
-                <option selected={userData?.role === "FBO Data Entry Specialist"} value="FBO Data Entry Specialist">FBO Data Entry Specialist</option>
+                <option selected={userData?.role === "Program Worker"} value="Program Worker">Program Worker</option>
+                {/* <option selected={userData?.role === "Intern"} value="Intern">Intern</option> */}
+                {/* <option selected={userData?.role === "FBO Login"} value="FBO Login">FBO Login</option> */}
+                {/* <option selected={userData?.role === "FBO Data Entry Specialist"} value="FBO Data Entry Specialist">FBO Data Entry Specialist</option> */}
               </select>
             </label>
 
@@ -187,12 +210,14 @@ console.log("user", data);
                   return (
                     <label className="flex items-center  gap-x-5" key={index}>
                       <input
-                        type="radio"
+                        type="checkbox"
                         name="onlineInPersonEventType"
                         className=""
                         id={program.id}
-                        onChange={(e)=>setUserData({...userData,userAccessiblePrograms:e.target.value})}
+                        onChange={handleForm}
                         value={program.name}
+                        defaultChecked={userData.userAccessiblePrograms.includes(program.name) ? 'checked' : ""}
+
                       />
                       <p className="">{program.name}</p>
                     </label>
