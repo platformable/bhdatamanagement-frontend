@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Section1 from "../../../components/events/Section1";
+//import Section1 from "../../../components/events/Section1";
 import Section2 from "../../../components/events/Section2";
-import Section3 from "../../../components/events/Section3";
+//import Section3 from "../../../components/events/Section3";
 import Section3_2 from "../../../components/events/Section3-2";
 import Section4 from "../../../components/events/Section4";
 import Section5 from "../../../components/events/Section5";
