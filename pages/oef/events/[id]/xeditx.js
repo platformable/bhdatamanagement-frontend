@@ -1,3 +1,11 @@
+import React from 'react'
+
+export default function xeditx() {
+  return (
+    <div></div>
+  )
+}
+
 /* import React, { useEffect, useState } from "react";
 import Section1 from "../../../components/events/Section1";
 import Section2 from "../../../components/events/Section2";

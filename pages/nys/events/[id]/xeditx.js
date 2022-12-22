@@ -1,3 +1,17 @@
+import React from 'react';
+
+const Xeditx = () => {
+  return (
+    <div>
+      
+    </div>
+  );
+}
+
+export default Xeditx;
+
+
+
 /* import React, { useEffect, useState } from "react";
 import Section1 from "../../../components/events/Section1";
 import Section2 from "../../../components/events/Section2";
