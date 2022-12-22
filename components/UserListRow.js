@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 
 export default function UserListRow({setSelectedEntity,authorizeduser,setSelectedUser,setShowEditUserModal,showEditUserModal,index,showDeleteUsermodal, setShowDeleteUserModal}) {
-  const {name,lastname,role,email,isactive,dateaccountactivated,datelastlogin,userid} = authorizeduser
+  const {name,lastname,role,email,isactive,dateaccountactivated,datelastlogin,userid,id} = authorizeduser
   const router = useRouter()
 
   const handleSelectedUser =(selectedUser, action)=>{
@@ -44,7 +44,7 @@ export default function UserListRow({setSelectedEntity,authorizeduser,setSelecte
                 </div>
                 <div className="head-row flex justify-center items-center">
                   <p className="text-xs md:text-base text-left flex cursor-pointer" 
-                   onClick={()=>handleSelectedUser(authorizeduser, 'EDIT')}>
+                   onClick={()=>router.push(`/users/${id}/edit`)}>
                     <Image src={editIcon} alt="edit-icon"></Image>
                   </p>
                 </div>

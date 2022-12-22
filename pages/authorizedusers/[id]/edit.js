@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Layout from '../../../components/Layout'
 import PageTopHeading from '../../../components/PageTopHeading'
 import axios from 'axios'
@@ -23,7 +23,7 @@ export default function edit({data,fbos}) {
       userFbo:data.userfbo,
       userAccessiblePrograms:data.useraccessibleprograms
     })
-
+    const [program, setProgram] = useState(data?.useraccessibleprograms)
     const organizationOptions= [
         {
             id:1,
@@ -85,6 +85,21 @@ export default function edit({data,fbos}) {
     
       console.log("userData",userData)
 
+      useEffect(() => {
+        setUserData((prev)=> ({...prev, userAccessiblePrograms: program}))
+      }, [program])
+
+
+      const handleForm=(e)=>{
+        const {value} = e.target 
+        const isValueOnData=program?.includes(value)
+        const filteredData=program.filter(oldValues=> oldValues != value)
+        isValueOnData?
+        setProgram(filteredData) :
+        setProgram((previous)=>([
+          ...previous,value
+        ]))
+      }
   return (
     <Layout showStatusHeader={true}>
       <ToastContainer autoClose={3000} />
@@ -168,15 +183,8 @@ export default function edit({data,fbos}) {
                 </option>
                 {userData.role==='Supervisor'?null:<option value="Supervisor">Supervisor</option>}
                 {userData.role==='Program Worker'?null:<option value="Program Worker">Program Worker</option>}
-                <optgroup label="Black Health Employee">
                 {userData.role==='Data Team'?null:  <option value="Data Team">Data Team</option>}
                 {userData.role==='Intern'?null: <option value="Intern">Intern</option>}
-                </optgroup>
-                
-                <optgroup label="FBO Partner">
-                {userData.role==='FBO Login'?null: <option value="FBO Login">FBO Login</option>}
-                {userData.role==='Data Entry Specialist'?null:<option value="Data Entry Specialist">Data Entry Specialist</option>}
-                </optgroup>
               </select>
             </label>
 
@@ -223,7 +231,7 @@ export default function edit({data,fbos}) {
                         name="onlineInPersonEventType"
                         className=""
                         id={program.id}
-                        onChange={(e)=>setUserData({...userData,userAccessiblePrograms:e.target.value})}
+                        onChange={handleForm}
                         value={program.name}
                         defaultChecked={userData.userAccessiblePrograms.includes(program.name) ? 'checked' : ""}
                       />

@@ -18,7 +18,7 @@ const [program, setProgram] = useState(data?.useraccessibleprograms)
       name:data?.name||"",
       lastname:data?.lastname||"",
       email:data?.email || "",
-      role:"Program Worker"||"",
+      role:data?.role,
       isactive: data?.isactive||"",
       userFbo:"",
       userAccessiblePrograms: data?.useraccessibleprograms 
@@ -160,15 +160,13 @@ const handleForm=(e)=>{
                 }
                 className="select-add-edit-supervisor block text-[#00000065] border-black w-60 mt-1 rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
-                <option value={null}  default>
-                  Select
+                <option value={userData.role}  default>
+                {userData.role}
                 </option>
-                <option selected={userData?.role === "Supervisor"} value="Supervisor">Supervisor</option>
-                <option selected={userData?.role === "Data Team"} value="Data Team">
-                  Data Team
-                </option>
-                <option selected={userData?.role === "Program Worker"} value="Program Worker">Program Worker</option>
-                <option selected={userData?.role === "Intern"} value="Intern">Intern</option>
+                {userData.role==='Supervisor'?null:<option value="Supervisor">Supervisor</option>}
+                {userData.role==='Program Worker'?null:<option value="Program Worker">Program Worker</option>}
+                {userData.role==='Data Team'?null:  <option value="Data Team">Data Team</option>}
+                {userData.role==='Intern'?null: <option value="Intern">Intern</option>}
               </select>
             </label>
 
@@ -191,7 +189,7 @@ const handleForm=(e)=>{
                         id={program.id}
                         onChange={handleForm}
                         value={program.name}
-                        defaultChecked={userData.userAccessiblePrograms.includes(program.name) ? 'checked' : ""}
+                        defaultChecked={userData?.userAccessiblePrograms?.includes(program.name) ? 'checked' : ""}
 
                       />
                       <p className="">{program.name}</p>
