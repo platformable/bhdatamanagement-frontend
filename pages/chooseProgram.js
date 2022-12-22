@@ -64,7 +64,7 @@ console.log("userAccessiblePrograms",userAccessiblePrograms)
               </h1>
 
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
-                {loggedUserRole === 'Program Worker' && userAccessiblePrograms.includes('NYS CMP')?
+                {loggedUserRole === 'Program Worker' && userAccessiblePrograms.includes('NYS CMP') || loggedUserRole==='Data Team'?
                 <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
                 <Link
                  href={'/nys'}
@@ -83,7 +83,7 @@ console.log("userAccessiblePrograms",userAccessiblePrograms)
             : null
             }
 
-          {loggedUserRole === 'Program Worker' && userAccessiblePrograms.includes('OEF')?
+          {loggedUserRole === 'Program Worker' && userAccessiblePrograms.includes('OEF') || loggedUserRole==='Data Team'?
                 <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
                 <Link
                   href={'/oef'}
@@ -94,6 +94,25 @@ console.log("userAccessiblePrograms",userAccessiblePrograms)
                     >
                       <p className=" font-bold text-white uppercase">
                         OEF
+                      </p>
+                    </button>
+                  </div>
+                </Link>
+              </div>
+            : null
+            }
+
+{loggedUserRole === 'Data Team'?
+                <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
+                <Link
+                  href={'/historicalData'}
+                >
+                  <div className="">
+                    <button id="myBtn" className="flex items-center"
+                    onClick={()=> router.push("/historicalData")}
+                    >
+                      <p className=" font-bold text-white uppercase">
+                        Historical Data
                       </p>
                     </button>
                   </div>

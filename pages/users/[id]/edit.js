@@ -12,7 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 export default function EditUser({data, user}) {
 console.log("user", data);
-const [program, setProgram] = useState(data?.useraccessibleprograms)
+const [program, setProgram] = useState(data?.useraccessibleprograms || [])
     const router = useRouter()
     const [userData,setUserData]= useState({
       name:data?.name||"",
@@ -21,7 +21,7 @@ const [program, setProgram] = useState(data?.useraccessibleprograms)
       role:data?.role,
       isactive: data?.isactive||"",
       userFbo:"",
-      userAccessiblePrograms: data?.useraccessibleprograms 
+      userAccessiblePrograms: data?.useraccessibleprograms || []
     })
 useEffect(() => {
   setUserData((prev)=> ({...prev, userAccessiblePrograms: program}))
@@ -30,7 +30,7 @@ useEffect(() => {
 const handleForm=(e)=>{
   const {value} = e.target 
   const isValueOnData=program?.includes(value)
-  const filteredData=program.filter(oldValues=> oldValues != value)
+  const filteredData=program?.filter(oldValues=> oldValues != value)
   isValueOnData?
   setProgram(filteredData) :
   setProgram((previous)=>([
