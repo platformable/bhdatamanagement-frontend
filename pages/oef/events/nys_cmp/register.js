@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
-import Section1 from "../../../components/events/Section1";
-import Section2 from "../../../components/events/Section2";
-import Section3 from "../../../components/events/Section3";
-import Section3_2 from "../../../components/events/Section3-2";
-import Section4 from "../../../components/events/Section4";
-import Section5 from "../../../components/events/Section5";
-import Section6 from "../../../components/events/Section6";
-import Section7 from "../../../components/events/Section7";
-import Section8 from "../../../components/events/Section8";
-import Section9 from "../../../components/events/Section9";
-import WorkArea from "../../../components/events/WorkArea";
-import ZipCode from "../../../components/events/ZipCode";
-import LocationAddress from "../../../components/events/LocationAddress";
-import LocationName from "../../../components/events/LocationName";
-import Loader from "../../../components/Loader";
-import EventDescription from "../../../components/events/EventDescription";
-import AdditionalMaterial from "../../../components/events/AdditionalMaterial";
-import Layout from "../../../components/Layout";
-import PageTopHeading from "../../../components/PageTopHeading";
+import Section1 from "../../../../components/events/Section1";
+import Section2 from "../../../../components/events/Section2";
+import Section3 from "../../../../components/events/Section3";
+import Section3_2 from "../../../../components/events/Section3-2";
+import Section4 from "../../../../components/events/Section4";
+import Section5 from "../../../../components/events/Section5";
+import Section6 from "../../../../components/events/Section6";
+import Section7 from "../../../../components/events/Section7";
+import Section8 from "../../../../components/events/Section8";
+import Section9 from "../../../../components/events/Section9";
+import WorkArea from "../../../../components/events/WorkArea";
+import ZipCode from "../../../../components/events/ZipCode";
+import LocationAddress from "../../../../components/events/LocationAddress";
+import LocationName from "../../../../components/events/LocationName";
+import Loader from "../../../../components/Loader";
+import EventDescription from "../../../../components/events/EventDescription";
+import AdditionalMaterial from "../../../../components/events/AdditionalMaterial";
+import Layout from "../../../../components/Layout";
+import PageTopHeading from "../../../../components/PageTopHeading";
 import { useRouter } from "next/router";
-import { nysActivity, NYSZipCodesAndBoroughs } from "../../../utils/sharedData";
+import { nysActivity, NYSZipCodesAndBoroughs } from "../../../../utils/sharedData";
 
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
@@ -27,7 +27,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
-import ResponseStatusModal from "../../../components/ResponseStatusModal";
+import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 
 const Register = ({ programs, locationTypes, areasOfFocus, eventTypes }) => {
   const router = useRouter();
