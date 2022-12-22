@@ -1,15 +1,15 @@
 import React, { useEffect, useState,useRef } from "react";
 import { useRouter } from 'next/router';
-import Layout from "../../../components/Layout";
-import PageTopHeading from "../../../components/PageTopHeading";
-import TopEventsInfo from "../../../components/TopEventsInfo";
+import Layout from "../../../../components/Layout";
+import PageTopHeading from "../../../../components/PageTopHeading";
+import TopEventsInfo from "../../../../components/TopEventsInfo";
 import ReactToPrint from 'react-to-print'
 import { useReactToPrint } from 'react-to-print';
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
-import AirsToPrint from "../../../components/airsForm/AirsToPrint";
+import AirsToPrint from "../../../../components/airsForm/AirsToPrint";
 
 import axios from "axios";
-import ResponseStatusModal from "../../../components/ResponseStatusModal";
+import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -17,49 +17,49 @@ import Image from "next/image";
 import { ToastContainer,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import PostEventReportSection1 from "../../../components/post-event-report/PostEventReportSection1";
-import PostEventReportSection2 from "../../../components/post-event-report/PostEventReportSection2";
-import PostEventReportSection3 from "../../../components/post-event-report/PostEventReportSection3";
-import PostEventReportSection4 from "../../../components/post-event-report/PostEventReportSection4";
-import PostEventReportSection5 from "../../../components/post-event-report/PostEventReportSection5";
-import PostEventReportSection6 from "../../../components/post-event-report/PostEventReportSection6";
-import PostEventReportSection7 from "../../../components/post-event-report/PostEventReportSection7";
-import PostEventReportSection8 from "../../../components/post-event-report/PostEventReportSection8";
-import PostEventReportSection9 from "../../../components/post-event-report/PostEventReportSection9";
-import PostEventReportSection10 from "../../../components/post-event-report/PostEventReportSection10";
+import PostEventReportSection1 from "../../../../components/post-event-report/PostEventReportSection1";
+import PostEventReportSection2 from "../../../../components/post-event-report/PostEventReportSection2";
+import PostEventReportSection3 from "../../../../components/post-event-report/PostEventReportSection3";
+import PostEventReportSection4 from "../../../../components/post-event-report/PostEventReportSection4";
+import PostEventReportSection5 from "../../../../components/post-event-report/PostEventReportSection5";
+import PostEventReportSection6 from "../../../../components/post-event-report/PostEventReportSection6";
+import PostEventReportSection7 from "../../../../components/post-event-report/PostEventReportSection7";
+import PostEventReportSection8 from "../../../../components/post-event-report/PostEventReportSection8";
+import PostEventReportSection9 from "../../../../components/post-event-report/PostEventReportSection9";
+import PostEventReportSection10 from "../../../../components/post-event-report/PostEventReportSection10";
 
-import PostEventReportSection11 from "../../../components/post-event-report/PostEventReportSection11";
-import PostEventReportSection12 from "../../../components/post-event-report/PostEventReportSection12";
-import PostEventReportSection13 from "../../../components/post-event-report/PostEventReportSection13";
-import PostEventReportSection14 from "../../../components/post-event-report/PostEventReportSection14";
-import PostEventReportSection15 from "../../../components/post-event-report/PostEventReportSection15";
-import PostEventReportSection16 from "../../../components/post-event-report/PostEventReportSection16";
-import PostEventReportSection17 from "../../../components/post-event-report/PostEventReportSection17";
-import PostEventReportSection18 from "../../../components/post-event-report/PostEventReportSection18";
-import PostEventReportSection19 from "../../../components/post-event-report/PostEventReportSection19";
-import PostEventReportSection20 from "../../../components/post-event-report/PostEventReportSection20";
+import PostEventReportSection11 from "../../../../components/post-event-report/PostEventReportSection11";
+import PostEventReportSection12 from "../../../../components/post-event-report/PostEventReportSection12";
+import PostEventReportSection13 from "../../../../components/post-event-report/PostEventReportSection13";
+import PostEventReportSection14 from "../../../../components/post-event-report/PostEventReportSection14";
+import PostEventReportSection15 from "../../../../components/post-event-report/PostEventReportSection15";
+import PostEventReportSection16 from "../../../../components/post-event-report/PostEventReportSection16";
+import PostEventReportSection17 from "../../../../components/post-event-report/PostEventReportSection17";
+import PostEventReportSection18 from "../../../../components/post-event-report/PostEventReportSection18";
+import PostEventReportSection19 from "../../../../components/post-event-report/PostEventReportSection19";
+import PostEventReportSection20 from "../../../../components/post-event-report/PostEventReportSection20";
 
-import PostEventReportSection21 from "../../../components/post-event-report/PostEventReportSection21";
-import PostEventReportSection22 from "../../../components/post-event-report/PostEventReportSection22";
-import PostEventReportSection23 from "../../../components/post-event-report/PostEventReportSection23";
-import PostEventReportSection24 from "../../../components/post-event-report/PostEventReportSection24";
-import PostEventReportSection25 from "../../../components/post-event-report/PostEventReportSection25";
-import PostEventReportSection26 from "../../../components/post-event-report/PostEventReportSection26";
-import PostEventReportSection27 from "../../../components/post-event-report/PostEventReportSection27";
-import PostEventReportSection28 from "../../../components/post-event-report/PostEventReportSection28";
-import PostEventReportSection29 from "../../../components/post-event-report/PostEventReportSection29";
-import PostEventReportSection30 from "../../../components/post-event-report/PostEventReportSection30";
+import PostEventReportSection21 from "../../../../components/post-event-report/PostEventReportSection21";
+import PostEventReportSection22 from "../../../../components/post-event-report/PostEventReportSection22";
+import PostEventReportSection23 from "../../../../components/post-event-report/PostEventReportSection23";
+import PostEventReportSection24 from "../../../../components/post-event-report/PostEventReportSection24";
+import PostEventReportSection25 from "../../../../components/post-event-report/PostEventReportSection25";
+import PostEventReportSection26 from "../../../../components/post-event-report/PostEventReportSection26";
+import PostEventReportSection27 from "../../../../components/post-event-report/PostEventReportSection27";
+import PostEventReportSection28 from "../../../../components/post-event-report/PostEventReportSection28";
+import PostEventReportSection29 from "../../../../components/post-event-report/PostEventReportSection29";
+import PostEventReportSection30 from "../../../../components/post-event-report/PostEventReportSection30";
 
-import PostEventReportSection31 from "../../../components/post-event-report/PostEventReportSection31";
-import PostEventReportSection32 from "../../../components/post-event-report/PostEventReportSection32";
-import PostEventReportSection33 from "../../../components/post-event-report/PostEventReportSection33";
-import PostEventReportSection34 from "../../../components/post-event-report/PostEventReportSection34";
-import PostEventReportSection35 from "../../../components/post-event-report/PostEventReportSection35";
-import PostEventReportSection36 from "../../../components/post-event-report/PostEventReportSection36";
-import PostEventReportSection37 from "../../../components/post-event-report/PostEventReportSection37";
-import PostEventReportSection38 from "../../../components/post-event-report/PostEventReportSection38";
-import PostEventReportSection39 from "../../../components/post-event-report/PostEventReportSection39";
-import PostEventReportSection40 from "../../../components/post-event-report/PostEventReportSection40";
+import PostEventReportSection31 from "../../../../components/post-event-report/PostEventReportSection31";
+import PostEventReportSection32 from "../../../../components/post-event-report/PostEventReportSection32";
+import PostEventReportSection33 from "../../../../components/post-event-report/PostEventReportSection33";
+import PostEventReportSection34 from "../../../../components/post-event-report/PostEventReportSection34";
+import PostEventReportSection35 from "../../../../components/post-event-report/PostEventReportSection35";
+import PostEventReportSection36 from "../../../../components/post-event-report/PostEventReportSection36";
+import PostEventReportSection37 from "../../../../components/post-event-report/PostEventReportSection37";
+import PostEventReportSection38 from "../../../../components/post-event-report/PostEventReportSection38";
+import PostEventReportSection39 from "../../../../components/post-event-report/PostEventReportSection39";
+import PostEventReportSection40 from "../../../../components/post-event-report/PostEventReportSection40";
 const EditPostEventReport = ({
   event,
   programs,
