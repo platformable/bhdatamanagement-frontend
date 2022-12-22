@@ -116,7 +116,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
 
                 <div></div>
 
-               {loggedUserRole !=='Supervisor' ?
+                {loggedUserRole !=='Supervisor' ?
                <div className=" rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
                <Link href="/historicalData">
                  <div className="">

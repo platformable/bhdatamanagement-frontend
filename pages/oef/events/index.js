@@ -344,7 +344,7 @@ const EventsIndex = ({ events }) => {
                             /* crearFecha2(event) */
                           }
                         </div>
-                        <Link href={`events/${event.id}/nys_cmp/edit`}>
+                        <Link href={`/nys/events/${event.id}/edit`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Edit event</p>
                           </div>
@@ -355,7 +355,7 @@ const EventsIndex = ({ events }) => {
                           </div>
                         </Link>
 
-                        <Link href={`events/${event.id}/upload-event`}>
+                        <Link href={`/nys/events/${event.id}/upload-event`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">
                               Uploads docs &#38; photos, etc{" "}
@@ -366,8 +366,8 @@ const EventsIndex = ({ events }) => {
                         <Link
                           href={
                             event.posteventreportid
-                              ? `events/${event.id}/edit-post-event-survey`
-                              : `events/${event.id}/post-event-survey`
+                              ? `/nys/events/${event.id}/edit-post-event-survey`
+                              : `/nys/events/${event.id}/post-event-survey`
                           }
                         >
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center text-center">
