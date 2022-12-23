@@ -109,8 +109,7 @@ console.log("userAccessiblePrograms",userAccessiblePrograms)
                 >
                   <div className="">
                     <button id="myBtn" className="flex items-center"
-                    onClick={()=> router.push("/historicalData")}
-                    >
+                    onClick={()=> router.push("/historicalData")}>
                       <p className=" font-bold text-white uppercase">
                         Historical Data
                       </p>
