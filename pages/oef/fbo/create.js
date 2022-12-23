@@ -3,10 +3,11 @@ import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import Loader from "../../../components/Loader";
 import axios from "axios";
-
+import Script from "next/script";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import InputValidationAddress from "../../../components/InputValidationAddress";
 
 const CreateFBO = () => {
   const [error, setError] = useState("");
@@ -67,8 +68,13 @@ const CreateFBO = () => {
       });
   };
 
-  const handleForm = (e) =>
+  const handleForm = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+const handleAddress = (value, key) => {
+    setForm((prev) => ({ ...prev, key: value }));
+}
 
   console.log(form);
   return (
@@ -93,7 +99,7 @@ const CreateFBO = () => {
               <h2 className="font-black">FBO address</h2>
             <div>
               <label>
-                <input type="text" name="addressFBO" onChange={handleForm} />
+                <InputValidationAddress setForm={setForm} name={'addressFBO'}/>
               </label>
             </div>
           </div>
@@ -101,7 +107,8 @@ const CreateFBO = () => {
               <h2 className="font-black">FBO address line 2</h2>
             <div>
               <label>
-                <input type="text" name="address2FBO" onChange={handleForm} />
+              <InputValidationAddress setForm={setForm} name={'address2FBO'}/>
+
               </label>
             </div>
           </div>
@@ -138,7 +145,7 @@ const CreateFBO = () => {
                 <input 
                 type="number" 
                 placeholder="Eg. 10027"
-                maxlength={5}
+                maxLength={5}
                 name="zipcodeFBO"
                 onKeyUp={(e) => {
                   e.target.value.length > 5 && (e.target.value = e.target.value.slice(0,5)) 
@@ -328,6 +335,11 @@ const CreateFBO = () => {
           </button>
         </div>
       </Layout>
+      <Script
+        type="text/javascript"
+        strategy="beforeInteractive"
+        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_VALIDATION}&libraries=places`}
+      />
     </>
   );
 };
