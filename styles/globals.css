@@ -458,6 +458,7 @@ table th {
 .question-body > div > label {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 .question-body > div > label > p,
 .question-body > div > label {
@@ -474,6 +475,8 @@ label > input[type="radio"],
 label > input[type="number"],
 label > input[type="date"],
 label > input[type="time"],
+label > input[type="phone"],
+label > input[type="email"],
 label > textarea {
   border: 1px solid black;
   padding: 8px 16px;
