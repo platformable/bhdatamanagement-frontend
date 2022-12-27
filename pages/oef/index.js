@@ -113,8 +113,22 @@ export default function SupervisorDashboard({ selectedProgram }) {
                     </button>
                   </Link>
                 </div>
+                <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+                  <Link href="/oef/fbo">
+                    <button id="myBtn">
+                      <div className="">
+                        <div className="flex justify-center "></div>
+                        <p className=" font-bold text-white uppercase">
+                          FBO
+                          <br />
+                          DIRECTORY
+                        </p>
+                      </div>{" "}
+                    </button>
+                  </Link>
+                </div>
 
-                <div></div>
+                
 
                 {loggedUserRole !=='Supervisor' ?
                <div className=" rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">

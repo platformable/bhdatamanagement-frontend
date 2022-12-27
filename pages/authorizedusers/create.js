@@ -201,8 +201,8 @@ export default function create({fbos}) {
                {/*  </optgroup> */}
                 
              {/*    <optgroup label="FBO Partner"> */}
-                <option value="FBO Login">FBO Login</option>
-                <option value="FBO Data Entry Specialist">FBO Data Entry Specialist</option>
+            {/*     <option value="FBO Login">FBO Login</option>
+                <option value="FBO Data Entry Specialist">FBO Data Entry Specialist</option> */}
                {/*  </optgroup> */}
               </select>
             </label>
