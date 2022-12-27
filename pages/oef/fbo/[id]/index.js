@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 const EditFBO = ({ data }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const router = useRouter;
+  const router = useRouter();
   const isNumberKey = (e) => {
     const invalidChars = ["-", "+", "e"];
     if (invalidChars.includes(e.key)) {

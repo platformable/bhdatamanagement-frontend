@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 const CreateFBO = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const router = useRouter;
+  const router = useRouter();
 
   const isNumberKey = (e) => {
     const invalidChars = [
