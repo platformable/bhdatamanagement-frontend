@@ -294,7 +294,7 @@ const fboIndex = ({ fbos }) => {
         <p className="lg:text-xl font-bold flex items-center ">{fbo.emailkeycontact}</p>
         <p></p>
         <p></p>
-                        <Link href={`/oef/fbo/${fbo.id}/edit`}>
+                        <Link href={`/oef/fbo/${fbo.numberfbo}/`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Edit fbo</p>
                           </div>
