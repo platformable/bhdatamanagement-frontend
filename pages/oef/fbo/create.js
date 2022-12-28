@@ -4,14 +4,17 @@ import PageTopHeading from "../../../components/PageTopHeading";
 import Loader from "../../../components/Loader";
 import axios from "axios";
 import Script from "next/script";
-
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import InputValidationAddress from "../../../components/InputValidationAddress";
+import { useRouter } from "next/router";
 
 const CreateFBO = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
   const isNumberKey = (e) => {
     const invalidChars = [
       "-",
@@ -56,9 +59,9 @@ const CreateFBO = () => {
         if (response.data.status === 200) {
           setLoading(!loading)
           notifyMessage();
-          //   setTimeout(() => {
-          //     router.push("/oef/fbo");
-          //   }, 15000);
+            setTimeout(() => {
+              router.push("/oef/fbo");
+            }, 1500);
         }
       })
       .catch(function (error) {
@@ -67,7 +70,13 @@ const CreateFBO = () => {
         console.error("error: ", error);
       });
   };
-
+  const boroughs = [
+    "Bronx",
+    "Brooklyn",
+    "Manhattan",
+    "Staten Island",
+    "Queens",
+  ];
   const handleForm = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
@@ -80,18 +89,18 @@ const handleAddress = (value, key) => {
   return (
     <>
       <Layout>
-        <ToastContainer autoClose={15000} />
+        <ToastContainer autoClose={1500} />
         <PageTopHeading
           pageTitle={"Add a new FBO"}
           backBtn={true}
           dashboardBtn={true}
         />
-        <section className="container mx-auto px-5 md:px-0 rounded-lg border-black pb-10">
+        <section className="container mx-auto px-5  md:px-0 rounded-lg border-black pb-10">
           <div className="question-body">
               <h2 className="font-black">FBO name</h2>
             <div>
-              <label>
-                <input type="text" name="nameFBO" onChange={handleForm} />
+              <label >
+                <input className="w-full md:w-96" type="text" name="nameFBO" onChange={handleForm} />
               </label>
             </div>
           </div>
@@ -116,26 +125,20 @@ const handleAddress = (value, key) => {
           <h2 className="font-black">Borough</h2>
 
             <div>
-              <label>
-                <input type="radio" name="boroughFBO" value="Bronx" onChange={handleForm} />
-                <p>Bronx</p>
-              </label>
-              <label>
-                <input type="radio" name="boroughFBO" value="Brooklyn" onChange={handleForm} />
-                <p>Brooklyn</p>
-              </label>
-              <label>
-                <input type="radio" name="boroughFBO" value="Manhattan" onChange={handleForm} />
-                <p>Manhattan</p>
-              </label>
-              <label>
-                <input type="radio" name="boroughFBO" value="Staten Island" onChange={handleForm} />
-                <p>Staten Island</p>
-              </label>
-              <label>
-                <input type="radio" name="boroughFBO" value="Queens" onChange={handleForm} />
-                <p>Queens</p>
-              </label>
+              {boroughs?.map((element) => (
+                <>
+                  <label>
+                    <input
+                      type="radio"
+                      name="boroughFBO"
+                      value={element}
+                      onChange={handleForm}
+                      
+                    />
+                    <p>{element}</p>
+                  </label>
+                </>
+              ))}
             </div>
           </div>
           <div className="question-body">
@@ -147,6 +150,7 @@ const handleAddress = (value, key) => {
                 placeholder="Eg. 10027"
                 maxLength={5}
                 name="zipcodeFBO"
+                className="w-full md:w-96"
                 onKeyUp={(e) => {
                   e.target.value.length > 5 && (e.target.value = e.target.value.slice(0,5)) 
                 }}
@@ -170,6 +174,7 @@ const handleAddress = (value, key) => {
                   type="text"
                   name="nameReligiousLeader"
                   onChange={handleForm}
+                  className="w-full md:w-96"
                 />
               </label>
             </div>
@@ -182,6 +187,7 @@ const handleAddress = (value, key) => {
                   type="text"
                   name="positionReligiousLeader"
                   onChange={handleForm}
+                  className="w-full md:w-96"
                 />
               </label>
             </div>
@@ -194,6 +200,7 @@ const handleAddress = (value, key) => {
                   type="email"
                   name="emailReligionsLeader"
                   onChange={handleForm}
+                  className="w-full md:w-96"
                 />
               </label>
             </div>
@@ -206,6 +213,7 @@ const handleAddress = (value, key) => {
                   type="phone"
                   name="phoneReligionsLeader"
                   onChange={handleForm}
+                  className="w-full md:w-96"
                 />
               </label>
             </div>
@@ -218,6 +226,7 @@ const handleAddress = (value, key) => {
                   type="text"
                   name="nameKeyContact"
                   onChange={handleForm}
+                  className="w-full md:w-96"
                 />
               </label>
             </div>
@@ -230,6 +239,7 @@ const handleAddress = (value, key) => {
                   type="email"
                   name="phoneKeyContact"
                   onChange={handleForm}
+                  className="w-full md:w-96"
                 />
               </label>
             </div>
@@ -242,6 +252,7 @@ const handleAddress = (value, key) => {
                   type="phone"
                   name="emailKeyContact"
                   onChange={handleForm}
+                  className="w-full md:w-96"
                 />
               </label>
             </div>
@@ -254,6 +265,7 @@ const handleAddress = (value, key) => {
                   type="text"
                   name="nameAlternateContact"
                   onChange={handleForm}
+                  className="w-full md:w-96"
                 />
               </label>
             </div>
@@ -266,6 +278,7 @@ const handleAddress = (value, key) => {
                   type="email"
                   name="phoneAlternateContact"
                   onChange={handleForm}
+                  className="w-full md:w-96"
                 />
               </label>
             </div>
@@ -278,6 +291,7 @@ const handleAddress = (value, key) => {
                   type="phone"
                   name="emailAlternateContact"
                   onChange={handleForm}
+                  className="w-full md:w-96"
                 />
               </label>
             </div>
@@ -290,6 +304,7 @@ const handleAddress = (value, key) => {
                   type="text"
                   name="fboDropboxFolder"
                   onChange={handleForm}
+                  className="w-full md:w-96"
                 />
               </label>
             </div>
@@ -307,9 +322,9 @@ const handleAddress = (value, key) => {
             <div>
               <label>
                 <select
-                  className="border-black p-4 rounded-lg"
+                  className="border-black p-4 rounded-lg w-full md:w-96"
                   name="fboActive"
-                  onChange={(e) => setForm(prev=> ({...prev, fboActive: Boolean(e.target.value)}))}
+                  onChange={(e) => setForm(prev=> ({...prev, fboActive: e.target.value === "true"? true : false}))}
                 >
 
                     <option className="" value={true}>Active</option>
@@ -320,8 +335,7 @@ const handleAddress = (value, key) => {
             </div>
           </div>
         </section>
-        <div className="flex justify-center">{loading && <Loader />}</div>
-        <div className="flex justify-center my-10">
+        {loading ? (<div className="flex justify-center my-10"> <Loader /></div>  ): ( <div className="flex justify-center my-10">
           <button
             className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
             onClick={submitForm}
@@ -333,7 +347,9 @@ const handleAddress = (value, key) => {
             />
             Save and finish
           </button>
-        </div>
+        </div>)}
+        
+       
       </Layout>
       <Script
         type="text/javascript"
@@ -345,3 +361,6 @@ const handleAddress = (value, key) => {
 };
 
 export default CreateFBO;
+
+export const getServerSideProps = withPageAuthRequired();
+

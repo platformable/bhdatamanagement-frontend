@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import usePlacesAutocomplete from "use-places-autocomplete";
 
-const InputValidationAddress = ({setForm, name}) => {
+const InputValidationAddress = ({setForm, name, defaultValue}) => {
   const [error, setError]  = useState(false)
   const {
     ready,
@@ -76,20 +76,21 @@ const InputValidationAddress = ({setForm, name}) => {
     });
 
   return (
-    <div >
+    < >
       
         <input
           onChange={handleInput}
-          className="grid text-lg px-4 py-2 border-black  rounded"
+          className="grid text-lg px-4 py-2 border-black  rounded w-full md:w-96"
           name={name}
           type="text"
-          value={value}
+          value={value || defaultValue}
+          
         />
      
       {status === "OK" && <ul className="divide-black divide-y rounded border-black">{renderSuggestions()}</ul>}
      
       
-    </div>
+    </>
   );
 };
 
