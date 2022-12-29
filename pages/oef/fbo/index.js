@@ -219,7 +219,7 @@ const fboIndex = ({ fbos }) => {
         className={`hidden md:grid ${
           loggedUserRole === "Supervisor"
             ? "supervisor-existing-fbo-head-table"
-            : `existing-events-head-table`
+            : `existing-fbo-head-table`
         } container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}
       >
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
@@ -280,7 +280,7 @@ const fboIndex = ({ fbos }) => {
                         className={`grid ${
                           loggedUserRole === "Supervisor"
                             ? "supervisor-existing-fbo-head-table"
-                            : "existing-events-head-table"
+                            : "existing-fbo-head-table"
                         } px-7 py-7  rounded shadow-md`}
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}

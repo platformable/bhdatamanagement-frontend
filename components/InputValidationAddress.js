@@ -76,21 +76,21 @@ const InputValidationAddress = ({setForm, name, defaultValue}) => {
     });
 
   return (
-    < >
+    <div>
       
         <input
           onChange={handleInput}
           className="grid text-lg px-4 py-2 border-black  rounded w-full md:w-96"
           name={name}
           type="text"
-          value={value || defaultValue}
+          value={defaultValue || value}
           
         />
      
       {status === "OK" && <ul className="divide-black divide-y rounded border-black">{renderSuggestions()}</ul>}
      
       
-    </>
+    </div>
   );
 };
 
