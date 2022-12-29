@@ -3,7 +3,6 @@ import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import Loader from "../../../components/Loader";
 import axios from "axios";
-import Script from "next/script";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -351,11 +350,7 @@ const handleAddress = (value, key) => {
         
        
       </Layout>
-      <Script
-        type="text/javascript"
-        strategy="beforeInteractive"
-        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_VALIDATION}&libraries=places`}
-      />
+      
     </>
   );
 };

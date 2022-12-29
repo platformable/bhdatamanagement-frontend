@@ -49,7 +49,7 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
       {race.map(option => (
         <label className="flex gap-x-5 items-center">
         <input type="checkbox" className="" value={option.value} id={option.id} onChange={handleForm} name="participantRace" />
-        <hp className="">{option.value}</hp>
+        <p className="">{option.value}</p>
       </label>
       ))}
        
