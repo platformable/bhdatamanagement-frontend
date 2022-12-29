@@ -7,40 +7,40 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { NYSZipCodesAndBoroughs } from "../../../../../utils/sharedData";
 
-import { ParticipantSurveySection1 } from "../../../../../components/participant-event-survey/ParticipantSurveySection1";
-import { ParticipantSurveySection10 } from "../../../../../components/participant-event-survey/ParticipantSurveySection10";
-import { ParticipantSurveySection11 } from "../../../../../components/participant-event-survey/ParticipantSurveySection11";
-import { ParticipantSurveySection12 } from "../../../../../components/participant-event-survey/ParticipantSurveySection12";
-import { ParticipantSurveySection13 } from "../../../../../components/participant-event-survey/ParticipantSurveySection13";
-import { ParticipantSurveySection14 } from "../../../../../components/participant-event-survey/ParticipantSurveySection14";
-import { ParticipantSurveySection15 } from "../../../../../components/participant-event-survey/ParticipantSurveySection15";
-import { ParticipantSurveySection16 } from "../../../../../components/participant-event-survey/ParticipantSurveySection16";
-import { ParticipantSurveySection17 } from "../../../../../components/participant-event-survey/ParticipantSurveySection17";
-import { ParticipantSurveySection18 } from "../../../../../components/participant-event-survey/ParticipantSurveySection18";
-import { ParticipantSurveySection19 } from "../../../../../components/participant-event-survey/ParticipantSurveySection19";
-import { ParticipantSurveySection2 } from "../../../../../components/participant-event-survey/ParticipantSurveySection2";
-import { ParticipantSurveySection20 } from "../../../../../components/participant-event-survey/ParticipantSurveySection20";
-import { ParticipantSurveySection21 } from "../../../../../components/participant-event-survey/ParticipantSurveySection21";
-import { ParticipantSurveySection22 } from "../../../../../components/participant-event-survey/ParticipantSurveySection22";
-import { ParticipantSurveySection23 } from "../../../../../components/participant-event-survey/ParticipantSurveySection23";
-import { ParticipantSurveySection24 } from "../../../../../components/participant-event-survey/ParticipantSurveySection24";
-import { ParticipantSurveySection25 } from "../../../../../components/participant-event-survey/ParticipantSurveySection25";
-import { ParticipantSurveySection26 } from "../../../../../components/participant-event-survey/ParticipantSurveySection26";
-import { ParticipantSurveySection27 } from "../../../../../components/participant-event-survey/ParticipantSurveySection27";
-import { ParticipantSurveySection28 } from "../../../../../components/participant-event-survey/ParticipantSurveySection28";
-import { ParticipantSurveySection29 } from "../../../../../components/participant-event-survey/ParticipantSurveySection29";
-import { ParticipantSurveySection3 } from "../../../../../components/participant-event-survey/ParticipantSurveySection3";
-import { ParticipantSurveySection30 } from "../../../../../components/participant-event-survey/ParticipantSurveySection30";
-import { ParticipantSurveySection31 } from "../../../../../components/participant-event-survey/ParticipantSurveySection31";
-import { ParticipantSurveySection32 } from "../../../../../components/participant-event-survey/ParticipantSurveySection32";
-import { ParticipantSurveySection33 } from "../../../../../components/participant-event-survey/ParticipantSurveySection33";
-import { ParticipantSurveySection4 } from "../../../../../components/participant-event-survey/ParticipantSurveySection4";
-import { ParticipantSurveySection5 } from "../../../../../components/participant-event-survey/ParticipantSurveySection5";
-import { ParticipantSurveySection6 } from "../../../../../components/participant-event-survey/ParticipantSurveySection6";
-import { ParticipantSurveySection7 } from "../../../../../components/participant-event-survey/ParticipantSurveySection7";
-import { ParticipantSurveySection8 } from "../../../../../components/participant-event-survey/ParticipantSurveySection8";
-import { ParticipantSurveySection9 } from "../../../../../components/participant-event-survey/ParticipantSurveySection9";
-import { ParticipantSurveySection34 } from "../../../../../components/participant-event-survey/ParticipantSurveySection34";
+import { ParticipantSurveySection1 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection1";
+import { ParticipantSurveySection10 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection10";
+import { ParticipantSurveySection11 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection11";
+import { ParticipantSurveySection12 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection12";
+import { ParticipantSurveySection13 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection13";
+import { ParticipantSurveySection14 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection14";
+import { ParticipantSurveySection15 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection15";
+import { ParticipantSurveySection16 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection16";
+import { ParticipantSurveySection17 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection17";
+import { ParticipantSurveySection18 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection18";
+import { ParticipantSurveySection19 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection19";
+import { ParticipantSurveySection2 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection2";
+import { ParticipantSurveySection20 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection20";
+import { ParticipantSurveySection21 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection21";
+import { ParticipantSurveySection22 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection22";
+import { ParticipantSurveySection23 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection23";
+import { ParticipantSurveySection24 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection24";
+import { ParticipantSurveySection25 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection25";
+import { ParticipantSurveySection26 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection26";
+import { ParticipantSurveySection27 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection27";
+import { ParticipantSurveySection28 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection28";
+import { ParticipantSurveySection29 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection29";
+import { ParticipantSurveySection3 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection3";
+import { ParticipantSurveySection30 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection30";
+import { ParticipantSurveySection31 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection31";
+import { ParticipantSurveySection32 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection32";
+import { ParticipantSurveySection33 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection33";
+import { ParticipantSurveySection4 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection4";
+import { ParticipantSurveySection5 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection5";
+import { ParticipantSurveySection6 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection6";
+import { ParticipantSurveySection7 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection7";
+import { ParticipantSurveySection8 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection8";
+import { ParticipantSurveySection9 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection9";
+import { ParticipantSurveySection34 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection34";
 
 const Survey = ({ data }) => {
   const [showDemographicsForm, setShowDemographicsForm] = useState(false);
@@ -261,122 +261,7 @@ All your answers are completely anonymous, we respect your privacy and thank you
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}
             />
-            <ParticipantSurveySection23
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
-            <ParticipantSurveySection25
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
-            <ParticipantSurveySection34
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
-            <ParticipantSurveySection27
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
-            <ParticipantSurveySection28
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
-            <ParticipantSurveySection29
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
-            {/* <ParticipantSurveySection7 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-            <div className="question-body">
-              <h2 className="font-black">
-                If you have time, could you please answer some further
-                demographics and community health needs questions to help us
-                better plan future services?
-              </h2>
-              <div>
-                <label>
-                  <input
-                    type="radio"
-                    name="demographicsForm"
-                    onChange={handleDemographicsSurvey}
-                    value={true}
-                  />
-                  <p>Yes</p>
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="demographicsForm"
-                    onChange={handleDemographicsSurvey}
-                    value={false}
-                  />
-                  <p>No</p>
-                </label>
-              </div>
-            </div>
-            
-            {showDemographicsForm && (
-              <>
-                <ParticipantSurveySection8
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-                <ParticipantSurveySection9
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-                <ParticipantSurveySection10
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-                <ParticipantSurveySection11
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-                <ParticipantSurveySection12
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-                {/*    <ParticipantSurveySection13 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-                <ParticipantSurveySection14
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-                <ParticipantSurveySection15
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-                <ParticipantSurveySection16
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-                <ParticipantSurveySection17
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-                <ParticipantSurveySection18
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-                {/* <ParticipantSurveySection19 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-                <ParticipantSurveySection20
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-                {/* <ParticipantSurveySection21 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-                {/* <ParticipantSurveySection22 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-                {/* <ParticipantSurveySection24 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-                {/* <ParticipantSurveySection26 surveyForm={surveyForm} setSurveyForm={setSurveyForm}/> */}
-                <ParticipantSurveySection30
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-                <ParticipantSurveySection31
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
-               
-              </>
-            )}
+
             <ParticipantSurveySection33
                   surveyForm={surveyForm}
                   setSurveyForm={setSurveyForm}
@@ -394,7 +279,7 @@ All your answers are completely anonymous, we respect your privacy and thank you
             <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
               /* onClick={(e)=>{router.push("https://nblch.org/")}} */
-              onClick={submitParticipantSurvey}
+              //onClick={submitParticipantSurvey}
             >
               Save
             </button>

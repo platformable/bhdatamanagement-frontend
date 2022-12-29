@@ -137,7 +137,7 @@ const ParticipantSurvey = ({
           </div>
           <div className="text-center rounded bg-black  border p-5 text-center shadow-xl   rounded-xl grid justify-center content-center">
             
-              <a id="myBtn" href={`/nys/events/${event.id}/participant-survey/survey`} target="_blank" >
+              <a id="myBtn" href={`/oef/events/${event.id}/participant-survey/survey`} target="_blank" >
                 <div className="">
                   <div className="flex justify-center items-center ">
                     {/* <img
