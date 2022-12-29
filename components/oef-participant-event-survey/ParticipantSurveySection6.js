@@ -11,7 +11,7 @@ export const ParticipantSurveySection6 = ({surveyForm, setSurveyForm}) => {
         {/* <span className="">6</span>  */}
         How do you describe your sexual orientation? 
       </h2>
-      <div className="mt-7 grid grid-cols-1 space-between gap-5">
+      <div className="mt-7 grid grid-cols-2 space-between gap-5">
       {sexualOrientation.map(option => (
         <label className="flex gap-x-5 items-center">
         <input type="radio" className="" value={option.value} id={option.id} onChange={handleForm} name="participantOrientation" />

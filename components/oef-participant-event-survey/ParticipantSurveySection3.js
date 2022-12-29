@@ -45,7 +45,7 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
         Do you identify as:
       </h2>
       <p>Select all that apply</p>
-      <div className="mt-7 grid grid-cols-1 space-between gap-5">
+      <div className="mt-7 grid grid-cols-2 space-between gap-5">
       {race.map(option => (
         <label className="flex gap-x-5 items-center">
         <input type="checkbox" className="" value={option.value} id={option.id} onChange={handleForm} name="participantRace" />

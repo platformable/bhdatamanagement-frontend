@@ -213,7 +213,7 @@ All your answers are completely anonymous, we respect your privacy and thank you
           pageTitle={"Participant event survey"}
         /> */}
         <main className="container mx-auto  md:px-0 px-5">
-          <div
+        {/*   <div
             id="event"
             className="container mx-auto rounded my-10 md:h-36 border-dark-violet"
           >
@@ -231,8 +231,8 @@ All your answers are completely anonymous, we respect your privacy and thank you
                 })}
               </h2>
             </div>
-          </div>
-          <div className="form-body border-dark-violet mb-10">
+          </div> */}
+          <div className="form-body border-dark-violet my-10">
             <ParticipantSurveySection1
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}

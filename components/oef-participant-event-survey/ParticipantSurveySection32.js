@@ -81,7 +81,7 @@ export const ParticipantSurveySection32 = ({surveyForm,setSurveyForm}) => {
       {/* <span className="">32 </span>  */}
       How did you hear about this event?  
     </h2>
-    <div className="mt-7 grid grid-cols-1 space-between gap-5">
+    <div className="mt-7 grid grid-cols-2 space-between gap-5">
     {options.map((option, index) => {
 
 if(index===options.length-1){
