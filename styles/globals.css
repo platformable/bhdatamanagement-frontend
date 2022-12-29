@@ -527,7 +527,11 @@ label > textarea {
   grid-template-columns: 4.5fr 2fr 2fr 3fr 1fr 1fr 1fr 1fr;
   gap: 30px;
 }
-
+.existing-fbo-head-table {
+ 
+  grid-template-columns: 4.5fr 2fr 2fr 3fr 1fr 1fr 1fr;
+  gap: 30px;
+}
 /* PARTICIPANT SURVEY */
 
 .participant-survey-head-table {
