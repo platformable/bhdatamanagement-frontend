@@ -1,27 +1,30 @@
 import React, { useEffect, useRef, useState } from "react";
 import usePlacesAutocomplete from "use-places-autocomplete";
 
-const InputValidationAddress = ({setForm, name, defaultValue}) => {
-  const [error, setError]  = useState(false)
+const InputValidationAddress = ({ setForm, name, defaultValue }) => {
+  const [error, setError] = useState(false);
   const {
     ready,
     value,
     suggestions: { status, data },
     setValue,
-    clearSuggestions
-  } = usePlacesAutocomplete();
+    clearSuggestions,
+  } = usePlacesAutocomplete({
+    defaultValue,
+    cache: 24 * 60 * 60,
+  });
 
   const handleInput = (e) => {
     setValue(e.target.value);
   };
-  
+
   const handleSelect =
     ({ description }) =>
     () => {
       // When user selects a place, we can replace the keyword without request data from API
       // by setting the second parameter to "false"
       setValue(description, false);
-      setForm(prev => ({...prev, [name]:description }))
+      setForm((prev) => ({ ...prev, [name]: description }));
 
       clearSuggestions();
 
@@ -33,7 +36,6 @@ const InputValidationAddress = ({setForm, name, defaultValue}) => {
       // });
     };
   const validateAddress = async () => {
-    
     const body = JSON.stringify(deta);
     try {
       // if (isEmpty) return
@@ -50,16 +52,15 @@ const InputValidationAddress = ({setForm, name, defaultValue}) => {
       );
       const data = await res.json();
       if (data.error) {
-        throw new Error()
+        throw new Error();
       }
-      
+
       console.log(data);
     } catch (e) {
-      setError(true)
+      setError(true);
       console.log(e);
     }
   };
-
 
   const renderSuggestions = () =>
     data.map((suggestion) => {
@@ -69,7 +70,11 @@ const InputValidationAddress = ({setForm, name, defaultValue}) => {
       } = suggestion;
 
       return (
-        <li className="py-2 px-4" key={place_id} onClick={handleSelect(suggestion)}>
+        <li
+          className="py-2 px-4"
+          key={place_id}
+          onClick={handleSelect(suggestion)}
+        >
           <strong>{main_text}</strong> <small>{secondary_text}</small>
         </li>
       );
@@ -77,19 +82,20 @@ const InputValidationAddress = ({setForm, name, defaultValue}) => {
 
   return (
     <div>
-      
-        <input
-          onChange={handleInput}
-          className="grid text-lg px-4 py-2 border-black  rounded w-full md:w-96"
-          name={name}
-          type="text"
-          value={defaultValue || value}
-          
-        />
-     
-      {status === "OK" && <ul className="divide-black divide-y rounded border-black">{renderSuggestions()}</ul>}
-     
-      
+      <input
+        onChange={handleInput}
+        className="grid text-lg px-4 py-2 border-black  rounded w-full md:w-96"
+        name={name}
+        type="text"
+        value={value}
+        disabled={!ready}
+      />
+
+      {status === "OK" && (
+        <ul className="divide-black divide-y rounded border-black">
+          {renderSuggestions()}
+        </ul>
+      )}
     </div>
   );
 };

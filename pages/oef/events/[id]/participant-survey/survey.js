@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -41,8 +41,10 @@ import { ParticipantSurveySection7 } from "../../../../../components/oef-partici
 import { ParticipantSurveySection8 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection8";
 import { ParticipantSurveySection9 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection9";
 import { ParticipantSurveySection34 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection34";
+import { ParticipantSurveySection35 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection35";
+import ParticipantSurveySection36 from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection36";
 
-const Survey = ({ data }) => {
+const Survey = ({ event, fbos }) => {
   const [showDemographicsForm, setShowDemographicsForm] = useState(false);
   const notifyMessage = () => {
     toast.success("Survey saved!", {
@@ -50,12 +52,12 @@ const Survey = ({ data }) => {
     });
   };
 
-  console.log("data", data);
+  console.log("data", event);
 
   const [surveyForm, setSurveyForm] = useState({
-    eventID: data[0]?.id,
-    eventName: data[0]?.eventname,
-    eventDate: data[0]?.eventdate,
+    eventID: event[0]?.id,
+    eventName: event[0]?.eventname,
+    eventDate: event[0]?.eventdate,
     participantZipCode: 0,
     ageID: 0,
     participantAgeRange: "",
@@ -122,27 +124,29 @@ const Survey = ({ data }) => {
     participantSuggestions: "",
     interestOther: false,
     interestOtherText: "",
-    participantBorough:""
+    participantBorough: "",
   });
   console.log("form", surveyForm);
 
   const router = useRouter();
 
   const handleDemographicsSurvey = (e) => {
-    e.target.value === "true" ? 
-    setShowDemographicsForm((prev) => true):
-    setShowDemographicsForm((prev) => false)
+    e.target.value === "true"
+      ? setShowDemographicsForm((prev) => true)
+      : setShowDemographicsForm((prev) => false);
   };
 
   const getCity = (zipcode, array) => {
     const searchZipcode = array.filter((code) => code.zipcode === zipcode);
     if (searchZipcode.length > 0) {
-      setSurveyForm({ ...surveyForm, participantBorough: searchZipcode[0].borought });
+      setSurveyForm({
+        ...surveyForm,
+        participantBorough: searchZipcode[0].borought,
+      });
     } else {
       setSurveyForm({ ...surveyForm, participantBorough: "" });
     }
   };
-
 
   const submitParticipantSurvey = async () => {
     // if (!isEmpty) {
@@ -159,10 +163,9 @@ const Survey = ({ data }) => {
           });
           setShowResponseStatus(!showResponseStatus); */
           notifyMessage();
-          setTimeout(()=>{
-            router.push("https://nblch.org")
-
-            },1000) 
+          setTimeout(() => {
+            router.push("https://nblch.org");
+          }, 1000);
         }
       })
       .catch(function (error) {
@@ -183,10 +186,8 @@ const Survey = ({ data }) => {
   };
 
   useEffect(() => {
-
     getCity(surveyForm.participantZipCode, NYSZipCodesAndBoroughs);
-  }, [surveyForm.participantZipCode,
-  ]);
+  }, [surveyForm.participantZipCode]);
 
   return (
     <>
@@ -200,10 +201,11 @@ const Survey = ({ data }) => {
           />
           <h2 className="leading-tight text-white py-12 text-center">
             <span className="italic">We want to hear from you</span> <br />
-            Your answers help us plan our services, demonstrate our focus on our community, <br />
-and help us meet our funding commitments <br />
-All your answers are completely anonymous, we respect your privacy and thank you for your time and effort
-
+            Your answers help us plan our services, demonstrate our focus on our
+            community, <br />
+            and help us meet our funding commitments <br />
+            All your answers are completely anonymous, we respect your privacy
+            and thank you for your time and effort
           </h2>
         </div>
         <ToastContainer autoClose={1500} />
@@ -213,7 +215,7 @@ All your answers are completely anonymous, we respect your privacy and thank you
           pageTitle={"Participant event survey"}
         /> */}
         <main className="container mx-auto  md:px-0 px-5">
-        {/*   <div
+          {/*   <div
             id="event"
             className="container mx-auto rounded my-10 md:h-36 border-dark-violet"
           >
@@ -233,6 +235,15 @@ All your answers are completely anonymous, we respect your privacy and thank you
             </div>
           </div> */}
           <div className="form-body border-dark-violet my-10">
+            <ParticipantSurveySection35
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <ParticipantSurveySection36
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+              fbos={fbos}
+            />
             <ParticipantSurveySection1
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}
@@ -263,9 +274,9 @@ All your answers are completely anonymous, we respect your privacy and thank you
             />
 
             <ParticipantSurveySection33
-                  surveyForm={surveyForm}
-                  setSurveyForm={setSurveyForm}
-                />
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
           </div>
 
           <div className="flex justify-center">
@@ -292,12 +303,19 @@ All your answers are completely anonymous, we respect your privacy and thank you
 
 export default Survey;
 
-export async function getServerSideProps(req) {
-  let { id } = req.params;
-  // Fetch data from external API
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`);
-  const data = await res.json();
-
-  // Pass data to the page via props
-  return { props: { data } };
-}
+export const getServerSideProps = async (ctx) => {
+  const { id } = ctx.params;
+  const [event, fbos] = await Promise.all([
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`).then((r) =>
+      r.json()
+    ),
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
+  ]);
+  console.log(event);
+  return {
+    props: {
+      event: event,
+      fbos: fbos,
+    },
+  };
+};

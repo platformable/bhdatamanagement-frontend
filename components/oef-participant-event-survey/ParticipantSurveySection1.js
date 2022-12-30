@@ -23,7 +23,7 @@ export const ParticipantSurveySection1 = ({ surveyForm, setSurveyForm }) => {
 }
 console.log(surveyForm.participantZipCode)
   return (
-    <div className="px-7 mt-7">
+    <div className="px-7 ">
       <h2 className="font-black">
         {/* <span className="">1</span> */}
         What zip code do you live in or spend most of your time in?
