@@ -119,10 +119,10 @@ export default function AuthorizedUsersIndex({data, users}) {
                     <p className="text-xs md:text-base text-left">Name</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-xs md:text-base text-left">Last Name</p>
+                    <p className="text-xs md:text-base text-left">Last name</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-xs md:text-base text-left">User Role</p>
+                    <p className="text-xs md:text-base text-left">User role</p>
                   </div>
                   <div className="head-row font-black">
                     <p className="text-xs md:text-base text-left">Email</p>

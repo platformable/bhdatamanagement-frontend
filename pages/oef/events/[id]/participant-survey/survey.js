@@ -2,50 +2,24 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//import Layout from "../../../../components/Layout";
-//import PageTopHeading from "../../../../components/PageTopHeading";
 import axios from "axios";
 import { NYSZipCodesAndBoroughs } from "../../../../../utils/sharedData";
 
 import { ParticipantSurveySection1 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection1";
-import { ParticipantSurveySection10 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection10";
-import { ParticipantSurveySection11 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection11";
-import { ParticipantSurveySection12 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection12";
-import { ParticipantSurveySection13 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection13";
-import { ParticipantSurveySection14 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection14";
-import { ParticipantSurveySection15 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection15";
-import { ParticipantSurveySection16 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection16";
-import { ParticipantSurveySection17 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection17";
-import { ParticipantSurveySection18 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection18";
-import { ParticipantSurveySection19 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection19";
 import { ParticipantSurveySection2 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection2";
-import { ParticipantSurveySection20 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection20";
-import { ParticipantSurveySection21 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection21";
-import { ParticipantSurveySection22 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection22";
-import { ParticipantSurveySection23 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection23";
-import { ParticipantSurveySection24 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection24";
-import { ParticipantSurveySection25 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection25";
-import { ParticipantSurveySection26 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection26";
-import { ParticipantSurveySection27 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection27";
-import { ParticipantSurveySection28 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection28";
-import { ParticipantSurveySection29 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection29";
 import { ParticipantSurveySection3 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection3";
-import { ParticipantSurveySection30 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection30";
-import { ParticipantSurveySection31 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection31";
 import { ParticipantSurveySection32 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection32";
 import { ParticipantSurveySection33 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection33";
 import { ParticipantSurveySection4 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection4";
 import { ParticipantSurveySection5 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection5";
 import { ParticipantSurveySection6 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection6";
-import { ParticipantSurveySection7 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection7";
-import { ParticipantSurveySection8 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection8";
-import { ParticipantSurveySection9 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection9";
-import { ParticipantSurveySection34 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection34";
 import { ParticipantSurveySection35 } from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection35";
 import ParticipantSurveySection36 from "../../../../../components/oef-participant-event-survey/ParticipantSurveySection36";
 
 const Survey = ({ event, fbos }) => {
   const [showDemographicsForm, setShowDemographicsForm] = useState(false);
+  const [error, setError] = useState("");
+
   const notifyMessage = () => {
     toast.success("Survey saved!", {
       position: toast.POSITION.TOP_CENTER,
@@ -55,9 +29,10 @@ const Survey = ({ event, fbos }) => {
   console.log("data", event);
 
   const [surveyForm, setSurveyForm] = useState({
-    eventID: event[0]?.id,
-    eventName: event[0]?.eventname,
-    eventDate: event[0]?.eventdate,
+    fbo: "",
+    programName: "oef",
+    eventDate: new Date().toLocaleDateString(),
+    programID: 1,
     participantZipCode: 0,
     ageID: 0,
     participantAgeRange: "",
@@ -70,65 +45,14 @@ const Survey = ({ event, fbos }) => {
     orientationID: 0,
     participantOrientation: "",
     participantOrientationOther: "",
-    roleID: 0,
-    participantRole: "",
-    educationID: 0,
-    participantEducation: "",
-    employmentID: [],
-    participantEmployment: [],
-    livingID: 0,
-    participantLiving: "",
-    housingID: 0,
-    participantHousing: "",
-    participantFoodInsecurity1: "",
-    participantFoodInsecurity2: "",
-    insuranceID: 0,
-    participantInsurance: "",
-    participantHealth: "",
-    participantPCP: "",
-    participantRoutine: "",
-    participantComfortSex: 0,
-    participantComfortMentalHealth: 0,
-    participantComfortDiet: 0,
-    participantComfortExercise: 0,
-    participantComfortHealth: 0,
-    participantComfortMedications: 0,
-    participantComfortScreens: 0,
-    participantComfortSubstances: 0,
-    participantRelationship: "",
-    participantPHQ2a: "",
-    participantPHQ2b: "",
-    participantHIVTest: "",
-    participantHIV12: "",
-    participantHIVKnowledge: [],
-    participantCondomUse: "",
-    participantPrEPKnowledge: "",
-    participantPEPKnowledge: "",
-    participantPrEPUse: "",
-    participantUKnowledge: "",
-    participantTestResourceKnowledge: "",
-    participantPRePResourceKnowledge: "",
-    participantPRePResourceKnowledgeOther: "",
-    interestHIV: false,
-    interestPrEP: false,
-    interestHepC: false,
-    interestImmigration: false,
-    interestScreens: false,
-    interestVaccines: false,
-    interestMentalHealth: false,
-    interestSubstance: false,
-    interestChronic: false,
-    participantVote: false,
     participantReferral: "",
     participantReferralOther: "",
     participantSuggestions: "",
-    interestOther: false,
-    interestOtherText: "",
-    participantBorough: "",
   });
   console.log("form", surveyForm);
 
   const router = useRouter();
+
 
   const handleDemographicsSurvey = (e) => {
     e.target.value === "true"
@@ -136,35 +60,40 @@ const Survey = ({ event, fbos }) => {
       : setShowDemographicsForm((prev) => false);
   };
 
-  const getCity = (zipcode, array) => {
-    const searchZipcode = array.filter((code) => code.zipcode === zipcode);
-    if (searchZipcode.length > 0) {
-      setSurveyForm({
-        ...surveyForm,
-        participantBorough: searchZipcode[0].borought,
-      });
-    } else {
-      setSurveyForm({ ...surveyForm, participantBorough: "" });
-    }
-  };
+  // const getCity = (zipcode, array) => {
+  //   const searchZipcode = array.filter((code) => code.zipcode === zipcode);
+  //   if (searchZipcode.length > 0) {
+  //     setSurveyForm({
+  //       ...surveyForm,
+  //       participantBorough: searchZipcode[0].borought,
+  //     });
+  //   } else {
+  //     setSurveyForm({ ...surveyForm, participantBorough: "" });
+  //   }
+  // };
 
   const submitParticipantSurvey = async () => {
-    // if (!isEmpty) {
+    setError('')
+    const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
+      key === "participantOrientationOther" ||
+      key === "participantReferralOther"
+        ? false
+        : value === 0 || value.length === 0
+    );
+    if (isEmpty) {
+      setError("Please complete all fields");
+      return;
+    }
     axios
       .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/create`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/oef_participant_event_outputs/create`,
         surveyForm
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-          /* setResponseStatus({
-            success: true,
-            statusMessage: "Your Event has been saved",
-          });
-          setShowResponseStatus(!showResponseStatus); */
           notifyMessage();
           setTimeout(() => {
-            router.push("https://nblch.org");
+            router.push(`/oef/events/${router.query.id}/participant-survey/success`);
           }, 1000);
         }
       })
@@ -174,6 +103,7 @@ const Survey = ({ event, fbos }) => {
         //   statusMessage: "Request Failed",
         // });
         // setShowResponseStatus(!showResponseStatus);
+        setError('Something went wrong, try again')
         console.error("error: ", error);
       });
     //   } else {
@@ -185,35 +115,29 @@ const Survey = ({ event, fbos }) => {
     //  }
   };
 
-  useEffect(() => {
-    getCity(surveyForm.participantZipCode, NYSZipCodesAndBoroughs);
-  }, [surveyForm.participantZipCode]);
+  // useEffect(() => {
+  //   getCity(surveyForm.participantZipCode, NYSZipCodesAndBoroughs);
+  // }, [surveyForm.participantZipCode]);
 
   return (
     <>
       <div>
-        <div className="h-88 flex flex-col items-center grandient-violet">
-          <img
-            src="/bh_logo.png"
-            alt="black health data app management logo"
-            width={400}
-            className="pt-12"
-          />
-          <h2 className="leading-tight text-white py-12 text-center">
-            <span className="italic">We want to hear from you</span> <br />
-            Your answers help us plan our services, demonstrate our focus on our
-            community, <br />
-            and help us meet our funding commitments <br />
-            All your answers are completely anonymous, we respect your privacy
-            and thank you for your time and effort
-          </h2>
+        <div className="h-88 py-10 container mx-auto mt-3 flex flex-col items-center rounded-lg border-black">
+          <h1 className="text-center font-black">
+            HIV Outreach Event Participant Sign-in Sheet
+          </h1>
+          <div className="flex items-center mt-5">
+            <h2 className="pt-2">In partnership with</h2>
+            <img
+              src="/main/Black_Health_logo.svg"
+              alt="black health data app management logo"
+              width={400}
+              className=""
+            />{" "}
+          </div>
         </div>
         <ToastContainer autoClose={1500} />
-        {/* <PageTopHeading
-          backBtn={false}
-          dashboardBtn={false}
-          pageTitle={"Participant event survey"}
-        /> */}
+        
         <main className="container mx-auto  md:px-0 px-5">
           {/*   <div
             id="event"
@@ -286,14 +210,19 @@ const Survey = ({ event, fbos }) => {
             </h3>
           </div>
 
-          <div className="flex justify-center my-10">
+          <div className="flex flex-col items-center gap-3 justify-center my-10">
             <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
               /* onClick={(e)=>{router.push("https://nblch.org/")}} */
-              //onClick={submitParticipantSurvey}
+              onClick={submitParticipantSurvey}
             >
               Save
             </button>
+            {error && (
+              <center className="text-red-500 text-lg font-bold">
+                {error}
+              </center>
+            )}
           </div>
         </main>
       </div>

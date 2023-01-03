@@ -3,7 +3,7 @@ import React from "react";
 const ParticipantSurveySection36 = ({ fbos, surveyForm, setSurveyForm }) => {
   console.log(fbos);
   const handleForm = (e) => {
-    setSurveyForm((prev) => ({ ...prev, eventOrganizer: e.target.value }));
+    setSurveyForm((prev) => ({ ...prev, fbo: e.target.value }));
   };
   return (
     <div className="px-7">
@@ -17,7 +17,7 @@ const ParticipantSurveySection36 = ({ fbos, surveyForm, setSurveyForm }) => {
             //   defaultChecked={}
               value={fbo.namefbo}
               onChange={handleForm}
-              name="eventOrganizer"
+              name="fbo"
             />
             <p className="">{fbo.namefbo}</p>
           </label>

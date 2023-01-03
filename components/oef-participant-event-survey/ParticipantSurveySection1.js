@@ -4,12 +4,14 @@ import { useState } from "react";
 export const ParticipantSurveySection1 = ({ surveyForm, setSurveyForm }) => {
   const [errorField, setErrorField] = useState("")
   const handleForm = (e) => {
-    (e.target.value.length === 0 || e.target.value.length === 5) && setErrorField("");
-    e.target.value.length < 5 && setErrorField("Must be 5 digits");
-    e.target.value.length > 5 && setErrorField("Only 5 digits allowed");
 
+    (e.target.value.length === 0 || e.target.value.length === 5) && setErrorField("");
+
+    if(e.target.value.length < 5) setErrorField("Must be 5 digits")
+    if (e.target.value.length > 5 ) setErrorField("Only 5 digits allowed")
     e.target.value.length < 6 &&
     setSurveyForm({ ...surveyForm, [e.target.name]: Number(e.target.value) });
+    
   };
   const isNumberKey = (e) => {
     const invalidChars = [

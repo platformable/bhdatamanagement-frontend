@@ -118,7 +118,7 @@ export default function UsersIndex({data}) {
                   <p className="text-xs md:text-base text-left">Name</p>
                 </div>
                 <div className="head-row font-black">
-                  <p className="text-xs md:text-base text-left">Lastname</p>
+                  <p className="text-xs md:text-base text-left">Last name</p>
                 </div>
                 <div className="head-row font-black">
                   <p className="text-xs md:text-base text-left"> User Role</p>

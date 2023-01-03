@@ -64,6 +64,8 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
 
   let values = stadistics.filter(value => Number.isFinite(value));
   let maxValue = Math.max.apply(null, values);
+  let totalOfValues = values.reduce((a, b) => a + b, 0);
+  
 
 
   const options = {
@@ -83,7 +85,7 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
         display: true,
         color: "#000",
         formatter: function (value, context) {
-          return value > 0 ? value : "";
+          return value > 0 ? `${((value * 100) / totalOfValues).toFixed(2)}%`   : "";
         },
         font: {
           weight: "bold",

@@ -100,19 +100,24 @@ export default function SupervisorDashboard({ selectedProgram }) {
                   </Link>
                 </div>
                 <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
-                  <Link href="/nys/events/reports/">
+                  <Link href="">
                     <button id="myBtn">
                       <div className="">
                         <div className="flex justify-center "></div>
                         <p className=" font-bold text-white uppercase">
-                          DATA AND
+                          ACCESS
                           <br />
-                          REPORTS
+                          TECHNICAL
+                          <br />
+                          ASSISTANCE
+                          <br />
+                          REQUESTS
                         </p>
                       </div>{" "}
                     </button>
                   </Link>
                 </div>
+                
                 <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
                   <Link href="/oef/fbo">
                     <button id="myBtn">
@@ -127,8 +132,34 @@ export default function SupervisorDashboard({ selectedProgram }) {
                     </button>
                   </Link>
                 </div>
-
-                
+                <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+                  <Link href="#">
+                    <button id="myBtn">
+                      <div className="">
+                        <div className="flex justify-center "></div>
+                        <p className=" font-bold text-white uppercase">
+                          OTHER OEF
+                          <br />
+                          SURVEYS
+                        </p>
+                      </div>{" "}
+                    </button>
+                  </Link>
+                </div>
+                <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+                  <Link href="/nys/events/reports/">
+                    <button id="myBtn">
+                      <div className="">
+                        <div className="flex justify-center "></div>
+                        <p className=" font-bold text-white uppercase">
+                          DATA AND
+                          <br />
+                          REPORTS
+                        </p>
+                      </div>{" "}
+                    </button>
+                  </Link>
+                </div>
 
                 {loggedUserRole !=='Supervisor' ?
                <div className=" rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
@@ -145,6 +176,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
                  </div>
                </Link>
              </div>:"" } 
+             
               </div>
 
              
