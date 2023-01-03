@@ -260,12 +260,12 @@ export const race = [
 
 export const ethnicity = [
   { id: 1, value: "Not of Hispanic, Latino/a or Spanish origin" },
-  { id: 2, value: "Mexican, Mexican American or Chicano" },
-  { id: 3, value: "Puerto Rican" },
-  { id: 4, value: "Cuban" },
-  { id: 5, value: "Dominican" },
-  { id: 6, value: "Ecuadorian" },
-  { id: 7, value: "Other Hispanic, Latino/a, or Spanish origin" },
+  { id: 2, value: "Yes, I identify as Mexican, Mexican American" },
+  { id: 3, value: "Yes, I identify as Puerto Rican" },
+  { id: 4, value: "Yes, I identify as Cuban" },
+  { id: 5, value: "Yes, I identify as Dominican" },
+  { id: 6, value: "Yes, I identify as Ecuadorian" },
+  { id: 7, value: "Yes, I identify with another Hispanic, Latino/a, or Spanish origin" },
   { id: 8, value: "Decline to answer" },
 ];
 
