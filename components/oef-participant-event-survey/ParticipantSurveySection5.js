@@ -12,17 +12,27 @@ export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
         How do you describe yourself? 
       </h2>
       <div className="mt-7 grid grid-cols-2 space-between gap-5">
-      {gender.map(option => (
+      <div className='grid gap-5'>
+      {gender?.slice(0, 8 / 2).map(option => (
         <label className="flex gap-x-5 items-center">
         <input type="radio" className=" " value={option.value} id={option.id} onChange={handleForm} name="participantGender" />
         <p className="">{option.value}</p>
       </label>
       ))}
-        
+      </div>
+      <div className='grid gap-5'>
+      {gender?.slice(8 / 2).map(option => (
         <label className="flex gap-x-5 items-center">
+        <input type="radio" className=" " value={option.value} id={option.id} onChange={handleForm} name="participantGender" />
+        <p className="">{option.value}</p>
+      </label>
+      ))}
+      <label className="flex gap-x-5 items-center">
           <input type="radio" className="" value="Decline to answer" onChange={handleForm} name="participantGender" />
           <p className="">Decline to answer </p>
-        </label>   
+        </label>
+      </div> 
+           
       </div>
     </div>
   )

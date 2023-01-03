@@ -1,7 +1,7 @@
 import React from "react";
 
 const ParticipantSurveySection36 = ({ fbos, surveyForm, setSurveyForm }) => {
-  console.log(fbos);
+  console.log();
   const handleForm = (e) => {
     setSurveyForm((prev) => ({ ...prev, fbo: e.target.value }));
   };
@@ -9,7 +9,7 @@ const ParticipantSurveySection36 = ({ fbos, surveyForm, setSurveyForm }) => {
     <div className="px-7">
       <h2 className="font-black">Event organizer:</h2>
       <div className="grid grid-cols-2 mt-7 gap-5">
-        {fbos?.map((fbo, index) => (
+        {fbos?.sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).map((fbo, index) => (
           <label className="flex gap-5">
             <input
               type="radio"

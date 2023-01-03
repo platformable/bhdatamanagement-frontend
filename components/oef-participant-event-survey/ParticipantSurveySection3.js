@@ -45,13 +45,23 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
         Do you identify as:
       </h2>
       <p>Select all that apply</p>
-      <div className="mt-7 grid grid-cols-2 space-between gap-5">
-      {race.map(option => (
+      <div className="mt-7 grid grid-cols-2 ">
+      <div className='grid gap-5'>
+      {race.slice(0, Math.round(race.length /2)).map(option => (
         <label className="flex gap-x-5 items-center">
         <input type="checkbox" className="" value={option.value} id={option.id} onChange={handleForm} name="participantRace" />
         <p className="">{option.value}</p>
       </label>
       ))}
+      </div>
+      <div className='grid gap-5'>
+      {race.slice(Math.round(race.length /2)).map(option => (
+        <label className="flex gap-x-5 items-center">
+        <input type="checkbox" className="" value={option.value} id={option.id} onChange={handleForm} name="participantRace" />
+        <p className="">{option.value}</p>
+      </label>
+      ))}
+      </div>
        
       </div>
     </div>
