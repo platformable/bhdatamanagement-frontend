@@ -72,7 +72,7 @@ const ParticipantSurvey = ({
           <div className="flex items-center bg-white">
 
             
-            <div className="grid md:grid-cols-6 grid-cols-1 gap-7 p-7">
+            <div className="grid  md:grid-cols-4 lg:grid-cols-6 grid-cols-1 gap-7 p-7">
               <div className="text-center rounded bg-black  border p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
       
               <a id="myBtn" href={event.qrcode} download={event?.eventname}>

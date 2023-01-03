@@ -1,4 +1,5 @@
 import React from 'react'
+import { crearFecha2 } from '../../utils/helpers'
 
 export const ParticipantSurveySection35 = ({surveyForm, setSurveyForm}) => {
   const handleForm = (e) => {
@@ -12,7 +13,7 @@ export const ParticipantSurveySection35 = ({surveyForm, setSurveyForm}) => {
             name="eventDate" 
             className='border rounded p-2 text-lg w-48 uppercase' 
             onChange={handleForm}
-            defaultValue={surveyForm?.eventDate.split('T')[0]}
+            defaultValue={crearFecha2({eventdate: new Date()})}
             />
     </label>
 );

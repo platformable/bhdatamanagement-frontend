@@ -20,7 +20,7 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
     finish: null,
   });
   const [imagesRefs, setImagesRefs] = useState({});
-
+  console.log("events output", eventsOutput)
     const getHrefImage = async (link, name) => {
         setImagesRefs((prev) => ({ ...prev, [name]: link }));
     };
