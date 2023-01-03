@@ -28,7 +28,7 @@ export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
       </label>
       ))}
       <label className="flex gap-x-5 items-center">
-          <input type="radio" className="" value="Decline to answer" onChange={handleForm} name="participantGender" />
+          <input type="radio" className="" value="Decline to answer" id={8} onChange={handleForm} name="participantGender" />
           <p className="">Decline to answer </p>
         </label>
       </div> 

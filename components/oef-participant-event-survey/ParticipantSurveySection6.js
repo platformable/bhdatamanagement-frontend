@@ -13,7 +13,7 @@ export const ParticipantSurveySection6 = ({surveyForm, setSurveyForm}) => {
       </h2>
       <div className="mt-7 grid grid-cols-2 space-between gap-5">
       <div className='grid gap-5'>
-      {sexualOrientation?.slice(0, Math.round(sexualOrientation.length / 2)).map(option => (
+      {sexualOrientation?.slice(0, 6 / 2).filter(item => item.value !== "Unknown" ).map(option => (
         <label className="flex gap-x-5 items-center">
         <input type="radio" className="" value={option.value} id={option.id} onChange={handleForm} name="participantOrientation" />
         <p className="">{option.value}</p>
@@ -21,7 +21,7 @@ export const ParticipantSurveySection6 = ({surveyForm, setSurveyForm}) => {
       ))}
       </div>
       <div className='grid gap-5'>
-      {sexualOrientation?.slice(Math.round(sexualOrientation.length / 2)).map(option => (
+      {sexualOrientation?.slice(6 / 2).filter(item => item.value !== "Unknown" ).map(option => (
         <label className="flex gap-x-5 items-center">
         <input type="radio" className="" value={option.value} id={option.id} onChange={handleForm} name="participantOrientation" />
         <p className="">{option.value}</p>

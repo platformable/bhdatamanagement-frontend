@@ -52,6 +52,7 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
     "Park/Playground": 0,
     "Public housing location": 0,
     "Public transportation hub or station": 0,
+    // "Other location": 0
 }
   useEffect(() => {
    stadistics = chartData?.map(event =>{
@@ -114,21 +115,6 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
     },
   };
 
-  const labels = ["Week 1", "Week 2", "Week 3", "Week 4+"];
-  const eventLocations = [
-    "Virtual / Online",
-    "College/School/Trades school/community-based learning center",
-    "Community based organization site",
-    "COVID vaccine location",
-    "COVID-19 Testing location",
-    "Faith based location/Place of worship",
-    "Food Bank/Pantry/Food Kitchen",
-    "Hospital/Clinic",
-    "Local neighborhood small business",
-    "Park/Playground",
-    "Public housing location",
-    "Public transportation hub or station",
-  ];
 
   const data = {
     labels: Object.keys(eventLocationsCounts),

@@ -111,7 +111,7 @@ export const ParticipantSurveySection32 = ({ surveyForm, setSurveyForm }) => {
                       participantReferralOther: e.target.value,
                     })
                   }
-                  className="border-black rounded p-4 self-start p-1 w-full text-lg w-134"
+                  className="border-black rounded p-4 self-start p-1 w-full text-lg md:w-134"
                 />) : null}
               </label>
             ))}
