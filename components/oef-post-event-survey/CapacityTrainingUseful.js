@@ -1,36 +1,26 @@
-import React from 'react'
+import React from "react";
 
-const CapacityTrainingUseful = () => {
-    const handleForm = (e) => setSurveyForm((prev) =>({...prev, [e.target.name]: e.target.value}));
-    const options=[
-      {
-        id:1,
-        value:"Yes"
-      },
-      {
-        id:2,
-        value:"No"
-      },
-      {
-        id:3,
-        value:"Don’t know / Not sure"
-      },
-    ]
-    return (
-      <div className="px-7 question-body">
-        <h2 className="font-black">
-        
-        </h2>
-        <div>
-          {options.map((option, index) => (
-            <label key={index}>
-            <input type="radio" name="" value={option.value} onChange={handleForm}/>
-            <p>{option.value}</p>
-          </label>
-          ))}
-        </div>
-      </div>
-    );
-}
+const CapicityTraining = ({eventForm,setEventForm,event}) => {
+  return (
+    <div className='question-body'>
+      <h2 className="mb-7 font-black">Capacity Trainings: What have you learned from the Black Health capacity trainings, including ALI and YIP, during this quarter? How was the information useful to you and the community you serve?</h2>
+      <label htmlFor="CapicityTraining">
+        <textarea
+          className="p-4 block w-full text-lg h-52 bg-white break-all border-black rounded-md overflow-hidden"
+          role="textbox"
+          name="capacityTrainingUseful"
+          placeholder=""
+          onChange={(e) =>
+            setEventForm((previous) => ({
+              ...previous,
+              [e.target.name]: e.target.value,
+            }))
+          }
+          defaultValue={eventForm ? eventForm.CapicityTraining : ""}
+        />
+      </label>
+    </div>
+  );
+};
 
-export default CapacityTrainingUseful
+export default CapicityTraining;

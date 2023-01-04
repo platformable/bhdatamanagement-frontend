@@ -62,9 +62,30 @@ import PostEventReportSection39 from "../../../../components/post-event-report/P
 import PostEventReportSection40 from "../../../../components/post-event-report/PostEventReportSection40";
 
 
+import Cluster from '../../../../components/oef-post-event-survey/Cluster'
+import WhichCluster from '../../../../components/oef-post-event-survey/WhichCluster'
+import ClusterFbos from '../../../../components/oef-post-event-survey/ClusterFbos'
+import NameGuestSpeakers from '../../../../components/oef-post-event-survey/NameGuestSpeakers'
+import PartnerOrganization from '../../../../components/oef-post-event-survey/PartnerOrganization'
+import PartnerOrganization2 from '../../../../components/oef-post-event-survey/PartnerOrganization2'
+import NationalAwarenessDay from '../../../../components/oef-post-event-survey/NationalAwarenessDay'
+import TargetAudience from '../../../../components/oef-post-event-survey/TargetAudience'
+import TotalAttendees from '../../../../components/oef-post-event-survey/TotalAttendees'
+import ResourcesDistributed from '../../../../components/oef-post-event-survey/ResourcesDistributed'
+import TotalTalkedHivPrepSaferSex from '../../../../components/oef-post-event-survey/TotalTalkedHivPrepSaferSex'
+import EventQuestions from '../../../../components/oef-post-event-survey/EventQuestions'
+import EventHighlights from '../../../../components/oef-post-event-survey/EventhigHlights'
+import EventChallenges from '../../../../components/oef-post-event-survey/EventChallenges'
+import CapacityTraining from '../../../../components/oef-post-event-survey/CapacityTrainingUseful'
+import LessonLearned from '../../../../components/oef-post-event-survey/LessonLearned'
+
+
+
+
+
 const PostEventReport = ({
   event,
-  programs,
+  fbos,
   locationTypes,
   areasOfFocus,
   eventTypes,
@@ -80,6 +101,18 @@ console.log("event",event)
 
 
   const [eventForm, setEventForm] = useState({
+    cluster:"",
+    whichCluster:"",
+    partnerOrganization1:"",
+    partnerOrganization2:"",
+    nationalAwarenessDay:"",
+    targetAudience:[],
+    totalAttendees:0,
+    totalTalkedHivPrepSaferSex:0,
+    eventQuestions:"",
+    eventHighlights:"",
+    capacityTrainingUseful:"",
+    lessonsLearned:"",
     // userID: "",
     eventID : Number(event?.id),
     eventDateCreated: new Date(),
@@ -99,14 +132,10 @@ console.log("event",event)
         workAreaOther : event?.workareaother,
         mainRole : '',
         mainRoleOther: '',
-        nysActivity : event?.nysactivity,
-        nysActivityOther : event?.nysactivityother,
-        nysPrograms : [],
         zipCode : 0 || event?.eventzipcode,
         locationAddress : '' || event?.locationaddress,
         locationName : '' || event?.locationname,
         locationNameOther : '' || event?.locationnameother,
-        nysPrimaryRiskGroup: "",
         masks : 0,
         covidLiterature : 0,
         vaccineRelatedLiterature : 0,
@@ -544,13 +573,7 @@ const router = useRouter()
           setShowResponseStatus(!showResponseStatus);
           console.error("error: ", error);
         });
-  //   } else {
-  //     setResponseStatus({
-  //       success: false,
-  //       statusMessage: "Please complete all the fields",
-  //     });
-  //     setShowResponseStatus(!showResponseStatus);
-  //  }
+
   };
 
   const programAndAreaStyles = {
@@ -561,6 +584,8 @@ const router = useRouter()
 
 
 console.log("eventForm",eventForm)
+
+
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -579,125 +604,31 @@ console.log("eventForm",eventForm)
 
 
           <div className="post-envent-form-container mt-10 border-black grid gap-1 bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
-            {/* <section className="event pb-5 rounded"> */}
-             {/*  <div className="flex justify-between items-center ">
-                <h3 className="mb-3 font-black ">Event</h3>
-              </div>
-              <div style={programAndAreaStyles}>
-                <div>
-                  <p className="font-black">Program</p>
-                  <input
-                    type="text"
-                    value={event?.programname}
-                    id="program"
-                    className=" rounded self-start p-1 w-full  px-2 "
-                    disabled
-                  />
-                </div>
-                <div>
-                  <p className="font-black">Health area of focus</p>
-                  <input
-                    type="text"
-
-                    value={event.healthareaoffocusname.join(", ")}
-
-                    id="program"
-                    className=" rounded self-start p-1 w-full  px-2 "
-                    disabled
-                  />
-                </div>
-              </div>
-              <div className="my-5">
-                <p className="font-black">Event name</p>
-                <input
-                  type="text"
-                  value={event?.eventname}
-                  id="program"
-                  className=" rounded self-start p-1 w-full  px-2 "
-                  disabled
-                />
-              </div>
-
-              <div className="grid md:grid-cols-2 grid-cols-1">
-                <div className="grid md:grid-cols-3 grid-cols1 gap-5">
-                  <div>
-                    <p className="font-black">Event date</p>
-                    <input
-                      type="text"
-                      value={event && new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}
-                      id="program"
-                      className=" rounded self-start p-1 w-full  px-2 "
-                      disabled
-                    />
-                  </div>
-
-                  <div>
-                    <p className="font-black">Start time</p>
-                    <input
-                      type="time"
-                      value={event?.eventstarttime}
-                      id="program"
-                      className=" rounded self-start p-1 w-full  px-2 "
-                      disabled
-                    />
-                  </div>
-
-                  <div>
-                    <p className="font-black">End time</p>
-                    <input
-                      type="time"
-                      value={event?.eventfinishtime}
-                      id="program"
-                      className=" rounded self-start p-1 w-full  px-2 "
-                      disabled
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="my-5">
-                <p className="font-black">Event location</p>
-                <input
-                  type="text"
-                  value={event?.eventlocationtypename}
-                  id="program"
-                  className=" rounded self-start p-1 w-full  px-2 "
-                  disabled
-                />
-              </div>
-
-              <div className="my-5">
-                <p className="font-black">Type of event</p>
-                <input
-                  type="text"
-                  value={event?.eventtypename}
-                  id="program"
-                  className=" rounded self-start p-1 w-full  px-2 "
-                  disabled
-                />
-              </div>
-
-              <div className="flex justify-center ">
-                <Link href={`/events/${event?.id}/edit`}>
-
-                  <button className="bg-black text-white rounded px-2 mr-2 ">
-
-                    <a
-                      className="px-10 py-2 flex  justify-center items-center font-bold"
-                      id="myBtn"
-                    >
-                      <p className="ml-2 font-black">Edit event</p>
-                    </a>
-                  </button>
-                </Link>
-              </div> */}
-            {/* </section> */}
+           
 
             <div className="rounded-tl-md rounded-tr-md">
+              <Cluster eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+              {eventForm.cluster==='Cluster Event' && <WhichCluster eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
+          {eventForm.whichCluster !== '' && eventForm.cluster ==='Cluster Event' && <ClusterFbos eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} fbos={fbos} selectedCluster={eventForm.whichCluster}/>}
+              <NameGuestSpeakers eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+              <PartnerOrganization eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} fbos={fbos}/>
+              <PartnerOrganization2 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+              <NationalAwarenessDay eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+              <TargetAudience eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+              <TotalAttendees eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+              <ResourcesDistributed eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+              <TotalTalkedHivPrepSaferSex eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+              <EventQuestions eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+              <EventHighlights eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+              <EventChallenges eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+              <CapacityTraining eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+              <LessonLearned eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+
+              
             {/* <h3 className="px-7 mt-10 font-black">Event details</h3> */}
             
             {/* <PostEventReportSection1 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/> */}
-            <PostEventReportSection2 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+           
             <PostEventReportSection31 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection32 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection35 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
@@ -715,7 +646,7 @@ console.log("eventForm",eventForm)
             </div>
             
             {/* <h3 className="px-7 font-black">Event organization and promotion</h3> */}
-            <PostEventReportSection9 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PartnerOrganization eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <PostEventReportSection38 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
            
             <PostEventReportSection10 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
@@ -792,14 +723,12 @@ export default PostEventReport;
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const { id } = ctx.params;
-    const [event, programs, locationTypes, areasOfFocus, eventTypes] =
+    const [event, fbos, locationTypes, areasOfFocus, eventTypes] =
       await Promise.all([
         fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`)
           .then((r) => r.json())
           .then((response) => response[0]),
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/programs`).then((r) =>
-          r.json()
-        ),
+          fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
 
         fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/event_location_type`).then(
           (r) => r.json()
@@ -814,7 +743,7 @@ export const getServerSideProps = withPageAuthRequired({
     return {
       props: {
         event: event,
-        programs: programs,
+        fbos: fbos,
         locationTypes: locationTypes,
         areasOfFocus: areasOfFocus,
         eventTypes: eventTypes,
