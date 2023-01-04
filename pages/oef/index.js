@@ -75,7 +75,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
                 )}
 
                 <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
-                  <Link href="/nys/register">
+                  <Link href="/oef/register">
                     <button id="myBtn">
                       <div className="">
                         <div className="flex justify-center "></div>
