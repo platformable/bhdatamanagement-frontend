@@ -14,6 +14,11 @@ const TypesOfTesting = ({ eventForm, setEventForm }) => {
       label: "Hepatitis C Testing",
       label_db: "hepCTesting"
     },
+    {
+      value: false,
+      label: "Other Testing",
+      label_db: "otherTesting"
+    },
   ];
   return (
     <>

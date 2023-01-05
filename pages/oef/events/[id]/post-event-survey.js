@@ -30,6 +30,9 @@ import EventHighlights from '../../../../components/oef-post-event-survey/Eventh
 import EventChallenges from '../../../../components/oef-post-event-survey/EventChallenges'
 import CapacityTraining from '../../../../components/oef-post-event-survey/CapacityTrainingUseful'
 import LessonLearned from '../../../../components/oef-post-event-survey/LessonLearned'
+import DocumentUploadDropbox from "../../../../components/oef-post-event-survey/DocumentUploadDropbox";
+import PictureUploadDropbox from "../../../../components/oef-post-event-survey/PictureUploadDropbox";
+import OtherTesting from "../../../../components/oef-post-event-survey/OtherTesting";
 
 
 const PostEventReport = ({
@@ -127,10 +130,10 @@ const PostEventReport = ({
     eventQuestions: "",
     eventTestingDone: false,
     hivTesting: false,
-    stiTesting: false,
+    // stiTesting: false,
     hepCTesting: false,
-    bloodPressureTesting: false,
-    cholesterolTesting: false,
+    // bloodPressureTesting: false,
+    // cholesterolTesting: false,
     covidTesting: false,
     otherTesting: false,
     hivTestingAgency: "",
@@ -239,8 +242,11 @@ const PostEventReport = ({
     hepCSexualOrientationUnknown: 0,
     hepCSexualOrientationDeclinedToAnswer: 0,
     
-    covidTestingAgency: "",
-    covidTestedTotal: 0,
+    // covidTestingAgency: "",
+    // covidTestedTotal: 0,
+
+    otherTestingType : '',
+    otherTestedTotal: 0,
     
     reminderPostEvaluationSurvy: false,
     hivGenderNotSureQuestioning: 0,
@@ -344,6 +350,8 @@ const PostEventReport = ({
             <EventChallenges eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <CapacityTraining eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <LessonLearned eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <DocumentUploadDropbox path={``} />
+            <PictureUploadDropbox path={``}/>
             <TestingDone eventForm={eventForm} setEventForm={setEventForm} />
 
             {eventForm.eventTestingDone && (
@@ -353,7 +361,7 @@ const PostEventReport = ({
                 setEventForm={setEventForm}
               />
               <button
-              disabled={!eventForm.hivTesting && !eventForm.hepCTesting} 
+              disabled={!eventForm.hivTesting && !eventForm.hepCTesting && !eventForm.otherTesting} 
               className="bg-black text-white px-5 self-center py-2 rounded shadow-md"
               onClick={() => setShowDemographicsSection((prev) => !prev)}
             >
@@ -374,7 +382,7 @@ const PostEventReport = ({
 
             )}
 
-            {eventForm.hepCTesting && showDemographicsSection && (
+            {eventForm?.hepCTesting && showDemographicsSection && (
              <PostEventReportSection25
                 eventForm={eventForm}
                 setEventForm={setEventForm}
@@ -384,6 +392,13 @@ const PostEventReport = ({
 
               </PostEventReportSection25>
               
+            )}
+
+
+            {eventForm?.otherTesting && showDemographicsSection && (
+              <>
+              <OtherTesting />
+              </>
             )}
           </div>
           <div className="flex justify-center my-10">
