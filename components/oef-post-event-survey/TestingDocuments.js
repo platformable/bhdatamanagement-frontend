@@ -24,7 +24,7 @@ const TestingDocuments = ({testName}) => {
       autorename: false,
       mode: "add",
       mute: false,
-      path: `/oef-hiv-docs/${event.target.files[0].name}`,
+      path: `/Event/Image/${event.target.files[0].name}`,
       strict_conflict: false,
     };
 
