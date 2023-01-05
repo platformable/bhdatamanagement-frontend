@@ -1,31 +1,22 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 
-const ClusterFbos = () => {
-    const handleForm = (e) => setSurveyForm((prev) =>({...prev, [e.target.name]: e.target.value}));
-    const options=[
-      {
-        id:1,
-        value:"Yes"
-      },
-      {
-        id:2,
-        value:"No"
-      },
-      {
-        id:3,
-        value:"Don’t know / Not sure"
-      },
-    ]
+const ClusterFbos = ({fbos,eventForm,setEventForm,selectedCluster}) => {
+
+
+    const handleForm = (e) => setEventForm((prev) =>({...prev, [e.target.name]: e.target.value}));
+
     return (
-      <div className="px-7 question-body">
+      <div className="question-body">
         <h2 className="font-black">
-        
+        Which FBOs were involved?
         </h2>
         <div>
-          {options.map((option, index) => (
-            <label key={index}>
-            <input type="radio" name="" value={option.value} onChange={handleForm}/>
-            <p>{option.value}</p>
+          {fbos
+          .filter(fbo=>fbo.boroughfbo===selectedCluster.replace("Cluster", "").trim())
+          .map((option) => (
+            <label key={option.namefbo}>
+            <input type="radio" name="fbosInvolved" value={option.namefbo} onChange={handleForm}/>
+            <p>{option.namefbo}</p>
           </label>
           ))}
         </div>

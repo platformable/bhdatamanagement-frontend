@@ -1,36 +1,26 @@
-import React from 'react'
+import React from "react";
 
-const EventHighlights = () => {
-    const handleForm = (e) => setSurveyForm((prev) =>({...prev, [e.target.name]: e.target.value}));
-    const options=[
-      {
-        id:1,
-        value:"Yes"
-      },
-      {
-        id:2,
-        value:"No"
-      },
-      {
-        id:3,
-        value:"Don’t know / Not sure"
-      },
-    ]
-    return (
-      <div className="px-7 question-body">
-        <h2 className="font-black">
-        
-        </h2>
-        <div>
-          {options.map((option, index) => (
-            <label key={index}>
-            <input type="radio" name="" value={option.value} onChange={handleForm}/>
-            <p>{option.value}</p>
-          </label>
-          ))}
-        </div>
-      </div>
-    );
-}
+const EventHighlights = ({eventForm,setEventForm,event}) => {
+  return (
+    <div className='question-body'>
+      <h2 className="mb-7 font-black">Event narrative: Please briefly describe the details of your event. Please note any highlights, such as a special guest or title of a film you showed that discussed HIV, PrEP and/or safer sex.</h2>
+      <label htmlFor="partnerOrganization1">
+        <textarea
+          className="p-4 block w-full text-lg h-52 bg-white break-all border-black rounded-md overflow-hidden"
+          role="textbox"
+          name="eventHighlights"
+          placeholder=""
+          onChange={(e) =>
+            setEventForm((previous) => ({
+              ...previous,
+              [e.target.name]: e.target.value,
+            }))
+          }
+          defaultValue={eventForm ? eventForm.eventHighlights : ""}
+        />
+      </label>
+    </div>
+  );
+};
 
-export default EventHighlights
+export default EventHighlights;

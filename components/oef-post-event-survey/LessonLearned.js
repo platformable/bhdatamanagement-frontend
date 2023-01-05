@@ -1,36 +1,26 @@
-import React from 'react'
+import React from "react";
 
-const LessonLearned = () => {
-    const handleForm = (e) => setSurveyForm((prev) =>({...prev, [e.target.name]: e.target.value}));
-    const options=[
-      {
-        id:1,
-        value:"Yes"
-      },
-      {
-        id:2,
-        value:"No"
-      },
-      {
-        id:3,
-        value:"Don’t know / Not sure"
-      },
-    ]
-    return (
-      <div className="px-7 question-body">
-        <h2 className="font-black">
-        
-        </h2>
-        <div>
-          {options.map((option, index) => (
-            <label key={index}>
-            <input type="radio" name="" value={option.value} onChange={handleForm}/>
-            <p>{option.value}</p>
-          </label>
-          ))}
-        </div>
-      </div>
-    );
-}
+const LessonLearned = ({eventForm,setEventForm,event}) => {
+  return (
+    <div className='question-body'>
+      <h2 className="mb-7 font-black">Lessons Learned: Describe any new approaches or strategic lessons you will implement for the next event, and that can be shared with other event organizers.</h2>
+      <label htmlFor="lessonsLearned">
+        <textarea
+          className="p-4 block w-full text-lg h-52 bg-white break-all border-black rounded-md overflow-hidden"
+          role="textbox"
+          name="lessonsLearned"
+          placeholder=""
+          onChange={(e) =>
+            setEventForm((previous) => ({
+              ...previous,
+              [e.target.name]: e.target.value,
+            }))
+          }
+          defaultValue={eventForm ? eventForm.lessonsLearned : ""}
+        />
+      </label>
+    </div>
+  );
+};
 
-export default LessonLearned
+export default LessonLearned;

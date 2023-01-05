@@ -17,7 +17,7 @@ const documentUploadDropbox = () => {
       },
     ]
     return (
-      <div className="px-7 question-body">
+      <div className="question-body">
         <h2 className="font-black">
         
         </h2>

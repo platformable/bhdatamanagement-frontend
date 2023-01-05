@@ -1,36 +1,92 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 
-const NameGuestSpeakers = () => {
-    const handleForm = (e) => setSurveyForm((prev) =>({...prev, [e.target.name]: e.target.value}));
-    const options=[
-      {
-        id:1,
-        value:"Yes"
-      },
-      {
-        id:2,
-        value:"No"
-      },
-      {
-        id:3,
-        value:"Don’t know / Not sure"
-      },
-    ]
-    return (
-      <div className="px-7 question-body">
-        <h2 className="font-black">
-        
-        </h2>
-        <div>
-          {options.map((option, index) => (
-            <label key={index}>
-            <input type="radio" name="" value={option.value} onChange={handleForm}/>
-            <p>{option.value}</p>
-          </label>
-          ))}
-        </div>
-      </div>
+const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
+  const uppercaseWords = (str) =>
+    str.replace(/^(.)|\s+(.)/g, (c) =>
+      c.toUpperCase().replaceAll("[<>'\"/;% ]+", " ")
     );
-}
 
-export default NameGuestSpeakers
+  const [firstPresenter, setFirstPresenter] = useState("");
+  const [secondPresenter, setSecondPresenter] = useState("");
+  const [thirdPresenter, setThirdPresenter] = useState("");
+  const [fourthPresenter, setFourthPresenter] = useState("");
+  /* 
+    const handleFormName = (e) => {
+        setEventForm(previous => ({...previous, createdByName: uppercaseWords(e.target.value)}))
+      }
+      const handleFormLastName = (e) => {
+        setEventForm(previous => ({...previous, createdByLastname: uppercaseWords(e.target.value)}))
+      } */
+  useEffect(() => {
+    setEventForm({
+      ...eventForm,
+      nameGuestSpeakers: [
+        firstPresenter,
+        secondPresenter,
+        thirdPresenter,
+        fourthPresenter,
+      ].toString(),
+    });
+  }, [firstPresenter, secondPresenter, thirdPresenter, fourthPresenter]);
+
+  return (
+    <div className="question-body">
+      <h2 className=" font-black">Names of all presenters/facilitators:</h2>
+      <label className="grid items-center">
+        {" "}
+        First presenter/facilitator:
+        <input
+          type="text"
+          className="w-134 p-2 border-black rounded text-lg mt-2"
+          placeholder="Presenter/facilitator"
+          onChange={(e) => {
+            setFirstPresenter(e.target.value);
+          }}
+          defaultValue={event ? event.createdByName : ""}
+        />
+      </label>
+      <label className="grid items-center mt-5">
+        {" "}
+        Second presenter/facilitator:
+        <input
+          type="text"
+          className="w-134 p-2 border-black rounded text-lg mt-2 "
+          placeholder="Presenter/facilitator"
+          onChange={(e) => {
+            setSecondPresenter(e.target.value);
+          }}
+          defaultValue={event ? event.createdByName : ""}
+        />
+      </label>
+      <label className="grid items-center mt-5">
+        {" "}
+        Third presenter/facilitator:
+        <input
+          type="text"
+          className="w-134 p-2 border-black rounded text-lgmt-2 "
+          placeholder="Presenter/facilitator"
+          onChange={(e) => {
+            setThirdPresenter(e.target.value);
+          }}
+          defaultValue={event ? event.createdByName : ""}
+        />
+      </label>
+
+      <label className="grid items-center mt-5">
+        {" "}
+        Fourth presenter/facilitator:
+        <input
+          type="text"
+          className="w-134 p-2 border-black rounded text-lg mt-2"
+          placeholder="Presenter/facilitator"
+          onChange={(e) => {
+            setFourthPresenter(e.target.value);
+          }}
+          defaultValue={event ? event.createdByName : ""}
+        />
+      </label>
+    </div>
+  );
+};
+
+export default nameGuestSpeakers;

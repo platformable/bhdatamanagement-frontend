@@ -1,36 +1,38 @@
 import React from 'react'
 
-const TotalTalkedHivPrepSaferSex = () => {
-    const handleForm = (e) => setSurveyForm((prev) =>({...prev, [e.target.name]: e.target.value}));
-    const options=[
-      {
-        id:1,
-        value:"Yes"
-      },
-      {
-        id:2,
-        value:"No"
-      },
-      {
-        id:3,
-        value:"Don’t know / Not sure"
-      },
-    ]
-    return (
-      <div className="px-7 question-body">
-        <h2 className="font-black">
-        
-        </h2>
-        <div>
-          {options.map((option, index) => (
-            <label key={index}>
-            <input type="radio" name="" value={option.value} onChange={handleForm}/>
-            <p>{option.value}</p>
-          </label>
-          ))}
-        </div>
-      </div>
-    );
+const TotalTalkedHivPrepSaferSex = ({eventForm,setEventForm, isNumberKey}) => {
+  const handleForm = (e) => {
+    let {value} = e.target
+      let finalValue;
+      value > 100 ? finalValue = 100:finalValue=value
+      setEventForm((previous) => ({
+        ...previous,
+        [e.target.name]:Number(finalValue)
+      }))
+  }
+  return (
+    <div className="px-7 mt-10 ">
+      <h2 className="font-black">
+      How many people did you talk to, where you had a conversation about HIV, PrEP, or safer sex? (Please enter the total number only.)
+      </h2>
+      <label className='flex mt-7 gap-5'>
+      <input
+        type="number"
+        onWheelCapture={(e) => e.target.blur()}
+        onKeyUp={(e) => {
+          let {value} = e.target
+          value > 100 && (e.target.value = 100) 
+        }}
+        maxLength={3}
+        defaultValue={0 || eventForm.totalTalkedHivPrepSaferSex}
+        className="p-4 border-black rounded w-20"
+        name="totalTalkedHivPrepSaferSex"
+        onChange={handleForm}
+        onKeyDown={isNumberKey}
+      />
+    </label>
+    </div>
+  )
 }
 
 export default TotalTalkedHivPrepSaferSex

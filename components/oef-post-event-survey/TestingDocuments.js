@@ -1,24 +1,24 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Loader from "../Loader";
 
-const TestingDocuments = () => {
+const TestingDocuments = ({testName}) => {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
-  const [loading,setLoading]=useState(false)
+  const [loading, setLoading] = useState(false);
 
   const onHandleFile = async (event) => {
     setFile(event.target.files[0]);
     setFileName(event.target.files[0].name);
-    await onSubmitFile()
+    await onSubmitFile();
   };
   const onSubmitFile = async (event) => {
-    setLoading(!loading)
+    setLoading(!loading);
 
     const form = new FormData();
     const blob = new Blob([event.target.files[0]], {
       type: "text/plain",
     });
-    console.log("blob", blob)
+    console.log("blob", blob);
 
     form.append("file", blob);
 
@@ -53,7 +53,7 @@ const TestingDocuments = () => {
       console.log("response", response);
       if (response.status === 200) {
         const data = await response.json();
-        setLoading(false)
+        setLoading(false);
         notifyMessage(fileName);
         setFile(null);
         setFileName("");
@@ -61,37 +61,46 @@ const TestingDocuments = () => {
         // setUploadSuccess(!uploadSuccess)
       }
     } catch (error) {
-      // setLoading(false)
+      setLoading(false)
       // setError(error.message)
       console.error("upload error", error);
     }
   };
   return (
-    <>
-      <div className="bg-black py-5 grid items-center justify-center justify-items-center">
-                
-                {loading && <div className="flex justify-center"><Loader/></div>}
-                 <h2 className="mb-5 font-bold text-white uppercase">
-                   Upload documents 
-                 </h2>
-                 <input type="file" id="upload" 
-                 hidden
-                 name="file"
-                 onChange={(event) => onSubmitFile(event)}
-                 accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx" 
-                 />
-                 <div className="flex justify-center">
-                 <label
-                   for="upload"
-                   className="text-black bg-white px-5 py-2 rounded-md cursor-pointer "
-                 >
-                   Choose file
-                 </label>
-                 </div>
-                 <br />
-               {file ? <p className="text-white overflow-hidden w-4/5">{file.name}</p> : <p className="text-white overflow-hidden w-4/5">No file chosen</p>}
-               </div>
-    </>
+    <div>
+      <div className="">
+          <h2 className="font-black">
+          Please upload the {testName} testing form here:
+          </h2>
+          
+          <input
+            type="file"
+            id="upload"
+            hidden
+            name="file"
+            onChange={(event) => onSubmitFile(event)}
+            accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx"
+          />
+          <section className="flex justify-start gap-5 items-center mt-7">
+            <label
+              for="upload"
+              className="text-white bg-black px-5 py-2 rounded-md cursor-pointer "
+            >
+              Choose file
+              {loading && (
+              <Loader />
+          )}
+            </label>
+            {file ? (
+            <p className="text-center overflow-hidden">{file.name}</p>
+          ) : (
+            <p className="text-center overflow-hidden">No file chosen</p>
+          )}
+          </section>
+          <br />
+          
+      </div>
+    </div>
   );
 };
 

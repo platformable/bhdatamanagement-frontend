@@ -14,7 +14,28 @@ import TestingDone from "../../../../components/oef-post-event-survey/TestingDon
 import TypesOfTesting from "../../../../components/oef-post-event-survey/TypesOfTesting";
 import TestingDocuments from "../../../../components/oef-post-event-survey/TestingDocuments";
 
-const PostEventReport = ({ event }) => {
+import Cluster from '../../../../components/oef-post-event-survey/Cluster'
+import WhichCluster from '../../../../components/oef-post-event-survey/WhichCluster'
+import ClusterFbos from '../../../../components/oef-post-event-survey/ClusterFbos'
+import NameGuestSpeakers from '../../../../components/oef-post-event-survey/NameGuestSpeakers'
+import PartnerOrganization from '../../../../components/oef-post-event-survey/PartnerOrganization'
+import PartnerOrganization2 from '../../../../components/oef-post-event-survey/PartnerOrganization2'
+import NationalAwarenessDay from '../../../../components/oef-post-event-survey/NationalAwarenessDay'
+import TargetAudience from '../../../../components/oef-post-event-survey/TargetAudience'
+import TotalAttendees from '../../../../components/oef-post-event-survey/TotalAttendees'
+import ResourcesDistributed from '../../../../components/oef-post-event-survey/ResourcesDistributed'
+import TotalTalkedHivPrepSaferSex from '../../../../components/oef-post-event-survey/TotalTalkedHivPrepSaferSex'
+import EventQuestions from '../../../../components/oef-post-event-survey/EventQuestions'
+import EventHighlights from '../../../../components/oef-post-event-survey/EventhigHlights'
+import EventChallenges from '../../../../components/oef-post-event-survey/EventChallenges'
+import CapacityTraining from '../../../../components/oef-post-event-survey/CapacityTrainingUseful'
+import LessonLearned from '../../../../components/oef-post-event-survey/LessonLearned'
+
+
+const PostEventReport = ({
+  event,
+  fbos
+}) => {
   const { user, error, isLoading } = useUser();
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
 
@@ -22,7 +43,21 @@ const PostEventReport = ({ event }) => {
   const loggedUserLastname =
     user && user["https://lanuevatest.herokuapp.com/lastname"];
 
-  const [eventForm, setEventForm] = useState({
+    const [eventForm, setEventForm] = useState({
+    cluster:"",
+    whichCluster:"",
+    partnerOrganization1:"",
+    partnerOrganization1Other: "",
+    partnerOrganization2:"",
+    nationalAwarenessDay:"",
+    targetAudience:[],
+    targetAudienceOther: "",
+    totalAttendees:0,
+    totalTalkedHivPrepSaferSex:0,
+    eventQuestions:"",
+    eventHighlights:"",
+    capacityTrainingUseful:"",
+    lessonsLearned:"",
     // userID: "",
     eventID: Number(event?.id),
     eventDateCreated: new Date(),
@@ -291,46 +326,63 @@ const PostEventReport = ({ event }) => {
         <div className="container mx-auto md:px-0 px-5 items-center">
           <TopEventsInfo event={event} />
 
-          <div className="post-envent-form-container mt-10 border-black grid gap-10 bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
+          <div className="post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
             {/* <div className="rounded-tl-md rounded-tr-md"> */}
-
+            <Cluster eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+          {eventForm.cluster==='Cluster Event' && <WhichCluster eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
+          {eventForm.whichCluster !== '' && eventForm.cluster ==='Cluster Event' && <ClusterFbos eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} fbos={fbos} selectedCluster={eventForm.whichCluster}/>}
+            <NameGuestSpeakers eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <PartnerOrganization eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} fbos={fbos}/>
+            <PartnerOrganization2 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+            <NationalAwarenessDay eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+            <TargetAudience eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+            <TotalAttendees eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+            <ResourcesDistributed eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <TotalTalkedHivPrepSaferSex eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <EventQuestions eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <EventHighlights eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <EventChallenges eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <CapacityTraining eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
+            <LessonLearned eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>
             <TestingDone eventForm={eventForm} setEventForm={setEventForm} />
 
             {eventForm.eventTestingDone && (
+              <div className="flex flex-col gap-10">
               <TypesOfTesting
                 eventForm={eventForm}
                 setEventForm={setEventForm}
               />
-            )}
-            <button
+              <button
               disabled={!eventForm.hivTesting && !eventForm.hepCTesting} 
-              className="bg-black text-white px-5 py-2 rounded shadow-md"
+              className="bg-black text-white px-5 self-center py-2 rounded shadow-md"
               onClick={() => setShowDemographicsSection((prev) => !prev)}
             >
               Next
-            </button>
+            </button></div>
+            )}
+            
             {eventForm.hivTesting && showDemographicsSection && (
-             <>
               <PostEventReportSection23
                 eventForm={eventForm}
                 setEventForm={setEventForm}
                 isNumberKey={isNumberKey}
-              />
-             <TestingDocuments />
+              >
+               <TestingDocuments testName={"HIV"}/>
 
-             </>
+
+              </PostEventReportSection23>
+
             )}
 
             {eventForm.hepCTesting && showDemographicsSection && (
-              <>
              <PostEventReportSection25
                 eventForm={eventForm}
                 setEventForm={setEventForm}
                 isNumberKey={isNumberKey}
-              />
-             <TestingDocuments />
+              >
+               <TestingDocuments testName={"Hepatitis C"}/>
 
-              </>
+              </PostEventReportSection25>
               
             )}
           </div>
@@ -339,12 +391,8 @@ const PostEventReport = ({ event }) => {
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
               onClick={submitPostEventForm}
             >
-              {/*  <img
-              src="/check-save-and-finish.svg"
-              alt="register event icon"
-              className="mr-2"
-            /> */}
-              Save
+              
+              Save and finish
             </button>
           </div>
         </div>
@@ -358,13 +406,18 @@ export default PostEventReport;
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const { id } = ctx.params;
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`
-    );
-    const data = await res.json();
+    const [data, fbos] = await Promise.all([
+      fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`
+      ).then(r => r.json()),
+      fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`
+      ).then(r => r.json()),
+    ])
     return {
       props: {
         event: data[0],
+        fbos: fbos
       },
     };
   },
