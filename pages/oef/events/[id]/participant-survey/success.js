@@ -10,10 +10,10 @@ const success = () => {
           <h1 className="text-center font-black">
             HIV Outreach Event Participant Sign-in Sheet
           </h1>
-          <div className="flex flex-col md:flex-row items-center mt-5">
+          <div className="flex flex-col gap-5 md:flex-row items-center mt-5">
             <h2 className="pt-2">In partnership with</h2>
             <img
-            src="/main/Black_Health_logo.svg"
+            src="/main/BH_logo.svg"
             alt="black health data app management logo"
             width={400}
             className=""
