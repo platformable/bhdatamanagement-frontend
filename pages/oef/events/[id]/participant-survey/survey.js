@@ -84,7 +84,7 @@ const Survey = ({ event, fbos }) => {
     }
     axios
       .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_ouuutputs/oef/participant-event-survey/create`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef/participant-event-survey/create`,
         surveyForm
       )
       .then((response) => {
