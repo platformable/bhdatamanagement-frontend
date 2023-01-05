@@ -44,7 +44,6 @@ const Survey = ({ event, fbos }) => {
     participantGender: "",
     orientationID: 0,
     participantOrientation: "",
-    participantOrientationOther: "",
     participantReferral: "",
     participantReferralOther: "",
     participantSuggestions: "",
@@ -75,8 +74,7 @@ const Survey = ({ event, fbos }) => {
   const submitParticipantSurvey = async () => {
     setError('')
     const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
-      key === "participantOrientationOther" ||
-      key === "participantReferralOther"
+      key === "participantReferralOther" || key === "participantSuggestions"
         ? false
         : value === 0 || value.length === 0
     );
@@ -86,7 +84,7 @@ const Survey = ({ event, fbos }) => {
     }
     axios
       .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef/participant-event-survey/create`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_ouuutputs/oef/participant-event-survey/create`,
         surveyForm
       )
       .then((response) => {
@@ -126,10 +124,10 @@ const Survey = ({ event, fbos }) => {
           <h1 className="text-center font-black">
             HIV Outreach Event Participant Sign-in Sheet
           </h1>
-          <div className="flex items-center mt-5">
+          <div className="flex items-center gap-5 mt-5">
             <h2 className="pt-2">In partnership with</h2>
             <img
-              src="/main/Black_Health_logo.svg"
+              src="/main/BH_logo.svg"
               alt="black health data app management logo"
               width={400}
               className=""

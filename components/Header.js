@@ -15,7 +15,7 @@ export default function Header({showStatus}) {
       <div className="container mx-auto py-5  grid space-between grid-cols-2 px-5 md:px-0">
         <Link href="/dashboard">
           <img
-            src="/main/Black_Health_logo.svg"
+            src="/main/BH_logo.svg"
             alt=""
             width={280}
             height={200}
@@ -24,7 +24,8 @@ export default function Header({showStatus}) {
         </Link>
       
         <div id="head-user" className="flex justify-end items-center gap-x-5">
-        <a href="https://airtable.com/shr8tmgc0QnAvziz5"
+          <div className="flex flex-col gap-y-2 lg:flex-row  gap-x-2">
+          <a href="https://airtable.com/shr8tmgc0QnAvziz5"
                 className={`bg-black  px-10 py-2 rounded text-white inline-block  flex items-center`}
                 target="_blank"
                 rel="noreferrer"
@@ -38,6 +39,7 @@ export default function Header({showStatus}) {
               >
                 Guide
               </a>
+          </div>
           <div className="grid md:flex gap-x-5">
             {/* <img src="/user_icon.svg" alt="" width={32} /> */}
             <div>

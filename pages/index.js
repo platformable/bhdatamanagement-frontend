@@ -26,7 +26,7 @@ export default function Home() {
       <header>
         <div className="container mx-auto py-5 border-b">
           <img
-            src="/main/Black_Health_logo.svg"
+            src="/main/BH_logo.svg"
             alt="Black Health oraganization logo"
             width={260}
             height={180}
