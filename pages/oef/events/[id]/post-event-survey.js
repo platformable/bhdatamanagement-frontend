@@ -26,7 +26,7 @@ import TotalAttendees from '../../../../components/oef-post-event-survey/TotalAt
 import ResourcesDistributed from '../../../../components/oef-post-event-survey/ResourcesDistributed'
 import TotalTalkedHivPrepSaferSex from '../../../../components/oef-post-event-survey/TotalTalkedHivPrepSaferSex'
 import EventQuestions from '../../../../components/oef-post-event-survey/EventQuestions'
-import EventHighlights from '../../../../components/oef-post-event-survey/EventhigHlights'
+import EventHighlights from '../../../../components/oef-post-event-survey/EventHighlights'
 import EventChallenges from '../../../../components/oef-post-event-survey/EventChallenges'
 import CapacityTraining from '../../../../components/oef-post-event-survey/CapacityTrainingUseful'
 import LessonLearned from '../../../../components/oef-post-event-survey/LessonLearned'

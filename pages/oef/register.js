@@ -46,7 +46,6 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes,fbos }) =>
     createdByName:"" ,
     createdByLastname:"",
     eventZipCode: "",
-    icsUrlFile: "",
     borough: "",
     oefEventEmail:"",
     deliveryPartner:""
@@ -100,12 +99,12 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes,fbos }) =>
 
     setLoading(true);
 
-    notifyMessage()
+   /*  notifyMessage() */
     setTimeout(() => {
       router.push("/oef/events/403/post-event-survey");
     }, 15000);
    /*  await axios
-      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
+      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/create`, eventForm)
       .then((response) => {
         if (response.data.statusText === "OK") {
           setLoading(false);
