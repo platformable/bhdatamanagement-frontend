@@ -86,7 +86,7 @@ const handleForm = (e) => {
     }))
 }
   return (
-    <div className="px-7 mt-10 rounded">
+    <div className="question-body">
       <h2 className="font-black">
         Resources Distributed:
       </h2>

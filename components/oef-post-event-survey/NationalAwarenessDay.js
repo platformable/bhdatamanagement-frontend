@@ -19,8 +19,8 @@ const NationalAwarenessDay = ({eventForm,setEventForm}) => {
 
     ]
     return (
-      <div className='px-7 my-7 '>
-            <h2 className='mb-7 font-black'>Was this part of a National Awareness Day?</h2>
+      <div className='question-body'>
+            <h2 className=' font-black'>Was this part of a National Awareness Day?</h2>
 
             <div className='grid grid-cols-2 gap-5'>
             {options && options.map(option => {

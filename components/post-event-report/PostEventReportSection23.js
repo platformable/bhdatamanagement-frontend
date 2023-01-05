@@ -1,7 +1,7 @@
 import React from "react";
 import DemographicSurveySection from "./DemographicSurveySection";
 
-const PostEventReportSection23 = ({ eventForm, setEventForm, isNumberKey}) => {
+const PostEventReportSection23 = ({ eventForm, setEventForm, isNumberKey,  children}) => {
   const handleMaxNumber = (e) => {
     eventForm[e.target.name] >= 100 && (e.target.value = 100) 
     let { value } = e.target;
@@ -20,6 +20,7 @@ const PostEventReportSection23 = ({ eventForm, setEventForm, isNumberKey}) => {
   return (
     <div className="px-7 grid grid-cols-1 gap-7 mt-10">
       <h2 className="font-black">HIV Testing</h2>
+      {children}
       <label className="grid md:flex gap-5 items-center">
         <p className="md:w-80"> HIV Testing Agency</p>
         <input

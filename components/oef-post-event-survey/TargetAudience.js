@@ -41,7 +41,7 @@ const TargetAudience = ({eventForm, setEventForm}) => {
 
 
   return (
-    <div className="px-7 mt-10 rounded">
+    <div className="question-body">
       <h2 className=" font-black">
         Who was your target audience? Select all that apply.
       </h2>
@@ -66,11 +66,10 @@ const TargetAudience = ({eventForm, setEventForm}) => {
                   <label className="flex items-center gap-5 text-lg" key={""}>
               <input
                 type="text"
-                name="targetAudience"
+                name="targetAudienceOther"
                 className=""
-                value={""}
                 id={""}
-                onChange={(e)=>handleForm(e.target.value)}
+                onChange={(e)=> setEventForm(prev => ({...prev, targetAudienceOther: e.target.value}))}
               />
             </label>
                   </div>
@@ -81,12 +80,12 @@ const TargetAudience = ({eventForm, setEventForm}) => {
             <label className="flex items-center gap-5 text-lg" key={index}>
               <input
                 type="checkbox"
-                name="languages"
+                name="targetAudience"
                 className=""
                 value={option.value}
                 id={index}
                 onChange={(e)=>handleForm(e.target.value)}
-                defaultChecked={eventForm.languages.includes(option.value) ? 'checked' : ""}
+                defaultChecked={eventForm.targetAudience.includes(option.value) ? 'checked' : ""}
               />
               {option.value}
             </label>

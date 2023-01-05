@@ -6,7 +6,7 @@ const ClusterFbos = ({fbos,eventForm,setEventForm,selectedCluster}) => {
     const handleForm = (e) => setEventForm((prev) =>({...prev, [e.target.name]: e.target.value}));
 
     return (
-      <div className="px-7 question-body">
+      <div className="question-body">
         <h2 className="font-black">
         Which FBOs were involved?
         </h2>

@@ -14,7 +14,7 @@ const Cluster
       },
     ]
     return (
-      <div className="px-7 question-body">
+      <div className="question-body">
         <h2 className="font-black">
         Was this event delivered by a cluster?
         </h2>
