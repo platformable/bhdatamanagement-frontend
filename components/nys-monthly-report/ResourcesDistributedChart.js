@@ -59,7 +59,7 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage, reversedDate}) => 
         display: true,
         color: "#000",
         formatter: function (value, context) {
-          return value > 0 ? `${((value * 100) / totalOfValues).toFixed(2)}%`   : "";
+          return value > 0 ? value   : "";
         },
         font: {
           weight: "bold",

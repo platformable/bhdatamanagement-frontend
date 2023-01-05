@@ -99,25 +99,22 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes,fbos }) =>
 
     setLoading(true);
 
-   /*  notifyMessage() */
-    setTimeout(() => {
-      router.push("/oef/events/403/post-event-survey");
-    }, 15000);
-   /*  await axios
+    await axios
       .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/create`, eventForm)
       .then((response) => {
         if (response.data.statusText === "OK") {
           setLoading(false);
+          console.log("response", response)
           notifyMessage();
           setTimeout(() => {
-            router.push("/events");
+            router.push("/oef/events/403/post-event-survey");
           }, 15000);
         }
       })
       .catch(function (error) {
         setLoading(false);
         console.error("error: ", error);
-      }); */
+      }); 
   };
 
   const getCity = (zipcode, array) => {
