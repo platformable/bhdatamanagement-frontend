@@ -6,11 +6,7 @@ const TestingDocuments = ({testName}) => {
   const [fileName, setFileName] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const onHandleFile = async (event) => {
-    setFile(event.target.files[0]);
-    setFileName(event.target.files[0].name);
-    await onSubmitFile();
-  };
+
   const onSubmitFile = async (event) => {
     setLoading(!loading);
 
@@ -28,7 +24,7 @@ const TestingDocuments = ({testName}) => {
       autorename: false,
       mode: "add",
       mute: false,
-      path: `/oef-hiv-docs/${event.target.files[0].name}`,
+      path: `/Event/Image/${event.target.files[0].name}`,
       strict_conflict: false,
     };
 
@@ -38,7 +34,7 @@ const TestingDocuments = ({testName}) => {
       );
       const token = await tokenResponse.json();
       const response = await fetch(
-        "https://content.dropboxapi.com/2/files/uploaddd",
+        "https://content.dropboxapi.com/2/files/upload",
         {
           method: "POST",
           headers: {
@@ -97,7 +93,6 @@ const TestingDocuments = ({testName}) => {
             <p className="text-center overflow-hidden">No file chosen</p>
           )}
           </section>
-          <br />
           
       </div>
     </div>

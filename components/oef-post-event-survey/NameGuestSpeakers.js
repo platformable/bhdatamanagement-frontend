@@ -31,7 +31,7 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
 
   return (
     <div className="question-body">
-      <h2 className=" font-black">Names of all presenters/facilitators:</h2>
+      <h2 className="mb-7 font-black">Names of all presenters/facilitators:</h2>
       <label className="grid items-center">
         {" "}
         First presenter/facilitator:
