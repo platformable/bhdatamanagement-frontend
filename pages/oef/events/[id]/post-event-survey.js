@@ -39,8 +39,7 @@ const PostEventReport = ({ event, fbos }) => {
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
 
   const loggedUsername = user && user["https://lanuevatest.herokuapp.com/name"];
-  const loggedUserLastname =
-    user && user["https://lanuevatest.herokuapp.com/lastname"];
+  const loggedUserLastname = user && user["https://lanuevatest.herokuapp.com/lastname"];
 
   const [eventForm, setEventForm] = useState({
     isClusterEvent: "",
