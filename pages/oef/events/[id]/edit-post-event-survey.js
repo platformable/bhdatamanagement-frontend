@@ -311,6 +311,11 @@ console.log("data", event)
       position: toast.POSITION.TOP_CENTER,
     });
   };
+  const FileUploadedMessage = (fileName) => {
+    toast.success("File saved to dropbox", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
 
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
@@ -441,67 +446,12 @@ console.log("data", event)
               setEventForm={setEventForm}
               isNumberKey={isNumberKey}
             />
-            {/* <DocumentUploadDropbox path={`${event?.folderpath}/Documents`} title="Upload supporting documentation - upload any flyers here" />
-            <PictureUploadDropbox path={`${event?.folderpath}`} title="Upload an event picture here:" />
-            <PictureUploadDropbox path={`${event?.folderpath}`} title="Upload another event picture"/>
-            <PictureUploadDropbox path={`${event?.folderpath}`} title="Upload another event picture"/> */}
+            <DocumentUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}/Documents`} title="Upload supporting documentation - upload any flyers here" />
+            <PictureUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}`} index="1" title="Upload an event picture here:" />
+            <PictureUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}`} index="2" title="Upload another event picture"/>
+            <PictureUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}`} index="3" title="Upload another event picture"/>
 
-<div>
-     <div className="question-body">
-            <h2 className="font-black">Upload document</h2>
 
-            <input
-              type="file"
-              id="upload"
-              hidden
-              name="file"
-              onChange={(e) => onSubmitFile(e, "Documents")}
-              accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx"
-            />
-            <section className="flex justify-start gap-5 items-center mt-7">
-              <label
-                for="upload"
-                className="text-white bg-black px-5 py-2 rounded-md cursor-pointer "
-              >
-                Choose file
-                {loading && <Loader />}
-              </label>
-              {file ? (
-                <p className="text-center overflow-hidden">{file.name}</p>
-              ) : (
-                <p className="text-center overflow-hidden">No file chosen</p>
-              )}
-            </section>
-          </div>
-    </div>
-    <div>
-     <div className="question-body">
-            <h2 className="font-black">Upload Image</h2>
-
-            <input
-              type="file"
-              id="upload"
-              hidden
-              name="file"
-              onChange={(event) => onSubmitFile(event, "Images")}
-              accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx"
-            />
-            <section className="flex justify-start gap-5 items-center mt-7">
-              <label
-                for="upload"
-                className="text-white bg-black px-5 py-2 rounded-md cursor-pointer "
-              >
-                Choose file
-                {loading && <Loader />}
-              </label>
-              {file ? (
-                <p className="text-center overflow-hidden">{file.name}</p>
-              ) : (
-                <p className="text-center overflow-hidden">No file chosen</p>
-              )}
-            </section>
-          </div>
-    </div>
             <TestingDone eventForm={eventForm} setEventForm={setEventForm} />
 
             {eventForm.eventTestingDone && (
@@ -530,7 +480,7 @@ console.log("data", event)
                 setEventForm={setEventForm}
                 isNumberKey={isNumberKey}
               >
-                <TestingDocuments testName={"HIV"} />
+                <TestingDocuments FileUploadedMessage={FileUploadedMessage} path={event?.folderpath} testName={"HIV"} />
               </PostEventReportSection23>
             )}
 
@@ -540,7 +490,7 @@ console.log("data", event)
                 setEventForm={setEventForm}
                 isNumberKey={isNumberKey}
               >
-                <TestingDocuments testName={"Hepatitis C"} />
+                <TestingDocuments FileUploadedMessage={FileUploadedMessage} path={event?.folderpath} testName={"Hepatitis C"} />
               </PostEventReportSection25>
             )}
 

@@ -1,20 +1,15 @@
 import React, {useState} from 'react';
-import { ToastContainer } from 'react-toastify';
 import Loader from '../Loader';
 
-const DropboxDocumentUpload = ({path, title}) => {
+const DropboxDocumentUpload = ({path, title, FileUploadedMessage}) => {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const notifyMessage = (filename) => {
-    toast.success(`${filename} sucessfully uploaded to dropbox`, {
-      position: toast.POSITION.TOP_CENTER,
-    });
-  };
+  
   const onSubmitFile = async (event) => {
     setLoading(!loading);
-
+    setFileName(event.target.files[0].name)
     const form = new FormData();
     const blob = new Blob([event.target.files[0]], {
       type: "text/plain",
@@ -56,7 +51,7 @@ const DropboxDocumentUpload = ({path, title}) => {
       if (response.status === 200) {
         const data = await response.json();
         setLoading(false);
-        notifyMessage(fileName);
+        FileUploadedMessage(fileName);
         setFile(null);
         setFileName("");
         console.log("saved");
@@ -70,7 +65,7 @@ const DropboxDocumentUpload = ({path, title}) => {
   };
   return (
     
-    <div><ToastContainer autoClose={3000} />
+    <div>
       <div className="question-body">
           <h2 className="font-black">
           {title}
@@ -78,7 +73,7 @@ const DropboxDocumentUpload = ({path, title}) => {
           
           <input
             type="file"
-            id="upload"
+            id="document"
             hidden
             name="file"
             onChange={(event) => onSubmitFile(event)}
@@ -86,16 +81,16 @@ const DropboxDocumentUpload = ({path, title}) => {
           />
           <section className="flex justify-start gap-5 items-center mt-7 mr-2">
             <label
-              for="upload"
-              className="text-white bg-black px-5 py-2 rounded-md cursor-pointer "
+              for="document"
+              className="text-white bg-black px-5 flex items-center gap-3 py-2 rounded-md cursor-pointer "
             >
               Choose file
               {loading && (
               <Loader />
           )}
             </label>
-            {file ? (
-            <p className="text-center overflow-hidden">{file.name}</p>
+            {fileName ? (
+            <p className="text-center overflow-hidden">{fileName}</p>
           ) : (
             <p className="text-center overflow-hidden">No file chosen</p>
           )}

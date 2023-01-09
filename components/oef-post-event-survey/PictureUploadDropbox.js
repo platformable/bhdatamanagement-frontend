@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Loader from "../Loader";
-const PictureUploadDropbox = ({path, title}) => {
+const PictureUploadDropbox = ({path, title, FileUploadedMessage, index}) => {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
   const [loader, setLoader] = useState(false);
@@ -8,7 +8,8 @@ const PictureUploadDropbox = ({path, title}) => {
 
   const onSubmitFile = async (event) => {
     setLoader(!loader);
-    console.log("Images", path, fileName)
+    setFileName(event.target.files[0].name)
+
 
     const form = new FormData();
     const blob = new Blob([event.target.files[0]], {
@@ -50,7 +51,7 @@ const PictureUploadDropbox = ({path, title}) => {
       if (response.status === 200) {
         const data = await response.json();
         setLoader(false);
-        notifyMessage(fileName);
+        FileUploadedMessage(fileName);
         setFile(null);
         setFileName("");
         console.log("saved");
@@ -69,7 +70,7 @@ const PictureUploadDropbox = ({path, title}) => {
 
             <input
               type="file"
-              id="upload"
+              id={`image${index}`}
               hidden
               name="file"
               onChange={(event) => onSubmitFile(event)}
@@ -77,14 +78,14 @@ const PictureUploadDropbox = ({path, title}) => {
             />
             <section className="flex justify-start gap-5 items-center mt-7">
               <label
-                for="upload"
-                className="text-white bg-black px-5 py-2 rounded-md cursor-pointer "
+                for={`image${index}`}
+                className="text-white flex items-center gap-3 bg-black px-5 py-2 rounded-md cursor-pointer "
               >
                 Choose file
                 {loader && <Loader />}
               </label>
-              {file ? (
-                <p className="text-center overflow-hidden">{file.name}</p>
+              {fileName ? (
+                <p className="text-center overflow-hidden">{fileName}</p>
               ) : (
                 <p className="text-center overflow-hidden">No file chosen</p>
               )}
