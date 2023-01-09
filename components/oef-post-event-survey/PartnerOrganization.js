@@ -7,10 +7,11 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
   useEffect(() => {
     setEventForm((previous) => ({
       ...previous,
-      partnerOrganization1: partners,
+      partnerOrganization1: partners.join(),
     }));
   }, [partners]);
 
+  
   const handleForm = (e) =>
     setEventForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 

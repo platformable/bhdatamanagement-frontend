@@ -45,7 +45,7 @@ const PostEventReport = ({ event, fbos }) => {
     isClusterEvent: "",
     cluster: "",
     clusterFbos: [],
-    partnerOrganization1: [],
+    partnerOrganization1: "",
     partnerOrganization1Other: "",
     partnerOrganization2: "",
     nationalAwarenessDay: "",
