@@ -1,12 +1,17 @@
 import React, {useState} from 'react';
+import { ToastContainer } from 'react-toastify';
 import Loader from '../Loader';
 
-const DropboxDocumentUpload = ({path}) => {
+const DropboxDocumentUpload = ({path, title}) => {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
   const [loading, setLoading] = useState(false);
 
-  
+  const notifyMessage = (filename) => {
+    toast.success(`${filename} sucessfully uploaded to dropbox`, {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
   const onSubmitFile = async (event) => {
     setLoading(!loading);
 
@@ -27,6 +32,7 @@ const DropboxDocumentUpload = ({path}) => {
       path: `${path}/${event.target.files[0].name}`,
       strict_conflict: false,
     };
+    console.log("Documents", path, fileName)
 
     try {
       const tokenResponse = await fetch(
@@ -63,10 +69,11 @@ const DropboxDocumentUpload = ({path}) => {
     }
   };
   return (
-    <div>
+    
+    <div><ToastContainer autoClose={3000} />
       <div className="question-body">
           <h2 className="font-black">
-          Upload supporting documentation - upload any flyers here
+          {title}
           </h2>
           
           <input
@@ -77,7 +84,7 @@ const DropboxDocumentUpload = ({path}) => {
             onChange={(event) => onSubmitFile(event)}
             accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx"
           />
-          <section className="flex justify-start gap-5 items-center mt-7">
+          <section className="flex justify-start gap-5 items-center mt-7 mr-2">
             <label
               for="upload"
               className="text-white bg-black px-5 py-2 rounded-md cursor-pointer "

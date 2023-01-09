@@ -368,8 +368,8 @@ const EventsIndex = ({ events }) => {
                         <Link
                           href={
                             event.posteventreportid
-                              ? `/nys/events/${event.id}/edit-post-event-survey`
-                              : `/nys/events/${event.id}/post-event-survey`
+                              ? `/oef/events/${event.id}/edit-post-event-survey`
+                              : `/oef/events/${event.id}/post-event-survey`
                           }
                         >
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center text-center">

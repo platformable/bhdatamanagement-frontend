@@ -27,6 +27,7 @@ const Cluster = ({ eventForm, setEventForm }) => {
               name="cluster"
               value={option.value}
               onChange={handleForm}
+              defaultChecked={eventForm?.cluster === option.value? "checked" : false}
             />
             <p>{option.value}</p>
           </label>

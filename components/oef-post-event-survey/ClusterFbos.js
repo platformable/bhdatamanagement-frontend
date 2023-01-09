@@ -46,6 +46,7 @@ const ClusterFbos = ({ fbos, eventForm, setEventForm, selectedCluster }) => {
                   name="clusterFbos"
                   value={option.namefbo}
                   onChange={handleForm}
+                  defaultChecked={eventForm?.clusterFbos.includes(option.namefbo)? "checked" : false}
                 />
                 <p>{option.namefbo}</p>
               </label>
@@ -59,6 +60,7 @@ const ClusterFbos = ({ fbos, eventForm, setEventForm, selectedCluster }) => {
                 name="clusterFbos"
                 value={option.namefbo}
                 onChange={handleForm}
+                defaultChecked={eventForm?.clusterFbos.includes(option.namefbo)? "checked" : false}
               />
               <p>{option.namefbo}</p>
             </label>
