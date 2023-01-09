@@ -69,6 +69,7 @@ const TargetAudience = ({eventForm, setEventForm}) => {
                 name="targetAudienceOther"
                 className=""
                 id={""}
+                defaultValue={eventForm?.targetAudienceOther}
                 onChange={(e)=> setEventForm(prev => ({...prev, targetAudienceOther: e.target.value}))}
               />
             </label>

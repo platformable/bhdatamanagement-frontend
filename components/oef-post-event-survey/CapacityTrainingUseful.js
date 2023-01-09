@@ -16,7 +16,7 @@ const CapicityTraining = ({eventForm,setEventForm,event}) => {
               [e.target.name]: e.target.value,
             }))
           }
-          defaultValue={eventForm ? eventForm.CapicityTraining : ""}
+          defaultValue={eventForm ? eventForm.capacityTrainingUseful : ""}
         />
       </label>
     </div>

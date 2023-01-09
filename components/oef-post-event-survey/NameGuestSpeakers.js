@@ -6,10 +6,10 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
       c.toUpperCase().replaceAll("[<>'\"/;% ]+", " ")
     );
 
-  const [firstPresenter, setFirstPresenter] = useState("");
-  const [secondPresenter, setSecondPresenter] = useState("");
-  const [thirdPresenter, setThirdPresenter] = useState("");
-  const [fourthPresenter, setFourthPresenter] = useState("");
+  const [firstPresenter, setFirstPresenter] = useState(eventForm?.nameGuestSpeakers.split(',')[0] ||"");
+  const [secondPresenter, setSecondPresenter] = useState(eventForm?.nameGuestSpeakers.split(',')[1] || "");
+  const [thirdPresenter, setThirdPresenter] = useState(eventForm?.nameGuestSpeakers.split(',')[2] || "");
+  const [fourthPresenter, setFourthPresenter] = useState(eventForm?.nameGuestSpeakers.split(',')[3] || "");
   /* 
     const handleFormName = (e) => {
         setEventForm(previous => ({...previous, createdByName: uppercaseWords(e.target.value)}))
@@ -42,7 +42,7 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
           onChange={(e) => {
             setFirstPresenter(e.target.value);
           }}
-          defaultValue={event ? event.createdByName : ""}
+          defaultValue={firstPresenter}
         />
       </label>
       <label className="grid items-center mt-5">
@@ -55,7 +55,7 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
           onChange={(e) => {
             setSecondPresenter(e.target.value);
           }}
-          defaultValue={event ? event.createdByName : ""}
+          defaultValue={secondPresenter}
         />
       </label>
       <label className="grid items-center mt-5">
@@ -68,7 +68,7 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
           onChange={(e) => {
             setThirdPresenter(e.target.value);
           }}
-          defaultValue={event ? event.createdByName : ""}
+          defaultValue={thirdPresenter}
         />
       </label>
 
@@ -82,7 +82,7 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
           onChange={(e) => {
             setFourthPresenter(e.target.value);
           }}
-          defaultValue={event ? event.createdByName : ""}
+          defaultValue={fourthPresenter}
         />
       </label>
     </div>

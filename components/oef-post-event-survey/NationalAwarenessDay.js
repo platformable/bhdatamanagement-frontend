@@ -33,7 +33,9 @@ const NationalAwarenessDay = ({eventForm,setEventForm}) => {
                     className='' 
                     value={option.value} 
                     id={option.id} 
-                    onChange={handleForm}
+                    onChange={(e) => {
+                        setEventForm((prev) =>({...prev, [e.target.name]: e.target.value, nationalAwarenessDayOther: ''}))
+                    }}
                     defaultChecked={option.value===eventForm.nationalAwarenessDay ?'checked':""}
                     />
                     {option.value}
@@ -47,7 +49,7 @@ const NationalAwarenessDay = ({eventForm,setEventForm}) => {
                     id={options.id}
                     onChange={handleForm}
                     value="Other"
-                    defaultChecked={options.value === eventForm.nationalAwarenessDay?'checked':""}
+                    defaultChecked={eventForm.nationalAwarenessDay === 'Other'?'checked':""}
                     />
                     <p className="">Other</p>
                     <input type="text" 
@@ -56,7 +58,7 @@ const NationalAwarenessDay = ({eventForm,setEventForm}) => {
                         setEventForm(previous => ({...previous, nationalAwarenessDayOther: e.target.value}))
                     }
                     className='border rounded' 
-                    value={eventForm.nationalaAwarenessDayOther}
+                    defaultValue={eventForm?.nationalAwarenessDayOther}
 />
                  </label>)
             )})}

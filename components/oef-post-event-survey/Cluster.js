@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cluster = ({ setEventForm }) => {
+const Cluster = ({ eventForm, setEventForm }) => {
   const handleForm = (e) =>
     setEventForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   const options = [
@@ -24,6 +24,7 @@ const Cluster = ({ setEventForm }) => {
               name="isClusterEvent"
               value={option.value}
               onChange={handleForm}
+              defaultChecked={eventForm?.isClusterEvent === option.value? "checked" : false}
             />
             <p>{option.value}</p>
           </label>

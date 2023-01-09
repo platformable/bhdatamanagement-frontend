@@ -12,13 +12,8 @@ const PartnerOrganization2 = ({eventForm,setEventForm}) => {
           role="textbox"
           name="partnerOrganization2"
           placeholder=""
-          onChange={(e) =>
-            setEventForm((previous) => ({
-              ...previous,
-              [e.target.name]: e.target.value,
-            }))
-          }
-          defaultValue={eventForm ? eventForm.partnerOrganization1 : ""}
+          onChange={handleForm}
+          defaultValue={eventForm?.partnerOrganization2}
         />
       </label>
     </div>

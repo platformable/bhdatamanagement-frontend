@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import Loader from "../Loader";
-const PictureUploadDropbox = ({path}) => {
+const PictureUploadDropbox = ({path, title}) => {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loader, setLoader] = useState(false);
 
-  const titles = [
-    "Upload an event picture here:",
-    "Upload another event picture",
-    "Upload another event picture",
-  ];
 
   const onSubmitFile = async (event) => {
-    setLoading(!loading);
+    setLoader(!loader);
+    console.log("Images", path, fileName)
 
     const form = new FormData();
     const blob = new Blob([event.target.files[0]], {
@@ -28,7 +24,7 @@ const PictureUploadDropbox = ({path}) => {
       autorename: false,
       mode: "add",
       mute: false,
-      path: `${path}/${event.target.files[0].name}`,
+      path: `${path}/Images/${event.target.files[0].name}`,
       strict_conflict: false,
     };
 
@@ -49,11 +45,11 @@ const PictureUploadDropbox = ({path}) => {
           body: blob,
         }
       );
-      // setLoading(false)
+      // setLoader(false)
       console.log("response", response);
       if (response.status === 200) {
         const data = await response.json();
-        setLoading(false);
+        setLoader(false);
         notifyMessage(fileName);
         setFile(null);
         setFileName("");
@@ -61,16 +57,14 @@ const PictureUploadDropbox = ({path}) => {
         // setUploadSuccess(!uploadSuccess)
       }
     } catch (error) {
-      setLoading(false);
+      setLoader(false);
       // setError(error.message)
       console.error("upload error", error);
     }
   };
   return (
     <div>
-      {titles?.map((title) => (
-        <>
-          <div className="question-body">
+     <div className="question-body">
             <h2 className="font-black">{title}</h2>
 
             <input
@@ -87,7 +81,7 @@ const PictureUploadDropbox = ({path}) => {
                 className="text-white bg-black px-5 py-2 rounded-md cursor-pointer "
               >
                 Choose file
-                {loading && <Loader />}
+                {loader && <Loader />}
               </label>
               {file ? (
                 <p className="text-center overflow-hidden">{file.name}</p>
@@ -96,8 +90,6 @@ const PictureUploadDropbox = ({path}) => {
               )}
             </section>
           </div>
-        </>
-      ))}
     </div>
   );
 };
