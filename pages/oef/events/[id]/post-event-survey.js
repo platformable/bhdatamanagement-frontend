@@ -251,7 +251,7 @@ const PostEventReport = ({ event, fbos }) => {
     // if (!isEmpty) {
     axios
       .post(
-        `http://localhost:3500/post_event_report/oef/create`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/create`,
         eventForm
       )
       .then((response) => {
