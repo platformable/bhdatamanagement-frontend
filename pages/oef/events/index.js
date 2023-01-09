@@ -380,19 +380,9 @@ const EventsIndex = ({ events }) => {
                           </div>
                         </Link>
                         <div className="flex items-center">
-                        <label className="block">
-                        <select
-                          className="select-add-edit-supervisor block text-[#00000065] border-black w-60 mt-1 rounded-md p-2 border-grey shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        >
-                          <option value={event.submissionstatus}  default>
+                 
                           {event.submissionstatus}
-                          </option>
-                         <option value="Submitted">Submitted</option>
-                         <option value="Pending">Pending</option>
-                         <option value="Canceled">Canceled</option>
-
-                        </select>
-                      </label>
+       
                         </div>
                         {loggedUserRole === "Supervisor" && (
                           <div className="flex justify-center">
