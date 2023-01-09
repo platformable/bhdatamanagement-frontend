@@ -137,11 +137,11 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes }) => {
           setLoading(false);
           //setResponseStatus({ success: true, statusMessage: "Your event is being saved"})
           //setShowResponseStatus(!showResponseStatus)
-
+          console.log("response",response)
           notifyMessage();
-          setTimeout(() => {
-            router.push("/events");
-          }, 15000);
+          // setTimeout(() => {
+          //   router.push("/events");
+          // }, 15000);
         }
       })
       .catch(function (error) {

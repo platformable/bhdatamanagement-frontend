@@ -270,8 +270,8 @@ export const ethnicity = [
 ];
 
 export const sexualOrientation = [
-  { id: 1, value: "Gay or lesbian" },
   { id: 2, value: "Straight or heterosexual" },
+  { id: 1, value: "Gay or lesbian" },
   { id: 3, value: "Bisexual" },
   { id: 4, value: "Queer" },
   { id: 5, value: "Questioning or not sure" },

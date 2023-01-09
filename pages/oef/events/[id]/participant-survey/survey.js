@@ -29,8 +29,8 @@ const Survey = ({ event, fbos }) => {
   console.log("data", event);
 
   const [surveyForm, setSurveyForm] = useState({
-    fbo: "",
-    programName: "oef",
+    deliveryPartner: "",
+    programName: "OEF",
     eventDate: new Date().toLocaleDateString(),
     programID: 1,
     participantZipCode: 0,
