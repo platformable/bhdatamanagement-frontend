@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Loader from "../Loader";
 
-const TestingDocuments = ({testName}) => {
+const TestingDocuments = ({path, testName, FileUploadedMessage}) => {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
   const [loading, setLoading] = useState(false);
@@ -9,6 +9,7 @@ const TestingDocuments = ({testName}) => {
 
   const onSubmitFile = async (event) => {
     setLoading(!loading);
+    setFileName(event.target.files[0].name)
 
     const form = new FormData();
     const blob = new Blob([event.target.files[0]], {
@@ -24,7 +25,7 @@ const TestingDocuments = ({testName}) => {
       autorename: false,
       mode: "add",
       mute: false,
-      path: `/Event/Image/${event.target.files[0].name}`,
+      path: `${path}/${event.target.files[0].name}`,
       strict_conflict: false,
     };
 
@@ -50,7 +51,7 @@ const TestingDocuments = ({testName}) => {
       if (response.status === 200) {
         const data = await response.json();
         setLoading(false);
-        notifyMessage(fileName);
+        FileUploadedMessage(fileName);
         setFile(null);
         setFileName("");
         console.log("saved");
@@ -71,7 +72,7 @@ const TestingDocuments = ({testName}) => {
           
           <input
             type="file"
-            id="upload"
+            id={`${testName}Documents`}
             hidden
             name="file"
             onChange={(event) => onSubmitFile(event)}
@@ -79,15 +80,15 @@ const TestingDocuments = ({testName}) => {
           />
           <section className="flex justify-start gap-5 items-center mt-7">
             <label
-              for="upload"
-              className="text-white bg-black px-5 py-2 rounded-md cursor-pointer "
+              for={`${testName}Documents`}
+              className="text-white bg-black px-5 flex items-center gap-3 py-2 rounded-md cursor-pointer "
             >
               Choose file
               {loading && (
               <Loader />
           )}
             </label>
-            {file ? (
+            {fileName ? (
             <p className="text-center overflow-hidden">{file.name}</p>
           ) : (
             <p className="text-center overflow-hidden">No file chosen</p>
