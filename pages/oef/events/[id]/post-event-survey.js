@@ -30,7 +30,7 @@ import EventHighlights from "../../../../components/oef-post-event-survey/EventH
 import EventChallenges from "../../../../components/oef-post-event-survey/EventChallenges";
 import CapacityTraining from "../../../../components/oef-post-event-survey/CapacityTrainingUseful";
 import LessonLearned from "../../../../components/oef-post-event-survey/LessonLearned";
-import DocumentUploadDropbox from "../../../../components/oef-post-event-survey/DocumentUploadDropbox";
+import DocumentUploadDropbox from "../../../../components/oef-post-event-survey/DropboxDocumentUpload";
 import PictureUploadDropbox from "../../../../components/oef-post-event-survey/PictureUploadDropbox";
 import OtherTesting from "../../../../components/oef-post-event-survey/OtherTesting";
 
