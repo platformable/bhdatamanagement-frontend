@@ -301,7 +301,9 @@ const EventsIndex = ({ events }) => {
                   return filterPass;
                 }
               })
+              .filter((event,index)=>event.programname==='OEF')
               .map((event, index) => {
+              
                 return (
                   <>
                     <div className="sm:hidden w-full">
@@ -377,14 +379,10 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-                        <div  onClick={()=> makeIcsFile(event)} className={`cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center`}>
-                          <a
-                            className="leading-5  lg:text-lg p-2 font-bold"
-                            href={'#'}
-              
-                          >
-                            Download calendar file
-                          </a>
+                        <div className="flex items-center">
+                 
+                          {event.submissionstatus}
+       
                         </div>
                         {loggedUserRole === "Supervisor" && (
                           <div className="flex justify-center">

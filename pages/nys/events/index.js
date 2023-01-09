@@ -301,6 +301,7 @@ const EventsIndex = ({ events }) => {
                   return filterPass;
                 }
               })
+              .filter((event,index)=>event.programname==='NYS CMP')
               .map((event, index) => {
                 return (
                   <>
