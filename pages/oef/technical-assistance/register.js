@@ -46,8 +46,8 @@ const RegisterTA = () => {
     taStatusCompleteDate: "",
     taCompleteBhStaff: "",
     taNotesBhStaff: "",
-    programId: "",
-    programName: "",
+    programId: 1,
+    programName: "OEF",
   });
   const notifyMessage = () => {
     toast.success("The fbo is being added", {
