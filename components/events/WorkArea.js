@@ -14,7 +14,7 @@ const WorkArea = ({ eventForm, setEventForm,event }) => {
   return (
     <div className="">
       <h2 className="font-black">
-      Where do you work?
+      Where do you work?<span className='text-xl text-red-500 ml-2'>*required</span>
       </h2>
       <div className="mt-7 grid grid-cols-1  gap-5">
         {workArea.map((area, index) => {

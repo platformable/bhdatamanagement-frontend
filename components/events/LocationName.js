@@ -6,6 +6,7 @@ const LocationName = ({eventForm,setEventForm}) => {
     <div className="rounded">
       <h2 className=" font-black">
       Enter the event location name, eg. business name or faith-based organization name
+      <span className='text-xl text-red-500 ml-2'>*required</span>
       </h2>
       <div className="mt-7 grid grid-cols-1 gap-5">
       <label className="text-lg flex gap-x-5 items-center" >

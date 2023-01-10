@@ -4,7 +4,7 @@ const EventDescription = ({eventForm,setEventForm,event}) => {
   
   return (
     <div className="">
-       <h2 className="mb-7 font-black">Event description</h2>
+       <h2 className="mb-7 font-black">Event description<span className='text-xl text-red-500 ml-2'>*required</span></h2>
 
       <textarea
         className="p-4 block w-full text-lg h-52 bg-white break-all border-black rounded-md overflow-hidden"

@@ -53,7 +53,7 @@ const Section4 = ({eventForm, setEventForm,event}) => {
       }
     return (
         <label className='mb-7 flex flex-col'>            
-                <h2 className='font-black mb-5'>What date is the event? </h2>
+                <h2 className='font-black mb-5'>What date is the event?<span className='text-xl text-red-500 ml-2'>*required</span> </h2>
                 <input type="date" 
                 name="eventDate" 
                 className='border rounded p-2 text-lg w-48 uppercase' 

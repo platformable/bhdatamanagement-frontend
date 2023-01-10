@@ -8,6 +8,7 @@ const Section6 = ({eventForm, setEventForm}) => {
     <label className="mb-7 flex flex-col">
       <h2 className=" font-black">
        What time will the event finish?
+       <span className='text-xl text-red-500 ml-2'>*required</span>
       </h2><br />
       <input type="time" 
       name="eventFinishTime" 
