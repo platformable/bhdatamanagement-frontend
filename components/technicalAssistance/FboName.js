@@ -29,7 +29,7 @@ const FboName = ({form, setForm,fbos}) => {
 
 
   return (
-    <div className="px-7">
+    <div className="px-7 my-7">
       <h2 className="font-black">FBO Name</h2>
       <div className="grid grid-cols-2 mt-7 gap-5">
         <div className="grid gap-5">

@@ -41,30 +41,30 @@ const RegisterTA = ({fbos}) => {
     taPhone: "",
     taFbo: [],
     taFboOther: "",
-    taDateSubmitted: "",
+    taDateSubmitted: new Date(),
     taStatus: "",
-    taStatusCompleteDate: "",
+    taStatusCompleteDate: null,
     taCompleteBhStaff: "",
     taNotesBhStaff: "",
     programId: 1,
     programName: "OEF",
   });
   const notifyMessage = () => {
-    toast.success("The fbo is being added", {
+    toast.success("Technical assistance created", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
   const submitForm = async () => {
     setLoading(!loading)
     await axios
-      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`, form)
+      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/technical_assistance/create`, form)
       .then((response) => {
         console.log(response);
-        if (response.data.status === 200) {
+        if (response.status === 200) {
           setLoading(!loading)
           notifyMessage();
             setTimeout(() => {
-              router.push("/oef/fbo");
+              router.push("/oef");
             }, 1500);
         }
       })
@@ -102,15 +102,12 @@ const handleAddress = (value, key) => {
         <section className="container mx-auto px-5  md:px-0 rounded-lg border-black pb-10">
 
             <TypeOfTARequested form={form} setForm={setForm} />
-
-            {/* <TypeOfTARequested/> */}
-
-<ReasonForRequest form={form} setForm={setForm} />
-<YourContactInformation form={form} setForm={setForm} />
-<FboName form={form} setForm={setForm} fbos={fbos}/>
-<Outcome/>
+            <ReasonForRequest form={form} setForm={setForm} />
+            <YourContactInformation form={form} setForm={setForm} />
+            <FboName form={form} setForm={setForm} fbos={fbos}/>
+{/* <Outcome/>
 <DateResolved/>
-<Complete/>
+<Complete/> */}
          
         </section>
         {loading ? (<div className="flex justify-center my-10"> <Loader /></div>  ): ( <div className="flex justify-center my-10">
