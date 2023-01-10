@@ -51,7 +51,6 @@ const EditOefEvent = ({event, programs, locationTypes, areasOfFocus, eventTypes,
     borough:event?.borough,
     oefEventEmail:event?.oefeventemail,
     deliveryPartner:event?.deliverypartner,
-    eventId:event?.eventid
   });
 
   console.log("oef state form", eventForm);
@@ -78,8 +77,8 @@ const EditOefEvent = ({event, programs, locationTypes, areasOfFocus, eventTypes,
           setLoading(false);
           //notifyMessage();
         setTimeout(() => {
-      router.push(`/oef/events/${eventForm.eventId}/edit-post-event-survey`);
-       }, 5000);
+      router.push(`/oef/events/${eventForm.id}/edit-post-event-survey`);
+       }, 3000);
           console.log("updated")
         }
       })
@@ -120,7 +119,7 @@ const EditOefEvent = ({event, programs, locationTypes, areasOfFocus, eventTypes,
   return (
     <>
       <Layout showStatusHeader={true}>
-        <ToastContainer autoClose={15000} />
+        <ToastContainer autoClose={3000} />
         <PageTopHeading
           backBtn={true}
           dashboardBtn={true}
