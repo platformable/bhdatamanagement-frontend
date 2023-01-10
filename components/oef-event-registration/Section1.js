@@ -17,7 +17,7 @@ const Section1 = ({eventForm, setEventForm,event}) => {
 
             <label> 
             <input type="text" 
-            className="w-134 p-2 border-black rounded text-lg" 
+            className="w-134 border-black rounded text-lg" 
 
             placeholder='First Name' 
 
@@ -25,14 +25,17 @@ const Section1 = ({eventForm, setEventForm,event}) => {
             defaultValue={event?event.createdbyname:""}
             />
             </label>
+            <label>
             <input type="text" 
-            className="w-134 p-2 border-black rounded text-lg mt-5" 
+            className="w-134 border-black rounded text-lg mt-5" 
 
             placeholder='Last Name' 
 
             onChange={handleFormLastName}
             defaultValue={event?event.createdbylastname:""}
             />
+            </label>
+            
             
         </div>
     );

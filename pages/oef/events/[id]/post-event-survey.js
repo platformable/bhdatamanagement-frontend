@@ -40,7 +40,7 @@ const PostEventReport = ({ event, fbos }) => {
 
   const loggedUsername = user && user["https://lanuevatest.herokuapp.com/name"];
   const loggedUserLastname = user && user["https://lanuevatest.herokuapp.com/lastname"];
-
+console.log(event)
   const [eventForm, setEventForm] = useState({
     isClusterEvent: "",
     cluster: "",
@@ -63,8 +63,8 @@ const PostEventReport = ({ event, fbos }) => {
     programName: 'OEF',
     eventName: event?.eventname,
     eventDate: event && new Date(event.eventdate),
-    // eventStartTime: event?.eventstarttime,
-    // eventFinishTime: event?.eventfinishtime,
+    eventStartTime: event?.eventstarttime,
+    eventFinishTime: event?.eventfinishtime,
     // eventLocationTypeName: event?.eventlocationtypename,
     // healthAreaOfFocusName: event?.healthareaoffocusname.join(", "),
     eventTypeName: event?.eventtypename,
@@ -244,6 +244,11 @@ const PostEventReport = ({ event, fbos }) => {
       position: toast.POSITION.TOP_CENTER,
     });
   };
+  const FileUploadedMessage = (fileName) => {
+    toast.success("File saved to dropbox", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
 
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
@@ -374,8 +379,12 @@ const PostEventReport = ({ event, fbos }) => {
               setEventForm={setEventForm}
               isNumberKey={isNumberKey}
             />
-            <DocumentUploadDropbox path={``} />
-            <PictureUploadDropbox path={``} />
+             <DocumentUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}/Documents`} title="Upload supporting documentation - upload any flyers here" />
+            <PictureUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}`} index="1" title="Upload an event picture here:" />
+            <PictureUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}`} index="2" title="Upload another event picture"/>
+            <PictureUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}`} index="3" title="Upload another event picture"/>
+
+
             <TestingDone eventForm={eventForm} setEventForm={setEventForm} />
 
             {eventForm.eventTestingDone && (
@@ -404,7 +413,7 @@ const PostEventReport = ({ event, fbos }) => {
                 setEventForm={setEventForm}
                 isNumberKey={isNumberKey}
               >
-                <TestingDocuments testName={"HIV"} />
+                 <TestingDocuments FileUploadedMessage={FileUploadedMessage} path={event?.folderpath} testName={"HIV"} />
               </PostEventReportSection23>
             )}
 
@@ -414,7 +423,7 @@ const PostEventReport = ({ event, fbos }) => {
                 setEventForm={setEventForm}
                 isNumberKey={isNumberKey}
               >
-                <TestingDocuments testName={"Hepatitis C"} />
+                <TestingDocuments FileUploadedMessage={FileUploadedMessage} path={event?.folderpath} testName={"Hepatitis C"} />
               </PostEventReportSection25>
             )}
 
