@@ -346,7 +346,7 @@ const EventsIndex = ({ events }) => {
                             /* crearFecha2(event) */
                           }
                         </div>
-                        <Link href={`/nys/events/${event.id}/edit`}>
+                        <Link href={`/oef/events/${event.id}/edit`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Edit event</p>
                           </div>

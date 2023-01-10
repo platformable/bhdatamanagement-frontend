@@ -22,7 +22,7 @@ const Section1 = ({eventForm, setEventForm,event}) => {
             placeholder='First Name' 
 
             onChange={handleFormName}
-            defaultValue={event?event.createdByName:""}
+            defaultValue={event?event.createdbyname:""}
             />
             </label>
             <input type="text" 
@@ -31,7 +31,7 @@ const Section1 = ({eventForm, setEventForm,event}) => {
             placeholder='Last Name' 
 
             onChange={handleFormLastName}
-            defaultValue={event?event.createdByLastName:""}
+            defaultValue={event?event.createdbylastname:""}
             />
             
         </div>

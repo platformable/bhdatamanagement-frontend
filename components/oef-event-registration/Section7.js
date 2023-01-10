@@ -13,7 +13,7 @@ const Section7 = ({eventForm, setEventForm}) => {
       name="eventStartTime" 
       className='border rounded p-2 text-lg w-48' 
       onChange={handleForm}
-      defaultValue={eventForm?.eventFinishTime}
+      defaultValue={eventForm?.eventStartTime}
       />
     </label>
   );

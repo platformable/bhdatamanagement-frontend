@@ -18,7 +18,7 @@ const Section2 = ({eventForm, setEventForm,event}) => {
             placeholder='abc@myemail.com' 
 
             onChange={handleForm}
-            defaultValue={event?event.eventname:""}
+            defaultValue={event?event.oefeventemail:""}
             />
             </label>
 

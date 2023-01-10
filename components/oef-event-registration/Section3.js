@@ -15,7 +15,7 @@ const Section3 = ({ fbos, eventForm, setEventForm }) => {
             <input
               type="radio"
               className=""
-            //   defaultChecked={}
+              defaultChecked={eventForm?.deliveryPartner===fbo.namefbo?true:false}
               value={fbo.namefbo}
               onChange={handleForm}
               name="fbo"
@@ -30,7 +30,7 @@ const Section3 = ({ fbos, eventForm, setEventForm }) => {
             <input
               type="radio"
               className=""
-            //   defaultChecked={}
+            defaultChecked={eventForm?.deliveryPartner===fbo.namefbo?true:false}
               value={fbo.namefbo}
               onChange={handleForm}
               name="fbo"
