@@ -37,7 +37,7 @@ const Section9 = ({ eventForm, setEventForm, event }) => {
 
   return (
     <div className="">
-      <h2 className="mb-5 font-black">Is this event online or in-person?</h2>
+      <h2 className="mb-5 font-black">Is this event online or in-person?<span className='text-xl text-red-500 ml-2'>*required</span></h2>
       <div className="grid grid-cols-1 gap-5">
         {options &&
           options.map((option, index) => {

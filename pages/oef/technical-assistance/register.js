@@ -33,24 +33,21 @@ const RegisterTA = () => {
     } 
 }
   const [form, setForm] = useState({
-    nameFBO: "",
-    addressFBO: "",
-    address2FBO: "",
-    boroughFBO: "",
-    zipcodeFBO: "",
-    nameReligiousLeader: "",
-    positionReligiousLeader: "",
-    emailReligionsLeader: "",
-    phoneReligionsLeader: "",
-    nameKeyContact: "",
-    phoneKeyContact: "",
-    emailKeyContact: "",
-    nameAlternateContact: "",
-    phoneAlternateContact: "",
-    emailAlternateContact: "",
-    fboDropboxFolder: "",
-    fboNotes: "",
-    fboActive: "",
+    taType: "",
+    taTypeOther: "",
+    taReason: "",
+    taContactName: "",
+    taEmail: "",
+    taPhone: "",
+    taFbo: "",
+    taFboOther: "",
+    taDateSubmitted: "",
+    taStatus: "",
+    taStatusCompleteDate: "",
+    taCompleteBhStaff: "",
+    taNotesBhStaff: "",
+    programId: "",
+    programName: "",
   });
   const notifyMessage = () => {
     toast.success("The fbo is being added", {
@@ -104,9 +101,9 @@ const handleAddress = (value, key) => {
         />
         <section className="container mx-auto px-5  md:px-0 rounded-lg border-black pb-10">
 
-            <TypeOfTARequested />
+            <TypeOfTARequested form={form} setForm={setForm} />
 
-            <TypeOfTARequested/>
+            {/* <TypeOfTARequested/> */}
 <ReasonForRequest/>
 <YourContactInformation/>
 <FboName/>

@@ -70,7 +70,7 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes }) => {
     locationNameOther: "",
     locationAddress: "",
     eventZipCode: "",
-    icsUrlFile: "",
+    // icsUrlFile: "",
     borough: "",
   });
 
@@ -126,8 +126,7 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes }) => {
   };
 
   const submitEventForm = async () => {
-    console.log("user id ", eventForm.userID);
-    console.log(eventForm.icsUrlFile);
+    const isEmpty = Object.values(eventForm).some(value => !value)
     await makeIcsFile(eventForm);
     setLoading(true);
     await axios

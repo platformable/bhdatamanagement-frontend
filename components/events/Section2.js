@@ -10,7 +10,7 @@ const Section2 = ({eventForm, setEventForm,event}) => {
       }
     return (
         <div className=''>
-            <h2 className=' font-black'>What is the name of the event?</h2>
+            <h2 className=' font-black'>What is the name of the event?<span className='text-xl text-red-500 ml-2'>*required</span></h2>
             <p className="mb-7">Please put the city name first, then the name of the event
             <br />eg. Syracuse: Community HIV Forum
                     <br/>Please only use letters and numbers in the name</p>
