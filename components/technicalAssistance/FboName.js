@@ -34,6 +34,16 @@ const FboName = ({form, setForm,fbos}) => {
       <h2 className="font-black">FBO Name</h2>
       <div className="grid grid-cols-2 mt-7 gap-5">
         <div className="grid gap-5">
+        <label  className="flex gap-x-5 items-center">
+              <input
+                type="checkbox"
+                name="taFbo"
+                value={'All FBOs'}
+                onChange={(e)=>handleForm(e.target.value)}
+              />
+              <p>All FBOs</p>
+              
+            </label>
         {fbos?.slice(0, Math.round(fbos?.length / 2)).sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).map((fbo, index) => (
            <label className="flex items-center gap-5 text-lg" key={index}>
            <input
@@ -50,6 +60,7 @@ const FboName = ({form, setForm,fbos}) => {
         ))}
         </div>
         <div className="grid gap-5">
+      
         {fbos?.slice(Math.round(fbos?.length / 2)).sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).map((fbo, index) => (
            <label className="flex items-center gap-5 text-lg" key={index}>
            <input

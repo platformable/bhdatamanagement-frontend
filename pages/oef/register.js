@@ -151,7 +151,7 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes,fbos }) =>
 
   return (
     <>
-      <Layout showStatusHeader={true}>
+    {/*   <Layout showStatusHeader={true}> */}
         <ToastContainer autoClose={15000} />
         <PageTopHeading
           backBtn={true}
@@ -183,7 +183,7 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes,fbos }) =>
             Next
           </button> } 
         </div>
-      </Layout>
+    {/*   </Layout> */}
       {showResponseStatus && (
         <ResponseStatusModal
           setShowResponseStatus={setShowResponseStatus}
