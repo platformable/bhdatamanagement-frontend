@@ -33,13 +33,13 @@ const RegisterTA = () => {
     } 
 }
   const [form, setForm] = useState({
-    taType: "",
+    taType: [],
     taTypeOther: "",
     taReason: "",
     taContactName: "",
     taEmail: "",
     taPhone: "",
-    taFbo: "",
+    taFbo: [],
     taFboOther: "",
     taDateSubmitted: "",
     taStatus: "",
