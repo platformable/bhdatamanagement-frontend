@@ -4,7 +4,7 @@ const TotalTalkedHivPrepSaferSex = ({eventForm,setEventForm, isNumberKey}) => {
   const handleForm = (e) => {
     let {value} = e.target
       let finalValue;
-      value > 100 ? finalValue = 100:finalValue=value
+      value > 300 ? finalValue = 300:finalValue=value
       setEventForm((previous) => ({
         ...previous,
         [e.target.name]:Number(finalValue)
@@ -21,7 +21,7 @@ const TotalTalkedHivPrepSaferSex = ({eventForm,setEventForm, isNumberKey}) => {
         onWheelCapture={(e) => e.target.blur()}
         onKeyUp={(e) => {
           let {value} = e.target
-          value > 100 && (e.target.value = 100) 
+          value > 300 && (e.target.value = 300) 
         }}
         maxLength={3}
         defaultValue={0 || eventForm.totalTalkedHivPrepSaferSex}
