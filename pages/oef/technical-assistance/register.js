@@ -39,7 +39,7 @@ const RegisterTA = () => {
     taContactName: "",
     taEmail: "",
     taPhone: "",
-    taFbo: "",
+    taFbo: [],
     taFboOther: "",
     taDateSubmitted: "",
     taStatus: "",
