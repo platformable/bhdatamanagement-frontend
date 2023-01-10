@@ -17,7 +17,7 @@ import Outcome from '../../../components/technicalAssistance/Outcome'
 import DateResolved from '../../../components/technicalAssistance/DateResolved'
 import Complete from '../../../components/technicalAssistance/Complete'
 
-const RegisterTA = () => {
+const RegisterTA = ({fbos}) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -106,7 +106,7 @@ const handleAddress = (value, key) => {
             {/* <TypeOfTARequested/> */}
 <ReasonForRequest/>
 <YourContactInformation/>
-<FboName/>
+<FboName form={form} setForm={setForm} fbos={fbos}/>
 <Outcome/>
 <DateResolved/>
 <Complete/>
@@ -135,5 +135,18 @@ const handleAddress = (value, key) => {
 
 export default RegisterTA;
 
-export const getServerSideProps = withPageAuthRequired();
+export const getServerSideProps = withPageAuthRequired({
+    async getServerSideProps(ctx) {
+      const [fbos] = await Promise.all([
+        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) =>
+          r.json()
+        ),
+      ]);
+      return { props: { fbos: fbos } };
+  
+      /*  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/clients`);
+      const data = await res.json();
+      return { props: { data } }; */
+    },
+  });
 
