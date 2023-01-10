@@ -57,7 +57,7 @@ const EditOefEvent = ({event, programs, locationTypes, areasOfFocus, eventTypes,
   
 
   const notifyMessage = () => {
-    toast.success("The event is being created", {
+    toast.success("Event updated", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
@@ -76,9 +76,7 @@ const EditOefEvent = ({event, programs, locationTypes, areasOfFocus, eventTypes,
         if (response.data.statusText === "OK") {
           setLoading(false);
           //notifyMessage();
-        setTimeout(() => {
-      router.push(`/oef/events/${eventForm.id}/edit-post-event-survey`);
-       }, 3000);
+          router.push(`/oef/events/${eventForm.id}/edit-post-event-survey`);
           console.log("updated")
         }
       })
@@ -119,7 +117,7 @@ const EditOefEvent = ({event, programs, locationTypes, areasOfFocus, eventTypes,
   return (
     <>
       <Layout showStatusHeader={true}>
-        <ToastContainer autoClose={3000} />
+        {/* <ToastContainer autoClose={3000} /> */}
         <PageTopHeading
           backBtn={true}
           dashboardBtn={true}
@@ -147,7 +145,7 @@ const EditOefEvent = ({event, programs, locationTypes, areasOfFocus, eventTypes,
             className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
             onClick={submitEventForm}
           >
-            Update
+            Next
           </button> } 
         </div>
       </Layout>
