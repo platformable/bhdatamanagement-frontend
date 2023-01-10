@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReasonForRequest = () => {
+const ReasonForRequest = ({form, setForm}) => {
     return (
         <div className="question-body">
         <h2 className="font-black">Reason for Request:</h2>
@@ -11,7 +11,7 @@ const ReasonForRequest = () => {
          name="taReason"
          placeholder=""
          onChange={(e) =>
-           setEventForm((previous) => ({
+           setForm((previous) => ({
              ...previous,
              [e.target.name]:e.target.value
            }))

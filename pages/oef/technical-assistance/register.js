@@ -104,8 +104,8 @@ const handleAddress = (value, key) => {
             <TypeOfTARequested form={form} setForm={setForm} />
 
             {/* <TypeOfTARequested/> */}
-<ReasonForRequest/>
-<YourContactInformation/>
+<ReasonForRequest form={form} setForm={setForm} />
+<YourContactInformation form={form} setForm={setForm} />
 <FboName/>
 <Outcome/>
 <DateResolved/>

@@ -1,6 +1,7 @@
 import React from 'react';
 
-const YourContactInformation = () => {
+const YourContactInformation = ({form, setForm}) => {
+    const handleForm = (e) => setForm(prev => ({...prev, [e.target.name]: e.target.value}))
     return (
         <div className="question-body">
       <h2 className="mb-7 font-black">Your Contact Information</h2>
@@ -10,24 +11,20 @@ const YourContactInformation = () => {
         <input
           type="text"
           className="w-134 p-2 border-black rounded text-lg mt-2"
-          placeholder="Presenter/facilitator"
-          onChange={(e) => {
-            setFirstPresenter(e.target.value);
-          }}
-          defaultValue={firstPresenter}
+          placeholder=''
+          name="taContactName"
+          onChange={handleForm}
         />
       </label>
       <label className="grid items-center mt-5">
         {" "}
         Email address:
         <input
-          type="text"
+          type="email"
           className="w-134 p-2 border-black rounded text-lg mt-2 "
-          placeholder="Presenter/facilitator"
-          onChange={(e) => {
-            setSecondPresenter(e.target.value);
-          }}
-          defaultValue={secondPresenter}
+          placeholder=''
+          name="taEmail"
+          onChange={handleForm}
         />
       </label>
       <label className="grid items-center mt-5">
@@ -36,11 +33,9 @@ const YourContactInformation = () => {
         <input
           type="text"
           className="w-134 p-2 border-black rounded text-lgmt-2 "
-          placeholder="Presenter/facilitator"
-          onChange={(e) => {
-            setThirdPresenter(e.target.value);
-          }}
-          defaultValue={thirdPresenter}
+          placeholder=''
+          name="taPhone"
+          onChange={handleForm}
         />
       </label>
 
