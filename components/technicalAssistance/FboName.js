@@ -7,6 +7,7 @@ const FboName = ({form, setForm,fbos}) => {
   const [data,setData]=useState([...form.taFbo])
 
   const handleForm=(value)=>{
+    if (value === 'Other') setForm(prev => ({...prev, tafboOther: ''}))
     const isValueOnData=data?.includes(value)
    
     const filteredData=data.filter(oldValues=> oldValues != value) 

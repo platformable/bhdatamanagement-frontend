@@ -89,7 +89,7 @@ const TestingDocuments = ({path, testName, FileUploadedMessage}) => {
           )}
             </label>
             {fileName ? (
-            <p className="text-center overflow-hidden">{file.name}</p>
+            <p className="text-center overflow-hidden">{fileName}</p>
           ) : (
             <p className="text-center overflow-hidden">No file chosen</p>
           )}
