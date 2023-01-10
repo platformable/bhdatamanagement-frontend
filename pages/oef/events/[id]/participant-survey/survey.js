@@ -156,7 +156,7 @@ const Survey = ({ event, fbos }) => {
               </h2>
             </div>
           </div> */}
-          <div className="form-body border-dark-violet my-10">
+          <div className="form-body border-black my-10">
             <ParticipantSurveySection35
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}
