@@ -8,7 +8,7 @@ const success = () => {
     <div className="h-88  py-10 px-10  mt-3 flex flex-col gap-5 items-center rounded-lg border-black">
           
           <h1 className="text-center font-black">
-            HIV Outreach Event Participant Sign-in Sheet
+            HIV Outreach Event Organizer Survey
           </h1>
           <div className="flex flex-col gap-5 md:flex-row items-center mt-5">
             <h2 className="pt-2">In partnership with</h2>
@@ -23,9 +23,9 @@ const success = () => {
             <img src="/saved-form.svg" alt="checked icon" />
 
             <h2 className='font-black text-center'>Your sign-in sheet was saved successfully! </h2>
-            <p className='text-center'>Thank you for taking the time to provide feedback. <br/>
-            Your input is valuable and used by us for <br/>
-            reporting and program improvement. </p>
+            <p className='text-center'>Click here to see the answers you have submitted. <br/>
+            You have also been emailed a copy. <br/>
+            You are able to make changes to your submission until the end of today. </p>
           </section>
         </div>
         {/* <button onClick={() => router.back()} className='uppercase rounded shadow bg-black text-white text-2xl px-5 py-2 self-center'>Submit another participant sign-in sheet</button> */}

@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import Link from 'next/link';
-import { useUser, getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import styles from "../../styles/Home.module.css";
 import UserListRow from "../../components/UserListRow";
 import AddUserModal from "../../components/AddUserModal";
@@ -10,8 +10,6 @@ import Layout from '../../components/Layout';
 import Image from 'next/image';
 import DashboardBtn from '../../components/DashboardBtn'
 
-import backIcon from '../../public/BACKicon.svg'
-import authUserICon from '../../public/authorized-users-icon.svg'
 
 export default function UsersIndex({data}) {
     const { user, error, isLoading } = useUser();
@@ -173,10 +171,12 @@ export default function UsersIndex({data}) {
 
 
 // This gets called on every request
-export async function getServerSideProps() {
-    // Fetch data from external API
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`)
-    const data = await res.json()
-    // Pass data to the page via props
-    return { props: { data } }
-  }
+export  const getServerSideProps = withPageAuthRequired({
+    async getServerSideProps() {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`)
+      const data = await res.json()
+      // Pass data to the page via props
+      return { props: { data } }
+    },
+    
+  })

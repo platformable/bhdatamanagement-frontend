@@ -9,7 +9,7 @@ const ResponseStatusModal = ({responseStatus, setShowResponseStatus}) => {
                 <img src="/close-window-icon.svg" alt="close-window" title="close-window" className="rounded-tr"  width="20" /> 
             </button>
        
-            <p className="font-black text-black ">{responseStatus.statusMessage}</p>
+            <p className="font-black text-black text-center">{responseStatus.statusMessage}</p>
                 
             </div>
         </div>

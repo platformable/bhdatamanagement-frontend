@@ -19,7 +19,7 @@ const success = () => {
             className=""
           /> </div>
 
-          <section className='flex flex-col mt-10 py-7 w-full gap-3 bg-[#A1EDD2] rounded-lg items-center'>
+          <section className='flex flex-col mt-10 py-7 w-full gap-3 bg-sky-blue rounded-lg items-center'>
             <img src="/saved-form.svg" alt="checked icon" />
             <h2 className='font-black text-center'>
             Your technical assistance request has been

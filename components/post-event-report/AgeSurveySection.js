@@ -62,31 +62,35 @@ const AgeSurveySection = ({
         Age: How many people were in each of the following age groups for{" "}
         {typeOfTestForTitles(typeOfTest)} Testing?
       </h2>
-      {fields.map((field, index) => (
-        <label className="flex flex-col gap-2" key={index}>
-          <p className="w-80">{field.label}</p>
-          <input
-            type="number"
-            onWheelCapture={disableWheelInputNumber}
-            onKeyUp={handleMaxNumber}
-            defaultValue={eventForm[field.ddbb_label] ?? 0}
-            maxLength={3}
-            name={fields.ddbb_label}
-            className="border-black p-4 w-20 rounded "
-            onChange={(e) => {
-              let { value } = e.target;
-              let finalValue;
-              value > 100 ? (finalValue = 100) : (finalValue = value);
-              setEventForm((prev) => ({
-                ...prev,
-                [field.ddbb_label]: Number(finalValue),
-              }));
-            }}
-            onKeyDown={isNumberKey}
-
-          />
-        </label>
-      ))}
+      {fields.map((field, index) => {
+        // OEF Program Age Under 13 is not an option
+        if (eventForm?.programName === 'OEF' && field.label === 'Under 13') return;
+        return (
+          <label className="flex flex-col gap-2" key={index}>
+            <p className="w-80">{field.label}</p>
+            <input
+              type="number"
+              onWheelCapture={disableWheelInputNumber}
+              onKeyUp={handleMaxNumber}
+              defaultValue={eventForm[field.ddbb_label] ?? 0}
+              maxLength={3}
+              name={fields.ddbb_label}
+              className="border-black p-4 w-20 rounded "
+              onChange={(e) => {
+                let { value } = e.target;
+                let finalValue;
+                value > 100 ? (finalValue = 100) : (finalValue = value);
+                setEventForm((prev) => ({
+                  ...prev,
+                  [field.ddbb_label]: Number(finalValue),
+                }));
+              }}
+              onKeyDown={isNumberKey}
+  
+            />
+          </label>
+        )
+      })}
       {/* <label className="flex flex-col gap-2">
         <p className="w-80">{field.label}</p>
         <input

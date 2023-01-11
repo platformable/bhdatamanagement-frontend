@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import TopEventsInfo from "../../../../components/TopEventsInfo";
-import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
+import {  withPageAuthRequired } from "@auth0/nextjs-auth0";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -34,100 +34,48 @@ import LessonLearned from "../../../../components/oef-post-event-survey/LessonLe
 import DocumentUploadDropbox from "../../../../components/oef-post-event-survey/DropboxDocumentUpload";
 import PictureUploadDropbox from "../../../../components/oef-post-event-survey/PictureUploadDropbox";
 import OtherTesting from "../../../../components/oef-post-event-survey/OtherTesting";
+import Status from "../../../../components/oef-post-event-survey/Status";
+import Notes from "../../../../components/oef-post-event-survey/Notes";
 
-const PostEventReport = ({ event, fbos }) => {
-  const { user, error, isLoading } = useUser();
+const PostEventReport = ({ event, fbos, user }) => {
+  // console.log("data", event);
+
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
 
+  const loggedUserRole = user && user["https://lanuevatest.herokuapp.com/roles"];
+  // const loggedUserLastname =
+  //   user && user["https://lanuevatest.herokuapp.com/lastname"];
 
 
-  /////////////////////////////////////////////
-  const [file, setFile] = useState(null);
-  const [fileName, setFileName] = useState("");
-  const [loading, setLoading] = useState(false);
+  const isEditable = loggedUserRole === 'Supervisor' && (new Date().toLocaleDateString() , new Date(event?.eventdate).toLocaleDateString())
 
-  const onSubmitFile = async (e, folder) => {
-    setLoading(!loading);
-
-    const form = new FormData();
-    const blob = new Blob([e.target.files[0]], {
-      type: "text/plain",
-    });
-    console.log("blob", blob);
-
-    form.append("file", blob);
-
-    const dateNow = JSON.stringify(new Date());
-
-    const headerDataForUpload = {
-      autorename: false,
-      mode: "add",
-      mute: false,
-      path: `${event?.folderpath}/${folder}/${e.target.files[0].name}`,
-      strict_conflict: false,
-    };
-    console.log(folder, fileName)
-
-    try {
-      const tokenResponse = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/access_token`
-      );
-      const token = await tokenResponse.json();
-      const response = await fetch(
-        "https://content.dropboxapi.com/2/files/upload",
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token.access_token}`,
-            "Content-Type": "application/octet-stream",
-            "Dropbox-API-Arg": JSON.stringify(headerDataForUpload),
-          },
-          body: blob,
-        }
-      );
-      // setLoading(false)
-      console.log("response", response);
-      if (response.status === 200) {
-        const data = await response.json();
-        setLoading(false);
-        // notifyMessage(fileName);
-        setFile(null);
-        setFileName("");
-        console.log("saved");
-        // setUploadSuccess(!uploadSuccess)
-      }
-    } catch (error) {
-      setLoading(false)
-      // setError(error.message)
-      console.error("upload error", error);
-    }
-  };
-
-  ///////////////////////////////////////////////////////////////////////////////
-  const loggedUsername = user && user["https://lanuevatest.herokuapp.com/name"];
-  const loggedUserLastname = user && user["https://lanuevatest.herokuapp.com/lastname"];
-console.log("data", event)
+  const [submissionForm, setSubmissionForm] = useState({
+    oefEventEmail: event?.oefeventemail,
+    id: Number(event?.eventid),
+    submissionNotes: event?.submissionnotes || "",
+    submissionStatus: event?.submissionstatus || "",
+  });
   const [eventForm, setEventForm] = useState({
     isClusterEvent: event?.isclusterevent || "",
     cluster: event?.cluster || "",
-    clusterFbos:event?.clusterfbos || [],
+    clusterFbos: event?.clusterfbos || [],
     partnerOrganization1: event?.partnerorganization1 || "",
     partnerOrganization1Other: event?.partnerorganization1other || "",
     partnerOrganization2: event?.partnerorganization2 || "",
-    nationalAwarenessDay: event?.nationalawarenessday ||  "",
+    nationalAwarenessDay: event?.nationalawarenessday || "",
     targetAudience: event?.targetaudience || [],
     targetAudienceOther: event?.targetaudienceother || "",
     totalTalkedHivPrepSaferSex: event?.totaltalkedhivprepsafersex || 0,
     eventQuestions: event?.eventquestions || "",
     eventHighlights: event?.eventhighlights || "",
-    capacityTrainingUseful: event?.capacitytraininguseful ||"",
-    lessonsLearned: event?.lessonslearned  || "",
+    capacityTrainingUseful: event?.capacitytraininguseful || "",
+    lessonsLearned: event?.lessonslearned || "",
     nationalAwarenessDayOther: event?.nationalawarenessdayother || "",
     id: Number(event?.id),
     eventID: Number(event?.eventid),
     eventDateCreated: new Date(),
     programID: event?.programid,
-    programName: 'OEF',
+    programName: "OEF",
     eventName: event?.eventname,
     eventDate: event && new Date(event?.eventdate),
     eventStartTime: event?.eventstarttime,
@@ -135,7 +83,7 @@ console.log("data", event)
     // eventLocationTypeName: event?.eventlocationtypename,
     // healthAreaOfFocusName: event?.healthareaoffocusname.join(", "),
     eventTypeName: event?.eventtypename || "",
-    zipCode:  event?.eventzipcode || 0 ,
+    zipCode: event?.eventzipcode || 0,
     // locationAddress: "" || event?.locationaddress,
     // locationName: "" || event?.locationname,
     // locationNameOther: "" || event?.locationnameother,
@@ -152,7 +100,8 @@ console.log("data", event)
     // otherEventLeaflets: 0,
     // preparedMeals: 0,
     handSanitizers: event?.handsanitizers || 0,
-    covidVaccineSiteReferralDetails: event?.covidvaccinesitereferraldetails || 0,
+    covidVaccineSiteReferralDetails:
+      event?.covidvaccinesitereferraldetails || 0,
     // maleCondoms: 0,
     // femaleCondoms: 0,
     // lubricant: 0,
@@ -205,14 +154,17 @@ console.log("data", event)
     hivBlackOrAfricanAmerican: event?.hivblackorafricanamerican || 0,
     hivHispanic: event?.hivhispanic || 0,
     hivAsian: event?.hivasian || 0,
-    hivAmericanIndianOrAlaskaNative: event?.hivamericanindianoralaskanative || 0,
+    hivAmericanIndianOrAlaskaNative:
+      event?.hivamericanindianoralaskanative || 0,
     hivMiddleEasternOrNorthAfrican: event?.hivmiddleeasternornorthafrican || 0,
-    hivNativeHawaiianOrOtherPacificIslander: event?.hivnativehawaiianorotherpacificislander || 0,
+    hivNativeHawaiianOrOtherPacificIslander:
+      event?.hivnativehawaiianorotherpacificislander || 0,
     hivWhite: event?.hivwhite || 0,
     hivSomeOtherRace: event?.hivsomeotherrace || 0,
     hivRaceDeclinedToAnswer: event?.hivracedeclinedtoanswer || 0,
     hivNotHispanic: event?.hivnothispanic || 0,
-    hivMexicanMexicanAmericanOrChicano: event?.hivmexicanmexicanamericanorchicano || 0,
+    hivMexicanMexicanAmericanOrChicano:
+      event?.hivmexicanmexicanamericanorchicano || 0,
     hivPuertoRican: event?.hivpuertorican || 0,
     hivCuban: event?.hivcuban || 0,
     hivDominican: event?.hivdominican || 0,
@@ -225,7 +177,8 @@ console.log("data", event)
     hivQueer: event?.hivqueer || 0,
     hivQuestioningOrNotSure: event?.hivquestioningornotsure || 0,
     hivSexualOrientationUnknown: event?.hivsexualorientationunknown || 0,
-    hivSexualOrientationDeclinedToAnswer: event?.hivsexualorientationdeclinedtoanswer || 0,
+    hivSexualOrientationDeclinedToAnswer:
+      event?.hivsexualorientationdeclinedtoanswer || 0,
     hepCTestingAgency: event?.hepctestingagency || "",
     hepCTestedTotal: event?.hepctestedtotal || 0,
     hepCReactiveResults: event?.hepcreactiveresults || 0,
@@ -256,14 +209,18 @@ console.log("data", event)
     hepCBlackOrAfricanAmerican: event?.hepcblackorafricanamerican || 0,
     hepCHispanic: event?.hepchispanic || 0,
     hepCAsian: event?.hepcasian || 0,
-    hepCAmericanIndianOrAlaskaNative: event?.hepcamericanindianoralaskanative || 0,
-    hepCMiddleEasternOrNorthAfrican: event?.hepcmiddleeasternornorthafrican || 0,
-    hepCNativeHawaiianOrOtherPacificIslander: event?.hepcnativehawaiianorotherpacificislander || 0,
+    hepCAmericanIndianOrAlaskaNative:
+      event?.hepcamericanindianoralaskanative || 0,
+    hepCMiddleEasternOrNorthAfrican:
+      event?.hepcmiddleeasternornorthafrican || 0,
+    hepCNativeHawaiianOrOtherPacificIslander:
+      event?.hepcnativehawaiianorotherpacificislander || 0,
     hepCWhite: event?.hepcwhite || 0,
     hepCSomeOtherRace: event?.hepcsomeotherrace || 0,
     hepCRaceDeclinedToAnswer: event?.hepcracedeclinedtoanswer || 0,
     hepCNotHispanic: event?.hepcnothispanic || 0,
-    hepCMexicanMexicanAmericanOrChicano: event?.hepcmexicanmexicanamericanorchicano || 0,
+    hepCMexicanMexicanAmericanOrChicano:
+      event?.hepcmexicanmexicanamericanorchicano || 0,
     hepCPuertoRican: event?.hepcpuertorican || 0,
     hepCCuban: event?.hepccuban || 0,
     hepCDominican: event?.hepcdominican || 0,
@@ -276,7 +233,8 @@ console.log("data", event)
     hepCQueer: event?.hepcqueer || 0,
     hepCQuestioningOrNotSure: event?.hepcquestioningornotsure || 0,
     hepCSexualOrientationUnknown: event?.hepcsexualorientationunknown || 0,
-    hepCSexualOrientationDeclinedToAnswer: event?.hepcsexualorientationdeclinedtoanswer || 0,
+    hepCSexualOrientationDeclinedToAnswer:
+      event?.hepcsexualorientationdeclinedtoanswer || 0,
     otherTestingType: event?.othertestingtype || "",
     otherTestedTotal: event?.othertestedtotal || 0,
     hivGenderNotSureQuestioning: event?.hivgendernotsurequestioning || 0,
@@ -290,10 +248,8 @@ console.log("data", event)
     altAgeHepC19_24: event?.altagehepc19_24 || 0,
     hepCMoreThanOneRace: event?.hepcmorethanonerace || 0,
     datePostEventSurvey: event?.dateposteventsurvey || new Date(),
-    // namePostEventSurvey: loggedUsername + " " + loggedUserLastname,
     guestSpeakers: event?.guestspeakers || "",
     nameGuestSpeakers: event?.nameguestspeakers || "",
-    
   });
   const userId = user && user.sub;
 
@@ -322,17 +278,37 @@ console.log("data", event)
 
     // if (!isEmpty) {
     axios
-      .put  (
+      .put(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/event/update`,
         eventForm
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
-          console.log(response)
-          // setTimeout(() => {
-          //   router.back();
-          // }, 1500);
+          submitSubmissionForm()
+          console.log(response);
+       
+        }
+      })
+      .catch(function (error) {
+        console.error("error: ", error);
+      });
+  };
+  const submitSubmissionForm = async () => {
+    // const isEmpty = Object.values(eventForm).some((value) => !value);
+
+    // if (!isEmpty) {
+    axios
+      .put(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/update_from_event_output`,
+        submissionForm
+      )
+      .then((response) => {
+        if (response.data.statusText === "OK") {
+          console.log(response);
+          setTimeout(() => {
+            router.push(router.asPath.replace('edit-post-event-survey', 'success'))
+          }, 1500);
         }
       })
       .catch(function (error) {
@@ -340,7 +316,7 @@ console.log("data", event)
       });
   };
 
-  console.log("eventForm", eventForm);
+  // console.log("eventForm", eventForm);
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -350,7 +326,7 @@ console.log("data", event)
           dashboardBtn={true}
           pageTitle={"Edit Post-event survey"}
         />
-        <div className="container mx-auto md:px-0 px-5 items-center">
+        <div className={`${isEditable && 'pointer-events-none'} container mx-auto md:px-0 px-5 items-center`}>
           <TopEventsInfo event={event} />
 
           <div className="post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
@@ -446,11 +422,29 @@ console.log("data", event)
               setEventForm={setEventForm}
               isNumberKey={isNumberKey}
             />
-            <DocumentUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}/Documents`} title="Upload supporting documentation - upload any flyers here" />
-            <PictureUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}`} index="1" title="Upload an event picture here:" />
-            <PictureUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}`} index="2" title="Upload another event picture"/>
-            <PictureUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}`} index="3" title="Upload another event picture"/>
-
+            <DocumentUploadDropbox
+              FileUploadedMessage={FileUploadedMessage}
+              path={`${event?.folderpath}/Documents`}
+              title="Upload supporting documentation - upload any flyers here"
+            />
+            <PictureUploadDropbox
+              FileUploadedMessage={FileUploadedMessage}
+              path={`${event?.folderpath}`}
+              index="1"
+              title="Upload an event picture here:"
+            />
+            <PictureUploadDropbox
+              FileUploadedMessage={FileUploadedMessage}
+              path={`${event?.folderpath}`}
+              index="2"
+              title="Upload another event picture"
+            />
+            <PictureUploadDropbox
+              FileUploadedMessage={FileUploadedMessage}
+              path={`${event?.folderpath}`}
+              index="3"
+              title="Upload another event picture"
+            />
 
             <TestingDone eventForm={eventForm} setEventForm={setEventForm} />
 
@@ -480,7 +474,11 @@ console.log("data", event)
                 setEventForm={setEventForm}
                 isNumberKey={isNumberKey}
               >
-                <TestingDocuments FileUploadedMessage={FileUploadedMessage} path={event?.folderpath} testName={"HIV"} />
+                <TestingDocuments
+                  FileUploadedMessage={FileUploadedMessage}
+                  path={event?.folderpath}
+                  testName={"HIV"}
+                />
               </PostEventReportSection23>
             )}
 
@@ -490,7 +488,11 @@ console.log("data", event)
                 setEventForm={setEventForm}
                 isNumberKey={isNumberKey}
               >
-                <TestingDocuments FileUploadedMessage={FileUploadedMessage} path={event?.folderpath} testName={"Hepatitis C"} />
+                <TestingDocuments
+                  FileUploadedMessage={FileUploadedMessage}
+                  path={event?.folderpath}
+                  testName={"Hepatitis C"}
+                />
               </PostEventReportSection25>
             )}
 
@@ -503,6 +505,14 @@ console.log("data", event)
                 />
               </>
             )}
+            <Status
+              submissionForm={submissionForm}
+              setSubmissionForm={setSubmissionForm}
+            />
+            <Notes
+              submissionForm={submissionForm}
+              setSubmissionForm={setSubmissionForm}
+            />
           </div>
           <div className="flex justify-center my-10">
             <button
@@ -524,9 +534,9 @@ export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const { id } = ctx.params;
     const [data, fbos] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/event/${id}`).then((r) =>
-        r.json()
-      ),
+      fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/event/${id}`
+      ).then((r) => r.json()),
       fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
     ]);
     return {
