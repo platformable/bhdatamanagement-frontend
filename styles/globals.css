@@ -84,6 +84,7 @@ h6 {
   --lightViolet: #ebdae9;
   --extraLightViolet: #ebdae980;
   --middleWhite: #f5f0f6;
+  --skyblue: #A1EDD2;
 }
 
 /* [type="“checkbox”"],
@@ -331,7 +332,9 @@ input[type="number"] {
 .bg-middleWhite {
   background-color: var(--middleWhite);
 }
-
+.bg-sky-blue {
+  background-color: var(--skyblue);
+}
 /* BORDERS */
 .border-black {
   border: 1px solid black;

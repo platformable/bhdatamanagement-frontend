@@ -26,7 +26,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import ResponseStatusModal from "../../components/ResponseStatusModal";
 
-const Register = ({ programs, locationTypes, areasOfFocus, eventTypes,fbos }) => {
+const Register = ({ fbos }) => {
   const router = useRouter();
   const { user, error, isLoading } = useUser();
   let userId = user?.sub;
@@ -98,16 +98,17 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes,fbos }) =>
   const submitEventForm = async () => {
 
     setLoading(true);
+    setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
+    setShowResponseStatus(true)
 
     notifyMessage()
-    // setTimeout(() => {
-    //   router.push("/oef/events/403/post-event-survey");
-    // }, 15000);
+   
     await axios
       .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/create`, eventForm)
       .then((response) => {
         if (response.data.statusText === "OK") {
           setLoading(false);
+          setShowResponseStatus(false)
           //notifyMessage();
         setTimeout(() => {
       router.push(`/oef/events/${response.data.createdEventId}/post-event-survey`);
@@ -117,6 +118,8 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes,fbos }) =>
       })
       .catch(function (error) {
         setLoading(false);
+        setResponseStatus({ success: true, statusMessage: "An error ocurred, try again"})
+
         console.error("error: ", error);
       });
   };
@@ -154,8 +157,8 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes,fbos }) =>
     {/*   <Layout showStatusHeader={true}> */}
         <ToastContainer autoClose={15000} />
         <PageTopHeading
-          backBtn={true}
-          dashboardBtn={true}
+          backBtn={user ? true : false}
+          dashboardBtn={user ? true : false}
           pageTitle={"Register an event"}
         />
         <div className="container mx-auto border rounded-lg mb-10">
@@ -196,33 +199,10 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes,fbos }) =>
 
 export default Register;
 
-export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    
-    const [programs, locationTypes, areasOfFocus, eventTypes,fbos] =
-      await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/programs`).then((r) =>
-          r.json()
-        ),
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/event_location_type`).then(
-          (r) => r.json()
-        ),
-        fetch(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/health_area_of_focus`
-        ).then((r) => r.json()),
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/event_type`).then((r) =>
-          r.json()
-        ),
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
-      ]);
-    return {
-      props: {
-        programs: programs,
-        locationTypes: locationTypes,
-        areasOfFocus: areasOfFocus,
-        eventTypes: eventTypes,
-        fbos:fbos
-      },
-    };
-  },
-});
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`)
+  const data = await res.json()
+  // Pass data to the page via props
+  return { props: { fbos: data } }
+}
