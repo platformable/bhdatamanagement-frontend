@@ -453,8 +453,8 @@ console.log(event)
 
 export default PostEventReport;
 
-export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
+
+export const getServerSideProps = async(ctx) => {
     const { id } = ctx.params;
     const [data, fbos] = await Promise.all([
       fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`).then((r) =>
@@ -468,5 +468,4 @@ export const getServerSideProps = withPageAuthRequired({
         fbos: fbos,
       },
     };
-  },
-});
+}

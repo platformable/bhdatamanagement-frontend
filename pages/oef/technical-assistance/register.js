@@ -137,15 +137,12 @@ const RegisterTA = ({ fbos }) => {
 
 export default RegisterTA;
 
-export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
+export const getServerSideProps = async(ctx) => {
     const [fbos] = await Promise.all([
       fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
     ]);
     return { props: { fbos: fbos } };
 
-    /*  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/clients`);
-      const data = await res.json();
-      return { props: { data } }; */
-  },
-});
+  }
+
+

@@ -36,18 +36,19 @@ import PictureUploadDropbox from "../../../../components/oef-post-event-survey/P
 import OtherTesting from "../../../../components/oef-post-event-survey/OtherTesting";
 import Status from "../../../../components/oef-post-event-survey/Status";
 import Notes from "../../../../components/oef-post-event-survey/Notes";
+import ExternalSurveyHeader from "../../../../components/ExternalSurveyHeader";
 
-const PostEventReport = ({ event, fbos, user }) => {
+const ExternalPostEventReport = ({ event, fbos, user }) => {
   // console.log("data", event);
 
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
 
-  const loggedUserRole = user && user["https://lanuevatest.herokuapp.com/roles"];
+  // const loggedUserRole = user && user["https://lanuevatest.herokuapp.com/roles"];
   // const loggedUserLastname =
   //   user && user["https://lanuevatest.herokuapp.com/lastname"];
 
 
-  const isEditable = loggedUserRole === 'Supervisor' && (new Date().toLocaleDateString() === new Date(event?.eventdate).toLocaleDateString())
+  const isEditable =  (new Date().toLocaleDateString() === new Date(event?.eventdatecreated).toLocaleDateString())
 
 
   const [submissionForm, setSubmissionForm] = useState({
@@ -320,14 +321,9 @@ const PostEventReport = ({ event, fbos, user }) => {
   // console.log("eventForm", eventForm);
   return (
     <>
-      <Layout showStatusHeader={true}>
-        <ToastContainer autoClose={1500} />
-        <PageTopHeading
-          backBtn={true}
-          dashboardBtn={true}
-          pageTitle={"Edit Post-event survey"}
-        />
-        <div className={`${!isEditable && 'pointer-events-none'} container mx-auto md:px-0 px-5 items-center`}>
+      <div className={`container mx-auto md:px-0 px-5 items-center mt-10`}>
+        {/* <h2 className="font-black mb-7"></h2> */}
+        <ExternalSurveyHeader title={'Edit OEF Outreach event post report for FBO'} />
           <TopEventsInfo event={event} />
 
           <div className="post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
@@ -524,15 +520,13 @@ const PostEventReport = ({ event, fbos, user }) => {
             </button>
           </div>
         </div>
-      </Layout>
     </>
   );
 };
 
-export default PostEventReport;
+export default ExternalPostEventReport;
 
-export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
+  export const getServerSideProps = async(ctx) => {
     const { id } = ctx.params;
     const [data, fbos] = await Promise.all([
       fetch(
@@ -546,5 +540,4 @@ export const getServerSideProps = withPageAuthRequired({
         fbos: fbos,
       },
     };
-  },
-});
+  }
