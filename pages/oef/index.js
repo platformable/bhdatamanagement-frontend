@@ -93,7 +93,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
                         <div className="flex justify-center ">
                         </div>
                         <p className=" font-bold text-white uppercase">
-                          Manage <br /> existing events
+                          Manage FBO <br /> events
                         </p>
                       </div>{" "}
                     </button>

@@ -204,10 +204,24 @@ const EventsIndex = ({ events }) => {
   );
 
   console.log(sortedEventsByDate);
+
+
+  const changeStatusBg = (submissionstatus)=>{
+
+    let color
+    submissionstatus==='Submitted'?color='bg-green-50':null
+    submissionstatus==='Pending'?color='bg-orange-50':null
+    submissionstatus==='Canceled'?color='bg-red-50':null
+    return color
+
+  }  
+
+
+
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Manage existing events NYS"}
+        pageTitle={"Manage FBO Events"}
         dashboardBtn={true}
         backBtn={true}
       />
@@ -254,19 +268,24 @@ const EventsIndex = ({ events }) => {
         </div>
       </div>
 
-      <div className="events-cards-container grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
+      <div className="events-cards-container grid md:grid-cols-6 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
       {/*  HEAD TABLE  */}
-      <div className={`hidden md:grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-events-head-table" : `existing-events-head-table`} container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
+      <div className={`hidden md:grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-oef-events-head-table" : `existing-events-head-table`} container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
-        <p className="lg:text-xl font-bold flex items-center ">Event name</p>
+        <p className="lg:text-xl font-bold flex items-center ">Event title</p>
+        <p className="lg:text-xl font-bold flex items-center ">FBO</p>
         <p className="lg:text-xl font-bold flex items-center ">Event date</p>
+        <p className="lg:text-xl font-bold flex items-center ">Status</p>
+        <p className="lg:text-xl font-bold flex items-center ">Date submitted</p>
+        <p className="lg:text-xl font-bold flex items-center ">Review</p>
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
-        <div className="events-index-btn-container grid grid-cols-1 gap-3 p-0">
+        <div className="events-index-btn-container grid grid-cols-1 gap-x-3 p-0">
           {sortedEventsByDate &&
             sortedEventsByDate
-              ?.filter((event, index) => {
+              ?.filter((event,index)=>event.programname==='OEF')
+              .filter((event, index) => {
                 if (
                   searchWord === "" &&
                   dateFilter.startDate === null &&
@@ -275,10 +294,10 @@ const EventsIndex = ({ events }) => {
                   return event;
                 }
                 if (
-                  event.programname
+                  event.eventname
                     .toLowerCase()
                     .includes(searchWord.toLowerCase()) ||
-                  event.eventname
+                  event.deliverypartner
                     .toLowerCase()
                     .includes(searchWord.toLowerCase())
                 ) {
@@ -301,7 +320,7 @@ const EventsIndex = ({ events }) => {
                   return filterPass;
                 }
               })
-              .filter((event,index)=>event.programname==='OEF')
+             
               .map((event, index) => {
               
                 return (
@@ -331,41 +350,52 @@ const EventsIndex = ({ events }) => {
                     <div className="hidden sm:block">
                       <section
                         key={index}
-                        className={`grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-events-head-table" : "existing-events-head-table"} px-7 py-7  rounded shadow-md`}
+                        className={`grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-oef-events-head-table" : "existing-events-head-table"} px-7  rounded shadow-md`}
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
-                        <div className="flex items-center lg:text-xl font-bold ">
+                        <div className="flex items-center lg:text-xl font-bold  py-7">
                           {event.eventname}
                         </div>
+                        <div className="flex items-center lg:text-xl font-bold py-7">
+                          {event.deliverypartner}
+                        </div>
+                        
                         <div className="flex items-center lg:text-xl font-bold mr-2">
                           {
                             event.eventdate &&
                               new Date(event?.eventdate).toLocaleDateString(
                                 "en-US"
                               )
-                            /* crearFecha2(event) */
                           }
                         </div>
+                        <div className={`flex items-center text-center justify-center lg:text-xl font-bold ${changeStatusBg(event.submissionstatus)}`}>
+                          <p className="text-center">{event.submissionstatus}</p>
+                        </div>
+                        <div className="flex items-center lg:text-xl font-bold ">
+                        {
+                            event.eventdatecreated &&
+                              new Date(event?.eventdatecreated).toLocaleDateString(
+                                "en-US"
+                              )
+
+                          }
+                        
+                        </div>
+                        
                         <Link href={`/oef/events/${event.id}/edit`}>
-                          <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
-                            <p className="leading-5">Edit event</p>
+                          <div className="self-center cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
+                            <p className="leading-5">Edit</p>
                           </div>
                         </Link>
-                        <Link href={`/oef/events/${event.id}/participant-survey`}>
+                       {/*  <Link href={`/oef/events/${event.id}/participant-survey`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Participant survey</p>
                           </div>
-                        </Link>
+                        </Link> */}
 
-                        <Link href={`/nys/events/${event.id}/upload-event`}>
-                          <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
-                            <p className="leading-5">
-                              Uploads docs &#38; photos, etc{" "}
-                            </p>
-                          </div>
-                        </Link>
+                    
 
-                        <Link
+                        {/* <Link
                           href={
                             event.posteventreportid
                               ? `/oef/events/${event.id}/edit-post-event-survey`
@@ -378,13 +408,9 @@ const EventsIndex = ({ events }) => {
                               post-event survey
                             </p>
                           </div>
-                        </Link>
-                        <div className="flex items-center">
-                 
-                          {event.submissionstatus}
-       
-                        </div>
-                        {loggedUserRole === "Supervisor" && (
+                        </Link> */}
+                        
+                       {/*  {loggedUserRole === "Supervisor" && (
                           <div className="flex justify-center">
                             <button
                               className="bg-black lg:text-lg py-2 px-5 rounded-lg text-white"
@@ -393,7 +419,7 @@ const EventsIndex = ({ events }) => {
                               Delete event
                             </button>
                           </div>
-                        )}
+                        )} */}
                       </section>
                     </div>
                   </>
