@@ -29,7 +29,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import ResponseStatusModal from "../../../components/ResponseStatusModal";
 
-const Register = ({ programs, locationTypes, areasOfFocus, eventTypes }) => {
+const Register = () => {
   const router = useRouter();
   const { user, error, isLoading } = useUser();
   let userId = user?.sub;
@@ -251,31 +251,4 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes }) => {
 
 export default Register;
 
-export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    
-    const [programs, locationTypes, areasOfFocus, eventTypes] =
-      await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/programs`).then((r) =>
-          r.json()
-        ),
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/event_location_type`).then(
-          (r) => r.json()
-        ),
-        fetch(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/health_area_of_focus`
-        ).then((r) => r.json()),
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/event_type`).then((r) =>
-          r.json()
-        ),
-      ]);
-    return {
-      props: {
-        programs: programs,
-        locationTypes: locationTypes,
-        areasOfFocus: areasOfFocus,
-        eventTypes: eventTypes,
-      },
-    };
-  },
-});
+
