@@ -266,7 +266,8 @@ const EventsIndex = ({ events }) => {
         <div className="events-index-btn-container grid grid-cols-1 gap-3 p-0">
           {sortedEventsByDate &&
             sortedEventsByDate
-              ?.filter((event, index) => {
+              ?.filter((event,index)=>event.programname==='NYS CMP')
+              .filter((event, index) => {
                 if (
                   searchWord === "" &&
                   dateFilter.startDate === null &&
@@ -301,7 +302,7 @@ const EventsIndex = ({ events }) => {
                   return filterPass;
                 }
               })
-              .filter((event,index)=>event.programname==='NYS CMP')
+              
               .map((event, index) => {
                 return (
                   <>

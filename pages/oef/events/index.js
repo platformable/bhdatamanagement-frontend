@@ -209,7 +209,7 @@ const EventsIndex = ({ events }) => {
   const changeStatusBg = (submissionstatus)=>{
 
     let color
-    submissionstatus==='Submitted'?color='bg-green-50':null
+    submissionstatus==='Submitted'?color='bg-blue-50':null
     submissionstatus==='Pending'?color='bg-orange-50':null
     submissionstatus==='Canceled'?color='bg-red-50':null
     return color
