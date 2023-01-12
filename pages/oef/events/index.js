@@ -274,10 +274,10 @@ const EventsIndex = ({ events }) => {
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
         <p className="lg:text-xl font-bold flex items-center ">Event title</p>
         <p className="lg:text-xl font-bold flex items-center ">FBO</p>
-        <p className="lg:text-xl font-bold flex items-center ">Event date</p>
-        <p className="lg:text-xl font-bold flex items-center ">Status</p>
-        <p className="lg:text-xl font-bold flex items-center ">Date submitted</p>
-        <p className="lg:text-xl font-bold flex items-center ">Review</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Event date</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Status</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Date submitted</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Review</p>
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
@@ -360,7 +360,7 @@ const EventsIndex = ({ events }) => {
                           {event.deliverypartner}
                         </div>
                         
-                        <div className="flex items-center lg:text-xl font-bold mr-2">
+                        <div className="flex items-center lg:text-xl font-bold justify-center">
                           {
                             event.eventdate &&
                               new Date(event?.eventdate).toLocaleDateString(
@@ -371,7 +371,7 @@ const EventsIndex = ({ events }) => {
                         <div className={`flex items-center text-center justify-center lg:text-xl font-bold shadow-b-md-bottom py-7 ${changeStatusBg(event.submissionstatus)}`}>
                           <p className="text-center">{event.submissionstatus}</p>
                         </div>
-                        <div className="flex items-center lg:text-xl font-bold ">
+                        <div className="flex items-center lg:text-xl font-bold justify-center">
                         {
                             event.eventdatecreated &&
                               new Date(event?.eventdatecreated).toLocaleDateString(

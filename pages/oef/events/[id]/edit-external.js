@@ -163,12 +163,14 @@ const EditOefEventExternal = ({
                 eventForm={eventForm}
                 setEventForm={setEventForm}
                 event={event}
+                maskField={true}
               />
 
               <Section2
                 eventForm={eventForm}
                 setEventForm={setEventForm}
                 event={event}
+                maskField={true}
               />
               <Section3
                 eventForm={eventForm}

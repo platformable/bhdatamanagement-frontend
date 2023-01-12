@@ -107,12 +107,11 @@ const Register = ({ fbos }) => {
       .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/create`, eventForm)
       .then((response) => {
         if (response.data.statusText === "OK") {
-          setLoading(false);
           //setShowResponseStatus(false)
           //notifyMessage();
         setTimeout(() => {
       router.push(`/oef/events/${response.data.createdEventId}/post-event-survey`);
-       }, 5000);
+       }, 1000);
           console.log("response createdEventId",response.data.createdEventId)
         }
       })
@@ -155,7 +154,7 @@ const Register = ({ fbos }) => {
   return (
     <>
     {/*   <Layout showStatusHeader={true}> */}
-        <ToastContainer autoClose={15000} />
+        <ToastContainer autoClose={20000} />
         <PageTopHeading
           backBtn={user ? true : false}
           dashboardBtn={user ? true : false}
