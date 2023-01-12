@@ -17,7 +17,7 @@ import {
 import { useEffect } from "react";
 
 const EventsIndex = ({ technicalAssistance }) => {
-  console.log("technicallAssistance", technicalAssistance)
+ 
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -78,7 +78,9 @@ const EventsIndex = ({ technicalAssistance }) => {
     (a, b) => new Date(b.tadatesubmitted) - new Date(a.tadatesubmitted)
   );
 
-  console.log(sortedEventsByDate);
+  console.log("sortedEventsByDate", sortedEventsByDate[0]);
+
+
 
 
   const changeStatusBg = (submissionstatus)=>{
@@ -187,7 +189,6 @@ const EventsIndex = ({ technicalAssistance }) => {
                   return filterPass;
                 }
               })
-             
               .map((event, index) => {
               
                 return (
@@ -224,11 +225,12 @@ const EventsIndex = ({ technicalAssistance }) => {
                           {event.tacontactname}
                         </div>
                         <div className="flex items-center lg:text-xl font-bold py-7">
-                          {event.tafbo.join(', ')}
+                          {event.tafbo}
                         </div>
                         
                         <div className="flex items-center lg:text-xl font-bold justify-center text-center">
                         {event.tatype.join(', ')}
+
                         </div>
 
                         <div className="flex items-center lg:text-xl font-bold overflow-hidden">
