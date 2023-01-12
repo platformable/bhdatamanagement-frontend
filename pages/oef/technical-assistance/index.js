@@ -151,12 +151,12 @@ const EventsIndex = ({ technicalAssistance }) => {
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
         <p className="lg:text-xl font-bold flex items-center ">Name</p>
         <p className="lg:text-xl font-bold flex items-center ">FBO</p>
-        <p className="lg:text-xl font-bold flex items-center ">Type of Assistance</p>
-        <p className="lg:text-xl font-bold flex items-center ">Email</p>
-        <p className="lg:text-xl font-bold flex items-center ">Date submitted</p>
-        <p className="lg:text-xl font-bold flex items-center ">Status</p>
-        <p className="lg:text-xl font-bold flex items-center ">Date completed</p>
-        <p className="lg:text-xl font-bold flex items-center ">Review</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Type of Assistance</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Email</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Date submitted</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Status</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Date completed</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Review</p>
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
@@ -171,15 +171,7 @@ const EventsIndex = ({ technicalAssistance }) => {
                 ) {
                   return event;
                 }
-                if (
-                  event?.tacontactname.includes(searchWord.toLowerCase()) 
-                  || event?.tatype.includes(searchWord.toLowerCase())
-                  || event?.tafbo.includes(value=>searchWord===value.toLowerCase())
-                  || event?.taemail.includes(searchWord.toLowerCase())
-                ) {
-                console.log("sortedEventsByDate",sortedEventsByDate)
-                  return event;
-                }
+                return event.tatype.some(type => type.toLowerCase().includes(searchWord)) || event.tafbo.some(type => type.toLowerCase().includes(searchWord))
               })
               .filter((event, index) => {
                 var startDate = new Date(new Date(dateFilter?.startDate).setHours(0))
@@ -236,16 +228,17 @@ const EventsIndex = ({ technicalAssistance }) => {
                           {event.tafbo}
                         </div>
                         
-                        <div className="flex items-center lg:text-xl font-bold mr-2">
-                        {event.tatype}
+                        <div className="flex items-center lg:text-xl font-bold justify-center text-center">
+                        {event.tatype.join(', ')}
+
                         </div>
 
-                        <div className="flex items-center lg:text-xl font-bold mr-2">
+                        <div className="flex items-center lg:text-xl font-bold overflow-hidden">
                         {event.taemail}
                         </div>
                    
    
-                        <div className="flex items-center lg:text-xl font-bold mr-2">
+                        <div className="flex items-center lg:text-xl font-bold justify-center">
                           {
                             event.tadatesubmitted &&
                               new Date(event?.tadatesubmitted).toLocaleDateString(
@@ -256,7 +249,7 @@ const EventsIndex = ({ technicalAssistance }) => {
                         <div className={`flex items-center text-center justify-center lg:text-xl font-bold  py-7 ${changeStatusBg(event.submissionstatus)}`}>
                           <p className="text-center">{event.tastatus}</p>
                         </div>
-                        <div className="flex items-center lg:text-xl font-bold ">
+                        <div className="flex items-center lg:text-xl font-bold justify-center">
                         {
                             event.tadatecompleted ?
                               new Date(event?.tadatecompleted).toLocaleDateString(
