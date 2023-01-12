@@ -14,6 +14,7 @@ const YourContactInformation = ({form, setForm}) => {
           placeholder=''
           name="taContactName"
           onChange={handleForm}
+          defaultValue={form?.taContactName}
         />
       </label>
       <label className="grid items-center mt-5">
@@ -25,6 +26,7 @@ const YourContactInformation = ({form, setForm}) => {
           placeholder=''
           name="taEmail"
           onChange={handleForm}
+          defaultValue={form?.taEmail}
         />
       </label>
       <label className="grid items-center mt-5">
@@ -36,6 +38,7 @@ const YourContactInformation = ({form, setForm}) => {
           placeholder=''
           name="taPhone"
           onChange={handleForm}
+          defaultValue={form?.taPhone}
         />
       </label>
 

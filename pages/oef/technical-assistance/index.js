@@ -171,7 +171,7 @@ const EventsIndex = ({ technicalAssistance }) => {
                 ) {
                   return event;
                 }
-                return event.tatype.some(type => type.toLowerCase().includes(searchWord)) || event.tafbo.some(type => type.toLowerCase().includes(searchWord))
+                return event.tacontactname.includes(searchWord) || event.tatype.some(type => type.toLowerCase().includes(searchWord)) || event.tafbo.some(type => type.toLowerCase().includes(searchWord))
               })
               .filter((event, index) => {
                 var startDate = new Date(new Date(dateFilter?.startDate).setHours(0))
@@ -261,7 +261,7 @@ const EventsIndex = ({ technicalAssistance }) => {
                         </div>
 
                         
-                        <Link href={`/oef/events/${event.id}/edit`}>
+                        <Link href={`/oef/technical-assistance/${event.id}/edit`}>
                           <div className="self-center cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Edit</p>
                           </div>

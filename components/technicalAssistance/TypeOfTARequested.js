@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 const TypeOfTARequested = ({form, setForm}) => {
     const [data, setData] = useState([])
-
+console.log("form",form)
     useEffect(() => {
         setForm(prev=> ({...prev, taType: data}))
     }, [data])
@@ -46,6 +46,7 @@ const TypeOfTARequested = ({form, setForm}) => {
                   name="taType"
                   value={option.value}
                   onChange={handleForm}
+                 defaultChecked={form.taType.includes(option.value) ? 'checked' : ""}
                 />
                 <p>{option.value}</p>
               </label>
@@ -59,6 +60,7 @@ const TypeOfTARequested = ({form, setForm}) => {
                 name="taType"
                 value={option.value}
                 onChange={handleForm}
+                defaultChecked={form.taType.includes(option.value) ? 'checked' : ""}
               />
               <p>{option.value}</p>
             </label>
@@ -69,9 +71,13 @@ const TypeOfTARequested = ({form, setForm}) => {
                 name="taType"
                 value={'Other'}
                 onChange={handleForm}
+                defaultChecked={form.taType.includes('Other') ? 'checked' : ""}
               />
               <p>Other</p>
-              <input type="text" placeholder='Please specify' onChange={(e) => setForm(prev => ({...prev, taTypeOther: e.target.value}))} />
+              <input type="text" placeholder='Please specify' 
+              onChange={(e) => setForm(prev => ({...prev, taTypeOther: e.target.value}))} 
+              defaultValue={form?.taTypeOther}
+              />
             </label>
         </div>
       </div>
