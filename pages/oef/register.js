@@ -90,7 +90,7 @@ const Register = ({ fbos }) => {
   }
 
   const notifyMessage = () => {
-    toast.success("The event is being created", {
+    toast.success("Please wait while your event information is being processed", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
@@ -98,8 +98,8 @@ const Register = ({ fbos }) => {
   const submitEventForm = async () => {
 
     setLoading(true);
-    setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
-    setShowResponseStatus(true)
+    // setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
+    // setShowResponseStatus(true)
 
     notifyMessage()
    
@@ -108,7 +108,7 @@ const Register = ({ fbos }) => {
       .then((response) => {
         if (response.data.statusText === "OK") {
           setLoading(false);
-          setShowResponseStatus(false)
+          //setShowResponseStatus(false)
           //notifyMessage();
         setTimeout(() => {
       router.push(`/oef/events/${response.data.createdEventId}/post-event-survey`);
