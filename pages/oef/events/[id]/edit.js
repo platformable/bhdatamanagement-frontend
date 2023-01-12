@@ -41,7 +41,7 @@ const EditOefEvent = ({
   const isEditable =
     loggedUserRole === "Supervisor" &&
     new Date().toLocaleDateString() ===
-      new Date(event?.eventdate).toLocaleDateString();
+      new Date(event?.eventdatecreated).toLocaleDateString();
 
   // let userId = user?.sub;
   const [showResponseStatus, setShowResponseStatus] = useState(false);

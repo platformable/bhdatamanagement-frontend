@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Section2 = ({eventForm, setEventForm,event}) => {
+const Section2 = ({eventForm, setEventForm,event, maskField}) => {
 
    
 
@@ -13,7 +13,7 @@ const Section2 = ({eventForm, setEventForm,event}) => {
 
             <label> 
             <input type="text" 
-            className="w-134 p-2 border-black rounded text-lg" 
+            className={`w-134 p-2 border-black rounded text-lg ${maskField && 'filter blur-sm'}`} 
 
             placeholder='abc@myemail.com' 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Section1 = ({eventForm, setEventForm,event}) => {
+const Section1 = ({eventForm, setEventForm,event, maskField}) => {
 
     const uppercaseWords = str => str.replace(/^(.)|\s+(.)/g, c => c.toUpperCase().replaceAll("[<>'\"/;% ]+", " "));
 
@@ -17,7 +17,7 @@ const Section1 = ({eventForm, setEventForm,event}) => {
 
             <label> 
             <input type="text" 
-            className="w-134 border-black rounded text-lg" 
+            className={`w-134 border-black rounded text-lg ${maskField && 'filter blur-sm'}`} 
 
             placeholder='First Name' 
 
@@ -27,7 +27,7 @@ const Section1 = ({eventForm, setEventForm,event}) => {
             </label>
             <label>
             <input type="text" 
-            className="w-134 border-black rounded text-lg mt-5" 
+            className={`w-134 border-black rounded text-lg mt-5 ${maskField && 'filter blur-sm'}`} 
 
             placeholder='Last Name' 
 
