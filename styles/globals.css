@@ -544,8 +544,8 @@ label > textarea {
 
 .supervisor-technical-assistance-head-table {
  
-  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr ;
-  gap: 30px;
+  grid-template-columns: 1fr 2fr 2fr 2fr 1.5fr 1fr 1.5fr 0.6fr ;
+  gap: 15 px;
 }
 
 /* PARTICIPANT SURVEY */
