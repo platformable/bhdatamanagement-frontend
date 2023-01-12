@@ -17,7 +17,7 @@ import {
 import { useEffect } from "react";
 
 const EventsIndex = ({ technicalAssistance }) => {
-  console.log("technicallAssistance", technicalAssistance)
+ 
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -78,7 +78,9 @@ const EventsIndex = ({ technicalAssistance }) => {
     (a, b) => new Date(b.tadatesubmitted) - new Date(a.tadatesubmitted)
   );
 
-  console.log(sortedEventsByDate);
+  console.log("sortedEventsByDate", sortedEventsByDate[0]);
+
+
 
 
   const changeStatusBg = (submissionstatus)=>{
@@ -170,13 +172,12 @@ const EventsIndex = ({ technicalAssistance }) => {
                   return event;
                 }
                 if (
-                  event.tafbo
-                    .toLowerCase()
-                    .includes(searchWord.toLowerCase()) ||
-                  event.tatype
-                    .toLowerCase()
-                    .includes(searchWord.toLowerCase())
+                  event?.tacontactname.includes(searchWord.toLowerCase()) 
+                  || event?.tatype.includes(searchWord.toLowerCase())
+                  || event?.tafbo.includes(value=>searchWord===value.toLowerCase())
+                  || event?.taemail.includes(searchWord.toLowerCase())
                 ) {
+                console.log("sortedEventsByDate",sortedEventsByDate)
                   return event;
                 }
               })
@@ -196,7 +197,6 @@ const EventsIndex = ({ technicalAssistance }) => {
                   return filterPass;
                 }
               })
-             
               .map((event, index) => {
               
                 return (
@@ -233,11 +233,11 @@ const EventsIndex = ({ technicalAssistance }) => {
                           {event.tacontactname}
                         </div>
                         <div className="flex items-center lg:text-xl font-bold py-7">
-                          {event.tafbo.join(', ')}
+                          {event.tafbo}
                         </div>
                         
                         <div className="flex items-center lg:text-xl font-bold mr-2">
-                        {event.tatype.join(', ')}
+                        {event.tatype}
                         </div>
 
                         <div className="flex items-center lg:text-xl font-bold mr-2">
