@@ -263,9 +263,9 @@ console.log(event)
         if (response.data.statusText === "OK") {
           notifyMessage();
           console.log(response)
-          // setTimeout(() => {
-          //   router.back();
-          // }, 1500);
+          setTimeout(() => {
+            router.push(`/oef/events/${eventForm.eventID}/success`);
+          }, 1500);
         }
       })
       .catch(function (error) {
