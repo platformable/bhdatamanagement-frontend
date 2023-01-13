@@ -33,11 +33,13 @@ import LessonLearned from "../../../../components/oef-post-event-survey/LessonLe
 import DocumentUploadDropbox from "../../../../components/oef-post-event-survey/DropboxDocumentUpload";
 import PictureUploadDropbox from "../../../../components/oef-post-event-survey/PictureUploadDropbox";
 import OtherTesting from "../../../../components/oef-post-event-survey/OtherTesting";
+import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 
 const PostEventReport = ({ event, fbos }) => {
   const { user, error, isLoading } = useUser();
-  const [showDemographicsSection, setShowDemographicsSection] = useState(false);
-
+  const [showDemographicsSection, setShowDemographicsSection] = useState(true);
+  const [showStatusUpload, setShowStatusUpload] = useState(false);
+  const [msgStatusUpload, setMsgStatusUpload] = useState({})
   const loggedUsername = user && user["https://lanuevatest.herokuapp.com/name"];
   const loggedUserLastname = user && user["https://lanuevatest.herokuapp.com/lastname"];
 console.log(event)
@@ -245,9 +247,11 @@ console.log(event)
     });
   };
   const FileUploadedMessage = (fileName) => {
-    toast.success("File saved to dropbox", {
-      position: toast.POSITION.TOP_CENTER,
-    });
+    // toast.success("File saved to dropbox", {
+    //   position: toast.POSITION.TOP_CENTER,
+    // });
+    setMsgStatusUpload({statusMessage: 'File saved to Dropbox'})
+    setShowStatusUpload(true)
   };
 
   const submitPostEventForm = async () => {
@@ -381,9 +385,6 @@ console.log(event)
             />
              <DocumentUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}/Documents`} title="Upload supporting documentation - upload any flyers here" />
             <PictureUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}`} index="1" title="Upload an event picture here:" />
-            <PictureUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}`} index="2" title="Upload another event picture"/>
-            <PictureUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}`} index="3" title="Upload another event picture"/>
-
 
             <TestingDone eventForm={eventForm} setEventForm={setEventForm} />
 
@@ -447,6 +448,8 @@ console.log(event)
           </div>
         </div>
       </Layout>
+      {showStatusUpload && <ResponseStatusModal responseStatus={msgStatusUpload} setShowResponseStatus={setShowStatusUpload}/>}
+
     </>
   );
 };
