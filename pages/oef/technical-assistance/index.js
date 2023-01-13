@@ -78,7 +78,7 @@ const EventsIndex = ({ technicalAssistance }) => {
     (a, b) => new Date(b.tadatesubmitted) - new Date(a.tadatesubmitted)
   );
 
-  console.log("sortedEventsByDate", sortedEventsByDate[0]);
+  console.log("sortedEventsByDate", sortedEventsByDate);
 
 
 
@@ -86,9 +86,9 @@ const EventsIndex = ({ technicalAssistance }) => {
   const changeStatusBg = (submissionstatus)=>{
 
     let color
-    submissionstatus==='Submitted'?color='bg-blue-50':null
-    submissionstatus==='Pending'?color='bg-orange-50':null
-    submissionstatus==='Canceled'?color='bg-red-50':null
+    submissionstatus==='Submitted'?color='submittedBg':null
+    submissionstatus==='Pending'?color='pendingBg':null
+    submissionstatus==='Complete'?color='completeBg':null
     return color
 
   }  
@@ -225,7 +225,7 @@ const EventsIndex = ({ technicalAssistance }) => {
                           {event.tacontactname}
                         </div>
                         <div className="flex items-center lg:text-xl font-bold py-7">
-                          {event.tafbo}
+                          {event.tafbo.join(', ')}
                         </div>
                         
                         <div className="flex items-center lg:text-xl font-bold justify-center text-center">
@@ -246,7 +246,7 @@ const EventsIndex = ({ technicalAssistance }) => {
                               )
                           } 
                         </div>
-                        <div className={`flex items-center text-center justify-center lg:text-xl font-bold  py-7 ${changeStatusBg(event.submissionstatus)}`}>
+                        <div className={`flex items-center text-center justify-center lg:text-xl font-bold  py-7 ${changeStatusBg(event.tastatus)}`}>
                           <p className="text-center">{event.tastatus}</p>
                         </div>
                         <div className="flex items-center lg:text-xl font-bold justify-center">

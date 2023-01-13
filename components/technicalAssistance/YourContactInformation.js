@@ -1,6 +1,6 @@
 import React from 'react';
 
-const YourContactInformation = ({form, setForm}) => {
+const YourContactInformation = ({form, setForm,isEditPage}) => {
     const handleForm = (e) => setForm(prev => ({...prev, [e.target.name]: e.target.value}))
     return (
         <div className="question-body">
@@ -15,6 +15,7 @@ const YourContactInformation = ({form, setForm}) => {
           name="taContactName"
           onChange={handleForm}
           defaultValue={form?.taContactName}
+          disabled={isEditPage?true:false}
         />
       </label>
       <label className="grid items-center mt-5">
@@ -27,6 +28,7 @@ const YourContactInformation = ({form, setForm}) => {
           name="taEmail"
           onChange={handleForm}
           defaultValue={form?.taEmail}
+          disabled={isEditPage?true:false}
         />
       </label>
       <label className="grid items-center mt-5">
@@ -39,6 +41,7 @@ const YourContactInformation = ({form, setForm}) => {
           name="taPhone"
           onChange={handleForm}
           defaultValue={form?.taPhone}
+          disabled={isEditPage?true:false}
         />
       </label>
 

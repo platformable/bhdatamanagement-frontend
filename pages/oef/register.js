@@ -98,10 +98,10 @@ const Register = ({ fbos }) => {
   const submitEventForm = async () => {
 
     setLoading(true);
-    // setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
-    // setShowResponseStatus(true)
+    setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
+    setShowResponseStatus(true)
 
-    notifyMessage()
+    //notifyMessage()
    
     await axios
       .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/create`, eventForm)

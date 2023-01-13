@@ -85,6 +85,10 @@ h6 {
   --extraLightViolet: #ebdae980;
   --middleWhite: #f5f0f6;
   --skyblue: #A1EDD2;
+  --completeBg:#A1EDD2;
+  --pendingBg:#F2C0A2;
+  --submittedBg:#96CFF2;
+  --declinedBg:#DE8EA3;
 }
 
 /* [type="“checkbox”"],
@@ -93,6 +97,20 @@ h6 {
   width: 24px !important;
 } */
 
+
+
+.completeBg{
+background-color: var(--completeBg);
+}
+.pendingBg {
+background-color: var(--pendingBg);
+}
+.submittedBg{
+background-color: var(--submittedBg);
+}
+.declinedBg{
+background-color: var(--declinedBg);
+}
 .lne-text-white {
   color: white !important;
 }

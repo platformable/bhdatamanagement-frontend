@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import {languages} from "../../utils/sharedData";
 
 
-const FboName = ({form, setForm,fbos}) => {
+const FboName = ({form, setForm,fbos,isEditPage}) => {
   
   const [data,setData]=useState([...form.taFbo])
 
@@ -40,6 +40,7 @@ const FboName = ({form, setForm,fbos}) => {
                 name="taFbo"
                 value={'All FBOs'}
                 onChange={(e)=>handleForm(e.target.value)}
+                disabled={isEditPage?true:false}
               />
               <p>All FBOs</p>
               
@@ -54,6 +55,7 @@ const FboName = ({form, setForm,fbos}) => {
              id={index}
              onChange={(e)=>handleForm(e.target.value)}
              defaultChecked={form.taFbo.includes(fbo.namefbo) ? 'checked' : ""}
+             disabled={isEditPage?true:false}
            />
            {fbo.namefbo}
          </label>
@@ -71,6 +73,7 @@ const FboName = ({form, setForm,fbos}) => {
              id={index}
              onChange={(e)=>handleForm(e.target.value)}
              defaultChecked={form.taFbo.includes(fbo.namefbo) ? 'checked' : ""}
+             disabled={isEditPage?true:false}
            />
            {fbo.namefbo}
          </label>
@@ -81,9 +84,10 @@ const FboName = ({form, setForm,fbos}) => {
                 name="taFbo"
                 value={'Other'}
                 onChange={(e)=>handleForm(e.target.value)}
+                disabled={isEditPage?true:false}
               />
               <p>Other</p>
-              <input type="text" placeholder='Please specify' onChange={(e) => setForm(prev => ({...prev, taFboOther: e.target.value}))} />
+              <input disabled={isEditPage?true:false} type="text" placeholder='Please specify' onChange={(e) => setForm(prev => ({...prev, taFboOther: e.target.value}))} />
             </label>
         </div>
       </div>

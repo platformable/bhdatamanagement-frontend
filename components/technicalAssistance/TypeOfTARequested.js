@@ -1,7 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 
-const TypeOfTARequested = ({form, setForm}) => {
+
+const TypeOfTARequested = ({form, setForm,isEditPage}) => {
     const [data, setData] = useState([])
 console.log("form",form)
     useEffect(() => {
@@ -47,6 +48,7 @@ console.log("form",form)
                   value={option.value}
                   onChange={handleForm}
                  defaultChecked={form.taType.includes(option.value) ? 'checked' : ""}
+                 disabled={isEditPage?true:false}
                 />
                 <p>{option.value}</p>
               </label>
@@ -61,6 +63,7 @@ console.log("form",form)
                 value={option.value}
                 onChange={handleForm}
                 defaultChecked={form.taType.includes(option.value) ? 'checked' : ""}
+                disabled={isEditPage?true:false}
               />
               <p>{option.value}</p>
             </label>
@@ -72,11 +75,13 @@ console.log("form",form)
                 value={'Other'}
                 onChange={handleForm}
                 defaultChecked={form.taType.includes('Other') ? 'checked' : ""}
+                disabled={isEditPage?true:false}
               />
               <p>Other</p>
               <input type="text" placeholder='Please specify' 
               onChange={(e) => setForm(prev => ({...prev, taTypeOther: e.target.value}))} 
               defaultValue={form?.taTypeOther}
+              disabled={isEditPage?true:false}
               />
             </label>
         </div>

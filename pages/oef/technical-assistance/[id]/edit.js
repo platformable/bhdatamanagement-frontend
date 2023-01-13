@@ -13,17 +13,25 @@ import TypeOfTARequested from "../../../../components/technicalAssistance/TypeOf
 import ReasonForRequest from "../../../../components/technicalAssistance/ReasonForRequest";
 import YourContactInformation from "../../../../components/technicalAssistance/YourContactInformation";
 import FboName from "../../../../components/technicalAssistance/FboName";
+import Notes from "../../../../components/technicalAssistance/Notes";
 import Outcome from "../../../../components/technicalAssistance/Outcome";
 import DateResolved from "../../../../components/technicalAssistance/DateResolved";
 import Complete from "../../../../components/technicalAssistance/Complete";
 import ExternalSurveyHeader from "../../../../components/ExternalSurveyHeader";
+import ResponseStatusModal from '../../../../components/ResponseStatusModal'
 
 const EditTA = ({ technicalAssistance,fbos }) => {
   const [error, setError] = useState("");
+  const [showResponseStatus, setShowResponseStatus] = useState(false);
+  const [responseStatus, setResponseStatus] = useState({});
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
+  const isEditPage=router.pathname.includes('edit')
+
   console.log("technicalAssistance",technicalAssistance)
+
+
 
   const isNumberKey = (e) => {
     const invalidChars = ["-", "+", "e"];
@@ -32,6 +40,7 @@ const EditTA = ({ technicalAssistance,fbos }) => {
     }
   };
   const [form, setForm] = useState({
+    id:technicalAssistance.id,
     taType: technicalAssistance?.tatype,
     taTypeOther: technicalAssistance?.tatypeother,
     taReason: technicalAssistance?.tareason,
@@ -55,18 +64,20 @@ const EditTA = ({ technicalAssistance,fbos }) => {
   };
   const submitForm = async () => {
     setLoading(!loading);
-  /*   await axios
-      .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/technical_assistance/create`,
+    setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
+    setShowResponseStatus(true)
+    await axios
+      .put(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/technical_assistance/update`,
         form
       )
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
           setLoading(!loading);
-          notifyMessage();
+          setResponseStatus({ success: true, statusMessage: "Technical Assistance updated correctly"})
           setTimeout(() => {
-            router.push("/oef");
+            router.push("/oef/technical-assistance");
           }, 1500);
         }
       })
@@ -74,7 +85,7 @@ const EditTA = ({ technicalAssistance,fbos }) => {
         setLoading(!loading);
         setError("An error ocurred, try again");
         console.error("error: ", error);
-      }); */
+      });
   };
   const boroughs = [
     "Bronx",
@@ -91,13 +102,14 @@ const EditTA = ({ technicalAssistance,fbos }) => {
     setForm((prev) => ({ ...prev, key: value }));
   };
 
+  const handleStatus = (e) => setForm(prev => ({...prev, taStatus: e.target.value})) 
   console.log(form);
   return (
     <>
       <Layout>
       <ToastContainer autoClose={1500} />
       <PageTopHeading
-          pageTitle={"Edit Technical Assistance Request"}
+          pageTitle={"Review Technical Assistance Request"}
           backBtn={true}
           dashboardBtn={true}
         />
@@ -106,31 +118,26 @@ const EditTA = ({ technicalAssistance,fbos }) => {
 
    
 
-            <div className="question-body">
-        <h2 className="font-black">Status:</h2>
-         <label className='mt-7'>
-              <select
-                onChange={(e) =>
-                  setForm({ ...form, taStatus: e.target.value })
-                }
-                className="select-add-edit-supervisor block text-[#00000065] w-90 mt-1 rounded-md p-2 border-black shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              >
-                <option value={form?.taStatus} default>{form?.taStatus}</option>
-                {form?.taStatus==="Submitted"?null:<option value="Submitted" >Submitted</option>}
-                {form?.taStatus==="Pending"?null:<option value="Pending" >Pending</option>}
-                {form?.taStatus==="Completed"?null:<option value="Completed" >Completed</option>}
+      <div className="question-body">
+      <h2 className="font-black">Status:</h2>
+      <div className="grid grid-cols-4 gap-20">
+        <button className={`${form?.taStatus === 'Submitted'? 'submittedBg': null} border-black py-4 rounded shadow-lg`} onClick={handleStatus} value="Submitted">
+          Submitted
+        </button>
+        <button className={`${form?.taStatus === 'Pending'? 'pendingBg': null} border-black py-4 rounded shadow-lg`} onClick={handleStatus} value="Pending">
+          Pending
+        </button>
+        <button className={`${form?.taStatus === 'Complete'? 'completeBg': null} border-black py-4 rounded shadow-lg`} onClick={handleStatus} value="Complete">
+          Complete
+        </button>
+      </div>
+    </div>
+        <Notes form={form} setForm={setForm} />
+        <TypeOfTARequested form={form} setForm={setForm} isEditPage={isEditPage}/>
+        <ReasonForRequest form={form} setForm={setForm} isEditPage={isEditPage}/>
+        <YourContactInformation form={form} setForm={setForm} isEditPage={isEditPage}/>
+        <FboName form={form} setForm={setForm} fbos={fbos} isEditPage={isEditPage}/>
 
-              </select>
-      </label>
-     </div>
-
-        <TypeOfTARequested form={form} setForm={setForm} />
-        <ReasonForRequest form={form} setForm={setForm} />
-        <YourContactInformation form={form} setForm={setForm} />
-        <FboName form={form} setForm={setForm} fbos={fbos} />
-        {/* <Outcome/>
-<DateResolved/>
-<Complete/> */}
       </section>
       {loading ? (
         <div className="flex justify-center my-10">
@@ -139,18 +146,20 @@ const EditTA = ({ technicalAssistance,fbos }) => {
         </div>
       ) : (
         <div className="flex justify-center my-10">
-          <button
-            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-            onClick={submitForm}
-          >
-            <img
-              src="/check-save-and-finish.svg"
-              alt="register event icon"
-              className="mr-2"
-            />
-            Save and finish
-          </button>
-        </div>
+        {loading? null:<button
+           className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
+           onClick={submitForm}
+         >
+           Save
+         </button> } 
+       </div>
+      )}
+
+      {showResponseStatus && (
+        <ResponseStatusModal
+          setShowResponseStatus={setShowResponseStatus}
+          responseStatus={responseStatus}
+        />
       )}
 
       </Layout>
