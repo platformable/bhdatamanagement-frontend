@@ -70,6 +70,7 @@ const DropboxDocumentUpload = ({path, title, FileUploadedMessage}) => {
           <h2 className="font-black">
           {title}
           </h2>
+          <p>You can upload more than one document - please upload one document at a time</p>
           
           <input
             type="file"

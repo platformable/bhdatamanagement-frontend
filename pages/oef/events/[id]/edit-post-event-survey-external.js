@@ -37,11 +37,15 @@ import OtherTesting from "../../../../components/oef-post-event-survey/OtherTest
 import Status from "../../../../components/oef-post-event-survey/Status";
 import Notes from "../../../../components/oef-post-event-survey/Notes";
 import ExternalSurveyHeader from "../../../../components/ExternalSurveyHeader";
+import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 
 const ExternalPostEventReport = ({ event, fbos, user }) => {
   // console.log("data", event);
 
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
+  const [showStatusUpload, setShowStatusUpload] = useState(false);
+  const [msgStatusUpload, setMsgStatusUpload] = useState({})
+
 
   // const loggedUserRole = user && user["https://lanuevatest.herokuapp.com/roles"];
   // const loggedUserLastname =
@@ -270,9 +274,11 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
     });
   };
   const FileUploadedMessage = (fileName) => {
-    toast.success("File saved to dropbox", {
-      position: toast.POSITION.TOP_CENTER,
-    });
+    // toast.success("File saved to dropbox", {
+    //   position: toast.POSITION.TOP_CENTER,
+    // });
+    setMsgStatusUpload({statusMessage: 'File saved to Dropbox'})
+    setShowStatusUpload(true)
   };
 
   const submitPostEventForm = async () => {
@@ -323,7 +329,7 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
     <>
       <div className={`container mx-auto md:px-0 px-5 items-center mt-10`}>
         {/* <h2 className="font-black mb-7"></h2> */}
-        <ExternalSurveyHeader title={'Edit OEF Outreach event post report for FBO'} />
+        <ExternalSurveyHeader pageTitle={'Edit OEF Outreach event post report for FBO'} />
           <TopEventsInfo event={event} />
 
           <div className="post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
@@ -430,18 +436,6 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
               index="1"
               title="Upload an event picture here:"
             />
-            <PictureUploadDropbox
-              FileUploadedMessage={FileUploadedMessage}
-              path={`${event?.folderpath}`}
-              index="2"
-              title="Upload another event picture"
-            />
-            <PictureUploadDropbox
-              FileUploadedMessage={FileUploadedMessage}
-              path={`${event?.folderpath}`}
-              index="3"
-              title="Upload another event picture"
-            />
 
             <TestingDone eventForm={eventForm} setEventForm={setEventForm} />
 
@@ -520,6 +514,7 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
             </button>
           </div>
         </div>
+        {showStatusUpload && <ResponseStatusModal responseStatus={msgStatusUpload} setShowResponseStatus={setShowStatusUpload}/>}
     </>
   );
 };

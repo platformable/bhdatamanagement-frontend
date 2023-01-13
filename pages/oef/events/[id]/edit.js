@@ -38,9 +38,7 @@ const EditOefEvent = ({
   const router = useRouter();
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
-  const isEditable =
-    loggedUserRole === "Supervisor" &&
-    new Date().toLocaleDateString() ===
+  const isEditable = new Date().toLocaleDateString() ===
       new Date(event?.eventdatecreated).toLocaleDateString();
 
   // let userId = user?.sub;

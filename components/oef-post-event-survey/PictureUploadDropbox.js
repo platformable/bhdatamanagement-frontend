@@ -67,7 +67,7 @@ const PictureUploadDropbox = ({path, title, FileUploadedMessage, index}) => {
     <div>
      <div className="question-body">
             <h2 className="font-black">{title}</h2>
-
+            <p>You can upload more than one image - please upload one image at a time</p>
             <input
               type="file"
               id={`image${index}`}
