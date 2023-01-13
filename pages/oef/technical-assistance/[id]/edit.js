@@ -29,9 +29,6 @@ const EditTA = ({ technicalAssistance,fbos }) => {
 
   const isEditPage=router.pathname.includes('edit')
 
-  console.log("technicalAssistance",technicalAssistance)
-
-
 
   const isNumberKey = (e) => {
     const invalidChars = ["-", "+", "e"];

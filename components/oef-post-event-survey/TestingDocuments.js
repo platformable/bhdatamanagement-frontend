@@ -25,7 +25,7 @@ const TestingDocuments = ({path, testName, FileUploadedMessage}) => {
       autorename: false,
       mode: "add",
       mute: false,
-      path: `${path}/${event.target.files[0].name}`,
+      path: `${path}/${event.target.files[0].name}/Documents`,
       strict_conflict: false,
     };
 

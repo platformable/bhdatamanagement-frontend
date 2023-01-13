@@ -212,6 +212,7 @@ const EventsIndex = ({ events }) => {
     submissionstatus==='Submitted'?color='submittedBg':null
     submissionstatus==='Pending'?color='pendingBg':null
     submissionstatus==='Complete'?color='completeBg':null
+    submissionstatus==='Complete'?color='completeBg':null
     return color
 
   }  
