@@ -158,7 +158,7 @@ const Register = ({ fbos }) => {
         <PageTopHeading
           backBtn={user ? true : false}
           dashboardBtn={user ? true : false}
-          pageTitle={"Register an event"}
+          pageTitle={"OEF Register Outreach Event"}
         />
         <div className="container mx-auto border rounded-lg mb-10">
           <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">

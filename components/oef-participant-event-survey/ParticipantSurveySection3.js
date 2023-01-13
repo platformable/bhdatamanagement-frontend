@@ -53,6 +53,7 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
         <p className="">{option.value}</p>
       </label>
       ))}
+    
       </div>
       <div className='grid gap-5'>
       {race.slice(Math.round(race.length /2)).map(option => (
@@ -60,8 +61,29 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
         <input type="checkbox" className="" value={option.value} id={option.id} onChange={handleForm} name="participantRace" />
         <p className="">{option.value}</p>
       </label>
+      
       ))}
+
+      <label className="flex gap-x-5 items-center">   
+        <input type="checkbox" className="" value={'Other'} id={'Other'} onChange={handleForm} name="participantRace" />
+        <p className="">{'Other'}</p>
+        <input
+          type="text"
+          placeholder="Please specify"
+          onChange={(e) =>
+            setSurveyForm({
+              ...surveyForm,
+              participantRaceOther: e.target.value,
+            })
+          }
+          className="border-black rounded p-4 self-start p-1 w-full text-lg md:w-134"
+        />
+      </label>
+      
       </div>
+      
+
+      
        
       </div>
     </div>

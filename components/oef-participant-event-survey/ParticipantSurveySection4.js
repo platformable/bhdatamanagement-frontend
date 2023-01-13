@@ -27,6 +27,21 @@ export const ParticipantSurveySection4 = ({surveyForm, setSurveyForm}) => {
         <p className="">{option.value}</p>
       </label>
       ))}
+      <label className="flex gap-x-5 items-center">   
+        <input type="radio" className="" value={'Other'} id={'Other'} onChange={handleForm} name="participantEthnicity" />
+        <p className="">{'Other'}</p>
+        <input
+          type="text"
+          placeholder="Please specify"
+          onChange={(e) =>
+            setSurveyForm({
+              ...surveyForm,
+              participantEthnicityOther: e.target.value,
+            })
+          }
+          className="border-black rounded p-4 self-start p-1 w-full text-lg md:w-134"
+        />
+      </label>
       </div>
         
       </div>

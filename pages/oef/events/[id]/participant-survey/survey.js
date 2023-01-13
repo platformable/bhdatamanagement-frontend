@@ -47,6 +47,10 @@ const Survey = ({ event, fbos }) => {
     participantReferral: "",
     participantReferralOther: "",
     participantSuggestions: "",
+
+    participantRaceOther:"",
+    participantEthnicityOther:"",
+    participantSexualIdentityOther:""
   });
   console.log("form", surveyForm);
 
