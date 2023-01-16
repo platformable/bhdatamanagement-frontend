@@ -539,22 +539,33 @@ label > textarea {
 }
 .supervisor-existing-events-head-table {
  
-  grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
   gap: 30px;
 }
 
+.existing-oef-events-head-table {
+  
+  grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr;
+  gap: 30px;
+}
 .supervisor-existing-oef-events-head-table {
+ 
+  grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
+  gap: 30px;
+}
+
+.supervisor-existing-fbo-events-head-table {
  
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
   gap: 30px;
 }
 
-.supervisor-existing-fbo-head-table {
+.supervisor-directory-fbo-head-table {
  
   grid-template-columns: 4.5fr 2fr 2fr 3fr 1fr 1fr 1fr 1fr;
   gap: 30px;
 }
-.existing-fbo-head-table {
+.directory-fbo-head-table {
  
   grid-template-columns: 4.5fr 2fr 2fr 3fr 1fr 1fr 1fr;
   gap: 30px;

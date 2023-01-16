@@ -6,7 +6,7 @@ import PageTopHeading from "../../../components/PageTopHeading";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import EventsCardItems from "../../../components/events/EventsCardItems";
 import Search from "../../../components/SearchEvents";
-import DeleteEventModal from "../../../components/events/DeleteEventModal";
+import DeleteFboModal from "../../../components/fbo/DeleteFboModal";
 import { useSelector, useDispatch } from "react-redux";
 import { searchEventByName } from "../../../slices/eventsSearchWordSlice";
 
@@ -16,8 +16,8 @@ import {
 } from "../../../slices/eventsCalendarDatesSlice";
 import { useEffect } from "react";
 
-const EventsIndex = ({ events }) => {
-  console.log("events", events)
+const fboDirectory = ({ fbos }) => {
+  console.log("events", fbos)
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -52,6 +52,8 @@ const EventsIndex = ({ events }) => {
 
       return dateString + "T" + timeString;
     }
+
+    const ref=useRef('1')
 
     const textData =
       "BEGIN:VCALENDAR" +
@@ -179,248 +181,137 @@ const EventsIndex = ({ events }) => {
     setSearchWord(word);
     dispatch(searchEventByName({ word }));
   };
-  const ref = useRef();
 
-  const handleStartDate = () => {
-    dispatch(updateStartDate(dateFilter));
-  };
-  // console.log("events",events)
 
-  const startDate = useSelector(
-    (state) => state.eventCalendarDates.value.startDate
-  );
-  const endDate = useSelector(
-    (state) => state.eventCalendarDates.value.endDate
-  );
-  console.log("startDate desde toolkit", startDate);
-  console.log("endDate desde toolkit", endDate);
 
-  const state = useSelector((state) => console.log(state));
 
-  console.log("state", state);
 
-  const sortedEventsByDate = events.sort(
+
+/*   const sortedEventsByDate = events.sort(
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
-  );
-
-  console.log(sortedEventsByDate);
-
-
-  const changeStatusBg = (submissionstatus)=>{
-
-    let color
-    submissionstatus==='Submitted'?color='submittedBg':null
-    submissionstatus==='Pending'?color='pendingBg':null
-    submissionstatus==='Complete'?color='completeBg':null
-    submissionstatus==='Complete'?color='completeBg':null
-    return color
-
-  }  
-
+  ); */
 
 
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Manage FBO Events"}
+        pageTitle={"FBO directory"}
         dashboardBtn={true}
         backBtn={true}
       />
+      
 
-      <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5">
-        <Search searchFunction={searchFunction} />
 
-        <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
-          <h3 className="">Filter by date</h3>
-        </div>
 
-        <div className="block md:flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0">
-          <label className="w-full">
-            <input
-              type="date"
-              ref={ref}
-              id="start"
-              placeholder="start date"
-              onChange={(e) => {
-                setDateFilter({ ...dateFilter, startDate: e.target.value });
-                dispatch(
-                  updateStartDate({ ...dateFilter, startDate: e.target.value })
-                );
-              }}
-              defaultValue={startDate}
-              className="border-black rounded-md text-sm w-full"
-            />
-          </label>
-          <h3 className="text-left md:text-center md:py-5 md:py-0 py-5">and</h3>
-          <label className="flex justify-end w-full">
-            <input
-              type="date"
-              placeholder="end date"
-              onChange={(e) => {
-                setDateFilter({ ...dateFilter, endDate: e.target.value });
-                dispatch(
-                  updateStartDate({ ...dateFilter, endDate: e.target.value })
-                );
-              }}
-              defaultValue={endDate}
-              className="border-black rounded-md  text-sm w-full"
-            />
-          </label>
-        </div>
+      <div className="container mx-auto md:flex block gap-x-5 justify-between md:px-0 px-5 md:gap-y-0" >
+      <Search searchFunction={searchFunction} />
+      <Link href="/oef/fbo/create">
+                <a className="rounded bg-black px-5 py-2 flex items-center  font-semibold shadow-xl md:mt-0 mt-5" id="myBtn">
+                {/* <Image src={authUserICon} width={31} height={29}/> */}
+                  <p className='ml-2 text-sm text-white'>Add a new FBO</p>
+                </a>
+              </Link>
       </div>
 
-      <div className="events-cards-container grid md:grid-cols-6 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
-      {/*  HEAD TABLE  */}
-      <div className={`hidden md:grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-fbo-events-head-table" : `existing-events-head-table`} container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
+      <div className="events-cards-container grid md:grid-cols-4 lg:grid-cols-4 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
+
+      <div
+        className={`hidden md:grid ${
+          loggedUserRole === "Supervisor"
+            ? "supervisor-directory-fbo-head-table"
+            : `directory-fbo-head-table`
+        } container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}
+      >
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
-        <p className="lg:text-xl font-bold flex items-center ">Event title</p>
-        <p className="lg:text-xl font-bold flex items-center ">FBO</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Event date</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Status</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Date submitted</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Review</p>
+        <p className="lg:text-xl font-bold flex items-center ">FBO name</p>
+        <p className="lg:text-xl font-bold flex items-center ">Borough</p>
+        <p className="lg:text-xl font-bold flex items-center ">Active</p>
+        <p className="lg:text-xl font-bold flex items-center ">Key contact email</p>
+        <p></p>
+        <p></p>
+        <p></p>
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
-        <div className="events-index-btn-container grid grid-cols-1 gap-x-3 p-0">
-          {sortedEventsByDate &&
-            sortedEventsByDate
-              ?.filter((event,index)=>event.programname==='OEF')
-              .filter((event, index) => {
-                if (
-                  searchWord === "" &&
-                  dateFilter.startDate === null &&
-                  dateFilter.endDate === null
-                ) {
-                  return event;
+        <div className="events-index-btn-container grid grid-cols-1 gap-3 p-0">
+          {fbos &&
+            fbos
+              ?.filter((fbo, index) => {
+                if (searchWord === "") {
+                  return fbo;
                 }
                 if (
-                  event.eventname
+                  fbo.namefbo
                     .toLowerCase()
                     .includes(searchWord.toLowerCase()) ||
-                  event.deliverypartner
-                    .toLowerCase()
-                    .includes(searchWord.toLowerCase())
+                  fbo.namefbo.toLowerCase().includes(searchWord.toLowerCase())
                 ) {
-                  return event;
+                  return fbo;
                 }
               })
-              .filter((event, index) => {
-                var startDate = new Date(new Date(dateFilter?.startDate).setHours(0))
-                var endDate = new Date(new Date(dateFilter?.endDate).setHours(23))
-                if (startDate !== null && endDate !== null) {
-                  let filterPass = true;
-                  const date = new Date(event.eventdate);
-                  if (dateFilter.startDate) {
-                    filterPass = filterPass && startDate <= date;
-                  }
-                  if (dateFilter.endDate) {
-                    filterPass =
-                      filterPass && endDate >= date;
-                  }
-                  return filterPass;
-                }
-              })
-             
-              .map((event, index) => {
-              
+              .map((fbo, index) => {
                 return (
                   <>
                     <div className="sm:hidden w-full">
                       <EventsCardItems
                         key={index}
-                        id={event.id}
-                        programName={event.programname}
-                        eventdate={event.eventdate}
-                        eventName={event.eventname}
-                        urlEdit={`events/${event.id}/nys_cmp/edit`}
-                        urlParticipantSurvey={`/events/${event.id}/participant-survey`}
-                        urlUpload={`events/${event.id}/upload-event`}
-                        urlPostEventSurvey={`events/${event.id}/post-event-survey`}
-                        urlEditPostEventSurvey={`events/${event.id}/edit-post-event-survey`}
+                        id={fbo.id}
+                        programName={fbo.programname}
+                        eventdate={fbo.eventdate}
+                        eventName={fbo.eventname}
+                        urlEdit={`events/${fbo.id}/nys_cmp/edit`}
+                        urlParticipantSurvey={`/events/${fbo.id}/participant-survey`}
+                        urlUpload={`events/${fbo.id}/upload-event`}
+                        urlPostEventSurvey={`events/${fbo.id}/post-event-survey`}
+                        urlEditPostEventSurvey={`events/${fbo.id}/edit-post-event-survey`}
                         userRole={loggedUserRole}
                         setShowDeleteEventModal={setShowDeleteEventModal}
                         showDeleteEventModal={showDeleteEventModal}
                         setSelectedEventToDelete={setSelectedEventToDelete}
                         selectedEventToDelete={selectedEventToDelete}
-                        postEventReportId={event.posteventreportid}
+                        postEventReportId={fbo.posteventreportid}
                         makeIcsFile={makeIcsFile}
-                        event={event}
+                        event={fbo}
                       />
                     </div>
                     <div className="hidden sm:block">
                       <section
                         key={index}
-                        className={`grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-fbo-events-head-table" : "existing-events-head-table"} px-7  rounded border-b-4 `}
+                        className={`grid ${
+                          loggedUserRole === "Supervisor"
+                            ? "supervisor-directory-fbo-head-table"
+                            : "directory-fbo-head-table"
+                        } px-7 py-7  rounded shadow-md`}
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
-                        <div className="flex items-center lg:text-xl font-bold  py-7">
-                          {event.eventname}
-                        </div>
-                        <div className="flex items-center lg:text-xl font-bold py-7">
-                          {event.deliverypartner}
-                        </div>
-                        
-                        <div className="flex items-center lg:text-xl font-bold justify-center">
-                          {
-                            event.eventdate &&
-                              new Date(event?.eventdate).toLocaleDateString(
-                                "en-US"
-                              )
-                          } 
-                        </div>
-                        <div className={`flex items-center text-center justify-center lg:text-xl font-bold shadow-b-md-bottom py-7 ${changeStatusBg(event.submissionstatus)}`}>
-                          <p className="text-center">{event.submissionstatus}</p>
-                        </div>
-                        <div className="flex items-center lg:text-xl font-bold justify-center">
-                        {
-                            event.eventdatecreated &&
-                              new Date(event?.eventdatecreated).toLocaleDateString(
-                                "en-US"
-                              )
 
-                          }
-                        
+                        <div className="flex items-center lg:text-xl font-bold ">
+                          {fbo.namefbo}
                         </div>
-                        
-                        <Link href={`/oef/events/${event.id}/edit`}>
-                          <div className="self-center cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
-                            <p className="leading-5">Edit</p>
+
+        <p className="lg:text-xl font-bold flex items-center ">{fbo.boroughfbo}</p>
+        <p className="lg:text-xl font-bold flex items-center ">{fbo.fboactive?'Active':'Not Active'}</p>
+        <p className="lg:text-xl font-bold flex items-center ">{fbo.emailkeycontact}</p>
+        <p></p>
+        <p></p>
+                        <Link href={`/oef/fbo/${fbo.numberfbo}/`}>
+                          <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
+                            <p className="leading-5">Edit fbo</p>
                           </div>
                         </Link>
-                       {/*  <Link href={`/oef/events/${event.id}/participant-survey`}>
-                          <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
-                            <p className="leading-5">Participant survey</p>
-                          </div>
-                        </Link> */}
 
-                    
-
-                        {/* <Link
-                          href={
-                            event.posteventreportid
-                              ? `/oef/events/${event.id}/edit-post-event-survey`
-                              : `/oef/events/${event.id}/post-event-survey`
-                          }
-                        >
-                          <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center text-center">
-                            <p className="leading-5 text-center">
-                              {event.posteventreportid ? "Edit " : "Complete "}{" "}
-                              post-event survey
-                            </p>
-                          </div>
-                        </Link> */}
-                        
-                       {/*  {loggedUserRole === "Supervisor" && (
+                        {loggedUserRole === "Supervisor" && (
                           <div className="flex justify-center">
                             <button
                               className="bg-black lg:text-lg py-2 px-5 rounded-lg text-white"
-                              onClick={() => handleDeleteEvent(event?.id, event?.eventname)}
+                              onClick={() =>
+                                handleDeleteEvent(fbo?.numberfbo, fbo?.namefbo)
+                              }
                             >
-                              Delete event
+                              Delete fbo
                             </button>
                           </div>
-                        )} */}
+                        )}
                       </section>
                     </div>
                   </>
@@ -462,7 +353,7 @@ const EventsIndex = ({ events }) => {
           ))} */}
         </div>
         {showDeleteEventModal && (
-          <DeleteEventModal
+          <DeleteFboModal
             setShowDeleteEventModal={setShowDeleteEventModal}
             showDeleteEventModal={showDeleteEventModal}
             selectedEventToDelete={selectedEventToDelete}
@@ -474,15 +365,15 @@ const EventsIndex = ({ events }) => {
   );
 };
 
-export default EventsIndex;
+export default fboDirectory;
 
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/events`
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`
     );
-    const events = await response.json();
+    const fbos = await response.json();
 
-    return { props: { events } };
+    return { props: { fbos } };
   },
 });
