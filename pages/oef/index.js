@@ -75,7 +75,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
                 )}
 
                 <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
-                  <Link href="/oef/register">
+                  <Link href="/oef/events/dashboard">
                     <button id="myBtn">
                       <div className="">
                         <div className="flex justify-center "></div>
@@ -87,12 +87,12 @@ export default function SupervisorDashboard({ selectedProgram }) {
                   </Link>
                 </div>
                 <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
-                  <Link href="/oef/events">
+                  <Link href="/oef/fbo">
                     <button id="myBtn">
                       <div className="">
                         <div className="flex justify-center ">
                         </div>
-                        <p className=" font-bold text-white uppercase">
+                        <p className="font-bold text-white uppercase">
                           Manage FBO <br /> events
                         </p>
                       </div>{" "}
@@ -119,7 +119,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
                 </div>
                 
                 <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
-                  <Link href="/oef/fbo">
+                  <Link href="/oef/fbo/directory">
                     <button id="myBtn">
                       <div className="">
                         <div className="flex justify-center "></div>

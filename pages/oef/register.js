@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Section1 from "../../components/oef-event-registration/Section1";
 import Section2 from "../../components/oef-event-registration/Section2";
 import Section3 from "../../components/oef-event-registration/Section3";
-import Section3_2 from "../../components/events/Section3-2";
 import Section4 from "../../components/oef-event-registration/Section4";
 import Section5 from "../../components/oef-event-registration/Section5";
 import Section6 from "../../components/oef-event-registration/Section6";
@@ -13,8 +12,6 @@ import Section9 from "../../components/oef-event-registration/Section9";
 
 import Loader from "../../components/Loader";
 
-import Layout from "../../components/Layout";
-import PageTopHeading from "../../components/PageTopHeading";
 import { useRouter } from "next/router";
 import { nysActivity, NYSZipCodesAndBoroughs } from "../../utils/sharedData";
 
@@ -25,6 +22,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
 import ResponseStatusModal from "../../components/ResponseStatusModal";
+import ExternalSurveyHeader from "../../components/ExternalSurveyHeader";
 
 const Register = ({ fbos }) => {
   const router = useRouter();
@@ -155,12 +153,9 @@ const Register = ({ fbos }) => {
     <>
     {/*   <Layout showStatusHeader={true}> */}
         <ToastContainer autoClose={20000} />
-        <PageTopHeading
-          backBtn={user ? true : false}
-          dashboardBtn={user ? true : false}
-          pageTitle={"OEF Register Outreach Event"}
-        />
-        <div className="container mx-auto border rounded-lg mb-10">
+        
+        <ExternalSurveyHeader pageTitle={'OEF Register Outreach Event'} />
+        <div className="container mx-auto border-black rounded-lg mb-10">
           <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
        
  

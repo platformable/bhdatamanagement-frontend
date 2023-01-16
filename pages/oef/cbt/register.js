@@ -37,6 +37,9 @@ const Register = () => {
     healthAreaOfFocusID: [6],
     healthAreaOfFocusName: ["HIV/AIDS"],
     eventDescription: "",
+    surveyName: 'bh-cbt-register',
+    programID: 1,
+    programName: 'OEF',
   });
 
   console.log("oef state form", eventForm);
@@ -97,7 +100,7 @@ const Register = () => {
 
     await axios
       .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/cbt/create`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/cbt/create`,
         eventForm
       )
       .then((response) => {

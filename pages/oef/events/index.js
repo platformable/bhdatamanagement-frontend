@@ -1,9 +1,8 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
-import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
+import {  withPageAuthRequired } from "@auth0/nextjs-auth0";
 import EventsCardItems from "../../../components/events/EventsCardItems";
 import Search from "../../../components/SearchEvents";
 import DeleteEventModal from "../../../components/events/DeleteEventModal";
@@ -16,14 +15,13 @@ import {
 } from "../../../slices/eventsCalendarDatesSlice";
 import { useEffect } from "react";
 
-const EventsIndex = ({ events }) => {
+const EventsIndex = ({ events, user }) => {
   console.log("events", events)
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
   const [searchWord, setSearchWord] = useState(eventSearchWord || "");
   const dispatch = useDispatch();
-  const { user, error, isLoading } = useUser();
   const [selectedEventToDelete, setSelectedEventToDelete] = useState("");
 
   const [showDeleteEventModal, setShowDeleteEventModal] = useState(false);
@@ -271,14 +269,10 @@ const EventsIndex = ({ events }) => {
 
       <div className="events-cards-container grid md:grid-cols-6 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
       {/*  HEAD TABLE  */}
-      <div className={`hidden md:grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-oef-events-head-table" : `existing-events-head-table`} container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
-        {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
-        <p className="lg:text-xl font-bold flex items-center ">Event title</p>
-        <p className="lg:text-xl font-bold flex items-center ">FBO</p>
+      <div className={`hidden md:grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-oef-events-head-table" : `existing-events-oef-head-table`} container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
+        <p className="lg:text-xl font-bold flex items-center ">Event name</p>
         <p className="lg:text-xl font-bold flex items-center justify-center">Event date</p>
         <p className="lg:text-xl font-bold flex items-center justify-center">Status</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Date submitted</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Review</p>
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
@@ -351,16 +345,13 @@ const EventsIndex = ({ events }) => {
                     <div className="hidden sm:block">
                       <section
                         key={index}
-                        className={`grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-oef-events-head-table" : "existing-events-head-table"} px-7  rounded border-b-4 `}
+                        className={`grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-oef-events-head-table" : "existing-events-oef-head-table"} px-7  rounded border-b-4 `}
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
                         <div className="flex items-center lg:text-xl font-bold  py-7">
                           {event.eventname}
                         </div>
-                        <div className="flex items-center lg:text-xl font-bold py-7">
-                          {event.deliverypartner}
-                        </div>
-                        
+                       
                         <div className="flex items-center lg:text-xl font-bold justify-center">
                           {
                             event.eventdate &&
@@ -372,31 +363,21 @@ const EventsIndex = ({ events }) => {
                         <div className={`flex items-center text-center justify-center lg:text-xl font-bold shadow-b-md-bottom py-7 ${changeStatusBg(event.submissionstatus)}`}>
                           <p className="text-center">{event.submissionstatus}</p>
                         </div>
-                        <div className="flex items-center lg:text-xl font-bold justify-center">
-                        {
-                            event.eventdatecreated &&
-                              new Date(event?.eventdatecreated).toLocaleDateString(
-                                "en-US"
-                              )
-
-                          }
-                        
-                        </div>
                         
                         <Link href={`/oef/events/${event.id}/edit`}>
                           <div className="self-center cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Edit</p>
                           </div>
                         </Link>
-                       {/*  <Link href={`/oef/events/${event.id}/participant-survey`}>
+                        <Link href={`/oef/events/${event.id}/participant-survey`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Participant survey</p>
                           </div>
-                        </Link> */}
+                        </Link>
 
                     
 
-                        {/* <Link
+                        <Link
                           href={
                             event.posteventreportid
                               ? `/oef/events/${event.id}/edit-post-event-survey`
@@ -409,9 +390,9 @@ const EventsIndex = ({ events }) => {
                               post-event survey
                             </p>
                           </div>
-                        </Link> */}
+                        </Link>
                         
-                       {/*  {loggedUserRole === "Supervisor" && (
+                        {loggedUserRole === "Supervisor" && (
                           <div className="flex justify-center">
                             <button
                               className="bg-black lg:text-lg py-2 px-5 rounded-lg text-white"
@@ -420,7 +401,7 @@ const EventsIndex = ({ events }) => {
                               Delete event
                             </button>
                           </div>
-                        )} */}
+                        )}
                       </section>
                     </div>
                   </>
