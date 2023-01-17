@@ -1,6 +1,6 @@
 import React from "react";
 
-const Section6 = ({eventForm, setEventForm,event}) => {
+const Section6 = ({eventForm, setEventForm}) => {
   const handleForm = (e) => {
     setEventForm(previous => ({...previous, eventDate: e.target.value}))
   }
@@ -13,7 +13,7 @@ const Section6 = ({eventForm, setEventForm,event}) => {
       name="eventDate" 
       className='border rounded p-2 text-lg w-48' 
       onChange={handleForm}
-      defaultValue={event?.eventdate.split('T')[0]}
+      defaultValue={eventForm?.eventDate.split('T')[0]}
       />
     </label>
   );
