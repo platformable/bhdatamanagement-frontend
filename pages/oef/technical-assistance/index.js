@@ -98,7 +98,7 @@ const EventsIndex = ({ technicalAssistance }) => {
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Technical Assistance Requests"}
+        pageTitle={"Technical Assistance Request Form"}
         dashboardBtn={true}
         backBtn={true}
       />

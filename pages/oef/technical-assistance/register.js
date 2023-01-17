@@ -64,7 +64,7 @@ const RegisterTA = ({ fbos }) => {
           setLoading(!loading);
           notifyMessage();
           setTimeout(() => {
-            router.push("/oef");
+            router.push("/oef/technical-assistance/success");
           }, 1500);
         }
       })
