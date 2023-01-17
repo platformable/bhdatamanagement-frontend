@@ -29,7 +29,7 @@ const success = () => {
             You are able to make changes to your submission until the end of today. </p>
           </section>
         </div>
-        <Link href={'/oef/events'} ><button className='uppercase rounded shadow bg-black text-white text-2xl px-5 py-2 self-center'>Return to events page</button></Link>
+        <Link href={'/oef/cbt'} ><button className='uppercase rounded shadow bg-black text-white text-2xl px-5 py-2 self-center'>Return to events page</button></Link>
         </div>
     
   )

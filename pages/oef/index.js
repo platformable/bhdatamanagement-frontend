@@ -57,7 +57,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
               <h1 className="font-black  md:px-0 px-5">
                 What do you want <span className="">to do</span> today?
               </h1>
-              <div className="grid md:grid-cols-6 gap-5 px-5 md:px-0 grid-cols-1 mb-2 my-10">
+              <div className="grid md:grid-cols-7 gap-5 px-5 md:px-0 grid-cols-1 mb-2 my-10">
                 {loggedUserRole !== "Supervisor" && (
                   <Link href="/users">
                     <div className="text-center rounded bg-black text-white p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
@@ -94,6 +94,19 @@ export default function SupervisorDashboard({ selectedProgram }) {
                         </div>
                         <p className="font-bold text-white uppercase">
                           Manage FBO <br /> events
+                        </p>
+                      </div>{" "}
+                    </button>
+                  </Link>
+                </div>
+                <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+                  <Link href="/oef/cbt">
+                    <button id="myBtn">
+                      <div className="">
+                        <div className="flex justify-center ">
+                        </div>
+                        <p className="font-bold text-white uppercase">
+                          Manage CBT <br /> events
                         </p>
                       </div>{" "}
                     </button>

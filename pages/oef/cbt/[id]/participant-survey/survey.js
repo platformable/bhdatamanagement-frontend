@@ -16,7 +16,7 @@ import InformationUseful from '../../../../../components/oef-cbt-participant-sur
 import ParticipantSuggestions from '../../../../../components/oef-cbt-participant-survey/ParticipantSuggestions'
 import PresenterExplainWell from '../../../../../components/oef-cbt-participant-survey/PresenterExplainWell'
 import Race from '../../../../../components/oef-cbt-participant-survey/Race'
-import UnderstoodTopics from '../../../../../components/oef-cbt-participant-survey/UnderstoodTopics'
+import ParticipantTools from '../../../../../components/oef-cbt-participant-survey/ParticipantTools'
 
 
 
@@ -34,20 +34,20 @@ const Survey = ({ event, fbos }) => {
   console.log("data", event);
 
   const [surveyForm, setSurveyForm] = useState({
-    eventId:event.eventid,
+    eventID:event.id,
 eventName:event?.eventname,
 eventDate:event?.eventdate,
-ageId:"",
+ageID:"",
 participantAgeRange:"",
-raceId:"",
+raceID:"",
 participantRace:"",
 participantRaceOther:"",
-ethnicityId:"",
+ethnicityID:"",
 participantEthnicity:"",
 participantEthnicityOther:"",
-genderId:"",
+genderID:"",
 participantGender:"",
-surveyname:"",
+surveyname:"cbt-participant",
 fboPosition:"",
 participantGenderOther:"",
 cbtChallenges:"",
@@ -57,7 +57,8 @@ canApply:"",
 presenterExplainWell:"",
 understoodTopics:"",
 fbo:"",
-participantSuggestions:""
+participantSuggestions:"",
+participantTools:""
   });
   console.log("form", surveyForm);
 
@@ -84,7 +85,7 @@ participantSuggestions:""
 
   const submitParticipantSurvey = async () => {
     setError('')
-    const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
+    /* const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
       key === "participantReferralOther" || key === "participantSuggestions"
         ? false
         : value === 0 || value.length === 0
@@ -92,7 +93,7 @@ participantSuggestions:""
     if (isEmpty) {
       setError("Please complete all fields");
       return;
-    }
+    } */
     axios
       .post(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef/cbt/participant-event-survey/create`,
@@ -102,7 +103,7 @@ participantSuggestions:""
         if (response.data.statusText === "OK") {
           notifyMessage();
           setTimeout(() => {
-            router.push(`/oef/events/${router.query.id}/participant-survey/success`);
+            router.push(`/oef/cbt/${router.query.id}/participant-survey/success`);
           }, 1000);
         }
       })
@@ -133,7 +134,7 @@ participantSuggestions:""
       <div>
         <div className="h-88 py-10 container mx-auto mt-3 flex flex-col items-center rounded-lg border-black">
           <h1 className="text-center font-black">
-            HIV Outreach Event Participant Sign-in Sheet
+          CBT Participant Survey
           </h1>
           <div className="flex items-center gap-5 mt-5">
             <h2 className="pt-2">In partnership with</h2>
@@ -148,16 +149,16 @@ participantSuggestions:""
         <ToastContainer autoClose={1500} />
         
         <main className="container mx-auto  md:px-0 px-5">
-          {/*   <div
+            <div
             id="event"
-            className="container mx-auto rounded my-10 md:h-36 border-dark-violet"
+            className="container mx-auto rounded my-10 md:h-36 border-black rounded-tr-lg rounded-tl-lg"
           >
-            <div className="grid grid-cols-2 bg-violet font-bold text-white h-12 px-7 items-center rounded-tl-lg rounded-tr-lg">
+            <div className="grid grid-cols-2 bg-black font-bold text-white h-12 px-7 items-center rounded-tl-lg rounded-tr-lg">
               <h2 className="text-2xl">Event name</h2>
               <h2 className="flex justify-end text-2xl">Event date</h2>
             </div>
             <div className="grid grid-cols-2 py-6 px-7">
-              <h2 className="text-black text-2xl">{data[0]?.eventname}</h2>
+              <h2 className="text-black text-2xl">{event?.eventname}</h2>
               <h2 className="flex justify-end text-2xl">
                 {new Date(surveyForm.eventDate).toLocaleDateString("en-US", {
                   year: "numeric",
@@ -166,23 +167,10 @@ participantSuggestions:""
                 })}
               </h2>
             </div>
-          </div> */}
+          </div>
           <div className="form-body border-black my-10">
-            <Age
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
-            <CanApply
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            
-            />
-            
-            <Ethnicity
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
-            <Fbo
+
+          <Fbo
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}
               fbos={fbos}
@@ -191,10 +179,26 @@ participantSuggestions:""
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}
             />
-            <Gender
+             
+             <Gender
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}
             />
+            <Age
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+
+            <Race
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+             <Ethnicity
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+ 
+          
             <InformationUseful
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}
@@ -228,24 +232,15 @@ participantSuggestions:""
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}
             />
-
+            <ParticipantTools
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
             <ParticipantSuggestions
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}
             />
-             <PresenterExplainWell
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
-            <Race
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
 
-            <UnderstoodTopics
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
           </div>
 
           <div className="flex justify-center">
@@ -281,7 +276,7 @@ export const getServerSideProps = async (ctx) => {
   const { id } = ctx.params;
   const [event, fbos] = await Promise.all([
     fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`).then((r) =>
-      r.json()
+      r.json().then(res=>res[0])
     ),
     fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
   ]);
