@@ -177,14 +177,7 @@ participantSuggestions:""
               setSurveyForm={setSurveyForm}
             
             />
-            <CbtChallenges
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
-            <CbtDealChallenges
-              surveyForm={surveyForm}
-              setSurveyForm={setSurveyForm}
-            />
+            
             <Ethnicity
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}
@@ -203,6 +196,35 @@ participantSuggestions:""
               setSurveyForm={setSurveyForm}
             />
             <InformationUseful
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+              state='informationUseful'
+              title='1. The information and materials presented were useful'
+            />
+            <InformationUseful
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+              state='canApply'
+              title='2. I can apply what I learned today to my work at my faith-based or community organization.'
+            />
+            <InformationUseful
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+              state='presenterExplainWell'
+              title='3. The presenter explained the topic well.'
+            />
+            <InformationUseful
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+              state='understoodTopics'
+              title='4. I understood the topics and concepts being discussed.'
+            />
+
+            <CbtChallenges
+              surveyForm={surveyForm}
+              setSurveyForm={setSurveyForm}
+            />
+            <CbtDealChallenges
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}
             />
