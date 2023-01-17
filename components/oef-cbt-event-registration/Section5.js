@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Section5 = ({eventForm, setEventForm,event}) => {
+const Section5 = ({eventForm, setEventForm}) => {
 
     
 
@@ -16,7 +16,7 @@ const Section5 = ({eventForm, setEventForm,event}) => {
             className="w-134 p-2 border-black rounded text-lg" 
             placeholder='Name of event' 
             onChange={handleForm}
-            defaultValue={event?event.eventname:""}
+            defaultValue={eventForm?.eventName}
             />
             </label>
 
