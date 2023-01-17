@@ -98,7 +98,7 @@ const EventsIndex = ({ technicalAssistance }) => {
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Technical Assistance Requests"}
+        pageTitle={"Technical Assistance Request Form"}
         dashboardBtn={true}
         backBtn={true}
       />
@@ -251,8 +251,8 @@ const EventsIndex = ({ technicalAssistance }) => {
                         </div>
                         <div className="flex items-center lg:text-xl font-bold justify-center">
                         {
-                            event.tadatecompleted ?
-                              new Date(event?.tadatecompleted).toLocaleDateString(
+                            event.tastatuscompletedate ?
+                              new Date(event?.tastatuscompletedate).toLocaleDateString(
                                 "en-US"
                               ):'-'
 

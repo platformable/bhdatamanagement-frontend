@@ -99,7 +99,7 @@ const EditTA = ({ technicalAssistance,fbos }) => {
     setForm((prev) => ({ ...prev, key: value }));
   };
 
-  const handleStatus = (e) => setForm(prev => ({...prev, taStatus: e.target.value})) 
+  const handleStatus = (e) => setForm(prev => ({...prev, taStatus: e.target.value,taStatusCompleteDate:null})) 
   console.log(form);
   return (
     <>
@@ -124,7 +124,9 @@ const EditTA = ({ technicalAssistance,fbos }) => {
         <button className={`${form?.taStatus === 'Pending'? 'pendingBg': null} border-black py-4 rounded shadow-lg`} onClick={handleStatus} value="Pending">
           Pending
         </button>
-        <button className={`${form?.taStatus === 'Complete'? 'completeBg': null} border-black py-4 rounded shadow-lg`} onClick={handleStatus} value="Complete">
+        <button className={`${form?.taStatus === 'Complete'? 'completeBg': null} border-black py-4 rounded shadow-lg`} 
+        onClick={(e) => setForm(prev => ({...prev, taStatus: e.target.value,taStatusCompleteDate:new Date()}))} 
+        value="Complete">
           Complete
         </button>
       </div>
