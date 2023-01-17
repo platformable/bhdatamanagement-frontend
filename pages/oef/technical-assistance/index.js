@@ -251,8 +251,8 @@ const EventsIndex = ({ technicalAssistance }) => {
                         </div>
                         <div className="flex items-center lg:text-xl font-bold justify-center">
                         {
-                            event.tadatecompleted ?
-                              new Date(event?.tadatecompleted).toLocaleDateString(
+                            event.tastatuscompletedate ?
+                              new Date(event?.tastatuscompletedate).toLocaleDateString(
                                 "en-US"
                               ):'-'
 
