@@ -154,7 +154,7 @@ const Register = ({ fbos }) => {
     {/*   <Layout showStatusHeader={true}> */}
         <ToastContainer autoClose={20000} />
         
-        <ExternalSurveyHeader pageTitle={'OEF Register Outreach Event'} />
+        <ExternalSurveyHeader pageTitle={'OEF HIV Outreach Event Organizer Survey'} />
         <div className="container mx-auto border-black rounded-lg mb-10">
           <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
        

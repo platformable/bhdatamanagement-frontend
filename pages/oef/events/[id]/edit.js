@@ -36,10 +36,11 @@ const EditOefEvent = ({
 }) => {
   console.log("event", event);
   const router = useRouter();
-  const loggedUserRole =
-    user && user["https://lanuevatest.herokuapp.com/roles"];
-  const isEditable = new Date().toLocaleDateString() ===
-      new Date(event?.eventdatecreated).toLocaleDateString();
+  const loggedUserRole = user && user["https://lanuevatest.herokuapp.com/roles"];
+
+    const isEditable = loggedUserRole === 'Supervisor' || (new Date().toLocaleDateString() ===
+      new Date(event?.eventdatecreated).toLocaleDateString());
+
 
   // let userId = user?.sub;
   const [showResponseStatus, setShowResponseStatus] = useState(false);
