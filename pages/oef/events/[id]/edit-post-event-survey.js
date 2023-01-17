@@ -42,14 +42,15 @@ const PostEventReport = ({ event, fbos, user }) => {
   // console.log("data", event);
 
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
-  const [showStatusUpload, setShowStatusUpload] = useState(true);
+  const [showStatusUpload, setShowStatusUpload] = useState(false);
   const [msgStatusUpload, setMsgStatusUpload] = useState({})
   const loggedUserRole = user && user["https://lanuevatest.herokuapp.com/roles"];
+
   // const loggedUserLastname =
   //   user && user["https://lanuevatest.herokuapp.com/lastname"];
 
 
-  const isEditable = (new Date().toLocaleDateString() === new Date(event?.eventdate).toLocaleDateString())
+  const isEditable = loggedUserRole === 'Supervisor' || (new Date().toLocaleDateString() === new Date(event?.eventdatecreated).toLocaleDateString());
 
 
   const [submissionForm, setSubmissionForm] = useState({
