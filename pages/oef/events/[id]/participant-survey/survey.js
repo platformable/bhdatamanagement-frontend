@@ -87,7 +87,7 @@ const Survey = ({ event, fbos }) => {
     if (isEmpty) {
       setError("Please complete all fields");
       return;
-    } */
+    } 
     axios
       .post(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef/participant-event-survey/create`,
