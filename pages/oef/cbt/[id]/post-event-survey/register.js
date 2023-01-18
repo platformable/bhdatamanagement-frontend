@@ -63,7 +63,7 @@ topicsFollowup:"",
 leastEngaged:"",
 improveEngagement:"",
 organizerFeedback:"",
-mainRoles:"",
+mainRoles:[],
     
   });
   const userId = user && user.sub;
@@ -128,7 +128,7 @@ mainRoles:"",
 
           <div className="post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
            
-        <MainRoles />
+        <MainRoles eventForm={eventForm} setEventForm={setEventForm} s/>
         <ProgramLeaders eventForm={eventForm} setEventForm={setEventForm} />
         <TotalAttendes eventForm={eventForm} setEventForm={setEventForm} />
         <EventOrganization eventForm={eventForm} setEventForm={setEventForm} />
