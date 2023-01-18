@@ -96,6 +96,12 @@ h6 {
   --neitherdisagreeOrNoDisagreeBg:#C0E2F7;
   --agreeBg:#C6FFEB;
   --stronglyAgreeBg:#A1EDD2;
+
+  --veryUnresponsiveBg:#DE8EA3;
+  --unresponsiveBg:#EDC1CC;
+  --neutralBg:#C0E2F7;
+  --engagedBg:#C6FFEB;
+  --veryEngagedBg:#A1EDD2;
 }
 
 /* [type="“checkbox”"],
@@ -122,53 +128,59 @@ background-color: var(--declinedBg);
   color: white !important;
 }
 
-
-.stronglyDisagreeBg{
-background-color: var(--stronglyDesagreeBg);
+.veryUnresponsiveBg {background-color: var(--veryUnresponsiveBg)}
+.unresponsiveBg {background-color: var(--unresponsiveBg)}
+.neutralBg {background-color: var(--neutralBg)}
+.engagedBg {background-color: var(--engagedBg)}
+.veryEngagedBg {background-color: var(--veryEngagedBg)}
+@variants hover {
+  .veryUnresponsiveBg {background-color: var(--veryUnresponsiveBg)}
+  .unresponsiveBg {background-color: var(--unresponsiveBg)}
+  .neutralBg {background-color: var(--neutralBg)}
+  .engagedBg {background-color: var(--engagedBg)}
+  .veryEngagedBg {background-color: var(--veryEngagedBg)}
 }
 
-  @variants hover {
-    .stronglyDisagreeBg {
-      background-color: var(--stronglyDesagreeBg);
-    }
-    .disagreeBg{
-      background-color: var(--disagreeBg);
-      }
-      
-      
-      .neitherAgreeOrDisagreeBg{
-      background-color: var(--neitherdisagreeOrNoDisagreeBg);
-      }
-      
-      
-      .agreeBg{
-      background-color: var(--agreeBg);
-      }
-
-      .stronglyAgreeBg{
-        background-color:var(--stronglyAgreeBg);
-        }
-  }
-
+@variants hover {
+.stronglyDisagreeBg {
+background-color: var(--stronglyDesagreeBg);
+}
 .disagreeBg{
 background-color: var(--disagreeBg);
 }
-
 
 .neitherAgreeOrDisagreeBg{
 background-color: var(--neitherdisagreeOrNoDisagreeBg);
 }
 
+.agreeBg{
+background-color: var(--agreeBg);
+}
+
+.stronglyAgreeBg{
+background-color:var(--stronglyAgreeBg);
+}
+}
+
+.disagreeBg{
+background-color: var(--disagreeBg);
+}
+
+.neitherAgreeOrDisagreeBg{
+background-color: var(--neitherdisagreeOrNoDisagreeBg);
+}
 
 .agreeBg{
 background-color: var(--agreeBg);
 }
 
-
 .stronglyAgreeBg{
 background-color:var(--stronglyAgreeBg);
 }
 
+.stronglyDisagreeBg{
+background-color: var(--stronglyDesagreeBg);
+}
 
 
 

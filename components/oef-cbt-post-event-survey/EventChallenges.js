@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const EventChallenges = ({eventForm,setEventForm}) => {
     return (
         <div className='question-body'>
@@ -20,6 +21,7 @@ const EventChallenges = ({eventForm,setEventForm}) => {
         />
       </label>
     </div>
+
     );
 }
 

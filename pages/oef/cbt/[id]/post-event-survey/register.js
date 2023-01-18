@@ -23,6 +23,7 @@ import ImproveEngagement from '../../../../../components/oef-cbt-post-event-surv
 import EventChallenges from '../../../../../components/oef-cbt-post-event-survey/EventChallenges'
 import EventQuestions from '../../../../../components/oef-cbt-post-event-survey/EventQuestions'
 import OrganizerFeedback from '../../../../../components/oef-cbt-post-event-survey/OrganizerFeedback'
+import DropboxDocumentUpload from "../../../../../components/oef-post-event-survey/DropboxDocumentUpload";
 
 
 
@@ -146,6 +147,8 @@ eventChecklistOtherText:""
         <EventChallenges eventForm={eventForm} setEventForm={setEventForm} />
         <EventQuestions eventForm={eventForm} setEventForm={setEventForm} />
         <OrganizerFeedback eventForm={eventForm} setEventForm={setEventForm} />
+        <DropboxDocumentUpload path={`${event?.folderpath}/Documents`} title="Please upload the meeting agenda or other supporting documents" FileUploadedMessage={FileUploadedMessage}/>
+        <DropboxDocumentUpload path={`${event?.folderpath}/Images`} title="Please upload any additional pictures or files" FileUploadedMessage={FileUploadedMessage}/>
 
             
           </div>
