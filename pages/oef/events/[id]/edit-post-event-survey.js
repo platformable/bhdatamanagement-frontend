@@ -323,6 +323,19 @@ const PostEventReport = ({ event, fbos, user }) => {
   };
 
   // console.log("eventForm", eventForm);
+
+  const [eventNotCompletedMessage,setEventNotCompletedMessage]=useState(false)
+
+  useEffect(()=>{
+    if(event.statusText==='FAIL'){
+      setEventNotCompletedMessage(!eventNotCompletedMessage)
+      setTimeout(() => {
+        router.push(`/oef/events/${event?.eventID}/post-event-survey`);
+         }, 4000);
+    }
+  },[])
+
+  console.log("event",event)
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -332,10 +345,12 @@ const PostEventReport = ({ event, fbos, user }) => {
           dashboardBtn={true}
           pageTitle={"Edit Post-event survey"}
         />
+
+        {eventNotCompletedMessage ? <div className="container mx-auto my-7"><h3 className="text-center bg-green-200 rounded-md" >{event.message}</h3></div>:null}
         <div className={`${!isEditable && 'pointer-events-none'} container mx-auto md:px-0 px-5 items-center`}>
           <TopEventsInfo event={event} />
 
-          <div className="post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
+          <div className={`post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg ${eventNotCompletedMessage? 'hidden':null}`}>
             {/* <div className="rounded-tl-md rounded-tr-md"> */}
             <Cluster
               eventForm={eventForm}
@@ -508,7 +523,7 @@ const PostEventReport = ({ event, fbos, user }) => {
               setSubmissionForm={setSubmissionForm}
             />
           </div>
-          <div className="flex justify-center my-10">
+         { !eventNotCompletedMessage && <div className="flex justify-center my-10">
             <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
               onClick={submitPostEventForm}
@@ -516,6 +531,7 @@ const PostEventReport = ({ event, fbos, user }) => {
               Save and finish
             </button>
           </div>
+}
         </div>
       </Layout>
       {showStatusUpload && <ResponseStatusModal responseStatus={msgStatusUpload} setShowResponseStatus={setShowStatusUpload}/>}
