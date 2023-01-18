@@ -36,22 +36,22 @@ const PostEventReport = ({ event, fbos }) => {
   const loggedUserLastname = user && user["https://lanuevatest.herokuapp.com/lastname"];
 console.log(event)
   const [eventForm, setEventForm] = useState({
-    programid:"",
-programname:"",
-participantRegistrationForm:"",
-eventStartedOnTime:"",
-eventFinishedOnTime:"",
-participantGreeted:"",
-resourcesAvailable:"",
-photoRelease:"",
-handSanitizerAvailable:"",
-reminderSafeSpace:"",
-reminderPostEvaluationSurvey:"",
-eventChecklistOther:"",
+    programid:1,
+programname:"OEF",
+participantRegistrationForm:false,
+eventStartedOnTime:false,
+eventFinishedOnTime:false,
+participantGreeted:false,
+resourcesAvailable:false,
+photoRelease:false,
+handSanitizerAvailable:false,
+reminderSafeSpace:false,
+reminderPostEvaluationSurvey:false,
+eventChecklistOther:false,
 totalAttendees:"",
 eventChallenges:"",
 eventQuestions:"",
-surveyname:"",
+surveyname:"bh-cbt-post-event",
 eventOrganization:"",
 eventWorkedBest:"",
 eventImprove:"",
@@ -63,6 +63,8 @@ leastEngaged:"",
 improveEngagement:"",
 organizerFeedback:"",
 mainRoles:[],
+mainRolesOther:"",
+eventChecklistOtherText:""
     
   });
   const userId = user && user.sub;
@@ -127,12 +129,14 @@ mainRoles:[],
 
           <div className="post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
            
-        <MainRoles eventForm={eventForm} setEventForm={setEventForm} s/>
+        <MainRoles eventForm={eventForm} setEventForm={setEventForm}/>
         <ProgramLeaders eventForm={eventForm} setEventForm={setEventForm} />
-        <TotalAttendes eventForm={eventForm} setEventForm={setEventForm} />
-        <EventOrganization eventForm={eventForm} setEventForm={setEventForm} />
+        <TotalAttendes eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
+        <EventOrganization eventForm={eventForm} setEventForm={setEventForm} title={'How satisfied were you with how the event was organized?'} state='eventOrganization'/>
         <EventWorkedBest eventForm={eventForm} setEventForm={setEventForm} />
         <EventImprove eventForm={eventForm} setEventForm={setEventForm} />
+        <EventOrganization eventForm={eventForm} setEventForm={setEventForm} title={'How satisfied were you with how the event was facilitated/delivered?'} state='eventDelivery'/>
+        <EventOrganization eventForm={eventForm} setEventForm={setEventForm} title={'How responsive and engaged do you think participants were?'} state='eventResponsive'/>
         <EventDelivery eventForm={eventForm} setEventForm={setEventForm} />
         <EventResponsive eventForm={eventForm} setEventForm={setEventForm} />
         <Engaged eventForm={eventForm} setEventForm={setEventForm} />
