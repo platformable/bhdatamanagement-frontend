@@ -33,7 +33,7 @@ const ParticipantSurveySection36 = ({ fbos, surveyForm, setSurveyForm }) => {
             //   defaultChecked={}
               value={fbo.namefbo}
               onChange={handleForm}
-              name="fbo"
+              name="deliveryPartner"
             />
             <p className="">{fbo.namefbo}</p>
           </label>
