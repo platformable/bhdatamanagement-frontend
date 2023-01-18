@@ -7,7 +7,7 @@ import SexualOrientationSurveySection from './SexualOrientationSurveySection'
 
 const DemographicSurveySection = ({setEventForm, eventForm, typeOfTest}) => {
   const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1)
-
+  console.log('demographics oef post event', eventForm)
   const typeOfTestForTitles = (string) => {
     switch(string) {
       case('hiv'):
@@ -64,7 +64,9 @@ const DemographicSurveySection = ({setEventForm, eventForm, typeOfTest}) => {
       <AgeSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
       <RaceSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
       <EthnicitySurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
+      {eventForm?.programName !== 'OEF' && 
       <SexualOrientationSurveySection setEventForm={setEventForm} eventForm={eventForm} typeOfTest={typeOfTest} typeOfTestForTitles={typeOfTestForTitles} handleMaxNumber={handleMaxNumber} disableWheelInputNumber={disableWheelInputNumber} isNumberKey={isNumberKey}/>
+    }
       </div>
      
     </div>

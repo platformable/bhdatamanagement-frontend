@@ -28,7 +28,7 @@ const success = () => {
             reporting and program improvement. </p>
           </section>
         </div>
-        {/* <button onClick={() => router.back()} className='uppercase rounded shadow bg-black text-white text-2xl px-5 py-2 self-center'>Submit another participant sign-in sheet</button> */}
+        <button onClick={() => router.back()} className='uppercase rounded shadow bg-black text-white text-2xl px-5 py-2 self-center'>Submit another participant sign-in sheet</button>
         </div>
     
   )

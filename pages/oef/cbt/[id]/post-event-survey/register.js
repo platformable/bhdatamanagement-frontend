@@ -14,8 +14,6 @@ import TotalAttendes from '../../../../../components/oef-cbt-post-event-survey/T
 import EventOrganization from '../../../../../components/oef-cbt-post-event-survey/EventOrganization'
 import EventWorkedBest from '../../../../../components/oef-cbt-post-event-survey/EventWorkedBest'
 import EventImprove from '../../../../../components/oef-cbt-post-event-survey/EventImprove'
-import EventDelivery from '../../../../../components/oef-cbt-post-event-survey/EventDelivery'
-import EventResponsive from '../../../../../components/oef-cbt-post-event-survey/EventResponsive'
 import Engaged from '../../../../../components/oef-cbt-post-event-survey/Engaged'
 import TopicFollowUp from '../../../../../components/oef-cbt-post-event-survey/TopicFollowUp'
 import LeastEngaged from '../../../../../components/oef-cbt-post-event-survey/LeastEngaged'
