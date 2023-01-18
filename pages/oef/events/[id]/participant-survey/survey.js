@@ -41,7 +41,7 @@ const Survey = ({ event, fbos }) => {
     ethnicityID: 0,
     participantEthnicity: "",
     genderID: 0,
-    participantGender: "",
+    participantSexualIdentity: "",
     orientationID: 0,
     participantOrientation: "",
     participantReferral: "",
@@ -77,8 +77,10 @@ const Survey = ({ event, fbos }) => {
 
   const submitParticipantSurvey = async () => {
     setError('')
-   /*  const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
-      key === "participantReferralOther" || key === "participantSuggestions"
+
+    const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
+      key === "participantReferralOther" || key === "participantSuggestions" || key === "participantSexualIdentityOther" || key === "participantRaceOther" || key === "participantEthnicityOther" || key === "participantRaceOther"
+
         ? false
         : value === 0 || value.length === 0
     );
