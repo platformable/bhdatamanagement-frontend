@@ -28,7 +28,7 @@ import ResponseStatusModal from "../../../../../components/ResponseStatusModal";
 
 
 
-const PostEventReport = ({ event }) => {
+const EditPostEventReport = ({ event }) => {
   const { user, error, isLoading } = useUser();
   const [showDemographicsSection, setShowDemographicsSection] = useState(true);
   const [showResponseStatus, setShowResponseStatus] = useState(false);
@@ -37,38 +37,39 @@ const PostEventReport = ({ event }) => {
   const [msgStatusUpload, setMsgStatusUpload] = useState({})
   const loggedUsername = user && user["https://lanuevatest.herokuapp.com/name"];
   const loggedUserLastname = user && user["https://lanuevatest.herokuapp.com/lastname"];
-console.log(event)
+console.log("event",event)
   const [eventForm, setEventForm] = useState({
-    eventID:event?.id,
+    id:event.id,
+    eventID:event?.eventid,
     programid:1,
 programname:"OEF",
-participantRegistrationForm:false,
-eventStartedOnTime:false,
-eventFinishedOnTime:false,
-participantGreeted:false,
-resourcesAvailable:false,
-photoRelease:false,
-handSanitizerAvailable:false,
-reminderSafeSpace:false,
-reminderPostEvaluationSurvey:false,
-eventChecklistOther:false,
-totalAttendees:"",
-eventChallenges:"",
-eventQuestions:"",
+participantRegistrationForm:event?.participantregistrationform,
+eventStartedOnTime:event?.eventstartedontime,
+eventFinishedOnTime:event?.eventfinishedontime,
+participantGreeted:event?.participantgreeted,
+resourcesAvailable:event?.resourcesavailable,
+photoRelease:event?.photorelease,
+handSanitizerAvailable:event?.handsanitizeravailable,
+reminderSafeSpace:event?.remindersafespace,
+reminderPostEvaluationSurvey:event?.reminderpostevaluationsurvey,
+eventChecklistOther:event?.eventchecklistother,
+totalAttendees:event?.totalattendees,
+eventChallenges:event?.eventchallenges,
+eventQuestions:event?.eventquestions,
 surveyname:"bh-cbt-post-event",
-eventOrganization:"",
-eventWorkedBest:"",
-eventImprove:"",
-eventDelivery:"",
-eventResponsive:"",
-engaged:"",
-topicsFollowup:"",
-leastEngaged:"",
-improveEngagement:"",
-organizerFeedback:"",
-mainRoles:[],
-mainRolesOther:"",
-eventChecklistOtherText:""
+eventOrganization:event?.eventorganization,
+eventWorkedBest:event?.eventworkedbest,
+eventImprove:event?.eventimprove,
+eventDelivery:event?.eventdelivery,
+eventResponsive:event?.eventresponsive,
+engaged:event?.engaged,
+topicsFollowup:event?.topicsfollowup,
+leastEngaged:event?.leastengaged,
+improveEngagement:event?.improveengagement,
+organizerFeedback:event?.organizerfeedback,
+mainRoles:event?.mainroles,
+mainRolesOther:event?.mainrolesother,
+eventChecklistOtherText:event?.eventchecklistothertext,
     
   });
   const userId = user && user.sub;
@@ -100,13 +101,13 @@ eventChecklistOtherText:""
     setResponseStatus({
       success: true,
       statusMessage:
-        "Please wait while your event information is being processed",
+        "Update in progress",
     });
     setShowResponseStatus(true);
     // if (!isEmpty) {
     axios
-      .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/cbt/create`,
+      .put(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/cbt/event/update`,
         eventForm
       )
       .then((response) => {
@@ -179,19 +180,21 @@ eventChecklistOtherText:""
   );
 };
 
-export default PostEventReport;
+export default EditPostEventReport;
 
 
-export const getServerSideProps = async(ctx) => {
-    const { id } = ctx.params;
-    const [data] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`).then((r) =>
-        r.json()
-      ),
-    ]);
-    return {
-      props: {
-        event: data[0],
-      },
-    };
-}
+export const getServerSideProps = withPageAuthRequired({
+    async getServerSideProps(ctx) {
+      const { id } = ctx.params;
+      const [data] = await Promise.all([
+        fetch(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/cbt/event/${id}`
+        ).then((r) => r.json())
+      ]);
+      return {
+        props: {
+          event: data[0]
+        },
+      };
+    },
+  });

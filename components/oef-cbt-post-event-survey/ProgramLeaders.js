@@ -39,7 +39,7 @@ const ProgramLeaders = ({eventForm,setEventForm}) => {
                 value={option.value}
                 id={index}
                 onChange={(e)=> setEventForm(prev => ({...prev, [option.dataPoint]:!eventForm[option.dataPoint]}))}
-                defaultChecked={[eventForm.dataPoint]===true ? 'checked' : ""}
+                defaultChecked={eventForm[option.dataPoint]===true ? 'checked' : ""}
               />
               {option.value}
             </label>
@@ -66,7 +66,7 @@ const ProgramLeaders = ({eventForm,setEventForm}) => {
                 value={option.value}
                 id={index}
                 onChange={(e)=> setEventForm(prev => ({...prev, [option.dataPoint]:!eventForm[option.dataPoint]}))}
-                defaultChecked={[eventForm.dataPoint]===true ? 'checked' : ""}
+                defaultChecked={eventForm[option.dataPoint]===true ? 'checked' : ""}
               />
               {option.value}
             </label>
