@@ -98,7 +98,7 @@ const EventsIndex = ({ technicalAssistance }) => {
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Technical Assistance Request"}
+        pageTitle={"Technical Assistance Requests"}
         dashboardBtn={true}
         backBtn={true}
       />
@@ -171,7 +171,7 @@ const EventsIndex = ({ technicalAssistance }) => {
                 ) {
                   return event;
                 }
-                return event.tacontactname.includes(searchWord) || event.tatype.some(type => type.toLowerCase().includes(searchWord)) || event.tafbo.some(type => type.toLowerCase().includes(searchWord))
+                return event.tacontactname.toLowerCase().includes(searchWord) || event.tatype.some(type => type.toLowerCase().includes(searchWord)) || event.tafbo.some(type => type.toLowerCase().includes(searchWord))
               })
               .filter((event, index) => {
                 var startDate = new Date(new Date(dateFilter?.startDate).setHours(0))

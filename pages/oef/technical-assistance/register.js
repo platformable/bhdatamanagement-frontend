@@ -99,7 +99,7 @@ const RegisterTA = ({ fbos }) => {
           backBtn={true}
           dashboardBtn={true}
         /> */}
-      <ExternalSurveyHeader pageTitle="OEF Technical assistance request
+      <ExternalSurveyHeader pageTitle="Technical Assistance Request Form
 "/>
       <section className="container mx-auto px-5  md:px-0 rounded-lg border-black pb-10">
         <TypeOfTARequested form={form} setForm={setForm} />
