@@ -44,10 +44,10 @@ const Survey = ({ event, fbos }) => {
     participantSexualIdentity: "",
     orientationID: 0,
     participantOrientation: "",
+    participantOrientationOther: "",
     participantReferral: "",
     participantReferralOther: "",
     participantSuggestions: "",
-
     participantRaceOther:"",
     participantEthnicityOther:"",
     participantSexualIdentityOther:""

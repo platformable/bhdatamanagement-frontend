@@ -271,7 +271,7 @@ const EventsIndex = ({ events }) => {
 
       <div className="events-cards-container grid md:grid-cols-6 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
       {/*  HEAD TABLE  */}
-      <div className={`hidden md:grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-fbo-events-head-table" : `existing-events-head-table`} container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
+      <div className={`hidden md:grid supervisor-existing-fbo-events-head-table container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
         <p className="lg:text-xl font-bold flex items-center ">Event title</p>
         <p className="lg:text-xl font-bold flex items-center ">FBO</p>
@@ -285,7 +285,7 @@ const EventsIndex = ({ events }) => {
         <div className="events-index-btn-container grid grid-cols-1 gap-x-3 p-0">
           {sortedEventsByDate &&
             sortedEventsByDate
-              ?.filter((event,index)=>event.programname==='OEF')
+              ?.filter((event,index)=>event.programname==='OEF' && event?.surveyname === 'oef-fbo-outreach')
               .filter((event, index) => {
                 if (
                   searchWord === "" &&
@@ -351,7 +351,7 @@ const EventsIndex = ({ events }) => {
                     <div className="hidden sm:block">
                       <section
                         key={index}
-                        className={`grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-fbo-events-head-table" : "existing-events-head-table"} px-7  rounded border-b-4 `}
+                        className={`grid supervisor-existing-fbo-events-head-table px-7  rounded border-b-4 `}
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
                         <div className="flex items-center lg:text-xl font-bold  py-7">
