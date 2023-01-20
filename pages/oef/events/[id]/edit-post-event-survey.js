@@ -331,7 +331,7 @@ const PostEventReport = ({ event, fbos, user }) => {
       setEventNotCompletedMessage(!eventNotCompletedMessage)
       setTimeout(() => {
         router.push(`/oef/events/${event?.eventID}/post-event-survey`);
-         }, 4000);
+         }, 5000);
     }
   },[])
 

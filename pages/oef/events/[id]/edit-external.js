@@ -27,6 +27,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
 import ResponseStatusModal from "../../../../components/ResponseStatusModal";
+import InPersonOrOnlineEvent from "../../../../components/oef-event-registration/InPersonOrOnlineEvent";
 
 const EditOefEventExternal = ({
   event,
@@ -60,6 +61,14 @@ const EditOefEventExternal = ({
     borough: event?.borough,
     oefEventEmail: event?.oefeventemail,
     deliveryPartner: event?.deliverypartner,
+
+    locationAddress: event?.locationaddress,
+    onlineInPersonEventType: event?.onlineinpersoneventtype,
+    inPersonEventTypeName: event?.inpersoneventtypename,
+    inPersonEventTypeNameOther: event?.inpersoneventtypenameother,
+    inPersonEventTypeID: event?.inpersoneventtypeid,
+    onlineEventTypeName: event?.onlineeventtypename,
+    onlineEventTypeID: event?.onlineeventtypeid,
   });
 
   console.log("oef state form", eventForm);
@@ -202,6 +211,10 @@ const EditOefEventExternal = ({
                 eventForm={eventForm}
                 setEventForm={setEventForm}
                 event={event}
+              />
+              <InPersonOrOnlineEvent
+                eventForm={eventForm}
+                setEventForm={setEventForm}
               />
               <Section9
                 eventForm={eventForm}

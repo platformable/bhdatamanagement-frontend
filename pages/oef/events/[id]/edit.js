@@ -20,7 +20,7 @@ import {
   NYSZipCodesAndBoroughs,
 } from "../../../../utils/sharedData";
 
-import {  withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,19 +28,18 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 import ExternalSurveyHeader from "../../../../components/ExternalSurveyHeader";
+import InPersonOrOnlineEvent from "../../../../components/oef-event-registration/InPersonOrOnlineEvent";
 
-const EditOefEvent = ({
-  event,
-  fbos,
-  user
-}) => {
+const EditOefEvent = ({ event, fbos, user }) => {
   console.log("event", event);
   const router = useRouter();
-  const loggedUserRole = user && user["https://lanuevatest.herokuapp.com/roles"];
+  const loggedUserRole =
+    user && user["https://lanuevatest.herokuapp.com/roles"];
 
-    const isEditable = loggedUserRole === 'Supervisor' || (new Date().toLocaleDateString() ===
-      new Date(event?.eventdatecreated).toLocaleDateString());
-
+  const isEditable =
+    loggedUserRole === "Supervisor" ||
+    new Date().toLocaleDateString() ===
+      new Date(event?.eventdatecreated).toLocaleDateString();
 
   // let userId = user?.sub;
   const [showResponseStatus, setShowResponseStatus] = useState(false);
@@ -63,6 +62,14 @@ const EditOefEvent = ({
     borough: event?.borough,
     oefEventEmail: event?.oefeventemail,
     deliveryPartner: event?.deliverypartner,
+
+    locationAddress: event?.locationaddress,
+    onlineInPersonEventType: event?.onlineinpersoneventtype,
+    inPersonEventTypeName: event?.inpersoneventtypename,
+    inPersonEventTypeNameOther: event?.inpersoneventtypenameother,
+    inPersonEventTypeID: event?.inpersoneventtypeid,
+    onlineEventTypeName: event?.onlineeventtypename,
+    onlineEventTypeID: event?.onlineeventtypeid,
   });
 
   console.log("oef state form", eventForm);
@@ -77,9 +84,7 @@ const EditOefEvent = ({
     setLoading(true);
 
     notifyMessage();
-    // setTimeout(() => {
-    //   router.push("/oef/events/403/post-event-survey");
-    // }, 15000);
+    
     await axios
       .put(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/update`, eventForm)
       .then((response) => {
@@ -211,6 +216,10 @@ const EditOefEvent = ({
                   setEventForm={setEventForm}
                   event={event}
                 />
+                <InPersonOrOnlineEvent
+                  eventForm={eventForm}
+                  setEventForm={setEventForm}
+                />
                 <Section9
                   eventForm={eventForm}
                   setEventForm={setEventForm}
@@ -249,15 +258,12 @@ export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     let { id } = ctx.params;
 
-    const [event, fbos] =
-      await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`).then((r) =>
-          r.json().then((res) => res[0])
-        ),
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) =>
-          r.json()
-        ),
-      ]);
+    const [event, fbos] = await Promise.all([
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`).then((r) =>
+        r.json().then((res) => res[0])
+      ),
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
+    ]);
     return {
       props: {
         event: event,

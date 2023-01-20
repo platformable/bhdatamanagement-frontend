@@ -23,6 +23,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import ResponseStatusModal from "../../components/ResponseStatusModal";
 import ExternalSurveyHeader from "../../components/ExternalSurveyHeader";
+import InPersonOrOnlineEvent from "../../components/oef-event-registration/InPersonOrOnlineEvent";
 
 const Register = ({ fbos }) => {
   const router = useRouter();
@@ -48,7 +49,14 @@ const Register = ({ fbos }) => {
     oefEventEmail:"",
     deliveryPartner:"",
     surveyName: "oef-fbo-outreach",
-    locationAddress:""
+    
+    locationAddress:"",
+    onlineInPersonEventType:"",
+    inPersonEventTypeName:"",
+    inPersonEventTypeNameOther:"",
+    inPersonEventTypeID:"",
+    onlineEventTypeName:"",
+    onlineEventTypeID:""
   });
 
   console.log("oef state form", eventForm);
@@ -170,6 +178,7 @@ const Register = ({ fbos }) => {
             <Section6 eventForm={eventForm} setEventForm={setEventForm} />
             <Section7 eventForm={eventForm} setEventForm={setEventForm} />
             <Section8 eventForm={eventForm} setEventForm={setEventForm} />
+            <InPersonOrOnlineEvent eventForm={eventForm} setEventForm={setEventForm}/>
             <Section9 eventForm={eventForm} setEventForm={setEventForm} />
           </div>
         </div>
