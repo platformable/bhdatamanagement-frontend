@@ -42,6 +42,15 @@ const EditCbt = ({data, user}) => {
     surveyName: data?.surveyname || "",
     programID: 1,
     programName: 'OEF',
+
+
+    onlineInPersonEventType:data?.onlineinpersoneventtype,
+    inPersonEventTypeName:data?.inpersoneventtypename,
+    inPersonEventTypeNameOther:data?.inpersoneventtypenameother,
+    inPersonEventTypeID:data?.inpersoneventtypeid,
+    onlineEventTypeName:data?.onlineeventtypename,
+    locationAddress:data?.locationaddress,
+    onlineEventTypeID:data?.onlineeventtypei,
   });
 
   console.log("oef state form", eventForm);
