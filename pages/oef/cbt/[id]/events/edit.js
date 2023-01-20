@@ -5,6 +5,8 @@ import Section6 from "../../../../../components/oef-cbt-event-registration/Secti
 import Section7 from "../../../../../components/oef-cbt-event-registration/Section7";
 import Section8 from "../../../../../components/oef-cbt-event-registration/Section8";
 import Section9 from "../../../../../components/oef-cbt-event-registration/Section9";
+import OnlineOrInPerson from "../../../../../components/oef-cbt-event-registration/OnlineOrInPerson";
+import LocationAddress from "../../../../../components/oef-cbt-event-registration/LocationAddress";
 
 import Loader from "../../../../../components/Loader";
 
@@ -139,6 +141,8 @@ const EditCbt = ({data, user}) => {
             <Section5 eventForm={eventForm} setEventForm={setEventForm} />
             <Section4 eventForm={eventForm} setEventForm={setEventForm} />
             <Section6 eventForm={eventForm} setEventForm={setEventForm} />
+            <OnlineOrInPerson eventForm={eventForm} setEventForm={setEventForm}/>
+            <LocationAddress eventForm={eventForm} setEventForm={setEventForm}/>
             <Section7 eventForm={eventForm} setEventForm={setEventForm} />
             <Section8 eventForm={eventForm} setEventForm={setEventForm} />
             <Section9 eventForm={eventForm} setEventForm={setEventForm} />
