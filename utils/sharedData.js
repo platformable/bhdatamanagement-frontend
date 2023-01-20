@@ -408,22 +408,21 @@ export const inPersonEventTypeName = [
   { id: 8, value: "Community Advisory Board Meeting", nyscmp: false },
 ];
 export const inPersonEventLocationType = [
-  {
-    id: 0,
-    value: "College/School/Trades school/community-based learning center",
-    nyscmp: true,
-  },
-  { id: 1, value: "Community based organization site", nyscmp: true },
-  { id: 2, value: "COVID vaccine location", nyscmp: true },
-  { id: 3, value: "COVID-19 Testing location", nyscmp: true },
-  { id: 4, value: "Faith based location/Place of worship", nyscmp: true },
-  { id: 5, value: "Food Bank/Pantry/Food Kitchen", nyscmp: true },
-  { id: 6, value: "Hospital/Clinic", nyscmp: true },
-  { id: 7, value: "Local neighborhood small business", nyscmp: true },
-  { id: 8, value: "Park/Playground", nyscmp: true },
-  { id: 9, value: "Public housing location", nyscmp: true },
-  { id: 10, value: "Public transportation hub or station", nyscmp: true },
-  { id: 11, value: "Other", nyscmp: true },
+  { id: 0, value: "College/School/Trades school/community-based learning center", nyscmp: true, oefoutreach:true, oefcbt:true },
+  { id: 1, value: "Community based organization site", nyscmp: true, oefoutreach:true, oefcbt:true },
+  { id: 2, value: "COVID vaccine location", nyscmp: true, oefoutreach:false, oefcbt:true },
+  { id: 3, value: "COVID-19 Testing location", nyscmp: true, oefoutreach:false, oefcbt:true },
+  { id: 4, value: "Faith based location/Place of worship", nyscmp: true, oefoutreach:true, oefcbt:true  },
+  { id: 5, value: "Food Bank/Pantry/Food Kitchen", nyscmp: true, oefoutreach:true, oefcbt:true },
+  { id: 6, value: "Hospital/Clinic", nyscmp: true, oefoutreach:true, oefcbt:true  },
+  { id: 7, value: "Local neighborhood small business", nyscmp: true, oefoutreach:false, oefcbt:true },
+  { id: 8, value: "Park/Playground", nyscmp: true, oefoutreach:false, oefcbt:true },
+  { id: 9, value: "Public housing location", nyscmp: true, oefoutreach:true, oefcbt:true  },
+  { id: 10, value: "Public transportation hub or station", nyscmp: true, oefoutreach:false, oefcbt:true },
+
+ { id: 12, value: "In the neighborhood/on the street", nyscmp: false, oefoutreach:true, oefcbt:true  },
+ { id: 13, value: "Homeless Shelter", nyscmp: false, oefoutreach:true, oefcbt:true  },
+ { id: 11, value: "Other", nyscmp: true, oefoutreach:true, oefcbt:true  },
 ];
 
 export const onlineEventTypeName = [
