@@ -101,6 +101,8 @@ const EditTA = ({ technicalAssistance,fbos }) => {
 
   const handleStatus = (e) => setForm(prev => ({...prev, taStatus: e.target.value,taStatusCompleteDate:null})) 
   console.log(form);
+
+  console.log("technicalAssistance",technicalAssistance)
   return (
     <>
       <Layout>

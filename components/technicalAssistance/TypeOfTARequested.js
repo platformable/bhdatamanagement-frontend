@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 
 const TypeOfTARequested = ({form, setForm,isEditPage}) => {
-    const [data, setData] = useState([])
+    const [data, setData] = useState(form?.taType || [])
 console.log("form",form)
     useEffect(() => {
         setForm(prev=> ({...prev, taType: data}))
