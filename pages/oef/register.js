@@ -47,7 +47,8 @@ const Register = ({ fbos }) => {
     borough: "",
     oefEventEmail:"",
     deliveryPartner:"",
-    surveyName: "oef-fbo-outreach"
+    surveyName: "oef-fbo-outreach",
+    locationAddress:""
   });
 
   console.log("oef state form", eventForm);

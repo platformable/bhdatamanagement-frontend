@@ -3,7 +3,7 @@ import React from "react";
 const Section3 = ({ fbos, eventForm, setEventForm }) => {
 
   const handleForm = (e) => {
-    setEventForm((prev) => ({ ...prev, deliveryPartner: e.target.value }));
+    // setEventForm((prev) => ({ ...prev, deliveryPartner: e.target.value,locationAddress:fbo.addressfbo+' 'fbo.addressfbo2 }));
   };
   return (
     <div className="">
@@ -17,7 +17,7 @@ const Section3 = ({ fbos, eventForm, setEventForm }) => {
               className=""
               defaultChecked={eventForm?.deliveryPartner===fbo.namefbo?true:false}
               value={fbo.namefbo}
-              onChange={handleForm}
+              onChange={(e)=>setEventForm((prev) => ({ ...prev, deliveryPartner: e.target.value,locationAddress:fbo.addressfbo}))}
               name="fbo"
             />
             <p className="">{fbo.namefbo}</p>
@@ -32,7 +32,7 @@ const Section3 = ({ fbos, eventForm, setEventForm }) => {
               className=""
             defaultChecked={eventForm?.deliveryPartner===fbo.namefbo?true:false}
               value={fbo.namefbo}
-              onChange={handleForm}
+              onChange={(e)=>setEventForm((prev) => ({ ...prev, deliveryPartner: e.target.value,locationAddress:fbo.addressfbo}))}
               name="fbo"
             />
             <p className="">{fbo?.namefbo}</p>
