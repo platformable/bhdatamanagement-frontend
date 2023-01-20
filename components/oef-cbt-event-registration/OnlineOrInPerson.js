@@ -103,7 +103,7 @@ const OnlineOrInPerson = ({ eventForm, setEventForm, event }) => {
                 className=""
                 id={""}
                 defaultValue={eventForm?.inpersonEventTypeNameOther}
-                onChange={(e)=> setEventForm(prev => ({...prev, inpersonEventTypeNameOther: e.target.value}))}
+                onChange={(e)=> setEventForm(prev => ({...prev, inPersonEventTypeNameOther: e.target.value}))}
               />
             </label>
                   </div>
