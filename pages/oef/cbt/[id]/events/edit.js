@@ -50,7 +50,7 @@ const EditCbt = ({data, user}) => {
     inPersonEventTypeID:data?.inpersoneventtypeid,
     onlineEventTypeName:data?.onlineeventtypename,
     locationAddress:data?.locationaddress,
-    onlineEventTypeID:data?.onlineeventtypei,
+    onlineEventTypeID:data?.onlineeventtypeid,
   });
 
   console.log("oef state form", eventForm);
