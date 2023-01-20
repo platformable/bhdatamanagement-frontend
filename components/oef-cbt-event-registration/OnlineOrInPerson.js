@@ -103,7 +103,10 @@ const OnlineOrInPerson = ({ eventForm, setEventForm, event }) => {
                 className=""
                 id={""}
                 defaultValue={eventForm?.inpersonEventTypeNameOther}
-                onChange={(e)=> setEventForm(prev => ({...prev, inPersonEventTypeNameOther: e.target.value}))}
+                onChange={(e)=> {
+                    if (e.target.value !== 'Other') setEventForm(prev => ({...prev, inPersonEventTypeNameOther: ''}));
+                    setEventForm({...eventForm,inPersonEventTypeName:e.target.value,inPersonEventTypeID:option.id})
+                  }}
               />
             </label>
                   </div>
@@ -118,7 +121,7 @@ const OnlineOrInPerson = ({ eventForm, setEventForm, event }) => {
                 className=""
                 value={option.value}
                 id={index}
-                onChange={(e)=>setEventForm({...eventForm,inPersonEventTypeName:e.target.value,inPersonEventTypeID:option.id})}
+                onChange={(e)=>setEventForm({...eventForm,inPersonEventTypeName:e.target.value,inPersonEventTypeID:option.id, inPersonEventTypeNameOther: ''})}
                 defaultChecked={eventForm?.inPersonEventTypeName?.includes(option.value) ? 'checked' : ""}
               />
               {option.value}
