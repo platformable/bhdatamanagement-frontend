@@ -1,7 +1,7 @@
 import React from "react";
 
 const FboRadioList = ({ fbos, surveyForm,dispatch,updateFbo }) => {
-  console.log();
+
   const handleForm = (e) => {
     dispatch(updateFbo({fbo:e.target.value}))
   };

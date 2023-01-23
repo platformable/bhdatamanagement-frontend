@@ -64,6 +64,7 @@ import FboRadioList from "../../../components/oef-site-visit-survey/FboRadioList
 import StartTime from "../../../components/oef-site-visit-survey/StartTime";
 import FinishTime from "../../../components/oef-site-visit-survey/FinishTime";
 import OneColumnCheckbox from "../../../components/oef-site-visit-survey/OneColumnCheckbox";
+import TextArea from "../../../components/oef-site-visit-survey/TextArea";
 
 
 
@@ -171,7 +172,7 @@ const RegisterSiteVisits = ({ fbos }) => {
       <FinishTime />
       <FboRadioList dispatch={dispatch} surveyForm={surveyForm} updateFbo={updateFbo} fbos={fbos} />
       <OneColumnCheckbox options={fboAttendeesOptions} surveyForm ={surveyForm} dispatch={dispatch} updateFunction={updateFboAttendees} title='Meeting attendees' stateValue='fboAttendees'/>
-   
+    <TextArea dispatch={dispatch} surveyForm={surveyForm}  stateValue='strategiesHealthDisparities' updateFunction={updateStrategiesHealthDisparities} title='What strategies do you employ to engage FBO members around other health disparities'/>
 
           </div>
         </div>
