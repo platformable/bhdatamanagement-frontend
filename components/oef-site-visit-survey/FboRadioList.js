@@ -2,8 +2,9 @@ import React from "react";
 
 const FboRadioList = ({ fbos, surveyForm,dispatch,updateFbo,stateValue }) => {
 
-  const handleForm = (e) => {
+  const handleForm = (e, borough) => {
     dispatch(updateFbo({fbo:e.target.value}))
+    dispatch(updateFbo({boroughFbo: borough}))
   };
   return (
     <div className="question-body">
@@ -17,7 +18,7 @@ const FboRadioList = ({ fbos, surveyForm,dispatch,updateFbo,stateValue }) => {
               className=""
             //   defaultChecked={}
               value={fbo.namefbo}
-              onChange={handleForm}
+              onChange={(e) => handleForm(e, fbo.boroughfbo)}
               name="fbo"
               defaultChecked={
                 fbo.namefbo === surveyForm[stateValue] ? "checked" : ""
@@ -35,7 +36,7 @@ const FboRadioList = ({ fbos, surveyForm,dispatch,updateFbo,stateValue }) => {
               className=""
             //   defaultChecked={}
               value={fbo.namefbo}
-              onChange={handleForm}
+              onChange={(e) => handleForm(e, fbo.boroughfbo)}
               name="fbo"
               defaultChecked={
                 fbo.namefbo === surveyForm[stateValue] ? "checked" : ""

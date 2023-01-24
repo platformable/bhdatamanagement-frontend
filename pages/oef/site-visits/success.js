@@ -8,7 +8,7 @@ const success = () => {
     <div className="h-88  py-10 px-10  mt-3 flex flex-col gap-5 items-center rounded-lg border-black">
           
           <h1 className="text-center font-black">
-            OEF Program Technical Assistance Request Form
+            OEF Program Site Visit Request Form
           </h1>
           <div className="flex flex-col gap-5 md:flex-row items-center mt-5">
             <h2 className="pt-2">In partnership with</h2>
@@ -22,7 +22,7 @@ const success = () => {
           <section className='flex flex-col mt-10 py-7 w-full gap-3 bg-sky-blue rounded-lg items-center'>
             <img src="/saved-form.svg" alt="checked icon" />
             <h2 className='font-black text-center'>
-            Your technical assistance request has been
+            Your site visit request has been
             <br/>
             submitted successfully!<br/>
             We will be in touch shortly to assist you  </h2>
