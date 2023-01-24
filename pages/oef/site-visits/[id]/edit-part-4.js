@@ -1,13 +1,13 @@
 import React, { useState,useEffect } from "react";
-import Layout from "../../../components/Layout";
-import PageTopHeading from "../../../components/PageTopHeading";
-import Loader from "../../../components/Loader";
+import Layout from "../../../../components/Layout";
+import PageTopHeading from "../../../../components/PageTopHeading";
+import Loader from "../../../../components/Loader";
 import axios from "axios";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
-import ResponseStatusModal from "../../../components/ResponseStatusModal";
+import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -15,10 +15,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { 
   updateInitialState,
   updateStrategiesHealthDisparities,
-} from "../../../slices/siteVisitsSlice";
-import Rating from "../../../components/oef-site-visit-survey/Rating";
-import TextArea from "../../../components/oef-site-visit-survey/TextArea";
-import Status from "../../../components/oef-site-visit-survey/Status";
+} from "../../../../slices/siteVisitsSlice";
+import Rating from "../../../../components/oef-site-visit-survey/Rating";
+import TextArea from "../../../../components/oef-site-visit-survey/TextArea";
+import Status from "../../../../components/oef-site-visit-survey/Status";
 
 
 const RegisterSiteVisits = ({ fbos }) => {
@@ -134,7 +134,7 @@ const RegisterSiteVisits = ({ fbos }) => {
   const submitForm = async () => {
     setLoading(!loading);
     await axios
-      .post(
+      .put(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/site_visits`,
         surveyForm
       )
@@ -163,7 +163,7 @@ const RegisterSiteVisits = ({ fbos }) => {
   return (
     <>
       <Layout showStatusHeader={true}>
-        <ToastContainer autoClose={20000} />
+        <ToastContainer autoClose={5000} />
         <PageTopHeading
           backBtn={true}
           dashboardBtn={true}
@@ -197,7 +197,7 @@ const RegisterSiteVisits = ({ fbos }) => {
             
             <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-              onClick={()=>router.push('/oef/site-visits/register-part-3')}
+              onClick={()=>router.push(`/oef/site-visits/${surveyForm.id}/edit-part-3`)}
             >
               Previous Page
             </button>
@@ -224,6 +224,8 @@ const RegisterSiteVisits = ({ fbos }) => {
 export default RegisterSiteVisits;
 
 
-export const getServerSideProps = withPageAuthRequired({});
+export const getServerSideProps = withPageAuthRequired({
+  
+});
 
 
