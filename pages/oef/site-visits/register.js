@@ -133,21 +133,7 @@ const RegisterSiteVisits = ({ fbos }) => {
     "Staten Island",
     "Queens",
   ];
-  // const getCity = (zipcode, array) => {
-  //   const searchZipcode = array.filter((code) => code.zipcode === zipcode);
-  //   if (searchZipcode.length > 0) {
-  //     setSurveyForm({ ...surveyForm, participantBorough: searchZipcode[0].borought });
-  //   } else {
-  //     setSurveyForm({ ...surveyForm, participantBorough: '' });
-  //   }
-  // };
-  // useEffect(() => {
-
-  //   getCity(surveyForm.participantZipCode, NYSZipCodesAndBoroughs);
-  // }, [surveyForm.participantZipCode]);
-
-
-  /////////
+  
 
   const fboAttendeesOptions= [
     {
