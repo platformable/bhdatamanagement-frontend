@@ -104,12 +104,7 @@ const RegisterSiteVisits = ({ fbos }) => {
 
 export default RegisterSiteVisits;
 
-export const getServerSideProps = async(ctx) => {
-    const [fbos] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
-    ]);
-    return { props: { fbos: fbos } };
 
-  }
+export const getServerSideProps = withPageAuthRequired({});
 
 
