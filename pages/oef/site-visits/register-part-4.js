@@ -136,7 +136,7 @@ const RegisterSiteVisits = ({ fbos }) => {
     await axios
       .post(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/site_visits`,
-        surveyForm.value
+        surveyForm
       )
       .then((response) => {
         console.log(response);
