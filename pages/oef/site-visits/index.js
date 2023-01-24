@@ -116,43 +116,7 @@ const EventsIndex = ({ siteVisits }) => {
           </div>
         <Search searchFunction={searchFunction} />
         
-     {/*    <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
-          <h3 className="">Filter by date</h3>
-        </div> */}
-
-        {/* <div className="block md:flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0">
-          <label className="w-full">
-            <input
-              type="date"
-              ref={ref}
-              id="start"
-              placeholder="start date"
-              onChange={(e) => {
-                setDateFilter({ ...dateFilter, startDate: e.target.value });
-                dispatch(
-                  updateStartDate({ ...dateFilter, startDate: e.target.value })
-                );
-              }}
-              defaultValue={startDate}
-              className="border-black rounded-md text-sm w-full"
-            />
-          </label>
-          <h3 className="text-left md:text-center md:py-5 md:py-0 py-5">and</h3>
-          <label className="flex justify-end w-full">
-            <input
-              type="date"
-              placeholder="end date"
-              onChange={(e) => {
-                setDateFilter({ ...dateFilter, endDate: e.target.value });
-                dispatch(
-                  updateStartDate({ ...dateFilter, endDate: e.target.value })
-                );
-              }}
-              defaultValue={endDate}
-              className="border-black rounded-md  text-sm w-full"
-            />
-          </label>
-        </div> */}
+   
       </div>
 
       <div className="events-cards-container grid md:grid-cols-8 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
@@ -180,22 +144,6 @@ const EventsIndex = ({ siteVisits }) => {
                 }
                 return event.fbo.toLowerCase().includes(searchWord) || event.boroughfbo.toLowerCase().includes(searchWord)
               })
-             /*  .filter((event, index) => {
-                var startDate = new Date(new Date(dateFilter?.startDate).setHours(0))
-                var endDate = new Date(new Date(dateFilter?.endDate).setHours(23))
-                if (startDate !== null && endDate !== null) {
-                  let filterPass = true;
-                  const date = new Date(event.tadatesubmitted);
-                  if (dateFilter.startDate) {
-                    filterPass = filterPass && startDate <= date;
-                  }
-                  if (dateFilter.endDate) {
-                    filterPass =
-                      filterPass && endDate >= date;
-                  }
-                  return filterPass;
-                }
-              }) */
               .map((event, index) => {
               
                 return (
