@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 
-const OneColumnCheckbox = ({options, surveyForm,dispatch,updateFunction,title,stateValue}) => {
+const OneColumnCheckbox = ({options, surveyForm,dispatch,updateFunction,title,stateValue,updateFunctionOther}) => {
 
     console.log("options",options)
 
@@ -38,23 +38,23 @@ const OneColumnCheckbox = ({options, surveyForm,dispatch,updateFunction,title,st
                   <label className="flex items-center gap-5 text-lg" key={index}>
               <input
                 type="checkbox"
-                name="mainRoles"
+                name={stateValue}
                 className=""
                 value={option.value}
                 id={index}
                 onChange={(e)=>handleForm(option.value)}
-                defaultChecked={surveyForm?.mainRoles?.includes(option.value) ? 'checked' : ""}
+                defaultChecked={surveyForm[stateValue]?.includes(option.value) ? 'checked' : ""}
               />
               {option?.value}
             </label>
                   <label className="flex items-center gap-5 text-lg" key={""}>
               <input
                 type="text"
-                name="mainRolesOther"
+                name=""
                 className=""
                 id={""}
-                defaultValue={surveyForm?.mainRolesOther}
-                onChange={(e)=> setEventForm(prev => ({...prev, mainRolesOther: e.target.value}))}
+                //defaultValue={surveyForm[stateValue]+'Other'}
+                onChange={(e)=>dispatch(updateFunctionOther({[stateValue+'Other']:e.target.value}))}
               />
             </label>
                   </div>
@@ -65,12 +65,12 @@ const OneColumnCheckbox = ({options, surveyForm,dispatch,updateFunction,title,st
             <label className="flex items-center gap-5 text-lg" key={index}>
               <input
                 type="checkbox"
-                name="mainRoles"
+                name={stateValue}
                 className=""
                 value={option?.value}
                 id={index}
                 onChange={(e)=>handleForm(option.value)}
-                defaultChecked={surveyForm?.mainRoles?.includes(option.value) ? 'checked' : ""}
+                defaultChecked={surveyForm[stateValue]?.includes(option.value) ? 'checked' : ""}
               />
               {option.value}
             </label>

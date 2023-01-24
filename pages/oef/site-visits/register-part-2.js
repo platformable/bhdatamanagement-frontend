@@ -9,7 +9,6 @@ import "react-toastify/dist/ReactToastify.css";
 import InputValidationAddress from "../../../components/InputValidationAddress";
 import { useRouter } from "next/router";
 import ResponseStatusModal from "../../../components/ResponseStatusModal";
-import Router from "next/router";
 
 import DateComponent from '../../../components/oef-site-visit-survey/DateComponent'
 
@@ -70,125 +69,74 @@ import RadioBoolean from "../../../components/oef-site-visit-survey/RadioBoolean
 import RadioGroup from "../../../components/oef-site-visit-survey/RadioGroup";
 import NumberLimits from "../../../components/oef-site-visit-survey/NumberLimits";
 
+export default function RegisterPart2({fbos}) {
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+    const router = useRouter();
+    const dispatch = useDispatch();
+  
+    const [showResponseStatus, setShowResponseStatus] = useState(false);
+    const [responseStatus, setResponseStatus] = useState({});
+  
+  
+  
+    const isNumberKey = (e) => {
+      const invalidChars = ["-", "+", "e"];
+      if (invalidChars.includes(e.key)) {
+        e.preventDefault();
+      }
+    };
+  
+    const surveyForm = useSelector((state)=>state.siteVisitsReducer.value) 
 
 
 
 
-const RegisterSiteVisits = ({ fbos }) => {
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
-  const dispatch = useDispatch();
-
-  const [showResponseStatus, setShowResponseStatus] = useState(false);
-  const [responseStatus, setResponseStatus] = useState({});
-
-
-
-  const isNumberKey = (e) => {
-    const invalidChars = ["-", "+", "e"];
-    if (invalidChars.includes(e.key)) {
-      e.preventDefault();
-    }
-  };
-
-  const surveyForm = useSelector((state)=>state.siteVisitsReducer.value) 
-
-  console.log("surveyForm",surveyForm)
-
-  const notifyMessage = () => {
-    toast.success("Technical assistance created", {
-      position: toast.POSITION.TOP_CENTER,
-    });
-  };
-  const submitForm = async () => {
-    setLoading(!loading);
-    await axios
-      .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/technical_assistance/create`,
-        form
-      )
-      .then((response) => {
-        console.log(response);
-        if (response.status === 200) {
-          setLoading(!loading);
-          notifyMessage();
-          setTimeout(() => {
-            router.push("/oef/technical-assistance/success");
-          }, 1500);
+    const fboAttendeesOptions= [
+        {
+          id:1,value:"Faith Leader"
+        },
+        {
+          id:2,value:"Coordinator(s)"
+        },
+        {
+          id:3,value:"Black Health Staff"
+        },
+        {
+          id:4,value:"Other"
         }
-      })
-      .catch(function (error) {
-        setLoading(!loading);
-        setError("An error ocurred, try again");
-        console.error("error: ", error);
-      });
-  };
-  const boroughs = [
-    "Bronx",
-    "Brooklyn",
-    "Manhattan",
-    "Staten Island",
-    "Queens",
-  ];
-  const handleForm = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleAddress = (value, key) => {
-    setForm((prev) => ({ ...prev, key: value }));
-  };
-
-
-  /////////
-
-  const fboAttendeesOptions= [
-    {
-      id:1,value:"Faith Leader"
-    },
-    {
-      id:2,value:"Coordinator(s)"
-    },
-    {
-      id:3,value:"Black Health Staff"
-    },
-    {
-      id:4,value:"Other"
-    }
-  ]
-
-
-  const sanctuaryOptions=[
-    {
-      id:1,value:true,text:'There is a private testing area'
-    },
-    {
-      id:2,value:false,text:'There is not a private testing area'
-    }
-  ]
-
-  const privateTestingAreaOptions= [
-    {
-      id:1,value:true,text:'There is a sanctuary'
-    },
-    {
-      id:2,value:false,text:'There is not a sanctuary'
-    }
-  ]
-
-  const healthMinistryOptions=[
-    {
-      id:1,value:'There is no formal wellness ministry.'
-    },
-    {
-      id:2,value:'There is a small or informal wellness ministry.'
-    },
-    {
-      id:3,value:'There is an active wellness ministry.'
-    }
-  ]
-
-
+      ]
+    
+    
+      const sanctuaryOptions=[
+        {
+          id:1,value:true,text:'There is a private testing area'
+        },
+        {
+          id:2,value:false,text:'There is not a private testing area'
+        }
+      ]
+    
+      const privateTestingAreaOptions= [
+        {
+          id:1,value:true,text:'There is a sanctuary'
+        },
+        {
+          id:2,value:false,text:'There is not a sanctuary'
+        }
+      ]
+    
+      const healthMinistryOptions=[
+        {
+          id:1,value:'There is no formal wellness ministry.'
+        },
+        {
+          id:2,value:'There is a small or informal wellness ministry.'
+        },
+        {
+          id:3,value:'There is an active wellness ministry.'
+        }
+      ]
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -204,7 +152,7 @@ const RegisterSiteVisits = ({ fbos }) => {
       
       <StartTime dispatch={dispatch} surveyForm={surveyForm} updateEventStartTime={updateEventStartTime}/>
       <FinishTime dispatch={dispatch} surveyForm={surveyForm} updateEventFinishTime={updateEventFinishTime}/>
-      <FboRadioList dispatch={dispatch} surveyForm={surveyForm} updateFbo={updateFbo} fbos={fbos} stateValue='fbo' />
+      <FboRadioList dispatch={dispatch} surveyForm={surveyForm} updateFbo={updateFbo} fbos={fbos} />
       <OneColumnCheckbox options={fboAttendeesOptions} 
       surveyForm ={surveyForm} dispatch={dispatch} 
       updateFunction={updateFboAttendees} 
@@ -257,9 +205,9 @@ const RegisterSiteVisits = ({ fbos }) => {
           {loading ? null : (
             <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-              onClick={()=>router.push('/oef/site-visits/register-part-2')}
+              onClick={'submitEventForm'}
             >
-              Next
+              Save and finish
             </button>
           )}
         </div>
@@ -271,10 +219,9 @@ const RegisterSiteVisits = ({ fbos }) => {
         />
       )}
     </>
-  );
-};
+  )
+}
 
-export default RegisterSiteVisits;
 
 export const getServerSideProps = async(ctx) => {
     const [fbos] = await Promise.all([
@@ -283,5 +230,3 @@ export const getServerSideProps = async(ctx) => {
     return { props: { fbos: fbos } };
 
   }
-
-
