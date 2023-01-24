@@ -127,7 +127,7 @@ const RegisterSiteVisits = ({ fbos }) => {
   console.log("surveyForm",surveyForm)
 
   const notifyMessage = () => {
-    toast.success("Technical assistance created", {
+    toast.success("Site visit created", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
@@ -135,8 +135,8 @@ const RegisterSiteVisits = ({ fbos }) => {
     setLoading(!loading);
     await axios
       .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/technical_assistance/create`,
-        form
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/site_visits`,
+        surveyForm.value
       )
       .then((response) => {
         console.log(response);
@@ -144,7 +144,7 @@ const RegisterSiteVisits = ({ fbos }) => {
           setLoading(!loading);
           notifyMessage();
           setTimeout(() => {
-            router.push("/oef/technical-assistance/success");
+            router.push("/oef/site-visits/success");
           }, 1500);
         }
       })
@@ -203,7 +203,7 @@ const RegisterSiteVisits = ({ fbos }) => {
             </button>
             <button
               className="py-2 px-10 flex items-center rounded bg-black text-white font-semibold"
-              //onClick={()=>router.push('/oef/site-visits/register-part-4')}
+              onClick={submitForm}
             >
               Save and finish
             </button>

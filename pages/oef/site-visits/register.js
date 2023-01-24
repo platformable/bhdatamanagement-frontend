@@ -71,6 +71,7 @@ import RadioGroup from "../../../components/oef-site-visit-survey/RadioGroup";
 import NumberLimits from "../../../components/oef-site-visit-survey/NumberLimits";
 import Rating from "../../../components/oef-site-visit-survey/Rating";
 
+import { NYSZipCodesAndBoroughs } from "../../../utils/sharedData";
 
 
 
@@ -132,13 +133,18 @@ const RegisterSiteVisits = ({ fbos }) => {
     "Staten Island",
     "Queens",
   ];
- /*  const handleForm = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  }; */
+  // const getCity = (zipcode, array) => {
+  //   const searchZipcode = array.filter((code) => code.zipcode === zipcode);
+  //   if (searchZipcode.length > 0) {
+  //     setSurveyForm({ ...surveyForm, participantBorough: searchZipcode[0].borought });
+  //   } else {
+  //     setSurveyForm({ ...surveyForm, participantBorough: '' });
+  //   }
+  // };
+  // useEffect(() => {
 
-  const handleAddress = (value, key) => {
-    setForm((prev) => ({ ...prev, key: value }));
-  };
+  //   getCity(surveyForm.participantZipCode, NYSZipCodesAndBoroughs);
+  // }, [surveyForm.participantZipCode]);
 
 
   /////////
