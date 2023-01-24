@@ -172,19 +172,19 @@ const RegisterSiteVisits = ({ fbos }) => {
         <div className="container mx-auto border rounded-lg mb-10">
           <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
             <h2 className="font-black mb-7">On a scale from 1 to 5, rate how open the following are to discussing HIV.</h2>
-            <Rating handleForm={handleForm} surveyForm={surveyForm} options={hivRatingOptions}  stateValue='fboLeaderHivOpenness' updateFunction={updateStrategiesHealthDisparities} title='Faith leader'/>
-            <Rating handleForm={handleForm} surveyForm={surveyForm} options={hivRatingOptions} stateValue='healthMinistryHivOpenness' updateFunction={updateStrategiesHealthDisparities} title='Health Ministry'/>
-            <Rating handleForm={handleForm} surveyForm={surveyForm} options={hivRatingOptions} stateValue='membershipHivOpenness' updateFunction={updateStrategiesHealthDisparities} title='Membership'/>
-            <Rating handleForm={handleForm} surveyForm={surveyForm} options={hivRatingOptions} stateValue='communityHivOpenness' updateFunction={updateStrategiesHealthDisparities} title='Communities you serve'/>
+            <Rating dispatch={dispatch}  surveyForm={surveyForm} options={hivRatingOptions}  stateValue='fboLeaderHivOpenness' updateFunction={updateStrategiesHealthDisparities} title='Faith leader'/>
+            <Rating dispatch={dispatch} surveyForm={surveyForm} options={hivRatingOptions} stateValue='healthMinistryHivOpenness' updateFunction={updateStrategiesHealthDisparities} title='Health Ministry'/>
+            <Rating dispatch={dispatch} surveyForm={surveyForm} options={hivRatingOptions} stateValue='membershipHivOpenness' updateFunction={updateStrategiesHealthDisparities} title='Membership'/>
+            <Rating dispatch={dispatch} surveyForm={surveyForm} options={hivRatingOptions} stateValue='communityHivOpenness' updateFunction={updateStrategiesHealthDisparities} title='Communities you serve'/>
 
 
             <h2 className="font-black mb-7">On a scale from 1 to 5, rate how open the following are to working with diverse populations?</h2>
-            <Rating handleForm={handleForm} surveyForm={surveyForm}  options={workingRatingOptions} stateValue='faithLeaderDiversityOpenness' updateFunction={updateStrategiesHealthDisparities} title='Faith leader'/>
-            <Rating handleForm={handleForm} surveyForm={surveyForm}  options={workingRatingOptions} stateValue='healthMinistryDiversityOpenness' updateFunction={updateStrategiesHealthDisparities} title='Health Ministry'/>
-            <Rating handleForm={handleForm} surveyForm={surveyForm}  options={workingRatingOptions} stateValue='membershipDiversityOpenness' updateFunction={updateStrategiesHealthDisparities} title='Membership'/>
-            <Rating handleForm={handleForm} surveyForm={surveyForm}  options={workingRatingOptions} stateValue='communityDiversityOpenness' updateFunction={updateStrategiesHealthDisparities} title='Communities you serve'/>
+            <Rating dispatch={dispatch} surveyForm={surveyForm}  options={workingRatingOptions} stateValue='faithLeaderDiversityOpenness' updateFunction={updateStrategiesHealthDisparities} title='Faith leader'/>
+            <Rating dispatch={dispatch} surveyForm={surveyForm}  options={workingRatingOptions} stateValue='healthMinistryDiversityOpenness' updateFunction={updateStrategiesHealthDisparities} title='Health Ministry'/>
+            <Rating dispatch={dispatch} surveyForm={surveyForm}  options={workingRatingOptions} stateValue='membershipDiversityOpenness' updateFunction={updateStrategiesHealthDisparities} title='Membership'/>
+            <Rating dispatch={dispatch} surveyForm={surveyForm}  options={workingRatingOptions} stateValue='communityDiversityOpenness' updateFunction={updateStrategiesHealthDisparities} title='Communities you serve'/>
 
-            <Status handleForm={handleForm} surveyForm={surveyForm}  options={statusOptions} stateValue='submissionStatus' updateFunction={updateStrategiesHealthDisparities} title={"Status"}/>
+            <Status dispatch={dispatch} surveyForm={surveyForm}  options={statusOptions} stateValue='submissionStatus' updateFunction={updateStrategiesHealthDisparities} title={"Status"}/>
             <TextArea dispatch={dispatch} surveyForm={surveyForm}  stateValue='submissionNotes' updateFunction={updateStrategiesHealthDisparities} title='Additional observation / notes'/>
             
 
@@ -192,13 +192,22 @@ const RegisterSiteVisits = ({ fbos }) => {
         </div>
         <div className="flex justify-center">{loading && <Loader />}</div>
         <div className="flex justify-center my-10">
-          {loading ? null : (
+        {loading ? null : (
+            <div className="flex gap-x-5 justify-center mt-0 mb-10">
+            
             <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-              onClick={'submitEventForm'}
+              onClick={()=>router.push('/oef/site-visits/register-part-3')}
+            >
+              Previous Page
+            </button>
+            <button
+              className="py-2 px-10 flex items-center rounded bg-black text-white font-semibold"
+              //onClick={()=>router.push('/oef/site-visits/register-part-4')}
             >
               Save and finish
             </button>
+            </div>
           )}
         </div>
       </Layout>

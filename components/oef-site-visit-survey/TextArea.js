@@ -6,7 +6,7 @@ export default function TextArea({ surveyForm,dispatch,updateFunction,stateValue
     dispatch(updateFunction({[stateValue]:e.target.value}))
   };
   return (
-    <div className=''>
+    <div className='question-body'>
       <h2 className="mb-7 font-black">{title}</h2>
       <label htmlFor="">
         <textarea

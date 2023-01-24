@@ -1,9 +1,13 @@
 import React from 'react';
 
-function Status({ surveyForm, stateValue, options, handleForm, title}) {
+function Status({ surveyForm, stateValue, options, title,dispatch,updateFunction}) {
+
+  const handleForm = (e) => {
+    dispatch(updateFunction({[stateValue]:e.target.value}))
+  };
   
     return (
-      <div className="">
+      <div className="question-body">
       <h2 className="mb-7 font-black">{title}</h2>
       <div className="grid md:grid-cols-5 gap-7 md:gap-10 lg:gap-20">
         

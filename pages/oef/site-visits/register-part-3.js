@@ -72,14 +72,23 @@ const RegisterSiteVisits = ({ fbos }) => {
           </div>
         </div>
         <div className="flex justify-center">{loading && <Loader />}</div>
-        <div className="flex justify-center my-10">
-          {loading ? null : (
+        <div className="flex justify-center">
+        {loading ? null : (
+            <div className="flex gap-x-5 justify-center my-10">
+            
             <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-              onClick={'submitEventForm'}
+              onClick={()=>router.push('/oef/site-visits/register-part-2')}
             >
-              Next
+              Previous Page
             </button>
+            <button
+              className="py-2 px-10 flex items-center rounded bg-black text-white font-semibold"
+              onClick={()=>router.push('/oef/site-visits/register-part-4')}
+            >
+              Next Page
+            </button>
+            </div>
           )}
         </div>
       </Layout>

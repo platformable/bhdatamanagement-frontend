@@ -68,6 +68,7 @@ import TextArea from "../../../components/oef-site-visit-survey/TextArea";
 import RadioBoolean from "../../../components/oef-site-visit-survey/RadioBoolean";
 import RadioGroup from "../../../components/oef-site-visit-survey/RadioGroup";
 import NumberLimits from "../../../components/oef-site-visit-survey/NumberLimits";
+import TwoColumnCheckbox from "../../../components/oef-site-visit-survey/TwoColumnsCheckbox";
 
 export default function RegisterPart2({fbos}) {
     const [error, setError] = useState("");
@@ -90,53 +91,78 @@ export default function RegisterPart2({fbos}) {
     const surveyForm = useSelector((state)=>state.siteVisitsReducer.value) 
 
 
+console.log("surveyForm",surveyForm)
+
+    const targetAudienceOptions= [
+        {
+          id:1,value:"Adolescents"
+        },
+        {
+          id:2,value:"Heterosexual Women"
+        },
+        {
+          id:3,value:"Heterosexual Men"
+        },
+        {
+          id:4,value:"Lesbian/Gay/Bisexual Individuals"
+        },
+        {
+            id:5,value:"Trans/Non-conforming Individuals"
+          },
+          {
+            id:6,value:"MSM: Men who have sex with men, regardless of their sexual identity"
+          },
+          {
+              id:7,value:"Inmigrants"
+            },
+            {
+                id:9,value:"Other"
+              },
+            {
+              id:8,value:"General population"
+            },
+            
+        
+      ]
 
 
-    const fboAttendeesOptions= [
+      const barriersEngamentOptions= [
         {
-          id:1,value:"Faith Leader"
+          id:1,value:"Stigma held by FBO members"
         },
         {
-          id:2,value:"Coordinator(s)"
+          id:2,value:"Stigma held by faith leader"
         },
         {
-          id:3,value:"Black Health Staff"
+          id:3,value:"COVID-19 and adapting to digital methods"
         },
         {
-          id:4,value:"Other"
-        }
+          id:4,value:"Hard to reach community members"
+        },
+        {
+            id:5,value:"Education on HIV/COVID/etc. for ministry members"
+          },
+          {
+            id:6,value:"Location of FBO"
+          },
+          {
+              id:7,value:"Physical set up or lack of space at the FBO"
+            },
+            {
+                id:9,value:"Other"
+              },
+            {
+              id:8,value:"Marketing not effective"
+            },
+            
+        
       ]
     
     
-      const sanctuaryOptions=[
-        {
-          id:1,value:true,text:'There is a private testing area'
-        },
-        {
-          id:2,value:false,text:'There is not a private testing area'
-        }
-      ]
+   
     
-      const privateTestingAreaOptions= [
-        {
-          id:1,value:true,text:'There is a sanctuary'
-        },
-        {
-          id:2,value:false,text:'There is not a sanctuary'
-        }
-      ]
-    
-      const healthMinistryOptions=[
-        {
-          id:1,value:'There is no formal wellness ministry.'
-        },
-        {
-          id:2,value:'There is a small or informal wellness ministry.'
-        },
-        {
-          id:3,value:'There is an active wellness ministry.'
-        }
-      ]
+      
+
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -144,71 +170,56 @@ export default function RegisterPart2({fbos}) {
         <PageTopHeading
           backBtn={true}
           dashboardBtn={true}
-          pageTitle={"OEF Site Visits"}
+          pageTitle={"Engaging FBO and Community Members"}
         />
         <div className="container mx-auto border rounded-lg mb-10">
           <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
-      <DateComponent dispatch={dispatch} surveyForm={surveyForm} updateEventDate={updateEventDate}/>
-      
-      <StartTime dispatch={dispatch} surveyForm={surveyForm} updateEventStartTime={updateEventStartTime}/>
-      <FinishTime dispatch={dispatch} surveyForm={surveyForm} updateEventFinishTime={updateEventFinishTime}/>
-      <FboRadioList dispatch={dispatch} surveyForm={surveyForm} updateFbo={updateFbo} fbos={fbos} />
-      <OneColumnCheckbox options={fboAttendeesOptions} 
-      surveyForm ={surveyForm} dispatch={dispatch} 
-      updateFunction={updateFboAttendees} 
-      updateFunctionOther={updateFboAttendeesOther}
-      title='Meeting attendees' stateValue='fboAttendees'/>
-
-      <RadioBoolean dispatch={dispatch} 
-      surveyForm={surveyForm} 
-      updateFunction={updateSanctuary} 
-      title='Is there a Sanctuary?'
-      options={sanctuaryOptions}
-      stateValue='sanctuary'
-      />
-
-<RadioBoolean dispatch={dispatch} 
-      surveyForm={surveyForm} 
-      updateFunction={updatePrivateTestingArea} 
-      title='Is there a private testing area?'
-      options={privateTestingAreaOptions}
-      stateValue='privateTestingArea'
-      />
-
-      <RadioGroup dispatch={dispatch} surveyForm={surveyForm} 
-      updateFunction={updateHealthMinistry} 
-      title="What is the state of your FBO's HIV or health ministry?"
-      options={healthMinistryOptions}
-      stateValue='healthMinistry'/>
-
-      <NumberLimits dispatch={dispatch} surveyForm={surveyForm} 
-      updateFunction={updateHealthMinistryMembers} title='How many members does your health ministry have?'
-      stateValue='healthMinistryMembers'
-      />
 
 
-<NumberLimits dispatch={dispatch} surveyForm={surveyForm} 
-      updateFunction={updateHealthMinistryCoordinators} title='How many coordinators does your  ministry have?'
-      stateValue='healthMinistryCoordinators'
-      />
-      
-    <TextArea dispatch={dispatch} surveyForm={surveyForm}  
-    stateValue='strategiesHealthDisparities' 
-    updateFunction={updateStrategiesHealthDisparities}
-   
-    title='What strategies do you employ to engage FBO members around other health disparities'/>
+<TextArea dispatch={dispatch} surveyForm={surveyForm} 
+      updateFunction={updateStrategiesHealthDisparities} 
+      title='What strategies do you employ to engage the community in another pandemic?'
+      stateValue='strategiesHealthDisparities'/>
 
+      <TwoColumnCheckbox dispatch={dispatch} surveyForm={surveyForm} 
+      updateFunction={updateTargetAudience} 
+      updateFunctionOther={updateTargetAudienceOther} 
+      title='Who are you most likely to reach through your programming?'
+      stateValue='targetAudience' options={targetAudienceOptions}/>
+
+<TextArea dispatch={dispatch} surveyForm={surveyForm} 
+      updateFunction={updateTargetAudienceAdditional} 
+      title="Are there any additional populations you'd like to reach? Why?"
+      stateValue='targetAudienceAdditional'/>
+
+
+<TwoColumnCheckbox dispatch={dispatch} surveyForm={surveyForm} 
+      updateFunction={updateBarriersEngagement} 
+      updateFunctionOther={updateBarriersEngagementOther} 
+      title='What have been some barriers to engagement'
+      message="Check all that apply"
+      stateValue='barriersEngagement' options={barriersEngamentOptions}/>
+ 
           </div>
         </div>
         <div className="flex justify-center">{loading && <Loader />}</div>
-        <div className="flex justify-center my-10">
+        <div className="">
           {loading ? null : (
+            <div className="flex gap-x-5 justify-center my-10">
+            
             <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-              onClick={'submitEventForm'}
+              onClick={()=>router.push('/oef/site-visits/register')}
             >
-              Save and finish
+              Previous Page
             </button>
+            <button
+              className="py-2 px-10 flex items-center rounded bg-black text-white font-semibold"
+              onClick={()=>router.push('/oef/site-visits/register-part-3')}
+            >
+              Next Page
+            </button>
+            </div>
           )}
         </div>
       </Layout>

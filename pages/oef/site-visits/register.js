@@ -69,6 +69,7 @@ import TextArea from "../../../components/oef-site-visit-survey/TextArea";
 import RadioBoolean from "../../../components/oef-site-visit-survey/RadioBoolean";
 import RadioGroup from "../../../components/oef-site-visit-survey/RadioGroup";
 import NumberLimits from "../../../components/oef-site-visit-survey/NumberLimits";
+import Rating from "../../../components/oef-site-visit-survey/Rating";
 
 
 
@@ -131,9 +132,9 @@ const RegisterSiteVisits = ({ fbos }) => {
     "Staten Island",
     "Queens",
   ];
-  const handleForm = (e) => {
+ /*  const handleForm = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  }; */
 
   const handleAddress = (value, key) => {
     setForm((prev) => ({ ...prev, key: value }));
@@ -188,6 +189,45 @@ const RegisterSiteVisits = ({ fbos }) => {
     }
   ]
 
+  const healthMinistryActiveOptions = [
+    {
+      id: 1,
+      value: "Not at all active",
+      text: "Not at all active",
+      bgColor:'stronglyDisagreeBg',
+        bgColorHover:'hover:stronglyDisagreeBg'
+    },
+    {
+      id: 2,
+      value: "Somewhat active",
+      text: "Somewhat active",
+      bgColor:'disagreeBg',
+        bgColorHover:'hover:disagreeBg'
+    },
+    {
+      id: 3,
+      value: "neutral",
+      text: "Neutral",
+      bgColor:'neitherAgreeOrDisagreeBg',
+        bgColorHover:'hover:neitherAgreeOrDisagreeBg'
+    },
+    {
+      id: 4,
+      value: "Active",
+      text: "Active",
+      bgColor:'agreeBg',
+        bgColorHover:'hover:agreeBg'
+    },
+    {
+      id: 5,
+      value: "Extremely active",
+      text: "Extremely active",
+      bgColor:'stronglyAgreeBg',
+        bgColorHover:'hover:stronglyAgreeBg'
+    },
+    
+  ]
+
 
   return (
     <>
@@ -239,16 +279,20 @@ const RegisterSiteVisits = ({ fbos }) => {
       />
 
 
+
+<Rating dispatch={dispatch} surveyForm={surveyForm}  
+options={healthMinistryActiveOptions} 
+stateValue='healthMinistryActive' 
+updateFunction={updateHealthMinistryActive} title="If your FBO has a HIV or health ministry, how involved in the ministry's activities are the ministry coordinators or committee members?"/>
+      
+
 <NumberLimits dispatch={dispatch} surveyForm={surveyForm} 
       updateFunction={updateHealthMinistryCoordinators} title='How many coordinators does your  ministry have?'
       stateValue='healthMinistryCoordinators'
       />
-      
-    <TextArea dispatch={dispatch} surveyForm={surveyForm}  
-    stateValue='strategiesHealthDisparities' 
-    updateFunction={updateStrategiesHealthDisparities}
-   
-    title='What strategies do you employ to engage FBO members around other health disparities'/>
+
+
+
 
           </div>
         </div>
@@ -259,7 +303,7 @@ const RegisterSiteVisits = ({ fbos }) => {
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
               onClick={()=>router.push('/oef/site-visits/register-part-2')}
             >
-              Next
+              Next Page
             </button>
           )}
         </div>
