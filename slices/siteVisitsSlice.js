@@ -52,8 +52,11 @@ export const siteVisitsSlice = createSlice({
   initialState,
   reducers: {
     updateInitialState: (state,action) =>{
-      return {...state, value:{...action.payload}}
+      return {...state, value: {...initialState}}
     },
+    updateEditFormState: (state,action) =>{
+        return {...state, value:{...action.payload}}
+      },
     updateStartDate:(state,action)=>{
       return {...state, value:{...state.value,...action.payload}}
     },
@@ -222,7 +225,8 @@ updateCommunityDiversityOpenness,
 updateBoroughFbo,
 updateSubmissionStatus,
 updateSubmissionNotes,
-updateInitialState
+updateInitialState,
+updateEditFormState
  } = siteVisitsSlice.actions
 
 export default siteVisitsSlice.reducer
