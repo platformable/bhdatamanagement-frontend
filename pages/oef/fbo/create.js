@@ -32,8 +32,8 @@ const CreateFBO = () => {
     zipcodeFBO: "",
     nameReligiousLeader: "",
     positionReligiousLeader: "",
-    emailReligionsLeader: "",
-    phoneReligionsLeader: "",
+    emailReligiousLeader: "",
+    phoneReligiousLeader: "",
     nameKeyContact: "",
     phoneKeyContact: "",
     emailKeyContact: "",
@@ -197,7 +197,7 @@ const handleAddress = (value, key) => {
               <label>
                 <input
                   type="email"
-                  name="emailReligionsLeader"
+                  name="emailReligiousLeader"
                   onChange={handleForm}
                   className="w-full md:w-96"
                 />
@@ -210,7 +210,7 @@ const handleAddress = (value, key) => {
               <label>
                 <input
                   type="phone"
-                  name="phoneReligionsLeader"
+                  name="phoneReligiousLeader"
                   onChange={handleForm}
                   className="w-full md:w-96"
                 />

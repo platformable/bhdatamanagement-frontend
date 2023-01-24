@@ -16,7 +16,7 @@ import {
 } from "../../../slices/eventsCalendarDatesSlice";
 import { useEffect } from "react";
 
-const EventsIndex = ({ technicalAssistance }) => {
+const EventsIndex = ({ siteVisits }) => {
  
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
@@ -74,7 +74,7 @@ const EventsIndex = ({ technicalAssistance }) => {
 
   console.log("state", state);
 
-  const sortedEventsByDate = technicalAssistance?.sort(
+  const sortedEventsByDate = siteVisits?.sort(
     (a, b) => new Date(b.tadatesubmitted) - new Date(a.tadatesubmitted)
   );
 
@@ -87,8 +87,8 @@ const EventsIndex = ({ technicalAssistance }) => {
 
     let color
     submissionstatus==='Submitted'?color='submittedBg':null
-    submissionstatus==='Pending'?color='pendingBg':null
-    submissionstatus==='Complete'?color='completeBg':null
+    submissionstatus==='pending'?color='pendingBg':null
+    submissionstatus==='complete'?color='completeBg':null
     return color
 
   }  
@@ -103,23 +103,24 @@ const EventsIndex = ({ technicalAssistance }) => {
         backBtn={true}
       />
 
-      <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5">
-        <Search searchFunction={searchFunction} />
-        <div className="flex flex-col gap-y-2 lg:flex-row  gap-x-2 bg-black  px-10 py-2 rounded text-white inline-block ">
+      <div className="container mx-auto flex container mx-auto md:px-0 px-5 md:mb-5 md:gap-5 justify-between">
+
+      <div className="flex flex-col gap-y-2 lg:flex-row  gap-x-2 bg-black  px-10 py-2 rounded text-white inline-block self-center">
           <Link href="/oef/site-visits/register"
-                className={`bg-black  px-10 py-2 rounded text-white inline-block  flex items-center`}
+                
                 target="_blank"
                 rel="noreferrer"
               >
-                Site Visit Survey
+                <p className={`bg-black  px-5 py-2 rounded text-white inline-block  flex items-center text-lg`}> Create a new Visit Survey</p>
               </Link>
-
           </div>
-        <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
+        <Search searchFunction={searchFunction} />
+        
+     {/*    <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
           <h3 className="">Filter by date</h3>
-        </div>
+        </div> */}
 
-        <div className="block md:flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0">
+        {/* <div className="block md:flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0">
           <label className="w-full">
             <input
               type="date"
@@ -151,21 +152,18 @@ const EventsIndex = ({ technicalAssistance }) => {
               className="border-black rounded-md  text-sm w-full"
             />
           </label>
-        </div>
+        </div> */}
       </div>
 
       <div className="events-cards-container grid md:grid-cols-8 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
       {/*  HEAD TABLE  */}
-      <div className={`hidden md:grid technical-assistance-head-table container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
+      <div className={`hidden md:grid site-visits-head-table container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
-        <p className="lg:text-xl font-bold flex items-center ">Name</p>
         <p className="lg:text-xl font-bold flex items-center ">FBO</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Type of Assistance</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Email</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Date submitted</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Borough</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Date of site visit</p>
         <p className="lg:text-xl font-bold flex items-center justify-center">Status</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Date completed</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Review</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Edit</p>
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
@@ -180,9 +178,9 @@ const EventsIndex = ({ technicalAssistance }) => {
                 ) {
                   return event;
                 }
-                return event.tacontactname.toLowerCase().includes(searchWord) || event.tatype.some(type => type.toLowerCase().includes(searchWord)) || event.tafbo.some(type => type.toLowerCase().includes(searchWord))
+                return event.fbo.toLowerCase().includes(searchWord) || event.boroughfbo.toLowerCase().includes(searchWord)
               })
-              .filter((event, index) => {
+             /*  .filter((event, index) => {
                 var startDate = new Date(new Date(dateFilter?.startDate).setHours(0))
                 var endDate = new Date(new Date(dateFilter?.endDate).setHours(23))
                 if (startDate !== null && endDate !== null) {
@@ -197,84 +195,49 @@ const EventsIndex = ({ technicalAssistance }) => {
                   }
                   return filterPass;
                 }
-              })
+              }) */
               .map((event, index) => {
               
                 return (
                   <>
-                   {/*  <div className="sm:hidden w-full">
-                      <EventsCardItems
-                        key={index}
-                        id={event.id}
-                        programName={event.programname}
-                        eventdate={event.eventdate}
-                        eventName={event.eventname}
-                        urlEdit={`events/${event.id}/nys_cmp/edit`}
-                        urlParticipantSurvey={`/events/${event.id}/participant-survey`}
-                        urlUpload={`events/${event.id}/upload-event`}
-                        urlPostEventSurvey={`events/${event.id}/post-event-survey`}
-                        urlEditPostEventSurvey={`events/${event.id}/edit-post-event-survey`}
-                        userRole={loggedUserRole}
-                        setShowDeleteEventModal={setShowDeleteEventModal}
-                        showDeleteEventModal={showDeleteEventModal}
-                        setSelectedEventToDelete={setSelectedEventToDelete}
-                        selectedEventToDelete={selectedEventToDelete}
-                        postEventReportId={event.posteventreportid}
-                        //makeIcsFile={makeIcsFile}
-                        event={event}
-                      />
-                    </div> */}
+      
                     <div className="hidden sm:block">
                       <section
                         key={index}
-                        className={`grid technical-assistance-head-table px-7  rounded border-b-2 `}
+                        className={`grid site-visits-head-table px-7  rounded border-b-2 `}
                       >
-                        {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
-                        <div className="flex items-center lg:text-xl font-bold  py-7">
-                          {event.tacontactname}
-                        </div>
+     
                         <div className="flex items-center lg:text-xl font-bold py-7">
-                          {event.tafbo.join(', ')}
+                         {event.fbo}
                         </div>
                         
                         <div className="flex items-center lg:text-xl font-bold justify-center text-center">
-                        {event.tatype.join(', ')}
+                       {event.boroughfbo}
 
                         </div>
 
-                        <div className="flex items-center lg:text-xl font-bold overflow-hidden">
-                        {event.taemail}
-                        </div>
                    
    
                         <div className="flex items-center lg:text-xl font-bold justify-center">
                           {
-                            event.tadatesubmitted &&
-                              new Date(event?.tadatesubmitted).toLocaleDateString(
+                            event.eventdate &&
+                              new Date(event?.eventdate).toLocaleDateString(
                                 "en-US"
                               )
                           } 
                         </div>
-                        <div className={`flex items-center text-center justify-center lg:text-xl font-bold  py-7 ${changeStatusBg(event.tastatus)}`}>
-                          <p className="text-center">{event.tastatus}</p>
+                        <div className={`flex items-center text-center justify-center lg:text-xl font-bold  py-7 ${changeStatusBg(event.submissionstatus)}`}>
+                          <p className="text-center">{event.submissionstatus}</p>
                         </div>
-                        <div className="flex items-center lg:text-xl font-bold justify-center">
-                        {
-                            event.tastatuscompletedate ?
-                              new Date(event?.tastatuscompletedate).toLocaleDateString(
-                                "en-US"
-                              ):'-'
+  
 
-                          }
-                        
-                        </div>
-
-                        
-                        <Link href={`/oef/technical-assistance/${event.id}/edit`}>
-                          <div className="self-center cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
-                            <p className="leading-5">Edit</p>
+                        <div className="flex justify-center">
+                        <Link href={`/oef/site-visit/${event.id}/edit`}>
+                          <div className="self-center cursor-pointer border-black shadow-md rounded-lg text-center lg:text-xl py-2 px-5 font-bold">
+                            <p className="leading-5 text-center ">Edit</p>
                           </div>
                         </Link>
+                        </div>
                        {/*  <Link href={`/oef/events/${event.id}/participant-survey`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Participant survey</p>
@@ -333,10 +296,10 @@ export default EventsIndex;
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/technical_assistance`
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/site_visits`
     );
-    const technicalAssistance = await response.json();
+    const siteVisits = await response.json();
 
-    return { props: { technicalAssistance } };
+    return { props: { siteVisits } };
   },
 });

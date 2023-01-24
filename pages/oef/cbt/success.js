@@ -23,10 +23,12 @@ const success = () => {
           <section className='flex flex-col mt-10 py-7 w-full gap-5 bg-sky-blue rounded-lg items-center'>
             <img src="/saved-form.svg" alt="checked icon" />
 
-            <h2 className='font-black text-center'>Your event was saved successfully! </h2>
-            <p className='text-center'>Click here to see the answers you have submitted. <br/>
+            <h2 className='font-black text-center'>Your CBT Participant Survey has been submitted successfully!</h2>
+            <p className="text-center">Thank you for taking the time to provide feedback.</p>
+            <p className="text-center">Your input is valuable and used by us for reporting and program improvement.</p>
+            {/* <p className='text-center'>Click here to see the answers you have submitted. <br/>
             You have also been emailed a copy. <br/>
-            You are able to make changes to your submission until the end of today. </p>
+            You are able to make changes to your submission until the end of today. </p> */}
           </section>
         </div>
         <Link href={'/oef/cbt'} ><button className='uppercase rounded shadow bg-black text-white text-2xl px-5 py-2 self-center'>Return to events page</button></Link>

@@ -649,6 +649,12 @@ label > textarea {
   gap: 15 px;
 }
 
+.site-visits-head-table {
+ 
+  grid-template-columns: 2fr 2fr 2fr 2fr 1fr;
+  gap: 15 px;
+}
+
 /* PARTICIPANT SURVEY */
 
 .participant-survey-head-table {

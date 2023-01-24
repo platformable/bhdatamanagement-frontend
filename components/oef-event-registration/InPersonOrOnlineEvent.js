@@ -56,7 +56,7 @@ const InPersonOrOnlineEvent = ({ eventForm, setEventForm, event }) => {
 
   return (
     <div className="">
-      <h2 className="font-black"></h2>
+      <h2 className="font-black mb-10">Where did this event take place?</h2>
       <div className="grid gap-5 items-center">
         {/* ************************ IN PERSON TYPES **************** */}
         {inPersonEventLocationType
