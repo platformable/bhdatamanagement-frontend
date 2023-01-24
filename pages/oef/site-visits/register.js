@@ -3,7 +3,7 @@ import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import Loader from "../../../components/Loader";
 import axios from "axios";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { useUser,withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import InputValidationAddress from "../../../components/InputValidationAddress";
@@ -77,7 +77,7 @@ import { NYSZipCodesAndBoroughs } from "../../../utils/sharedData";
 
 
 const RegisterSiteVisits = ({ fbos }) => {
-  const [error, setError] = useState("");
+  const [showError, setShowError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -85,7 +85,9 @@ const RegisterSiteVisits = ({ fbos }) => {
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
 
-
+  const { user, error, isLoading } = useUser();
+  let userId = user?.sub;
+  
 
   const isNumberKey = (e) => {
     const invalidChars = ["-", "+", "e"];
@@ -122,7 +124,7 @@ const RegisterSiteVisits = ({ fbos }) => {
       })
       .catch(function (error) {
         setLoading(!loading);
-        setError("An error ocurred, try again");
+        setShowError("An error ocurred, try again");
         console.error("error: ", error);
       });
   };
@@ -221,6 +223,10 @@ const RegisterSiteVisits = ({ fbos }) => {
   ]
 
 
+  useEffect(()=>{
+    const setUser=dispatch(updateUserId({userId:userId}))
+  },[userId])
+
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -312,12 +318,13 @@ updateFunction={updateHealthMinistryActive} title="If your FBO has a HIV or heal
 
 export default RegisterSiteVisits;
 
-export const getServerSideProps = async(ctx) => {
-    const [fbos] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
-    ]);
-    return { props: { fbos: fbos } };
-
-  }
 
 
+  export const getServerSideProps = withPageAuthRequired({
+    async getServerSideProps(ctx) {
+      const [fbos] = await Promise.all([
+        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
+      ]);
+      return { props: { fbos: fbos } };
+    },
+  });
