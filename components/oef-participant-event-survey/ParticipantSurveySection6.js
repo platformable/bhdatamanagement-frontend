@@ -30,6 +30,8 @@ export const ParticipantSurveySection6 = ({surveyForm, setSurveyForm}) => {
       ): (
         <label className="flex gap-x-5 items-center">
         <input type="radio" className="" value={option.value} id={option.id} onChange={handleForm} name="participantOrientation" />
+        <p className="">{option.value}</p>
+        
         <input
           type="text"
           placeholder="Please specify"
@@ -41,7 +43,6 @@ export const ParticipantSurveySection6 = ({surveyForm, setSurveyForm}) => {
           }
           className="border-black rounded p-4 self-start p-1 w-full text-lg md:w-134"
         />
-        <p className="">{option.value}</p>
         </label>
       ))}
       </div>
