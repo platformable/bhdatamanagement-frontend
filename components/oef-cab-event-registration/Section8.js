@@ -1,6 +1,6 @@
 import React from "react";
 
-const Section8 = ({eventForm, setEventForm}) => {
+const Section8 = ({eventForm, setEventForm,event}) => {
   const handleForm = (e) => {
     setEventForm(previous => ({...previous, eventFinishTime: e.target.value}))
   }
@@ -13,7 +13,7 @@ const Section8 = ({eventForm, setEventForm}) => {
       name="eventFinishTime" 
       className='border rounded p-2 text-lg w-48' 
       onChange={handleForm}
-      defaultValue={eventForm?.eventFinishTime}
+      defaultValue={event?.eventfinishtime}
       />
     </label>
   );

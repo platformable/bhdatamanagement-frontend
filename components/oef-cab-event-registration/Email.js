@@ -18,7 +18,7 @@ const Email = ({eventForm, setEventForm,event, maskField,stateValue}) => {
             placeholder='abc@myemail.com' 
 
             onChange={handleForm}
-            defaultValue={event?event[stateValue.toLowercase()]:""}
+            defaultValue={event?event[stateValue.toLowerCase()]:""}
             />
             </label>
 

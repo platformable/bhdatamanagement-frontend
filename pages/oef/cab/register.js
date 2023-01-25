@@ -4,7 +4,7 @@ import Email from "../../../components/oef-cab-event-registration/Email";
 import Fbo from "../../../components/oef-cab-event-registration/Fbo";
 import RadioGroup from "../../../components/oef-cab-event-registration/RadioGroup";
 import Section5 from "../../../components/oef-cab-event-registration/Section5";
-import Date from "../../../components/oef-cab-event-registration/Date";
+import DateComponent from "../../../components/oef-cab-event-registration/DateComponent";
 import Section7 from "../../../components/oef-cab-event-registration/Section7";
 import Section8 from "../../../components/oef-cab-event-registration/Section8";
 import Section9 from "../../../components/oef-cab-event-registration/Section9";
@@ -35,6 +35,7 @@ const CABRegister = ({ fbos }) => {
 
 
   const [eventForm, setEventForm] = useState({
+    eventDateCreated: new Date(),
     programId:"1",
     programName:"OEF",
     eventDate:"",
@@ -53,6 +54,8 @@ const CABRegister = ({ fbos }) => {
   });
 
   console.log("oef state form", eventForm);
+
+
   
 
   const notifyMessage = () => {
@@ -76,9 +79,9 @@ const CABRegister = ({ fbos }) => {
           setShowResponseStatus(false)
           setLoading(false);
           //notifyMessage();
-       /*  setTimeout(() => {
-      router.push(`/oef/events/${response.data.createdEventId}/post-event-survey`);
-       }, 1000); */
+        setTimeout(() => {
+      router.push(`/oef/cab/${response.data.createdEventId}/events/post-event-survey/register`);
+       }, 1000);
           console.log("response createdEventId",response.data.createdEventId)
         }
       })
@@ -139,7 +142,7 @@ const quarterOptions=[
             <RadioGroup options={fboRolesOptions} title='What is your role in your FBO?' stateValue='eventRole' eventForm={eventForm} setEventForm={setEventForm} />
             <Fbo eventForm={eventForm} setEventForm={setEventForm} fbos={fbos} stateValue='deliveryPartner'/>
             <RadioGroup options={quarterOptions} title='Which Quarter is meeting for?' stateValue='eventName' eventForm={eventForm} setEventForm={setEventForm} />
-            <Date eventForm={eventForm} setEventForm={setEventForm} />
+            <DateComponent eventForm={eventForm} setEventForm={setEventForm} />
             <Section7 eventForm={eventForm} setEventForm={setEventForm} />
             <Section8 eventForm={eventForm} setEventForm={setEventForm} />
 

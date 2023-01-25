@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function RadioGroup({options,eventForm,setEventForm,title,stateValue}) {
+export default function RadioGroup({options,eventForm,setEventForm,title,stateValue,event}) {
 
 
-
+console.log("stateValue",stateValue)
   
   return (
     <div className="">
@@ -24,7 +24,7 @@ export default function RadioGroup({options,eventForm,setEventForm,title,stateVa
               }
               name={stateValue}
               defaultChecked={
-                option.value === eventForm?.[stateValue.toLowerCase()] ? "checked" : ""
+                option.value === event?.[stateValue.toLowerCase()] ? "checked" : ""
               }
             />
             <p className="">{option.value}</p>

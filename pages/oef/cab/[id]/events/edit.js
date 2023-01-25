@@ -4,7 +4,7 @@ import Email from "../../../../../components/oef-cab-event-registration/Email";
 import Fbo from "../../../../../components/oef-cab-event-registration/Fbo";
 import RadioGroup from "../../../../../components/oef-cab-event-registration/RadioGroup";
 import Section5 from "../../../../../components/oef-cab-event-registration/Section5";
-import Date from "../../../../../components/oef-cab-event-registration/Date";
+import DateComponent from "../../../../../components/oef-cab-event-registration/DateComponent";
 import Section7 from "../../../../../components/oef-cab-event-registration/Section7";
 import Section8 from "../../../../../components/oef-cab-event-registration/Section8";
 import Section9 from "../../../../../components/oef-cab-event-registration/Section9";
@@ -33,27 +33,29 @@ const CABEdit = ({ event,fbos }) => {
   const [responseStatus, setResponseStatus] = useState({});
   const [loading, setLoading] = useState(false);
 
+  
 
   const [eventForm, setEventForm] = useState({
+    id:event?.id,
     programId:"1",
     programName:"OEF",
-    eventDate:"",
-    eventStartTime:"",
-    eventFinishTime:"",
+    eventDate:event?.eventdate,
+    eventStartTime:event?.eventstarttime,
+    eventFinishTime:event?.eventfinishtime,
     healthAreaOfFocusId:[6],
     healthAreaOfFocusName:["HIV/AIDS"],
-    createdByName:"",
-    createdByLastname:"",
-    oefEventEmail:"",
-    deliveryPartner:"",
-    submissionStatus:"Pending",
-    submissionNotes:"",
-    eventRole:"",
+    createdByName:event?.createdbyname,
+    createdByLastname:event?.createdbylastname,
+    oefEventEmail:event?.oefeventemail,
+    deliveryPartner:event?.deliverypartner,
+    submissionStatus:event?.submissionstatus,
+    submissionNotes:event?.submissionnotes,
+    eventRole:event?.eventrole,
     surveyName:"oef-cab"
   });
 
-  console.log("oef state form", eventForm);
-  
+
+  console.log("eventForm",eventForm)
 
   const notifyMessage = () => {
     toast.success("Please wait while your event information is being processed", {
@@ -70,7 +72,7 @@ const CABEdit = ({ event,fbos }) => {
     //notifyMessage()
    
     await axios
-      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/cab/create`, eventForm)
+      .put(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/cab/update`, eventForm)
       .then((response) => {
         if (response.data.statusText === "OK") {
           setShowResponseStatus(false)
@@ -132,16 +134,34 @@ const quarterOptions=[
           <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
        
  
-            <SubmittedBy eventForm={eventForm} setEventForm={setEventForm} stateValueName='createdByName' stateValueLastname='createdByLastname'/>
-         
-            <Email eventForm={eventForm} setEventForm={setEventForm} stateValue='oefEventEmail'/>
-            
-            <RadioGroup options={fboRolesOptions} title='What is your role in your FBO?' stateValue='eventRole' eventForm={eventForm} setEventForm={setEventForm} />
-            <Fbo eventForm={eventForm} setEventForm={setEventForm} fbos={fbos} stateValue='deliveryPartner'/>
-            <RadioGroup options={quarterOptions} title='Which Quarter is meeting for?' stateValue='eventName' eventForm={eventForm} setEventForm={setEventForm} />
-            <Date eventForm={eventForm} setEventForm={setEventForm} />
-            <Section7 eventForm={eventForm} setEventForm={setEventForm} />
-            <Section8 eventForm={eventForm} setEventForm={setEventForm} />
+    <SubmittedBy 
+    eventForm={eventForm} 
+    setEventForm={setEventForm} 
+    stateValueName='createdByName' 
+    stateValueLastname='createdByLastname'
+    event={event}
+    />
+  
+    <Email eventForm={eventForm} setEventForm={setEventForm} stateValue='oefEventEmail'
+    event={event}
+    />
+    
+    <RadioGroup 
+    options={fboRolesOptions}
+     title='What is your role in your FBO?' 
+     stateValue='eventRole' eventForm={eventForm} 
+     setEventForm={setEventForm} 
+     event={event}/>
+    <Fbo eventForm={eventForm} setEventForm={setEventForm} fbos={fbos} stateValue='deliveryPartner'  event={event}/>
+    <RadioGroup options={quarterOptions} 
+    title='Which Quarter is meeting for?' 
+    stateValue='eventName' eventForm={eventForm} 
+    setEventForm={setEventForm} 
+    event={event}
+    />
+    <DateComponent eventForm={eventForm} setEventForm={setEventForm}   event={event}/>
+    <Section7 eventForm={eventForm} setEventForm={setEventForm}   event={event}/>
+    <Section8 eventForm={eventForm} setEventForm={setEventForm}   event={event}/>
 
 
           </div>
@@ -171,9 +191,9 @@ export default CABEdit;
 export async function getServerSideProps(ctx) {
   // Fetch data from external API
   let {id}= ctx.params
-  const [event,fbos] = await Promise.all([
+  const [fbos,event] = await Promise.all([
     fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
     fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`).then((r) => r.json()),
   ]);
-  return { props: { fbos: fbos, event:event } };
+  return { props: { fbos: fbos, event:event[0] } };
 }

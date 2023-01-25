@@ -16,7 +16,7 @@ import {
 } from "../../../slices/eventsCalendarDatesSlice";
 import { useEffect } from "react";
 
-const EventsIndex = ({ siteVisits }) => {
+const EventsIndex = ({ events }) => {
  
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
@@ -74,7 +74,7 @@ const EventsIndex = ({ siteVisits }) => {
 
   console.log("state", state);
 
-  const sortedEventsByDate = siteVisits?.sort(
+  const sortedEventsByDate = events?.sort(
     (a, b) => new Date(b.tadatesubmitted) - new Date(a.tadatesubmitted)
   );
 
@@ -87,8 +87,8 @@ const EventsIndex = ({ siteVisits }) => {
 
     let color
     submissionstatus==='Submitted'?color='submittedBg':null
-    submissionstatus==='pending'?color='pendingBg':null
-    submissionstatus==='complete'?color='completeBg':null
+    submissionstatus==='Pending'?color='pendingBg':null
+    submissionstatus==='Complete'?color='completeBg':null
     return color
 
   }  
@@ -98,7 +98,7 @@ const EventsIndex = ({ siteVisits }) => {
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Manage Site Visits"}
+        pageTitle={"Manage CAB Events"}
         dashboardBtn={true}
         backBtn={true}
       />
@@ -123,9 +123,9 @@ const EventsIndex = ({ siteVisits }) => {
       {/*  HEAD TABLE  */}
       <div className={`hidden md:grid site-visits-head-table container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
-        <p className="lg:text-xl font-bold flex items-center ">FBO</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Borough</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Date of site visit</p>
+        <p className="lg:text-xl font-bold flex items-center ">Cluster</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Quarter</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Date of CAB</p>
         <p className="lg:text-xl font-bold flex items-center justify-center">Status</p>
         <p className="lg:text-xl font-bold flex items-center justify-center">Edit</p>
       </div>
@@ -142,7 +142,7 @@ const EventsIndex = ({ siteVisits }) => {
                 ) {
                   return event;
                 }
-                return event.fbo.toLowerCase().includes(searchWord) || event.boroughfbo.toLowerCase().includes(searchWord)
+                return event.cluster.toLowerCase().includes(searchWord) 
               })
               .map((event, index) => {
               
@@ -156,11 +156,11 @@ const EventsIndex = ({ siteVisits }) => {
                       >
      
                         <div className="flex items-center lg:text-xl font-bold py-7">
-                         {event.fbo}
+                         {event.cluster}
                         </div>
                         
                         <div className="flex items-center lg:text-xl font-bold justify-center text-center">
-                       {event.boroughfbo}
+                       {event.eventname}
 
                         </div>
 
@@ -244,10 +244,10 @@ export default EventsIndex;
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/site_visits`
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/cab/`
     );
-    const siteVisits = await response.json();
+    const events = await response.json();
 
-    return { props: { siteVisits } };
+    return { props: { events } };
   },
 });

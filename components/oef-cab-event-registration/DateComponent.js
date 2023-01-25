@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Date = ({eventForm,setEventForm,event}) => {
+const DateComponent = ({eventForm,setEventForm}) => {
  
 
   const handleForm = (e) => {
@@ -18,13 +18,13 @@ const Date = ({eventForm,setEventForm,event}) => {
       name="eventDate" 
       className='border rounded p-2 text-lg w-48' 
       onChange={handleForm}
-      defaultValue={event?.eventdate.split('T')[0]}
+      defaultValue={'' || eventForm?.eventDate.split('T')[0] }
       />
     </label>
   );
 }
 
-export default Date;
+export default DateComponent;
 
 
 
