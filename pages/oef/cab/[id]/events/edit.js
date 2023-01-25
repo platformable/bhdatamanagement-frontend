@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
-import SubmittedBy from "../../../components/oef-cab-event-registration/SubmittedBy";
-import Email from "../../../components/oef-cab-event-registration/Email";
-import Fbo from "../../../components/oef-cab-event-registration/Fbo";
-import RadioGroup from "../../../components/oef-cab-event-registration/RadioGroup";
-import Section5 from "../../../components/oef-cab-event-registration/Section5";
-import Date from "../../../components/oef-cab-event-registration/Date";
-import Section7 from "../../../components/oef-cab-event-registration/Section7";
-import Section8 from "../../../components/oef-cab-event-registration/Section8";
-import Section9 from "../../../components/oef-cab-event-registration/Section9";
+import SubmittedBy from "../../../../../components/oef-cab-event-registration/SubmittedBy";
+import Email from "../../../../../components/oef-cab-event-registration/Email";
+import Fbo from "../../../../../components/oef-cab-event-registration/Fbo";
+import RadioGroup from "../../../../../components/oef-cab-event-registration/RadioGroup";
+import Section5 from "../../../../../components/oef-cab-event-registration/Section5";
+import Date from "../../../../../components/oef-cab-event-registration/Date";
+import Section7 from "../../../../../components/oef-cab-event-registration/Section7";
+import Section8 from "../../../../../components/oef-cab-event-registration/Section8";
+import Section9 from "../../../../../components/oef-cab-event-registration/Section9";
 
 
-import Loader from "../../../components/Loader";
+import Loader from "../../../../../components/Loader";
 
 import { useRouter } from "next/router";
-import { nysActivity, NYSZipCodesAndBoroughs } from "../../../utils/sharedData";
+import { nysActivity, NYSZipCodesAndBoroughs } from "../../../../../utils/sharedData";
 
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
@@ -21,8 +21,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
-import ResponseStatusModal from "../../../components/ResponseStatusModal";
-import ExternalSurveyHeader from "../../../components/ExternalSurveyHeader";
+import ResponseStatusModal from "../../../../../components/ResponseStatusModal";
+import ExternalSurveyHeader from "../../../../../components/ExternalSurveyHeader";
 
 
 const CABEdit = ({ event,fbos }) => {
