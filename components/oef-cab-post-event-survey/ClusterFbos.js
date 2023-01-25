@@ -12,8 +12,9 @@ const ClusterFbos = ({ fbos, eventForm, setEventForm, selectedCluster }) => {
           fbo.boroughfbo === selectedCluster.replace("Cluster", "").trim()
       )
       .sort((a, b) => a.namefbo.localeCompare(b.namefbo, "en"));
-
+        console.log("ordered fbos", orderedFbos)
     setFbosArray(orderedFbos);
+    setCluster([])
   }, [selectedCluster]);
   useEffect(() => {
     setEventForm((prev) => ({ ...prev, clusterFbos: cluster }));
