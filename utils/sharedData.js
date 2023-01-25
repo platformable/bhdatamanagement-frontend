@@ -276,6 +276,7 @@ export const sexualOrientation = [
   { id: 4, value: "Queer" },
   { id: 5, value: "Questioning or not sure" },
   { id: 6, value: "Unknown" },
+  { id: 8, value : "Other"},
   { id: 7, value: "Decline to answer" },
 ];
 
