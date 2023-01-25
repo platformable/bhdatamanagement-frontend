@@ -29,6 +29,7 @@ console.log("evento",event)
     clusterFbos: [],
     eventQuestions: "",
     eventHighlights: "",
+    totalAttendees: 0,
     eventID: Number(event?.id),
     eventDateCreated: new Date(),
     programID: event?.programid,
@@ -74,7 +75,7 @@ console.log("evento",event)
     // if (!isEmpty) {
     axios
       .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/create`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/cab/create`,
         eventForm
       )
       .then((response) => {
@@ -82,7 +83,7 @@ console.log("evento",event)
           notifyMessage();
           console.log(response)
           setTimeout(() => {
-            router.push(`/oef/events/${eventForm.eventID}/success`);
+            router.push(`/oef/cab/${eventForm.eventID}/success`);
           }, 1500);
         }
       })
@@ -141,7 +142,7 @@ console.log("evento",event)
               isNumberKey={isNumberKey}
             />
            
-            <DocumentUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`${event?.folderpath}/Documents`} title="Please attach the CAB agenda" />
+            <DocumentUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`/data governance app/events/oef/CAB Meetings`} title="Please attach the CAB agenda" />
 
 
           </div>
