@@ -128,6 +128,19 @@ export default function SupervisorDashboard({ selectedProgram }) {
                     </button>
                   </Link>
                 </div>
+                <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+                  <Link href="/oef/cab/">
+                    <button id="myBtn">
+                      <div className="">
+                        <div className="flex justify-center "></div>
+                        <p className=" font-bold text-white uppercase">
+                          community advisory board (cab)
+                    
+                        </p>
+                      </div>{" "}
+                    </button>
+                  </Link>
+                </div>
 
                 <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
                   <Link href="/oef/site-visits/">
