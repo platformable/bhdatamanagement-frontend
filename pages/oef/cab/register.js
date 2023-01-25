@@ -49,6 +49,7 @@ const CABRegister = ({ fbos }) => {
     submissionStatus:"Pending",
     submissionNotes:"",
     eventRole:"",
+    surveyName:"oef-cab",
   });
 
   console.log("oef state form", eventForm);
