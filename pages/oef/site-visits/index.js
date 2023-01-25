@@ -105,7 +105,7 @@ const EventsIndex = ({ siteVisits }) => {
 
       <div className="container mx-auto flex container mx-auto md:px-0 px-5 md:mb-5 md:gap-5 justify-between">
 
-      <div className="flex flex-col gap-y-2 lg:flex-row  gap-x-2 bg-black  px-10 py-2 rounded text-white inline-block self-center">
+      <div className="flex flex-col gap-y-2 lg:flex-row  gap-x-2 bg-black  px-10 py-2 rounded text-white inline-block self-center cursor-pointer">
           <Link href="/oef/site-visits/register"
                 
                 target="_blank"
@@ -180,7 +180,7 @@ const EventsIndex = ({ siteVisits }) => {
   
 
                         <div className="flex justify-center">
-                        <Link href={`/oef/site-visit/${event.id}/edit`}>
+                        <Link href={`/oef/site-visits/${event.id}/edit`}>
                           <div className="self-center cursor-pointer border-black shadow-md rounded-lg text-center lg:text-xl py-2 px-5 font-bold">
                             <p className="leading-5 text-center ">Edit</p>
                           </div>
