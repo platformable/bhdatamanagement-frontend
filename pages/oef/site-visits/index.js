@@ -87,8 +87,8 @@ const EventsIndex = ({ siteVisits }) => {
 
     let color
     submissionstatus==='Submitted'?color='submittedBg':null
-    submissionstatus==='pending'?color='pendingBg':null
-    submissionstatus==='complete'?color='completeBg':null
+    submissionstatus==='Pending'?color='pendingBg':null
+    submissionstatus==='Complete'?color='completeBg':null
     return color
 
   }  

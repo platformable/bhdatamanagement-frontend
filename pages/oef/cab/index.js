@@ -180,7 +180,7 @@ const EventsIndex = ({ events }) => {
   
 
                         <div className="flex justify-center">
-                        <Link href={`/oef/cab/${event.id}/events/edit`}>
+                        <Link href={`/oef/cab/${event.id}/edit`}>
                           <div className="self-center cursor-pointer border-black shadow-md rounded-lg text-center lg:text-xl py-2 px-5 font-bold">
                             <p className="leading-5 text-center ">Edit</p>
                           </div>
