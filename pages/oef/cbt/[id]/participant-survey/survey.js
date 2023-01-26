@@ -134,7 +134,7 @@ participantTools:""
       <div>
         <div className="h-88 py-10 container mx-auto mt-3 flex flex-col items-center rounded-lg border-black">
           <h1 className="text-center font-black">
-          CBT Participant Survey
+          CBT Post-Workshop Participation Survey
           </h1>
           <div className="flex items-center gap-5 mt-5">
             <h2 className="pt-2">In partnership with</h2>
@@ -256,7 +256,7 @@ participantTools:""
               /* onClick={(e)=>{router.push("https://nblch.org/")}} */
               onClick={submitParticipantSurvey}
             >
-              Save
+              Submit
             </button>
             {error && (
               <center className="text-red-500 text-lg font-bold">

@@ -105,7 +105,7 @@ const fboRolesOptions=[
   {d:1,value:'Coordinator'},
   {id:2,value:'Leader (Pastor, Imam, Deacon)'},
   {id:3,value:'Community Member'},
-  {id:4,value:'Data Entry Assistan'},
+  {id:4,value:'Data Entry Assistant'},
   {id:5,value:'Ministry Member'}
 
 ]
