@@ -80,7 +80,7 @@ const CABRegister = ({ fbos }) => {
           setLoading(false);
           //notifyMessage();
         setTimeout(() => {
-      router.push(`/oef/cab/${response.data.createdEventId}/events/post-event-survey/register`);
+      router.push(`/oef/cab/${response.data.createdEventId}/post-event-survey/register`);
        }, 1000);
           console.log("response createdEventId",response.data.createdEventId)
         }
