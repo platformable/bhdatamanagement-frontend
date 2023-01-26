@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Loader from '../Loader';
 
-const DropboxDocumentUpload = ({path, title, FileUploadedMessage}) => {
+const DropboxDocumentUpload = ({path, title, FileUploadedMessage,forValue}) => {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
   const [loading, setLoading] = useState(false);
@@ -74,7 +74,7 @@ const DropboxDocumentUpload = ({path, title, FileUploadedMessage}) => {
           
           <input
             type="file"
-            id="document"
+            id={`document${forValue}`}
             hidden
             name="file"
             onChange={(event) => onSubmitFile(event)}
@@ -82,7 +82,7 @@ const DropboxDocumentUpload = ({path, title, FileUploadedMessage}) => {
           />
           <section className="flex justify-start gap-5 items-center mt-7 mr-2">
             <label
-              for="document"
+              htmlFor={`document${forValue}`}
               className="text-white bg-black px-5 flex items-center gap-3 py-2 rounded-md cursor-pointer "
             >
               Choose file

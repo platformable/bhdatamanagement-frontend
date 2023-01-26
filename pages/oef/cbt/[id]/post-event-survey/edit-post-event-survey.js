@@ -154,8 +154,8 @@ eventChecklistOtherText:event?.eventchecklistothertext,
         <EventChallenges eventForm={eventForm} setEventForm={setEventForm} />
         <EventQuestions eventForm={eventForm} setEventForm={setEventForm} />
         <OrganizerFeedback eventForm={eventForm} setEventForm={setEventForm} />
-        <DropboxDocumentUpload path={`${event?.folderpath}/Documents`} title="Please upload the meeting agenda or other supporting documents" FileUploadedMessage={FileUploadedMessage}/>
-        <DropboxDocumentUpload path={`${event?.folderpath}/Images`} title="Please upload any additional pictures or files" FileUploadedMessage={FileUploadedMessage}/>
+        <DropboxDocumentUpload path={`${event?.folderpath}/Documents`} title="Please upload the meeting agenda or other supporting documents" FileUploadedMessage={FileUploadedMessage} forValue='1'/>
+        <DropboxDocumentUpload path={`${event?.folderpath}/Images`} title="Please upload any additional pictures or files" FileUploadedMessage={FileUploadedMessage} forValue='2'/>
 
             
           </div>
