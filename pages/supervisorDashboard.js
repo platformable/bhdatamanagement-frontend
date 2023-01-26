@@ -179,7 +179,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
               <div className="grid md:grid-cols-6 gap-5 px-5 md:px-0 grid-cols-1 mb-2 my-10">
                 {loggedUserRole === "Supervisor" && (
                   <Link href="/nys">
-                    <div className="text-center rounded bg-black text-white p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
+                    <div className="text-center rounded bg-black text-white px-5 py-10 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
                       <div className="">
                         <button id="myBtn">
                           <div className="flex justify-center">

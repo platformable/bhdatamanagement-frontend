@@ -50,7 +50,7 @@ const PostEventReport = ({ event, fbos, user }) => {
   //   user && user["https://lanuevatest.herokuapp.com/lastname"];
 
 
-  const isEditable = loggedUserRole === 'Supervisor' || (new Date().toLocaleDateString() === new Date(event?.eventdatecreated).toLocaleDateString());
+  const isEditable = loggedUserRole === 'Supervisor'  ||  loggedUserRole === 'Data Team' || (new Date().toLocaleDateString() === new Date(event?.eventdatecreated).toLocaleDateString());
 
 
   const [submissionForm, setSubmissionForm] = useState({

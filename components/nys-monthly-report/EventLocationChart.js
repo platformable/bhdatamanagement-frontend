@@ -40,27 +40,30 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
   const [stadistics, setStadistics] = useState([])
   const [value, copy] = useCopyToClipboard()
   const eventLocationsCounts = {
-    "Virtual / Online": 0,
-    "Community based organization site": 0,
-    "COVID vaccine location": 0,
-    "COVID-19 Testing location": 0,
-    "College/School/Trades school/community-based learning center": 0,
-    "Faith based location/Place of worship": 0,
-    "Food Bank/Pantry/Food Kitchen": 0,
-    "Hospital/Clinic": 0,
-    "Local neighborhood small business": 0,
-    "Park/Playground": 0,
-    "Public housing location": 0,
-    "Public transportation hub or station": 0,
-    // "Other location": 0
-}
+    0 : {label: "Community based organization site", count: 0},
+    1: {label: "COVID vaccine location", count: 0},
+    2: {label: "COVID-19 Testing location", count: 0},
+    3: {label: "College/School/Trades school/community-based learning center", count: 0},
+    4: {label: "Faith based location/Place of worship", count: 0},
+    5: {label: "Food Bank/Pantry/Food Kitchen", count: 0},
+    6: {label: "Hospital/Clinic", count: 0},
+    7: {label: "Local neighborhood small business", count: 0},
+    8: {label: "Park/Playground", count: 0},
+    9: {label: "Public housing location", count: 0},
+    10: {label: "Public transportation hub or station", count: 0},
+    11: {label: "Other", count: 0},
+    12: {label: "Virtual / Online", count: 0},
+
+  }
+  console.log("chart data",chartData)
   useEffect(() => {
    stadistics = chartData?.map(event =>{
-    event.onlineinpersoneventtype === "Online" && (eventLocationsCounts["Virtual / Online"] += 1)
-     eventLocationsCounts[event.eventlocationtypename]++ 
+    event.onlineinpersoneventtype === "Online" && (eventLocationsCounts[12]['count'] += 1);
+    console.log("numero =======> " , event.eventlocationtypeid);
+    event.eventlocationtypeid && (eventLocationsCounts[event?.eventlocationtypeid]['count'] += 1)  
    })
-   console.log(eventLocationsCounts)
-   setStadistics(Object.values(eventLocationsCounts))
+   let results = Object.values(eventLocationsCounts).map(value => value.count)
+   setStadistics(results)
   }, [chartData]);
 
   let values = stadistics.filter(value => Number.isFinite(value));
@@ -117,7 +120,7 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
 
 
   const data = {
-    labels: Object.keys(eventLocationsCounts),
+    labels: Object.values(eventLocationsCounts).map(value => value.label),
     datasets: [
       {
         type: "bar",

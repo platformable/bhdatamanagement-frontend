@@ -37,7 +37,7 @@ const EditOefEvent = ({ event, fbos, user }) => {
     user && user["https://lanuevatest.herokuapp.com/roles"];
 
   const isEditable =
-    loggedUserRole === "Supervisor" ||
+    loggedUserRole === "Supervisor" || loggedUserRole === 'Data Team' ||
     new Date().toLocaleDateString() ===
       new Date(event?.eventdatecreated).toLocaleDateString();
 

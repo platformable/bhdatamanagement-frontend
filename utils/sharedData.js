@@ -420,7 +420,6 @@ export const inPersonEventLocationType = [
   { id: 8, value: "Park/Playground", nyscmp: true, oefoutreach:false, oefcbt:true },
   { id: 9, value: "Public housing location", nyscmp: true, oefoutreach:true, oefcbt:true  },
   { id: 10, value: "Public transportation hub or station", nyscmp: true, oefoutreach:false, oefcbt:true },
-
  { id: 12, value: "In the neighborhood/on the street", nyscmp: false, oefoutreach:true, oefcbt:true  },
  { id: 13, value: "Homeless Shelter", nyscmp: false, oefoutreach:true, oefcbt:true  },
  { id: 11, value: "Other", nyscmp: true, oefoutreach:true, oefcbt:true  },
