@@ -65,7 +65,7 @@ console.log("userAccessiblePrograms",userAccessiblePrograms)
 
               <div className="grid md:grid-cols-6 grid-cols-1 mb-2 my-10">
                 {loggedUserRole === 'Program Worker' && userAccessiblePrograms?.includes('NYS CMP') || loggedUserRole==='Data Team'?
-                <div className="text-center mr-5 rounded bg-black p-5 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
+                <div className="text-center mr-5 rounded bg-black px-5 py-10 text-center shadow-xl mb-2 rounded-xl grid justify-center content-center">
                 <Link
                  href={'/nys'}
                 >

@@ -15,6 +15,7 @@ import {
   updateEndDate,
 } from "../../../slices/eventsCalendarDatesSlice";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const EventsIndex = ({ events }) => {
   console.log("events", events)
@@ -25,8 +26,8 @@ const EventsIndex = ({ events }) => {
   const dispatch = useDispatch();
   const { user, error, isLoading } = useUser();
   const [selectedEventToDelete, setSelectedEventToDelete] = useState("");
-
   const [showDeleteEventModal, setShowDeleteEventModal] = useState(false);
+  const router = useRouter()
 
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
@@ -212,8 +213,22 @@ const EventsIndex = ({ events }) => {
       />
 
       <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5">
-        <Search searchFunction={searchFunction} />
+          <div className="flex">
+          <button
+                onClick={() => router.push("/oef/cbt/register")}
+                className="bg-black text-white rounded px-5 py-2 cursor-pointer"
+              >
+                <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
+                Add CBT Event
 
+                </p>
+                
+          </button>
+          </div>
+        <div className="flex justify-center">
+        <Search searchFunction={searchFunction} />
+        <div className="flex gap-5">
+          
         <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
           <h3 className="">Filter by date</h3>
         </div>
@@ -250,6 +265,8 @@ const EventsIndex = ({ events }) => {
               className="border-black rounded-md  text-sm w-full"
             />
           </label>
+        </div>
+        </div>
         </div>
       </div>
 

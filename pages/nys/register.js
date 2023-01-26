@@ -47,6 +47,7 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes }) => {
     eventFinishTime: "12:00",
     eventLocationTypeID: null,
     eventLocationTypeName: "",
+    eventLocationTypeNameOther: "",
     // eventZipCode: "",
     healthAreaOfFocusID: [6],
     healthAreaOfFocusName: ["HIV/AIDS"],
