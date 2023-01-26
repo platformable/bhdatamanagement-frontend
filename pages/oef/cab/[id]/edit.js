@@ -65,8 +65,8 @@ const CABEdit = ({ event,fbos }) => {
   const submitEventForm = async () => {
 
     setLoading(true);
-    setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
-    setShowResponseStatus(true)
+    //setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
+   // setShowResponseStatus(true)
 
     //notifyMessage()
    
@@ -76,10 +76,8 @@ const CABEdit = ({ event,fbos }) => {
         if (response.data.statusText === "OK") {
           setShowResponseStatus(false)
           setLoading(false);
-          //notifyMessage();
-       /*  setTimeout(() => {
-      router.push(`/oef/events/${response.data.createdEventId}/post-event-survey`);
-       }, 1000); */
+          router.push(`/oef/cab/${eventForm?.id}/post-event-survey/edit`);
+
           console.log("response createdEventId",response.data.createdEventId)
         }
       })

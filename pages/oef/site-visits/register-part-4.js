@@ -109,15 +109,15 @@ const RegisterSiteVisits = ({ fbos }) => {
   const statusOptions = [
     {
       id: 1,
-      value: "pending",
+      value: "Pending",
       text: "Pending",
       bgColor:'stronglyDisagreeBg',
         bgColorHover:'hover:stronglyDisagreeBg'
     },
     {
       id: 2,
-      value: "complete",
-      text: "complete",
+      value: "Complete",
+      text: "Complete",
       bgColor:'stronglyAgreeBg',
         bgColorHover:'hover:stronglyAgreeBg'
     }

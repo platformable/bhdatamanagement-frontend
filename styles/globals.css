@@ -93,6 +93,7 @@ h6 {
   --declinedBg:#DE8EA3;
   --stronglyDesagreeBg:#DE8EA3;
   --disagreeBg:#EDC1CC;
+  --disagreeSVBg:#F2C0A2;
   --neitherdisagreeOrNoDisagreeBg:#C0E2F7;
   --agreeBg:#C6FFEB;
   --stronglyAgreeBg:#A1EDD2;
@@ -160,10 +161,19 @@ background-color: var(--agreeBg);
 .stronglyAgreeBg{
 background-color:var(--stronglyAgreeBg);
 }
+
+.disagreeSVBg {
+  background-color: var(--disagreeSVBg);
+}
 }
 
 .disagreeBg{
 background-color: var(--disagreeBg);
+}
+
+
+.disagreeSVBg {
+  background-color: var(--disagreeSVBg);
 }
 
 .neitherAgreeOrDisagreeBg{

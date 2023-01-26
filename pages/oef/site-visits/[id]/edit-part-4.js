@@ -109,15 +109,15 @@ const RegisterSiteVisits = ({ fbos }) => {
   const statusOptions = [
     {
       id: 1,
-      value: "pending",
+      value: "Pending",
       text: "Pending",
-      bgColor:'stronglyDisagreeBg',
-        bgColorHover:'hover:stronglyDisagreeBg'
+      bgColor:'disagreeSVBg',
+        bgColorHover:'hover:disagreeSVBg'
     },
     {
       id: 2,
-      value: "complete",
-      text: "complete",
+      value: "Complete",
+      text: "Complete",
       bgColor:'stronglyAgreeBg',
         bgColorHover:'hover:stronglyAgreeBg'
     }
@@ -144,7 +144,7 @@ const RegisterSiteVisits = ({ fbos }) => {
           setLoading(!loading);
           notifyMessage();
           setTimeout(() => {
-            router.push("/oef/site-visits/success");
+            router.push("/oef/site-visits/");
           }, 1500);
         }
       })

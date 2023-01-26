@@ -22,7 +22,7 @@ const success = () => {
           <section className='flex flex-col mt-10 py-7 w-full gap-5 bg-sky-blue rounded-lg items-center'>
             <img src="/saved-form.svg" alt="checked icon" />
 
-            <h2 className='font-black text-center'>Your sign-in sheet was saved successfully! </h2>
+            <h2 className='font-black text-center'>Your CBT Participant Survey has been submitted successfully!</h2>
             <p className='text-center'>Thank you for taking the time to provide feedback. <br/>
             Your input is valuable and used by us for <br/>
             reporting and program improvement. </p>
