@@ -22,6 +22,7 @@ const RegisterTA = ({ fbos }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const [isEmpty,setIsEmpty]=useState(false)
 
   const isNumberKey = (e) => {
     const invalidChars = ["-", "+", "e"];
@@ -46,6 +47,11 @@ const RegisterTA = ({ fbos }) => {
     programId: 1,
     programName: "OEF",
   });
+
+  const [messageToCompleteForm,setMessageToCompleteForm]=useState({
+    status:false,
+    message:""
+  })
   const notifyMessage = () => {
     toast.success("Technical assistance created", {
       position: toast.POSITION.TOP_CENTER,
@@ -53,7 +59,24 @@ const RegisterTA = ({ fbos }) => {
   };
   const submitForm = async () => {
     setLoading(!loading);
-    await axios
+
+  /*   const isEmpty = Object.values(form).some(value => !value) */
+
+   
+
+    if (form.taType.length===0 || 
+      form.taReason==='' || 
+      form.taContactName==='' || 
+      form.taEmail==='' ||
+      form.taPhone==='' ||
+      form.taFbo.length===0 ){
+        console.log('isEmpty yesss',isEmpty)
+        setLoading(false)
+        setMessageToCompleteForm({status:true,message:"Please complete all the fields"})
+    } else {
+      setMessageToCompleteForm({status:false,message:"All fields completed"})
+      console.log('isEmpty NOOOO',isEmpty)
+    const send = await axios
       .post(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/technical_assistance/create`,
         form
@@ -73,6 +96,12 @@ const RegisterTA = ({ fbos }) => {
         setError("An error ocurred, try again");
         console.error("error: ", error);
       });
+    }
+
+
+
+      
+
   };
   const boroughs = [
     "Bronx",
@@ -89,7 +118,7 @@ const RegisterTA = ({ fbos }) => {
     setForm((prev) => ({ ...prev, key: value }));
   };
 
-  console.log(form);
+
   return (
     <>
       {/* <Layout> */}
@@ -116,7 +145,8 @@ const RegisterTA = ({ fbos }) => {
           <Loader />
         </div>
       ) : (
-        <div className="flex justify-center my-10">
+        <>
+        <div className="grid justify-center mt-10">
           <button
             className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
             onClick={submitForm}
@@ -129,6 +159,8 @@ const RegisterTA = ({ fbos }) => {
             Save and finish
           </button>
         </div>
+        {messageToCompleteForm.status===true && <p className="red-100 text-red-500 text-center my-5">{messageToCompleteForm.message}</p> }
+        </>
       )}
 
       {/* </Layout> */}
