@@ -170,15 +170,48 @@ const RegisterSiteVisits = ({ fbos }) => {
           pageTitle={"Stigma"}
         />
         <div className="container mx-auto border rounded-lg mb-10">
-          <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
-            <h2 className="font-black mb-7">On a scale from 1 to 5, rate how open the following are to discussing HIV.</h2>
+          <div className="register-envent-form-container  grid bg-white  rounded-lg px-7 my-10 ">
+          <div>
+              <h2 className="font-black mb-2">
+                Rate how open the following are to discussing HIV.
+              </h2>
+
+              <p>
+                <strong>Very closed:</strong> cannot discuss
+              </p>
+              <p>
+                <strong>Somewhat closed:</strong> not easily discussed,{" "}
+              </p>
+              <p>
+                <strong>Neutral</strong>: Neither discussed or not discussed ,{" "}
+              </p>
+              <p>
+                <strong>Somewhat open:</strong> can be discussed,{" "}
+              </p>
+              <p>
+                <strong>Very open:</strong> All topics and discussions welcome
+              </p>
+            </div>
             <Rating dispatch={dispatch}  surveyForm={surveyForm} options={hivRatingOptions}  stateValue='fboLeaderHivOpenness' updateFunction={updateStrategiesHealthDisparities} title='Faith leader'/>
             <Rating dispatch={dispatch} surveyForm={surveyForm} options={hivRatingOptions} stateValue='healthMinistryHivOpenness' updateFunction={updateStrategiesHealthDisparities} title='Health Ministry'/>
             <Rating dispatch={dispatch} surveyForm={surveyForm} options={hivRatingOptions} stateValue='membershipHivOpenness' updateFunction={updateStrategiesHealthDisparities} title='Membership'/>
             <Rating dispatch={dispatch} surveyForm={surveyForm} options={hivRatingOptions} stateValue='communityHivOpenness' updateFunction={updateStrategiesHealthDisparities} title='Communities you serve'/>
 
 
-            <h2 className="font-black mb-7">On a scale from 1 to 5, rate how open the following are to working with diverse populations?</h2>
+            <div className="mt-10">
+
+              <h2 className="font-black my-2">
+                Rate how open the following are to working with diverse populations
+                </h2>
+              <div>
+                <p><strong>Not welcome: </strong>Leaders make groups unwelcome, </p>
+                <p><strong>Somewhat not wlcome: </strong>Some leaders make some groups unwelcome</p>
+                <p><strong>Neutral: </strong>Neither welcome or not welcome,</p>
+                <p><strong>Welcome: </strong>Most leaders make some groups welcome</p>
+                <p><strong>Very welcome: </strong>Leaders make all groups very welcome</p>
+
+              </div>
+            </div>
             <Rating dispatch={dispatch} surveyForm={surveyForm}  options={workingRatingOptions} stateValue='faithLeaderDiversityOpenness' updateFunction={updateStrategiesHealthDisparities} title='Faith leader'/>
             <Rating dispatch={dispatch} surveyForm={surveyForm}  options={workingRatingOptions} stateValue='healthMinistryDiversityOpenness' updateFunction={updateStrategiesHealthDisparities} title='Health Ministry'/>
             <Rating dispatch={dispatch} surveyForm={surveyForm}  options={workingRatingOptions} stateValue='membershipDiversityOpenness' updateFunction={updateStrategiesHealthDisparities} title='Membership'/>
