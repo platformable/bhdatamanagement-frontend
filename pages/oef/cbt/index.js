@@ -18,7 +18,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 const EventsIndex = ({ events }) => {
-  console.log("events", events)
+  console.log("events", events);
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -27,7 +27,7 @@ const EventsIndex = ({ events }) => {
   const { user, error, isLoading } = useUser();
   const [selectedEventToDelete, setSelectedEventToDelete] = useState("");
   const [showDeleteEventModal, setShowDeleteEventModal] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
 
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
@@ -40,12 +40,12 @@ const EventsIndex = ({ events }) => {
     endDate: null,
   });
   // async function downloadCalendar (base64) {
-    
+
   // }
   useEffect(() => {
     // events.map(event => {event.url_calendar = makeIcsFile(event)})
-  }, [])
-   function makeIcsFile(event) {
+  }, []);
+  function makeIcsFile(event) {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];
       const dateString = dateParts.split("-").join("");
@@ -123,8 +123,7 @@ const EventsIndex = ({ events }) => {
       "DESCRIPTION:" +
       event?.onlineinpersoneventtype +
       " - " +
-      (event.onlineeventtypename
-        || event.inpersoneventtypename) +
+      (event.onlineeventtypename || event.inpersoneventtypename) +
       " - " +
       event?.eventdescription +
       "\n" +
@@ -141,7 +140,8 @@ const EventsIndex = ({ events }) => {
       ", " +
       String(event?.eventzipcode) +
       "\n" +
-      "URL:https://nblch.org" + "\n" +
+      "URL:https://nblch.org" +
+      "\n" +
       "SEQUENCE:2" +
       "\n" +
       // "LAST-MODIFIED:20220119T120306Z" + "\n" +
@@ -162,7 +162,7 @@ const EventsIndex = ({ events }) => {
 
     icsFile = window.URL.createObjectURL(data);
 
-    const  link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = icsFile;
     link.download = `${event?.eventname}.ics`;
     document.body.appendChild(link);
@@ -170,12 +170,12 @@ const EventsIndex = ({ events }) => {
     document.body.removeChild(link);
 
     return icsFile;
-  } 
-  const handleDeleteEvent=(id,eventName)=>{
-    console.log(id)
-    setSelectedEventToDelete({id:id,eventname:eventName})
-    setShowDeleteEventModal(!showDeleteEventModal)
   }
+  const handleDeleteEvent = (id, eventName) => {
+    console.log(id);
+    setSelectedEventToDelete({ id: id, eventname: eventName });
+    setShowDeleteEventModal(!showDeleteEventModal);
+  };
   const searchFunction = (word) => {
     setSearchWord(word);
     dispatch(searchEventByName({ word }));
@@ -194,10 +194,7 @@ const EventsIndex = ({ events }) => {
     (state) => state.eventCalendarDates.value.endDate
   );
 
-
   const state = useSelector((state) => console.log(state));
-
-
 
   const sortedEventsByDate = events.sort(
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
@@ -212,67 +209,81 @@ const EventsIndex = ({ events }) => {
         backBtn={true}
       />
 
-      <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5">
-          <div className="flex">
+      <div className="container mx-auto">
+        <div className="flex">
           <button
-                onClick={() => router.push("/oef/cbt/register")}
-                className="bg-black text-white rounded px-5 py-2 cursor-pointer"
-              >
-                <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
-                Add CBT Event
-
-                </p>
-                
+            onClick={() => router.push("/oef/cbt/register")}
+            className="bg-black text-white rounded px-5 py-2 cursor-pointer"
+          >
+            <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
+              Add CBT Event
+            </p>
           </button>
-          </div>
-        <div className="flex justify-center">
-        <Search searchFunction={searchFunction} />
-        <div className="flex gap-5">
-          
-        <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
-          <h3 className="">Filter by date</h3>
         </div>
+      </div>
+      <div className="container mx-auto grid  items-center grid-cols-2 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5 mt-7">
+        <div className="flex">
+          <Search searchFunction={searchFunction} />
+         </div> 
+          <div className="flex gap-5 justify-end">
+            <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0 items-center">
+              <h3 className="">Filter by date</h3>
+            </div>
 
-        <div className="block md:flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0">
-          <label className="w-full">
-            <input
-              type="date"
-              ref={ref}
-              id="start"
-              placeholder="start date"
-              onChange={(e) => {
-                setDateFilter({ ...dateFilter, startDate: e.target.value });
-                dispatch(
-                  updateStartDate({ ...dateFilter, startDate: e.target.value })
-                );
-              }}
-              defaultValue={startDate}
-              className="border-black rounded-md text-sm w-full"
-            />
-          </label>
-          <h3 className="text-left md:text-center md:py-5 md:py-0 py-5">and</h3>
-          <label className="flex justify-end w-full">
-            <input
-              type="date"
-              placeholder="end date"
-              onChange={(e) => {
-                setDateFilter({ ...dateFilter, endDate: e.target.value });
-                dispatch(
-                  updateStartDate({ ...dateFilter, endDate: e.target.value })
-                );
-              }}
-              defaultValue={endDate}
-              className="border-black rounded-md  text-sm w-full"
-            />
-          </label>
-        </div>
-        </div>
-        </div>
+            <div className="block md:flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0 ">
+              <label className="w-full">
+                <input
+                  type="date"
+                  ref={ref}
+                  id="start"
+                  placeholder="start date"
+                  onChange={(e) => {
+                    setDateFilter({ ...dateFilter, startDate: e.target.value });
+                    dispatch(
+                      updateStartDate({
+                        ...dateFilter,
+                        startDate: e.target.value,
+                      })
+                    );
+                  }}
+                  defaultValue={startDate}
+                  className="border-black rounded-md text-sm w-full"
+                />
+              </label>
+              <h3 className="text-left md:text-center md:py-5 md:py-0 py-5">
+                and
+              </h3>
+              <label className="flex justify-end w-full">
+                <input
+                  type="date"
+                  placeholder="end date"
+                  onChange={(e) => {
+                    setDateFilter({ ...dateFilter, endDate: e.target.value });
+                    dispatch(
+                      updateStartDate({
+                        ...dateFilter,
+                        endDate: e.target.value,
+                      })
+                    );
+                  }}
+                  defaultValue={endDate}
+                  className="border-black rounded-md  text-sm w-full"
+                />
+              </label>
+            </div>
+          </div>
+      
       </div>
 
       <div className="events-cards-container grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
       {/*  HEAD TABLE  */}
-      <div className={`hidden md:grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-events-head-table" : `existing-events-head-table`} container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
+      <div
+        className={`hidden md:grid ${
+          loggedUserRole === "Supervisor"
+            ? "supervisor-existing-events-head-table"
+            : `existing-events-head-table`
+        } container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}
+      >
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
         <p className="lg:text-xl font-bold flex items-center ">Event name</p>
         <p className="lg:text-xl font-bold flex items-center ">Event date</p>
@@ -282,7 +293,11 @@ const EventsIndex = ({ events }) => {
         <div className="events-index-btn-container grid grid-cols-1 gap-3 p-0">
           {sortedEventsByDate &&
             sortedEventsByDate
-              ?.filter((event,index)=>event?.programname==='OEF' && event?.surveyname?.includes('cbt'))
+              ?.filter(
+                (event, index) =>
+                  event?.programname === "OEF" &&
+                  event?.surveyname?.includes("cbt")
+              )
               .filter((event, index) => {
                 if (
                   searchWord === "" &&
@@ -303,8 +318,12 @@ const EventsIndex = ({ events }) => {
                 }
               })
               .filter((event, index) => {
-                var startDate = new Date(new Date(dateFilter?.startDate).setHours(0))
-                var endDate = new Date(new Date(dateFilter?.endDate).setHours(23))
+                var startDate = new Date(
+                  new Date(dateFilter?.startDate).setHours(0)
+                );
+                var endDate = new Date(
+                  new Date(dateFilter?.endDate).setHours(23)
+                );
                 if (startDate !== null && endDate !== null) {
                   let filterPass = true;
                   const date = new Date(event.eventdate);
@@ -312,13 +331,12 @@ const EventsIndex = ({ events }) => {
                     filterPass = filterPass && startDate <= date;
                   }
                   if (dateFilter.endDate) {
-                    filterPass =
-                      filterPass && endDate >= date;
+                    filterPass = filterPass && endDate >= date;
                   }
                   return filterPass;
                 }
               })
-              
+
               .map((event, index) => {
                 return (
                   <>
@@ -347,7 +365,11 @@ const EventsIndex = ({ events }) => {
                     <div className="hidden sm:block">
                       <section
                         key={index}
-                        className={`grid ${loggedUserRole === "Supervisor" ? "supervisor-existing-events-head-table" : "existing-events-head-table"} px-7 py-7  rounded shadow-md`}
+                        className={`grid ${
+                          loggedUserRole === "Supervisor"
+                            ? "supervisor-existing-events-head-table"
+                            : "existing-events-head-table"
+                        } px-7 py-7  rounded shadow-md`}
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
                         <div className="flex items-center lg:text-xl font-bold ">
@@ -367,7 +389,9 @@ const EventsIndex = ({ events }) => {
                             <p className="leading-5">Edit event</p>
                           </div>
                         </Link>
-                        <Link href={`/oef/cbt/${event.id}/participant-survey/survey`}>
+                        <Link
+                          href={`/oef/cbt/${event.id}/participant-survey/survey`}
+                        >
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Participant survey</p>
                           </div>
@@ -395,11 +419,13 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link>
-                        <div  onClick={()=> makeIcsFile(event)} className={`cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center`}>
+                        <div
+                          onClick={() => makeIcsFile(event)}
+                          className={`cursor-pointer flex items-center border-black shadow-md rounded-lg text-center justify-center`}
+                        >
                           <a
                             className="leading-5  lg:text-lg p-2 font-bold"
-                            href={'#'}
-              
+                            href={"#"}
                           >
                             Download calendar file
                           </a>
@@ -408,7 +434,9 @@ const EventsIndex = ({ events }) => {
                           <div className="flex justify-center">
                             <button
                               className="bg-black lg:text-lg py-2 px-5 rounded-lg text-white"
-                              onClick={() => handleDeleteEvent(event?.id, event?.eventname)}
+                              onClick={() =>
+                                handleDeleteEvent(event?.id, event?.eventname)
+                              }
                             >
                               Delete event
                             </button>

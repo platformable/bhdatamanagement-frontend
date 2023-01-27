@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
+import {useRouter} from "next/router";
 import Image from "next/image";
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
@@ -17,6 +18,8 @@ import {
 import { useEffect } from "react";
 
 const EventsIndex = ({ technicalAssistance }) => {
+
+  const router = useRouter()
  
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
@@ -102,7 +105,18 @@ const EventsIndex = ({ technicalAssistance }) => {
         dashboardBtn={true}
         backBtn={true}
       />
-
+ <div className="container mx-auto my-7">
+        <div className="flex">
+          <button
+            onClick={() => router.push("/oef/technical-assistance/register")}
+            className="bg-black text-white rounded px-5 py-2 cursor-pointer"
+          >
+            <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
+              Create Technical Assistant Request
+            </p>
+          </button>
+        </div>
+      </div>
       <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5">
         <Search searchFunction={searchFunction} />
 

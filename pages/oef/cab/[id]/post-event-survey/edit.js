@@ -63,7 +63,7 @@ console.log("evento",event)
     // toast.success("File saved to dropbox", {
     //   position: toast.POSITION.TOP_CENTER,
     // });
-    setMsgStatusUpload({statusMessage: 'File saved to Dropbox'})
+    setMsgStatusUpload({statusMessage: 'Upload has been successful'})
     setShowStatusUpload(true)
   };
 
@@ -160,7 +160,7 @@ console.log("evento",event)
               isNumberKey={isNumberKey}
             />
            
-            <DocumentUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`/data governance app/events/oef/CAB Meetings`}  title="Please attach the CAB agenda" />
+            <DocumentUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`/data governance app/events/oef cab`}  title="Please attach the CAB agenda" />
             <Status
               submissionForm={submissionForm}
               setSubmissionForm={setSubmissionForm}

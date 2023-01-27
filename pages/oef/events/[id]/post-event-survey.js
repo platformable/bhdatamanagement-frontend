@@ -250,7 +250,7 @@ console.log(event)
     // toast.success("File saved to dropbox", {
     //   position: toast.POSITION.TOP_CENTER,
     // });
-    setMsgStatusUpload({statusMessage: 'File saved to Dropbox'})
+    setMsgStatusUpload({statusMessage: 'Upload has been successful'})
     setShowStatusUpload(true)
   };
 
