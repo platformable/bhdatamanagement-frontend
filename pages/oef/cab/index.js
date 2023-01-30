@@ -107,13 +107,13 @@ const EventsIndex = ({ events }) => {
       <div className="container mx-auto flex container mx-auto md:px-0 px-5 md:mb-5 md:gap-5 justify-between">
 
       <div className="flex flex-col gap-y-2 lg:flex-row  gap-x-2 bg-black  px-10 py-2 rounded text-white inline-block self-center cursor-pointer">
-          <Link href="/oef/cab/register"
+          <a href="/oef/cab/register"
                 
                 target="_blank"
                 rel="noreferrer"
               >
                 <p className={`bg-black  px-5 py-2 rounded text-white inline-block  flex items-center text-lg`}> CAB Event Survey</p>
-              </Link>
+              </a>
           </div>
         <Search searchFunction={searchFunction} />
         

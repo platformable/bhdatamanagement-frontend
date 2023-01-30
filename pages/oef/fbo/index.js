@@ -230,26 +230,28 @@ const EventsIndex = ({ events }) => {
 
       <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5">
         <div className="flex gap-5">
-          <button
-            onClick={() => router.push("/oef/register")}
-            className="bg-black text-white rounded px-5 py-2 cursor-pointer"
+          <a
+            href="/oef/register"
+            className="bg-black text-white rounded px-5 py-2 "
+            target='_blank'
           >
-            <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
+            <p className="flex bg-black gap-x-2 items-center font-black text-white rounded px-5 cursor-pointer">
             Outreach Event Organizer Survey
 
             </p>
             
-          </button>
-          <button
-            onClick={() => router.push("/oef/fbo/participant-survey/survey")}
+          </a>
+          <a
+            href="/oef/fbo/participant-survey/survey"
             className="bg-black text-white rounded px-5 py-2 cursor-pointer"
+            target='_blank'
           >
             <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
             Outreach Event Participant Sign-in Sheet
 
             </p>
             
-          </button>
+          </a>
         </div>
         <div className="flex justify-between">
         <Search searchFunction={searchFunction} />

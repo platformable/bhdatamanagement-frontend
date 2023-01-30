@@ -107,14 +107,15 @@ const EventsIndex = ({ technicalAssistance }) => {
       />
  <div className="container mx-auto my-7">
         <div className="flex">
-          <button
-            onClick={() => router.push("/oef/technical-assistance/register")}
+          <a
+            href="/oef/technical-assistance/register"
             className="bg-black text-white rounded px-5 py-2 cursor-pointer"
+            target='_blank'
           >
             <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
               Create Technical Assistant Request
             </p>
-          </button>
+          </a>
         </div>
       </div>
       <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5">

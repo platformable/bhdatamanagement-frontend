@@ -31,35 +31,35 @@ const RegisterSiteVisits = ({ fbos }) => {
   const hivRatingOptions = [
     {
       id: 1,
-      value: "cannot discuss",
+      value: "1: Very closed: cannot discuss",
       text: "Very closed",
       bgColor: "stronglyDisagreeBg",
       bgColorHover: "hover:stronglyDisagreeBg",
     },
     {
       id: 2,
-      value: "not easily discussed",
+      value: "2: Somewhat closed: not easily discussed",
       text: "Somewhat closed",
       bgColor: "disagreeBg",
       bgColorHover: "hover:disagreeBg",
     },
     {
       id: 3,
-      value: "neutral",
+      value: "3: Neutral",
       text: "Neutral",
       bgColor: "neitherAgreeOrDisagreeBg",
       bgColorHover: "hover:neitherAgreeOrDisagreeBg",
     },
     {
       id: 4,
-      value: "can be discussed",
+      value: "4: Somewhat open: can be discussed",
       text: "Somewhat open",
       bgColor: "agreeBg",
       bgColorHover: "hover:agreeBg",
     },
     {
       id: 5,
-      value: "All topics and discussions welcome",
+      value: "5: Very open: All topics and discussions welcome",
       text: "Very open",
       bgColor: "stronglyAgreeBg",
       bgColorHover: "hover:stronglyAgreeBg",
@@ -68,35 +68,35 @@ const RegisterSiteVisits = ({ fbos }) => {
   const workingRatingOptions = [
     {
       id: 1,
-      value: "not welcome",
+      value: "1: Not welcome",
       text: "Not welcome",
       bgColor: "stronglyDisagreeBg",
       bgColorHover: "hover:stronglyDisagreeBg",
     },
     {
       id: 2,
-      value: "some leaders make some groups unwelcome",
+      value: "2: Some leaders make some groups unwelcome",
       text: "Somewhat not welcome",
       bgColor: "disagreeBg",
       bgColorHover: "hover:disagreeBg",
     },
     {
       id: 3,
-      value: "neutral",
+      value: "3: Neutral",
       text: "Neutral",
       bgColor: "neitherAgreeOrDisagreeBg",
       bgColorHover: "hover:neitherAgreeOrDisagreeBg",
     },
     {
       id: 4,
-      value: "most leaders and groups welcome",
+      value: "4: Welcome: most leaders and groups welcome", 
       text: "Welcome",
       bgColor: "agreeBg",
       bgColorHover: "hover:agreeBg",
     },
     {
       id: 5,
-      value: "very welcome and open",
+      value: "5: Very welcome and open",
       text: "Very welcome and open",
       bgColor: "stronglyAgreeBg",
       bgColorHover: "hover:stronglyAgreeBg",
@@ -124,7 +124,7 @@ const RegisterSiteVisits = ({ fbos }) => {
   console.log("surveyForm", surveyForm);
 
   const notifyMessage = () => {
-    toast.success("Site visit created", {
+    toast.success("Site Visit Saving", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
@@ -175,13 +175,13 @@ const RegisterSiteVisits = ({ fbos }) => {
                 <strong>Very closed:</strong> cannot discuss
               </p>
               <p>
-                <strong>Somewhat closed:</strong> not easily discussed,{" "}
+                <strong>Somewhat closed:</strong> not easily discussed{" "}
               </p>
               <p>
-                <strong>Neutral</strong>: Neither discussed or not discussed ,{" "}
+                <strong>Neutral</strong>: Neither discussed or not discussed{" "}
               </p>
               <p>
-                <strong>Somewhat open:</strong> can be discussed,{" "}
+                <strong>Somewhat open:</strong> can be discussed{" "}
               </p>
               <p>
                 <strong>Very open:</strong> All topics and discussions welcome
@@ -229,9 +229,9 @@ const RegisterSiteVisits = ({ fbos }) => {
                 Rate how open the following are to working with diverse populations
                 </h2>
               <div>
-                <p><strong>Not welcome: </strong>Leaders make groups unwelcome, </p>
+                <p><strong>Not welcome: </strong>Leaders make groups unwelcome </p>
                 <p><strong>Somewhat not wlcome: </strong>Some leaders make some groups unwelcome</p>
-                <p><strong>Neutral: </strong>Neither welcome or not welcome,</p>
+                <p><strong>Neutral: </strong>Neither welcome or not welcome</p>
                 <p><strong>Welcome: </strong>Most leaders make some groups welcome</p>
                 <p><strong>Very welcome: </strong>Leaders make all groups very welcome</p>
 

@@ -83,7 +83,7 @@ console.log("evento",event)
           notifyMessage();
           console.log(response)
           setTimeout(() => {
-            router.push(`/oef/cab/${eventForm.eventID}/success`);
+            router.push(`/oef/cab/success`);
           }, 1500);
         }
       })
@@ -142,7 +142,7 @@ console.log("evento",event)
               isNumberKey={isNumberKey}
             />
            
-            <DocumentUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`/data governance app/events/oef/CAB Meetings`} title="Please attach the CAB agenda" />
+            <DocumentUploadDropbox FileUploadedMessage={FileUploadedMessage} path={`/data governance app/events/oef cab`} title="Please attach the CAB agenda" />
 
 
           </div>

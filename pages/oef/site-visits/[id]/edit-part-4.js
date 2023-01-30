@@ -127,7 +127,7 @@ const RegisterSiteVisits = ({ fbos }) => {
   console.log("surveyForm",surveyForm)
 
   const notifyMessage = () => {
-    toast.success("Site visit created", {
+    toast.success("Site Visit Saving", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
