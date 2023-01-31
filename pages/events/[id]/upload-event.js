@@ -157,7 +157,7 @@ export const Upload_event = ({ event }) => {
         pageTitle={"Upload event documents"}
       />
 
-      <TopEventsInfo event={event}/>
+      <TopEventsInfo event={event} editPath={`/events/${event?.eventid || event?.id}/nys_cmp/edit`}/>
 
       <section className="px-5 md:px-0">
         <div className="container mx-auto my-10">

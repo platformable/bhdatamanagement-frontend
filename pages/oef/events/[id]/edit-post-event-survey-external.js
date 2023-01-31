@@ -330,7 +330,7 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
       <div className={`container mx-auto md:px-0 px-5 items-center mt-10`}>
         {/* <h2 className="font-black mb-7"></h2> */}
         <ExternalSurveyHeader pageTitle={'Edit OEF Outreach event post report for FBO'} />
-          <TopEventsInfo event={event} />
+          <TopEventsInfo event={event} editPath={`/oef/events/${event?.eventid || event?.id}/edit`}/>
 
           <div className="post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
             {/* <div className="rounded-tl-md rounded-tr-md"> */}
