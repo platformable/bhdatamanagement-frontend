@@ -397,7 +397,7 @@ const EventsIndex = ({ events }) => {
                           </div>
                         </Link>
 
-                        <Link href={`/nys/events/${event.id}/upload-event`}>
+                        <Link href={`/oef/cbt/${event.id}/events/upload-event`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">
                               Uploads docs &#38; photos, etc{" "}

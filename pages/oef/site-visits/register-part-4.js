@@ -138,7 +138,7 @@ const RegisterSiteVisits = ({ fbos }) => {
           setLoading(!loading);
           notifyMessage();
           setTimeout(() => {
-            router.push("/oef/site-visits/success");
+            router.push("/oef/site-visits");
           }, 1500);
         }
       })
