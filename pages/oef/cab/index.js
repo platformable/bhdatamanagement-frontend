@@ -112,7 +112,7 @@ const EventsIndex = ({ events }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <p className={`bg-black  px-5 py-2 rounded text-white inline-block  flex items-center text-lg`}> CAB Event Survey</p>
+                <p className={`bg-black  px-5 py-2 rounded text-white inline-block  flex items-center text-lg`}>CAB Organizer Survey</p>
               </a>
           </div>
         <Search searchFunction={searchFunction} />
