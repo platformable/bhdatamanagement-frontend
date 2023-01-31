@@ -135,7 +135,7 @@ eventChecklistOtherText:event?.eventchecklistothertext,
           pageTitle={"CBT Post-event survey"}
         />
         <div className="container mx-auto md:px-0 px-5 items-center">
-          <TopEventsInfo event={event} />
+          <TopEventsInfo event={event} editPath={`/oef/cbt/${event?.eventid || event?.id}/events/edit`}/>
 
           <div className="post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
            

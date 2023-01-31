@@ -348,7 +348,7 @@ const PostEventReport = ({ event, fbos, user }) => {
 
         {eventNotCompletedMessage ? <div className="container mx-auto my-7"><h3 className="text-center bg-green-200 rounded-md" >{event.message}</h3></div>:null}
         <div className={`${!isEditable && 'pointer-events-none'} container mx-auto md:px-0 px-5 items-center`}>
-          <TopEventsInfo event={event} />
+          <TopEventsInfo event={event}  editPath={`/oef/events/${event?.eventid || event?.id}/edit`}/>
 
           <div className={`post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg ${eventNotCompletedMessage? 'hidden':null}`}>
             {/* <div className="rounded-tl-md rounded-tr-md"> */}
