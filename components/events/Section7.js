@@ -10,9 +10,7 @@ const Section7 = ({eventForm, setEventForm,event}) => {
     const handleForm = (e) => {
         setEventForm(previous => ({...previous, eventLocationTypeName: capitalizeFirstLetter(e.target.value),  eventLocationTypeID: Number(e.target.id)}))
       };
-    const handleFormId = (e) => {
-        setEventForm(previous => ({...previous, eventLocationTypeID: Number(e.target.id)}))
-    };
+    
 
     return (
         <div className=''>
@@ -40,14 +38,15 @@ const Section7 = ({eventForm, setEventForm,event}) => {
                     <input type="radio" 
                     name="eventLocationTypeName" className='' 
                     id={location.id}
-                    onChange={handleFormId}
+                    value={'Other'}
+                    onChange={handleForm}
                     defaultChecked={eventForm?.eventLocationTypeID === 11 ?'checked':""}
                     
                     />
                     <p className="">Other</p>
                     <input type="text" 
-                    name="eventLocationTypeName"
-                    onChange={handleForm} 
+                    name="eventLocationTypeNameOther"
+                    onChange={(e) => setEventForm(prev => ({...prev, eventLocationTypeNameOther: e.target.value}))} 
                     className='w-96 border-dark-violet rounded ' 
                     placeholder="Eg. Sporting facility"
                     defaultValue={eventForm?.eventLocationTypeID === 11 ? eventForm.eventLocationTypeName : ''}

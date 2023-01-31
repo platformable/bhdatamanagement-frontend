@@ -15,6 +15,10 @@ import {
 } from "../../../slices/eventsCalendarDatesSlice";
 import { useEffect } from "react";
 
+// ***************************************************************************************************************************
+// ***************** THIS INDEX IS NOT BEING USED, IF YOU WANT TO SEE OEF/FBO EVENTS GO TO PATH: OEF/FBO/INDEX ***************
+// ***************************************************************************************************************************
+
 const EventsIndex = ({ events, user }) => {
   console.log("events", events)
   const eventSearchWord = useSelector(
