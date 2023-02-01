@@ -389,14 +389,17 @@ const EventsIndex = ({ events }) => {
                             <p className="leading-5">Edit event</p>
                           </div>
                         </Link>
-                        <Link
+                        
+                        <a
                           href={`/oef/cbt/${event.id}/participant-survey/survey`}
+                          className="flex items-stretch"
+                          target={'_black'}
                         >
-                          <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
+                          <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center ">
                             <p className="leading-5">Participant survey</p>
                           </div>
-                        </Link>
-
+                        </a>
+      
                         <Link href={`/oef/cbt/${event.id}/events/upload-event`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">
