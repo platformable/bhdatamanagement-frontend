@@ -50,7 +50,8 @@ const Survey = ({ event, fbos }) => {
     participantSuggestions: "",
     participantRaceOther:"",
     participantEthnicityOther:"",
-    participantSexualIdentityOther:""
+    participantSexualIdentityOther:"",
+    surveyName:'oef-participant'
   });
   console.log("form", surveyForm);
 
