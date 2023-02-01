@@ -103,7 +103,7 @@ console.log("evento",event)
           pageTitle={"Post-event survey"}
         />
         <div className="container mx-auto md:px-0 px-5 items-center">
-          <TopEventsInfo event={event} />
+          <TopEventsInfo event={event} editPath={`/oef/cab/${event?.eventid || event?.id}/edit`} />
 
           <div className="post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
             {/* <div className="rounded-tl-md rounded-tr-md"> */}
