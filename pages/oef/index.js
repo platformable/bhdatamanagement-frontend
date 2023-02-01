@@ -166,7 +166,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
                   </Link>
                 </div>
                 <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
-                  <Link href="/nys/events/reports/">
+                  <Link href="/oef/reports">
                     <button id="myBtn">
                       <div className="h-20 grid items-center">
                         <p className=" font-bold text-white uppercase">
