@@ -517,7 +517,7 @@ const participantInfoAccessibleOptions = [
             </section>
             ):null}
 
-{isInparticipantCbtActions.includes('Use storytelling to engage the community') ? (
+{isInparticipantCbtActions.includes('Use story telling to engage the community') ? (
             <section>
             <h2 className="font-black px-7">Use storytelling to engage the community:</h2>
        
