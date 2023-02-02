@@ -12,6 +12,8 @@ import OneColumnCheckbox from "../../../../components/oef-cbt-quarterly-evaluati
 import Status from "../../../../components/oef-cbt-quarterly-evaluation-survey/Status";
 import Rating from "../../../../components/oef-cbt-quarterly-evaluation-survey/Rating";
 import TextArea from "../../../../components/oef-cbt-quarterly-evaluation-survey/TextArea";
+import RadioBoolean from "../../../../components/oef-cbt-quarterly-evaluation-survey/RadioBoolean";
+import NumberLimits from "../../../../components/oef-cbt-quarterly-evaluation-survey/NumberLimits";
 
 const Survey = ({ event, fbos }) => {
   const [showDemographicsForm, setShowDemographicsForm] = useState(false);
@@ -27,12 +29,12 @@ const Survey = ({ event, fbos }) => {
     participantPrepKnowledge: "",
     participantPrepUse: "",
     participantPrepResourceKnowledge: "",
-    participantHivKnowledge: "",
+    participantHivKnowledge: [],
     fboPosition: "",
     participantCbtActions: [],
     participantCreateSurvey: "",
-    programId: "",
-    programName: "",
+    programId: 1,
+    programName: "OEF",
     deliveryPartner: "",
     participantSurveyTool: [],
     participantSurveyGoal: "",
@@ -53,7 +55,7 @@ const Survey = ({ event, fbos }) => {
     participantCabImpact: "",
     participantCabMembers: "",
     participantFboStrategy: "",
-    participantTargetGroups: "",
+    participantTargetGroups: [],
     participantTargetGroupsOther: "",
     participantYouthMinistryCreation: "",
     participantYouthMinistryRecruitment: "",
@@ -80,31 +82,32 @@ const Survey = ({ event, fbos }) => {
   const submitParticipantSurvey = async () => {
     setError("");
 
-    const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
-      key === "participantReferralOther" ||
-      key === "participantSuggestions" ||
-      key === "participantSexualIdentityOther" ||
-      key === "participantRaceOther" ||
-      key === "participantEthnicityOther" ||
-      key === "participantRaceOther" ||
-      key === "participantOrientationOther"
-        ? false
-        : value === 0 || value.length === 0
-    );
-    if (isEmpty) {
-      setError("Please complete all fields");
-      return;
-    }
+    // const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
+
+    //   key === "participantReferralOther" ||
+    //   key === "participantSuggestions" ||
+    //   key === "participantSexualIdentityOther" ||
+    //   key === "participantRaceOther" ||
+    //   key === "participantEthnicityOther" ||
+    //   key === "participantRaceOther" ||
+    //   key === "participantOrientationOther"
+    //     ? false
+    //     : value === 0 || value.length === 0
+    // );
+    // if (isEmpty) {
+    //   setError("Please complete all fields");
+    //   return;
+    // }
     axios
       .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef/participant-event-survey/create`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef-cbt-quarterly-evaluation-survey/create`,
         surveyForm
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
           setTimeout(() => {
-            router.push(`/oef/fbo/participant-survey/success`);
+            // router.push(`/oef/fbo/participant-survey/success`);
           }, 1000);
         }
       })
@@ -116,7 +119,7 @@ const Survey = ({ event, fbos }) => {
         // setShowResponseStatus(!showResponseStatus);
         setError("Something went wrong, try again");
         console.error("error: ", error);
-      });
+      })
     //   } else {
     //     setResponseStatus({
     //       success: false,
@@ -126,11 +129,6 @@ const Survey = ({ event, fbos }) => {
     //  }
   };
 
-  // useEffect(() => {
-  //   getCity(surveyForm.participantZipCode, NYSZipCodesAndBoroughs);
-  // }, [surveyForm.participantZipCode]);
-
-  ////
 
   const fboRolesOptions = [
     { d: 1, value: "Coordinator" },
@@ -144,16 +142,28 @@ const Survey = ({ event, fbos }) => {
     { id: 1, value: "Created surveys" },
     { id: 2, value: "Collected and used data" },
     { id: 3, value: "Use story telling to engage the community" },
-    { id: 4, value: "Shared information about HIV, PrEP and sexual health (including posters, pamphlets, other communcations materials)" },
-    { id: 5, value: "Created a Community Advisory Board to partner with other local community organizations" },
-    { id: 6, value: "Previously done HIV outreach work (Outreach events and testing)" },
+    {
+      id: 4,
+      value:
+        "Shared information about HIV, PrEP and sexual health (including posters, pamphlets, other communcations materials)",
+    },
+    {
+      id: 5,
+      value:
+        "Created a Community Advisory Board to partner with other local community organizations",
+    },
+    {
+      id: 6,
+      value: "Previously done HIV outreach work (Outreach events and testing)",
+    },
     { id: 7, value: "Created a youth ministry around HIV" },
-    { id: 8, value: "Applied for a grant/s - outcome not known or was not successful (Identified and applied to grants)" },
+    {
+      id: 8,
+      value:
+        "Applied for a grant/s - outcome not known or was not successful (Identified and applied to grants)",
+    },
     { id: 9, value: "Successfully applied for a grant (Received grant)" },
-  
   ];
-
-  
 
   const participantCreateSurveyOptions = [
     {
@@ -193,10 +203,6 @@ const Survey = ({ event, fbos }) => {
     },
   ];
 
-
-
-  
-
   const participantCabCreationOptions = [
     {
       id: 1,
@@ -235,8 +241,7 @@ const Survey = ({ event, fbos }) => {
     },
   ];
 
-
-  const participantDataComfortOptions =[
+  const participantDataComfortOptions = [
     {
       id: 1,
       value: "Very Unconfortable",
@@ -276,7 +281,11 @@ const Survey = ({ event, fbos }) => {
 
   const participantDataCollectingOptions = [
     { id: 1, value: "Quantitative (statistical, number data)" },
-    { id: 2, value: "Qualitative  (descriptive relating to words and language; story data)" },
+    {
+      id: 2,
+      value:
+        "Qualitative  (descriptive relating to words and language; story data)",
+    },
   ];
 
   const participantSurveyToolOptions = [
@@ -287,10 +296,6 @@ const Survey = ({ event, fbos }) => {
     { id: 5, value: "Other" },
   ];
 
-
-
-  
-
   const participantDataUseOptions = [
     { id: 1, value: "Better strategize FBO events" },
     { id: 2, value: "Applied for public health funding" },
@@ -298,13 +303,9 @@ const Survey = ({ event, fbos }) => {
     { id: 4, value: "Reporting to your community" },
     { id: 5, value: "Reporting to Black Health" },
     { idd: 6, value: "Other" },
-  
   ];
 
-
-  
-
-  const participantFboEngagementOptions =[
+  const participantFboEngagementOptions = [
     {
       id: 1,
       value: "Strongly Disagree",
@@ -342,7 +343,7 @@ const Survey = ({ event, fbos }) => {
     },
   ];
 
-  const participantInfoUnderstandableOptions =[
+  const participantInfoUnderstandableOptions = [
     {
       id: 1,
       value: "Strongly Disagree",
@@ -380,7 +381,7 @@ const Survey = ({ event, fbos }) => {
     },
   ];
 
-const participantInfoAccessibleOptions = [
+  const participantInfoAccessibleOptions = [
     {
       id: 1,
       value: "Strongly Disagree",
@@ -418,7 +419,120 @@ const participantInfoAccessibleOptions = [
     },
   ];
 
-  const isInparticipantCbtActions = surveyForm.participantCbtActions
+  const participantTargetGroups = [
+    { id: 1, value: "Adolescents" },
+    { id: 2, value: "General population" },
+    { id: 3, value: "Heterosexual Men" },
+    { id: 4, value: "Heterosexual Women" },
+    { id: 5, value: "Trans/Non-binary people" },
+    { id: 6, value: "Lesbian/Gay/Bisexual people" },
+    {
+      id: 7,
+      value:
+        "MSM: Men who have sex with men, regardless of their sexual identity",
+    },
+    { id: 8, value: "Other" },
+  ];
+  const difficultLevelOptions = [
+    {
+      id: 1,
+      value: "Very Difficult",
+      text: "Very Difficult",
+      bgColor: "stronglyDisagreeBg",
+      bgColorHover: "hover:stronglyDisagreeBg",
+    },
+    {
+      id: 2,
+      value: "Difficult",
+      text: "Difficult",
+      bgColor: "disagreeBg",
+      bgColorHover: "hover:disagreeBg",
+    },
+
+    {
+      id: 3,
+      value: "Average",
+      text: "Average",
+      bgColor: "neitherAgreeOrDisagreeBg",
+      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
+    },
+    {
+      id: 4,
+      value: "Easy",
+      text: "Easy",
+      bgColor: "agreeBg",
+      bgColorHover: "hover:agreeBg",
+    },
+
+    {
+      id: 5,
+      value: "Very Easy",
+      text: "Very Easy",
+      bgColor: "stronglyAgreeBg",
+      bgColorHover: "hover:stronglyAgreeBg",
+    },
+  ];
+  const participantHivKnowledge = [
+    { id: 1, value: "Massaging, hugging, kissing" },
+    { id: 2, value: "Oral sex" },
+    { id: 3, value: "Sex with an HIV-positive sex partner" },
+    { id: 4, value: "Sex without a condom" },
+    {
+      id: 5,
+      value: "Sex without a condom with a partner whose HIV status is unknown",
+    },
+    { id: 6, value: "Sharing needles" },
+  ];
+  const yesOrNoLevels = [
+    {
+      id: 1,
+      value: "No",
+      text: "No",
+      bgColor: "stronglyDisagreeBg",
+      bgColorHover: "hover:stronglyDisagreeBg",
+    },
+
+    {
+      id: 2,
+      value: "Unsure",
+      text: "Unsure",
+      bgColor: "neitherAgreeOrDisagreeBg",
+      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
+    },
+    {
+      id: 3,
+      value: "Yes",
+      text: "Yes",
+      bgColor: "stronglyAgreeBg",
+      bgColorHover: "hover:stronglyAgreeBg",
+    },
+  ];
+  const trueOrFalseLevels = [
+    {
+      id: 1,
+      value: "False",
+      text: "False",
+      bgColor: "stronglyDisagreeBg",
+      bgColorHover: "hover:stronglyDisagreeBg",
+    },
+    {
+      id: 2,
+      value: "Unsure",
+      text: "Unsure",
+      bgColor: "neitherAgreeOrDisagreeBg",
+      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
+    },
+
+    {
+      id: 3,
+      value: "True",
+      text: "True",
+      bgColor: "stronglyAgreeBg",
+      bgColorHover: "hover:stronglyAgreeBg",
+    },
+  ];
+
+  const isInparticipantCbtActions = surveyForm.participantCbtActions;
 
   return (
     <>
@@ -464,158 +578,338 @@ const participantInfoAccessibleOptions = [
               title="Which of the following actions have you undertaken?"
             />
 
-            {isInparticipantCbtActions.includes('Created surveys') ? (
-                <section className="created-survey">
-              <h2 className="font-black px-7">Created survey</h2>
-              <Status
+            {isInparticipantCbtActions.includes("Created surveys") ? (
+              <section className="created-survey">
+                <h2 className="font-black px-7">Created surveys:</h2>
+                <Status
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="What did you think about the process of creating a survey?"
+                  options={participantCreateSurveyOptions}
+                  stateValue="participantCreateSurvey"
+                />
+                <OneColumnCheckbox
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="What program did you use to create your surveys?"
+                  stateValue="participantSurveyTool"
+                  options={participantSurveyToolOptions}
+                />
+
+                <TextArea
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="What is your main goal for using the survey? -OR- What are the goals of the survey?"
+                  stateValue="participantSurveyGoal"
+                />
+              </section>
+            ) : null}
+
+            {isInparticipantCbtActions.includes("Collected and used data") ? (
+              <section>
+                <h2 className="font-black px-7">Collected and used data:</h2>
+                <OneColumnCheckbox
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="What type of data was collected? Can choose more than one"
+                  stateValue="participantDataCollecting"
+                  options={participantDataCollectingOptions}
+                />
+
+                <Rating
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="How comfortable do you feel collecting and using data?"
+                  options={participantDataComfortOptions}
+                  stateValue="participantDataComfort"
+                />
+
+                <OneColumnCheckbox
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="How have you used the data collected?"
+                  stateValue="participantDataUse"
+                  options={participantDataUseOptions}
+                />
+              </section>
+            ) : null}
+
+            {isInparticipantCbtActions.includes(
+              "Use story telling to engage the community"
+            ) ? (
+              <section>
+                <h2 className="font-black px-7">
+                Use story telling to engage the community:
+                </h2>
+
+                <Rating
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="Do you think your FBO engages with your community as much as it could?"
+                  options={participantFboEngagementOptions}
+                  stateValue="participantFboEngagement"
+                />
+
+                <TextArea
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="In your opinion, what could your FBO do to improve engagement in the community?"
+                  stateValue="participantFboImprove"
+                />
+
+                <TextArea
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="How does your FBO respond to and incorporate community feedback?"
+                  stateValue="participantFboFeedbackResponse"
+                />
+              </section>
+            ) : null}
+
+            {isInparticipantCbtActions.includes(
+              "Shared information about HIV, PrEP and sexual health (including posters, pamphlets, other communcations materials)"
+            ) ? (
+              <section>
+                <h2 className="font-black px-7">
+                  Shared information about HIV, PrEP and sexual health
+                  (including posters, pamphlets, other communcations materials):
+                </h2>
+
+                <Rating
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="Is the information shared clear and easy to understand?"
+                  options={participantInfoUnderstandableOptions}
+                  stateValue="participantInfoUnderstandable"
+                />
+
+                <Rating
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="Is HIV, PrEP and sexual health information easily accessible to community members?"
+                  options={participantInfoAccessibleOptions}
+                  stateValue="participantInfoAccessible"
+                />
+              </section>
+            ) : null}
+
+            {isInparticipantCbtActions.includes(
+              "Created a Community Advisory Board to partner with other local community organizations"
+            ) ? (
+              <section>
+                <h2 className="font-black px-7">
+                  Created a Community Advisory Board to partner with other local
+                  community organizations:
+                </h2>
+
+                <Rating
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="What did you think about the process of creating a Community Advisory Board?"
+                  options={participantCabCreationOptions}
+                  stateValue="participantCabCreation"
+                />
+
+                <TextArea
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="Please describe the recruitment/selection process?"
+                  stateValue="participantCabRecruitment"
+                />
+
+                <TextArea
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="How does your CAB help improve FBO impact?"
+                  stateValue="participantCabImpact"
+                />
+
+                <TextArea
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="Please provide CAB member names and roles."
+                  stateValue="participantCabMembers"
+                />
+              </section>
+            ) : null}
+            <div>
+              {isInparticipantCbtActions.includes("Previously done HIV outreach work (Outreach events and testing)") && (
+                <>
+                <h2 className="font-black mt-10 px-7">Previously done HIV outreach work (Outreach events and testing):</h2>
+                <TextArea
+                  surveyForm={surveyForm}
+                  setSurveyForm={setSurveyForm}
+                  title="What is your FBO’s strategy for HIV outreach? "
+                  stateValue="participantFboStrategy"
+                />
+
+              <TwoColumnsCheckbox
+                stateValue="participantTargetGroups"
+                options={participantTargetGroups}
                 surveyForm={surveyForm}
                 setSurveyForm={setSurveyForm}
-                title="What did you think about the process of creating a survey?"
-                options={participantCreateSurveyOptions}
-                stateValue='participantCreateSurvey'
+                title="Which group(s) do you think are most important to reach out to?  "
               />
-              <OneColumnCheckbox 
-               surveyForm={surveyForm}
-               setSurveyForm={setSurveyForm}
-               title="What program did you use to create your surveys?"
-               stateValue='participantSurveyTool'
-              options={participantSurveyToolOptions}/>
-
-              <TextArea  
-               surveyForm={surveyForm}
-               setSurveyForm={setSurveyForm}
-               title="What is your main goal for using the survey? -OR- What are the goals of the survey?"
-               stateValue='participantSurveyGoal'
-              />
-            </section>
-            ):null}
-            
-            {isInparticipantCbtActions.includes('Collected and used data') ? (
-            <section>
-            <h2 className="font-black px-7">Collected and used data:</h2>
-            <OneColumnCheckbox 
-               surveyForm={surveyForm}
-               setSurveyForm={setSurveyForm}
-               title="What type of data was collected? Can choose more than one."
-               stateValue='participantDataCollecting'
-              options={participantDataCollectingOptions}/>
-
-            <Rating
+                </>
+              )}
+              
+              {isInparticipantCbtActions.includes(
+                "Created a youth ministry around HIV"
+              ) && (
+                <>
+                <h2 className="mt-10 font-black px-7">
+                Created a youth ministry around HIV
+              </h2>
+                  <Rating
+                    stateValue="participantYouthMinistryCreation"
+                    options={difficultLevelOptions}
+                    surveyForm={surveyForm}
+                    setSurveyForm={setSurveyForm}
+                    title="What did you think about the process of creating a youth ministry?"
+                  />
+                  <TextArea
+                    stateValue="participantYouthMinistryRecruitment"
+                    surveyForm={surveyForm}
+                    setSurveyForm={setSurveyForm}
+                    title="Can you describe the recruitment process?"
+                  />
+                  <TextArea
+                    stateValue="participantFboYouth"
+                    surveyForm={surveyForm}
+                    setSurveyForm={setSurveyForm}
+                    title="In what ways do you think your FBO could be more involved with the youth in the community? "
+                  />
+                </>
+              )}
+              
+              {isInparticipantCbtActions.includes(
+                "Applied for a grant/s - outcome not known or was not successful (Identified and applied to grants)"
+              ) && (
+                <>
+                <h2 className="mt-10 font-black px-7">
+                Applied for a grant/s - outcome not known or was not successful
+                (Identified and applied to grants)
+              </h2>
+                  <TextArea
+                    stateValue="participantGrantsIdentify"
+                    surveyForm={surveyForm}
+                    setSurveyForm={setSurveyForm}
+                    title="How did you identify grants to apply for?"
+                  />
+                  <NumberLimits
+                    stateValue="participantGrantsApplied"
+                    surveyForm={surveyForm}
+                    setSurveyForm={setSurveyForm}
+                    title="How many grants did you apply to?"
+                  />
+                  <Rating
+                    stateValue="participantGrantsProcess"
+                    options={difficultLevelOptions}
+                    surveyForm={surveyForm}
+                    setSurveyForm={setSurveyForm}
+                    title="How was the process of identifying and applying for grants?"
+                  />
+                  <TextArea
+                    stateValue="participantGrantsMore"
+                    surveyForm={surveyForm}
+                    setSurveyForm={setSurveyForm}
+                    title="Will you apply for more grants?"
+                  />
+                </>
+              )}
+              
+              {isInparticipantCbtActions.includes(
+                "Successfully applied for a grant (Received grant)"
+              ) && (
+                <>
+                <h2 className="mt-10 font-black px-7">
+                Successfully applied for a grant (Received grant)
+              </h2>
+                  <TextArea
+                    stateValue="participantGrantsSuccess"
+                    surveyForm={surveyForm}
+                    setSurveyForm={setSurveyForm}
+                    title="Which grant did you receive?"
+                  />
+                  <TextArea
+                    stateValue="participantGrantsWhySuccess"
+                    surveyForm={surveyForm}
+                    setSurveyForm={setSurveyForm}
+                    title="Why do you think you were successful in this grant?"
+                  />
+                  <TextArea
+                    stateValue="participantGrantsLearned"
+                    surveyForm={surveyForm}
+                    setSurveyForm={setSurveyForm}
+                    title="What did you learn through this successful grant application?"
+                  />
+                  <TextArea
+                    stateValue="participantGrantsSuccessMore"
+                    surveyForm={surveyForm}
+                    setSurveyForm={setSurveyForm}
+                    title="Will you apply for more grants?"
+                  />
+                </>
+              )}
+              <TwoColumnsCheckbox
+                stateValue="participantHivKnowledge"
+                options={participantHivKnowledge}
                 surveyForm={surveyForm}
                 setSurveyForm={setSurveyForm}
-                title="How comfortable do you feel collecting and using data? "
-                options={participantDataComfortOptions}
-                stateValue='participantDataComfort'
+                title="Which of the following can put you at risk for sexually transmitted HIV?"
+                message="Select all that apply."
               />
-
-            <OneColumnCheckbox 
-               surveyForm={surveyForm}
-               setSurveyForm={setSurveyForm}
-               title="What type of data was collected? Can choose more than one."
-               stateValue='participantDataUse'
-              options={participantDataUseOptions}/>
-            </section>
-            ):null}
-
-{isInparticipantCbtActions.includes('Use storytelling to engage the community') ? (
-            <section>
-            <h2 className="font-black px-7">Use storytelling to engage the community:</h2>
-       
-
-            <Rating
+              <RadioBoolean
+                stateValue="participantPrepKnowledge"
+                options={[
+                  { id: 1, value: false, text: "No" },
+                  { id: 2, value: true, text: "Yes" },
+                ]}
                 surveyForm={surveyForm}
                 setSurveyForm={setSurveyForm}
-                title="Do you think your FBO engages with your community as much as it could?"
-                options={participantFboEngagementOptions}
-                stateValue='participantFboEngagement'
+                title="Have you heard of PrEP?"
+                message="Select all that apply."
               />
-
-            <TextArea  
-               surveyForm={surveyForm}
-               setSurveyForm={setSurveyForm}
-               title="In your opinion, what could your FBO do to improve engagement in the community?"
-               stateValue='participantFboImprove'
-              />
-
-                <TextArea  
-               surveyForm={surveyForm}
-               setSurveyForm={setSurveyForm}
-               title="How does your FBO respond to and incorporate community feedback?"
-               stateValue='participantFboFeedbackResponse'
-              />
-
-            </section>):null}
-
-            {isInparticipantCbtActions.includes('Shared information about HIV, PrEP and sexual health (including posters, pamphlets, other communcations materials)') ? (
-            <section>
-            <h2 className="font-black px-7">Shared information about HIV, PrEP and sexual health (including posters, pamphlets, other communcations materials):</h2>
-       
-
-            <Rating
+              <Rating
+                stateValue="participantPrepResourceKnowledge"
+                options={yesOrNoLevels}
                 surveyForm={surveyForm}
                 setSurveyForm={setSurveyForm}
-                title="Is the information shared clear and easy to understand?"
-                options={participantInfoUnderstandableOptions}
-                stateValue='participantInfoUnderstandable'
+                title="Are you aware of resources within your community where PrEP can be obtained?"
               />
-
-            <Rating
+              <h2 className="mt-10 font-black px-7">
+                Please reply with "True" or "False" or "Unsure" to each of the
+                following statements
+              </h2>
+              <RadioGroup
+                stateValue="participantConsentKnowledge"
+                options={trueOrFalseLevels}
                 surveyForm={surveyForm}
                 setSurveyForm={setSurveyForm}
-                title="Is HIV, PrEP and sexual health information easily accessible to community members?"
-                options={participantInfoAccessibleOptions}
-                stateValue='participantInfoAccessible'
+                title="Consent can be taken away at any point, even after it has been given"
               />
-            </section>):null}
-
-            {isInparticipantCbtActions.includes('Created a Community Advisory Board to partner with other local community organizations') ? (
-            <section>
-            <h2 className="font-black px-7">Created a Community Advisory Board to partner with other local community organizations:</h2>
-       
-
-            <Rating
+              <RadioGroup
+                stateValue="participantStiInfectionKnowledge"
+                options={trueOrFalseLevels}
                 surveyForm={surveyForm}
                 setSurveyForm={setSurveyForm}
-                title="What did you think about the process of creating a Community Advisory Board?"
-                options={participantCabCreationOptions}
-                stateValue='participantCabCreation'
+                title="You will always know when you have an ST"
               />
-
-            <Rating
+              <RadioGroup
+                stateValue="participantPepUsageKnowledge"
+                options={trueOrFalseLevels}
                 surveyForm={surveyForm}
                 setSurveyForm={setSurveyForm}
-                title="Is HIV, PrEP and sexual health information easily accessible to community members?"
-                options={participantInfoAccessibleOptions}
-                stateValue='participantInfoAccessible'
+                title="Post-exposure prophylaxis (PEP) can be taken any time within 28 days after unprotected sex"
               />
-
-            <TextArea  
-               surveyForm={surveyForm}
-               setSurveyForm={setSurveyForm}
-               title="Please describe the recruitment/selection process?"
-               stateValue='participantCabRecruitment'
-              />     
-
-              <TextArea  
-               surveyForm={surveyForm}
-               setSurveyForm={setSurveyForm}
-               title="How does your CAB help improve FBO impact?"
-               stateValue='participantCabImpact'
-              />     
-
-              <TextArea  
-               surveyForm={surveyForm}
-               setSurveyForm={setSurveyForm}
-               title="Please provide CAB member names and roles."
-               stateValue='participantCabMembers'
-              />         
-
-            </section>):null}
-
-
-
-
-
+              <RadioGroup
+                stateValue="participantPrepUse"
+                options={trueOrFalseLevels}
+                surveyForm={surveyForm}
+                setSurveyForm={setSurveyForm}
+                title="PrEP is taken prior to exposure to HIV"
+              />
+            </div>
           </div>
 
           <div className="flex justify-center">

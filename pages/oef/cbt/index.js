@@ -220,7 +220,7 @@ const EventsIndex = ({ events }) => {
               </p>
             </button>
           </Link>
-          <Link href={"/oef/cbt/cbt-quarterly-evaluation"}>
+          <Link href={"/oef/cbt/quarterly-evaluation"}>
             <button
               className="bg-black text-white rounded px-5 py-2 cursor-pointer"
             >
