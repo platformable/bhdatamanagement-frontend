@@ -220,7 +220,7 @@ const EventsIndex = ({ events }) => {
               </p>
             </button>
           </Link>
-          <Link href={"/oef/cbt/quarterly-evaluation"}>
+          <a href={"/oef/cbt/quarterly-evaluation"} target='_blank'>
             <button
               className="bg-black text-white rounded px-5 py-2 cursor-pointer"
             >
@@ -228,7 +228,7 @@ const EventsIndex = ({ events }) => {
                 Add CBT Quarterly Evaluation
               </p>
             </button>
-          </Link>
+          </a>
         </div>
       </div>
       <div className="container mx-auto grid  items-center grid-cols-2 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5 mt-7">

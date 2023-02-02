@@ -107,7 +107,7 @@ const Survey = ({ event, fbos }) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
           setTimeout(() => {
-            // router.push(`/oef/fbo/participant-survey/success`);
+            router.push(`/oef/cbt/`);
           }, 1000);
         }
       })
