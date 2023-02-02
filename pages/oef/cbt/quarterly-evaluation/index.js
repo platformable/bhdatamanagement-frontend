@@ -859,6 +859,7 @@ const Survey = ({ event, fbos }) => {
                 title="Which of the following can put you at risk for sexually transmitted HIV?"
                 message="Select all that apply."
               />
+
               <RadioBoolean
                 stateValue="participantPrepKnowledge"
                 options={[
@@ -868,7 +869,6 @@ const Survey = ({ event, fbos }) => {
                 surveyForm={surveyForm}
                 setSurveyForm={setSurveyForm}
                 title="Have you heard of PrEP?"
-                message="Select all that apply."
               />
               <Rating
                 stateValue="participantPrepResourceKnowledge"
