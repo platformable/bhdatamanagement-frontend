@@ -210,15 +210,25 @@ const EventsIndex = ({ events }) => {
       />
 
       <div className="container mx-auto">
-        <div className="flex">
-          <button
-            onClick={() => router.push("/oef/cbt/register")}
-            className="bg-black text-white rounded px-5 py-2 cursor-pointer"
-          >
-            <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
-              Add CBT Event
-            </p>
-          </button>
+        <div className="flex gap-5">
+          <Link href={"/oef/cbt/register"}>
+            <button
+              className="bg-black text-white rounded px-5 py-2 cursor-pointer"
+            >
+              <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
+                Add CBT Event
+              </p>
+            </button>
+          </Link>
+          <Link href={"/oef/cbt/quarterly-evaluation"}>
+            <button
+              className="bg-black text-white rounded px-5 py-2 cursor-pointer"
+            >
+              <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
+                Add CBT Quarterly Evaluation
+              </p>
+            </button>
+          </Link>
         </div>
       </div>
       <div className="container mx-auto grid  items-center grid-cols-2 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5 mt-7">

@@ -10,7 +10,7 @@ const RadioBoolean = ({
 
 
   return (
-    <div className="px-7">
+    <div className="question-body">
       <h2 className="font-black">
         {/* <span className="">4</span>  */}
         {title}
