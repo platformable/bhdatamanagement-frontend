@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
-import ExportCSV from "../../../components/exportCSV";
-import ExportPaticipantCSV from "../../../components/ExportParticipantCSV";
+import ExportPaticipantCSV from "../../../components/csv-reports/ExportParticipantCSV";
 const NysParticipantSurveyReport = ({ participantReport }) => {
   console.log("report", participantReport);
   const [selectedDate, setSelectedDate] = useState({
