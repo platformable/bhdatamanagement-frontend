@@ -155,19 +155,19 @@ const RegisterSiteVisits = ({ fbos }) => {
 
   const sanctuaryOptions=[
     {
-      id:1,value:true,text:'There is a private testing area'
+      id:1,value:true,text:'Yes, there is a private testing area'
     },
     {
-      id:2,value:false,text:'There is not a private testing area'
+      id:2,value:false,text:'No, there is not a private testing area'
     }
   ]
 
   const privateTestingAreaOptions= [
     {
-      id:1,value:true,text:'There is a sanctuary'
+      id:1,value:true,text:'Yes, there is a sanctuary'
     },
     {
-      id:2,value:false,text:'There is not a sanctuary'
+      id:2,value:false,text:'No, there is not a sanctuary'
     }
   ]
 

@@ -21,7 +21,7 @@ const Survey = ({ event, fbos }) => {
   const [error, setError] = useState("");
 
   const notifyMessage = () => {
-    toast.success("Survey saved!", {
+    toast.success("Saving", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
