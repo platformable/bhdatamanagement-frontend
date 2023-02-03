@@ -38,6 +38,8 @@ import Status from "../../../../components/oef-post-event-survey/Status";
 import Notes from "../../../../components/oef-post-event-survey/Notes";
 import ExternalSurveyHeader from "../../../../components/ExternalSurveyHeader";
 import ResponseStatusModal from "../../../../components/ResponseStatusModal";
+import TextArea from "../../../../components/oef-post-event-survey/TextArea";
+import RadioList from "../../../../components/oef-post-event-survey/RadioList";
 
 const ExternalPostEventReport = ({ event, fbos, user }) => {
   // console.log("data", event);
@@ -256,6 +258,8 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
     datePostEventSurvey: event?.dateposteventsurvey || new Date(),
     guestSpeakers: event?.guestspeakers || "",
     nameGuestSpeakers: event?.nameguestspeakers || "",
+    onelineDescription: event?.onelinedescription || "",
+    oefEventPresentationTopic: event?.oefeventpresentationtopic || "",
   });
   const userId = user && user.sub;
 
@@ -497,6 +501,18 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
               </>
             )}
             <Status
+              submissionForm={submissionForm}
+              setSubmissionForm={setSubmissionForm}
+            />
+            <TextArea
+              title="One line description of the event"
+              stateValue="onelineDescription"
+              surveyForm={submissionForm}
+              setSurveyForm={setSubmissionForm}
+            />
+            <RadioList
+              name="oefEventPresentationTopic"
+              title="Type of Activity: Presentation Topic"
               submissionForm={submissionForm}
               setSubmissionForm={setSubmissionForm}
             />
