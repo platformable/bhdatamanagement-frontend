@@ -3,7 +3,7 @@ import usePlacesAutocomplete from "use-places-autocomplete";
 
 const InputValidationAddress = ({ setForm, name, defaultValue }) => {
   const [error, setError] = useState(false);
-  const {
+  let {
     ready,
     value,
     suggestions: { status, data },
@@ -97,7 +97,7 @@ const InputValidationAddress = ({ setForm, name, defaultValue }) => {
         className="grid text-lg px-4 py-2 border-black  rounded w-full md:w-96"
         name={name}
         type="text"
-        value={value}
+        {...defaultValue ? defaultValue={value} : value={value} }
         disabled={!ready}
         />
        ) }

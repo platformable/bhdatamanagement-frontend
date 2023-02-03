@@ -40,6 +40,7 @@ const EditFBO = ({ data }) => {
     fboDropboxFolder: data[0]?.fbodropboxfolder || "",
     fboNotes: data[0]?.fbonotes || "",
     fboActive: data[0]?.fboactive || "",
+    numberfbo:data[0]?.numberfbo
   });
   const notifyMessage = () => {
     toast.success("The fbo is being added", {
@@ -53,11 +54,11 @@ const EditFBO = ({ data }) => {
       .then((response) => {
         console.log(response);
         if (response.data.status === 200) {
-          setLoading(!loading);
+          setLoading(false);
           notifyMessage();
-          setTimeout(() => {
+          /* setTimeout(() => {
             router.push("/oef/fbo");
-          }, 1500);
+          }, 1500); */
         }
       })
       .catch(function (error) {
