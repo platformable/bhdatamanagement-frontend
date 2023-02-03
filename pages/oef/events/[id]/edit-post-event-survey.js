@@ -63,6 +63,8 @@ const PostEventReport = ({ event, fbos, user }) => {
     id: Number(event?.eventid),
     submissionNotes: event?.submissionnotes || "",
     submissionStatus: event?.submissionstatus || "",
+    onelineDescription: event?.onelinedescription || "",
+    oefEventPresentationTopic: event?.oefeventpresentationtopic || "",
   });
   const [eventForm, setEventForm] = useState({
     isClusterEvent: event?.isclusterevent || "",
@@ -259,8 +261,7 @@ const PostEventReport = ({ event, fbos, user }) => {
     datePostEventSurvey: event?.dateposteventsurvey || new Date(),
     guestSpeakers: event?.guestspeakers || "",
     nameGuestSpeakers: event?.nameguestspeakers || "",
-    onelineDescription: event?.onelinedescription || "",
-    oefEventPresentationTopic: event?.oefeventpresentationtopic || "",
+    
   });
   const userId = user && user.sub;
 
@@ -344,7 +345,7 @@ const PostEventReport = ({ event, fbos, user }) => {
     }
   }, []);
 
-  console.log("event", event);
+  console.log("event", submissionForm);
   return (
     <>
       <Layout showStatusHeader={true}>
