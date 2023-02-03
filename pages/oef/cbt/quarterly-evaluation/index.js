@@ -599,7 +599,7 @@ const Survey = ({ event, fbos }) => {
                 <TextArea
                   surveyForm={surveyForm}
                   setSurveyForm={setSurveyForm}
-                  title="What is your main goal for using the survey? -OR- What are the goals of the survey?"
+                  title="What were your main goals for the survey/s?"
                   stateValue="participantSurveyGoal"
                 />
               </section>
@@ -870,13 +870,24 @@ const Survey = ({ event, fbos }) => {
                 setSurveyForm={setSurveyForm}
                 title="Have you heard of PrEP?"
               />
-              <Rating
+              <RadioBoolean
+                stateValue="participantPrepResourceKnowledge"
+                options={[
+                  { id: 1, value:  "No", text: "No" },
+                  { id: 2, value: "Yes", text: "Yes" },
+                  { id: 3, value: "Unsure", text: "Unsure" },
+                ]}
+                surveyForm={surveyForm}
+                setSurveyForm={setSurveyForm}
+                title="Are you aware of resources within your community where PrEP can be obtained?"
+              />
+            {/*   <Rating
                 stateValue="participantPrepResourceKnowledge"
                 options={yesOrNoLevels}
                 surveyForm={surveyForm}
                 setSurveyForm={setSurveyForm}
                 title="Are you aware of resources within your community where PrEP can be obtained?"
-              />
+              /> */}
               <h2 className="mt-10 font-black px-7">
                 Please reply with "True" or "False" or "Unsure" to each of the
                 following statements
