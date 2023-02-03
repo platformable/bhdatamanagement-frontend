@@ -62,6 +62,8 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
     id: Number(event?.eventid),
     submissionNotes: event?.submissionnotes || "",
     submissionStatus: event?.submissionstatus || "",
+    onelineDescription: event?.onelinedescription || "",
+    oefEventPresentationTopic: event?.oefeventpresentationtopic || "",
   });
   const [eventForm, setEventForm] = useState({
     isClusterEvent: event?.isclusterevent || "",
@@ -258,8 +260,7 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
     datePostEventSurvey: event?.dateposteventsurvey || new Date(),
     guestSpeakers: event?.guestspeakers || "",
     nameGuestSpeakers: event?.nameguestspeakers || "",
-    onelineDescription: event?.onelinedescription || "",
-    oefEventPresentationTopic: event?.oefeventpresentationtopic || "",
+    
   });
   const userId = user && user.sub;
 
@@ -319,7 +320,7 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
         if (response.data.statusText === "OK") {
           console.log(response);
           setTimeout(() => {
-            router.push(router.asPath.replace('edit-post-event-survey', 'success'))
+            router.push(router.asPath.replace('edit-post-event-survey-external', 'success'))
           }, 1500);
         }
       })
@@ -513,8 +514,8 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
             <RadioList
               name="oefEventPresentationTopic"
               title="Type of Activity: Presentation Topic"
-              submissionForm={submissionForm}
-              setSubmissionForm={setSubmissionForm}
+              surveyForm={submissionForm}
+              setSurveyForm={setSubmissionForm}
             />
             <Notes
               submissionForm={submissionForm}
