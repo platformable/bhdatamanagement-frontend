@@ -904,7 +904,7 @@ const Survey = ({ event, fbos }) => {
                 options={trueOrFalseLevels}
                 surveyForm={surveyForm}
                 setSurveyForm={setSurveyForm}
-                title="You will always know when you have an ST"
+                title="You will always know when you have an STI"
               />
               <RadioGroup
                 stateValue="participantPepUsageKnowledge"

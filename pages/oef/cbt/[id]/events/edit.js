@@ -143,7 +143,7 @@ const EditCbt = ({data, user}) => {
         <PageTopHeading
           backBtn={true}
           dashboardBtn={true}
-          pageTitle={"Edit Cbt CBT event"}
+          pageTitle={"Edit CBT event"}
         />
         <div className="container mx-auto border rounded-lg mb-10">
           <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">

@@ -56,9 +56,9 @@ const EditFBO = ({ data }) => {
         if (response.data.status === 200) {
           setLoading(false);
           notifyMessage();
-          /* setTimeout(() => {
-            router.push("/oef/fbo");
-          }, 1500); */
+          setTimeout(() => {
+            router.push("/oef/fbo/directory");
+          }, 1500);
         }
       })
       .catch(function (error) {

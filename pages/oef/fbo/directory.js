@@ -296,7 +296,7 @@ const fboDirectory = ({ fbos }) => {
         <p></p>
                         <Link href={`/oef/fbo/${fbo.numberfbo}/`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
-                            <p className="leading-5">Edit fbo</p>
+                            <p className="leading-5">Edit FBO</p>
                           </div>
                         </Link>
 
@@ -308,7 +308,7 @@ const fboDirectory = ({ fbos }) => {
                                 handleDeleteEvent(fbo?.numberfbo, fbo?.namefbo)
                               }
                             >
-                              Delete fbo
+                              Delete FBO
                             </button>
                           </div>
                         )}

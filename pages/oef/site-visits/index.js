@@ -111,7 +111,7 @@ const EventsIndex = ({ siteVisits }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <p className={`bg-black  px-5 py-2 rounded text-white inline-block  flex items-center text-lg`}>Complete a new Visit Survey</p>
+                <p className={`bg-black  px-5 py-2 rounded text-white inline-block  flex items-center text-lg`}>Complete a Site Visit Survey</p>
               </Link>
           </div>
         <Search searchFunction={searchFunction} />
