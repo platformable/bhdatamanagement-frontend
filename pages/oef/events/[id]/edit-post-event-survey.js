@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import TopEventsInfo from "../../../../components/TopEventsInfo";
-import {  withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -37,21 +37,26 @@ import OtherTesting from "../../../../components/oef-post-event-survey/OtherTest
 import Status from "../../../../components/oef-post-event-survey/Status";
 import Notes from "../../../../components/oef-post-event-survey/Notes";
 import ResponseStatusModal from "../../../../components/ResponseStatusModal";
+import TextArea from "../../../../components/oef-post-event-survey/TextArea";
+import RadioList from "../../../../components/oef-post-event-survey/RadioList";
 
 const PostEventReport = ({ event, fbos, user }) => {
   // console.log("data", event);
 
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
-  const [msgStatusUpload, setMsgStatusUpload] = useState({})
-  const loggedUserRole = user && user["https://lanuevatest.herokuapp.com/roles"];
+  const [msgStatusUpload, setMsgStatusUpload] = useState({});
+  const loggedUserRole =
+    user && user["https://lanuevatest.herokuapp.com/roles"];
 
   // const loggedUserLastname =
   //   user && user["https://lanuevatest.herokuapp.com/lastname"];
 
-
-  const isEditable = loggedUserRole === 'Supervisor'  ||  loggedUserRole === 'Data Team' || (new Date().toLocaleDateString() === new Date(event?.eventdatecreated).toLocaleDateString());
-
+  const isEditable =
+    loggedUserRole === "Supervisor" ||
+    loggedUserRole === "Data Team" ||
+    new Date().toLocaleDateString() ===
+      new Date(event?.eventdatecreated).toLocaleDateString();
 
   const [submissionForm, setSubmissionForm] = useState({
     oefEventEmail: event?.oefeventemail,
@@ -254,6 +259,8 @@ const PostEventReport = ({ event, fbos, user }) => {
     datePostEventSurvey: event?.dateposteventsurvey || new Date(),
     guestSpeakers: event?.guestspeakers || "",
     nameGuestSpeakers: event?.nameguestspeakers || "",
+    onelineDescription: event?.onelinedescription || "",
+    oefEventPresentationTopic: event?.oefeventpresentationtopic || "",
   });
   const userId = user && user.sub;
 
@@ -275,8 +282,8 @@ const PostEventReport = ({ event, fbos, user }) => {
     // toast.success("File saved to dropbox", {
     //   position: toast.POSITION.TOP_CENTER,
     // });
-    setMsgStatusUpload({statusMessage: 'Upload has been successful'})
-    setShowStatusUpload(true)
+    setMsgStatusUpload({ statusMessage: "Upload has been successful" });
+    setShowStatusUpload(true);
   };
 
   const submitPostEventForm = async () => {
@@ -291,9 +298,8 @@ const PostEventReport = ({ event, fbos, user }) => {
       .then((response) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
-          submitSubmissionForm()
+          submitSubmissionForm();
           console.log(response);
-       
         }
       })
       .catch(function (error) {
@@ -313,7 +319,9 @@ const PostEventReport = ({ event, fbos, user }) => {
         if (response.data.statusText === "OK") {
           console.log(response);
           setTimeout(() => {
-            router.push(router.asPath.replace('edit-post-event-survey', 'success'))
+            router.push(
+              router.asPath.replace("edit-post-event-survey", "success")
+            );
           }, 1500);
         }
       })
@@ -324,18 +332,19 @@ const PostEventReport = ({ event, fbos, user }) => {
 
   // console.log("eventForm", eventForm);
 
-  const [eventNotCompletedMessage,setEventNotCompletedMessage]=useState(false)
+  const [eventNotCompletedMessage, setEventNotCompletedMessage] =
+    useState(false);
 
-  useEffect(()=>{
-    if(event.statusText==='FAIL'){
-      setEventNotCompletedMessage(!eventNotCompletedMessage)
+  useEffect(() => {
+    if (event.statusText === "FAIL") {
+      setEventNotCompletedMessage(!eventNotCompletedMessage);
       setTimeout(() => {
         router.push(`/oef/events/${event?.eventID}/post-event-survey`);
-         }, 5000);
+      }, 5000);
     }
-  },[])
+  }, []);
 
-  console.log("event",event)
+  console.log("event", event);
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -346,11 +355,28 @@ const PostEventReport = ({ event, fbos, user }) => {
           pageTitle={"Edit Post-event survey"}
         />
 
-        {eventNotCompletedMessage ? <div className="container mx-auto my-7"><h3 className="text-center bg-green-200 rounded-md" >{event.message}</h3></div>:null}
-        <div className={`${!isEditable && 'pointer-events-none'} container mx-auto md:px-0 px-5 items-center`}>
-          <TopEventsInfo event={event}  editPath={`/oef/events/${event?.eventid || event?.id}/edit`}/>
+        {eventNotCompletedMessage ? (
+          <div className="container mx-auto my-7">
+            <h3 className="text-center bg-green-200 rounded-md">
+              {event.message}
+            </h3>
+          </div>
+        ) : null}
+        <div
+          className={`${
+            !isEditable && "pointer-events-none"
+          } container mx-auto md:px-0 px-5 items-center`}
+        >
+          <TopEventsInfo
+            event={event}
+            editPath={`/oef/events/${event?.eventid || event?.id}/edit`}
+          />
 
-          <div className={`post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg ${eventNotCompletedMessage? 'hidden':null}`}>
+          <div
+            className={`post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg ${
+              eventNotCompletedMessage ? "hidden" : null
+            }`}
+          >
             {/* <div className="rounded-tl-md rounded-tr-md"> */}
             <Cluster
               eventForm={eventForm}
@@ -518,24 +544,41 @@ const PostEventReport = ({ event, fbos, user }) => {
               submissionForm={submissionForm}
               setSubmissionForm={setSubmissionForm}
             />
+            <TextArea
+              title="One line description of the event"
+              stateValue="onelineDescription"
+              surveyForm={submissionForm}
+              setSurveyForm={setSubmissionForm}
+            />
+            <RadioList
+              name="oefEventPresentationTopic"
+              title="Type of Activity: Presentation Topic"
+              surveyForm={submissionForm}
+              setSurveyForm={setSubmissionForm}
+            />
             <Notes
               submissionForm={submissionForm}
               setSubmissionForm={setSubmissionForm}
             />
           </div>
-         { !eventNotCompletedMessage && <div className="flex justify-center my-10">
-            <button
-              className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-              onClick={submitPostEventForm}
-            >
-              Save and finish
-            </button>
-          </div>
-}
+          {!eventNotCompletedMessage && (
+            <div className="flex justify-center my-10">
+              <button
+                className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
+                onClick={submitPostEventForm}
+              >
+                Save and finish
+              </button>
+            </div>
+          )}
         </div>
       </Layout>
-      {showStatusUpload && <ResponseStatusModal responseStatus={msgStatusUpload} setShowResponseStatus={setShowStatusUpload}/>}
-
+      {showStatusUpload && (
+        <ResponseStatusModal
+          responseStatus={msgStatusUpload}
+          setShowResponseStatus={setShowStatusUpload}
+        />
+      )}
     </>
   );
 };
