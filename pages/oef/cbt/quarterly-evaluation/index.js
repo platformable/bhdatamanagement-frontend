@@ -43,7 +43,7 @@ const Survey = ({ event, fbos }) => {
     participantPepUsageKnowledge: "",
     participantDataCollecting: [],
     participantDataComfort: "",
-    participantDataUse: "",
+    participantDataUse: [],
     participantDataUseOther: "",
     participantFboEngagement: "",
     participantFboImprove: "",
@@ -107,7 +107,7 @@ const Survey = ({ event, fbos }) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
           setTimeout(() => {
-            router.push(`/oef/cbt/`);
+            router.push(`/oef/cbt/quarterly-evaluation/success`);
           }, 1000);
         }
       })
