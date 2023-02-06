@@ -23,7 +23,7 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
 
     setEventForm({
       ...eventForm,
-      nameGuestSpeakers: `${firstPresenter && firstPresenter}${secondPresenter && ', ' + secondPresenter}${', ' +thirdPresenter && thirdPresenter}${fourthPresenter && fourthPresenter}`
+      nameGuestSpeakers: `${firstPresenter && firstPresenter}${secondPresenter && ', ' + secondPresenter}${thirdPresenter && ', ' + thirdPresenter}${fourthPresenter && ', ' + fourthPresenter}`
     });
   }, [firstPresenter, secondPresenter, thirdPresenter, fourthPresenter]);
 
