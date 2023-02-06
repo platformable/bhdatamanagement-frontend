@@ -5,7 +5,7 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
   useEffect(() => {
     setEventForm((previous) => ({
       ...previous,
-      partnerOrganization1: partners,
+      partnerOrganization1: partners.replace(/,/g,', ').replace(",",'').replace(" ",''),
     }));
   }, [partners]);
 
