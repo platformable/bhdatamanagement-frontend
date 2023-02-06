@@ -39,7 +39,7 @@ const TwoColumnCheckbox = ({
               .map((option, index) => (
                 <label key={index} className="flex items-center gap-5">
                   <input
-                    type="radio"
+                    type="checkbox"
                     value={option.value}
                     onChange={(e) => handleForm(e.target.value)}
                     name={stateValue}
