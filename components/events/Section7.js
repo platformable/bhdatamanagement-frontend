@@ -2,29 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {inPersonEventLocationType} from "../../utils/sharedData"
 
 const Section7 = ({eventForm, setEventForm,event}) => {
-    
-
-    // useEffect(() => {
-    //     /* if (eventForm.programName) {
-    //         const programNameConverted = convertStringTocompareWithProgramName(eventForm.programName)
-    //         const filtered = inPersonEventLocationType.filter(locationType => locationType[programNameConverted] === "1" )
-    //         setFields(filtered)
-    //     } */
-    //     if (eventForm.programName && !event) {
-    //         const programNameConverted = convertStringTocompareWithProgramName(eventForm?.programName)
-    //         //const eventProgramNameConverted = convertStringTocompareWithProgramName(event?.programname)
-    //         const filtered = inPersonEventLocationType.filter(locationType => locationType[programNameConverted] === "true")
-    //         setFields(filtered)
-    //     } 
-
-    //     if (eventForm.programName && event) {
-    //         const programNameConverted = convertStringTocompareWithProgramName(eventForm?.programName)
-    //         const eventProgramNameConverted = convertStringTocompareWithProgramName(event?.programname)
-    //         const filtered = inPersonEventLocationType.filter(locationType => event?locationType[programNameConverted] === "true": locationType[eventProgramNameConverted] === "true")
-    //         setFields(filtered)
-    //     } 
-
-    // }, [eventForm.programName]);
 
     const convertStringTocompareWithProgramName = (string) => string.toLowerCase().replace(/\s/g, '');
     const  capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
@@ -33,15 +10,13 @@ const Section7 = ({eventForm, setEventForm,event}) => {
     const handleForm = (e) => {
         setEventForm(previous => ({...previous, eventLocationTypeName: capitalizeFirstLetter(e.target.value),  eventLocationTypeID: Number(e.target.id)}))
       };
-    const handleFormId = (e) => {
-        setEventForm(previous => ({...previous, eventLocationTypeID: Number(e.target.id)}))
-    };
+    
 
     return (
         <div className=''>
             <h2 className='mb-7 font-black'>What type of event location will the event be held at?</h2>
              <div className='grid grid-cols-1 gap-5'>
-                {inPersonEventLocationType && inPersonEventLocationType.map(location => (
+                {inPersonEventLocationType && inPersonEventLocationType.filter(type => type.nyscmp).map(location => (
                     location.value !== "Other" ?
                     (<div key={location.id}>
                      <label className='text-lg flex items-center gap-5' key={location.id}>
@@ -63,16 +38,18 @@ const Section7 = ({eventForm, setEventForm,event}) => {
                     <input type="radio" 
                     name="eventLocationTypeName" className='' 
                     id={location.id}
-                    onChange={handleFormId}
-                    defaultChecked={eventForm?.eventLocationTypeName === "Other"?'checked':""}
+                    value={'Other'}
+                    onChange={handleForm}
+                    defaultChecked={eventForm?.eventLocationTypeID === 11 ?'checked':""}
                     
                     />
                     <p className="">Other</p>
                     <input type="text" 
-                    name="eventLocationTypeName"
-                    onChange={handleForm} 
+                    name="eventLocationTypeNameOther"
+                    onChange={(e) => setEventForm(prev => ({...prev, eventLocationTypeNameOther: e.target.value}))} 
                     className='w-96 border-dark-violet rounded ' 
                     placeholder="Eg. Sporting facility"
+                    defaultValue={eventForm?.eventLocationTypeID === 11 ? eventForm.eventLocationTypeName : ''}
                     />
                 </label></div>)
 

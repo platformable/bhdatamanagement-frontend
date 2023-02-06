@@ -39,6 +39,8 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage, reversedDate}) => 
   const [value, copy] = useCopyToClipboard()
   let values = Object.values(chartData).filter(value => Number.isFinite(value));
   let maxValue = Math.max.apply(null, values);
+  let totalOfValues = values.reduce((a, b) => a + b, 0);
+
   
   const options = {
     plugins: {
@@ -57,7 +59,7 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage, reversedDate}) => 
         display: true,
         color: "#000",
         formatter: function (value, context) {
-          return value > 0 ? value : "";
+          return value > 0 ? value   : "";
         },
         font: {
           weight: "bold",

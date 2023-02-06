@@ -574,7 +574,7 @@ console.log("eventForm",eventForm)
         <div className="container mx-auto md:px-0 px-5 items-center">
 
 
-      <TopEventsInfo event={event} />
+      <TopEventsInfo event={event} editPath={`/events/${event?.eventid || event?.id}/nys_cmp/edit`}/>
 
 
 

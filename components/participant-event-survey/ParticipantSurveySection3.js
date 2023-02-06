@@ -46,10 +46,26 @@ export const ParticipantSurveySection3 = ({surveyForm, setSurveyForm}) => {
       </h2>
       <p>Select all that apply</p>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
-      {race.map(option => (
+      {race.map(option => option.value !== 'Some other race or origin' ? (
         <label className="flex gap-x-5 items-center">
         <input type="checkbox" className="" value={option.value} id={option.id} onChange={handleForm} name="participantRace" />
-        <hp className="">{option.value}</hp>
+        <p className="">{option.value}</p>
+      </label>
+      ) : (
+        <label className="flex gap-x-5 items-center">   
+        <input type="checkbox" className="" value={option.value} id={option.id} onChange={handleForm} name="participantRace" />
+        <p className="">{option.value}</p>
+        <input
+          type="text"
+          placeholder="Please specify"
+          onChange={(e) =>
+            setSurveyForm({
+              ...surveyForm,
+              participantRaceOther: e.target.value,
+            })
+          }
+          className="border-black rounded p-4 self-start p-1 w-full text-lg md:w-134"
+        />
       </label>
       ))}
        

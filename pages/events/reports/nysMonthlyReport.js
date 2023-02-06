@@ -6,8 +6,8 @@ import PrioritiesSection from "../../../components/nys-monthly-report/Priorities
 import ResourcesSection from "../../../components/nys-monthly-report/ResourcesSection";
 import CommunitySection from "../../../components/nys-monthly-report/CommunitySection";
 import ChallengesSection from "../../../components/nys-monthly-report/ChallengesSection";
-import ExportCSV from "../../../components/exportCSV";
-import { CSVDownload, CSVLink } from "react-csv";
+import ExportCSV from "../../../components/csv-reports/exportCSV";
+
 
 
 
@@ -20,7 +20,7 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
     finish: null,
   });
   const [imagesRefs, setImagesRefs] = useState({});
-
+  console.log("events output", eventsOutput)
     const getHrefImage = async (link, name) => {
         setImagesRefs((prev) => ({ ...prev, [name]: link }));
     };

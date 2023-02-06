@@ -193,7 +193,7 @@ const Survey = ({ data }) => {
       <div>
         <div className="h-88 flex flex-col items-center grandient-violet">
           <img
-            src="/bh_logo.png"
+            src="/main/Black_Health_logo.svg"
             alt="black health data app management logo"
             width={400}
             className="pt-12"

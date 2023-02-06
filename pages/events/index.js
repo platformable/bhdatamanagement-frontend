@@ -207,7 +207,7 @@ const EventsIndex = ({ events }) => {
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Manage existing events"}
+        pageTitle={"Manage existing events NYS"}
         dashboardBtn={true}
         backBtn={true}
       />
@@ -265,7 +265,7 @@ const EventsIndex = ({ events }) => {
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
         <div className="events-index-btn-container grid grid-cols-1 gap-3 p-0">
           {sortedEventsByDate &&
-            sortedEventsByDate
+            sortedEventsByDate.filter(program=>program.programname==='NYS CMP')
               ?.filter((event, index) => {
                 if (
                   searchWord === "" &&
@@ -275,10 +275,10 @@ const EventsIndex = ({ events }) => {
                   return event;
                 }
                 if (
-                  event.programname
+                  event?.programname
                     .toLowerCase()
                     .includes(searchWord.toLowerCase()) ||
-                  event.eventname
+                  event?.eventname
                     .toLowerCase()
                     .includes(searchWord.toLowerCase())
                 ) {

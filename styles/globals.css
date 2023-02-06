@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 html,
 body {
@@ -84,6 +86,23 @@ h6 {
   --lightViolet: #ebdae9;
   --extraLightViolet: #ebdae980;
   --middleWhite: #f5f0f6;
+  --skyblue: #A1EDD2;
+  --completeBg:#A1EDD2;
+  --pendingBg:#F2C0A2;
+  --submittedBg:#96CFF2;
+  --declinedBg:#DE8EA3;
+  --stronglyDesagreeBg:#DE8EA3;
+  --disagreeBg:#EDC1CC;
+  --disagreeSVBg:#F2C0A2;
+  --neitherdisagreeOrNoDisagreeBg:#C0E2F7;
+  --agreeBg:#C6FFEB;
+  --stronglyAgreeBg:#A1EDD2;
+
+  --veryUnresponsiveBg:#DE8EA3;
+  --unresponsiveBg:#EDC1CC;
+  --neutralBg:#C0E2F7;
+  --engagedBg:#C6FFEB;
+  --veryEngagedBg:#A1EDD2;
 }
 
 /* [type="“checkbox”"],
@@ -92,9 +111,91 @@ h6 {
   width: 24px !important;
 } */
 
+
+
+.completeBg{
+background-color: var(--completeBg);
+}
+.pendingBg {
+background-color: var(--pendingBg);
+}
+.submittedBg{
+background-color: var(--submittedBg);
+}
+.declinedBg{
+background-color: var(--declinedBg);
+}
 .lne-text-white {
   color: white !important;
 }
+
+.veryUnresponsiveBg {background-color: var(--veryUnresponsiveBg)}
+.unresponsiveBg {background-color: var(--unresponsiveBg)}
+.neutralBg {background-color: var(--neutralBg)}
+.engagedBg {background-color: var(--engagedBg)}
+.veryEngagedBg {background-color: var(--veryEngagedBg)}
+@variants hover {
+  .veryUnresponsiveBg {background-color: var(--veryUnresponsiveBg)}
+  .unresponsiveBg {background-color: var(--unresponsiveBg)}
+  .neutralBg {background-color: var(--neutralBg)}
+  .engagedBg {background-color: var(--engagedBg)}
+  .veryEngagedBg {background-color: var(--veryEngagedBg)}
+}
+
+@variants hover {
+.stronglyDisagreeBg {
+background-color: var(--stronglyDesagreeBg);
+}
+.disagreeBg{
+background-color: var(--disagreeBg);
+}
+
+.neitherAgreeOrDisagreeBg{
+background-color: var(--neitherdisagreeOrNoDisagreeBg);
+}
+
+.agreeBg{
+background-color: var(--agreeBg);
+}
+
+.stronglyAgreeBg{
+background-color:var(--stronglyAgreeBg);
+}
+
+.disagreeSVBg {
+  background-color: var(--disagreeSVBg);
+}
+}
+
+.disagreeBg{
+background-color: var(--disagreeBg);
+}
+
+
+.disagreeSVBg {
+  background-color: var(--disagreeSVBg);
+}
+
+.neitherAgreeOrDisagreeBg{
+background-color: var(--neitherdisagreeOrNoDisagreeBg);
+}
+
+.agreeBg{
+background-color: var(--agreeBg);
+}
+
+.stronglyAgreeBg{
+background-color:var(--stronglyAgreeBg);
+}
+
+.stronglyDisagreeBg{
+background-color: var(--stronglyDesagreeBg);
+}
+
+
+
+
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -331,7 +432,9 @@ input[type="number"] {
 .bg-middleWhite {
   background-color: var(--middleWhite);
 }
-
+.bg-sky-blue {
+  background-color: var(--skyblue);
+}
 /* BORDERS */
 .border-black {
   border: 1px solid black;
@@ -458,6 +561,7 @@ table th {
 .question-body > div > label {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 .question-body > div > label > p,
 .question-body > div > label {
@@ -474,6 +578,8 @@ label > input[type="radio"],
 label > input[type="number"],
 label > input[type="date"],
 label > input[type="time"],
+label > input[type="phone"],
+label > input[type="email"],
 label > textarea {
   border: 1px solid black;
   padding: 8px 16px;
@@ -515,8 +621,48 @@ label > textarea {
 }
 .supervisor-existing-events-head-table {
  
-  grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
   gap: 30px;
+}
+
+.existing-oef-events-head-table {
+  
+  grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr;
+  gap: 30px;
+}
+.supervisor-existing-oef-events-head-table {
+ 
+  grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
+  gap: 30px;
+}
+
+.supervisor-existing-fbo-events-head-table {
+ 
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.supervisor-directory-fbo-head-table {
+ 
+  grid-template-columns: 4.5fr 2fr 2fr 3fr 1fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+.directory-fbo-head-table {
+ 
+  grid-template-columns: 4.5fr 2fr 2fr 3fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.technical-assistance-head-table {
+ 
+  grid-template-columns: 1fr 2fr 2fr 2fr 1.5fr 1fr 1.5fr 0.6fr ;
+  gap: 15 px;
+}
+
+.site-visits-head-table {
+ 
+  grid-template-columns: 2fr 2fr 2fr 2fr 1fr;
+  gap: 15 px;
 }
 
 /* PARTICIPANT SURVEY */

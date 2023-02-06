@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
-import ExportCSV from "../../../components/exportCSV";
+import ExportCSV from "../../../components/csv-reports/exportCSV";
 const NysReportPage = ({ eventReport,  }) => {
   // console.log("post events",eventReport)
   const [selectedDate, setSelectedDate] = useState({

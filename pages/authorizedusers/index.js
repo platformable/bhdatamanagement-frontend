@@ -91,7 +91,7 @@ export default function AuthorizedUsersIndex({data, users}) {
                <h1 className='block font-bold '>Manage users</h1>
 
                <div className="flex justify-center items-center">
-                <button className="rounded bg-black text-white px-5 py-2 flex items-center  font-semibold shadow-xl mr-4" id="myBtn" onClick={() => setShowModal(!showModal)}>
+                <button className="rounded bg-black text-white px-5 py-2 flex items-center  font-semibold shadow-xl mr-4" id="myBtn" onClick={() => router.push('/authorizedusers/create')}>
                {/*  <Image src={addUserICon} width={31} height={29}/> */}
                 <p className='ml-2 text-sm'>Add a new user</p>
                 </button>
@@ -119,10 +119,10 @@ export default function AuthorizedUsersIndex({data, users}) {
                     <p className="text-xs md:text-base text-left">Name</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-xs md:text-base text-left">Last Name</p>
+                    <p className="text-xs md:text-base text-left">Last name</p>
                   </div>
                   <div className="head-row font-black">
-                    <p className="text-xs md:text-base text-left">User Role</p>
+                    <p className="text-xs md:text-base text-left">User role</p>
                   </div>
                   <div className="head-row font-black">
                     <p className="text-xs md:text-base text-left">Email</p>
