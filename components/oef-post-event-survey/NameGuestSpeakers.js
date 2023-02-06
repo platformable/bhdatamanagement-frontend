@@ -27,7 +27,7 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
         secondPresenter !==''? ` ${secondPresenter}` : null,
         thirdPresenter !==''?  ` ${thirdPresenter}` : null,
         fourthPresenter!==''? ` ${fourthPresenter}` : null
-      ].toString().replace(",",'').replace(',','').replace(',',''),
+      ].toString(),
     });
   }, [firstPresenter, secondPresenter, thirdPresenter, fourthPresenter]);
 
