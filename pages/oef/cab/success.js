@@ -23,8 +23,8 @@ const success = () => {
             <img src="/saved-form.svg" alt="checked icon" />
             <h2 className='font-black text-center'>
             Thank you for submitting your CAB Organizer Survey.
-            <br/>Click here to see the responses you have submitted.<br/>
-            You have also been emailed a copy of your responses.</h2>
+            <br/>Black Health will review the submission and contact you<br/>
+            if there are any questions or comments.</h2>
           </section>
         </div>
         {/* <button onClick={() => router.back()} className='uppercase rounded shadow bg-black text-white text-2xl px-5 py-2 self-center'>Submit another participant sign-in sheet</button> */}
