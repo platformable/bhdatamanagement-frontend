@@ -6,10 +6,12 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
       c.toUpperCase().replaceAll("[<>'\"/;% ]+", " ")
     );
 
-  const [firstPresenter, setFirstPresenter] = useState(eventForm?.nameGuestSpeakers.split(',')[0] ||"");
-  const [secondPresenter, setSecondPresenter] = useState(eventForm?.nameGuestSpeakers.split(',')[1] || "");
-  const [thirdPresenter, setThirdPresenter] = useState(eventForm?.nameGuestSpeakers.split(',')[2] || "");
-  const [fourthPresenter, setFourthPresenter] = useState(eventForm?.nameGuestSpeakers.split(',')[3] || "");
+    const guests=eventForm?.nameGuestSpeakers
+
+  const [firstPresenter, setFirstPresenter] = useState(guests.split(',')[0] ||"");
+  const [secondPresenter, setSecondPresenter] = useState(guests.split(',')[1] || "");
+  const [thirdPresenter, setThirdPresenter] = useState(guests.split(',')[2] || "");
+  const [fourthPresenter, setFourthPresenter] = useState(guests.split(',')[3] || "");
   /* 
     const handleFormName = (e) => {
         setEventForm(previous => ({...previous, createdByName: uppercaseWords(e.target.value)}))
@@ -21,11 +23,11 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
     setEventForm({
       ...eventForm,
       nameGuestSpeakers: [
-        firstPresenter,
-        secondPresenter,
-        thirdPresenter,
-        fourthPresenter,
-      ].toString(),
+        firstPresenter !=='' ? `${firstPresenter}` : null,
+        secondPresenter !==''? ` ${secondPresenter}` : null,
+        thirdPresenter !==''?  ` ${thirdPresenter}` : null,
+        fourthPresenter!==''? ` ${fourthPresenter}` : null
+      ].toString().replace(",",'').replace(',','').replace(',',''),
     });
   }, [firstPresenter, secondPresenter, thirdPresenter, fourthPresenter]);
 

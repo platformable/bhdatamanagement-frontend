@@ -37,8 +37,8 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
       <div className="grid grid-cols-2">
         <div className="grid gap-5">
           {fbos
-            ?.slice(0, Math.round(fbos.length / 2))
-            .sort((a, b) => a.namefbo.localeCompare(b.namefbo, "en"))
+            ?.sort((a, b) => a.namefbo.localeCompare(b.namefbo, "en"))
+            .slice(0, Math.round(fbos.length / 2))
             .map((option, index) => (
               <label key={index} className="flex gap-x-5 items-center">
                 <input
@@ -55,8 +55,8 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
         </div>
         <div className="grid gap-5">
           {fbos
-            ?.slice(Math.round(fbos.length / 2))
-            .sort((a, b) => a.namefbo.localeCompare(b.namefbo, "en"))
+            ?.sort((a, b) => a.namefbo.localeCompare(b.namefbo, "en"))
+            .slice(Math.round(fbos.length / 2))
             .map((option, index) => (
               <>
                 <label key={index} className="flex gap-x-5 items-center">

@@ -8,7 +8,7 @@ const FboRadioList = ({ fbos,surveyForm,setSurveyForm,stateValue,title }) => {
       <h2 className="font-black">{title}</h2>
       <div className="grid grid-cols-2 gap-5">
         <div className="grid gap-5">
-        {fbos?.slice(0, Math.round(fbos.length / 2)).sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).map((fbo, index) => (
+        {fbos?.sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).slice(0, Math.round(fbos.length / 2)).map((fbo, index) => (
           <label className="flex gap-5 items-center">
             <input
               type="radio"
@@ -26,7 +26,7 @@ const FboRadioList = ({ fbos,surveyForm,setSurveyForm,stateValue,title }) => {
         ))}
         </div>
         <div className="grid gap-5">
-        {fbos?.slice(Math.round(fbos.length / 2)).sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).map((fbo, index) => (
+        {fbos?.sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).slice(Math.round(fbos.length / 2)).map((fbo, index) => (
           <label className="flex gap-5 items-center">
             <input
               type="radio"
