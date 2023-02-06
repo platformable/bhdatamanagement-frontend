@@ -3,7 +3,6 @@ import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import Loader from "../../../components/Loader";
 import axios from "axios";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import InputValidationAddress from "../../../components/InputValidationAddress";

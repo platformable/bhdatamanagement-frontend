@@ -22,10 +22,10 @@ const success = () => {
           <section className='flex flex-col mt-10 py-7 w-full gap-5 bg-sky-blue rounded-lg items-center'>
             <img src="/saved-form.svg" alt="checked icon" />
 
-            <h2 className='font-black text-center'>Your event was saved successfully! </h2>
-            <p className='text-center'>Click here to see the answers you have submitted. <br/>
-            You have also been emailed a copy. <br/>
-            You are able to make changes to your submission until the end of today. </p>
+            <h2 className='font-black text-center'>Your event was submitted successfully!</h2>
+            <p className='text-center'>Thank you for submitting your HIV Outreach Event Organizer Survey.<br/>
+            Black Health will review the submission and contact you <br/>
+            if there are any questions or comments.</p>
           </section>
         </div>
         {/* <button onClick={() => router.back()} className='uppercase rounded shadow bg-black text-white text-2xl px-5 py-2 self-center'>Submit another participant sign-in sheet</button> */}
