@@ -20,14 +20,10 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
         setEventForm(previous => ({...previous, createdByLastname: uppercaseWords(e.target.value)}))
       } */
   useEffect(() => {
+
     setEventForm({
       ...eventForm,
-      nameGuestSpeakers: [
-        firstPresenter !=='' ? `${firstPresenter}` : null,
-        secondPresenter !==''? ` ${secondPresenter}` : null,
-        thirdPresenter !==''?  ` ${thirdPresenter}` : null,
-        fourthPresenter!==''? ` ${fourthPresenter}` : null
-      ].toString(),
+      nameGuestSpeakers: `${firstPresenter && firstPresenter}${secondPresenter && ', ' + secondPresenter}${', ' +thirdPresenter && thirdPresenter}${fourthPresenter && fourthPresenter}`
     });
   }, [firstPresenter, secondPresenter, thirdPresenter, fourthPresenter]);
 
