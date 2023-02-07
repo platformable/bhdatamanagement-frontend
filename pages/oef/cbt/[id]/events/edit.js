@@ -120,7 +120,7 @@ const EditCbt = ({data, user}) => {
           //notifyMessage();
           setTimeout(() => {
             router.push(
-              `/oef/cbt/success`
+              `/oef/cbt`
             );
           }, 1000);
         }
