@@ -16,7 +16,7 @@ export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
       <div className='grid gap-5'>
       {gender?.slice(0, 8 / 2).map(option => (
         <label className="flex gap-x-5 items-center">
-        <input type="radio" className=" " value={option.value} id={option.id} onChange={handleForm} name="participantSexualIdentity" />
+        <input type="radio" className=" " value={option.value} id={option.id} onChange={handleForm} name="participantGender" />
         <p className="">{option.value}</p>
       </label>
       ))}
@@ -24,7 +24,7 @@ export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
       <div className='grid gap-5'>
       {gender?.slice(8 / 2).map(option => option.value === 'Other gender identity' ? (
         <label className="flex gap-x-5 items-center">
-        <input type="radio" className=" " value={option.value} id={option.id} onChange={handleForm} name="participantSexualIdentity" />
+        <input type="radio" className=" " value={option.value} id={option.id} onChange={handleForm} name="participantGender" />
         <p className="">{option.value}</p>
         <input
           type="text"
@@ -32,7 +32,7 @@ export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
           onChange={(e) =>
             setSurveyForm({
               ...surveyForm,
-              participantSexualIdentityOther: e.target.value,
+              participantGenderOther: e.target.value
             })
           }
           className="border-black rounded p-4 self-start p-1 w-full text-lg md:w-134"
@@ -40,7 +40,7 @@ export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
       </label>
       ) : (
         <label className="flex gap-x-5 items-center">
-        <input type="radio" className=" " value={option.value} id={option.id} onChange={handleForm} name="participantSexualIdentity" />
+        <input type="radio" className=" " value={option.value} id={option.id} onChange={handleForm} name="participantGender" />
         <p className="">{option.value}</p>
       </label>
       ))}

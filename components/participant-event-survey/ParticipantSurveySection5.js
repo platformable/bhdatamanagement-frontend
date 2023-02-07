@@ -3,7 +3,7 @@ import { gender } from '../../utils/sharedData';
 
 export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
   const handleForm = (e) => {
-    if (e.target.value === 'Other gender identity') setSurveyForm({...surveyForm, participantSexualIdentityOther: '', });
+    if (e.target.value === 'Other gender identity') setSurveyForm({...surveyForm, participantGenderOther: '', });
     setSurveyForm({...surveyForm, [e.target.name]: e.target.value, "genderID": Number(e.target.id) })
   }
   return (
@@ -23,7 +23,7 @@ export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
           onChange={(e) =>
             setSurveyForm({
               ...surveyForm,
-              participantSexualIdentityOther: e.target.value,
+              participantGenderOther: e.target.value,
             })
           }
           className="border-black rounded p-4 self-start p-1 w-full text-lg md:w-134"

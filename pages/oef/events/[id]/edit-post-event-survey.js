@@ -280,6 +280,7 @@ const PostEventReport = ({ event, fbos, user }) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
           submitSubmissionForm();
+          router.push(`/oef/fbo`);
           console.log(response);
         }
       })
@@ -548,7 +549,7 @@ const PostEventReport = ({ event, fbos, user }) => {
                 className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
                 onClick={submitPostEventForm}
               >
-                Save and finish
+                Submit
               </button>
             </div>
           )}
