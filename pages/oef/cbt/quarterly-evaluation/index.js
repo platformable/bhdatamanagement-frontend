@@ -163,6 +163,7 @@ const Survey = ({ event, fbos }) => {
         "Applied for a grant/s - outcome not known or was not successful (Identified and applied to grants)",
     },
     { id: 9, value: "Successfully applied for a grant (Received grant)" },
+    { id: 10, value: "No actions undertaken yet" },
   ];
 
   const participantCreateSurveyOptions = [

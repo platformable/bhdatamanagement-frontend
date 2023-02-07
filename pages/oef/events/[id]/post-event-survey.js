@@ -443,7 +443,7 @@ console.log(event)
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
               onClick={submitPostEventForm}
             >
-              Save and finish
+              Submit
             </button>
           </div>
         </div>
