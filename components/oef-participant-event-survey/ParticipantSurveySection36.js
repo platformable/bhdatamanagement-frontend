@@ -10,7 +10,7 @@ const ParticipantSurveySection36 = ({ fbos, surveyForm, setSurveyForm }) => {
       <h2 className="font-black">Event organizer:</h2>
       <div className="grid grid-cols-2 mt-7 gap-5">
         <div className="grid gap-5">
-        {fbos?.slice(0, Math.round(fbos.length / 2)).sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).map((fbo, index) => (
+        {fbos?.sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).slice(0, Math.round(fbos.length / 2)).map((fbo, index) => (
           <label className="flex gap-5">
             <input
               type="radio"
@@ -25,7 +25,7 @@ const ParticipantSurveySection36 = ({ fbos, surveyForm, setSurveyForm }) => {
         ))}
         </div>
         <div className="grid gap-5">
-        {fbos?.slice(Math.round(fbos.length / 2)).sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).map((fbo, index) => (
+        {fbos?.sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).slice(Math.round(fbos.length / 2)).map((fbo, index) => (
           <label className="flex gap-5">
             <input
               type="radio"
