@@ -221,7 +221,7 @@ const Survey = ({ event, fbos }) => {
               /* onClick={(e)=>{router.push("https://nblch.org/")}} */
               onClick={submitParticipantSurvey}
             >
-              Save
+              Submit
             </button>
             {error && (
               <center className="text-red-500 text-lg font-bold">

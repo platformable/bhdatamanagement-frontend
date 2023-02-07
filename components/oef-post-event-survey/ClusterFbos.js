@@ -14,8 +14,9 @@ const ClusterFbos = ({ fbos, eventForm, setEventForm, selectedCluster }) => {
       .sort((a, b) => a.namefbo.localeCompare(b.namefbo, "en"));
 
     setFbosArray(orderedFbos);
-    setCluster([])
+    setCluster([...eventForm?.clusterFbos])
   }, [selectedCluster]);
+
   useEffect(() => {
     setEventForm((prev) => ({ ...prev, clusterFbos: cluster }));
   }, [cluster]);

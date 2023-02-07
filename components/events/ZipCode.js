@@ -39,7 +39,7 @@ const ZipCode = ({eventForm,setEventForm}) => {
         ...previous,
         [e.target.name]: Number(e.target.value),
       }))}}
-      defaultValue={eventForm?.eventZipCode!==0 ?eventForm?.eventZipCode : ""}
+      defaultValue={eventForm?.eventZipCode!==0 ? eventForm?.eventZipCode : 0}
       onKeyDown={isNumberKey}
       />
       </label>

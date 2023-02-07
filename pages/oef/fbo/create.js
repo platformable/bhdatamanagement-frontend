@@ -42,7 +42,7 @@ const CreateFBO = () => {
     emailAlternateContact: "",
     fboDropboxFolder: "",
     fboNotes: "",
-    fboActive: "",
+    fboActive: true,
   });
   const notifyMessage = () => {
     toast.success("The fbo is being added", {
@@ -55,11 +55,11 @@ const CreateFBO = () => {
       .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`, form)
       .then((response) => {
         console.log(response);
-        if (response.data.status === 200) {
+        if (response.status === 200) {
           setLoading(!loading)
           notifyMessage();
             setTimeout(() => {
-              router.push("/oef/fbo");
+              router.push("/oef/fbo/directory");
             }, 1500);
         }
       })
@@ -326,8 +326,8 @@ const handleAddress = (value, key) => {
                   onChange={(e) => setForm(prev=> ({...prev, fboActive: e.target.value === "true"? true : false}))}
                 >
 
-                    <option className="" value={true}>Active</option>
-                    <option className="" value={false}>No active</option>
+                    <option className="" value={true} selected={form?.fboActive === true}>Active</option>
+                    <option className="" value={false} selected={form?.fboActive === false}>No active</option>
 
                 </select>
               </label>

@@ -155,7 +155,7 @@ const RegisterTA = ({ fbos }) => {
               alt="register event icon"
               className="mr-2"
             />
-            Save and finish
+            Submit
           </button>
         </div>
         {messageToCompleteForm.status===true && <p className="red-100 text-red-500 text-center my-5">{messageToCompleteForm.message}</p> }

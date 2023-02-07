@@ -26,6 +26,7 @@ const OtherTesting = ({
           type="text"
           /* placeholder="Please specify" */
           name="otherTestingType"
+          defaultValue={eventForm?.otherTestingType}
           onChange={(e) =>
             setEventForm((prev) => ({
               ...prev,

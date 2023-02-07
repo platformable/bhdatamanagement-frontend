@@ -151,7 +151,7 @@ const EditTA = ({ technicalAssistance,fbos }) => {
            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
            onClick={submitForm}
          >
-           Save
+           Submit
          </button> } 
        </div>
       )}
