@@ -129,7 +129,7 @@ const Register = () => {
         setLoading(false);
         setResponseStatus({
           success: true,
-          statusMessage: "An error ocurred, try again",
+          statusMessage: "An error has occurred, please check that each question has been answered.",
         });
 
         console.error("error: ", error);
