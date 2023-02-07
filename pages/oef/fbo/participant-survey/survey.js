@@ -41,7 +41,7 @@ const Survey = ({ event, fbos }) => {
     ethnicityID: 0,
     participantEthnicity: "",
     genderID: 0,
-    participantSexualIdentity: "",
+    //participantSexualIdentity: "",
     orientationID: 0,
     participantOrientation: "",
     participantOrientationOther: "",
@@ -50,7 +50,7 @@ const Survey = ({ event, fbos }) => {
     participantSuggestions: "",
     participantRaceOther:"",
     participantEthnicityOther:"",
-    participantSexualIdentityOther:"",
+    participantGenderOther:"",
     surveyName:'oef-participant'
   });
   console.log("form", surveyForm);
@@ -80,7 +80,7 @@ const Survey = ({ event, fbos }) => {
     setError('')
 
     const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
-      key === "participantReferralOther" || key === "participantSuggestions" || key === "participantSexualIdentityOther" || key === "participantRaceOther" || key === "participantEthnicityOther" || key === "participantRaceOther" || key === "participantOrientationOther"
+      key === "participantReferralOther" || key === "participantSuggestions" || key === "participantGenderOther" || key === "participantRaceOther" || key === "participantEthnicityOther" || key === "participantRaceOther" || key === "participantOrientationOther"
 
         ? false
         : value === 0 || value.length === 0
@@ -221,7 +221,7 @@ const Survey = ({ event, fbos }) => {
               /* onClick={(e)=>{router.push("https://nblch.org/")}} */
               onClick={submitParticipantSurvey}
             >
-              Save
+              Submit
             </button>
             {error && (
               <center className="text-red-500 text-lg font-bold">

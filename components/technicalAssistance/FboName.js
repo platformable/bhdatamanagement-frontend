@@ -45,7 +45,7 @@ const FboName = ({form, setForm,fbos,isEditPage}) => {
               <p>All FBOs</p>
               
             </label>
-        {fbos?.slice(0, Math.round(fbos?.length / 2)).sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).map((fbo, index) => (
+        {fbos?.sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).slice(0, Math.round(fbos?.length / 2)).map((fbo, index) => (
            <label className="flex items-center gap-5 text-lg" key={index}>
            <input
              type="checkbox"
@@ -63,7 +63,7 @@ const FboName = ({form, setForm,fbos,isEditPage}) => {
         </div>
         <div className="grid gap-5">
       
-        {fbos?.slice(Math.round(fbos?.length / 2)).sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).map((fbo, index) => (
+        {fbos?.sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).slice(Math.round(fbos?.length / 2)).map((fbo, index) => (
            <label className="flex items-center gap-5 text-lg" key={index}>
            <input
              type="checkbox"

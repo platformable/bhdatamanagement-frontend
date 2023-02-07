@@ -55,7 +55,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
               </section> */}
 
               <h1 className="font-black  md:px-0 px-5">
-                What do you want <span className="">to do</span> today?
+                What do you want to work on today?
               </h1>
               <div className="grid md:grid-cols-7 gap-5 px-5 md:px-0 grid-cols-1 mb-2 my-10">
                 {loggedUserRole !== "Supervisor" && (

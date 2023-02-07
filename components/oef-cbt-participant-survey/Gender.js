@@ -32,7 +32,7 @@ const Gender = ({surveyForm, setSurveyForm}) => {
           onChange={(e) =>
             setSurveyForm({
               ...surveyForm,
-              participantSexualIdentityOther: e.target.value,
+              participantGenderOther: e.target.value,
             })
           }
           className="border-black rounded p-4 self-start p-1 w-full text-lg md:w-134"

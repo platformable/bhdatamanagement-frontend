@@ -41,7 +41,8 @@ import TextArea from "../../../../components/oef-post-event-survey/TextArea";
 import RadioList from "../../../../components/oef-post-event-survey/RadioList";
 
 const PostEventReport = ({ event, fbos, user }) => {
-  // console.log("data", event);
+  console.log("data", event);
+   
 
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
@@ -91,13 +92,8 @@ const PostEventReport = ({ event, fbos, user }) => {
     eventDate: event && new Date(event?.eventdate),
     eventStartTime: event?.eventstarttime,
     eventFinishTime: event?.eventfinishtime,
-    // eventLocationTypeName: event?.eventlocationtypename,
-    // healthAreaOfFocusName: event?.healthareaoffocusname.join(", "),
     eventTypeName: event?.eventtypename || "",
     zipCode: event?.eventzipcode || 0,
-    // locationAddress: "" || event?.locationaddress,
-    // locationName: "" || event?.locationname,
-    // locationNameOther: "" || event?.locationnameother,
     masks: event?.masks || 0,
     covidLiterature: event?.covidliterature || 0,
     vaccineRelatedLiterature: event?.vaccinerelatedliterature || 0,
@@ -107,26 +103,8 @@ const PostEventReport = ({ event, fbos, user }) => {
     saferSexKits: event?.safersexkits || 0,
     healthDisparitiesLiterature: event?.healthdisparitiesliterature || 0,
     bagsBoxesFood: event?.bagsboxesfood || 0,
-    // posters: 0,
-    // otherEventLeaflets: 0,
-    // preparedMeals: 0,
     handSanitizers: event?.handsanitizers || 0,
-    covidVaccineSiteReferralDetails:
-      event?.covidvaccinesitereferraldetails || 0,
-    // maleCondoms: 0,
-    // femaleCondoms: 0,
-    // lubricant: 0,
-    // referralLists: 0,
-    // promotionalMaterial: 0,
-    // participantRegistrationForm: false,
-    // eventStartedOnTime: false,
-    // eventFinishedOnTime: false,
-    // participantGreeted: false,
-    // resourcesAvailable: false,
-    // photoRelease: false,
-    // handSanitizerAvailable: false,
-    // reminderSafeSpace: false,
-    // reminderPostEvaluationSurvey: false,
+    covidVaccineSiteReferralDetails: event?.covidvaccinesitereferraldetails || 0,
     totalAttendees: event?.totalattendees || 0,
     eventChallenges: event?.eventchallenges || "",
     eventTestingDone: event?.eventtestingdone || false,
@@ -264,6 +242,8 @@ const PostEventReport = ({ event, fbos, user }) => {
     
   });
   const userId = user && user.sub;
+  console.log("eventForm", eventForm);
+  // console.log("event", submissionForm);
 
   const router = useRouter();
 
@@ -300,6 +280,7 @@ const PostEventReport = ({ event, fbos, user }) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
           submitSubmissionForm();
+          router.push(`/oef/fbo`);
           console.log(response);
         }
       })
@@ -331,7 +312,8 @@ const PostEventReport = ({ event, fbos, user }) => {
       });
   };
 
-  // console.log("eventForm", eventForm);
+
+
 
   const [eventNotCompletedMessage, setEventNotCompletedMessage] =
     useState(false);
@@ -345,7 +327,6 @@ const PostEventReport = ({ event, fbos, user }) => {
     }
   }, []);
 
-  console.log("event", submissionForm);
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -568,7 +549,7 @@ const PostEventReport = ({ event, fbos, user }) => {
                 className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
                 onClick={submitPostEventForm}
               >
-                Save and finish
+                Submit
               </button>
             </div>
           )}

@@ -109,7 +109,7 @@ eventChecklistOtherText:""
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-          //notifyMessage();
+          notifyMessage();
           console.log(response)
            setTimeout(() => {
             router.push(`/oef/cbt`);
