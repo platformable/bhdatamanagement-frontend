@@ -125,7 +125,7 @@ const Register = ({ fbos }) => {
       })
       .catch(function (error) {
         setLoading(false);
-        setResponseStatus({ success: true, statusMessage: "An error ocurred, try again"})
+        setResponseStatus({ success: true, statusMessage: "An error has occurred, please check that each question has been answered"})
 
         console.error("error: ", error);
       });
