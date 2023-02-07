@@ -47,7 +47,6 @@ const Register = () => {
     eventFinishTime: "12:00",
     eventLocationTypeID: null,
     eventLocationTypeName: "",
-    // eventZipCode: "",
     healthAreaOfFocusID: [6],
     healthAreaOfFocusName: ["HIV/AIDS"],
     eventTypeID: null,
@@ -69,7 +68,7 @@ const Register = () => {
     locationName: "",
     locationNameOther: "",
     locationAddress: "",
-    eventZipCode: "",
+    eventZipCode: 0,
     icsUrlFile: "",
     borough: "",
   });

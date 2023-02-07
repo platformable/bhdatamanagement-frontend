@@ -44,7 +44,7 @@ const Register = ({ fbos }) => {
     healthAreaOfFocusName: ["HIV/AIDS"],
     createdByName:"" ,
     createdByLastname:"",
-    eventZipCode: "",
+    eventZipCode: 0,
     borough: "",
     oefEventEmail:"",
     deliveryPartner:"",
