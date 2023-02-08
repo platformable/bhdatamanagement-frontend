@@ -83,7 +83,7 @@ const handleForm=(e)=>{
     const EditAuthUser =  (userData)=> {
       axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers/update_from_users_edit`,userData)
        .then(function (response) {
-        router.reload();
+        //router.reload();
         setSaving(!saving);
        })
        .catch(function (error) {
@@ -106,6 +106,7 @@ const handleForm=(e)=>{
           })
           .then(response => {
             EditAuthUser(userData)
+      
             setTimeout(()=>{
               router.push("/users")
             },3000)
