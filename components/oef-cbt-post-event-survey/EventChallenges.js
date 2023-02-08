@@ -4,7 +4,7 @@ import React from 'react';
 const EventChallenges = ({eventForm,setEventForm}) => {
     return (
         <div className='question-body'>
-      <h2 className="mb-7 font-black">What do you think worked best with how the workshop was organized today?</h2>
+      <h2 className="mb-7 font-black">Were there any other challenges in running the workshop?</h2>
       <label htmlFor="cbtChallenges">
         <textarea
           className="p-4 block w-full text-lg h-52 bg-white break-all border-black rounded-md overflow-hidden"
