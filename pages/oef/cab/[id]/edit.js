@@ -50,7 +50,8 @@ const CABEdit = ({ event,fbos }) => {
     submissionStatus:event?.submissionstatus,
     submissionNotes:event?.submissionnotes,
     eventRole:event?.eventrole,
-    surveyName:"oef-cab"
+    surveyName:"oef-cab",
+    eventName:event?.eventname
   });
 
 
