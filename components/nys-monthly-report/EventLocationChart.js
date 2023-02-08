@@ -77,8 +77,15 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
     // TO COUNT BY ID (ID'S NOT MATCHING WELL)
     // event.onlineinpersoneventtype === "Online" && (eventLocationsCounts[12]['count'] += 1);
     // event.eventlocationtypeid && (eventLocationsCounts[event?.eventlocationtypeid]['count'] += 1)  
+    if (event.onlineinpersoneventtype === "In-person" && Object.keys(eventLocationsCounts).every(key => key !== event._eventlocationtypename))  {
+      eventLocationsCounts["Other"] += 1;
+      return;
+    }
 
-    event.onlineinpersoneventtype === "Online" && (eventLocationsCounts["Virtual / Online"] += 1)
+    if (event.onlineinpersoneventtype === "Online") {
+      eventLocationsCounts["Virtual / Online"] += 1;
+      return;
+    }
     eventLocationsCounts[event.eventlocationtypename]++ 
    })
    let results = Object.values(eventLocationsCounts)
