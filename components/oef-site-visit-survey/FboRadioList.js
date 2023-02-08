@@ -20,8 +20,8 @@ const FboRadioList = ({ fbos, surveyForm,dispatch,updateFbo,stateValue }) => {
               value={fbo.namefbo}
               onChange={(e) => handleForm(e, fbo.boroughfbo)}
               name="fbo"
-              defaultChecked={
-                fbo.namefbo === surveyForm[stateValue] ? "checked" : ""
+              checked={
+                fbo.namefbo === surveyForm.fbo ? "checked" : ""
               }
             />
             <p className="">{fbo.namefbo}</p>
@@ -38,8 +38,8 @@ const FboRadioList = ({ fbos, surveyForm,dispatch,updateFbo,stateValue }) => {
               value={fbo.namefbo}
               onChange={(e) => handleForm(e, fbo.boroughfbo)}
               name="fbo"
-              defaultChecked={
-                fbo.namefbo === surveyForm[stateValue] ? "checked" : ""
+              checked={
+                fbo.namefbo === surveyForm.fbo ? "checked" : ""
               }
             />
             <p className="">{fbo.namefbo}</p>
