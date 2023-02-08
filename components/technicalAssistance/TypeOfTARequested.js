@@ -36,7 +36,7 @@ console.log("form",form)
     return (
         <div className='question-body'>
             <h2 className='font-black '>Type of TA Requested:</h2>
-        <div className="grid grid-cols-2">
+        <div className="grid md:grid-cols-2">
         <div className="grid gap-5 items-start">
           {options
             .slice(0, Math.round(options.length / 2))

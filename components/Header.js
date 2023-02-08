@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 
 export default function Header({showStatus}) {
   const { user, error, isLoading } = useUser();
-
+  console.log("header",user)
 
   const userName = user && user["https://lanuevatest.herokuapp.com/name"];
   const userRole = user && user["https://lanuevatest.herokuapp.com/roles"];
