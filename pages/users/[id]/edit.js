@@ -101,12 +101,15 @@ const handleForm=(e)=>{
           axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`,userData)
           .then(function (response) {
             notifyMessage()
+        
+            
+          })
+          .then(response => {
+            EditAuthUser(userData)
             setTimeout(()=>{
               router.push("/users")
             },3000)
-            
           })
-          .then(response => EditAuthUser(userData))
           .catch(function (error) {
             setSaving(false)
             console.log("Not possible to add user, try again",error);
