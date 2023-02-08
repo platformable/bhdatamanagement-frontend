@@ -82,16 +82,6 @@ const InputValidationAddress = ({ setForm, name, defaultValue }) => {
 
   return (
     <div>
-       {defaultValue ? (
-        <input
-        onChange={handleInput}
-        className="grid text-lg px-4 py-2 border-black  rounded w-full md:w-96"
-        name={name}
-        type="text"
-        defaultValue={value}
-        disabled={!ready}
-      />
-       ) : (
         <input
         onChange={handleInput}
         className="grid text-lg px-4 py-2 border-black  rounded w-full md:w-96"
@@ -100,8 +90,6 @@ const InputValidationAddress = ({ setForm, name, defaultValue }) => {
         {...defaultValue ? defaultValue={value} : value={value} }
         disabled={!ready}
         />
-       ) }
-      
 
       {status === "OK" && (
         <ul className="divide-black divide-y rounded border-black">
