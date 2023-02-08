@@ -7,7 +7,7 @@ import Loader from "../../../components/Loader";
 import {  withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useEffect } from 'react';
 import { ToastContainer, toast } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 
 
 export default function EditUser({data, user}) {
