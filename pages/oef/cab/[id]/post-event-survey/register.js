@@ -29,7 +29,7 @@ console.log("evento",event)
     clusterFbos: [],
     eventQuestions: "",
     eventHighlights: "",
-    totalAttendees: 0,
+    totalAttendees: "",
     eventID: Number(event?.id),
     eventDateCreated: new Date(),
     programID: event?.programid,
