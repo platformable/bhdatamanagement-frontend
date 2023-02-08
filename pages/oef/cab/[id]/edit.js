@@ -54,7 +54,7 @@ const CABEdit = ({ event,fbos }) => {
     eventName:event?.eventname
   });
 
-
+  console.log("eventCAB",event)
   console.log("eventForm",eventForm)
 
   const notifyMessage = () => {

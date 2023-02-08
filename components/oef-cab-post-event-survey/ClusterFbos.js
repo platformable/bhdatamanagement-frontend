@@ -12,9 +12,9 @@ const ClusterFbos = ({ fbos, eventForm, setEventForm, selectedCluster }) => {
           fbo.boroughfbo === selectedCluster.replace("Cluster", "").trim()
       )
       .sort((a, b) => a.namefbo.localeCompare(b.namefbo, "en"));
-        console.log("ordered fbos", orderedFbos)
+
     setFbosArray(orderedFbos);
-    setCluster([])
+    //setCluster([]);
   }, [selectedCluster]);
   useEffect(() => {
     setEventForm((prev) => ({ ...prev, clusterFbos: cluster }));
@@ -47,7 +47,11 @@ const ClusterFbos = ({ fbos, eventForm, setEventForm, selectedCluster }) => {
                   name="clusterFbos"
                   value={option.namefbo}
                   onChange={handleForm}
-                  defaultChecked={eventForm?.clusterFbos.includes(option.namefbo)? "checked" : false}
+                  defaultChecked={
+                    eventForm?.clusterFbos.includes(option.namefbo)
+                      ? "checked"
+                      : false
+                  }
                 />
                 <p>{option.namefbo}</p>
               </label>
@@ -61,7 +65,11 @@ const ClusterFbos = ({ fbos, eventForm, setEventForm, selectedCluster }) => {
                 name="clusterFbos"
                 value={option.namefbo}
                 onChange={handleForm}
-                defaultChecked={eventForm?.clusterFbos.includes(option.namefbo)? "checked" : false}
+                defaultChecked={
+                  eventForm?.clusterFbos.includes(option.namefbo)
+                    ? "checked"
+                    : false
+                }
               />
               <p>{option.namefbo}</p>
             </label>
