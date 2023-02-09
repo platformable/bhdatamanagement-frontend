@@ -29,13 +29,13 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
 
   return (
     <div className="question-body">
-      <h2 className="mb-7 font-black">Names of all presenters/facilitators:</h2>
+      <h2 className="mb-7 font-black">Names of all presenters / facilitators:</h2>
       <label className="grid items-center">
         {" "}
         First presenter/facilitator:
         <input
           type="text"
-          className="w-134 p-2 border-black rounded text-lg mt-2"
+          className="md:w-1/3 w-5/6 p-2 border-black rounded text-lg mt-2"
           placeholder="Presenter/facilitator"
           onChange={(e) => {
             setFirstPresenter(e.target.value);
@@ -48,7 +48,7 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
         Second presenter/facilitator:
         <input
           type="text"
-          className="w-134 p-2 border-black rounded text-lg mt-2 "
+          className="md:w-1/3 w-5/6 w-full p-2 border-black rounded text-lg mt-2 "
           placeholder="Presenter/facilitator"
           onChange={(e) => {
             setSecondPresenter(e.target.value);
@@ -61,7 +61,7 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
         Third presenter/facilitator:
         <input
           type="text"
-          className="w-134 p-2 border-black rounded text-lgmt-2 "
+          className="md:w-1/3 w-5/6 w-full p-2 border-black rounded text-lgmt-2 "
           placeholder="Presenter/facilitator"
           onChange={(e) => {
             setThirdPresenter(e.target.value);
@@ -75,7 +75,7 @@ const nameGuestSpeakers = ({ eventForm, setEventForm, event }) => {
         Fourth presenter/facilitator:
         <input
           type="text"
-          className="w-134 p-2 border-black rounded text-lg mt-2"
+          className="md:w-1/3 w-5/6 p-2 border-black rounded text-lg mt-2"
           placeholder="Presenter/facilitator"
           onChange={(e) => {
             setFourthPresenter(e.target.value);

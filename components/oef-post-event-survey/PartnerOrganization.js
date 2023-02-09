@@ -34,7 +34,7 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
         List any co-sponsor/co-host who is also a grantee, or indicate N/A if
         not applicable.
       </h2>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="grid gap-5">
           {fbos
             ?.sort((a, b) => a.namefbo.localeCompare(b.namefbo, "en"))
@@ -71,8 +71,10 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
                 </label>
               </>
             ))}
-          <label className="flex gap-x-5 items-center">
+          <label className="flex gap-x-5 md:items-center flex-col md:flex-row">
+            <div className='flex gap-x-5 items-center mb-5'>
             <input
+            className=""
               type="checkbox"
               name="partnerOrganization1"
               value={"Other"}
@@ -80,7 +82,9 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
               defaultChecked={eventForm?.partnerOrganization1.includes('Other')? "checked":false}
             />
             <p>Other</p>
+            </div>
             <input
+            className="md:w-1/3 w-2/3"
               type="text"
               name="partnerOrganization1Other"
               onChange={handleForm}
@@ -88,7 +92,7 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
               defaultValue={eventForm?.partnerOrganization1Other}
             />
           </label>
-          <label className="flex gap-x-5 items-center">
+          <label className="flex gap-x-5 md:items-center">
             <input
               type="checkbox"
               name="partnerOrganization1"

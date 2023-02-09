@@ -145,7 +145,7 @@ const InPersonOrOnlineEvent = ({ eventForm, setEventForm, event }) => {
               </label>
             </div>
           ) : (
-            <div className="flex gap-x-5">
+            <div className="flex flex-col md:flex-row gap-x-5 md:gap-y-0 gap-y-5">
               <label className="flex items-center gap-5 text-lg" key={index}>
                 <input
                   type="radio"
@@ -166,6 +166,7 @@ const InPersonOrOnlineEvent = ({ eventForm, setEventForm, event }) => {
                 <input
                   type="text"
                   name="inPersonEventTypeNameOther"
+                  placeholder="Please specify"
                   className=""
                   id={""}
                   value={eventForm?.inPersonEventTypeNameOther}

@@ -77,6 +77,22 @@ const handleForm=(e)=>{
       });
     };
     const [saving,setSaving] = useState(false)
+
+
+
+    const EditAuthUser =  (userData)=> {
+      axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers/update_from_users_edit`,userData)
+       .then(function (response) {
+        //router.reload();
+        setSaving(!saving);
+       })
+       .catch(function (error) {
+          setSaving(!saving);
+         console.log("client error",error);
+       }); 
+     }
+
+
     const editUser =  ()=> {
         // const isEmpty = Object.values(userData).some(value => !value)
     
@@ -85,10 +101,15 @@ const handleForm=(e)=>{
           axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`,userData)
           .then(function (response) {
             notifyMessage()
+        
+            
+          })
+          .then(response => {
+            EditAuthUser(userData)
+      
             setTimeout(()=>{
               router.push("/users")
             },3000)
-            
           })
           .catch(function (error) {
             setSaving(false)

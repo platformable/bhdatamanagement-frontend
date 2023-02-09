@@ -34,9 +34,9 @@ console.log("form",form)
     };
 
     return (
-        <div className='question-body'>
-            <h2 className='font-black '>Type of TA Requested:</h2>
-        <div className="grid md:grid-cols-2">
+        <div className='p-7'>
+            <h2 className='font-black mb-7'>Type of TA Requested:</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="grid gap-5 items-start">
           {options
             .slice(0, Math.round(options.length / 2))
@@ -68,7 +68,8 @@ console.log("form",form)
               <p>{option.value}</p>
             </label>
           ))}
-          <label  className="flex gap-x-5 items-center">
+          <label  className="flex md:flex-row flex-col gap-x-5 md:items-center md:gap-y-0 gap-y-5">
+            <div className="flex md:flex-row gap-x-5 ">
               <input
                 type="checkbox"
                 name="taType"
@@ -78,6 +79,7 @@ console.log("form",form)
                 disabled={isEditPage?true:false}
               />
               <p>Other</p>
+              </div>
               <input type="text" placeholder='Please specify' 
               onChange={(e) => setForm(prev => ({...prev, taTypeOther: e.target.value}))} 
               defaultValue={form?.taTypeOther}
