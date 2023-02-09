@@ -645,8 +645,7 @@ label > textarea {
 }
 
 .supervisor-existing-fbo-events-head-table {
- 
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1.fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
   gap: 30px;
 }
 
