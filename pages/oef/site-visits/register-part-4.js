@@ -108,8 +108,8 @@ const RegisterSiteVisits = ({ fbos }) => {
       id: 1,
       value: "Pending",
       text: "Pending",
-      bgColor: "stronglyDisagreeBg",
-      bgColorHover: "hover:stronglyDisagreeBg",
+      bgColor: "saPendingBg",
+      bgColorHover: "hover:saPendingBg",
     },
     {
       id: 2,
