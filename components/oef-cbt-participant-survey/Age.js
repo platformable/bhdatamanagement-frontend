@@ -12,7 +12,7 @@ const Age = ({surveyForm, setSurveyForm}) => {
         {/* <span className="">2</span>  */}
         What is your age?
       </h2>
-      <div className="mt-7 grid grid-cols-2 ">
+      <div className="mt-7 grid md:grid-cols-2 ">
         <div className="grid space-between gap-5">
         {age.slice(1, Math.round(age.length / 2)).map((opt, index) => (
           <label key={index} className='flex gap-x-5 items-center'>

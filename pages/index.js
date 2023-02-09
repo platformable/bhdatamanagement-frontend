@@ -40,10 +40,7 @@ export default function Home() {
           </h1>
           {/* <img src="/main/Black_Health_logo_welcome.svg" /> */}
           <div className="text-center pt-20 flex flex-col items-center">
-          <div className="bg-yellow-300 rounded-lg p-10 container mx-auto my-10">
-              <p className="text-center">
-The Black Health Data Management App is currently offline for upgrades and maintenance. It is estimated that it will be accessible again on Wednesday February 8, 2023. If you have any questions, please contact a member of the Data Team at Black Health</p>
-            </div>
+     
             <h1 className="font-black mb-5">Welcome</h1>
            
             <Link href={`/chooseProgram`}>

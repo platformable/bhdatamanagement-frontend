@@ -119,7 +119,7 @@ const EditTA = ({ technicalAssistance,fbos }) => {
 
       <div className="question-body">
       <h2 className="font-black">Status:</h2>
-      <div className="grid grid-cols-4 gap-20">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-20">
         <button className={`${form?.taStatus === 'Submitted'? 'submittedBg': null} border-black py-4 rounded shadow-lg`} onClick={handleStatus} value="Submitted">
           Submitted
         </button>

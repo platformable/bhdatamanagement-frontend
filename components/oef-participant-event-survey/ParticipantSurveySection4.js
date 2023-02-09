@@ -12,7 +12,7 @@ export const ParticipantSurveySection4 = ({surveyForm, setSurveyForm}) => {
         {/* <span className="">4</span>  */}
         Are you of Hispanic, Latino/a, or Spanish origin?
       </h2>
-      <div className="mt-7 grid grid-cols-2 space-between gap-5">
+      <div className="mt-7 grid grid-cols-1 md:grid-cols-2 space-between gap-5">
       <div className='grid gap-5'>
       {ethnicity?.slice(0, Math.round(ethnicity.length /2)).map(option => (
         <label className="flex gap-x-5 items-center">
@@ -28,9 +28,11 @@ export const ParticipantSurveySection4 = ({surveyForm, setSurveyForm}) => {
         <p className="">{option.value}</p>
       </label>
       ): (
-        <label className="flex gap-x-5 items-center">
+        <label className="flex flex-col md:flex-row gap-x-5 md:items-center md:gap-y-0 gap-y-5">
+        <div className="flex  gap-5">
         <input type="radio" className="" value={option.value} id={option.id} onChange={handleForm} name="participantEthnicity" />
         <p className="">{option.value}</p>
+        </div>
         <input
           type="text"
           placeholder="Please specify"

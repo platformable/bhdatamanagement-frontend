@@ -287,10 +287,10 @@ console.log(event)
           dashboardBtn={true}
           pageTitle={"Post-event survey"}
         />
-        <div className="container mx-auto md:px-0 px-5 items-center">
+        <div className="container mx-auto md:px-0 px-5 ">
           <TopEventsInfo event={event} editPath={`/oef/events/${event?.eventid || event?.id}/edit`}/>
 
-          <div className="post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
+          <div className="post-envent-form-container mt-10 border-black  bg-white rounded-lg mb-10 pb-10 shadow-lg">
             {/* <div className="rounded-tl-md rounded-tr-md"> */}
             <Cluster
               eventForm={eventForm}

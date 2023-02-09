@@ -15,7 +15,7 @@ const FboPosition = ({ surveyForm, setSurveyForm }) => {
   return (
     <div className="question-body">
       <h2 className="font-black">What is your position/title in the FBO?</h2>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid md:grid-cols-2 gap-5">
         <div className="grid gap-5">
         {fbosPosition?.slice(0, Math.round(fbosPosition.length / 2)).sort((a, b) => a.localeCompare(b, 'en')).map((fbo, index) => (
           <label className="flex gap-5 items-center" key={index}>

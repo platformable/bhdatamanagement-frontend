@@ -16,7 +16,7 @@ const ProgramLeaders = ({eventForm,setEventForm}) => {
 {id:8,value:"Participants were reminded that the workshop area is a safe space and to treat each other respectfully and within the workshop guidelines." ,dataPoint:'reminderSafeSpace'},
 {id:9,value:"All participants completed a post-workshop evaluation form." ,dataPoint:'reminderPostEvaluationSurvey'},
 //{id:10,value:"Are sign-in sheets from last week up to date and stored appropriately?" ,state:''},
-{id:10,value:"Other (please specify)", dataPoint:'eventChecklistOther'}
+{id:10,value:"Other", dataPoint:'eventChecklistOther'}
 ]
 
 
@@ -25,12 +25,12 @@ const ProgramLeaders = ({eventForm,setEventForm}) => {
       <h2 className=" font-black">
       Program Leader and Staff only: Please check off all of the following events that you are aware happened today.
       </h2>
-      <div className="mt-7 grid grid-cols-2 space-between gap-5">
+      <div className="mt-7 grid md:grid-cols-2 space-between gap-5">
         {options &&
           options.map((option, index) => {
-            if(option.value==='Other (please specify)'){
+            if(option.value==='Other'){
                 return (
-                  <div className="flex gap-x-5">
+                  <div className="flex flex-col md:flex-row gap-5">
                   <label className="flex items-center gap-5 text-lg" key={index}>
               <input
                 type="checkbox"
@@ -48,7 +48,7 @@ const ProgramLeaders = ({eventForm,setEventForm}) => {
                 type="text"
                 name="programLeadersOther"
                 className=""
-                id={""}
+                placeholder='Please specify'
                 defaultValue={eventForm?.programLeadersOther}
                 onChange={(e)=> setEventForm(prev => ({...prev, eventChecklistOtherText: e.target.value}))}
               />

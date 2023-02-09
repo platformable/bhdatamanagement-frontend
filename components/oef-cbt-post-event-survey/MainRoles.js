@@ -11,7 +11,7 @@ const MainRoles = ({eventForm,setEventForm}) => {
 {id:3,value:"Co-facilitator"},
 {id:4,value:"Guest speaker"},
 {id:5,value:"Program/workshop support staff or intern"},
-{id:6,value:"Other (please specify)"}]
+{id:6,value:"Other"}]
 
 const [data,setData]=useState([...eventForm.mainRoles])
 
@@ -41,35 +41,35 @@ const [data,setData]=useState([...eventForm.mainRoles])
       <h2 className=" font-black">
         What was your primary role today?
       </h2>
-      <div className="mt-7 grid grid-cols-2 space-between gap-5">
+      <div className="mt-7 grid md:grid-cols-2 space-between gap-5">
         {options &&
           options.map((option, index) => {
-            if(option.value==='Other (please specify)'){
+            if(option.value==='Other'){
                 return (
-                  <div className="flex gap-x-5">
-                  <label className="flex items-center gap-5 text-lg" key={index}>
-              <input
-                type="checkbox"
-                name="mainRoles"
-                className=""
-                value={option.value}
-                id={index}
-                onChange={(e)=>handleForm(e.target.value)}
-                defaultChecked={eventForm?.mainRoles?.includes(option.value) ? 'checked' : ""}
-              />
-              {option.value}
-            </label>
-                  <label className="flex items-center gap-5 text-lg" key={""}>
-              <input
-                type="text"
-                name="mainRolesOther"
-                className=""
-                id={""}
-                defaultValue={eventForm?.mainRolesOther}
-                onChange={(e)=> setEventForm(prev => ({...prev, mainRolesOther: e.target.value}))}
-              />
-            </label>
-                  </div>
+                  <div className="flex flex-col md:flex-row gap-5 md:items-center">
+                     <label className="flex items-center gap-5 text-lg" key={index}>
+                        <input
+                          type="checkbox"
+                          name="mainRoles"
+                          className=""
+                          value={option.value}
+                          id={index}
+                          onChange={(e)=>handleForm(e.target.value)}
+                          defaultChecked={eventForm?.mainRoles?.includes(option.value) ? 'checked' : ""}
+                        />
+                        {option.value}
+                      </label>
+                     <label>
+                     <input
+                        type="text"
+                        name="mainRolesOther"
+                        placeholder='Please specify'
+                        id={""}
+                        defaultValue={eventForm?.mainRolesOther}
+                        onChange={(e)=> setEventForm(prev => ({...prev, mainRolesOther: e.target.value}))}
+                      />
+                     </label>
+                </div>
                 )
             } else {
             return (

@@ -39,7 +39,7 @@ const Race = ({ surveyForm, setSurveyForm }) => {
         Do you identify as:
       </h2>
       <p>Select all that apply</p>
-      <div className="mt-7 grid grid-cols-2 ">
+      <div className="mt-7 grid md:grid-cols-2 ">
         <div className="grid gap-5">
           {race.slice(0, Math.round(race.length / 2)).map((option) => (
             <label className="flex gap-x-5 items-center">
@@ -70,7 +70,8 @@ const Race = ({ surveyForm, setSurveyForm }) => {
                 <p className="">{option.value}</p>
               </label>
             ) : (
-              <label className="flex gap-x-5 items-center">
+              <label className="flex flex-col md:flex-row gap-5 md:items-center ">
+                <div className='flex gap-x-5 items-center'>
                 <input
                   type="checkbox"
                   className=""
@@ -80,6 +81,7 @@ const Race = ({ surveyForm, setSurveyForm }) => {
                   name="participantRace"
                 />
                 <p className="">{option.value}</p>
+                </div>
                 <input
                   type="text"
                   placeholder="Please specify"

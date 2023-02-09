@@ -17,7 +17,7 @@ import {
 import { useEffect } from "react";
 
 const fboDirectory = ({ fbos }) => {
-  console.log("events", fbos)
+  console.log("events", fbos);
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -39,12 +39,12 @@ const fboDirectory = ({ fbos }) => {
     endDate: null,
   });
   // async function downloadCalendar (base64) {
-    
+
   // }
   useEffect(() => {
     // events.map(event => {event.url_calendar = makeIcsFile(event)})
-  }, [])
-   function makeIcsFile(event) {
+  }, []);
+  function makeIcsFile(event) {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];
       const dateString = dateParts.split("-").join("");
@@ -53,7 +53,7 @@ const fboDirectory = ({ fbos }) => {
       return dateString + "T" + timeString;
     }
 
-    const ref=useRef('1')
+    const ref = useRef("1");
 
     const textData =
       "BEGIN:VCALENDAR" +
@@ -124,8 +124,7 @@ const fboDirectory = ({ fbos }) => {
       "DESCRIPTION:" +
       event?.onlineinpersoneventtype +
       " - " +
-      (event.onlineeventtypename
-        || event.inpersoneventtypename) +
+      (event.onlineeventtypename || event.inpersoneventtypename) +
       " - " +
       event?.eventdescription +
       "\n" +
@@ -142,7 +141,8 @@ const fboDirectory = ({ fbos }) => {
       ", " +
       String(event?.eventzipcode) +
       "\n" +
-      "URL:https://nblch.org" + "\n" +
+      "URL:https://nblch.org" +
+      "\n" +
       "SEQUENCE:2" +
       "\n" +
       // "LAST-MODIFIED:20220119T120306Z" + "\n" +
@@ -163,7 +163,7 @@ const fboDirectory = ({ fbos }) => {
 
     icsFile = window.URL.createObjectURL(data);
 
-    const  link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = icsFile;
     link.download = `${event?.eventname}.ics`;
     document.body.appendChild(link);
@@ -171,26 +171,20 @@ const fboDirectory = ({ fbos }) => {
     document.body.removeChild(link);
 
     return icsFile;
-  } 
-  const handleDeleteEvent=(id,eventName)=>{
-    console.log(id)
-    setSelectedEventToDelete({id:id,eventname:eventName})
-    setShowDeleteEventModal(!showDeleteEventModal)
   }
+  const handleDeleteEvent = (id, eventName) => {
+    console.log(id);
+    setSelectedEventToDelete({ id: id, eventname: eventName });
+    setShowDeleteEventModal(!showDeleteEventModal);
+  };
   const searchFunction = (word) => {
     setSearchWord(word);
     dispatch(searchEventByName({ word }));
   };
 
-
-
-
-
-
-/*   const sortedEventsByDate = events.sort(
+  /*   const sortedEventsByDate = events.sort(
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
   ); */
-
 
   return (
     <Layout showStatusHeader={true}>
@@ -199,67 +193,66 @@ const fboDirectory = ({ fbos }) => {
         dashboardBtn={true}
         backBtn={true}
       />
-      
 
-
-
-      <div className="container mx-auto md:flex block gap-x-5 justify-between md:px-0 px-5 md:gap-y-0" >
-      <Search searchFunction={searchFunction} />
-      <Link href="/oef/fbo/create">
-                <a className="rounded bg-black px-5 py-2 flex items-center  font-semibold shadow-xl md:mt-0 mt-5" id="myBtn">
-                {/* <Image src={authUserICon} width={31} height={29}/> */}
-                  <p className='ml-2 text-sm text-white'>Add a new FBO</p>
-                </a>
-              </Link>
+      <div className="container mx-auto md:flex block gap-x-5 justify-between md:px-0 px-5 md:gap-y-0">
+        <Search searchFunction={searchFunction} />
+        <Link href="/oef/fbo/create">
+          <a
+            className="rounded bg-black px-5 py-2 flex items-center  font-semibold shadow-xl md:mt-0 mt-5"
+            id="myBtn"
+          >
+            {/* <Image src={authUserICon} width={31} height={29}/> */}
+            <p className="ml-2 text-sm text-white">Add a new FBO</p>
+          </a>
+        </Link>
       </div>
 
-      <div className="events-cards-container grid md:grid-cols-4 lg:grid-cols-4 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
+      <section className="container mx-auto px-5 md:px-0">
+        <div
+          className={`grid ${
+            loggedUserRole === "Supervisor"
+              ? "directory-fbo-head-table"
+              : `directory-fbo-head-table`
+          } container mx-auto mt-10 rounded-t-lg py-3 px-5 md:px-7 bg-black text-white`}
+        >
+          {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
+          <p className="lg:text-xl font-bold flex items-center ">FBO name</p>
+          <p className="lg:text-xl font-bold flex items-center ">Borough</p>
+          <p className="lg:text-xl font-bold flex items-center ">Active</p>
+          <p className="lg:text-xl font-bold flex items-center ">
+            Key contact email
+          </p>
+          <p className=""></p>
+        </div>
 
-      <div
-        className={`hidden md:grid ${
-          loggedUserRole === "Supervisor"
-            ? "supervisor-directory-fbo-head-table"
-            : `directory-fbo-head-table`
-        } container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}
-      >
-        {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
-        <p className="lg:text-xl font-bold flex items-center ">FBO name</p>
-        <p className="lg:text-xl font-bold flex items-center ">Borough</p>
-        <p className="lg:text-xl font-bold flex items-center ">Active</p>
-        <p className="lg:text-xl font-bold flex items-center ">Key contact email</p>
-        <p></p>
-        <p></p>
-        <p></p>
-      </div>
-
-      <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
-        <div className="events-index-btn-container grid grid-cols-1 gap-3 p-0">
-          {fbos &&
-            fbos
-              ?.filter((fbo, index) => {
-                if (searchWord === "") {
-                  return fbo;
-                }
-                if (
-                  fbo.namefbo
-                    .toLowerCase()
-                    .includes(searchWord.toLowerCase()) ||
-                  fbo.namefbo.toLowerCase().includes(searchWord.toLowerCase())
-                ) {
-                  return fbo;
-                }
-              })
-              .map((fbo, index) => {
-                return (
-                  <>
-                    <div className="sm:hidden w-full">
+        <div className="container  mx-auto md:px-0 px-5 md:px-7  mb-10 pb-10 rounded-lg ">
+          <div className="events-index-btn-container overflow-x-auto grid grid-cols-1 gap-3 p-0">
+            {fbos &&
+              fbos
+                ?.filter((fbo, index) => {
+                  if (searchWord === "") {
+                    return fbo;
+                  }
+                  if (
+                    fbo.namefbo
+                      .toLowerCase()
+                      .includes(searchWord.toLowerCase()) ||
+                    fbo.namefbo.toLowerCase().includes(searchWord.toLowerCase())
+                  ) {
+                    return fbo;
+                  }
+                })
+                .map((fbo, index) => {
+                  return (
+                    <>
+                      {/* <div className="sm:hidden w-full">
                       <EventsCardItems
                         key={index}
                         id={fbo.id}
                         programName={fbo.programname}
                         eventdate={fbo.eventdate}
                         eventName={fbo.eventname}
-                        urlEdit={`events/${fbo.id}/nys_cmp/edit`}
+                        urlEdit={`/oef/fbo/${fbo.numberfbo}/`}
                         urlParticipantSurvey={`/events/${fbo.id}/participant-survey`}
                         urlUpload={`events/${fbo.id}/upload-event`}
                         urlPostEventSurvey={`events/${fbo.id}/post-event-survey`}
@@ -273,34 +266,38 @@ const fboDirectory = ({ fbos }) => {
                         makeIcsFile={makeIcsFile}
                         event={fbo}
                       />
-                    </div>
-                    <div className="hidden sm:block">
-                      <section
-                        key={index}
-                        className={`grid ${
-                          loggedUserRole === "Supervisor"
-                            ? "supervisor-directory-fbo-head-table"
-                            : "directory-fbo-head-table"
-                        } px-7 py-7  rounded shadow-md`}
-                      >
-                        {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
+                    </div> */}
+                      <div className="">
+                        <section
+                          key={index}
+                          className={`grid ${
+                            loggedUserRole === "Supervisor"
+                              ? "directory-fbo-head-table"
+                              : "directory-fbo-head-table"
+                          } gap-4 py-7  rounded shadow-md`}
+                        >
+                          {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
 
-                        <div className="flex items-center lg:text-xl font-bold ">
-                          {fbo.namefbo}
-                        </div>
-
-        <p className="lg:text-xl font-bold flex items-center ">{fbo.boroughfbo}</p>
-        <p className="lg:text-xl font-bold flex items-center ">{fbo.fboactive?'Active':'Not Active'}</p>
-        <p className="lg:text-xl font-bold flex items-center ">{fbo.emailkeycontact}</p>
-        <p></p>
-        <p></p>
-                        <Link href={`/oef/fbo/${fbo.numberfbo}/`}>
-                          <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
-                            <p className="leading-5">Edit FBO</p>
+                          <div className="flex items-center overflow-x-hidden lg:text-xl font-bold ">
+                            {fbo.namefbo}
                           </div>
-                        </Link>
 
-                        {loggedUserRole === "Supervisor" && (
+                          <p className="lg:text-xl font-bold flex items-center ">
+                            {fbo.boroughfbo}
+                          </p>
+                          <p className="lg:text-xl font-bold flex items-center ">
+                            {fbo.fboactive ? "Active" : "Not Active"}
+                          </p>
+                          <p className="lg:text-xl font-bold flex overflow-x-hidden  items-center">
+                            {fbo.emailkeycontact}
+                          </p>
+                          <Link href={`/oef/fbo/${fbo.numberfbo}/`}>
+                            <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
+                              <p className="leading-5">Edit FBO</p>
+                            </div>
+                          </Link>
+
+                          {/* {loggedUserRole === "Supervisor" && (
                           <div className="flex justify-center">
                             <button
                               className="bg-black lg:text-lg py-2 px-5 rounded-lg text-white"
@@ -311,13 +308,13 @@ const fboDirectory = ({ fbos }) => {
                               Delete FBO
                             </button>
                           </div>
-                        )}
-                      </section>
-                    </div>
-                  </>
-                );
-              })}
-          {/* {sortedEventsByDate && sortedEventsByDate.map((event, index) => (
+                        )} */}
+                        </section>
+                      </div>
+                    </>
+                  );
+                })}
+            {/* {sortedEventsByDate && sortedEventsByDate.map((event, index) => (
             <section key={index} className={`existing-events-head-table px-7 py-7 rounded shadow-md`}>
               <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div>
               <div className="flex items-center lg:text-xl font-bold ">{event.eventname}</div>
@@ -351,16 +348,17 @@ const fboDirectory = ({ fbos }) => {
               
             </section>
           ))} */}
+          </div>
+          {showDeleteEventModal && (
+            <DeleteFboModal
+              setShowDeleteEventModal={setShowDeleteEventModal}
+              showDeleteEventModal={showDeleteEventModal}
+              selectedEventToDelete={selectedEventToDelete}
+              id={selectedEventToDelete.id}
+            />
+          )}
         </div>
-        {showDeleteEventModal && (
-          <DeleteFboModal
-            setShowDeleteEventModal={setShowDeleteEventModal}
-            showDeleteEventModal={showDeleteEventModal}
-            selectedEventToDelete={selectedEventToDelete}
-            id={selectedEventToDelete.id}
-          />
-        )}
-      </div>
+      </section>
     </Layout>
   );
 };
@@ -369,9 +367,7 @@ export default fboDirectory;
 
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`
-    );
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`);
     const fbos = await response.json();
 
     return { props: { fbos } };

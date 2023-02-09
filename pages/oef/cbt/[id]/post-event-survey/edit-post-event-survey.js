@@ -137,7 +137,7 @@ eventChecklistOtherText:event?.eventchecklistothertext,
         <div className="container mx-auto md:px-0 px-5 items-center">
           <TopEventsInfo event={event} editPath={`/oef/cbt/${event?.eventid || event?.id}/events/edit`}/>
 
-          <div className="post-envent-form-container mt-10 border-black grid bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
+          <div className="mt-10 border-black bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
            
         <MainRoles eventForm={eventForm} setEventForm={setEventForm}/>
         <ProgramLeaders eventForm={eventForm} setEventForm={setEventForm} />
@@ -145,7 +145,7 @@ eventChecklistOtherText:event?.eventchecklistothertext,
         <EventOrganization eventForm={eventForm} setEventForm={setEventForm} title={'How satisfied were you with how the event was organized?'} state='eventOrganization'/>
         <EventWorkedBest eventForm={eventForm} setEventForm={setEventForm} />
         <EventImprove eventForm={eventForm} setEventForm={setEventForm} />
-        <EventOrganization eventForm={eventForm} setEventForm={setEventForm} title={'How satisfied were you with how the event was facilitated/delivered?'} state='eventDelivery'/>
+        <EventOrganization eventForm={eventForm} setEventForm={setEventForm} title={'How satisfied were you with how the event was facilitated / delivered?'} state='eventDelivery'/>
         <EventOrganization eventForm={eventForm} setEventForm={setEventForm} title={'How responsive and engaged do you think participants were?'} state='eventResponsive'/>
         <Engaged eventForm={eventForm} setEventForm={setEventForm} />
         <TopicFollowUp eventForm={eventForm} setEventForm={setEventForm} />

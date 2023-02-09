@@ -19,10 +19,10 @@ const NationalAwarenessDay = ({eventForm,setEventForm}) => {
 
     ]
     return (
-      <div className='question-body'>
-            <h2 className=' font-black'>Was this part of a National Awareness Day?</h2>
+      <div className='p-7'>
+            <h2 className=' font-black mb-7'>Was this part of a National Awareness Day?</h2>
 
-            <div className='grid grid-cols-2 gap-5'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
             {options && options.map(option => {
                
                 return (
@@ -42,7 +42,8 @@ const NationalAwarenessDay = ({eventForm,setEventForm}) => {
                     
                 </label>) :
                 
-                (<label className="flex items-center  gap-x-5" key={options.id}>
+                (<label className="flex flex-col md:flex-row md:items-center gap-5" key={options.id}>
+                    <div className='flex gap-x-5 md:items-center mb-5'>
                     <input type="radio" 
                     name="nationalAwarenessDay" 
                     className='' 
@@ -52,12 +53,13 @@ const NationalAwarenessDay = ({eventForm,setEventForm}) => {
                     defaultChecked={eventForm.nationalAwarenessDay === 'Other'?'checked':""}
                     />
                     <p className="">Other</p>
+                    </div>
                     <input type="text" 
                     name="nationalAwarenessDayOther" 
                     onChange={(e) =>
                         setEventForm(previous => ({...previous, nationalAwarenessDayOther: e.target.value}))
                     }
-                    className='border rounded' 
+                    className='border rounded md:w-3/6 w-5/6' 
                     defaultValue={eventForm?.nationalAwarenessDayOther}
 />
                  </label>)

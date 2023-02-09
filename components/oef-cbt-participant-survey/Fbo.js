@@ -8,7 +8,7 @@ const Fbo = ({ fbos, surveyForm, setSurveyForm }) => {
   return (
     <div className="question-body">
       <h2 className="font-black">Which FBO are you from?</h2>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid md:grid-cols-2 gap-5">
         <div className="grid gap-5">
         {fbos?.sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).slice(0, Math.round(fbos.length / 2)).map((fbo, index) => (
           <label className="flex gap-5 items-center">

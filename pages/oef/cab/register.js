@@ -81,7 +81,7 @@ const CABRegister = ({ fbos }) => {
           //notifyMessage();
         setTimeout(() => {
       router.push(`/oef/cab/${response.data.createdEventId}/post-event-survey/register`);
-       }, 1000);
+       }, 18000);
           console.log("response createdEventId",response.data.createdEventId)
         }
       })

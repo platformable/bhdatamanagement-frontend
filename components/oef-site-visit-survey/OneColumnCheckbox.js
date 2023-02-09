@@ -34,7 +34,7 @@ const OneColumnCheckbox = ({options, surveyForm,dispatch,updateFunction,title,st
           options?.map((option, index) => {
             if(option.value==='Other'){
                 return (
-                  <div className="flex gap-x-5">
+                  <div className="flex md:flex-row flex-col gap-x-5 gap-y-5 md:gap-y-0">
                   <label className="flex items-center gap-5 text-lg" key={index}>
               <input
                 type="checkbox"
@@ -52,6 +52,7 @@ const OneColumnCheckbox = ({options, surveyForm,dispatch,updateFunction,title,st
                 type="text"
                 name=""
                 className=""
+                placeholder='Please specify'
                 id={""}
                 //defaultValue={surveyForm[stateValue]+'Other'}
                 onChange={(e)=>dispatch(updateFunctionOther({[stateValue+'Other']:e.target.value}))}
