@@ -60,7 +60,7 @@ export const ParticipantSurveySection32 = ({ surveyForm, setSurveyForm }) => {
         {/* <span className="">32 </span>  */}
         How did you hear about this event?
       </h2>
-      <div className="mt-7 grid grid-cols-2 space-between gap-5">
+      <div className="mt-7 grid grid-cols-1 md:grid-cols-2 space-between gap-5">
         <div className="grid gap-5">
           {options
             ?.slice(0, Math.round(options.length / 2))
@@ -102,7 +102,8 @@ export const ParticipantSurveySection32 = ({ surveyForm, setSurveyForm }) => {
                   />
                   {option.value}
                 </div>
-                {option.value === "Other" ? (<input
+                {option.value === "Other" ? (
+                <input
                   type="text"
                   // placeholder="Please specify"
                   onChange={(e) =>

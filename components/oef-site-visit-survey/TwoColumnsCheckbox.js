@@ -30,12 +30,12 @@ const TwoColumnCheckbox = ({options, surveyForm,dispatch,updateFunction,title,st
         {title}
       </h2>
       {message&& <p>{message}</p>}
-      <div className="mt-7 grid grid-cols-2 space-between gap-5">
+      <div className="mt-7 grid grid-cols-1 md:grid-cols-2 space-between gap-5">
         {options &&
           options?.map((option, index) => {
             if(option.value==='Other'){
                 return (
-                  <div className="flex gap-x-5">
+                  <div className="flex md:flex-row flex-col gap-x-5 md:gap-y-0 gap-y-5">
                   <label className="flex items-center gap-5 text-lg" key={index}>
               <input
                 type="checkbox"

@@ -12,7 +12,7 @@ const TargetAudience = ({eventForm, setEventForm}) => {
 {id:5,value:"Trans/Non-binary people"},
 {id:6,value:"Lesbian/Gay/Bisexual people"},
 {id:7,value:"MSM: Men who have sex with men, regardless of their sexual identity"},
-{id:8,value:"Other (please specify)"},
+{id:8,value:"Other"},
 
   ]
   
@@ -45,16 +45,17 @@ const TargetAudience = ({eventForm, setEventForm}) => {
       <h2 className=" font-black">
         Who was your target audience? Select all that apply.
       </h2>
-      <div className="mt-7 grid grid-cols-2 space-between gap-5">
+      <div className="mt-7 grid grid-cols-1 md:grid-cols-2 space-between gap-5">
         {options &&
           options.map((option, index) => {
-            if(option.value==='Other (please specify)'){
+            if(option.value==='Other'){
                 return (
-                  <div className="flex gap-x-5">
+                  <div className="flex flex-col md:flex-row gap-x-5 gap-y-5">
                   <label className="flex items-center gap-5 text-lg" key={index}>
               <input
                 type="checkbox"
                 name="targetAudience"
+                placeholder='Please specify'
                 className=""
                 value={option.value}
                 id={index}
@@ -67,7 +68,7 @@ const TargetAudience = ({eventForm, setEventForm}) => {
               <input
                 type="text"
                 name="targetAudienceOther"
-                className=""
+                className='border rounded md:w-full w-5/6' 
                 id={""}
                 defaultValue={eventForm?.targetAudienceOther}
                 onChange={(e)=> setEventForm(prev => ({...prev, targetAudienceOther: e.target.value}))}

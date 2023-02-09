@@ -12,7 +12,7 @@ export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
         {/* <span className="">5</span>  */}
         How do you describe yourself? 
       </h2>
-      <div className="mt-7 grid grid-cols-2 space-between gap-5">
+      <div className="mt-7 grid grid-cols-1 md:grid-cols-2 space-between gap-5">
       <div className='grid gap-5'>
       {gender?.slice(0, 8 / 2).map(option => (
         <label className="flex gap-x-5 items-center">
@@ -23,9 +23,11 @@ export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
       </div>
       <div className='grid gap-5'>
       {gender?.slice(8 / 2).map(option => option.value === 'Other gender identity' ? (
-        <label className="flex gap-x-5 items-center">
+        <label className="flex flex-col md:flex-row gap-x-5 md:items-center md:gap-y-0 gap-y-5">
+          <div className="flex  gap-5">
         <input type="radio" className=" " value={option.value} id={option.id} onChange={handleForm} name="participantGender" />
         <p className="">{option.value}</p>
+        </div>
         <input
           type="text"
           placeholder="Please specify"

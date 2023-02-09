@@ -8,7 +8,7 @@ const Section3 = ({ fbos, eventForm, setEventForm }) => {
   return (
     <div className="">
       <h2 className="font-black">The name of your Faith-Based Organization:</h2>
-      <div className="grid grid-cols-2 mt-7 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 mt-7 gap-5">
         <div className="grid gap-5">
         {fbos?.sort((a, b) => a.namefbo.localeCompare(b.namefbo, 'en')).slice(0, Math.round(fbos?.length / 2)).map((fbo, index) => (
           <label className="flex gap-5">
