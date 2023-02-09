@@ -646,31 +646,30 @@ label > textarea {
 
 .supervisor-existing-fbo-events-head-table {
  
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1.fr;
   gap: 30px;
 }
 
 .supervisor-directory-fbo-head-table {
  
-  grid-template-columns: 4.5fr 2fr 2fr 3fr 1fr 1fr 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: 4.5fr 1.8fr 1.3fr 3fr 1fr 1fr;
+  gap: 1.25rem
 }
 .directory-fbo-head-table {
  
-  grid-template-columns: 4.5fr 2fr 2fr 3fr 1fr 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: 4.5fr 1.8fr 1.3fr 3fr 1fr;
+  gap: 1.25rem
 }
 
 .technical-assistance-head-table {
  
   grid-template-columns: 1fr 2fr 2fr 2fr 1.5fr 1fr 1.5fr 0.6fr ;
-  gap: 15 px;
+  gap: 15px;
 }
 
 .site-visits-head-table {
  
   grid-template-columns: 2fr 2fr 2fr 2fr 1fr;
-  gap: 15 px;
 }
 
 /* PARTICIPANT SURVEY */

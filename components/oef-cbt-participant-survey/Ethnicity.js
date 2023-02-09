@@ -12,7 +12,7 @@ const Ethnicity = ({surveyForm, setSurveyForm}) => {
         {/* <span className="">4</span>  */}
         Are you of Hispanic, Latino/a, or Spanish origin?
       </h2>
-      <div className="mt-7 grid grid-cols-2 space-between gap-5">
+      <div className="mt-7 grid md:grid-cols-2 space-between gap-5">
       <div className='grid gap-5'>
       {ethnicity?.slice(0, Math.round(ethnicity.length /2)).map(option => (
         <label className="flex gap-x-5 items-center">
@@ -28,9 +28,11 @@ const Ethnicity = ({surveyForm, setSurveyForm}) => {
         <p className="">{option.value}</p>
       </label>
       ): (
-        <label className="flex gap-x-5 items-center">
-        <input type="radio" className="" value={option.value} id={option.id} onChange={handleForm} name="participantEthnicity" />
-        <p className="">{option.value}</p>
+        <label className="flex flex-col md:flex-row gap-5 md:items-center">
+        <div className='flex gap-5 '>
+          <input type="radio" className="" value={option.value} id={option.id} onChange={handleForm} name="participantEthnicity" />
+          <p className="">{option.value}</p>
+        </div>
         <input
           type="text"
           placeholder="Please specify"

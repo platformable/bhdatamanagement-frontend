@@ -8,7 +8,7 @@ const PageTopHeading = ({ pageTitle,dashboardBtn,backBtn }) => {
   return (
     <section className="pt-10 bg-white">
       <div className="container mx-auto md:px-0 px-5">
-        <div className="flex btn-dashboard gap-x-7">
+        <div className="flex btn-dashboard gap-5 md:gap-x-7">
           {backBtn && <BackBtn/>}
           {dashboardBtn && <DashboardBtn />} 
         </div>

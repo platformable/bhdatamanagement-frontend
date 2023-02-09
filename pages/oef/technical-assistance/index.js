@@ -160,10 +160,8 @@ const EventsIndex = ({ technicalAssistance }) => {
         </div>
       </div>
 
-      <div className="events-cards-container grid md:grid-cols-8 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
-      {/*  HEAD TABLE  */}
-      <div className={`hidden md:grid technical-assistance-head-table container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
-        {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
+      <div className=" container mx-auto px-3 md:px-0 mt-10">
+      <div className={`overflow-x-auto grid technical-assistance-head-table  rounded-t-lg py-3 px-7 bg-black text-white`}>
         <p className="lg:text-xl font-bold flex items-center ">Name</p>
         <p className="lg:text-xl font-bold flex items-center ">FBO</p>
         <p className="lg:text-xl font-bold flex items-center justify-center">Type of Assistance</p>
@@ -174,8 +172,8 @@ const EventsIndex = ({ technicalAssistance }) => {
         <p className="lg:text-xl font-bold flex items-center justify-center">Review</p>
       </div>
 
-      <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
-        <div className="events-index-btn-container grid grid-cols-1 gap-x-3 p-0">
+      <div className=" container mx-auto md:px-0 mb-10 pb-10 rounded-lg ">
+        <div className="events-index-btn-container overflow-x-auto grid grid-cols-1 gap-x-3 p-0">
           {sortedEventsByDate &&
             sortedEventsByDate
               .filter((event, index) => {
@@ -230,43 +228,42 @@ const EventsIndex = ({ technicalAssistance }) => {
                         event={event}
                       />
                     </div> */}
-                    <div className="hidden sm:block">
+                    <div className="block  ">
                       <section
                         key={index}
                         className={`grid technical-assistance-head-table px-7  rounded border-b-2 `}
                       >
-                        {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
                         <div className="flex items-center lg:text-xl font-bold  py-7">
-                          {event.tacontactname}
+                          {event?.tacontactname}
                         </div>
-                        <div className="flex items-center lg:text-xl font-bold py-7">
-                          {event.tafbo.join(', ')}
+                        <div className="flex items-center  lg:text-xl font-bold py-7">
+                          {event?.tafbo.join(', ')}
                         </div>
                         
                         <div className="flex items-center lg:text-xl font-bold justify-center text-center">
-                        {event.tatype.join(', ')}
+                        {event?.tatype.join(', ')}
 
                         </div>
 
                         <div className="flex items-center lg:text-xl font-bold overflow-hidden">
-                        {event.taemail}
+                        {!event?.taemail? '-' : event?.taemail}
                         </div>
                    
    
                         <div className="flex items-center lg:text-xl font-bold justify-center">
                           {
-                            event.tadatesubmitted &&
+                            event?.tadatesubmitted &&
                               new Date(event?.tadatesubmitted).toLocaleDateString(
                                 "en-US"
                               )
                           } 
                         </div>
                         <div className={`flex items-center text-center justify-center lg:text-xl font-bold  py-7 ${changeStatusBg(event.tastatus)}`}>
-                          <p className="text-center">{event.tastatus}</p>
+                          <p className="text-center">{event?.tastatus}</p>
                         </div>
                         <div className="flex items-center lg:text-xl font-bold justify-center">
                         {
-                            event.tastatuscompletedate ?
+                            event?.tastatuscompletedate ?
                               new Date(event?.tastatuscompletedate).toLocaleDateString(
                                 "en-US"
                               ):'-'
@@ -330,6 +327,9 @@ const EventsIndex = ({ technicalAssistance }) => {
           />
         )}
       </div>
+      </div>
+      {/*  HEAD TABLE  */}
+      
     </Layout>
   );
 };
