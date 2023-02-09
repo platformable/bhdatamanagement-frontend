@@ -228,7 +228,7 @@ const EventsIndex = ({ events }) => {
         backBtn={true}
       />
 
-      <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5">
+      <div className="container mx-auto grid  items-center grid-cols-1 container mx-auto md:px-0 px-5 md:mb-5 gap-5">
         <div className="flex gap-5">
           <a
             href="/oef/register"
@@ -253,10 +253,10 @@ const EventsIndex = ({ events }) => {
             
           </a>
         </div>
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row gap-5 md:gap-0 md:justify-between">
         <Search searchFunction={searchFunction} />
 
-          <div className="flex items-center gap-5">
+          <div className="flex flex-col md:flex-row items-center gap-5">
           <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
             <h3 className="">Filter by date</h3>
           </div>
@@ -278,7 +278,7 @@ const EventsIndex = ({ events }) => {
                 className="border-black rounded-md text-sm w-full"
               />
             </label>
-            <h3 className="text-left md:text-center md:py-5 md:py-0 py-5">and</h3>
+            <h3 className="text-left md:text-center md:py-5 md:py-0 py-5 text-center">and</h3>
             <label className="flex justify-end w-full">
               <input
                 type="date"
@@ -300,7 +300,7 @@ const EventsIndex = ({ events }) => {
         </div>
       </div>
 
-      <div className="events-cards-container grid md:grid-cols-6 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
+      {/* <div className="events-cards-container grid md:grid-cols-6 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div> */}
       {/*  HEAD TABLE  */}
       <div className={`hidden md:grid supervisor-existing-fbo-events-head-table container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
@@ -312,8 +312,8 @@ const EventsIndex = ({ events }) => {
         <p className="lg:text-xl font-bold flex items-center justify-center">Review</p>
       </div>
 
-      <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
-        <div className="events-index-btn-container grid grid-cols-1 gap-x-3 p-0">
+      <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg mt-10">
+        <div className="events-index-btn-container grid grid-cols-1 gap-x-3 gap-y-3 p-0">
           {sortedEventsByDate &&
             sortedEventsByDate
               ?.filter((event,index)=>event.programname==='OEF' && event?.surveyname === 'oef-fbo-outreach')
@@ -357,7 +357,7 @@ const EventsIndex = ({ events }) => {
               
                 return (
                   <>
-                    <div className="sm:hidden w-full">
+                    {/* <div className="sm:hidden w-full">
                       <EventsCardItems
                         key={index}
                         id={event.id}
@@ -378,11 +378,10 @@ const EventsIndex = ({ events }) => {
                         makeIcsFile={makeIcsFile}
                         event={event}
                       />
-                    </div>
-                    <div className="hidden sm:block">
+                    </div> */}
                       <section
                         key={index}
-                        className={`grid supervisor-existing-fbo-events-head-table px-7  rounded border-b-4 `}
+                        className='md:grid  supervisor-existing-fbo-events-head-table px-7 py-3 rounded-t-lg rounded-b-lg border-black'
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
                         <div className="flex items-center lg:text-xl font-bold  py-7">
@@ -453,7 +452,6 @@ const EventsIndex = ({ events }) => {
                           </div>
                         )} */}
                       </section>
-                    </div>
                   </>
                 );
               })}
