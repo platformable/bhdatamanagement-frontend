@@ -645,13 +645,11 @@ label > textarea {
 .supervisor-directory-fbo-head-table {
  
   grid-template-columns: 4.5fr 1.8fr 1.3fr 3fr 1fr 1fr;
-  padding-right: 1rem;
   gap: 1.25rem
 }
 .directory-fbo-head-table {
  
   grid-template-columns: 4.5fr 1.8fr 1.3fr 3fr 1fr;
-  padding-right: 1rem;
   gap: 1.25rem
 }
 

@@ -99,7 +99,7 @@ const EventsIndex = ({ events }) => {
       <div className="container mx-auto flex flex-col md:flex-row container mx-auto md:px-0 px-5 md:mb-5 gap-5 justify-between">
         <a
           href="/oef/cab/register"
-          className="flex flex-col gap-y-2 lg:flex-row  gap-x-2 bg-black  px-10 py-2 rounded text-white  self-center cursor-pointer"
+          className="flex items-center justify-center bg-black px-10 py-2 rounded text-white  cursor-pointer"
           target="_blank"
           rel="noreferrer"
         >
