@@ -11,7 +11,7 @@ export default function SearchEvents({ searchFunction }) {
 
 
       <div className="block md:flex ">
-        <div className="block md:flex border-1  rounded-lg  rounded-lg w-full w-80">
+        <div className="block md:flex border-1  rounded-lg  rounded-lg w-full md:w-80">
           <label
             htmlFor="default-search"
             className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"

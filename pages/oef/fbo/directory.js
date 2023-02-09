@@ -228,8 +228,6 @@ const fboDirectory = ({ fbos }) => {
         <p className="lg:text-xl font-bold flex items-center ">Active</p>
         <p className="lg:text-xl font-bold flex items-center ">Key contact email</p>
         <p></p>
-        <p></p>
-        <p></p>
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
@@ -252,14 +250,14 @@ const fboDirectory = ({ fbos }) => {
               .map((fbo, index) => {
                 return (
                   <>
-                    <div className="sm:hidden w-full">
+                    {/* <div className="sm:hidden w-full">
                       <EventsCardItems
                         key={index}
                         id={fbo.id}
                         programName={fbo.programname}
                         eventdate={fbo.eventdate}
                         eventName={fbo.eventname}
-                        urlEdit={`events/${fbo.id}/nys_cmp/edit`}
+                        urlEdit={`/oef/fbo/${fbo.numberfbo}/`}
                         urlParticipantSurvey={`/events/${fbo.id}/participant-survey`}
                         urlUpload={`events/${fbo.id}/upload-event`}
                         urlPostEventSurvey={`events/${fbo.id}/post-event-survey`}
@@ -273,8 +271,8 @@ const fboDirectory = ({ fbos }) => {
                         makeIcsFile={makeIcsFile}
                         event={fbo}
                       />
-                    </div>
-                    <div className="hidden sm:block">
+                    </div> */}
+                    <div className="">
                       <section
                         key={index}
                         className={`grid ${
@@ -285,15 +283,13 @@ const fboDirectory = ({ fbos }) => {
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
 
-                        <div className="flex items-center lg:text-xl font-bold ">
+                        <div className="flex items-center overflow-x-hidden lg:text-xl font-bold ">
                           {fbo.namefbo}
                         </div>
 
-        <p className="lg:text-xl font-bold flex items-center ">{fbo.boroughfbo}</p>
-        <p className="lg:text-xl font-bold flex items-center ">{fbo.fboactive?'Active':'Not Active'}</p>
-        <p className="lg:text-xl font-bold flex items-center ">{fbo.emailkeycontact}</p>
-        <p></p>
-        <p></p>
+                        <p className="lg:text-xl font-bold flex items-center ">{fbo.boroughfbo}</p>
+                        <p className="lg:text-xl font-bold flex items-center ">{fbo.fboactive?'Active':'Not Active'}</p>
+                        <p className="lg:text-xl font-bold flex items-center overflow-x-hidden">{fbo.emailkeycontact}</p>
                         <Link href={`/oef/fbo/${fbo.numberfbo}/`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Edit FBO</p>

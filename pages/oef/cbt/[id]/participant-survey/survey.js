@@ -17,7 +17,7 @@ import ParticipantSuggestions from '../../../../../components/oef-cbt-participan
 import PresenterExplainWell from '../../../../../components/oef-cbt-participant-survey/PresenterExplainWell'
 import Race from '../../../../../components/oef-cbt-participant-survey/Race'
 import ParticipantTools from '../../../../../components/oef-cbt-participant-survey/ParticipantTools'
-
+import ExternalSurveyHeader from '../../../../../components/ExternalSurveyHeader'
 
 
 
@@ -132,20 +132,8 @@ participantTools:""
   return (
     <>
       <div>
-        <div className="h-88 py-10 container mx-auto mt-3 flex flex-col items-center rounded-lg border-black">
-          <h1 className="text-center font-black">
-          CBT Post-Workshop Participation Survey
-          </h1>
-          <div className="flex items-center gap-5 mt-5">
-            <h2 className="pt-2">In partnership with</h2>
-            <img
-              src="/main/BH_logo.svg"
-              alt="black health data app management logo"
-              width={400}
-              className=""
-            />{" "}
-          </div>
-        </div>
+        
+        <ExternalSurveyHeader pageTitle={'CBT Post-Workshop Participation Survey'}/>
         <ToastContainer autoClose={1500} />
         
         <main className="container mx-auto  md:px-0 px-5">
