@@ -1,10 +1,12 @@
 
 //  Use this function to reverse dates in case they dont come from the Server, to change order in USA
 export const reverseDate = (date) => {
-  const splitted = new Date(date).toISOString().split("T");
+  let dateData = date ? new Date(date) : new Date()
+  const splitted = dateData.toISOString().split("T");
   const reverse = splitted[0].split("-");
   const result = reverse[1] + "/" + reverse[2] + "/" + reverse[0];
   return result;
+
 };
 
 // this should be in onWheelCapture

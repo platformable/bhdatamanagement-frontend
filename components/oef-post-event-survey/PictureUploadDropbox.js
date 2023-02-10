@@ -68,13 +68,14 @@ const PictureUploadDropbox = ({path, title, FileUploadedMessage, index}) => {
      <div className="question-body">
             <h2 className="font-black">{title}</h2>
             <p>You can upload more than one image - please upload one image at a time</p>
+            <p>File types accepted: .txt .pdf .csv .xlsx .jpg .png .jpeg .docx/doc .zip .mp4 .pptx/ppt</p>
             <input
               type="file"
               id={`image${index}`}
               hidden
               name="file"
               onChange={(event) => onSubmitFile(event)}
-              accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx"
+              accept=".txt, .pdf, .csv, .xlsx, .jpg, .png, .jpeg, .docx, .doc, .zip, .mp4, .pptx, .ppt"
             />
             <section className="flex justify-start gap-5 items-center mt-7">
               <label
