@@ -72,13 +72,15 @@ const DropboxDocumentUpload = ({path, title, FileUploadedMessage, forValue}) => 
           </h2>
           <p>You can upload more than one file - please upload one file at a time</p>
           
+          <p>File types accepted: .txt .pdf .csv .xlsx .jpg .png .jpeg .docx/doc .zip .mp4 .pptx/ppt</p>
+          
           <input
             type="file"
             id={`document${forValue}`}
             hidden
             name="file"
             onChange={(event) => onSubmitFile(event)}
-            accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx"
+            accept=".txt, .pdf, .csv, .xlsx, .jpg, .png, .jpeg, .docx, .doc, .zip, .mp4, .pptx, .ppt"
           />
           <section className="flex justify-start gap-5 items-center mt-7 mr-2">
             <label
