@@ -94,7 +94,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     </button>
                   </div>
                 </Link>
-                <Link href={`/oef/reports/oef-participant-sign-in-sheet`}>
+                <Link href={`/oef/reports/oef_participant_sign_in_sheet`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">

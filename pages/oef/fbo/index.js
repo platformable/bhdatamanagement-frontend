@@ -381,7 +381,7 @@ const EventsIndex = ({ events }) => {
                     </div> */}
                       <section
                         key={index}
-                        className='md:grid  supervisor-existing-fbo-events-head-table px-7 py-3 rounded-t-lg rounded-b-lg border-black'
+                        className='md:grid  supervisor-existing-fbo-events-head-table px-7  rounded-t-lg rounded-b-lg shadow-lg'
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
                         <div className="flex items-center lg:text-xl font-bold  py-7">
