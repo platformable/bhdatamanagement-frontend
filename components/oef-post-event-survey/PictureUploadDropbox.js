@@ -74,7 +74,7 @@ const PictureUploadDropbox = ({path, title, FileUploadedMessage, index}) => {
               hidden
               name="file"
               onChange={(event) => onSubmitFile(event)}
-              accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx"
+              accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx,.mp4,.mov"
             />
             <section className="flex justify-start gap-5 items-center mt-7">
               <label

@@ -78,7 +78,7 @@ const DropboxDocumentUpload = ({path, title, FileUploadedMessage,forValue}) => {
             hidden
             name="file"
             onChange={(event) => onSubmitFile(event)}
-            accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx"
+            accept=".txt,.pdf,.csv,.xlsx,.jpg,.png,.jpeg,.docx,.zip,.ppt,pptx"
           />
           <section className="flex justify-start gap-5 items-center mt-7 mr-2">
             <label
