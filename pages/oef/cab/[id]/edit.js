@@ -75,7 +75,7 @@ const CABEdit = ({ event,fbos }) => {
       .put(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/cab/update`, eventForm)
       .then((response) => {
         if (response.data.statusText === "OK") {
-          setShowResponseStatus(false)
+          // setShowResponseStatus(false)
           setLoading(false);
           router.push(`/oef/cab/${eventForm?.id}/post-event-survey/edit`);
 

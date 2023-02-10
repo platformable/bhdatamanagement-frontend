@@ -3,18 +3,46 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import CSVHIVOutreachParticipantSignInSheet from "../../../../components/csv-reports/CSVHIVOutreachParticipantSignInSheet";
-
-const ReportPicker = ({ participantReport, pageTitle }) => {
+export const allHeaders = {
+  oef_participant_sign_in_sheet: [
+      "id",
+      "surveyname",
+      "programId",
+      "programName",
+      "eventDate",
+      "deliveryPartner",
+      "participantZipCode",
+      "ageId",
+      "participantAgeRange",
+      "raceId",
+      "participantRace",
+      "participantRaceOther",
+      "ethnicityId",
+      "participantEthnicity",
+      "participantEthnicityOther",
+      "genderId",
+      "participantGender",
+      "orientationId",
+      "participantOrientation",
+      "participantOrientationOther",
+      "participantReferral",
+      "participantReferralOther",
+      "participantSuggestions",
+  ]
+}
+const ReportPicker = ({ participantReport, pageTitle, surveyName }) => {
 //   console.log("report", participantReport);
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
   });
+
   const [selectedCSV, setSelectedCSV] = useState([]);
-  const [headers, setHeaders] = useState([]);
+  // const [headers, setHeaders] = useState([]);
   const csvNowDate = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
   });
+  // console.log();
   useEffect(() => {
     const cerohoursDate = new Date(selectedDate.start).setHours(0);
     console.log("selectedDate", selectedDate);
@@ -69,10 +97,10 @@ const ReportPicker = ({ participantReport, pageTitle }) => {
           {selectedCSV && (
             <CSVHIVOutreachParticipantSignInSheet
               csvData={selectedCSV}
+              headers={allHeaders[surveyName]}
               fileName={`OEF_HIV_Outreach_sign_in_sheet${
                 csvNowDate.split(",")[0]
               }.csv`}
-              headers={headers}
             />
           )}
         </div>
@@ -89,7 +117,7 @@ export const getServerSideProps = withPageAuthRequired({
 
    const reportNameFromSurveyName = () => {
     switch (surveyName) {
-        case "oef-participant-sign-in-sheet":
+        case "oef_participant_sign_in_sheet":
           return {
             surveyRoute: "participant_survey",
             pageTitle: "Download OEF Participant Sign-In sheet data"
@@ -105,7 +133,8 @@ export const getServerSideProps = withPageAuthRequired({
     return {
       props: {
         participantReport: participantReport,
-        pageTitle: pageTitle
+        pageTitle: pageTitle,
+        surveyName: surveyName
       },
     };
   },

@@ -38,7 +38,7 @@ const CABRegister = ({ fbos }) => {
     eventDateCreated: new Date(),
     programId:"1",
     programName:"OEF",
-    eventDate:"",
+    eventDate: new Date().toISOString().split("T")[0],
     eventStartTime:"",
     eventFinishTime:"",
     healthAreaOfFocusId:[6],
@@ -70,17 +70,15 @@ const CABRegister = ({ fbos }) => {
     setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
     setShowResponseStatus(true)
 
-    //notifyMessage()
    
     await axios
       .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/cab/create`, eventForm)
       .then((response) => {
         if (response.data.statusText === "OK") {
-          setShowResponseStatus(false)
-          setLoading(false);
           //notifyMessage();
         setTimeout(() => {
-      router.push(`/oef/cab/${response.data.createdEventId}/post-event-survey/register`);
+          setLoading(false);
+          router.push(`/oef/cab/${response.data.createdEventId}/post-event-survey/register`);
        }, 18000);
           console.log("response createdEventId",response.data.createdEventId)
         }
