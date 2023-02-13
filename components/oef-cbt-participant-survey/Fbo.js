@@ -3,7 +3,7 @@ import React from "react";
 const Fbo = ({ fbos, surveyForm, setSurveyForm }) => {
   console.log();
   const handleForm = (e) => {
-    setSurveyForm((prev) => ({ ...prev, fbo: e.target.value }));
+    setSurveyForm((prev) => ({ ...prev, deliveryPartner: e.target.value }));
   };
   return (
     <div className="question-body">
