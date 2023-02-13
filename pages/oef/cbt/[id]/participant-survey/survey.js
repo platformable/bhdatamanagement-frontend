@@ -56,7 +56,7 @@ informationUseful:"",
 canApply:"",
 presenterExplainWell:"",
 understoodTopics:"",
-fbo:"",
+deliveryPartner:"",
 participantSuggestions:"",
 participantTools:""
   });
