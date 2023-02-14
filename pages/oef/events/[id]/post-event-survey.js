@@ -394,7 +394,7 @@ console.log(event)
                   eventForm={eventForm}
                   setEventForm={setEventForm}
                 />
-                <button
+                {/* <button
                   disabled={
                     !eventForm.hivTesting &&
                     !eventForm.hepCTesting &&
@@ -404,11 +404,11 @@ console.log(event)
                   onClick={() => setShowDemographicsSection((prev) => !prev)}
                 >
                   Next
-                </button>
+                </button> */}
               </div>
             )}
 
-            {eventForm.hivTesting && showDemographicsSection && (
+            {eventForm.hivTesting && (
               <PostEventReportSection23
                 eventForm={eventForm}
                 setEventForm={setEventForm}
@@ -418,7 +418,7 @@ console.log(event)
               </PostEventReportSection23>
             )}
 
-            {eventForm?.hepCTesting && showDemographicsSection && (
+            {eventForm?.hepCTesting && (
               <PostEventReportSection25
                 eventForm={eventForm}
                 setEventForm={setEventForm}
@@ -428,7 +428,7 @@ console.log(event)
               </PostEventReportSection25>
             )}
 
-            {eventForm?.otherTesting && showDemographicsSection && (
+            {eventForm?.otherTesting && (
               <>
                 <OtherTesting
                   eventForm={eventForm}
