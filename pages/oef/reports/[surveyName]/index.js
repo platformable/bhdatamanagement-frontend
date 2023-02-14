@@ -207,66 +207,186 @@ export const allHeaders = {
     "onelineDescription",
     "oefEventPresentationTopic",
   ],
-  cbt_quaterly:[
-  'programId',
-  'programName',
-  'surveyName',
-  'surveyCompleted',
-  'deliveryPartner',
-  'fboPosition',
-  'participantCbtActions',
-  'participantHivKnowledge',
-  'participantPrepKnowledge',
-  'participantPrepResourceKnowledge',
-  'participantConsentKnowledge',
-  'participantStiInfectionKnowledge',
-  'participantPepUsageKnowledge',
-  'participantPrepUse',
-  'participantCreateSurvey',
-  'participantSurveyTool',
-  'participantSurveyGoal',
-  'participantDataCollecting',
-  'participantDataComfort',
-  'participantDataUse',
-  'participantDataUseOther',
-  'participantFboEngagement',
-  'participantFboImprove',
-  'participantFboFeedbackResponse',
-  'participantInfoUnderstandable',
-  'participantInfoAccessible',
-  'participantCabCreation',
-  'participantCabRecruitment',
-  'participantCabImpact',
-  'participantCabMembers',
-  'participantFboStrategy',
-  'participantTargetGroups',
-  'participantTargetGroupsOther',
-  'participantYouthMinistryCreation',
-  'participantYouthMinistryRecruitment',
-  'participantFboYouth',
-  'participantGrantsIdentify',
-  'participantGrantsApplied',
-  'participantGrantsProcess',
-  'participantGrantsMore',
-  'participantGrantsSuccess',
-  'participantGrantsWhySuccess',
-  'participantGrantsLearned',
-  'participantGrantsSuccessMore'
-  ]
+  cbt_quarterly: [
+    "programId",
+    "programName",
+    "surveyName",
+    "surveyCompleted",
+    "deliveryPartner",
+    "fboPosition",
+    "participantCbtActions",
+    "participantHivKnowledge",
+    "participantPrepKnowledge",
+    "participantPrepResourceKnowledge",
+    "participantConsentKnowledge",
+    "participantStiInfectionKnowledge",
+    "participantPepUsageKnowledge",
+    "participantPrepUse",
+    "participantCreateSurvey",
+    "participantSurveyTool",
+    "participantSurveyGoal",
+    "participantDataCollecting",
+    "participantDataComfort",
+    "participantDataUse",
+    "participantDataUseOther",
+    "participantFboEngagement",
+    "participantFboImprove",
+    "participantFboFeedbackResponse",
+    "participantInfoUnderstandable",
+    "participantInfoAccessible",
+    "participantCabCreation",
+    "participantCabRecruitment",
+    "participantCabImpact",
+    "participantCabMembers",
+    "participantFboStrategy",
+    "participantTargetGroups",
+    "participantTargetGroupsOther",
+    "participantYouthMinistryCreation",
+    "participantYouthMinistryRecruitment",
+    "participantFboYouth",
+    "participantGrantsIdentify",
+    "participantGrantsApplied",
+    "participantGrantsProcess",
+    "participantGrantsMore",
+    "participantGrantsSuccess",
+    "participantGrantsWhySuccess",
+    "participantGrantsLearned",
+    "participantGrantsSuccessMore",
+  ],
+  technical_assistance_request: [
+    "programId",
+    "programName",
+    "surveyName",
+    "taDateSubmitted",
+    "surveyCreated",
+    "surveyModified",
+    "taType",
+    "taTypeOther",
+    "taReason",
+    "taContactName",
+    "taEmail",
+    "taPhone",
+    "taFbo",
+    "taFboOther",
+    "taStatus",
+    "taStatusCompleteDate",
+    "taCompleteBhStaff",
+    "taNotesBhStaff",
+  ],
+  site_visits: [
+    "programId",
+    "programName",
+    "surveyName",
+    "surveyCreated",
+    "id",
+    "userId",
+    "boroughFbo",
+    "eventDate",
+    "eventstarttime",
+    "eventfinishtime",
+    "fbo",
+    "fboAttendees",
+    "fboAttendeesOther",
+    "sanctuary",
+    "privateTestingArea",
+    "healthMinistry",
+    "healthMinistryMembers",
+    "healthMinistryActive",
+    "healthMinistryCoordinators",
+    "strategiesHealthDisparities",
+    "targetAudience",
+    "targetAudienceOther",
+    "targetAudienceAdditional",
+    "barriersEngagement",
+    "barriersEngagementOther",
+    "bestPractices",
+    "eventChallenges",
+    "fboChanges",
+    "fboImprovements",
+    "fboObservations",
+    "fboBeyondGrant",
+    "fboCabFeedback",
+    "fboAliFeedback",
+    "fboYipFeedback",
+    "fboLeaderHivOpenness",
+    "healthMinistryHivOpenness",
+    "membershipHivOpenness",
+    "communityHivOpenness",
+    "faithLeaderDiversityOpenness",
+    "healthMinistryDiversityOpenness",
+    "membershipDiversityOpenness",
+    "communityDiversityOpenness",
+    "fboObservations",
+    "submissionStatus",
+    "submissionNotes",
+  ],
+  cbt_facilitator_feedback: [
+    "programId",
+    "programName",
+    "surveyName",
+    "eventId",
+    "surveyCompleted",
+    "eventName",
+    "eventDate",
+    "eventStartTime",
+    "eventFinishTime",
+    "onlineEventTypeId",
+    "onlineInPersonEventType",
+    "inPersonEventTypeId",
+    "inPersonEventTypeName",
+    "inPersonEventTypeOther",
+    "onlineEventTypeName",
+    "eventDescription",
+    "locationAddress",
+    "healthAreaOfFocusId",
+    "healthAreaOfFocusName",
+    "mainRoles",
+    "mainRolesOther",
+    "participantRegistrationForm",
+    "eventStartedOnTime",
+    "eventFinishedOnTime",
+    "participantGreeted",
+    "resourcesAvailable",
+    "photoRelease",
+    "handSanitizerAvailable",
+    "reminderSafeSpace",
+    "reminderPostEvaluationSurvey",
+    "eventChecklistOther",
+    "eventChecklistOtherText",
+    "totalAttendees",
+    "eventOrganization",
+    "eventWorkedBest",
+    "eventImprove",
+    "eventDelivery",
+    "eventResponsive",
+    "engaged",
+    "topicsFollowup",
+    "leastEngaged",
+    "improveEngagement",
+    "eventChallenges",
+    "eventQuestions",
+    "organizerFeedback",
+  ],
 };
-const ReportPicker = ({ participantReport, pageTitle, surveyName }) => {
-  //   console.log("report", participantReport);
+const ReportPicker = ({
+  participantReport,
+  pageTitle,
+  surveyName,
+  fileName,
+}) => {
+  console.log(
+    "******************error: does not have eventdate to filter",
+    participantReport
+  );
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
   });
 
   const [selectedCSV, setSelectedCSV] = useState([]);
-  // const [headers, setHeaders] = useState([]);
   const csvNowDate = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
   });
-  // console.log();
   useEffect(() => {
     const cerohoursDate = new Date(selectedDate.start).setHours(0);
     console.log("selectedDate", selectedDate);
@@ -277,7 +397,7 @@ const ReportPicker = ({ participantReport, pageTitle, surveyName }) => {
       // console.log("start", start)
       // console.log("end", end)
       // console.log("eventdate", eventdate)
-      // console.log(eventdate >= start && eventdate <= end)
+      console.log(eventdate >= start && eventdate <= end);
       return eventdate >= start && eventdate <= end;
     });
     setSelectedCSV(selectedReports);
@@ -322,9 +442,7 @@ const ReportPicker = ({ participantReport, pageTitle, surveyName }) => {
             <CSVHIVOutreachParticipantSignInSheet
               csvData={selectedCSV}
               headers={allHeaders[surveyName]}
-              fileName={`OEF_HIV_Outreach_sign_in_sheet${
-                csvNowDate.split(",")[0]
-              }.csv`}
+              fileName={`${fileName}${csvNowDate.split(",")[0]}.csv`}
             />
           )}
         </div>
@@ -339,7 +457,7 @@ export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const { surveyName } = ctx.params;
 
-    console.log("surveyName",surveyName)
+    console.log("surveyName", surveyName);
 
     const reportNameFromSurveyName = () => {
       switch (surveyName) {
@@ -347,32 +465,56 @@ export const getServerSideProps = withPageAuthRequired({
           return {
             surveyRoute: "fbo/participant_survey",
             pageTitle: "Download OEF Participant Sign-In sheet data",
+            fileName: "OEF_Participant_Sign_In_Sheet",
           };
           break;
         case "cbt_participant_survey":
           return {
             surveyRoute: "cbt/participant_survey",
             pageTitle: "Download CBT Participant Feedback data",
+            fileName: "CBT_Participant_Survey",
           };
           break;
         case "hiv_outreach_event":
           return {
             surveyRoute: "hiv/fbo_outreach",
             pageTitle: "Download HIV Outreach Event data",
+            fileName: "HIV_Outreach_Event",
           };
           break;
         case "cbt_quarterly":
           return {
             surveyRoute: "cbt/cbt_quarterly",
             pageTitle: "Download CBT Quarterly Evaluation Data",
+            fileName: "CBT_Quarterly_Evaluation",
+          };
+          break;
+        case "technical_assistance_request":
+          return {
+            surveyRoute: "ta/technical_assitance",
+            pageTitle: "Download OEF Technical Assistance Request Data",
+            fileName: "Technical_Assistance_Request",
+          };
+          break;
+        case "site_visits":
+          return {
+            surveyRoute: "sv/site_visits",
+            pageTitle: "Download Site Visit Data",
+            fileName: "Site_Visits",
+          };
+          break;
+        case "cbt_facilitator_feedback":
+          return {
+            surveyRoute: "cbt/facilitator",
+            pageTitle: "Download CBT Facilitator Feedback Data",
+            fileName: "CBT_Facilitator_Feedback",
           };
           break;
       }
     };
-    const { surveyRoute, pageTitle } = reportNameFromSurveyName();
+    const { surveyRoute, pageTitle, fileName } = reportNameFromSurveyName();
 
-
-    console.log("surveyRoute",surveyRoute)
+    console.log("surveyRoute", surveyRoute);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/${surveyRoute}`
     );
@@ -382,6 +524,7 @@ export const getServerSideProps = withPageAuthRequired({
         participantReport: participantReport,
         pageTitle: pageTitle,
         surveyName: surveyName,
+        fileName,
       },
     };
   },

@@ -450,7 +450,7 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
                   eventForm={eventForm}
                   setEventForm={setEventForm}
                 />
-                <button
+                {/* <button
                   disabled={
                     !eventForm.hivTesting &&
                     !eventForm.hepCTesting &&
@@ -460,11 +460,11 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
                   onClick={() => setShowDemographicsSection((prev) => !prev)}
                 >
                   Next
-                </button>
+                </button> */}
               </div>
             )}
 
-            {eventForm.hivTesting && showDemographicsSection && (
+            {eventForm.hivTesting && (
               <PostEventReportSection23
                 eventForm={eventForm}
                 setEventForm={setEventForm}
@@ -478,7 +478,7 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
               </PostEventReportSection23>
             )}
 
-            {eventForm?.hepCTesting && showDemographicsSection && (
+            {eventForm?.hepCTesting && (
               <PostEventReportSection25
                 eventForm={eventForm}
                 setEventForm={setEventForm}
@@ -492,7 +492,7 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
               </PostEventReportSection25>
             )}
 
-            {eventForm?.otherTesting && showDemographicsSection && (
+            {eventForm?.otherTesting && (
               <>
                 <OtherTesting
                   eventForm={eventForm}
