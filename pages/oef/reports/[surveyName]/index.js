@@ -207,6 +207,52 @@ export const allHeaders = {
     "onelineDescription",
     "oefEventPresentationTopic",
   ],
+  cbt_quaterly:[
+  'programId',
+  'programName',
+  'surveyName',
+  'surveyCompleted',
+  'deliveryPartner',
+  'fboPosition',
+  'participantCbtActions',
+  'participantHivKnowledge',
+  'participantPrepKnowledge',
+  'participantPrepResourceKnowledge',
+  'participantConsentKnowledge',
+  'participantStiInfectionKnowledge',
+  'participantPepUsageKnowledge',
+  'participantPrepUse',
+  'participantCreateSurvey',
+  'participantSurveyTool',
+  'participantSurveyGoal',
+  'participantDataCollecting',
+  'participantDataComfort',
+  'participantDataUse',
+  'participantDataUseOther',
+  'participantFboEngagement',
+  'participantFboImprove',
+  'participantFboFeedbackResponse',
+  'participantInfoUnderstandable',
+  'participantInfoAccessible',
+  'participantCabCreation',
+  'participantCabRecruitment',
+  'participantCabImpact',
+  'participantCabMembers',
+  'participantFboStrategy',
+  'participantTargetGroups',
+  'participantTargetGroupsOther',
+  'participantYouthMinistryCreation',
+  'participantYouthMinistryRecruitment',
+  'participantFboYouth',
+  'participantGrantsIdentify',
+  'participantGrantsApplied',
+  'participantGrantsProcess',
+  'participantGrantsMore',
+  'participantGrantsSuccess',
+  'participantGrantsWhySuccess',
+  'participantGrantsLearned',
+  'participantGrantsSuccessMore'
+  ]
 };
 const ReportPicker = ({ participantReport, pageTitle, surveyName }) => {
   //   console.log("report", participantReport);
@@ -293,6 +339,8 @@ export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const { surveyName } = ctx.params;
 
+    console.log("surveyName",surveyName)
+
     const reportNameFromSurveyName = () => {
       switch (surveyName) {
         case "oef_participant_sign_in_sheet":
@@ -313,9 +361,18 @@ export const getServerSideProps = withPageAuthRequired({
             pageTitle: "Download HIV Outreach Event data",
           };
           break;
+        case "cbt_quarterly":
+          return {
+            surveyRoute: "cbt/cbt_quarterly",
+            pageTitle: "Download CBT Quarterly Evaluation Data",
+          };
+          break;
       }
     };
     const { surveyRoute, pageTitle } = reportNameFromSurveyName();
+
+
+    console.log("surveyRoute",surveyRoute)
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/${surveyRoute}`
     );
