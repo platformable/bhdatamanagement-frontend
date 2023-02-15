@@ -4,7 +4,7 @@ import axios from 'axios'
 import Image from 'next/image';
 
 
-const DeleteEventModal = ({id,eventname,setShowDeleteEventModal,showDeleteEventModal,selectedEventToDelete}) => {
+const DeleteEventModal = ({id,eventname,setShowDeleteEventModal,showDeleteEventModal,selectedEventToDelete, setSortedEventsByDate}) => {
     const router = useRouter()
 
 
@@ -18,7 +18,12 @@ const DeleteEventModal = ({id,eventname,setShowDeleteEventModal,showDeleteEventM
             console.log(response)
             if(response.data.statusText==='OK'){
                 setShowDeleteEventModal(!showDeleteEventModal)
-                router.reload()
+                setSortedEventsByDate(prev => ([
+                    ...prev?.filter(
+                      (event) => event.id !== selectedEventToDelete.id
+                    ),
+                  ]))
+                // router.reload()
             }
         })
         .catch(error=>console.log(error))
