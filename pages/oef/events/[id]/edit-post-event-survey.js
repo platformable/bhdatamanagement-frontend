@@ -42,7 +42,6 @@ import RadioList from "../../../../components/oef-post-event-survey/RadioList";
 
 const PostEventReport = ({ event, fbos, user }) => {
   console.log("data", event);
-   
 
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
@@ -104,7 +103,8 @@ const PostEventReport = ({ event, fbos, user }) => {
     healthDisparitiesLiterature: event?.healthdisparitiesliterature || 0,
     bagsBoxesFood: event?.bagsboxesfood || 0,
     handSanitizers: event?.handsanitizers || 0,
-    covidVaccineSiteReferralDetails: event?.covidvaccinesitereferraldetails || 0,
+    covidVaccineSiteReferralDetails:
+      event?.covidvaccinesitereferraldetails || 0,
     totalAttendees: event?.totalattendees || 0,
     eventChallenges: event?.eventchallenges || "",
     eventTestingDone: event?.eventtestingdone || false,
@@ -239,7 +239,6 @@ const PostEventReport = ({ event, fbos, user }) => {
     datePostEventSurvey: event?.dateposteventsurvey || new Date(),
     guestSpeakers: event?.guestspeakers || "",
     nameGuestSpeakers: event?.nameguestspeakers || "",
-    
   });
   const userId = user && user.sub;
   console.log("eventForm", eventForm);
@@ -313,9 +312,6 @@ const PostEventReport = ({ event, fbos, user }) => {
       });
   };
 
-
-
-
   const [eventNotCompletedMessage, setEventNotCompletedMessage] =
     useState(false);
 
@@ -338,6 +334,15 @@ const PostEventReport = ({ event, fbos, user }) => {
           pageTitle={"Edit Post-event survey"}
         />
 
+        <div className="container mx-auto my-5">
+          <a
+            href={event.folderurl}
+            className="rounded-md bg-black px-5 py-1 text-white "
+            target="_blank"
+          >
+            Dropbox folder
+          </a>
+        </div>
         {eventNotCompletedMessage ? (
           <div className="container mx-auto my-7">
             <h3 className="text-center bg-green-200 rounded-md">
@@ -472,7 +477,7 @@ const PostEventReport = ({ event, fbos, user }) => {
                   eventForm={eventForm}
                   setEventForm={setEventForm}
                 />
-                <button
+                {/* <button
                   disabled={
                     !eventForm.hivTesting &&
                     !eventForm.hepCTesting &&
@@ -482,11 +487,11 @@ const PostEventReport = ({ event, fbos, user }) => {
                   onClick={() => setShowDemographicsSection((prev) => !prev)}
                 >
                   Next
-                </button>
+                </button> */}
               </div>
             )}
 
-            {eventForm.hivTesting && showDemographicsSection && (
+            {eventForm.hivTesting && (
               <PostEventReportSection23
                 eventForm={eventForm}
                 setEventForm={setEventForm}
@@ -500,7 +505,7 @@ const PostEventReport = ({ event, fbos, user }) => {
               </PostEventReportSection23>
             )}
 
-            {eventForm?.hepCTesting && showDemographicsSection && (
+            {eventForm?.hepCTesting && (
               <PostEventReportSection25
                 eventForm={eventForm}
                 setEventForm={setEventForm}
@@ -514,7 +519,7 @@ const PostEventReport = ({ event, fbos, user }) => {
               </PostEventReportSection25>
             )}
 
-            {eventForm?.otherTesting && showDemographicsSection && (
+            {eventForm?.otherTesting && (
               <>
                 <OtherTesting
                   eventForm={eventForm}

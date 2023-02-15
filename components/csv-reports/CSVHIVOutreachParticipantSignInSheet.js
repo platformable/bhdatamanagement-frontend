@@ -7,7 +7,7 @@ const orderDataset = (data, headers) => {
     const result=reverse[1]+'/'+reverse[2]+'/'+reverse[0];
     return result;
   }
-  const results = headers.map(header => data[header])
+  const results = headers.map(header => header === 'eventDate' || header === 'surveyCreated' ? reverseDate(data[header.toLowerCase()]) : data[header.toLowerCase()])
   return results;
 };
 

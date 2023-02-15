@@ -85,7 +85,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
               </h1>
               <div className="grid md:grid-cols-6 gap-5 px-5 md:px-0 grid-cols-1 mb-2 my-10">
                 {/*  **********************************FIRST ROW ************************** */}
-                <Link href={`/#`}>
+                <Link href={`/oef/reports/hiv_outreach_event`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
@@ -112,7 +112,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     </button>
                   </div>
                 </Link>
-                <Link href={`/#`}>
+                <Link href={`/oef/reports/site_visits`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
@@ -121,7 +121,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     </button>
                   </div>
                 </Link>
-                <Link href={`/#`}>
+                <Link href={`/oef/reports/technical_assistance_request`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
@@ -137,7 +137,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
 
               <div className="grid md:grid-cols-6 gap-5 px-5 md:px-0 grid-cols-1 mb-2 my-10">
                 {/*  ********************************** SECOND ROW ************************** */}
-                <Link href={`/#`}>
+                <Link href={`/oef/reports/cbt_facilitator_feedback`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
@@ -146,7 +146,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     </button>
                   </div>
                 </Link>
-                <Link href={`/#`}>
+                <Link href={`/oef/reports/cbt_participant_survey`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
@@ -164,7 +164,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     </button>
                   </div>
                 </Link>
-                <Link href={`/#`}>
+                <Link href={`/oef/reports/cbt_quarterly`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">

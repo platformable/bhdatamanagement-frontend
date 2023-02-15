@@ -1,15 +1,21 @@
-import React, {useState} from 'react';
-import Loader from './Loader';
+import React, { useState } from "react";
+import Loader from "./Loader";
 
-const DropboxDocumentUpload = ({path, title, FileUploadedMessage, forValue}) => {
+const DropboxDocumentUpload = ({
+  path,
+  title,
+  FileUploadedMessage,
+  forValue,
+}) => {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  
   const onSubmitFile = async (event) => {
+    setError(false);
     setLoading(!loading);
-    setFileName(event.target.files[0].name)
+    setFileName(event.target.files[0].name);
     const form = new FormData();
     const blob = new Blob([event.target.files[0]], {
       type: "text/plain",
@@ -27,7 +33,7 @@ const DropboxDocumentUpload = ({path, title, FileUploadedMessage, forValue}) => 
       path: `${path}/${event.target.files[0].name}`,
       strict_conflict: false,
     };
-    console.log("Documents", path, fileName)
+    console.log("Documents", path, fileName);
 
     try {
       const tokenResponse = await fetch(
@@ -35,7 +41,7 @@ const DropboxDocumentUpload = ({path, title, FileUploadedMessage, forValue}) => 
       );
       const token = await tokenResponse.json();
       const response = await fetch(
-        "https://content.dropboxapi.com/2/files/upload",
+        "https://content.dropboxapi.com/2/fil/upload",
         {
           method: "POST",
           headers: {
@@ -58,50 +64,57 @@ const DropboxDocumentUpload = ({path, title, FileUploadedMessage, forValue}) => 
         // setUploadSuccess(!uploadSuccess)
       }
     } catch (error) {
-      setLoading(false)
-      // setError(error.message)
+      setLoading(false);
+      setError(true);
       console.error("upload error", error);
     }
   };
   return (
-    
     <div>
       <div className="">
-          <h2 className="font-black">
-          {title}
-          </h2>
-          <p>You can upload more than one file - please upload one file at a time</p>
-          
-          <p>File types accepted: .txt .pdf .csv .xlsx .jpg .png .jpeg .docx/doc .zip .mp4 .pptx/ppt</p>
-          
-          <input
-            type="file"
-            id={`document${forValue}`}
-            hidden
-            name="file"
-            onChange={(event) => onSubmitFile(event)}
-            accept=".txt, .pdf, .csv, .xlsx, .jpg, .png, .jpeg, .docx, .doc, .zip, .mp4, .pptx, .ppt"
-          />
-          <section className="flex justify-start gap-5 items-center mt-7 mr-2">
+        <h2 className="font-black">{title}</h2>
+        <p>
+          You can upload more than one file - please upload one file at a time
+        </p>
+
+        <p>
+          File types accepted: .txt .pdf .csv .xlsx .jpg .png .jpeg .docx/doc
+          .zip .mp4 .pptx/ppt
+        </p>
+
+        <input
+          type="file"
+          id={`document${forValue}`}
+          hidden
+          name="file"
+          onChange={(event) => onSubmitFile(event)}
+          accept=".txt, .pdf, .csv, .xlsx, .jpg, .png, .jpeg, .docx, .doc, .zip, .mp4, .pptx, .ppt"
+        />
+        <section className=" mt-7 mr-2">
+          <div className="flex justify-start gap-5 items-center">
             <label
               for={`document${forValue}`}
-              className="text-white bg-black px-5 flex items-center gap-3 py-2 rounded-md cursor-pointer "
+              className="text-white bg-black px-5 flex justify-center items-center gap-3 py-2 rounded-md cursor-pointer "
             >
               Choose file
-              {loading && (
-              <Loader />
-          )}
+              {loading && <Loader />}
             </label>
-            {fileName ? (
-            <p className="text-center overflow-hidden">{fileName}</p>
-          ) : (
-            <p className="text-center overflow-hidden">No file chosen</p>
-          )}
-          </section>
-            
+            {fileName && !error ? (
+              <p className="text-center overflow-hidden">{fileName}</p>
+            ) : (
+              <p className="text-center overflow-hidden">No file chosen</p>
+            )}
+           
+          </div>
+          {error && (
+              <p className="text-red-500 mt-2 text-sm">
+                There was an error, please try again
+              </p>
+            )}
+        </section>
       </div>
     </div>
   );
-}
+};
 
-export default DropboxDocumentUpload
+export default DropboxDocumentUpload;
