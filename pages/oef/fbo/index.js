@@ -18,7 +18,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 const EventsIndex = ({ events }) => {
-  console.log("events", events)
+  console.log("events", events);
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -27,6 +27,9 @@ const EventsIndex = ({ events }) => {
   const { user, error, isLoading } = useUser();
   const [selectedEventToDelete, setSelectedEventToDelete] = useState("");
   const [showDeleteEventModal, setShowDeleteEventModal] = useState(false);
+  const [sortedEventsByDate, setSortedEventsByDate] = useState(
+    events.sort((a, b) => new Date(b.eventdate) - new Date(a.eventdate))
+  );
   const router = useRouter();
 
   const loggedUserRole =
@@ -40,12 +43,10 @@ const EventsIndex = ({ events }) => {
     endDate: null,
   });
   // async function downloadCalendar (base64) {
-    
+
   // }
-  useEffect(() => {
-    // events.map(event => {event.url_calendar = makeIcsFile(event)})
-  }, [])
-   function makeIcsFile(event) {
+
+  function makeIcsFile(event) {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];
       const dateString = dateParts.split("-").join("");
@@ -123,8 +124,7 @@ const EventsIndex = ({ events }) => {
       "DESCRIPTION:" +
       event?.onlineinpersoneventtype +
       " - " +
-      (event.onlineeventtypename
-        || event.inpersoneventtypename) +
+      (event.onlineeventtypename || event.inpersoneventtypename) +
       " - " +
       event?.eventdescription +
       "\n" +
@@ -141,7 +141,8 @@ const EventsIndex = ({ events }) => {
       ", " +
       String(event?.eventzipcode) +
       "\n" +
-      "URL:https://nblch.org" + "\n" +
+      "URL:https://nblch.org" +
+      "\n" +
       "SEQUENCE:2" +
       "\n" +
       // "LAST-MODIFIED:20220119T120306Z" + "\n" +
@@ -162,7 +163,7 @@ const EventsIndex = ({ events }) => {
 
     icsFile = window.URL.createObjectURL(data);
 
-    const  link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = icsFile;
     link.download = `${event?.eventname}.ics`;
     document.body.appendChild(link);
@@ -170,12 +171,13 @@ const EventsIndex = ({ events }) => {
     document.body.removeChild(link);
 
     return icsFile;
-  } 
-  const handleDeleteEvent=(id,eventName)=>{
-    console.log(id)
-    setSelectedEventToDelete({id:id,eventname:eventName})
-    setShowDeleteEventModal(!showDeleteEventModal)
   }
+  
+  const handleDeleteEvent = (id, eventName) => {
+    console.log(id);
+    setSelectedEventToDelete({ id: id, eventname: eventName });
+    setShowDeleteEventModal(!showDeleteEventModal);
+  };
   const searchFunction = (word) => {
     setSearchWord(word);
     dispatch(searchEventByName({ word }));
@@ -193,32 +195,23 @@ const EventsIndex = ({ events }) => {
   const endDate = useSelector(
     (state) => state.eventCalendarDates.value.endDate
   );
-  console.log("startDate desde toolkit", startDate);
-  console.log("endDate desde toolkit", endDate);
+  // console.log("startDate desde toolkit", startDate);
+  // console.log("endDate desde toolkit", endDate);
 
   const state = useSelector((state) => console.log(state));
 
-  console.log("state", state);
+  // console.log("state", state);
 
-  const sortedEventsByDate = events.sort(
-    (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
-  );
+  console.log("sorted events", sortedEventsByDate);
 
-  console.log(sortedEventsByDate);
-
-
-  const changeStatusBg = (submissionstatus)=>{
-
-    let color
-    submissionstatus==='Submitted'?color='submittedBg':null
-    submissionstatus==='Pending'?color='pendingBg':null
-    submissionstatus==='Declined'?color='declinedBg':null
-    submissionstatus==='Complete'?color='completeBg':null
-    return color
-
-  }  
-
-
+  const changeStatusBg = (submissionstatus) => {
+    let color;
+    submissionstatus === "Submitted" ? (color = "submittedBg") : null;
+    submissionstatus === "Pending" ? (color = "pendingBg") : null;
+    submissionstatus === "Declined" ? (color = "declinedBg") : null;
+    submissionstatus === "Complete" ? (color = "completeBg") : null;
+    return color;
+  };
 
   return (
     <Layout showStatusHeader={true}>
@@ -233,90 +226,107 @@ const EventsIndex = ({ events }) => {
           <a
             href="/oef/register"
             className="bg-black text-white rounded px-5 py-2 "
-            target='_blank'
+            target="_blank"
           >
             <p className="flex bg-black gap-x-2 items-center font-black text-white rounded px-5 cursor-pointer">
-            Outreach Event Organizer Survey
-
+              Outreach Event Organizer Survey
             </p>
-            
           </a>
           <a
             href="/oef/fbo/participant-survey/survey"
             className="bg-black text-white rounded px-5 py-2 cursor-pointer"
-            target='_blank'
+            target="_blank"
           >
             <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
-            Outreach Event Participant Sign-in Sheet
-
+              Outreach Event Participant Sign-in Sheet
             </p>
-            
           </a>
         </div>
         <div className="flex flex-col md:flex-row gap-5 md:gap-0 md:justify-between">
-        <Search searchFunction={searchFunction} />
+          <Search searchFunction={searchFunction} />
 
           <div className="flex flex-col md:flex-row items-center gap-5">
-          <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
-            <h3 className="">Filter by date</h3>
-          </div>
+            <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0">
+              <h3 className="">Filter by date</h3>
+            </div>
 
-          <div className="block md:flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0">
-            <label className="w-full">
-              <input
-                type="date"
-                ref={ref}
-                id="start"
-                placeholder="start date"
-                onChange={(e) => {
-                  setDateFilter({ ...dateFilter, startDate: e.target.value });
-                  dispatch(
-                    updateStartDate({ ...dateFilter, startDate: e.target.value })
-                  );
-                }}
-                defaultValue={startDate}
-                className="border-black rounded-md text-sm w-full"
-              />
-            </label>
-            <h3 className="text-left md:text-center md:py-5 md:py-0 py-5 text-center">and</h3>
-            <label className="flex justify-end w-full">
-              <input
-                type="date"
-                placeholder="end date"
-                onChange={(e) => {
-                  setDateFilter({ ...dateFilter, endDate: e.target.value });
-                  dispatch(
-                    updateStartDate({ ...dateFilter, endDate: e.target.value })
-                  );
-                }}
-                defaultValue={endDate}
-                className="border-black rounded-md  text-sm w-full"
-              />
-            </label>
+            <div className="block md:flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0">
+              <label className="w-full">
+                <input
+                  type="date"
+                  ref={ref}
+                  id="start"
+                  placeholder="start date"
+                  onChange={(e) => {
+                    setDateFilter({ ...dateFilter, startDate: e.target.value });
+                    dispatch(
+                      updateStartDate({
+                        ...dateFilter,
+                        startDate: e.target.value,
+                      })
+                    );
+                  }}
+                  defaultValue={startDate}
+                  className="border-black rounded-md text-sm w-full"
+                />
+              </label>
+              <h3 className="text-left md:text-center md:py-5 md:py-0 py-5 text-center">
+                and
+              </h3>
+              <label className="flex justify-end w-full">
+                <input
+                  type="date"
+                  placeholder="end date"
+                  onChange={(e) => {
+                    setDateFilter({ ...dateFilter, endDate: e.target.value });
+                    dispatch(
+                      updateStartDate({
+                        ...dateFilter,
+                        endDate: e.target.value,
+                      })
+                    );
+                  }}
+                  defaultValue={endDate}
+                  className="border-black rounded-md  text-sm w-full"
+                />
+              </label>
+            </div>
           </div>
-
-          </div>
-
         </div>
       </div>
 
       {/* <div className="events-cards-container grid md:grid-cols-6 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div> */}
       {/*  HEAD TABLE  */}
-      <div className={`hidden md:grid supervisor-existing-fbo-events-head-table container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}>
+      <div
+        className={`hidden md:grid supervisor-existing-fbo-events-head-table container mx-auto  rounded-t-lg py-3 px-7 bg-black text-white`}
+      >
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
         <p className="lg:text-xl font-bold flex items-center ">Event title</p>
         <p className="lg:text-xl font-bold flex items-center ">FBO</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Event date</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Status</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Date submitted</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Review</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">
+          Event date
+        </p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">
+          Status
+        </p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">
+          Date submitted
+        </p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">
+          Review
+        </p>
+        {}
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg mt-10">
         <div className="events-index-btn-container grid grid-cols-1 gap-x-3 gap-y-3 p-0">
           {sortedEventsByDate &&
             sortedEventsByDate
-              ?.filter((event,index)=>event.programname==='OEF' && event?.surveyname === 'oef-fbo-outreach')
+              ?.filter(
+                (event, index) =>
+                  event.programname === "OEF" &&
+                  event?.surveyname === "oef-fbo-outreach"
+              )
               .filter((event, index) => {
                 if (
                   searchWord === "" &&
@@ -337,8 +347,12 @@ const EventsIndex = ({ events }) => {
                 }
               })
               .filter((event, index) => {
-                var startDate = new Date(new Date(dateFilter?.startDate).setHours(0))
-                var endDate = new Date(new Date(dateFilter?.endDate).setHours(23))
+                var startDate = new Date(
+                  new Date(dateFilter?.startDate).setHours(0)
+                );
+                var endDate = new Date(
+                  new Date(dateFilter?.endDate).setHours(23)
+                );
                 if (startDate !== null && endDate !== null) {
                   let filterPass = true;
                   const date = new Date(event.eventdate);
@@ -346,15 +360,13 @@ const EventsIndex = ({ events }) => {
                     filterPass = filterPass && startDate <= date;
                   }
                   if (dateFilter.endDate) {
-                    filterPass =
-                      filterPass && endDate >= date;
+                    filterPass = filterPass && endDate >= date;
                   }
                   return filterPass;
                 }
               })
-             
+
               .map((event, index) => {
-              
                 return (
                   <>
                     {/* <div className="sm:hidden w-full">
@@ -379,54 +391,55 @@ const EventsIndex = ({ events }) => {
                         event={event}
                       />
                     </div> */}
-                      <section
-                        key={index}
-                        className='md:grid  supervisor-existing-fbo-events-head-table px-7  rounded-t-lg rounded-b-lg shadow-lg'
-                      >
-                        {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
-                        <div className="flex items-center lg:text-xl font-bold  py-7">
-                          {event.eventname}
-                        </div>
-                        <div className="flex items-center lg:text-xl font-bold py-7">
-                          {event.deliverypartner}
-                        </div>
-                        
-                        <div className="flex items-center lg:text-xl font-bold justify-center">
-                          {
-                            event.eventdate &&
-                              new Date(event?.eventdate).toLocaleDateString(
-                                "en-US"
-                              )
-                          } 
-                        </div>
-                        <div className={`flex items-center text-center justify-center lg:text-xl font-bold shadow-b-md-bottom py-7 ${changeStatusBg(event.submissionstatus)}`}>
-                          <p className="text-center">{event.submissionstatus}</p>
-                        </div>
-                        <div className="flex items-center lg:text-xl font-bold justify-center">
-                        {
-                            event.eventdatecreated &&
-                              new Date(event?.eventdatecreated).toLocaleDateString(
-                                "en-US"
-                              )
+                    <section
+                      key={index}
+                      className={`${
+                        loggedUserRole !== "Program Worker"
+                          ? "supervisor-existing-fbo-events-head-table"
+                          : "existing-fbo-events-head-table"
+                      } md:grid   px-7  rounded-t-lg rounded-b-lg shadow-lg`}
+                    >
+                      {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
+                      <div className="flex items-center lg:text-xl font-bold  py-7">
+                        {event.eventname}
+                      </div>
+                      <div className="flex items-center lg:text-xl font-bold py-7">
+                        {event.deliverypartner}
+                      </div>
 
-                          }
-                        
+                      <div className="flex items-center lg:text-xl font-bold justify-center">
+                        {event.eventdate &&
+                          new Date(event?.eventdate).toLocaleDateString(
+                            "en-US"
+                          )}
+                      </div>
+                      <div
+                        className={`flex items-center text-center justify-center lg:text-xl font-bold shadow-b-md-bottom py-7 ${changeStatusBg(
+                          event.submissionstatus
+                        )}`}
+                      >
+                        <p className="text-center">{event.submissionstatus}</p>
+                      </div>
+                      <div className="flex items-center lg:text-xl font-bold justify-center">
+                        {event.eventdatecreated &&
+                          new Date(event?.eventdatecreated).toLocaleDateString(
+                            "en-US"
+                          )}
+                      </div>
+
+                      <Link href={`/oef/events/${event.id}/edit`}>
+                        <div className="self-center cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
+                          <p className="leading-5">Edit</p>
                         </div>
-                        
-                        <Link href={`/oef/events/${event.id}/edit`}>
-                          <div className="self-center cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
-                            <p className="leading-5">Edit</p>
-                          </div>
-                        </Link>
-                       {/*  <Link href={`/oef/events/${event.id}/participant-survey`}>
+                      </Link>
+
+                      {/*  <Link href={`/oef/events/${event.id}/participant-survey`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Participant survey</p>
                           </div>
                         </Link> */}
 
-                    
-
-                        {/* <Link
+                      {/* <Link
                           href={
                             event.posteventreportid
                               ? `/oef/events/${event.id}/edit-post-event-survey`
@@ -440,18 +453,20 @@ const EventsIndex = ({ events }) => {
                             </p>
                           </div>
                         </Link> */}
-                        
-                       {/*  {loggedUserRole === "Supervisor" && (
-                          <div className="flex justify-center">
-                            <button
-                              className="bg-black lg:text-lg py-2 px-5 rounded-lg text-white"
-                              onClick={() => handleDeleteEvent(event?.id, event?.eventname)}
-                            >
-                              Delete event
-                            </button>
-                          </div>
-                        )} */}
-                      </section>
+
+                      {loggedUserRole === "Supervisor" && (
+                        <div className="flex items-center justify-center">
+                          <button
+                            className="bg-black lg:text-lg py-2 px-5 rounded-lg text-white"
+                            onClick={() =>
+                              handleDeleteEvent(event?.id, event?.eventname)
+                            }
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      )}
+                    </section>
                   </>
                 );
               })}
@@ -492,6 +507,7 @@ const EventsIndex = ({ events }) => {
         </div>
         {showDeleteEventModal && (
           <DeleteEventModal
+            setSortedEventsByDate={setSortedEventsByDate}
             setShowDeleteEventModal={setShowDeleteEventModal}
             showDeleteEventModal={showDeleteEventModal}
             selectedEventToDelete={selectedEventToDelete}
