@@ -42,10 +42,10 @@ import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 import TextArea from "../../../../components/oef-post-event-survey/TextArea";
 import RadioList from "../../../../components/oef-post-event-survey/RadioList";
 
-import OefHivOutreachPrint from "../../../../components/oef-post-event-survey/OefHivOutreachPrint";
+import OefHivOutreachPrintcopy from "../../../../components/oef-post-event-survey/OefHivOutreachPrintcopy";
 
-const PostEventReport = ({ event, fbos, user }) => {
-  console.log("data", event);
+const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
+  console.log("eventToPrint", eventToPrint);
 
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
@@ -584,8 +584,8 @@ const PostEventReport = ({ event, fbos, user }) => {
         />
       )}
 
-            <div style={{display:'none'}}>
-                <OefHivOutreachPrint ref={componentRef} event={event} />
+            <div style={{display:'block'}}>
+                <OefHivOutreachPrintcopy ref={componentRef} event={eventToPrint} />
               </div>
     </>
   );
@@ -596,16 +596,20 @@ export default PostEventReport;
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const { id } = ctx.params;
-    const [data, fbos] = await Promise.all([
+    const [data, fbos,eventToPrint] = await Promise.all([
       fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/event/${id}`
       ).then((r) => r.json()),
       fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/hiv/data_to_print/${id}`)
+      .then((r) => r.json())
+      .then(response=>response[0])
     ]);
     return {
       props: {
         event: data,
         fbos: fbos,
+        eventToPrint:eventToPrint
       },
     };
   },

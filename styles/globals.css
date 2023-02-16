@@ -703,3 +703,6 @@ label h3 {
 .deleted-row {
     transform: scale(0);
 }
+.text-to-print {
+  font-size: 8px !important;
+}
