@@ -350,7 +350,9 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
           )}
         </div>
         <div className=" my-2">
-          <h3 className="font-black">Who was your target audience? Select all that apply.</h3>
+          <h3 className="font-black">
+            Who was your target audience? Select all that apply.
+          </h3>
           <ol
             style={{ marginLeft: "1rem", listStyle: "ordinated" }}
             className="mt-2"
@@ -363,67 +365,543 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
           </ol>
         </div>
         <div className="flex gap-x-1 my-2">
-          <h3 className="font-black">
-          Total number of people at event:
-          </h3>
+          <h3 className="font-black">Total number of people at event:</h3>
           <p>{event?.totalattendees}</p>
         </div>
         <h3 className="font-black my-5">Resources Distributed</h3>
         <div className="flex gap-x-1 my-2">
-          <h3 className="font-black">
-          HIV literature
-          </h3>
+          <h3 className="font-black">HIV literature</h3>
           <p>{event?.hivliterature}</p>
         </div>
 
         <div className="flex gap-x-1 my-2">
-          <h3 className="font-black">
-          HepC literature
-          </h3>
+          <h3 className="font-black">HepC literature</h3>
           <p>{event?.hepcliterature}</p>
         </div>
         <div className="flex gap-x-1 my-2">
-          <h3 className="font-black">
-          Safer sex kits
-          </h3>
+          <h3 className="font-black">Safer sex kits</h3>
           <p>{event?.safersexkits}</p>
         </div>
         <div className="flex gap-x-1 my-2">
-          <h3 className="font-black">
-          Health disparities literature
-          </h3>
+          <h3 className="font-black">Health disparities literature</h3>
           <p>{event?.healthdisparitiesliterature}</p>
         </div>
         <div className="flex gap-x-1 my-2">
-          <h3 className="font-black">
-          Bags/boxes of food
-          </h3>
+          <h3 className="font-black">Bags/boxes of food</h3>
           <p>{event?.bagsboxesfood}</p>
         </div>
         <div className="flex gap-x-1 my-2">
-          <h3 className="font-black">
-          Masks
-          </h3>
+          <h3 className="font-black">Masks</h3>
           <p>{event?.masks}</p>
         </div>
         <div className="flex gap-x-1 my-2">
-          <h3 className="font-black">
-          Bags/boxes of food
-          </h3>
+          <h3 className="font-black">Bags/boxes of food</h3>
           <p>{event?.handsanitizers}</p>
         </div>
         <div className="flex gap-x-1 my-2">
-          <h3 className="font-black">
-          COVID literature
-          </h3>
+          <h3 className="font-black">COVID literature</h3>
           <p>{event?.covidliterature}</p>
         </div>
         <div className="flex gap-x-1 my-2">
           <h3 className="font-black">
-          COVID vaccine site referral information/details
+            COVID vaccine site referral information/details
           </h3>
           <p>{event?.covidvaccinesitereferraldetails}</p>
         </div>
+        {event?.hivtesting && (
+          <div className="grid gap-y-5">
+            <div className="mt-5">
+              <h3 className="font-black">Hepatitis C Testing</h3>
+            </div>
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">HIV Testing Agency</h3>
+              <p>{event?.hivtestingagency}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Total tested for Hepaptitis C</h3>
+              <p>{event?.hivtestedtotal}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Total # of Reactive Results</h3>
+              <p>{event?.hivreactiveresults}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Total # of PrEP Referrals</h3>
+              <p>{event?.hiv}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Total # Linked to Care</h3>
+              <p>{event?.hivlinkedtocare}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Which services were they referred to?</h3>
+              <p>{event?.hivservicesreferredto}</p>
+            </div>
+
+
+            <div className="mt-5">
+              <h3 className="font-black">Gender: How many people identified as the following for Hepatitis C Testing?</h3>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Female</h3>
+              <p>{event?.hivfemale}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Male</h3>
+              <p>{event?.hivmale}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Transgender female</h3>
+              <p>{event?.hivtransgenderfemale}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Transgender male</h3>
+              <p>{event?.hivtransgendermale}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Gender non-conforming</h3>
+              <p>{event?.hivgendernonconforming}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Non-binary</h3>
+              <p>{event?.hivnonbinary}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Not sure / Questioning</h3>
+              <p>{event?.hivgendernotsurequestioning}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Other gender identity</h3>
+              <p>{event?.hivothergenderidentity}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Decline to answer</h3>
+              <p>{event?.hivgenderdeclinedtoanswer}</p>
+            </div>
+
+            <div className="mt-5">
+              <h3 className="font-black">Age: How many people were in each of the following age groups for Hepatitis C Testing?</h3>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">13-18</h3>
+              <p>{event?.altagehiv13_18}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">19-24</h3>
+              <p>{event?.altagehiv19_24}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">25-29</h3>
+              <p>{event?.hiv25_29}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">30-34</h3>
+              <p>{event?.hiv30_34}</p>
+            </div>
+
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">35-39</h3>
+              <p>{event?.hiv35_39}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">40-44</h3>
+              <p>{event?.hiv40_44}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">45-49</h3>
+              <p>{event?.hiv45_49}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">50-54</h3>
+              <p>{event?.hiv50_54}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">55-59</h3>
+              <p>{event?.hiv55_59}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">60-64</h3>
+              <p>{event?.hiv60_64}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">65-69</h3>
+              <p>{event?.hiv65_69}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">70+</h3>
+              <p>{event?.hiv70}</p>
+            </div>
+
+            <div className="mt-5">
+              <h3 className="font-black">Race: How many people identified with the following for racial identity during Hepatitis C Testing?</h3>
+            </div>
+
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Black or African American</h3>
+              <p>{event?.hivblackorafricanamerican}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Hispanic, Latino/a or Spanish</h3>
+              <p>{event?.hivhispanic}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Asian</h3>
+              <p>{event?.hivasian}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">American Indian or Alaska Native</h3>
+              <p>{event?.hivamericanindianoralaskanative}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Middle Eastern or North African</h3>
+              <p>{event?.hivmiddleeasternornorthafrican}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">White</h3>
+              <p>{event?.hivwhite}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Some other race or origin</h3>
+              <p>{event?.hivsomeotherrace}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">More than one race/ethnicity</h3>
+              <p>{event?.hivmorethanonerace}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Decline to answer</h3>
+              <p>{event?.hivracedeclinedtoanswer}</p>
+            </div>
+
+            <div className="mt-5">
+              <h3 className="font-black">Ethnicity: How many people doing Hepatitis C testing identified with the following Hispanic and Latin ethnicities?</h3>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Not of Hispanic, Latino/a or Spanish origin</h3>
+              <p>{event?.hivnothispanic}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Mexican, Mexican American or Chicano</h3>
+              <p>{event?.hivmexicanmexicanamericanorchicano}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Puerto Rican</h3>
+              <p>{event?.hivpuertorican}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Cuban</h3>
+              <p>{event?.hivcuban}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Dominican</h3>
+              <p>{event?.hivdominican}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Ecuadorian</h3>
+              <p>{event?.hivecuadorian}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Other Hispanic, Latino/a, or Spanish origin</h3>
+              <p>{event?.hivotherhispanic}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Decline to answer</h3>
+              <p>{event?.hivethnicitydeclinedtoanswer}</p>
+            </div>
+
+          </div>
+        )}
+        {event?.hepctesting && (
+          <div className="grid gap-y-5">
+            <div className="mt-5">
+              <h3 className="font-black">Hepatitis C Testing</h3>
+            </div>
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">HIV Testing Agency</h3>
+              <p>{event?.hepctestingagency}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Total tested for Hepaptitis C</h3>
+              <p>{event?.hepctestedtotal}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Total # of Reactive Results</h3>
+              <p>{event?.hepcreactiveresults}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Total # of PrEP Referrals</h3>
+              <p>{event?.hepc}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Total # Linked to Care</h3>
+              <p>{event?.hepclinkedtocare}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Which services were they referred to?</h3>
+              <p>{event?.hepcservicesreferredto}</p>
+            </div>
+
+
+            <div className="mt-5">
+              <h3 className="font-black">Gender: How many people identified as the following for Hepatitis C Testing?</h3>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Female</h3>
+              <p>{event?.hepcfemale}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Male</h3>
+              <p>{event?.hepcmale}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Transgender female</h3>
+              <p>{event?.hepctransgenderfemale}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Transgender male</h3>
+              <p>{event?.hepctransgendermale}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Gender non-conforming</h3>
+              <p>{event?.hepcgendernonconforming}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Non-binary</h3>
+              <p>{event?.hepcnonbinary}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Not sure / Questioning</h3>
+              <p>{event?.hepcgendernotsurequestioning}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Other gender identity</h3>
+              <p>{event?.hepcothergenderidentity}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Decline to answer</h3>
+              <p>{event?.hepcgenderdeclinedtoanswer}</p>
+            </div>
+
+            <div className="mt-5">
+              <h3 className="font-black">Age: How many people were in each of the following age groups for Hepatitis C Testing?</h3>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">13-18</h3>
+              <p>{event?.altagehepc13_18}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">19-24</h3>
+              <p>{event?.altagehepc19_24}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">25-29</h3>
+              <p>{event?.hepc25_29}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">30-34</h3>
+              <p>{event?.hepc30_34}</p>
+            </div>
+
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">35-39</h3>
+              <p>{event?.hepc35_39}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">40-44</h3>
+              <p>{event?.hepc40_44}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">45-49</h3>
+              <p>{event?.hepc45_49}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">50-54</h3>
+              <p>{event?.hepc50_54}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">55-59</h3>
+              <p>{event?.hepc55_59}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">60-64</h3>
+              <p>{event?.hepc60_64}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">65-69</h3>
+              <p>{event?.hepc65_69}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">70+</h3>
+              <p>{event?.hepc70}</p>
+            </div>
+
+            <div className="mt-5">
+              <h3 className="font-black">Race: How many people identified with the following for racial identity during Hepatitis C Testing?</h3>
+            </div>
+
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Black or African American</h3>
+              <p>{event?.hepcblackorafricanamerican}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Hispanic, Latino/a or Spanish</h3>
+              <p>{event?.hepchispanic}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Asian</h3>
+              <p>{event?.hepcasian}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">American Indian or Alaska Native</h3>
+              <p>{event?.hepcamericanindianoralaskanative}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Middle Eastern or North African</h3>
+              <p>{event?.hepcmiddleeasternornorthafrican}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">White</h3>
+              <p>{event?.hepcwhite}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Some other race or origin</h3>
+              <p>{event?.hepcsomeotherrace}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">More than one race/ethnicity</h3>
+              <p>{event?.hepcmorethanonerace}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Decline to answer</h3>
+              <p>{event?.hepcracedeclinedtoanswer}</p>
+            </div>
+
+            <div className="mt-5">
+              <h3 className="font-black">Ethnicity: How many people doing Hepatitis C testing identified with the following Hispanic and Latin ethnicities?</h3>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Not of Hispanic, Latino/a or Spanish origin</h3>
+              <p>{event?.hepcnothispanic}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Mexican, Mexican American or Chicano</h3>
+              <p>{event?.hepcmexicanmexicanamericanorchicano}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Puerto Rican</h3>
+              <p>{event?.hepcpuertorican}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Cuban</h3>
+              <p>{event?.hepccuban}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Dominican</h3>
+              <p>{event?.hepcdominican}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Ecuadorian</h3>
+              <p>{event?.hepcecuadorian}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Other Hispanic, Latino/a, or Spanish origin</h3>
+              <p>{event?.hepcotherhispanic}</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-x-5">
+              <h3 className="font-black">Decline to answer</h3>
+              <p>{event?.hepcethnicitydeclinedtoanswer}</p>
+            </div>
+
+          </div>
+        )}
+
+        
       </div>
     </div>
   );
