@@ -23,7 +23,7 @@ const DeleteEventModal = ({id,eventname,setShowDeleteEventModal,showDeleteEventM
                       (event) => event.id !== selectedEventToDelete.id
                     ),
                   ]))
-                // router.reload()
+                router.reload()
             }
         })
         .catch(error=>console.log(error))
