@@ -9,7 +9,7 @@ import { Footer } from "./Footer"; */
 import Section1 from "../../components/oef-event-registration/Section1";
 const OefHivOutreachPrint = React.forwardRef((props, ref) => {
   let { event } = props;
-  console.log("event", event);
+  console.log("event en el print", event);
 
   const [formData, setFormData] = useState({
     id: event.id,
@@ -63,7 +63,8 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
     healthDisparitiesLiterature: event?.healthdisparitiesliterature || 0,
     bagsBoxesFood: event?.bagsboxesfood || 0,
     handSanitizers: event?.handsanitizers || 0,
-    covidVaccineSiteReferralDetails:event?.covidvaccinesitereferraldetails || 0,
+    covidVaccineSiteReferralDetails:
+      event?.covidvaccinesitereferraldetails || 0,
     totalAttendees: event?.totalattendees || 0,
     eventChallenges: event?.eventchallenges || "",
     eventTestingDone: event?.eventtestingdone || false,
@@ -199,25 +200,231 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
     guestSpeakers: event?.guestspeakers || "",
     nameGuestSpeakers: event?.nameguestspeakers || "",
   });
-const smallCheckbox = {
-  width: "13px !important",
-  height: "13px !important"
-}
+  const smallCheckbox = {
+    width: "13px !important",
+    height: "13px !important",
+  };
 
   return (
-    <div ref={ref} >
+    <div ref={ref}>
       <div className="flex items-center gap-x-52 container mx-auto px-5 py-3 my-1 ">
-        <img src="/airs_toprint/airs-form-logo.png" alt="airs form logo" width={45} />
+        <img
+          src="/airs_toprint/airs-form-logo.png"
+          alt="airs form logo"
+          width={45}
+        />
         <h4 className="font-black justify-self-center text-center mt-2 mb-2">
           OEF HIV Outreach
         </h4>
       </div>
 
-      <div className="container mx-auto">
-      
-      <Section1 />
-      </div>
+      <div className="container mx-auto px-7 text-xs">
+        <div className="flex gap-x-1">
+          <h3 className="font-black">Submitted by:</h3>
+          <p>{event?.createdbyname}</p>
+          <p>{event?.createdbylastname}</p>
+        </div>
 
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">Enter your email address</h3>
+          <p>{event?.oefeventemail}</p>
+        </div>
+
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+            {" "}
+            The name of your Faith-Based Organization:
+          </h3>
+          <p>{event?.deliverypartner}</p>
+        </div>
+
+        <div className="flex my-2">
+          <h3 className="font-black">
+            Please list the primary zip code where the outreach was held, or
+            where the majority of participants attending the event are expected
+            to be living?:
+          </h3>
+          <p>{event?.eventzipcode}</p>
+        </div>
+
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">Event Title:</h3>
+          <p>{event?.eventname}</p>
+        </div>
+
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">Event Date:</h3>
+          <p>
+            {new Date(event?.eventdate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "numeric",
+              day: "numeric",
+            })}
+          </p>
+        </div>
+
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">Event Start Time:</h3>
+          <p>{event?.eventstarttime}</p>
+        </div>
+
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">Event Finish Time:</h3>
+          <p>{event?.eventfinishtime}</p>
+        </div>
+
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black"> Where did this event take place?:</h3>
+          <p>{event?.inpersoneventtypename}</p>
+        </div>
+
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+            What is the event's health area of focus?:
+          </h3>
+          <p>{event?.healthareaoffocusname.join(", ")}</p>
+        </div>
+
+        {/* POST EVENT */}
+
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+            Was this event delivered by a cluster?:
+          </h3>
+          <p>{event?.isclusterevent}</p>
+        </div>
+
+        {event?.isclusterevent === "Cluster Event" ? (
+          <div className="flex gap-x-1 my-2">
+            <h3 className="font-black">Which cluster delivered the event?:</h3>
+            <p>{event?.cluster}</p>
+          </div>
+        ) : null}
+
+        <div className=" my-2">
+          <h3 className="font-black">Which FBOs were involved?</h3>
+          <ol
+            style={{ marginLeft: "1rem", listStyle: "ordinated" }}
+            className="mt-2"
+          >
+            {event?.clusterfbos.map((fbo) => (
+              <li>
+                <p>{fbo}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+            Names of all presenters / facilitators:
+          </h3>
+          <p>{event?.nameguestspeakers}</p>
+        </div>
+
+        <div className=" my-2">
+          <h3 className="font-black">
+            List any co-sponsor/co-host who is also a grantee, or indicate N/A
+            if not applicable.
+          </h3>
+          <p>{event?.partnerorganization1}</p>
+          {event?.partnerorganization1 === "Other" && (
+            <p>{event?.partnerorganizationother}</p>
+          )}
+        </div>
+        <div className=" my-2">
+          <h3 className="font-black">
+            List any co-sponsor/co-host who is not a grantee. Eg. Black Health,
+            Health First, etc. Write N/A if none.
+          </h3>
+          <p>{event?.partnerorganization2}</p>
+        </div>
+
+        <div className="my-2">
+          <h3 className="font-black">
+            Was this part of a National Awareness Day?
+          </h3>
+          <p>{event?.nationalawarenessday}</p>
+          {event?.nationalawarenessday === "Other" && (
+            <p>{event?.nationalawarenessdayother}</p>
+          )}
+        </div>
+        <div className=" my-2">
+          <h3 className="font-black">Who was your target audience? Select all that apply.</h3>
+          <ol
+            style={{ marginLeft: "1rem", listStyle: "ordinated" }}
+            className="mt-2"
+          >
+            {event?.targetaudience.map((target) => (
+              <li>
+                <p>{target}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+          Total number of people at event:
+          </h3>
+          <p>{event?.totalattendees}</p>
+        </div>
+        <h3 className="font-black my-5">Resources Distributed</h3>
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+          HIV literature
+          </h3>
+          <p>{event?.hivliterature}</p>
+        </div>
+
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+          HepC literature
+          </h3>
+          <p>{event?.hepcliterature}</p>
+        </div>
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+          Safer sex kits
+          </h3>
+          <p>{event?.safersexkits}</p>
+        </div>
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+          Health disparities literature
+          </h3>
+          <p>{event?.healthdisparitiesliterature}</p>
+        </div>
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+          Bags/boxes of food
+          </h3>
+          <p>{event?.bagsboxesfood}</p>
+        </div>
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+          Masks
+          </h3>
+          <p>{event?.masks}</p>
+        </div>
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+          Bags/boxes of food
+          </h3>
+          <p>{event?.handsanitizers}</p>
+        </div>
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+          COVID literature
+          </h3>
+          <p>{event?.covidliterature}</p>
+        </div>
+        <div className="flex gap-x-1 my-2">
+          <h3 className="font-black">
+          COVID vaccine site referral information/details
+          </h3>
+          <p>{event?.covidvaccinesitereferraldetails}</p>
+        </div>
+      </div>
     </div>
   );
 });
@@ -228,11 +435,9 @@ export default OefHivOutreachPrint;
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const { id } = ctx.params;
-    const [
-      event
-    ] = await Promise.all([
+    const [event] = await Promise.all([
       fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/event/${id}`
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/hiv/data_to_print/${id}`
       )
         .then((r) => r.json())
         .then((response) => response[0]),
@@ -240,11 +445,6 @@ export const getServerSideProps = withPageAuthRequired({
     return {
       props: {
         event: event,
-        selectedEventId: id,
-        programs: programs,
-        locationTypes: locationTypes,
-        areasOfFocus: areasOfFocus,
-        eventTypes: eventTypes,
       },
     };
   },

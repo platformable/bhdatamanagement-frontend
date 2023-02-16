@@ -696,3 +696,8 @@ label h3 {
   margin-left: 20px;
   margin-right: 20px;
 }*/
+
+
+.text-to-print {
+  font-size: 8px !important;
+}
