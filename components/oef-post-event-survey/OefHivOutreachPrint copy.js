@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Layout from "../../components/Layout";
-import PageTopHeading from "../../components/PageTopHeading";
+import Layout from "../Layout";
+import PageTopHeading from "../PageTopHeading";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 /* import AirsEventSession from "../../components/airsForm/AirsEventSession";
 import AirsDemographics from "../../components/airsForm/AirsDemographics";
 import AirsMaterials from "../../components/airsForm/AirsMaterials";
 import { Footer } from "./Footer"; */
-import Section1 from "../../components/oef-event-registration/Section1";
+import Section1 from "../oef-event-registration/Section1";
 const OefHivOutreachPrint = React.forwardRef((props, ref) => {
   let { event } = props;
   console.log("event en el print", event);
