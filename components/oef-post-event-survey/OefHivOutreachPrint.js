@@ -424,6 +424,38 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
           </h3>
           <p>{event?.covidvaccinesitereferraldetails}</p>
         </div>
+
+        <div className="my-2">
+          <h3 className="font-black">
+          How many people did you talk to, where you had a conversation about HIV, PrEP, or safer sex? (Please enter the total number only.)          </h3>
+          <p>{event?.totaltalkedhivprepsafersex}</p>
+
+        </div>
+
+        <div className="my-2">
+          <h3 className="font-black">What were the main discussion topics people raised about HIV, PrEP, or safer sex?</h3>
+          <p>{event?.totaltalkedhivprepsafersex}</p>
+        </div>
+        <div className="my-2">
+          <h3 className="font-black">Event narrative: Please briefly describe the details of your event. Please note any highlights, such as a special guest or title of a film you showed that discussed HIV, PrEP and/or safer sex.</h3>
+          <p>{event?.eventhighlights}</p>
+        </div>
+        <div className="my-2">
+          <h3 className="font-black">Event challenges: Please briefly describe any challenges you faced when organizing or running your event.</h3>
+          <p>{event?.eventchallenges}</p>
+        </div>
+        <div className="my-2">
+          <h3 className="font-black">Capacity Trainings: What have you learned from the Black Health capacity trainings, including ALI and YIP, during this quarter? How was the information useful to you and the community you serve?
+</h3>
+          <p>{event?.capacitytraininguseful}</p>
+        </div>
+        <div className="my-2">
+          <h3 className="font-black">Lessons Learned: Describe any new approaches or strategic lessons you will implement for the next event, and that can be shared with other event organizers.
+</h3>
+          <p>{event?.lessonsLearned}</p>
+        </div>
+
+
       </div>
     </div>
   );
