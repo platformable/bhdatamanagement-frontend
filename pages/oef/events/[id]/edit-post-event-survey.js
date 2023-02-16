@@ -42,7 +42,7 @@ import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 import TextArea from "../../../../components/oef-post-event-survey/TextArea";
 import RadioList from "../../../../components/oef-post-event-survey/RadioList";
 
-import OefHivOutreachPrint from "../../../../components/oef-post-event-survey/OefHivOutreachPrint";
+import OefHivOutreachPrintcopy from "../../../../components/oef-post-event-survey/OefHivOutreachPrintcopy";
 
 const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
   console.log("eventToPrint", eventToPrint);
@@ -584,8 +584,8 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
         />
       )}
 
-            <div style={{display:'none'}}>
-                <OefHivOutreachPrint ref={componentRef} event={eventToPrint} />
+            <div style={{display:'block'}}>
+                <OefHivOutreachPrintcopy ref={componentRef} event={eventToPrint} />
               </div>
     </>
   );

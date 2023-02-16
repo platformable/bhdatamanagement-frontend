@@ -397,7 +397,7 @@ const EventsIndex = ({ events }) => {
                         loggedUserRole !== "Program Worker"
                           ? "supervisor-existing-fbo-events-head-table"
                           : "existing-fbo-events-head-table"
-                      } md:grid   px-7  rounded-t-lg rounded-b-lg shadow-lg`}
+                      } ${sortedEventsByDate.map(e => e.id).includes(event.id) && event.id === selectedEventToDelete.id ? 'deleted-row delete-row-action' : '' } md:grid   px-7  rounded-t-lg rounded-b-lg shadow-lg`}
                     >
                       {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
                       <div className="flex items-center lg:text-xl font-bold  py-7">
