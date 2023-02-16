@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { useRouter } from "next/router";
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
@@ -8,6 +8,8 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../../../../components/Loader";
+import { useReactToPrint } from 'react-to-print';
+import ReactToPrint from 'react-to-print'
 
 import PostEventReportSection23 from "../../../../components/post-event-report/PostEventReportSection23";
 import PostEventReportSection25 from "../../../../components/post-event-report/PostEventReportSection25";
@@ -40,6 +42,8 @@ import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 import TextArea from "../../../../components/oef-post-event-survey/TextArea";
 import RadioList from "../../../../components/oef-post-event-survey/RadioList";
 
+import OefHivOutreachPrint from "../../../../components/oef-post-event-survey/OefHivOutreachPrint";
+
 const PostEventReport = ({ event, fbos, user }) => {
   console.log("data", event);
 
@@ -51,10 +55,11 @@ const PostEventReport = ({ event, fbos, user }) => {
 
   // const loggedUserLastname =
   //   user && user["https://lanuevatest.herokuapp.com/lastname"];
-
+  let componentRef = useRef();
   const isEditable =
     loggedUserRole === "Supervisor" ||
     loggedUserRole === "Data Team" ||
+    loggedUserRole === "Program Worker" ||
     new Date().toLocaleDateString() ===
       new Date(event?.eventdatecreated).toLocaleDateString();
 
@@ -324,6 +329,12 @@ const PostEventReport = ({ event, fbos, user }) => {
     }
   }, []);
 
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle:`AIRS_NYS_CMP_${event.eventname}_${new Date(event.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}`
+  });
+
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -334,15 +345,7 @@ const PostEventReport = ({ event, fbos, user }) => {
           pageTitle={"Edit Post-event survey"}
         />
 
-        <div className="container mx-auto my-5">
-          <a
-            href={event.folderurl}
-            className="rounded-md bg-black px-5 py-1 text-white "
-            target="_blank"
-          >
-            Dropbox folder
-          </a>
-        </div>
+     
         {eventNotCompletedMessage ? (
           <div className="container mx-auto my-7">
             <h3 className="text-center bg-green-200 rounded-md">
@@ -532,6 +535,19 @@ const PostEventReport = ({ event, fbos, user }) => {
               submissionForm={submissionForm}
               setSubmissionForm={setSubmissionForm}
             />
+
+<div className="container mx-auto my-10 flex justify-center gap-x-5">
+          <a
+            href={event.folderurl}
+            className="rounded-md bg-black px-5 py-1 text-white text-lg"
+            target="_blank"
+          >
+          Event  Dropbox Folders
+          </a>
+          <ReactToPrint
+            trigger={() => <button className="bg-yellow-500 hover:bg-yellow-300 px-24 py-1 rounded  inline-block ">Print</button>}
+            content={() => componentRef.current} /> 
+        </div>
             <TextArea
               title="One line description of the event"
               stateValue="onelineDescription"
@@ -567,6 +583,10 @@ const PostEventReport = ({ event, fbos, user }) => {
           setShowResponseStatus={setShowStatusUpload}
         />
       )}
+
+            <div style={{display:'none'}}>
+                <OefHivOutreachPrint ref={componentRef} event={event} />
+              </div>
     </>
   );
 };
