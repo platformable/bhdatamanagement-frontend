@@ -1,5 +1,4 @@
 import React from 'react'
-import InputValidationAddress from '../InputValidationAddress'
 
 const LocationAddress = ({eventForm,setEventForm}) => {
 
