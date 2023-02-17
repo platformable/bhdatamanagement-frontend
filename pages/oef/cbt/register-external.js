@@ -157,9 +157,9 @@ const Register = () => {
         if (response.data.statusText === "OK") {
           // notifyMessage();
           console.log(response)
-          //  setTimeout(() => {
-          //   router.push(`/oef/cbt`);
-          // }, 1500); 
+           setTimeout(() => {
+            router.push(`/oef/cbt/`);
+          }, 1500); 
         }
       })
       .catch(function (error) {
