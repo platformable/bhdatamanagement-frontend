@@ -130,13 +130,7 @@ externalFacilitatorEmail:  event?.externalfacilitatoremail ||''
   console.log("eventForm", eventForm);
   return (
     <>
-      {/* <Layout showStatusHeader={true}>
-        <ToastContainer autoClose={1500} />
-        <PageTopHeading
-          backBtn={true}
-          dashboardBtn={true}
-          pageTitle={"CBT Post-event survey"}
-        /> */}
+      
         <div className="container mx-auto md:px-0 px-5 items-center mt-10">
           <TopEventsInfoExternal event={event} editPath={`/oef/cbt/${event?.eventid || event?.id}/events/edit`}/>
 
@@ -172,7 +166,7 @@ externalFacilitatorEmail:  event?.externalfacilitatoremail ||''
             </button>
           </div>
         </div>
- {/*      </Layout> */}
+
       {showStatusUpload && <ResponseStatusModal responseStatus={msgStatusUpload} setShowResponseStatus={setShowStatusUpload}/>}
       {showResponseStatus && (
         <ResponseStatusModal
