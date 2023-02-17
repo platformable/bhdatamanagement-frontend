@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../../../../../components/Layout";
 import PageTopHeading from "../../../../../components/PageTopHeading";
-import TopEventsInfo from "../../../../../components/TopEventsInfo";
+import TopEventsInfoExternal from "../../../../../components/TopEventsInfoExternal";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -138,7 +138,7 @@ externalFacilitatorEmail:  event?.externalfacilitatoremail ||''
           pageTitle={"CBT Post-event survey"}
         /> */}
         <div className="container mx-auto md:px-0 px-5 items-center mt-10">
-          <TopEventsInfo event={event} editPath={`/oef/cbt/${event?.eventid || event?.id}/events/edit`}/>
+          <TopEventsInfoExternal event={event} editPath={`/oef/cbt/${event?.eventid || event?.id}/events/edit`}/>
 
           <div className="mt-10 border-black bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
         <FacilitatorName eventForm={eventForm} setEventForm={setEventForm}/>

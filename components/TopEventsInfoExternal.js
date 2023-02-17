@@ -28,24 +28,7 @@ console.log("router",router)
                   day: "numeric",
             }):null}
             </h2>
-            <div className="flex items-center justify-center md:col-start-4 md:justify-end text-center">
-              <Link href={editPath}>
-                <button className="bg-black text-white rounded px-2 mr-2 flex items-end inline-block">
-                  <a className="px-3 py-2 font-bold" id="myBtn">
-                    <p className="font-black">Edit event</p>
-                  </a>
-                </button>
-              </Link>
-            {airs && 
-              
-                <button className="bg-black text-white rounded px-2 mr-2 flex items-end inline-block" onClick={handlePrint}>
-                  <a className="px-3 py-2 font-bold" id="myBtn">
-                    <p className="font-black">AIRS Form</p>
-                  </a>
-                </button>
-           
-              }     
-            </div>
+      
           </div>
         </div>
       </section>
