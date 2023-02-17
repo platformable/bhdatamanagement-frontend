@@ -115,13 +115,12 @@ const Register = () => {
         eventForm
       )
       .then((response) => {
+        console.log(response)
         if (response.data.statusText === "OK") {
           //setShowResponseStatus(false)
           //notifyMessage();
           setTimeout(() => {
-            router.push(
-              `/oef/cbt`
-            );
+            submitPostEventForm(response.data.createdEventId)
           }, 1000);
         }
       })
@@ -132,6 +131,38 @@ const Register = () => {
           statusMessage: "An error has occurred, please check that each question has been answered.",
         });
 
+        console.error("error: ", error);
+      });
+  };
+  const submitPostEventForm = async (createdEventId) => {
+    const isEmpty = Object.values(eventForm).some((value) => !value);
+    setResponseStatus({
+      success: true,
+      statusMessage:
+        "Please wait while your event information is being processed",
+    });
+    setShowResponseStatus(true);
+    // if (!isEmpty) {
+    axios
+      .post(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/cbt/create`,
+        {
+          eventID: createdEventId,
+          programid:1,
+          programname: 'OEF',
+          surveyname:"bh-cbt-post-event-external",
+        }
+      )
+      .then((response) => {
+        if (response.data.statusText === "OK") {
+          // notifyMessage();
+          console.log(response)
+           setTimeout(() => {
+            router.push(`/oef/cbt/`);
+          }, 1500); 
+        }
+      })
+      .catch(function (error) {
         console.error("error: ", error);
       });
   };

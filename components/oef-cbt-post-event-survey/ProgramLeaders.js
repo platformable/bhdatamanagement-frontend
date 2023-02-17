@@ -46,10 +46,10 @@ const ProgramLeaders = ({eventForm,setEventForm}) => {
                   <label className="flex items-center gap-5 text-lg" key={""}>
               <input
                 type="text"
-                name="programLeadersOther"
+                name="eventChecklistOtherText"
                 className=""
                 placeholder='Please specify'
-                defaultValue={eventForm?.programLeadersOther}
+                defaultValue={eventForm?.eventChecklistOtherText}
                 onChange={(e)=> setEventForm(prev => ({...prev, eventChecklistOtherText: e.target.value}))}
               />
             </label>

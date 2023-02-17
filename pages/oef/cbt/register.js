@@ -120,7 +120,7 @@ const Register = () => {
           //notifyMessage();
           setTimeout(() => {
             router.push(
-              `/oef/cbt`
+              `/oef/cbt/success`
             );
           }, 1000);
         }

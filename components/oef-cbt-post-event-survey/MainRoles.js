@@ -13,7 +13,7 @@ const MainRoles = ({eventForm,setEventForm}) => {
 {id:5,value:"Program/workshop support staff or intern"},
 {id:6,value:"Other"}]
 
-const [data,setData]=useState([...eventForm.mainRoles])
+const [data,setData]=useState(eventForm?.mainRoles || [])
 
   const handleForm=(value)=>{
     const isValueOnData=data?.includes(value)

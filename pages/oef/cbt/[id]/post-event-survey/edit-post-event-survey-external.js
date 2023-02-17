@@ -25,6 +25,8 @@ import EventQuestions from '../../../../../components/oef-cbt-post-event-survey/
 import OrganizerFeedback from '../../../../../components/oef-cbt-post-event-survey/OrganizerFeedback'
 import DropboxDocumentUpload from "../../../../../components/oef-post-event-survey/DropboxDocumentUpload";
 import ResponseStatusModal from "../../../../../components/ResponseStatusModal";
+import FacilitatorName from "../../../../../components/oef-cbt-post-event-survey/FacilitatorName";
+import Email from "../../../../../components/oef-cbt-post-event-survey/Email";
 
 
 
@@ -67,10 +69,11 @@ topicsFollowup:event?.topicsfollowup || "",
 leastEngaged:event?.leastengaged || "",
 improveEngagement:event?.improveengagement || "",
 organizerFeedback:event?.organizerfeedback || "",
-mainRoles:event?.mainroles || "",
+mainRoles:event?.mainroles || [],
 mainRolesOther:event?.mainrolesother || "",
 eventChecklistOtherText:event?.eventchecklistothertext || "",
-    
+externalFacilitatorName: event?.externalfacilitatorname || '',
+externalFacilitatorEmail:  event?.externalfacilitatoremail ||''
   });
   const userId = user && user.sub;
 
@@ -138,7 +141,8 @@ eventChecklistOtherText:event?.eventchecklistothertext || "",
           <TopEventsInfo event={event} editPath={`/oef/cbt/${event?.eventid || event?.id}/events/edit`}/>
 
           <div className="mt-10 border-black bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
-           
+        <FacilitatorName eventForm={eventForm} setEventForm={setEventForm}/>
+        <Email eventForm={eventForm} setEventForm={setEventForm} />
         <MainRoles eventForm={eventForm} setEventForm={setEventForm}/>
         <ProgramLeaders eventForm={eventForm} setEventForm={setEventForm} />
         <TotalAttendes eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey} />
