@@ -115,13 +115,12 @@ const Register = () => {
         eventForm
       )
       .then((response) => {
+        console.log(response)
         if (response.data.statusText === "OK") {
           //setShowResponseStatus(false)
           //notifyMessage();
           setTimeout(() => {
-            router.push(
-              `/oef/cbt/success`
-            );
+            submitPostEventForm(response.data.createdEventId)
           }, 1000);
         }
       })
@@ -135,17 +134,50 @@ const Register = () => {
         console.error("error: ", error);
       });
   };
+  const submitPostEventForm = async (createdEventId) => {
+    const isEmpty = Object.values(eventForm).some((value) => !value);
+    setResponseStatus({
+      success: true,
+      statusMessage:
+        "Please wait while your event information is being processed",
+    });
+    setShowResponseStatus(true);
+    // if (!isEmpty) {
+    axios
+      .post(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/cbt/create`,
+        {
+          eventID: createdEventId,
+          programid:1,
+          programname: 'OEF',
+          surveyname:"bh-cbt-post-event-external",
+        }
+      )
+      .then((response) => {
+        if (response.data.statusText === "OK") {
+          // notifyMessage();
+          console.log(response)
+           setTimeout(() => {
+            router.push(`/oef/cbt/`);
+          }, 1500); 
+        }
+      })
+      .catch(function (error) {
+        console.error("error: ", error);
+      });
+  };
 
   return (
     <>
-      <Layout showStatusHeader={true}>
+      {/* <Layout showStatusHeader={true}>
         <ToastContainer autoClose={20000} />
         <PageTopHeading
           backBtn={true}
           dashboardBtn={true}
           pageTitle={"Register a CBT event"}
-        />
-        <div className="container mx-auto border rounded-lg mb-10">
+        /> */}
+        <div className="container mx-auto border rounded-lg my-10">
+          <h1 className="font-black text-center my-10">Register a CBT Event</h1>
           <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
             <Section5 eventForm={eventForm} setEventForm={setEventForm} />
             <Section4 eventForm={eventForm} setEventForm={setEventForm} />
@@ -168,7 +200,7 @@ const Register = () => {
             </button>
           )}
         </div>
-      </Layout>
+      {/* </Layout> */}
       {showResponseStatus && (
         <ResponseStatusModal
           setShowResponseStatus={setShowResponseStatus}
@@ -181,6 +213,4 @@ const Register = () => {
 
 export default Register;
 
-export const getServerSideProps = withPageAuthRequired({
- 
-})
+/* export const getServerSideProps = withPageAuthRequired({}) */
