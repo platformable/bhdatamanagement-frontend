@@ -4,9 +4,8 @@ import TextArea from "../../../components/yip/TextArea";
 import OneColumnCheckbox from "../../../components/yip/OneColumnCheckbox";
 import TwoColumnsCheckbox from "../../../components/yip/TwoColumnsCheckbox";
 import TimeComponent from "../../../components/yip/TimeComponent";
-
-
-import LocationAddress from "../../../components/oef-cbt-event-registration/LocationAddress";
+import LocationAddress from "../../../components/yip/LocationAddress";
+import DateComponent from "../../../components/yip/DateComponent";
 
 import Loader from "../../../components/Loader";
 
@@ -23,9 +22,9 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import ResponseStatusModal from "../../../components/ResponseStatusModal";
 
-const Register = () => {
+const Register = ({user}) => {
   const router = useRouter();
-  const { user, error, isLoading } = useUser();
+/*   const { user, error, isLoading } = useUser(); */
   let userId = user?.sub;
   console.log("user",user)
   const [showResponseStatus, setShowResponseStatus] = useState(false);
@@ -195,7 +194,35 @@ const Register = () => {
             stateValue={'yipSessionOther'}
             />
             )}
-       
+       <LocationAddress 
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            title='What is the event location address?'
+            stateValue={'locationAddress'}
+            guidanceText='Can be physical or an online meeting address'
+            />
+
+
+            <DateComponent 
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            title='Please provide an event description'
+            stateValue={'eventDate'}
+            />
+
+            <TimeComponent 
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            title='What time will the event start?'
+            stateValue={'eventStartTime'}
+            />
+
+            <TimeComponent 
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            title='What time will the event finish?'
+            stateValue={'eventFinishTime'}
+            />
           </div>
         </div>
         <div className="flex justify-center">{loading && <Loader />}</div>
@@ -222,6 +249,4 @@ const Register = () => {
 
 export default Register;
 
-export const getServerSideProps = withPageAuthRequired({
- 
-})
+export const getServerSideProps = withPageAuthRequired({})
