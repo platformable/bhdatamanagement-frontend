@@ -6,7 +6,7 @@ export default function RadioGroup({options,surveyForm,setSurveyForm,title,state
 
   
   return (
-    <div className="question-body">
+    <div className="">
     <h2 className="font-black">
       {title}
     </h2>
@@ -19,8 +19,10 @@ export default function RadioGroup({options,surveyForm,setSurveyForm,title,state
               className=""
               value={option.value}
               id={option.id}
-              onChange={() =>
+              onChange={(e) => {
+                if (e.target.value !== 'Other') setSurveyForm(prev=> ({...prev,[`${stateValue}Other`]: '' })) 
                 setSurveyForm({...surveyForm, [stateValue]: option.value })
+              }
               }
               name={stateValue}
               defaultChecked={
@@ -28,6 +30,13 @@ export default function RadioGroup({options,surveyForm,setSurveyForm,title,state
               }
             />
             <p className="">{option.value}</p>
+            {option === 'Other' && (
+              <input type="text" 
+              onChange={(e) =>
+                setSurveyForm({...surveyForm, [`${stateValue}Other`]: e.target.name })
+              }
+              />
+            )}
           </label>
         );
       })}
