@@ -211,7 +211,7 @@ const EventsIndex = ({ events }) => {
 
       <div className="container mx-auto">
         <div className="flex gap-5">
-          <Link href={"/oef/yip/#"}>
+          <Link href={"/oef/yip/register"}>
             <button
               className="bg-black text-white rounded px-5 py-2 cursor-pointer"
             >
