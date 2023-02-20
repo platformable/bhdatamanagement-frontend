@@ -5,7 +5,7 @@ const timeComponent = ({stateValue, setSurveyForm,title,surveyForm}) => {
     setSurveyForm(previous => ({...previous, [stateValue]: e.target.value}))
   }
   return (
-    <label className="mb-7 flex flex-col">
+    <label className=" flex flex-col">
       <h2 className=" font-black">
       {title}
       </h2><br />
