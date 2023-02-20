@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "../../../components/Layout";
@@ -14,7 +14,6 @@ import {
   updateStartDate,
   updateEndDate,
 } from "../../../slices/eventsCalendarDatesSlice";
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 const EventsIndex = ({ events }) => {
@@ -26,8 +25,11 @@ const EventsIndex = ({ events }) => {
   const dispatch = useDispatch();
   const { user, error, isLoading } = useUser();
   const [selectedEventToDelete, setSelectedEventToDelete] = useState("");
+  const [sortedEventsByDate, setSortedEventsByDate] = useState(
+    events.sort((a, b) => new Date(b.eventdate) - new Date(a.eventdate))
+  );
   const [showDeleteEventModal, setShowDeleteEventModal] = useState(false);
-  const router = useRouter();
+  // const router = useRouter();
 
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
@@ -196,10 +198,6 @@ const EventsIndex = ({ events }) => {
 
   const state = useSelector((state) => console.log(state));
 
-  const sortedEventsByDate = events.sort(
-    (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
-  );
-
   console.log(sortedEventsByDate);
   return (
     <Layout showStatusHeader={true}>
@@ -212,87 +210,79 @@ const EventsIndex = ({ events }) => {
       <div className="container mx-auto">
         <div className="flex gap-5">
           <Link href={"/oef/cbt/register"}>
-            <button
-              className="bg-black text-white rounded px-5 py-2 cursor-pointer"
-            >
+            <button className="bg-black text-white rounded px-5 py-2 cursor-pointer">
               <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
                 Add CBT Event
               </p>
             </button>
           </Link>
-          <a href={"/oef/cbt/register-external"} target='_blank'>
-            <button
-              className="bg-black text-white rounded px-5 py-2 cursor-pointer"
-            >
+          <a href={"/oef/cbt/register-external"} target="_blank">
+            <button className="bg-black text-white rounded px-5 py-2 cursor-pointer">
               <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
-              Add CBT Event (External)
+                Add CBT Event (External)
               </p>
             </button>
           </a>
-          <a href={"/oef/cbt/quarterly-evaluation"} target='_blank'>
-            <button
-              className="bg-black text-white rounded px-5 py-2 cursor-pointer"
-            >
+          <a href={"/oef/cbt/quarterly-evaluation"} target="_blank">
+            <button className="bg-black text-white rounded px-5 py-2 cursor-pointer">
               <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
                 Add CBT Quarterly Evaluation
               </p>
             </button>
           </a>
-          
         </div>
       </div>
       <div className="container mx-auto grid  items-center grid-cols-2 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5 mt-7">
         <div className="flex">
           <Search searchFunction={searchFunction} />
-         </div> 
-          <div className="flex gap-5 justify-end">
-            <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0 items-center">
-              <h3 className="">Filter by date</h3>
-            </div>
-
-            <div className="block md:flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0 ">
-              <label className="w-full">
-                <input
-                  type="date"
-                  ref={ref}
-                  id="start"
-                  placeholder="start date"
-                  onChange={(e) => {
-                    setDateFilter({ ...dateFilter, startDate: e.target.value });
-                    dispatch(
-                      updateStartDate({
-                        ...dateFilter,
-                        startDate: e.target.value,
-                      })
-                    );
-                  }}
-                  defaultValue={startDate}
-                  className="border-black rounded-md text-sm w-full"
-                />
-              </label>
-              <h3 className="text-left md:text-center md:py-5 md:py-0 py-5">
-                and
-              </h3>
-              <label className="flex justify-end w-full">
-                <input
-                  type="date"
-                  placeholder="end date"
-                  onChange={(e) => {
-                    setDateFilter({ ...dateFilter, endDate: e.target.value });
-                    dispatch(
-                      updateStartDate({
-                        ...dateFilter,
-                        endDate: e.target.value,
-                      })
-                    );
-                  }}
-                  defaultValue={endDate}
-                  className="border-black rounded-md  text-sm w-full"
-                />
-              </label>
-            </div>
+        </div>
+        <div className="flex gap-5 justify-end">
+          <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0 items-center">
+            <h3 className="">Filter by date</h3>
           </div>
-      
+
+          <div className="block md:flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0 ">
+            <label className="w-full">
+              <input
+                type="date"
+                ref={ref}
+                id="start"
+                placeholder="start date"
+                onChange={(e) => {
+                  setDateFilter({ ...dateFilter, startDate: e.target.value });
+                  dispatch(
+                    updateStartDate({
+                      ...dateFilter,
+                      startDate: e.target.value,
+                    })
+                  );
+                }}
+                defaultValue={startDate}
+                className="border-black rounded-md text-sm w-full"
+              />
+            </label>
+            <h3 className="text-left md:text-center md:py-5 md:py-0 py-5">
+              and
+            </h3>
+            <label className="flex justify-end w-full">
+              <input
+                type="date"
+                placeholder="end date"
+                onChange={(e) => {
+                  setDateFilter({ ...dateFilter, endDate: e.target.value });
+                  dispatch(
+                    updateStartDate({
+                      ...dateFilter,
+                      endDate: e.target.value,
+                    })
+                  );
+                }}
+                defaultValue={endDate}
+                className="border-black rounded-md  text-sm w-full"
+              />
+            </label>
+          </div>
+        </div>
       </div>
 
       <div className="events-cards-container grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
@@ -389,7 +379,8 @@ const EventsIndex = ({ events }) => {
                           loggedUserRole === "Supervisor"
                             ? "supervisor-existing-events-head-table"
                             : "existing-events-head-table"
-                        } px-7 py-7  rounded shadow-md`}
+                        } 
+                         px-7 py-7  rounded shadow-md`}
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
                         <div className="flex items-center lg:text-xl font-bold ">
@@ -409,17 +400,17 @@ const EventsIndex = ({ events }) => {
                             <p className="leading-5">Edit event</p>
                           </div>
                         </Link>
-                        
+
                         <a
                           href={`/oef/cbt/${event.id}/participant-survey/survey`}
                           className="flex items-stretch"
-                          target={'_black'}
+                          target={"_black"}
                         >
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center ">
                             <p className="leading-5">Participant survey</p>
                           </div>
                         </a>
-      
+
                         <Link href={`/oef/cbt/${event.id}/events/upload-event`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">
@@ -507,6 +498,7 @@ const EventsIndex = ({ events }) => {
         </div>
         {showDeleteEventModal && (
           <DeleteEventModal
+            setSortedEventsByDate={setSortedEventsByDate}
             setShowDeleteEventModal={setShowDeleteEventModal}
             showDeleteEventModal={showDeleteEventModal}
             selectedEventToDelete={selectedEventToDelete}
