@@ -1,13 +1,14 @@
 import React, { useState,useEffect } from "react";
 import RadioGroup from "../../../components/yip/RadioGroup";
 import TextArea from "../../../components/yip/TextArea";
-import OneColumnCheckbox from "../../../components/yip/OneColumnCheckbox";
-import TwoColumnsCheckbox from "../../../components/yip/TwoColumnsCheckbox";
 import TimeComponent from "../../../components/yip/TimeComponent";
-import LocationAddress from "../../../components/yip/LocationAddress";
+import InputValidationAddress from '../../../components/InputValidationAddress';
 import DateComponent from "../../../components/yip/DateComponent";
+import OnlineOrInPerson from "../../../components/yip/OnlineOrInPerson";
 
 import Loader from "../../../components/Loader";
+import { workArea } from "../../../utils/sharedData";
+
 
 import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
@@ -36,21 +37,21 @@ const Register = ({user}) => {
     eventDate:"",
     eventDateCreated:new Date(),
     eventDescription:"",
-    eventFinishTime:"00:00",
-    eventStartTime:"00:00",
-    inPersonEventTypeId:"",
+    eventFinishTime:"10:00",
+    eventStartTime:"14:00",
+    inPersonEventTypeId:0,
     inPersonEventTypeName:"",
     locationAddress:"",
-    onlineEventTypeId:"",
+    onlineEventTypeId: 0,
     onlineEventTypeName:"",
     onlineInPersonEventType:"",
-    programId:1,
-    programName:'OEF',
+    programId: 0,
+    programName:'',
     submissionStatus:"",
-    surveyCompleted:"",
+    surveyCreated:"",
     surveyModified:"",
     surveyName:"yip-register",
-    userid:"",
+    userid: userId,
     workArea:"",
     workAreaOther:"",
     yipSession:"",
@@ -116,17 +117,18 @@ const Register = ({user}) => {
 
     await axios
       .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/cbt/create`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/yip/create`,
         eventForm
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
+          console.log(response)
           //setShowResponseStatus(false)
           //notifyMessage();
           setTimeout(() => {
-            router.push(
-              `/oef/cbt/success`
-            );
+            // router.push(
+            //   `/oef/cbt/success`
+            // );
           }, 1000);
         }
       })
@@ -169,11 +171,12 @@ const Register = ({user}) => {
         />
         <div className="container mx-auto border rounded-lg mb-10">
           <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
-            <RadioGroup 
-            options={[{id:1,value:'NYS CMP'},{id:2,value:'OEF'}]} 
+
+           <RadioGroup 
+            options={[{id:3,value:'NYS CMP'},{id:1,value:'OEF'}]} 
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
-            title='Which program is this event for'
+            title='Which program is this event for?'
             stateValue={'programName'}
             />
 
@@ -194,13 +197,28 @@ const Register = ({user}) => {
             stateValue={'yipSessionOther'}
             />
             )}
-       <LocationAddress 
+       
+            <RadioGroup 
+            options={workArea}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
-            title='What is the event location address?'
-            stateValue={'locationAddress'}
-            guidanceText='Can be physical or an online meeting address'
+            title='Which region is the YIP running in?'
+            stateValue={'workArea'}
             />
+
+
+            <OnlineOrInPerson 
+             eventForm={eventForm}
+             setEventForm={setEventForm}
+            />
+
+            <div className="">
+              <h2 className="mb-2 font-black">What is the event location address?</h2>
+              <p>Can be physical or an online meeting address</p>
+              <label className="mt-7">
+                <InputValidationAddress setForm={setEventForm} name={'locationAddress'}/>
+              </label>
+            </div>
 
 
             <DateComponent 

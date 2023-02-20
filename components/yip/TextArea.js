@@ -6,7 +6,7 @@ export default function TextArea({ surveyForm,setSurveyForm,stateValue,title }) 
     setSurveyForm({...surveyForm,[stateValue]:e.target.value})
   };
   return (
-    <div className='question-body'>
+    <div className=''>
       <h2 className="mb-7 font-black">{title}</h2>
       <label htmlFor="">
         <textarea

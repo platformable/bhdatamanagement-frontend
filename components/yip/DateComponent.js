@@ -5,6 +5,7 @@ const DateComponent = ({eventForm,setSurveyForm,stateValue}) => {
  
  
   const handleForm = (e) => {
+    
     setSurveyForm(previous => ({...previous, [stateValue]: e.target.value}))
   }
 
