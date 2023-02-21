@@ -12,7 +12,7 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
   console.log("event en el print", event);
 
   const [formData, setFormData] = useState({
-    id: event.id,
+    id: event?.id,
     eventDateCreated: new Date(),
     programID: "1",
     programName: "OEF",

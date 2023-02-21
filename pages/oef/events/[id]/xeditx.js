@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function xeditx() {
   return (
-    <div></div>
+    <></>
   )
 }
 
