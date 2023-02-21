@@ -47,7 +47,7 @@ const Register = ({user}) => {
     onlineInPersonEventType:"",
     programId: 0,
     programName:'',
-    submissionStatus:"",
+    submissionStatus:"Submitted",
     surveyCreated:"",
     surveyModified:"",
     surveyName:"yip-register",
