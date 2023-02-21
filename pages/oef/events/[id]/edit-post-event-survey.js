@@ -547,7 +547,7 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
           <ReactToPrint
             trigger={() => <button className="bg-yellow-500 hover:bg-yellow-300 px-24 py-1 rounded  inline-block ">Print</button>}
             content={() => componentRef.current} 
-            documentTitle={`${new Date(event.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}_${eventToPrint.deliverypartner}_HIV Outreach Event_${new Date().toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}`}
+            documentTitle={`${new Date(event.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}_${eventToPrint?.deliverypartner}_HIV Outreach Event_${new Date().toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}`}
           /> 
 
           
@@ -607,7 +607,18 @@ export const getServerSideProps = withPageAuthRequired({
       fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
       fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/hiv/data_to_print/${id}`)
       .then((r) => r.json())
-      .then(response=>response[0])
+      .then(response=>{
+        if(response.length>0){
+          response[0]
+        } else {
+
+        
+          return null
+        }
+        }
+
+        
+        )
     ]);
     return {
       props: {
