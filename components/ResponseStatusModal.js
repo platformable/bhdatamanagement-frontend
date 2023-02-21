@@ -1,8 +1,8 @@
 const ResponseStatusModal = ({ responseStatus, setShowResponseStatus }) => {
   return (
     <div className="modal flex items-center ">
-      <div className="relative flex justify-between max-w-sm mx-auto flex flex-col items-center justify-center gap-10 bg-white p-10 rounded-md w-2/5 h-3/6">
-    {/*     <button
+      <div className="relative flex  max-w-sm mx-auto flex flex-col items-center justify-center gap-10 bg-white p-10 rounded-md w-2/5 h-2/6">
+        <button
           className="absolute  top-0 right-0"
           onClick={() => setShowResponseStatus((previous) => !previous)}
         >
@@ -13,8 +13,7 @@ const ResponseStatusModal = ({ responseStatus, setShowResponseStatus }) => {
             className="rounded-tr"
             width="20"
           />
-        </button> */}
-        <div></div>
+        </button>
         <p className="font-black text-black text-center">
           {responseStatus.statusMessage}
         </p>

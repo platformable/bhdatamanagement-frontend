@@ -127,9 +127,9 @@ const EditYip = ({event, user}) => {
           //setShowResponseStatus(false)
           //notifyMessage();
           setTimeout(() => {
-            // router.push(
-            //   `/oef/yip`
-            // );
+            router.push(
+              `/oef/yip`
+            );
           }, 1000);
         }
       })
