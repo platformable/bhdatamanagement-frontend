@@ -1,11 +1,9 @@
 import React from "react";
 
 
-const DateComponent = ({eventForm,setSurveyForm,stateValue}) => {
- 
+const DateComponent = ({surveyForm,setSurveyForm,stateValue}) => {
  
   const handleForm = (e) => {
-    
     setSurveyForm(previous => ({...previous, [stateValue]: e.target.value}))
   }
 
@@ -18,7 +16,7 @@ const DateComponent = ({eventForm,setSurveyForm,stateValue}) => {
       name={stateValue} 
       className='border rounded p-2 text-lg w-48' 
       onChange={handleForm}
-      defaultValue={ eventForm?.[stateValue].split('T')[0]  }
+      defaultValue={ surveyForm?.[stateValue].split('T')[0] || '' }
       />
     </label>
   );

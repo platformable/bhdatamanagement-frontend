@@ -1,61 +1,62 @@
 import React, { useState,useEffect } from "react";
-import RadioGroup from "../../../components/yip/RadioGroup";
-import TextArea from "../../../components/yip/TextArea";
-import TimeComponent from "../../../components/yip/TimeComponent";
-import InputValidationAddress from '../../../components/InputValidationAddress';
-import DateComponent from "../../../components/yip/DateComponent";
-import OnlineOrInPerson from "../../../components/yip/OnlineOrInPerson";
+import RadioGroup from "../../../../components/yip/RadioGroup";
+import TextArea from "../../../../components/yip/TextArea";
+import TimeComponent from "../../../../components/yip/TimeComponent";
+import InputValidationAddress from '../../../../components/InputValidationAddress';
+import DateComponent from "../../../../components/yip/DateComponent";
+import OnlineOrInPerson from "../../../../components/yip/OnlineOrInPerson";
 
-import Loader from "../../../components/Loader";
-import { workArea } from "../../../utils/sharedData";
+import Loader from "../../../../components/Loader";
+import { workArea } from "../../../../utils/sharedData";
 
 
-import Layout from "../../../components/Layout";
-import PageTopHeading from "../../../components/PageTopHeading";
+import Layout from "../../../../components/Layout";
+import PageTopHeading from "../../../../components/PageTopHeading";
 import { useRouter } from "next/router";
-// import { nysActivity, NYSZipCodesAndBoroughs } from "../../../utils/sharedData";
+import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 
-import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
+
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
-import ResponseStatusModal from "../../../components/ResponseStatusModal";
 
-const Register = ({user}) => {
+const EditYip = ({event, user}) => {
   const router = useRouter();
 /*   const { user, error, isLoading } = useUser(); */
   let userId = user?.sub;
-  console.log("user",user)
+//   console.log("user",event)
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
   const [loading, setLoading] = useState(false);
   const [eventForm, setEventForm] = useState({
-    createdbyLastName:user && user["https://lanuevatest.herokuapp.com/lastname"],
-    createdByName: user && user["https://lanuevatest.herokuapp.com/name"],
-    eventDate:"",
-    eventDateCreated:new Date(),
-    eventDescription:"",
-    eventFinishTime:"10:00",
-    eventStartTime:"14:00",
-    inPersonEventTypeId:0,
-    inPersonEventTypeName:"",
-    locationAddress:"",
-    onlineEventTypeId: 0,
-    onlineEventTypeName:"",
-    onlineInPersonEventType:"",
-    programId: 0,
-    programName:'',
-    submissionStatus:"",
-    surveyCreated:"",
-    surveyModified:"",
-    surveyName:"yip-register",
-    userid: userId,
-    workArea:"",
-    workAreaOther:"",
-    yipSession:"",
-    yipSessionOther:"",
+    id: event?.id,
+    createdbyLastName:event?.createdbylastname || user && user["https://lanuevatest.herokuapp.com/lastname"],
+    createdByName:event?.createdbyname || user && user["https://lanuevatest.herokuapp.com/name"],
+    eventDate:event?.eventdate,
+    eventDateCreated:event?.eventdatecreated || new Date(),
+    eventDescription:event?.eventdescription || "",
+    eventFinishTime:event?.eventfinishtime ,
+    eventStartTime:event?.eventstarttime,
+    inPersonEventTypeId:event?.inpersoneventtypeid || 0,
+    inPersonEventTypeName:event?.inpersoneventtypename || "",
+    locationAddress:event?.locationaddress || "",
+    onlineEventTypeId:event?.onlineeventtypeid ||  0,
+    onlineEventTypeName:event?.onlineeventtypename || "",
+    onlineInPersonEventType:event?.onlineinpersoneventtype || "",
+    programId:event?.programid ||  0,
+    programName:event?.programname || '',
+    submissionStatus:event?.submissionstatus,
+    surveyCreated:event?.surveycreated || "",
+    surveyModified:event?.surveymodified || "",
+    surveyName:event?.surveyname || "yip-register",
+    userid: event?.userid ||  userId,
+    workArea:event?.workarea || "",
+    workAreaOther:event?.workareaother || "",
+    yipSession:event?.yipsession || "",
+    yipSessionOther:event?.yipsessionother || "",
   });
 
   console.log("oef state form", eventForm);
@@ -116,8 +117,8 @@ const Register = ({user}) => {
 
 
     await axios
-      .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/yip/create`,
+      .put(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/yip/update`,
         eventForm
       )
       .then((response) => {
@@ -126,9 +127,9 @@ const Register = ({user}) => {
           //setShowResponseStatus(false)
           //notifyMessage();
           setTimeout(() => {
-            router.push(
-              `/oef/yip`
-            );
+            // router.push(
+            //   `/oef/yip`
+            // );
           }, 1000);
         }
       })
@@ -167,7 +168,7 @@ const Register = ({user}) => {
         <PageTopHeading
           backBtn={true}
           dashboardBtn={true}
-          pageTitle={"Register a YIP event"}
+          pageTitle={"Edit a YIP event"}
         />
         <div className="container mx-auto border rounded-lg mb-10">
           <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
@@ -218,7 +219,7 @@ const Register = ({user}) => {
               <h2 className="mb-2 font-black">What is the event location address?</h2>
               <p>Can be physical or an online meeting address</p>
               <label className="mt-7">
-                <InputValidationAddress setForm={setEventForm} name={'locationAddress'}/>
+                <InputValidationAddress setForm={setEventForm} name={'locationAddress'} defaultValue={eventForm?.locationAddress}/>
               </label>
             </div>
 
@@ -267,6 +268,20 @@ const Register = ({user}) => {
   );
 };
 
-export default Register;
+export default EditYip;
 
-export const getServerSideProps = withPageAuthRequired({})
+export const getServerSideProps = withPageAuthRequired({
+    async getServerSideProps(ctx) {
+        const { id } = ctx.params;
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`
+        );
+        const event = await res.json();
+    
+        return {
+          props: {
+            event: event[0],
+          },
+        };
+      },
+})
