@@ -126,9 +126,9 @@ const Register = ({user}) => {
           //setShowResponseStatus(false)
           //notifyMessage();
           setTimeout(() => {
-            // router.push(
-            //   `/oef/cbt/success`
-            // );
+            router.push(
+              `/oef/yip`
+            );
           }, 1000);
         }
       })
