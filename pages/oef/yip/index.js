@@ -27,6 +27,9 @@ const EventsIndex = ({ events }) => {
   const { user, error, isLoading } = useUser();
   const [selectedEventToDelete, setSelectedEventToDelete] = useState("");
   const [showDeleteEventModal, setShowDeleteEventModal] = useState(false);
+  const [sortedEventsByDate, setSortedEventsByDate] = useState(
+    events.sort((a, b) => new Date(b.eventdate) - new Date(a.eventdate))
+  );
   const router = useRouter();
 
   const loggedUserRole =
@@ -118,7 +121,7 @@ const EventsIndex = ({ events }) => {
       "STATUS:CONFIRMED" +
       "\n" +
       "SUMMARY:" +
-      event?.eventname +
+      event?.yipsession +
       "\n" +
       "DESCRIPTION:" +
       event?.onlineinpersoneventtype +
@@ -194,13 +197,8 @@ const EventsIndex = ({ events }) => {
     (state) => state.eventCalendarDates.value.endDate
   );
 
-  const state = useSelector((state) => console.log(state));
 
-  const sortedEventsByDate = events.sort(
-    (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
-  );
-
-  console.log(sortedEventsByDate);
+  // console.log(sortedEventsByDate);
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
@@ -494,6 +492,7 @@ const EventsIndex = ({ events }) => {
         </div>
         {showDeleteEventModal && (
           <DeleteEventModal
+            setSortedEventsByDate={setSortedEventsByDate}
             setShowDeleteEventModal={setShowDeleteEventModal}
             showDeleteEventModal={showDeleteEventModal}
             selectedEventToDelete={selectedEventToDelete}
