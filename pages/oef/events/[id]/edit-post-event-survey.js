@@ -546,7 +546,11 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
           </a>
           <ReactToPrint
             trigger={() => <button className="bg-yellow-500 hover:bg-yellow-300 px-24 py-1 rounded  inline-block ">Print</button>}
-            content={() => componentRef.current} /> 
+            content={() => componentRef.current} 
+            documentTitle={`${new Date(event.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}_${eventToPrint.deliverypartner}_HIV Outreach Event_${new Date().toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}`}
+          /> 
+
+          
         </div>
             <TextArea
               title="One line description of the event"
