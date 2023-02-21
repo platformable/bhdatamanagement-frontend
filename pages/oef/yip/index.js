@@ -27,6 +27,9 @@ const EventsIndex = ({ events }) => {
   const { user, error, isLoading } = useUser();
   const [selectedEventToDelete, setSelectedEventToDelete] = useState("");
   const [showDeleteEventModal, setShowDeleteEventModal] = useState(false);
+  const [sortedEventsByDate, setSortedEventsByDate] = useState(
+    events.sort((a, b) => new Date(b.eventdate) - new Date(a.eventdate))
+  );
   const router = useRouter();
 
   const loggedUserRole =
@@ -118,7 +121,7 @@ const EventsIndex = ({ events }) => {
       "STATUS:CONFIRMED" +
       "\n" +
       "SUMMARY:" +
-      event?.eventname +
+      event?.yipsession +
       "\n" +
       "DESCRIPTION:" +
       event?.onlineinpersoneventtype +
@@ -194,13 +197,8 @@ const EventsIndex = ({ events }) => {
     (state) => state.eventCalendarDates.value.endDate
   );
 
-  const state = useSelector((state) => console.log(state));
 
-  const sortedEventsByDate = events.sort(
-    (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
-  );
-
-  console.log(sortedEventsByDate);
+  // console.log(sortedEventsByDate);
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
@@ -224,16 +222,16 @@ const EventsIndex = ({ events }) => {
           
         </div>
       </div>
-      <div className="container mx-auto grid  items-center grid-cols-2 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5 mt-7">
+      <div className="container mx-auto grid  items-center lg:grid-cols-2 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5 mt-7">
         <div className="flex">
           <Search searchFunction={searchFunction} />
          </div> 
-          <div className="flex gap-5 justify-end">
+          <div className="flex flex-col md:flex-row gap-5 justify-start lg:justify-end">
             <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0 items-center">
               <h3 className="">Filter by date</h3>
             </div>
 
-            <div className="block md:flex flex-col gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0 ">
+            <div className="block md:flex md:flex-row gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0 ">
               <label className="w-full">
                 <input
                   type="date"
@@ -290,7 +288,7 @@ const EventsIndex = ({ events }) => {
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
         <p className="lg:text-xl font-bold flex items-center ">Event name</p>
         <p className="lg:text-xl font-bold flex items-center ">Event date</p>
-        <p className="lg:text-xl font-bold flex items-center ">Status</p>
+        <p className="lg:text-xl font-bold flex items-center justify-center">Status</p>
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
@@ -300,7 +298,7 @@ const EventsIndex = ({ events }) => {
               ?.filter(
                 (event, index) =>
                   event?.programname === "OEF" &&
-                  event?.surveyname?.includes("cbt")
+                  event?.surveyname?.includes("yip-register")
               )
               .filter((event, index) => {
                 if (
@@ -350,12 +348,12 @@ const EventsIndex = ({ events }) => {
                         id={event.id}
                         programName={event.programname}
                         eventdate={event.eventdate}
-                        eventName={event.eventname}
-                        urlEdit={`events/${event.id}/nys_cmp/edit`}
-                        urlParticipantSurvey={`/events/${event.id}/participant-survey`}
-                        urlUpload={`events/${event.id}/upload-event`}
-                        urlPostEventSurvey={`events/${event.id}/post-event-survey`}
-                        urlEditPostEventSurvey={`events/${event.id}/edit-post-event-survey`}
+                        eventName={event.yipsession}
+                        urlEdit={`/oef/yip/${event.id}/edit`}
+                        urlParticipantSurvey={`/oef/yip/${event.id}/participant-survey`}
+                        urlUpload={`/oef/yip/${event.id}/upload-event`}
+                        urlPostEventSurvey={`/oef/yip/${event.id}/post-event-survey`}
+                        urlEditPostEventSurvey={`/oef/yip/${event.id}/edit-post-event-survey`}
                         userRole={loggedUserRole}
                         setShowDeleteEventModal={setShowDeleteEventModal}
                         showDeleteEventModal={showDeleteEventModal}
@@ -377,7 +375,7 @@ const EventsIndex = ({ events }) => {
                       >
                         {/* <div className="flex items-center lg:text-xl font-bold ">{event.programname}</div> */}
                         <div className="flex items-center lg:text-xl font-bold ">
-                          {event.eventname}
+                          {event?.yipsession}
                         </div>
                         <div className="flex items-center lg:text-xl font-bold mr-2">
                           {
@@ -388,17 +386,17 @@ const EventsIndex = ({ events }) => {
                             /* crearFecha2(event) */
                           }
                         </div>
-                        <div className="flex items-center lg:text-xl font-bold bg-red-50">
-                          <p>Submitted</p>
+                        <div className="flex items-center justify-center  lg:text-xl font-bold bg-red-50">
+                          <p>{event?.submissionstatus}</p>
                         </div>
-                        <Link href={`/oef/cbt/${event.id}/events/edit`}>
+                        <Link href={`/oef/yip/${event.id}/edit`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Edit event</p>
                           </div>
                         </Link>
                         
                         <a
-                          href={`/oef/cbt/${event.id}/participant-survey/survey`}
+                          href={`/oef/yip/${event.id}/participant-survey/survey`}
                           className="flex items-stretch"
                           target={'_black'}
                         >
@@ -407,7 +405,7 @@ const EventsIndex = ({ events }) => {
                           </div>
                         </a>
       
-                        <Link href={`/oef/cbt/${event.id}/events/upload-event`}>
+                        <Link href={`/oef/yip/${event.id}/upload-event`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">
                               Uploads docs &#38; photos, etc{" "}
@@ -418,8 +416,8 @@ const EventsIndex = ({ events }) => {
                         <Link
                           href={
                             event.posteventreportid
-                              ? `/oef/cbt/${event.id}/post-event-survey/edit-post-event-survey`
-                              : `/oef/cbt/${event.id}/post-event-survey/register`
+                              ? `/oef/yip/${event.id}/post-event-survey/edit-post-event-survey`
+                              : `/oef/yip/${event.id}/post-event-survey/register`
                           }
                         >
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center text-center">
@@ -494,6 +492,7 @@ const EventsIndex = ({ events }) => {
         </div>
         {showDeleteEventModal && (
           <DeleteEventModal
+            setSortedEventsByDate={setSortedEventsByDate}
             setShowDeleteEventModal={setShowDeleteEventModal}
             showDeleteEventModal={showDeleteEventModal}
             selectedEventToDelete={selectedEventToDelete}

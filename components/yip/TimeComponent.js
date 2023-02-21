@@ -13,7 +13,7 @@ const timeComponent = ({stateValue, setSurveyForm,title,surveyForm}) => {
       name={stateValue} 
       className='border rounded p-2 text-lg w-48' 
       onChange={handleForm}
-      defaultValue={'00:00'|| surveyForm[stateValue]}
+      defaultValue={surveyForm[stateValue] || '-'}
       />
     </label>
   );
