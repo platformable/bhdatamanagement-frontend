@@ -12,7 +12,7 @@ import LearnedSection from "../../../../components/oef-monthly-report/LearnedSec
 
 
 
-export default function oefMonthlyReport({ events, eventsOutput }) {
+export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
   const [selectedEvents, setSelectedEvents] = useState([]);
   const [selectedEventsOutputs, setSelectedEventsOutputs] = useState([]);
   const [generateReport, setGenerateReport]  = useState(false)
@@ -21,7 +21,7 @@ export default function oefMonthlyReport({ events, eventsOutput }) {
     finish: null,
   });
   const [imagesRefs, setImagesRefs] = useState({});
-  console.log("events output", eventsOutput)
+
 
     const getHrefImage = async (link, name) => {
         setImagesRefs((prev) => ({ ...prev, [name]: link }));
@@ -35,7 +35,7 @@ export default function oefMonthlyReport({ events, eventsOutput }) {
 
   useEffect(() => {
     console.log("selectedDate", selectedDate);
-    const selectedReports = events.filter(
+    const selectedReports = eventsOutput.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
         const end = new Date(new Date(selectedDate.finish).setHours(23))
@@ -43,7 +43,7 @@ export default function oefMonthlyReport({ events, eventsOutput }) {
         return eventdate >= start && eventdate <= end
       } 
     );
-    const selectedEventOutputsReports = eventsOutput.filter(
+    const selectedEventOutputsReports = participantEvents.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
         const end = new Date(new Date(selectedDate.finish).setHours(23))
@@ -89,10 +89,10 @@ export default function oefMonthlyReport({ events, eventsOutput }) {
           GENERATE <br/>DATA AND CHARTS
       </button>
           </div>
-      <ExportCSV  
+    {/*   <ExportCSV  
         csvData={selectedEventsOutputs}
         fileName={`NYS_CMP_Event_Data_${csvNowDate.split(",")[0]}.csv`}
-        />
+        /> */}
 
         </div>
       </section>
@@ -119,16 +119,16 @@ export default function oefMonthlyReport({ events, eventsOutput }) {
 }
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
-    const [events, eventsOutput,] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`).then((r) =>
+    const [eventsOutput, participantEvents,] = await Promise.all([
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/events_output/report/`).then((r) =>
         r.json()
       ),
       fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/nys_events_output`
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/participant_events_output/report/`
       ).then((r) => r.json()),
       
     ]);
-    return { props: { events, eventsOutput } };
+    return { props: { eventsOutput, participantEvents } };
   },
 });
 
