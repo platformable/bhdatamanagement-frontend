@@ -609,16 +609,11 @@ export const getServerSideProps = withPageAuthRequired({
       .then((r) => r.json())
       .then(response=>{
         if(response.length>0){
-          response[0]
+          return response[0]
         } else {
-
-        
           return null
         }
-        }
-
-        
-        )
+      })
     ]);
     return {
       props: {
