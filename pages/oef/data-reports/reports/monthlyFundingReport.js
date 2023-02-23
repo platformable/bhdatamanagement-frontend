@@ -7,7 +7,10 @@ import CABSection from "../../../../components/oef-monthly-report/CABSection";
 import HIVOutreachSection from "../../../../components/oef-monthly-report/HIVOutreachSection";
 import CBTSection from "../../../../components/oef-monthly-report/CBTSection";
 import ExportCSV from "../../../../components/csv-reports/exportCSV";
-import LearnedSection from "../../../../components/oef-monthly-report/LearnedSection";
+import Yip from "../../../../components/oef-monthly-report/Yip";
+import Highlights from "../../../../components/oef-monthly-report/Highlights";
+import Challenges from "../../../../components/oef-monthly-report/Challenges";
+import Conclusion from "../../../../components/oef-monthly-report/Conclusion";
 
 
 
@@ -109,7 +112,10 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
               <HIVOutreachSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
               <CABSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
               <CBTSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs}/>
-              <LearnedSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
+              <Yip selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
+              <Highlights selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
+              <Challenges selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
+              <Conclusion selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
           </section>
           
         </>
