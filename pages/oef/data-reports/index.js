@@ -50,7 +50,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                 />
 
                 <div className="grid md:grid-cols-6 grid-cols-1 gap-5 mb-2 px-5 md:px-0 my-10">
-                  <Link href={`/#`}>
+                  <Link href={`/oef/data-reports/reports/monthlyFundingReport`}>
                     <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                       <button id="myBtn" className="flex items-center">
                         <p className=" font-bold text-white uppercase">
@@ -85,7 +85,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
               </h1>
               <div className="grid md:grid-cols-6 gap-5 px-5 md:px-0 grid-cols-1 mb-2 my-10">
                 {/*  **********************************FIRST ROW ************************** */}
-                <Link href={`/oef/reports/hiv_outreach_event`}>
+                <Link href={`/oef/data-reports/data/hiv_outreach_event`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
@@ -94,7 +94,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     </button>
                   </div>
                 </Link>
-                <Link href={`/oef/reports/oef_participant_sign_in_sheet`}>
+                <Link href={`/oef/data-reports/data/oef_participant_sign_in_sheet`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
@@ -112,7 +112,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     </button>
                   </div>
                 </Link>
-                <Link href={`/oef/reports/site_visits`}>
+                <Link href={`/oef/data-reports/data/site_visits`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
@@ -121,7 +121,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     </button>
                   </div>
                 </Link>
-                <Link href={`/oef/reports/technical_assistance_request`}>
+                <Link href={`/oef/data-reports/data/technical_assistance_request`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
@@ -137,7 +137,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
 
               <div className="grid md:grid-cols-6 gap-5 px-5 md:px-0 grid-cols-1 mb-2 my-10">
                 {/*  ********************************** SECOND ROW ************************** */}
-                <Link href={`/oef/reports/cbt_facilitator_feedback`}>
+                <Link href={`/oef/data-reports/data/cbt_facilitator_feedback`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
@@ -146,7 +146,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     </button>
                   </div>
                 </Link>
-                <Link href={`/oef/reports/cbt_participant_survey`}>
+                <Link href={`/oef/data-reports/data/cbt_participant_survey`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
@@ -164,7 +164,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     </button>
                   </div>
                 </Link>
-                <Link href={`/oef/reports/cbt_quarterly`}>
+                <Link href={`/oef/data-reports/data/cbt_quarterly`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
