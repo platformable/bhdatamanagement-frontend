@@ -47,7 +47,7 @@ export const ParticipantSurveySection32 = ({ surveyForm, setSurveyForm }) => {
     },
     {
       id: 10,
-      value: "NYCHA or public housing ",
+      value: "NYCHA or public housing",
     },
     {
       id: 11,
