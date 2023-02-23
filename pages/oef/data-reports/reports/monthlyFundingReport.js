@@ -2,16 +2,17 @@ import { useEffect, useState } from "react";
 import Layout from "../../../../components/Layout";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import PageTopHeading from "../../../../components/PageTopHeading";
-import PrioritiesSection from "../../../../components/nys-monthly-report/PrioritiesSection";
-import ResourcesSection from "../../../../components/nys-monthly-report/ResourcesSection";
-import CommunitySection from "../../../../components/nys-monthly-report/CommunitySection";
-import ChallengesSection from "../../../../components/nys-monthly-report/ChallengesSection";
+import AdministrativeSection from "../../../../components/oef-monthly-report/AdministrativeSection";
+import CABSection from "../../../../components/oef-monthly-report/CABSection";
+import HIVOutreachSection from "../../../../components/oef-monthly-report/HIVOutreachSection";
+import CBTSection from "../../../../components/oef-monthly-report/CBTSection";
 import ExportCSV from "../../../../components/csv-reports/exportCSV";
+import LearnedSection from "../../../../components/oef-monthly-report/LearnedSection";
 
 
 
 
-export default function nysMonthlyReport({ events, eventsOutput }) {
+export default function oefMonthlyReport({ events, eventsOutput }) {
   const [selectedEvents, setSelectedEvents] = useState([]);
   const [selectedEventsOutputs, setSelectedEventsOutputs] = useState([]);
   const [generateReport, setGenerateReport]  = useState(false)
@@ -104,10 +105,11 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
           />; */}
         
           <section className="container mx-auto w-3/5 px-5 md:px-0 grid gap-24 mb-12">
-              <PrioritiesSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
-              <ResourcesSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
-              <CommunitySection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
-              <ChallengesSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs}/>
+              <AdministrativeSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
+              <HIVOutreachSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
+              <CABSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
+              <CBTSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs}/>
+              <LearnedSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
           </section>
           
         </>
