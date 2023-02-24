@@ -15,7 +15,7 @@ const Cluster = ({ eventForm, setEventForm }) => {
     { id: 3, value: "Manhattan Cluster" },
     { id: 4, value: "Queens Cluster" },
     { id: 5, value: "Staten Island Cluster" },
-    { id: 6, value: 'Other cluster'},
+    { id: 6, value: 'Other Cluster'},
   ];
   return (
     <div className="px-7 question-body">

@@ -62,7 +62,7 @@ export default function Highlights({
           selectedEvents.map((event, index) => (
             <div key={index} className="">
               <h3 className="font-bold mb-2">
-                {event.eventname} - <br />{" "}
+                {event.eventname} - {" "}
                 {new Date(event.eventdate).toLocaleDateString("en-US", {
                   month: "long",
                   day: "2-digit",
