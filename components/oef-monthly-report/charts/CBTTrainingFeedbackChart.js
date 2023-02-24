@@ -100,6 +100,7 @@ const CBTTrainingFeedbackChart = ({
   };
 
   const options = {
+    indexAxis: 'y',
     plugins: {
       legend: {
         position: "top",
@@ -131,11 +132,14 @@ const CBTTrainingFeedbackChart = ({
       },
     },
     scales: {
+      x: {
+        
+      },
       y: {
         beginAtZero: true,
         title: {
           display: true,
-          text: "# of people tested",
+          // text: "# of people tested",
           font: {
             weight: "bold",
           },
