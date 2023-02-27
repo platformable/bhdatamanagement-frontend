@@ -41,37 +41,37 @@ const CBTTrainingFeedbackChart = ({
   getHrefImage,
   selectedDate,
 }) => {
+  console.log("chartDAta",cbtParticipants)
   const [value, copy] = useCopyToClipboard();
   const informationuseful = {
     "Strongly disagree": 0,
     "Disagree": 0,
-    "Neutral": 0,
+    "Neither agree nor disagree": 0,
     "Agree": 0,
-    "Strongly": 0,
+    "Strongly agree": 0,
 
   };
   const canapply = {
     "Strongly disagree": 0,
     "Disagree": 0,
-    "Neutral": 0,
+    "Neither agree nor disagree": 0,
     "Agree": 0,
-    "Strongly": 0,
+    "Strongly agree": 0,
   };
   const presenterexplainwell = {
     "Strongly disagree": 0,
     "Disagree": 0,
-    "Neutral": 0,
+    "Neither agree nor disagree": 0,
     "Agree": 0,
-    "Strongly": 0,
+    "Strongly agree": 0,
   };
   const understoodtopics = {
     "Strongly disagree": 0,
     "Disagree": 0,
-    "Neutral": 0,
+    "Neither agree nor disagree": 0,
     "Agree": 0,
-    "Strongly": 0,
+    "Strongly agree": 0,
   };
-
   const [stadistics, setStadistics] = useState([]);
   useEffect(() => {
     stadistics = cbtParticipants?.map((event) => {
@@ -80,8 +80,9 @@ const CBTTrainingFeedbackChart = ({
       presenterexplainwell[event.presenterexplainwell] += 1;
       understoodtopics[event.understoodtopics] += 1;
     });
-    // setStadistics(Object.values());
+    setStadistics([informationuseful, canapply, presenterexplainwell, understoodtopics]);
   }, [cbtParticipants]);
+  console.log(stadistics)
 
   let values = stadistics.filter((value) => Number.isFinite(value));
   let maxValue = Math.max.apply(null, values);
@@ -107,7 +108,7 @@ const CBTTrainingFeedbackChart = ({
       },
       title: {
         display: true,
-        text: `Ages tested for HIV NYS CMP ${reverseDate(
+        text: `CBT Training Feedback ${reverseDate(
           selectedDate.start
         )}-${reverseDate(selectedDate.finish)}`,
         position: "top",
@@ -120,23 +121,35 @@ const CBTTrainingFeedbackChart = ({
         color: "#000",
         formatter: function (value, context) {
           return value > 0
-            ? `${((value * 100) / totalOfValues).toFixed(2)}%`
+            ? value
             : "";
         },
         font: {
           weight: "bold",
         },
         anchor: "end",
-        offset: -20,
+        offset: 10,
         align: "start",
       },
     },
     scales: {
       x: {
-        
+        stacked: true,
+        min: 0,
+        ticks: {
+          stepSize: (value) => {
+            return value.scale.max / 4
+          },
+          callback: (value, index, values) => {
+            maxValue = values.findLast(e => e).value
+            return `${((value * 100) / maxValue).toFixed()} %`
+          },
+        }, 
       },
       y: {
+        stacked: true,
         beginAtZero: true,
+        position: 'left',
         title: {
           display: true,
           // text: "# of people tested",
@@ -147,8 +160,27 @@ const CBTTrainingFeedbackChart = ({
         ticks: {
           precision: 0,
         },
-        min: 0,
-        max: maxValue + maxValue / 3,
+        // min: 0,
+        // max: maxValue + maxValue / 3,
+      },
+      yRight: {
+        beginAtZero: true,
+        // type: 'linear',
+        position: 'right',
+        ticks: {
+          callback: (value,index,values) => {
+            console.log((value))
+            let obj = stadistics[value];
+            // typeof obj;
+            if (obj) {
+              return Object.values(obj).reduce((a, b) => (a || 0 ) + (b || 0), 0)
+            }
+            // return value
+          } 
+        },
+        grid: {
+          display: false,
+        }
       },
     },
   };
@@ -165,9 +197,41 @@ const CBTTrainingFeedbackChart = ({
     datasets: [
       {
         type: "bar",
-        label: "# of people tested",
-        backgroundColor: "#3c9648",
-        data: informationuseful,
+        label: "Strongly disagree",
+        backgroundColor: "#BE7EB4",
+        data: stadistics.map(obj => obj["Strongly disagree"]),
+        borderColor: "white",
+        borderWidth: 2,
+      },
+      {
+        type: "bar",
+        label: "Disagree",
+        backgroundColor: "#802E86",
+        data: stadistics.map(obj => obj["Disagree"]),
+        borderColor: "white",
+        borderWidth: 2,
+      },
+      {
+        type: "bar",
+        label: "Neutral",
+        backgroundColor: "#C8231F",
+        data: stadistics.map(obj => obj["Neither agree nor disagree"]),
+        borderColor: "white",
+        borderWidth: 2,
+      },
+      {
+        type: "bar",
+        label: "Agree",
+        backgroundColor: "#2E7D3D",
+        data: stadistics.map(obj => obj["Agree"]),
+        borderColor: "white",
+        borderWidth: 2,
+      },
+      {
+        type: "bar",
+        label: "Strongly agree",
+        backgroundColor: "#E8AB00",
+        data: stadistics.map(obj => obj["Strongly agree"]),
         borderColor: "white",
         borderWidth: 2,
       },

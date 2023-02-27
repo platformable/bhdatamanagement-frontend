@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 import {
   Chart as ChartJS,
@@ -36,11 +36,16 @@ ChartJS.register(
 );
 
 const ParticipantReferralsChart = ({ chartData}) => {
+  const [stadistics, setStadistics] = useState([])
+  console.log("ParticipantReferralsChart",chartData)
   const [value, copy] = useCopyToClipboard()
   let values = Object.values(chartData).filter(value => Number.isFinite(value));
   let maxValue = Math.max.apply(null, values);
   let totalOfValues = values.reduce((a, b) => a + b, 0);
 
+  useEffect(() => {
+    setStadistics(chartData)
+  }, [chartData])
   
   const options = {
     plugins: {
@@ -142,17 +147,17 @@ const ParticipantReferralsChart = ({ chartData}) => {
   }
 
 
-  const onClick = (event) => {
-    const { current } = chartRef;
+  // const onClick = (event) => {
+  //   const { current } = chartRef;
 
-    if (!current) {
-      return;
-    }
+  //   if (!current) {
+  //     return;
+  //   }
 
-    printDatasetAtEvent(getDatasetAtEvent(current, event));
-    printElementAtEvent(getElementAtEvent(current, event));
-    printElementsAtEvent(getElementsAtEvent(current, event));
-  };
+  //   printDatasetAtEvent(getDatasetAtEvent(current, event));
+  //   printElementAtEvent(getElementAtEvent(current, event));
+  //   printElementsAtEvent(getElementsAtEvent(current, event));
+  // };
 
   return (
     <div>
@@ -162,7 +167,7 @@ const ParticipantReferralsChart = ({ chartData}) => {
         ref={chartRef}
         data={data}
         options={options}
-        onClick={onClick}
+        // onClick={onClick}
       />
       <button
         onClick={imageToClipboard}

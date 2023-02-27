@@ -15,7 +15,7 @@ const CBTSection = ({
       (participant) => participant.surveyname === "cbt-participant"
     )]
   );
-  console.log(cbtParticipants);
+  // console.log(cbtParticipants);
   function handleCopy(id) {
     const data = document.getElementById(id).innerText;
     console.log("data", data);
@@ -84,7 +84,7 @@ const CBTSection = ({
       </div>
       <button
         onClick={(e) => handleCopy("cbt-section")}
-        className="mt-7 px-5 py-2 text-lg border hover:bg-black pointer-events-none hover:text-white rounded shadow"
+        className="mt-7 px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
       >
         Select and right-click to copy the text
       </button>

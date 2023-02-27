@@ -20,10 +20,14 @@ export default function Highlights({
     "NYCHA or public housing ": 0,
     "Other": 0,
   }
-
+  function handleCopy(id) {
+    const data = document.getElementById(id).innerText;
+    console.log("data", data);
+    navigator.clipboard.writeText(data);
+  }
 // console.log("refere",selectedEventsOutputs)
   useEffect(() => {
-    selectedEventsOutputs.map(event => participantReferral[event.participantreferral] += 1)
+    selectedEventsOutputs.map(event => event.participantreferral && (participantReferral[event.participantreferral] += 1))
   }, [selectedEventsOutputs])
   
   return (
@@ -88,8 +92,8 @@ export default function Highlights({
       </div>
 
       <button
-        // onClick={() => textToClipboard("resources-table")}
-        className="mb-10 px-5 py-2 text-lg border hover:bg-black pointer-events-none hover:text-white rounded shadow"
+        onClick={() => handleCopy("highlights-table")}
+        className="mb-10 px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
       >
         Select and right-click to copy the text
       </button>
