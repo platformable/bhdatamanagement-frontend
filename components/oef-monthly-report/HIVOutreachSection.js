@@ -509,6 +509,7 @@ const HIVOutreachSection = ({
   }
 
   const calculateBoroughPercentage=(borough)=>{
+    const totalOefParticipantsSurveys=selectedEventsOutputs.filter(event=>event.surveyname==='oef-participant').length
     let totalBoroughs=0
     const getTotal=selectedEventsOutputs.forEach(event=>{
       if(event.participantborough===borough){
@@ -516,7 +517,7 @@ const HIVOutreachSection = ({
       }
     })
 
-    return (totalBoroughs/selectedEventsOutputs.length)*100
+    return (totalBoroughs/totalOefParticipantsSurveys)*100
   }
   const getAgesSumPerValueName = (nameOfDataPoint) => {
     let total = 0;
@@ -581,7 +582,7 @@ const HIVOutreachSection = ({
 
   return (
     <section>
-      <h1 className="font-black mb-7">HIV Outreach Events</h1>
+      <h1 className="text-black mb-7 bg-red-500 text-white py-2 px-3">HIV Outreach Events</h1>
       <div className="grid grid-cols-1 gap-10">
         <p>{`A total of ${totalHivOutreachEvents} outreach events took place in [manually nsert month here], reaching a total of ${totalAttendees} people. There were ${totalNumberOfParticipantsSurveys} participant sign-in sheets completed. It was reported that ${totalTalkedHivPrepSaferSex} participants received verbal and educational information about HIV, PrEP, and safer sex messages. ${hivTesting} events offered HIV testing and this month there was ${hepCTesting} event with Hep-C testing. A total of ${hivTestedTotal} people were tested for HIV, with ${hivReactiveResults}  reactive results. ${prepReferrals}  people was referred to PrEP services and ${hivLinkedToCare} people were linked to HIV Care services.`}</p>
 
@@ -594,13 +595,13 @@ const HIVOutreachSection = ({
       <br />
         <VerticalBarChart selectedDate={selectedDate} chartTitle='Age of Participants - HIV Outreach events' axisXLabels={ageAxisDataForChart} chartDataValues={ageAxisDataForChart.map(data=>data.value)}/>
 
-        <VerticalBarChart selectedDate={selectedDate} chartTitle='Age of Participants - HIV Outreach events' 
+        <VerticalBarChart selectedDate={selectedDate} chartTitle='Gender of Participants - HIV Outreach events' 
         axisXLabels={dataValuesForGenderChart} chartDataValues={dataValuesForGenderChart.map(data=>data.value)}/>
 
-      <VerticalBarChart selectedDate={selectedDate} chartTitle='Age of Participants - HIV Outreach events' 
+      <VerticalBarChart selectedDate={selectedDate} chartTitle='Sexual Orientation of Participants - HIV Outreach events' 
         axisXLabels={dataValuesForSexualOrientation} chartDataValues={dataValuesForSexualOrientation.map(data=>data.value)}/>
 
-      <VerticalBarChart selectedDate={selectedDate} chartTitle='Age of Participants - HIV Outreach events' 
+      <VerticalBarChart selectedDate={selectedDate} chartTitle='Race of Participants - HIV Outreach events' 
         axisXLabels={dataValuesForSRacialIdentity} chartDataValues={dataValuesForSRacialIdentity.map(data=>data.value)}/>
       <br />
       <p>
