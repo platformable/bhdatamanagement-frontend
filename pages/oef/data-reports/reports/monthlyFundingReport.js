@@ -57,8 +57,11 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
     
     setSelectedEvents(selectedReports);
     setSelectedEventsOutputs(selectedEventOutputsReports);
+   
   }, [selectedDate]);
  
+  console.log("selectedEventsOuput",selectedEventsOutputs)
+
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
