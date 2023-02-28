@@ -41,10 +41,10 @@ const CBTSection = ({
 
   return (
     <div className="">
-      <h1 className="bg-red bg-red-200 text-white py-2 px-3">
+      <h1 className="bg-red bg-red-200 text-white py-2 px-3 mb-7">
         Capacity Building Training
       </h1>
-      <div className="grid gap-10" id='cbt-section'>
+      <div className="grid gap-5 mb-10" id='cbt-section'>
         <p>
           {cbtEvents.length} CBT/s session was held in [insert month manually
           here] on the topic/s Building a Youth Ministry around HIV. 60 people
@@ -80,14 +80,14 @@ const CBTSection = ({
             ))}
           </ul>
         </p>
-        
-      </div>
-      <button
+        <button
         onClick={(e) => handleCopy("cbt-section")}
         className="mt-7 px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
       >
         Select and right-click to copy the text
       </button>
+      </div>
+      
       <CBTTrainingFeedbackChart selectedDate={selectedDate} cbtParticipants={cbtParticipants} />
     </div>
   );

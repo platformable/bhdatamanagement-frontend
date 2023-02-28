@@ -37,7 +37,7 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
   const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
 
   useEffect(() => {
-    console.log("selectedDate", selectedDate);
+    // console.log("selectedDate", selectedDate);
     const selectedReports = eventsOutput.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
@@ -58,7 +58,7 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
     setSelectedEvents(selectedReports);
     setSelectedEventsOutputs(selectedEventOutputsReports);
   }, [selectedDate]);
- 
+ console.log(selectedEventsOutputs);
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading

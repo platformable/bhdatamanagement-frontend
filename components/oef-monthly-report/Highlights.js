@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ParticipantReferralsChart from "./ParticipantReferralsChart";
 
 export default function Highlights({
@@ -6,6 +6,7 @@ export default function Highlights({
   selectedEvents,
   selectedEventsOutputs,
 }) {
+  const [stadistics, setStadistics] = useState({})
 
   const participantReferral = {
     "Word of mouth": 0,
@@ -17,7 +18,7 @@ export default function Highlights({
     "Referral from another Black Health program": 0,
     "Government or city agency (E.g., DOH, DOE, Health + Hospitals)": 0,
     "Local Community Leader or Politician": 0,
-    "NYCHA or public housing ": 0,
+    "NYCHA or public housing": 0,
     "Other": 0,
   }
   function handleCopy(id) {
@@ -27,8 +28,11 @@ export default function Highlights({
   }
 // console.log("refere",selectedEventsOutputs)
   useEffect(() => {
-    selectedEventsOutputs.map(event => event.participantreferral && (participantReferral[event.participantreferral] += 1))
-  }, [selectedEventsOutputs])
+    selectedEventsOutputs.map(event => {
+      event.participantreferral && (participantReferral[event.participantreferral] += 1)
+    })
+    setStadistics(participantReferral)
+  }, [selectedDate])
   
   return (
     <section>
@@ -81,14 +85,19 @@ export default function Highlights({
 
       <h3 className="font-black mb-7">How people heard about the events</h3>
       <div className="grid gap-7 mb-10">
-        Of the {selectedEventsOutputs.length} participants who filled in surveys at the outreach
-         events, {(participantReferral['Faith-Based Organization / Place of worship (Eg. church, mosque, etc.)'] * 100) / selectedEventsOutputs.length}% reported that they had learned through their faith-based
-        organization, {(participantReferral['Word of mouth'] * 100) / selectedEventsOutputs.length}% from word of mouth, {(participantReferral['Signs/flyers'] * 100) / selectedEventsOutputs.length}% from signs and flyers, {(participantReferral['Community-Based Organization'] * 100) / selectedEventsOutputs.length}%
-        from a community-based organization, {(participantReferral['Social media'] * 100) / selectedEventsOutputs.length}% through social media, {(participantReferral['Referral from local health provider or services'] * 100) / selectedEventsOutputs.length}%
-        referral from local health provider or services, {(participantReferral['Referral from another Black Health program'] * 100) / selectedEventsOutputs.length}% referral from
-        another Black Health program, {(participantReferral['Government or city agency (E.g., DOH, DOE, Health + Hospitals)'] * 100) / selectedEventsOutputs.length}% government or city agency (E.g., DOH,
-        DOE, Health + Hospitals), {(participantReferral['Local Community Leader or Politician'] * 100) / selectedEventsOutputs.length}% local community leader or politician, {(participantReferral['NYCHA or public housing'] * 100) / selectedEventsOutputs.length}%
-        NYCHA or public housing, and {(participantReferral['Other'] * 100) / selectedEventsOutputs.length}% Other. Figures are shown in Figure 8.
+         <p>
+         Of the {selectedEventsOutputs.length} participants who filled in surveys at the outreach
+         events, {((stadistics['Faith-Based Organization / Place of worship (Eg. church, mosque, etc.)'] * 100) / selectedEventsOutputs.length).toFixed(1)}% reported that they had learned through their faith-based
+        organization, {((stadistics['Word of mouth'] * 100) / selectedEventsOutputs.length).toFixed(1)}% from word of mouth, {((stadistics['Signs/flyers'] * 100) / selectedEventsOutputs.length).toFixed(1)}% from signs and flyers, {((stadistics['Community-Based Organization'] * 100) / selectedEventsOutputs.length).toFixed(1)}%
+        from a community-based organization, {((stadistics['Social media'] * 100) / selectedEventsOutputs.length).toFixed(1)}% through social media, {((stadistics['Referral from local health provider or services'] * 100) / selectedEventsOutputs.length).toFixed(1)}%
+        referral from local health provider or services, {((stadistics['Referral from another Black Health program'] * 100) / selectedEventsOutputs.length).toFixed(1)}% referral from
+        another Black Health program, {((stadistics['Government or city agency (E.g., DOH, DOE, Health + Hospitals)'] * 100) / selectedEventsOutputs.length).toFixed(1)}% government or city agency (E.g., DOH,
+        DOE, Health + Hospitals), {((stadistics['Local Community Leader or Politician'] * 100) / selectedEventsOutputs.length).toFixed(1)}% local community leader or politician, {((stadistics['NYCHA or public housing'] * 100) / selectedEventsOutputs.length).toFixed(1)}%
+        NYCHA or public housing, and {((stadistics['Other'] * 100) / selectedEventsOutputs.length).toFixed(1)}% Other.
+        <br/>
+        <br/>
+        Figures are shown in Figure 8.
+         </p>
       </div>
 
       <button
@@ -98,7 +107,7 @@ export default function Highlights({
         Select and right-click to copy the text
       </button>
 
-      <ParticipantReferralsChart chartData={participantReferral}/>
+      <ParticipantReferralsChart selectedDate={selectedDate} chartData={stadistics}/>
     </section>
   );
 }
