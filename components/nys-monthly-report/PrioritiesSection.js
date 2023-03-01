@@ -39,7 +39,7 @@ const PrioritiesSection = ({
                   (event) =>
                     event.onlineinpersoneventtype === "In-person" && (
                       <div>
-                        <h3 className="font-black">
+                        <h3 className="font-black mb-2">
                           {new Date(event.eventdate).toLocaleDateString(
                             "en-US",
                             {
@@ -49,7 +49,7 @@ const PrioritiesSection = ({
                             }
                           )}
                         </h3>
-                        <p>{event.eventdescription}</p>
+                        <p>{event.eventhighlights}</p>
                       </div>
                     )
                 )}
