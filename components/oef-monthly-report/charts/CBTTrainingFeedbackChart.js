@@ -105,13 +105,23 @@ const CBTTrainingFeedbackChart = ({
     plugins: {
       legend: {
         position: "top",
+        // align: 'start',
+        labels: {
+          color: '#000',
+          font: {
+            weight: 'normal',  
+          }
+        }
       },
       title: {
         display: true,
-        text: `CBT Training Feedback - ${new Date(selectedDate.finish).toLocaleDateString('en-US', {month: 'long', year: '2-digit'})}`,
+        text: ["CBT Training Feedback",`${new Date(selectedDate.finish).toLocaleDateString('en-US', {month: 'long', year: '2-digit'})}`],
         position: "top",
+        align: 'start',
+        color: '#000',
         font: {
           size: 18,
+          weight: 'bold'
         },
       },
       datalabels: {

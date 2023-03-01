@@ -59,22 +59,24 @@ const Section3_2 = ({eventForm, setEventForm, nysActivity,event}) => {
                     
                 </label>) :
                 
-                (<label className="flex items-center  gap-x-5" key={activity.id}>
-                    <input type="radio" 
-                    name="nysActivity" 
-                    className='' 
-                    id={activity.id}
-                    onChange={handleForm}
-                    value="Other"
-                    defaultChecked={activity.value === eventForm.nysActivity?'checked':""}
-                    />
-                    <p className="">Other</p>
+                (<label className="text-lg flex flex-col md:flex-row gap-y-5 md:gap-x-5 items-start md:items-center" key={activity.id}>
+                    <div className="flex gap-5">
+                        <input type="radio" 
+                        name="nysActivity" 
+                        className='' 
+                        id={activity.id}
+                        onChange={handleForm}
+                        value="Other"
+                        defaultChecked={activity.value === eventForm.nysActivity?'checked':""}
+                        />
+                        <p className="">Other</p>
+                    </div>
                     <input type="text" 
                     name="nysActivityOther" 
                     onChange={(e) =>
                         setEventForm(previous => ({...previous, nysActivityOther: e.target.value}))
                     }
-                    className='border rounded' 
+                    className="border-black rounded px-4 self-start p-1  md:w-96" 
                     value={eventForm.nysActivityOther}
 />
                  </label>)
