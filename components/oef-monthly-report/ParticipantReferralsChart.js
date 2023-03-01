@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
+import { reverseDate } from "../../utils/helpers";
 import {
   Chart as ChartJS,
   LinearScale,
@@ -37,7 +38,7 @@ ChartJS.register(
 
 const ParticipantReferralsChart = ({ selectedDate,chartData}) => {
   const [stadistics, setStadistics] = useState([])
-  console.log("ParticipantReferralsChart",chartData)
+  // console.log("ParticipantReferralsChart",chartData)
   const [value, copy] = useCopyToClipboard()
   let values = Object.values(chartData).filter(value => Number.isFinite(value));
   let maxValue = Math.max.apply(null, values);
@@ -54,17 +55,20 @@ const ParticipantReferralsChart = ({ selectedDate,chartData}) => {
       },
       title: {
         display: true,
-        text: `How participants heard about the event - ${new Date(selectedDate.finish).toLocaleDateString('en-US', {month: 'long', year: '2-digit'})}`,
+        text: ["How participants heard about the event",`${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}  N=${totalOfValues}`],
         position: "top",
+        align: 'start',
+        color: '#000',
         font: {
           size: 18,
+          weight: 'bold'
         },
       },
       datalabels: {
         display: true,
         color: "#000",
         formatter: function (value, context) {
-          return value > 0 ? `${((value * 100) / totalOfValues).toFixed(2)}%`   : "";
+          return value > 0 ? `${((value * 100) / totalOfValues).toFixed(1)}%`   : "";
         },
         font: {
           weight: "bold",
@@ -75,16 +79,15 @@ const ParticipantReferralsChart = ({ selectedDate,chartData}) => {
       },
     },
     scales: {
+      x: {
+        ticks: {
+          color: '#000',
+        }
+      },
       y: {
         beginAtZero: true,
-        // title: {
-        //   display: true,
-        //   text: "# of events",
-        //   font: {
-        //     weight: "bold",
-        //   },
-        // },
         ticks: {
+          color: '#000',
           precision: 0,
           callback: (value, index, values) => {
             return `${((value * 100) / totalOfValues).toFixed()} %`
@@ -103,8 +106,8 @@ const ParticipantReferralsChart = ({ selectedDate,chartData}) => {
     datasets: [
       {
         type: "bar",
-        label: "# Participant referrals",
-        backgroundColor: "#802E86",
+        label: "Participant referrals",
+        backgroundColor: "#3C9648",
         data: Object.values(chartData),
         borderColor: "white",
         borderWidth: 2,

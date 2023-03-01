@@ -15,7 +15,7 @@ const NationalAwarenessDay = ({eventForm,setEventForm}) => {
 {id:9,value:"National Gay Men's HIV/AIDS Awareness Day - September 27"},
 {id:10,value:"National Latino Awareness Day - October 15"},
 {id:11,value:"World AIDS Day - December 1"},
-{id:12,value:"Other (please specify)"},
+{id:12,value:"Other"},
 
     ]
     return (
@@ -26,7 +26,7 @@ const NationalAwarenessDay = ({eventForm,setEventForm}) => {
             {options && options.map(option => {
                
                 return (
-                option.value !== "Other (please specify)" ? 
+                option.value !== "Other" ? 
                 (<label className='text-lg flex items-center gap-5' key={options.id}>
                     <input type="radio" 
                     name="nationalAwarenessDay" 
