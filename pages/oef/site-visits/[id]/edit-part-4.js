@@ -33,78 +33,77 @@ const RegisterSiteVisits = ({ fbos }) => {
   const hivRatingOptions = [
     {
       id: 1,
-      value: "cannot discuss",
+      value: "1: Very closed: cannot discuss",
       text: "Very closed",
-      bgColor:'stronglyDisagreeBg',
-        bgColorHover:'hover:stronglyDisagreeBg'
+      bgColor: "stronglyDisagreeBg",
+      bgColorHover: "hover:stronglyDisagreeBg",
     },
     {
       id: 2,
-      value: "not easily discussed",
+      value: "2: Somewhat closed: not easily discussed",
       text: "Somewhat closed",
-      bgColor:'disagreeBg',
-      bgColorHover:'hover:disagreeBg'
+      bgColor: "disagreeBg",
+      bgColorHover: "hover:disagreeBg",
     },
     {
       id: 3,
-      value: "neutral",
+      value: "3: Neutral",
       text: "Neutral",
-      bgColor:'neitherAgreeOrDisagreeBg',
-      bgColorHover:'hover:neitherAgreeOrDisagreeBg'
+      bgColor: "neitherAgreeOrDisagreeBg",
+      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
     },
     {
       id: 4,
-      value: "can be discussed",
+      value: "4: Somewhat open: can be discussed",
       text: "Somewhat open",
-      bgColor:'agreeBg',
-      bgColorHover:'hover:agreeBg'
+      bgColor: "agreeBg",
+      bgColorHover: "hover:agreeBg",
     },
     {
       id: 5,
-      value: "All topics and discussions welcome",
+      value: "5: Very open: All topics and discussions welcome",
       text: "Very open",
-      bgColor:'stronglyAgreeBg',
-      bgColorHover:'hover:stronglyAgreeBg'
-    }
-  ]
+      bgColor: "stronglyAgreeBg",
+      bgColorHover: "hover:stronglyAgreeBg",
+    },
+  ];
   const workingRatingOptions = [
     {
       id: 1,
-      value: "not welcome",
+      value: "1: Not welcome",
       text: "Not welcome",
-      bgColor:'stronglyDisagreeBg',
-        bgColorHover:'hover:stronglyDisagreeBg'
+      bgColor: "stronglyDisagreeBg",
+      bgColorHover: "hover:stronglyDisagreeBg",
     },
     {
       id: 2,
-      value: "some leaders make some groups unwelcome",
+      value: "2: Some leaders make some groups unwelcome",
       text: "Somewhat not welcome",
-      bgColor:'disagreeBg',
-        bgColorHover:'hover:disagreeBg'
+      bgColor: "disagreeBg",
+      bgColorHover: "hover:disagreeBg",
     },
     {
       id: 3,
-      value: "neutral",
+      value: "3: Neutral",
       text: "Neutral",
-      bgColor:'neitherAgreeOrDisagreeBg',
-        bgColorHover:'hover:neitherAgreeOrDisagreeBg'
+      bgColor: "neitherAgreeOrDisagreeBg",
+      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
     },
     {
       id: 4,
-      value: "most leaders and groups welcome",
+      value: "4: Welcome: most leaders and groups welcome", 
       text: "Welcome",
-      bgColor:'agreeBg',
-        bgColorHover:'hover:agreeBg'
+      bgColor: "agreeBg",
+      bgColorHover: "hover:agreeBg",
     },
     {
       id: 5,
-      value: "very welcome and open",
+      value: "5: Very welcome and open",
       text: "Very welcome and open",
-      bgColor:'stronglyAgreeBg',
-        bgColorHover:'hover:stronglyAgreeBg'
+      bgColor: "stronglyAgreeBg",
+      bgColorHover: "hover:stronglyAgreeBg",
     },
-    
-  ]
+  ];
 
   const statusOptions = [
     {
@@ -124,7 +123,7 @@ const RegisterSiteVisits = ({ fbos }) => {
   ]
   const surveyForm = useSelector((state)=>state.siteVisitsReducer.value) 
 
-  console.log("surveyForm",surveyForm)
+  console.log("surveyForm p4",surveyForm)
 
   const notifyMessage = () => {
     toast.success("Site Visit Saving", {
