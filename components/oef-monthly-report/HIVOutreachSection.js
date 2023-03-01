@@ -22,12 +22,17 @@ const HIVOutreachSection = ({
   /* total hiv outreach events total surveyName = oef-fbo-outreach */
   const totalNumberOfParticipantsSurveys = selectedEventsOutputs.length;
 
-  let totalHivOutreachEvents = 0;
-  const sumHivOutreachEventss = selectedEvents.forEach((element) => {
+ 
+  const sumHivOutreachEvents =  selectedEvents.forEach((element) => {
+    let totalHivOutreachEvents = 0;
     if (element.totalattendees === "oef-fbo-outreach") {
       totalHivOutreachEvents += 1;
     }
+ return  totalHivOutreachEvents 
   });
+
+
+  console.log("sumHivOutreachEvents",sumHivOutreachEvents)
 
   /* totalAttendees */
 
@@ -153,8 +158,6 @@ const HIVOutreachSection = ({
       (event) => event.surveyname === "oef-participant"
     );
     const totalOefParticipants = getOefParticipantData.length;
-
-
     const total = totalFemales / totalOefParticipants;
    
     return total.toFixed(2)*100
@@ -546,9 +549,9 @@ const HIVOutreachSection = ({
 
 
   const dataValuesForGenderChart=[
-   {id:1,value:getTotalFemales(),name:"Females"},
-   {id:2,value:getTotalMales(),name:"Males"},
-   {id:3,value:getTotalTransgenderFemales(),name:"Transgender females"},
+   {id:1,value:getTotalFemales(),name:"Female"},
+   {id:2,value:getTotalMales(),name:"Male"},
+   {id:3,value:getTotalTransgenderFemales(),name:"Transgender female"},
    {id:4,value:getTotalTransgenderMales(),name:"Transgender male"},
    {id:5,value:getTotalTGenederNonConfirming(),name:"Gender non-confirming"},
    {id:6,value:getTotalGenderNonBinary(),name:"Non binary"},
@@ -584,7 +587,7 @@ const HIVOutreachSection = ({
     <section>
       <h1 className="text-black mb-7 bg-red-500 text-white py-2 px-3">HIV Outreach Events</h1>
       <div className="grid grid-cols-1 gap-10">
-        <p>{`A total of ${totalHivOutreachEvents} outreach events took place in [manually nsert month here], reaching a total of ${totalAttendees} people. There were ${totalNumberOfParticipantsSurveys} participant sign-in sheets completed. It was reported that ${totalTalkedHivPrepSaferSex} participants received verbal and educational information about HIV, PrEP, and safer sex messages. ${hivTesting} events offered HIV testing and this month there was ${hepCTesting} event with Hep-C testing. A total of ${hivTestedTotal} people were tested for HIV, with ${hivReactiveResults}  reactive results. ${prepReferrals}  people was referred to PrEP services and ${hivLinkedToCare} people were linked to HIV Care services.`}</p>
+        <p>{`A total of ${selectedEvents.length} outreach events took place in [manually nsert month here], reaching a total of ${totalAttendees} people. There were ${totalNumberOfParticipantsSurveys} participant sign-in sheets completed. It was reported that ${totalTalkedHivPrepSaferSex} participants received verbal and educational information about HIV, PrEP, and safer sex messages. ${hivTesting} events offered HIV testing and this month there was ${hepCTesting} event with Hep-C testing. A total of ${hivTestedTotal} people were tested for HIV, with ${hivReactiveResults}  reactive results. ${prepReferrals}  people was referred to PrEP services and ${hivLinkedToCare} people were linked to HIV Care services.`}</p>
 
         <p>
           {" "}
