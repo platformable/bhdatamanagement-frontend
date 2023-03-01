@@ -125,7 +125,7 @@ const Register = ({ fbos }) => {
       })
       .catch(function (error) {
         setLoading(false);
-        setResponseStatus({ success: true, statusMessage: "An error has occurred, please check that each question has been answered"})
+        setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed. This can take up to 20 seconds. Thank you for your patience."})
 
         console.error("error: ", error);
       });
@@ -192,7 +192,7 @@ const Register = ({ fbos }) => {
           </button> } 
         </div>
     {/*   </Layout> */}
-      {showResponseStatus && (
+    {showResponseStatus && (
         <ResponseStatusModal
           setShowResponseStatus={setShowResponseStatus}
           responseStatus={responseStatus}

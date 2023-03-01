@@ -16,6 +16,12 @@ import {
 } from "../../../slices/eventsCalendarDatesSlice";
 import { useEffect } from "react";
 
+
+
+import { updateInitialState} from "../../../slices/siteVisitsSlice";
+
+
+
 const EventsIndex = ({ siteVisits }) => {
  
   const eventSearchWord = useSelector(
@@ -93,6 +99,10 @@ const EventsIndex = ({ siteVisits }) => {
 
   }  
 
+
+  useEffect(()=>{
+    dispatch(updateInitialState())
+  },[])
 
 
   return (

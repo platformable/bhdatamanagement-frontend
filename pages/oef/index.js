@@ -96,7 +96,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
                   </Link>
                 </div>
                 <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
-                  <Link href="/oef/">
+                  <Link href="/oef/yip">
                     <button id="myBtn">
                       <div className="">
                         <p className="font-bold text-white uppercase">
@@ -166,7 +166,7 @@ export default function SupervisorDashboard({ selectedProgram }) {
                   </Link>
                 </div>
                 <div className="text-center rounded bg-black p-5 text-center shadow-xl   mb-2 rounded-xl grid justify-center content-center">
-                  <Link href="/oef/reports">
+                  <Link href="/oef/data-reports">
                     <button id="myBtn">
                       <div className="h-20 grid items-center">
                         <p className=" font-bold text-white uppercase">

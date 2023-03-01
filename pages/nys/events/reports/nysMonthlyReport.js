@@ -97,7 +97,7 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
       </section>
       {generateReport && selectedDate.start && selectedDate.finish && (
         <>
-          {/* <CSVDownload 
+         {/*  <CSVDownload 
           data={selectedEventsOutputs}
           filename={"dsadsa.csv"}
           separator=";"

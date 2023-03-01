@@ -52,7 +52,7 @@ export const siteVisitsSlice = createSlice({
   initialState,
   reducers: {
     updateInitialState: (state,action) =>{
-      return {...state, value: {...initialState}}
+      return {...initialState}
     },
     updateEditFormState: (state,action) =>{
         return {...state, value:{...action.payload}}

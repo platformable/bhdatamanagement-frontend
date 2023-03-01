@@ -200,6 +200,7 @@ const EditCabPostEventSurvey = ({ event, fbos }) => {
                   Print
                 </button>
               )}
+              documentTitle={`${new Date(event?.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}_${event.cluster}_CAB_${new Date().toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}`}
               content={() => componentRef.current}
             />
           </div>

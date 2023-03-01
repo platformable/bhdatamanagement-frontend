@@ -633,11 +633,24 @@ label > textarea {
   gap: 30px;
 }
 
+.yip-supervisor-existing-events-head-table {
+ 
+  grid-template-columns: 2fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
+  gap: 30px;
+}
+
 .existing-oef-events-head-table {
   
   grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr;
   gap: 30px;
 }
+
+.yip-existing-events-head-table {
+  
+  grid-template-columns: 2fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
+  gap: 30px;
+}
+
 .supervisor-existing-oef-events-head-table {
  
   grid-template-columns: 4fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
