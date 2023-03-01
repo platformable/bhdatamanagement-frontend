@@ -63,17 +63,17 @@ const Survey = ({ event, fbos }) => {
       : setShowDemographicsForm((prev) => false);
   };
 
-  // const getCity = (zipcode, array) => {
-  //   const searchZipcode = array.filter((code) => code.zipcode === zipcode);
-  //   if (searchZipcode.length > 0) {
-  //     setSurveyForm({
-  //       ...surveyForm,
-  //       participantBorough: searchZipcode[0].borought,
-  //     });
-  //   } else {
-  //     setSurveyForm({ ...surveyForm, participantBorough: "" });
-  //   }
-  // };
+  const getCity = (zipcode, array) => {
+    const searchZipcode = array.filter((code) => code.zipcode === zipcode);
+    if (searchZipcode.length > 0) {
+      setSurveyForm({
+        ...surveyForm,
+        participantBorough: searchZipcode[0].borought,
+      });
+    } else {
+      setSurveyForm({ ...surveyForm, participantBorough: "" });
+    }
+  };
 
   const submitParticipantSurvey = async () => {
     setError('')
@@ -119,9 +119,9 @@ const Survey = ({ event, fbos }) => {
     //  }
   };
 
-  // useEffect(() => {
-  //   getCity(surveyForm.participantZipCode, NYSZipCodesAndBoroughs);
-  // }, [surveyForm.participantZipCode]);
+  useEffect(() => {
+    getCity(surveyForm.participantZipCode, NYSZipCodesAndBoroughs);
+  }, [surveyForm.participantZipCode]);
 
   return (
     <>

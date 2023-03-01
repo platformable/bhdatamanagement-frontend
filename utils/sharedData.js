@@ -142,7 +142,7 @@ export const roles = [
   { id: 7, value: "Other " },
 ];
 
-export const nysActivity = [
+/* export const nysActivity = [
   { id: 1, value: "Campus Approach", nyscmp: 1 },
   { id: 2, value: "Conscientious Clinician™", nyscmp: 1 },
   { id: 3, value: "Health Disparities Workshop/Town Hall", nyscmp: 1 },
@@ -151,6 +151,17 @@ export const nysActivity = [
   { id: 6, value: "Legislative Leadership Zoom", nyscmp: 0 },
   { id: 7, value: "Health Equity Group Sessions", nyscmp: 0 },
   { id: 8, value: "Strategic Planning", nyscmp: 1 },
+  { id: 9, value: "Other", nyscmp: 1 },
+]; */
+
+
+export const nysActivity = [
+  { id: 8, value: "Strategic Planning Group (SPG)", nyscmp: 1 },
+  { id: 10, value: "Block Association", nyscmp: 1 },
+  { id: 1, value: "Campus Approach", nyscmp: 1 },
+  { id: 2, value: "Conscientious Clinician", nyscmp: 1 },
+  { id: 11, value: "Mental Health First Aid", nyscmp: 1 },
+  { id: 5, value: "Leadership Training Institute", nyscmp: 1 },
   { id: 9, value: "Other", nyscmp: 1 },
 ];
 

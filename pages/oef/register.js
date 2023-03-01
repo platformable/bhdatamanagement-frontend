@@ -192,7 +192,7 @@ const Register = ({ fbos }) => {
           </button> } 
         </div>
     {/*   </Layout> */}
-      {(
+    {showResponseStatus && (
         <ResponseStatusModal
           setShowResponseStatus={setShowResponseStatus}
           responseStatus={responseStatus}
