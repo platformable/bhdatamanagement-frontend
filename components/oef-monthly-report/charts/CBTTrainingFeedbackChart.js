@@ -108,9 +108,7 @@ const CBTTrainingFeedbackChart = ({
       },
       title: {
         display: true,
-        text: `CBT Training Feedback ${reverseDate(
-          selectedDate.start
-        )}-${reverseDate(selectedDate.finish)}`,
+        text: `CBT Training Feedback - ${new Date(selectedDate.finish).toLocaleDateString('en-US', {month: 'long', year: '2-digit'})}`,
         position: "top",
         font: {
           size: 18,
@@ -158,6 +156,7 @@ const CBTTrainingFeedbackChart = ({
           },
         },
         ticks: {
+          
           precision: 0,
         },
         // min: 0,
@@ -169,9 +168,7 @@ const CBTTrainingFeedbackChart = ({
         position: 'right',
         ticks: {
           callback: (value,index,values) => {
-            console.log((value))
             let obj = stadistics[value];
-            // typeof obj;
             if (obj) {
               return Object.values(obj).reduce((a, b) => (a || 0 ) + (b || 0), 0)
             }
@@ -186,10 +183,10 @@ const CBTTrainingFeedbackChart = ({
   };
 
   const labels = [
-    "The information and materials presented were useful",
-    "I can apply what I learned today to my work at my faith-based or community organization",
-    "The presenter explained the topic well",
-    "I understood the topics and concepts being discussed",
+    ["The information and", "materials presented", "were useful"],
+    ["I can apply what I learned today", "to my work at my faith-based", " or community organization"],
+    ["The presenter", "explained the", "topic well"],
+    ["I understood the", "topics and concepts", "being discussed"],
   ];
 
   const data = {

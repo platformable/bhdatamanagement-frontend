@@ -35,7 +35,7 @@ ChartJS.register(
   ChartDataLabels
 );
 
-const ParticipantReferralsChart = ({ chartData}) => {
+const ParticipantReferralsChart = ({ selectedDate,chartData}) => {
   const [stadistics, setStadistics] = useState([])
   console.log("ParticipantReferralsChart",chartData)
   const [value, copy] = useCopyToClipboard()
@@ -54,7 +54,7 @@ const ParticipantReferralsChart = ({ chartData}) => {
       },
       title: {
         display: true,
-        text: `How participants heard about the event`,
+        text: `How participants heard about the event - ${new Date(selectedDate.finish).toLocaleDateString('en-US', {month: 'long', year: '2-digit'})}`,
         position: "top",
         font: {
           size: 18,
@@ -64,7 +64,7 @@ const ParticipantReferralsChart = ({ chartData}) => {
         display: true,
         color: "#000",
         formatter: function (value, context) {
-          return value > 0 ? value   : "";
+          return value > 0 ? `${((value * 100) / totalOfValues).toFixed(2)}%`   : "";
         },
         font: {
           weight: "bold",
@@ -77,15 +77,18 @@ const ParticipantReferralsChart = ({ chartData}) => {
     scales: {
       y: {
         beginAtZero: true,
-        title: {
-          display: true,
-          text: "# of events",
-          font: {
-            weight: "bold",
-          },
-        },
+        // title: {
+        //   display: true,
+        //   text: "# of events",
+        //   font: {
+        //     weight: "bold",
+        //   },
+        // },
         ticks: {
           precision: 0,
+          callback: (value, index, values) => {
+            return `${((value * 100) / totalOfValues).toFixed()} %`
+          },
         },
         min: 0,
         max: maxValue + (maxValue / 3),
@@ -100,8 +103,8 @@ const ParticipantReferralsChart = ({ chartData}) => {
     datasets: [
       {
         type: "bar",
-        // label: "# of resources",
-        backgroundColor: "#3c9648",
+        label: "# Participant referrals",
+        backgroundColor: "#802E86",
         data: Object.values(chartData),
         borderColor: "white",
         borderWidth: 2,
@@ -147,17 +150,17 @@ const ParticipantReferralsChart = ({ chartData}) => {
   }
 
 
-  // const onClick = (event) => {
-  //   const { current } = chartRef;
+  const onClick = (event) => {
+    const { current } = chartRef;
 
-  //   if (!current) {
-  //     return;
-  //   }
+    if (!current) {
+      return;
+    }
 
-  //   printDatasetAtEvent(getDatasetAtEvent(current, event));
-  //   printElementAtEvent(getElementAtEvent(current, event));
-  //   printElementsAtEvent(getElementsAtEvent(current, event));
-  // };
+    printDatasetAtEvent(getDatasetAtEvent(current, event));
+    printElementAtEvent(getElementAtEvent(current, event));
+    printElementsAtEvent(getElementsAtEvent(current, event));
+  };
 
   return (
     <div>
@@ -167,7 +170,7 @@ const ParticipantReferralsChart = ({ chartData}) => {
         ref={chartRef}
         data={data}
         options={options}
-        // onClick={onClick}
+        onClick={onClick}
       />
       <button
         onClick={imageToClipboard}
