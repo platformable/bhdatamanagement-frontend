@@ -41,7 +41,7 @@ const DropboxDocumentUpload = ({
       );
       const token = await tokenResponse.json();
       const response = await fetch(
-        "https://content.dropboxapi.com/2/fil/upload",
+        "https://content.dropboxapi.com/2/files/upload",
         {
           method: "POST",
           headers: {
@@ -64,9 +64,10 @@ const DropboxDocumentUpload = ({
         // setUploadSuccess(!uploadSuccess)
       }
     } catch (error) {
+      console.error("upload error", error);
       setLoading(false);
       setError(true);
-      console.error("upload error", error);
+    
     }
   };
   return (

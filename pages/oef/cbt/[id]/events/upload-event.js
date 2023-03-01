@@ -13,7 +13,7 @@ export const Upload_event = ({ event }) => {
   const [showStatusUpload, setShowStatusUpload] = useState(false);
   const [msgStatusUpload, setMsgStatusUpload] = useState({})
 
-  // console.log("event",event)
+   console.log("event",event)
 
 
   const FileUploadedMessage = (fileName) => {
