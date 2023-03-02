@@ -12,7 +12,9 @@ const HIVOutreachSection = ({
   selectedDate,
 }) => {
 
+  console.log("selectedEventsOuput",selectedEvents.filter((event) => event._surveyname === "bh-cbt-register")) 
 
+  
   function handleCopy() {
     const data = document.querySelector("#events-description").innerText;
     console.log("data", data);

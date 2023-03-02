@@ -67,7 +67,7 @@ const AdministrativeSection = ({
     /* IS CLUSTER */
    let isClusterEvent=0
    const sumIsClusterEvent=selectedEvents.forEach(element => {
-     if(!element.isclusterevent){
+     if(element.isclusterevent !=='Cluster Event'){
        return null
      } else {
       isClusterEvent+=1
@@ -97,7 +97,9 @@ const AdministrativeSection = ({
       <h1 className="font-black  bg-red-500 text-white py-2 px-3">Report</h1>
       <h1 className="text-black mb-7 bg-red-200 text-white py-2 px-3">Administrative</h1>
       <div className="grid grid-cols-1 gap-10">
-        <p>{`[manually type number] ${numbersOfOefEvents} events were delivered in [manually insert month here], reaching a total ${totalAttendees} people. National Awareness Days this month included: ${totallNationalAwarenessDay.join(', ')}. A total of ${totalNumberOfParticipantsSurveys} participant sign-in sheets were completed at the events. Of the people reached,  ${totalTalkedHivPrepSaferSex}  received verbal and educational information about HIV, PrEP, and safer sex messages. There were ${isClusterEvent} cluster events in January.
+        <p>{`[manually type number] ${numbersOfOefEvents} events were delivered in [manually insert month here], reaching a total ${totalAttendees} people. National Awareness Days this month included: ${totallNationalAwarenessDay.join(', ')}. A total of ${totalNumberOfParticipantsSurveys} participant sign-in sheets were completed at the events. 
+        
+        Of the people reached,  ${totalTalkedHivPrepSaferSex}  received verbal and educational information about HIV, PrEP, and safer sex messages. There were ${isClusterEvent} cluster events in January.
 
 There was ${totalNumberOfCbtPostEvent}  CBT workshop held as well as  ${totalNumberOfCabPostEvent} CAB meetings.`}</p>
         
