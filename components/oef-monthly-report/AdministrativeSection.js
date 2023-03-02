@@ -85,7 +85,7 @@ const AdministrativeSection = ({
 
     let totalNumberOfCabPostEvent=0
    const sumNumberOfCabPostEvents=selectedEvents.forEach(element => {
-     if(element.surveyname==='oef-cab'){
+     if(element._surveyname==='oef-cab'){
       totalNumberOfCabPostEvent+=1
      }  
     });

@@ -14,7 +14,7 @@ const HIVOutreachSection = ({
 
   console.log("selectedEventsOuput",selectedEvents.filter((event) => event._surveyname === "bh-cbt-register")) 
 
-  
+
   function handleCopy() {
     const data = document.querySelector("#events-description").innerText;
     console.log("data", data);
@@ -22,7 +22,7 @@ const HIVOutreachSection = ({
   }
 
   /* total hiv outreach events total surveyName = oef-fbo-outreach */
-  const totalNumberOfParticipantsSurveys = selectedEventsOutputs.length;
+  const totalNumberOfParticipantsSurveys = selectedEventsOutputs.filter(events=>events.surveyname==='oef-participant').length
 
  
   const sumHivOutreachEvents =  selectedEvents.forEach((element) => {
@@ -113,19 +113,16 @@ const HIVOutreachSection = ({
   let totalHivAge = 0;
   const sumhivage = selectedEvents.forEach((element) => {
     totalHivAge +=
-      element.altagehiv13_18 +
       element.altagehivunder13 +
-      element.hiv16_19 +
-      element.hiv20_24 +
+      element.altagehiv13_18 +
+      element.altagehiv19_24 +
       element.hiv25_29 +
       element.hiv30_34 +
       element.hiv35_39 +
       element.hiv40_44;
   });
 
-  const percentageHivAge = (
-    totalHivAge / totalNumberOfParticipantsSurveys
-  ).toFixed(2);
+
 
   let totalHivAge2 = 0;
   const sumhivage2 = selectedEvents.forEach((element) => {
@@ -138,9 +135,15 @@ const HIVOutreachSection = ({
       element.hiv70;
   });
 
+  const totalAges=totalHivAge+totalHivAge2
+
+  const percentageHivAge = (
+    (totalHivAge / totalAges)*100
+  ).toFixed(1);
+
   const percentageHivAg2e = (
-    totalHivAge2 / totalNumberOfParticipantsSurveys
-  ).toFixed(2);
+    (totalHivAge2 / totalAges)*100
+  ).toFixed(1);
 
   /* GENDER */
 
@@ -386,103 +389,81 @@ const HIVOutreachSection = ({
 
   const getTotalBlack = () => {
     let totalBlack = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Black or African American')&& event.participantrace!==null).length
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalBlack / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalBlack
   };
+
+  const totalBlack=getTotalBlack()
 
   const getTotalHispanic = () => {
     let totalHispanic = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Hispanic, Latino/a or Spanish')&& event.participantrace!==null).length
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalHispanic / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalHispanic
   };
+
+  const totalHispanic=getTotalHispanic()
+
+  console.log("totalHispanic",totalHispanic)
 
   const getTotalAsian = () => {
     let totalAsian = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Asian')&& event.participantrace!==null).length
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalAsian / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalAsian
   };
+  const totalAsian= getTotalAsian()
+
+  console.log("totalAsian",totalAsian)
 
   const getTotalAmerican = () => {
     let totalAmerican = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('American Indian or Alaska Native')&& event.participantrace!==null).length
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalAmerican / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalAmerican
   };
+
+  const totalAmerican=getTotalAmerican()
+  console.log("totalAmerican",totalAmerican)
 
   const getTotalMiddleE = () => {
     let totalMiddelE = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Middle Eastern or North African')&& event.participantrace!==null).length
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalMiddelE / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalMiddelE
   };
+
+  const totalMiddleE=getTotalMiddleE()
+  console.log("totalMiddleE",totalMiddleE)
 
   const getTotalHawaiian = () => {
     let totalHawaiian = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Native Hawaiian or Other Pacific Islander')&& event.participantrace!==null).length
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalHawaiian / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalHawaiian
   };
+
+
+
+  const totalHawaiian=getTotalHawaiian()
+  console.log("totalHawaiian",totalHawaiian)
 
   const getTotalWhite = () => {
     let totalWhite = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('White')&& event.participantrace!==null).length
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalWhite / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalWhite
   };
+
+
+
+  const totalWhite=getTotalWhite()
+  console.log("totalWhite",totalWhite)
 
   const getTotalSomeOtherRace = () => {
-    let totalSomeOtherRace = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Some other race')&& event.participantrace!==null).length
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalSomeOtherRace / totalOefParticipants;
-    return total.toFixed(2)*100;
+    let totalSomeOtherRace = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Some other race or origin')&& event.participantrace!==null).length
+    return totalSomeOtherRace
   };
-
+const totalSomeOtherRace=getTotalSomeOtherRace()
+console.log("totalsomeotherrace",totalSomeOtherRace)
 
   const getTotalRaceDeclinedToAnswer = () => {
     let totalDeclinedToAnswer = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Declined to answer')&& event.participantrace!==null).length
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalDeclinedToAnswer / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalDeclinedToAnswer
   };
+
+
+  const totalRaceDeclined=getTotalRaceDeclinedToAnswer()
+  console.log("declined to anwswer",totalRaceDeclined)
+
+  const totalRace=+totalBlack+totalAmerican+totalAsian+totalHawaiian+totalHispanic+totalWhite+totalSomeOtherRace+totalMiddleE+totalRaceDeclined
 
   const boroughs =[
     {
@@ -600,28 +581,32 @@ const HIVOutreachSection = ({
       <br />
         <VerticalBarChart selectedDate={selectedDate} chartTitle='Age of Participants - HIV Outreach events' axisXLabels={ageAxisDataForChart} chartDataValues={ageAxisDataForChart.map(data=>data.value)}/>
 
-        <VerticalBarChart selectedDate={selectedDate} chartTitle='Gender of Participants - HIV Outreach events' 
-        axisXLabels={dataValuesForGenderChart} chartDataValues={dataValuesForGenderChart.map(data=>data.value)}/>
-
-      <VerticalBarChart selectedDate={selectedDate} chartTitle='Sexual Orientation of Participants - HIV Outreach events' 
-        axisXLabels={dataValuesForSexualOrientation} chartDataValues={dataValuesForSexualOrientation.map(data=>data.value)}/>
-
-      <VerticalBarChart selectedDate={selectedDate} chartTitle='Race of Participants - HIV Outreach events' 
-        axisXLabels={dataValuesForSRacialIdentity} chartDataValues={dataValuesForSRacialIdentity.map(data=>data.value)}/>
+    
       <br />
       <p>
         <strong>Gender and Sexual Orientation:</strong>
-        {` The gender of participants who filled in a survey were ${(getTotalFemales().toFixed(2))}% female, ${getTotalMales().toFixed(2)}% male, ${getTotalTransgenderFemales()}% transgender female, ${getTotalTransgenderMales()}% transgender male, ${getTotalTGenederNonConfirming ()}% gender non-conforming, ${getTotalGenderNonBinary()}% non binary, ${getTotalGenderOther()}% other gender identity, and ${getTotalGenderDeclinedToAnswer()}% declined to answer. 
-        
-        In relation to sexual orientation, ${getTotalStraight()}% of the participants identified as straight or heterosexual, ${getTotalGay()}% identified as gay or lesbian, ${getTotalBisexual()}% as bisexual, ${getTotalQueer()}% as queer, ${getTotalQuestioning()}% as questioning or not sure, ${getTotalOther()}% as other, and ${getTotalOrientationDeclined()}% declined to answer. This data is shown in Figures 2 and 3. `}
-      </p>
+        {` The gender of participants who filled in a survey were ${(getTotalFemales().toFixed(1))}% female, ${getTotalMales().toFixed(2)}% male, ${getTotalTransgenderFemales()}% transgender female, ${getTotalTransgenderMales().toFixed(1)}% transgender male, ${getTotalTGenederNonConfirming ().toFixed(1)}% gender non-conforming, ${getTotalGenderNonBinary().toFixed(1)}% non binary, ${getTotalGenderOther().toFixed(1)}% other gender identity, and ${getTotalGenderDeclinedToAnswer().toFixed(1)}% declined to answer.`} </p>
+        <VerticalBarChart selectedDate={selectedDate} chartTitle='Gender of Participants - HIV Outreach events' 
+        axisXLabels={dataValuesForGenderChart} chartDataValues={dataValuesForGenderChart.map(data=>data.value)}/>
+        <br />
+<p>{`
+In relation to sexual orientation, ${getTotalStraight().toFixed(1)}% of the participants identified as straight or heterosexual, ${getTotalGay().toFixed(1)}% identified as gay or lesbian, ${getTotalBisexual().toFixed(1)}% as bisexual, ${getTotalQueer().toFixed(1)}% as queer, ${getTotalQuestioning().toFixed(1)}% as questioning or not sure, ${getTotalOther().toFixed(1)}% as other, and ${getTotalOrientationDeclined().toFixed(1)}% declined to answer. This data is shown in Figures 2 and 3. 
+`}</p>
+ <VerticalBarChart selectedDate={selectedDate} chartTitle='Sexual Orientation of Participants - HIV Outreach events' 
+        axisXLabels={dataValuesForSexualOrientation} chartDataValues={dataValuesForSexualOrientation.map(data=>data.value)}/>
  <br />
       <p>
         <strong>Racial Identity:</strong>
-        {` ${getTotalBlack()}% of participants identified as Black or African American, ${getTotalHispanic()}% as Hispanic, Latino/a or Spanish, ${getTotalAsian()}% as Asian, ${getTotalAmerican()}% as American Indian or Alaska Native, ${getTotalMiddleE()}% Middle Eastern or North African, ${getTotalHawaiian()}% as Native Hawaiian or Other Pacific Islander,${getTotalWhite()}% as White, ${getTotalSomeOtherRace()}% as some other race or origin, and ${getTotalRaceDeclinedToAnswer()}% declined to answer.
+        {` ${((totalBlack/totalRace)*100).toFixed(1)}% of participants identified as Black or African American, ${((totalHispanic/totalRace)*100).toFixed(1)}% as Hispanic, Latino/a or Spanish, ${((totalAsian/totalRace)*100).toFixed(1)}% as Asian, ${((totalAmerican/totalRace)*100).toFixed(1)}% as American Indian or Alaska Native, ${((totalMiddleE/totalRace)*100).toFixed(1)}% Middle Eastern or North African, ${((totalHawaiian/totalRace)*100).toFixed(1)}% as Native Hawaiian or Other Pacific Islander,${((totalWhite/totalRace)*100).toFixed(1)}% as White, ${((totalSomeOtherRace/totalRace)*100).toFixed(1)}% as some other race or origin, and ${((totalRaceDeclined/totalRace)*100).toFixed(1)}% declined to answer.
 The full range of participant racial identity is shown in Figure 4. 
 `}
       </p>
+       
+
+     
+
+      <VerticalBarChart selectedDate={selectedDate} chartTitle='Race of Participants - HIV Outreach events' 
+        axisXLabels={dataValuesForSRacialIdentity} chartDataValues={dataValuesForSRacialIdentity.map(data=>data.value)}/>
 
       <br />
       <p>
