@@ -34,7 +34,7 @@ ChartJS.register(
   ChartDataLabels
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
-const RaceChart = ({ chartData, getHrefImage, selectedDate }) => {
+const RaceChart = ({ chartData, getHrefImage, selectedDate,hivTestedTotal }) => {
   const [stadistics, setStadistics] = useState([]);
   const [value, copy] = useCopyToClipboard();
   const raceCounts = {
@@ -91,12 +91,15 @@ const RaceChart = ({ chartData, getHrefImage, selectedDate }) => {
       },
       title: {
         display: true,
-        text: `Races tested for HIV NYS CMP ${reverseDate(
-          selectedDate.start
-        )}-${reverseDate(selectedDate.finish)}`,
+        text: ["Race/ethnicity of participants tested for HIV NYS CMP",`${reverseDate(selectedDate.start)} - ${reverseDate(
+          selectedDate.finish
+        )}  N=${hivTestedTotal}`],
         position: "top",
+        align: "start",
+        color: "#000",
         font: {
           size: 18,
+          weight: "bold",
         },
       },
       datalabels: {
@@ -140,7 +143,7 @@ const RaceChart = ({ chartData, getHrefImage, selectedDate }) => {
       {
         type: "bar",
         label: "# of people tested",
-        backgroundColor: "#ebd61e",
+        backgroundColor: "#874fc2",
         data: stadistics,
         borderColor: "white",
         borderWidth: 2,
@@ -197,17 +200,22 @@ const RaceChart = ({ chartData, getHrefImage, selectedDate }) => {
   };
 
   return (
-    <div>
-      {/* <input type="radio" onChange={exportChart} /> */}
+    <div className="flex flex-col gap-7 items-start">
 
-      <Chart
-        type="bar"
-        ref={chartRef}
-        data={data}
-        options={options}
-        onClick={onClick}
-      />
-      <button
+    <Chart
+      type="bar"
+      ref={chartRef}
+      data={data}
+      options={options}
+      onClick={onClick}
+
+    />
+    <p className="italic">
+    <strong>Methodology: </strong>
+    Black Health collects data on events held, including number and demographics of participants, resources distributed, testing 
+    outputs and outcomes/challenges from event delivery. No personally identifiable is collected or stored.
+    </p>
+    <button
         onClick={imageToClipboard}
         className="px-5 my-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
       >

@@ -36,7 +36,7 @@ ChartJS.register(
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 import {reverseDate} from "../../utils/helpers";
 
-const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
+const AgeChart = ({ chartData,getHrefImage, selectedDate, hivTestedTotal}) => {
   const [value, copy] = useCopyToClipboard()
   const ageCounts = {
     "Under 13": 0,
@@ -77,10 +77,13 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
       },
       title: {
         display: true,
-        text: `Ages tested for HIV NYS CMP ${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}`,
+        text: ["Age of participants tested for HIV NYS CMP",`${reverseDate(selectedDate.start)} - ${reverseDate(selectedDate.finish)}  N=${hivTestedTotal}`],
         position: "top",
+        align: 'start',
+        color: '#000',
         font: {
           size: 18,
+          weight: 'bold'
         },
       },
       datalabels: {
@@ -132,7 +135,7 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
       {
         type: "bar",
         label: "# of people tested",
-        backgroundColor: "#3c9648",
+        backgroundColor: "#874fc2",
         data: stadistics,
         borderColor: "white",
         borderWidth: 2,
@@ -191,8 +194,7 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
   };
 
   return (
-    <div>
-        {/* <input type="radio" onChange={exportChart} /> */}
+    <div className="flex flex-col gap-7 items-start">
 
     <Chart
       type="bar"
@@ -202,6 +204,11 @@ const AgeChart = ({ chartData,getHrefImage, selectedDate}) => {
       onClick={onClick}
 
     />
+    <p className="italic">
+    <strong>Methodology: </strong>
+    Black Health collects data on events held, including number and demographics of participants, resources distributed, testing 
+    outputs and outcomes/challenges from event delivery. No personally identifiable is collected or stored.
+    </p>
     <button
         onClick={imageToClipboard}
         className="px-5 my-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"

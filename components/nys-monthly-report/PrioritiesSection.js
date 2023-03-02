@@ -16,7 +16,7 @@ const PrioritiesSection = ({
 
   return (
     <section>
-      <h1 className="font-black mb-7">Priorities</h1>
+      <h1 className="font-black mb-7">Priorities and Program Accomplishments / Highlights</h1>
       <div className="grid grid-cols-1 gap-10">
         <TypeOfEventChart
           getHrefImage={getHrefImage}
@@ -49,6 +49,7 @@ const PrioritiesSection = ({
                             }
                           )}
                         </h3>
+                        <p>{event.eventdescription}</p>
                         <p>{event.eventhighlights}</p>
                       </div>
                     )
@@ -83,6 +84,7 @@ const PrioritiesSection = ({
                           )}
                         </h3>
                         <p>{event.eventdescription}</p>
+                        <p>{event.eventhighlights}</p>
                       </div>
                     )
                 )}

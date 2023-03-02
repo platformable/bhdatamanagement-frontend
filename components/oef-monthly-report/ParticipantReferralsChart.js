@@ -89,9 +89,7 @@ const ParticipantReferralsChart = ({ selectedDate,chartData}) => {
         ticks: {
           color: '#000',
           precision: 0,
-          callback: (value, index, values) => {
-            return `${((value * 100) / totalOfValues).toFixed()} %`
-          },
+         
         },
         min: 0,
         max: maxValue + (maxValue / 3),

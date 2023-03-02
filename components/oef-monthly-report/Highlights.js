@@ -26,7 +26,7 @@ export default function Highlights({
     console.log("data", data);
     navigator.clipboard.writeText(data);
   }
-// console.log("refere",selectedEventsOutputs)
+console.log("events and events outputs",selectedEventsOutputs)
   useEffect(() => {
     selectedEventsOutputs.map(event => {
       event.participantreferral && (participantReferral[event.participantreferral] += 1)
@@ -36,7 +36,7 @@ export default function Highlights({
   
   return (
     <section>
-      <h1 className="bg-red-500 text-white py-2 px-3">Highlights</h1>
+      <h1 className="bg-red-500  py-2 px-3">Highlights</h1>
       <table id="highlights-table" className="my-10 text-lg">
         <thead>
           <tr>
@@ -49,13 +49,13 @@ export default function Highlights({
         </thead>
         <tbody>
           {selectedEvents &&
-            selectedEvents.map((event, index) => (
+            selectedEvents.filter(event => event._surveyname === 'oef-fbo-outreach').map((event, index) => (
               <tr
                 key={index}
                 className={`${index % 2 === 0 ? "bg-white" : "bg-light-blue"}`}
               >
                 <td>{event.eventname}</td>
-                <td className="">{event.deliverypartner}</td>
+                <td className="">{event._deliverypartner}</td>
                 <td className="">{event.eventdate.split("T")[0]}</td>
                 <td className="text-right">{event.totalattendees}</td>
               </tr>
