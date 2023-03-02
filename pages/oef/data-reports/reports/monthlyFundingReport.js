@@ -61,7 +61,7 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
   }, [selectedDate]);
 
  
-  console.log("selectedEventsOuput",selectedEventsOutputs)
+  console.log("cbt events en report",selectedEvents.filter((event) => event['_surveyname'] === "bh-cbt-register"))
 
 
   return (

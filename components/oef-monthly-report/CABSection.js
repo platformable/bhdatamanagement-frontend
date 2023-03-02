@@ -34,7 +34,7 @@ const CABSection = ({
   };
   return (
     <section className="grid gap-7">
-     <h1 className="bg-red bg-red-200 text-white py-2 px-3">Community Advisory Board Meetings</h1>
+     <h1 className="bg-red bg-red-200  py-2 px-3">Community Advisory Board Meetings</h1>
      <div className="grid gap-10">
       <p>There were {cabEvents.length} CAB meetings held in [insert month and year manually], representing the clusters: {clusters.join(', ')}.</p>
       <div className="grid gap-7 mb-10">

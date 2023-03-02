@@ -36,7 +36,7 @@ ChartJS.register(
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 import {reverseDate} from "../../utils/helpers";
 
-const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,chartDataValues }) => {
+const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,chartDataValues, barLabel }) => {
   const [stadistics, setStadistics] = useState([])
   const [value, copy] = useCopyToClipboard()
   
@@ -57,17 +57,20 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
       },
       title: {
         display: true,
-        text: `${chartTitle} ${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}`,
+        text: [chartTitle,`${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}  N=${totalOfValues}`],
         position: "top",
+        align: 'start',
+        color: '#000',
         font: {
           size: 18,
+          weight: 'bold'
         },
       },
       datalabels: {
         display: true,
         color: "#000",
         formatter: function (value, context) {
-          return value > 0 ? `${((value * 100) / totalOfValues).toFixed(2)}%`   : "";
+          return value > 0 ? `${((value * 100) / totalOfValues).toFixed(1)}%`   : "";
         },
         font: {
           weight: "bold",
@@ -78,22 +81,25 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
       },
     },
     scales: {
+      x: {
+        ticks: {
+          color: '#000',
+        }
+      },
       y: {
         beginAtZero: true,
         title: {
           display: true,
-          text: "# of events",
           font: {
             weight: "bold",
           },
         },
         ticks: {
+          color: '#000',
           precision: 0,
-          // callback: (value, index, values) => {
-          //   maxValue = values.findLast(e => e).value
-          //   return `${((value * 100) / maxValue).toFixed()} %`
-          // },
-          
+          callback: (value, index, values) => {
+            return `${((value * 100) / totalOfValues).toFixed()} %`
+          },
         },
         min: 0,
         max: maxValue + (maxValue / 3),
@@ -107,7 +113,7 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
     datasets: [
       {
         type: "bar",
-        label: "# of events",
+        label: barLabel,
         backgroundColor: "#3c9648",
         data: stadistics,
         borderColor: "white",
