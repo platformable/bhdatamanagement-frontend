@@ -147,25 +147,16 @@ const HIVOutreachSection = ({
 
   /* GENDER */
 
-  const [totalFemalesMales,setTotalFemalesMales]=useState({
-    females:"",
-    males:""
-  })
 
   const getTotalFemales = () => {
+    
     let totalFemales = selectedEventsOutputs.filter(
       (event) =>
         event.participantgender === "Female" &&
         event.surveyname === "oef-participant"
     ).length;
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalFemales / totalOefParticipants;
    
-    return total.toFixed(2)*100
+    return totalFemales
   };
 
   const getTotalMales = () => {
@@ -174,14 +165,7 @@ const HIVOutreachSection = ({
         event.participantgender === "Male" &&
         event.surveyname === "oef-participant"
     ).length;
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-
-    const total = totalMales / totalOefParticipants;
-    return total.toFixed(2)*100
+    return totalMales
   }; 
 
   const getTotalTransgenderFemales = () => {
@@ -191,12 +175,7 @@ const HIVOutreachSection = ({
         event.surveyname === "oef-participant"
     ).length;
 
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalTransgenderFemales / totalOefParticipants;
-    return total.toFixed(2)*100;;
+    return totalTransgenderFemales
   }; 
 
 
@@ -206,13 +185,7 @@ const HIVOutreachSection = ({
         event.participantgender === "Transgender male" &&
         event.surveyname === "oef-participant"
     ).length;
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalTransgenderMales / totalOefParticipants;
-    return total.toFixed(2)*100;;
+    return totalTransgenderMales
   }; 
 
   const getTotalTGenederNonConfirming = () => {
@@ -221,13 +194,7 @@ const HIVOutreachSection = ({
         event.participantgender === "Gender non-conforming" &&
         event.surveyname === "oef-participant"
     ).length;
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalGenderNonConfirming / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalGenderNonConfirming
   }; 
 
   const getTotalGenderNonBinary = () => {
@@ -237,12 +204,7 @@ const HIVOutreachSection = ({
         event.surveyname === "oef-participant"
     ).length;
 
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalNonBinary / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalNonBinary
   }; 
 
   const getTotalGenderOther = () => {
@@ -252,12 +214,7 @@ const HIVOutreachSection = ({
         event.surveyname === "oef-participant"
     ).length;
 
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalOther / totalOefParticipants;
-    return total.toFixed(2)*100;;
+    return totalOther
   }; 
 
 
@@ -267,15 +224,22 @@ const HIVOutreachSection = ({
         event.participantgender === "Declined to answer" &&
         event.surveyname === "oef-participant"
     ).length;
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalDeclinedToAnswer / totalOefParticipants;
-    return total.toFixed(2)*100;;
+    return totalDeclinedToAnswer
   }; 
 
+  const totalGender=getTotalFemales()+getTotalMales()+getTotalTransgenderFemales()+getTotalTransgenderMales()+getTotalTGenederNonConfirming()+getTotalGenderNonBinary()+getTotalGenderDeclinedToAnswer()+getTotalGenderOther();
+
+
+  const totalFemales=(getTotalFemales().toFixed(1)/totalGender)*100
+  const totalMales=(getTotalMales().toFixed(1)/totalGender)*100
+  const totalTransgenderFemales=(getTotalTransgenderFemales().toFixed(1)/totalGender)*100
+  const totalTransgenderMales=(getTotalTransgenderMales().toFixed(1)/totalGender)*100
+  const totalGenderNonConfirming=(getTotalTGenederNonConfirming().toFixed(1)/totalGender)*100
+  const totalGenderNonBinary=(getTotalGenderNonBinary().toFixed(1)/totalGender)*100
+  const totalGenderDeclined=(getTotalGenderDeclinedToAnswer().toFixed(1)/totalGender)*100
+  const totalGenderOther=(getTotalGenderOther().toFixed(1)/totalGender)*100
+
+  // sexual orientation
 
   const getTotalStraight = () => {
     let totalStraight = selectedEventsOutputs.filter(
@@ -283,14 +247,10 @@ const HIVOutreachSection = ({
         event.participantorientation === "Straight or heterosexual" &&
         event.surveyname === "oef-participant"
     ).length;
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalStraight / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalStraight;
   }; 
+
+ 
 
 
   const getTotalGay = () => {
@@ -299,14 +259,10 @@ const HIVOutreachSection = ({
         event.participantorientation === "Gay or lesbian" &&
         event.surveyname === "oef-participant"
     ).length;
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalGay / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalGay
   }; 
+
+ 
 
   const getTotalBisexual = () => {
     let totalBisexual = selectedEventsOutputs.filter(
@@ -315,13 +271,9 @@ const HIVOutreachSection = ({
         event.surveyname === "oef-participant"
     ).length;
 
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalBisexual / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalBisexual
   }; 
+
 
   const getTotalQueer = () => {
     let totalQueer = selectedEventsOutputs.filter(
@@ -329,14 +281,10 @@ const HIVOutreachSection = ({
         event.participantorientation === "Queer" &&
         event.surveyname === "oef-participant"
     ).length;
-
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalQueer / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalQueer
   }; 
+
+  
 
   const getTotalQuestioning = () => {
     let totalQuestioning = selectedEventsOutputs.filter(
@@ -345,13 +293,9 @@ const HIVOutreachSection = ({
         event.surveyname === "oef-participant"
     ).length;
 
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalQuestioning / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalQuestioning
   }; 
+
 
   const getTotalOther = () => {
     let totalOther = selectedEventsOutputs.filter(
@@ -360,13 +304,9 @@ const HIVOutreachSection = ({
         event.surveyname === "oef-participant"
     ).length;
 
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalOther / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalOther
   }; 
+
  
   const getTotalOrientationDeclined = () => {
     let totalOrientationDeclined = selectedEventsOutputs.filter(
@@ -375,13 +315,23 @@ const HIVOutreachSection = ({
         event.surveyname === "oef-participant"
     ).length;
 
-    const getOefParticipantData = selectedEventsOutputs.filter(
-      (event) => event.surveyname === "oef-participant"
-    );
-    const totalOefParticipants = getOefParticipantData.length;
-    const total = totalOrientationDeclined / totalOefParticipants;
-    return total.toFixed(2)*100;
+    return totalOrientationDeclined
   };
+
+
+  const totalOrientation=getTotalStraight()+getTotalGay()+getTotalBisexual()+getTotalQueer()+getTotalQuestioning()+getTotalOther()+getTotalOrientationDeclined();
+  
+  
+  const totalStraight=((getTotalStraight()/totalOrientation)*100).toFixed(1)
+  const totalGay=((getTotalGay()/totalOrientation)*100).toFixed(1)
+  const totalBisexual=((getTotalBisexual()/totalOrientation)*100).toFixed(1)
+  const totalQueer=((getTotalQueer()/totalOrientation)*100).toFixed(1)
+  const totalQuestioning=((getTotalQuestioning()/totalOrientation)*100).toFixed(1)
+  const totalOrientationOther=((getTotalOther()/totalOrientation)*100).toFixed(1)
+  const totalOrientationDeclined=((getTotalOrientationDeclined()/totalOrientation)*100).toFixed(1)
+  
+  console.log("totalOrientation",totalOrientation)
+
 
   /* RACE */
 
@@ -455,7 +405,7 @@ const totalSomeOtherRace=getTotalSomeOtherRace()
 console.log("totalsomeotherrace",totalSomeOtherRace)
 
   const getTotalRaceDeclinedToAnswer = () => {
-    let totalDeclinedToAnswer = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Declined to answer')&& event.participantrace!==null).length
+    let totalDeclinedToAnswer = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Decline to answer')&& event.participantrace!==null).length
     return totalDeclinedToAnswer
   };
 
@@ -546,7 +496,7 @@ console.log("totalsomeotherrace",totalSomeOtherRace)
     {id:2,value:getTotalGay(),name:"Gay or lesbian"},
     {id:3,value:getTotalBisexual(),name:"Bisexual"},
     {id:4,value:getTotalQueer(),name:"Queer"},
-    {id:5,value:getTotalQuestioning,name:"Questioning or not sure"},
+    {id:5,value:getTotalQuestioning(),name:"Questioning or not sure"},
     {id:6,value:getTotalOther(),name:"Other"},
     {id:7,value:getTotalOrientationDeclined(),name:"Declined to answer"}
   ]
@@ -555,12 +505,12 @@ console.log("totalsomeotherrace",totalSomeOtherRace)
     {id:1,value:getTotalBlack(),name:"Black or African American"},
     {id:2,value:getTotalHispanic(),name:"Hispanic, Latino/a or Spanish"},
     {id:3,value:getTotalAsian(),name:"Asian"},
-    {id:3,value:getTotalAmerican(),name:"American"},
-    {id:4,value:getTotalMiddleE(),name:"American Indian or Alaska Native"},
-    {id:5,value:getTotalHawaiian,name:"Native Hawaiian or Other Pacific Islander"},
+    {id:3,value:getTotalAmerican(),name:"American Indian or Alaska Native"},
+    {id:4,value:getTotalMiddleE(),name:"Middle Eastern or North African"},
+    {id:5,value:getTotalHawaiian(),name:"Native Hawaiian or Other Pacific Islander"},
     {id:7,value:getTotalWhite(),name:"White"},
     {id:6,value:getTotalSomeOtherRace(),name:"Some other race or origin"},
-    {id:6,value:getTotalRaceDeclinedToAnswer(),name:"Declinded to asnwer"},
+    {id:6,value:getTotalRaceDeclinedToAnswer(),name:"Declined to answer"},
     
   ]
 
@@ -585,12 +535,12 @@ console.log("totalsomeotherrace",totalSomeOtherRace)
       <br />
       <p>
         <strong>Gender and Sexual Orientation:</strong>
-        {` The gender of participants who filled in a survey were ${(getTotalFemales().toFixed(1))}% female, ${getTotalMales().toFixed(2)}% male, ${getTotalTransgenderFemales()}% transgender female, ${getTotalTransgenderMales().toFixed(1)}% transgender male, ${getTotalTGenederNonConfirming ().toFixed(1)}% gender non-conforming, ${getTotalGenderNonBinary().toFixed(1)}% non binary, ${getTotalGenderOther().toFixed(1)}% other gender identity, and ${getTotalGenderDeclinedToAnswer().toFixed(1)}% declined to answer.`} </p>
+        {` The gender of participants who filled in a survey were ${totalFemales.toFixed(1)}% female, ${totalMales.toFixed(1)}% male, ${totalTransgenderFemales.toFixed(1)}% transgender female, ${totalTransgenderMales.toFixed(1)}% transgender male, ${totalGenderNonConfirming.toFixed(1)}% gender non-conforming, ${totalGenderNonBinary.toFixed(1)}% non binary, ${totalGenderOther.toFixed(1)}% other gender identity, and ${totalGenderDeclined.toFixed(1)}% declined to answer.`} </p>
         <VerticalBarChart selectedDate={selectedDate} chartTitle='Gender of Participants - HIV Outreach events' 
         axisXLabels={dataValuesForGenderChart} chartDataValues={dataValuesForGenderChart.map(data=>data.value)}/>
         <br />
 <p>{`
-In relation to sexual orientation, ${getTotalStraight().toFixed(1)}% of the participants identified as straight or heterosexual, ${getTotalGay().toFixed(1)}% identified as gay or lesbian, ${getTotalBisexual().toFixed(1)}% as bisexual, ${getTotalQueer().toFixed(1)}% as queer, ${getTotalQuestioning().toFixed(1)}% as questioning or not sure, ${getTotalOther().toFixed(1)}% as other, and ${getTotalOrientationDeclined().toFixed(1)}% declined to answer. This data is shown in Figures 2 and 3. 
+In relation to sexual orientation, ${totalStraight}% of the participants identified as straight or heterosexual, ${totalGay}% identified as gay or lesbian, ${totalBisexual}% as bisexual, ${totalQueer}% as queer, ${totalQuestioning}% as questioning or not sure, ${totalOrientationOther}% as other, and ${totalOrientationDeclined}% declined to answer. This data is shown in Figures 2 and 3. 
 `}</p>
  <VerticalBarChart selectedDate={selectedDate} chartTitle='Sexual Orientation of Participants - HIV Outreach events' 
         axisXLabels={dataValuesForSexualOrientation} chartDataValues={dataValuesForSexualOrientation.map(data=>data.value)}/>
@@ -613,7 +563,7 @@ The full range of participant racial identity is shown in Figure 4.
         <strong>Physical Addresses:</strong>
         {` The highest number of participants were [manually insert text here]. The total number is different from the total of participant surveys received due to some participants living in other areas such as New Jersey `}
       </p>
-      <div className="flex flex-col gap-5 items-center">
+      <div className="flex flex-col gap-5 items-center my-7" >
         <table id="resources-table" className="text-lg w-2/5 ">
           <thead>
             <tr>
@@ -645,12 +595,7 @@ The full range of participant racial identity is shown in Figure 4.
           Select and right-click to copy the text 
         </button>
       </div>
-      <button
-        // onClick={() => textToClipboard("resources-table")}
-        className="mt-7 px-5 py-2 text-lg border hover:bg-black pointer-events-none hover:text-white rounded shadow"
-      >
-        Select and right-click to copy the text
-      </button>
+   
     </section>
   );
 };

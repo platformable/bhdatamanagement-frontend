@@ -108,6 +108,7 @@ console.log("events and events outputs",selectedEventsOutputs)
       </button>
 
       <ParticipantReferralsChart selectedDate={selectedDate} chartData={stadistics}/>
+      
     </section>
   );
 }

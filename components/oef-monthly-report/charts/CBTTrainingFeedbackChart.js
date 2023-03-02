@@ -311,6 +311,11 @@ const CBTTrainingFeedbackChart = ({
         options={options}
         onClick={onClick}
       />
+
+<br />
+      <small className="italic"><strong>Methodology:</strong> Black Health collects data on events held, including number and demographics of participants, resources distributed,  testing outputs and outcomes/challenges from event delivery. No personally identifiable information is collected or stored.</small>
+      
+      <br /> 
       <button
         onClick={imageToClipboard}
         className="px-5 my-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"

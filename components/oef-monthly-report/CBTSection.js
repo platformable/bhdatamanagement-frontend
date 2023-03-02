@@ -98,6 +98,7 @@ const CBTSection = ({
       </div>
       
       <CBTTrainingFeedbackChart selectedDate={selectedDate} cbtParticipants={cbtParticipants} />
+      
     </div>
   );
 };
