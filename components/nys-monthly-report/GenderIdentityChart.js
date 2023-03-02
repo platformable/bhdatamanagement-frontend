@@ -36,7 +36,7 @@ ChartJS.register(
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 import {reverseDate} from "../../utils/helpers";
 
-const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
+const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate, hivTestedTotal}) => {
   const [value, copy] = useCopyToClipboard()
   const [stadistics, setStadistics] = useState([])
   const gendersCounts = {
@@ -83,10 +83,13 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
       },
       title: {
         display: true,
-        text: `Gender identity tested for HIV NYS CMP ${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}`,
+        text: ["Gender identity of participants tested for HIV NYS CMP",`${reverseDate(selectedDate.start)} - ${reverseDate(selectedDate.finish)}  N=${hivTestedTotal}`],
         position: "top",
+        align: 'start',
+        color: '#000',
         font: {
           size: 18,
+          weight: 'bold'
         },
       },
       datalabels: {
@@ -191,8 +194,7 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
   }
 
   return (
-    <div>
-        {/* <input type="radio" onChange={exportChart} /> */}
+    <div className="flex flex-col gap-7 items-start">
 
     <Chart
       type="bar"
@@ -200,9 +202,14 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
       data={data}
       options={options}
       onClick={onClick}
-    />
 
-        <button
+    />
+    <p className="italic">
+    <strong>Methodology: </strong>
+    Black Health collects data on events held, including number and demographics of participants, resources distributed, testing 
+    outputs and outcomes/challenges from event delivery. No personally identifiable is collected or stored.
+    </p>
+    <button
         onClick={imageToClipboard}
         className="px-5 my-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
       >

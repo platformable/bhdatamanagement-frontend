@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 import ResourcesDistributedChart from "./ResourcesDistributedChart";
-import {reverseDate} from '../../utils/helpers'
+import { reverseDate } from "../../utils/helpers";
 const ResourcesSection = ({
   selectedEventsOutputs,
   getHrefImage,
@@ -9,14 +9,14 @@ const ResourcesSection = ({
 }) => {
   const [stadistics, setStadistics] = useState([]);
   const [value, copy] = useCopyToClipboard();
-console.log("resources  section", selectedEventsOutputs)
+  console.log("resources  section", selectedEventsOutputs);
   const reversedDate = {
     start: reverseDate(selectedDate.start),
     finish: reverseDate(selectedDate.finish),
   };
 
   const resourcesCounts = {
-    "Masks": 0,
+    Masks: 0,
     "COVID literature": 0,
     "Vaccine literature": 0,
     "HIV literature": 0,
@@ -36,8 +36,7 @@ console.log("resources  section", selectedEventsOutputs)
         event?.healthdisparitiesliterature;
       resourcesCounts["Masks"] += event?.masks;
       resourcesCounts["COVID literature"] += event?.covidliterature;
-      resourcesCounts["Vaccine literature"] +=
-        event?.vaccinerelatedliterature;
+      resourcesCounts["Vaccine literature"] += event?.vaccinerelatedliterature;
     });
     setStadistics(resourcesCounts);
   }, [selectedEventsOutputs]);
@@ -50,7 +49,13 @@ console.log("resources  section", selectedEventsOutputs)
   };
   return (
     <section className="grid gap-7">
-      <h1 className="font-black">Resources distributed</h1>
+      <h1 className="font-black">Social Marketing</h1>
+      <p>
+        Throughout this contract year, BLACK HEALTH will provide condom
+        education and safer sex kits to gatekeepers. In turn, gatekeepers
+        distribute safer sex kits to their networks to encourage safer sex
+        behavior and dispel myths about condoms.
+      </p>
       <ResourcesDistributedChart
         getHrefImage={getHrefImage}
         chartData={stadistics}
@@ -62,7 +67,9 @@ console.log("resources  section", selectedEventsOutputs)
           <thead>
             <tr>
               <th className="px-3">Resources Distributed</th>
-              <th className="px-3 text-center">{reversedDate.start} - {reversedDate.finish}</th>
+              <th className="px-3 text-center">
+                {reversedDate.start} - {reversedDate.finish}
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -84,7 +91,7 @@ console.log("resources  section", selectedEventsOutputs)
           // onClick={() => textToClipboard("resources-table")}
           className="px-5 py-2 text-lg border hover:bg-black pointer-events-none hover:text-white rounded shadow"
         >
-          Select and right-click to copy the text 
+          Select and right-click to copy the text
         </button>
       </div>
     </section>

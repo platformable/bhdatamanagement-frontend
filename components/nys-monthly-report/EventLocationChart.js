@@ -105,10 +105,13 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
       },
       title: {
         display: true,
-        text: `Event Locations NYS CMP ${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}`,
+        text: ['Event Location NYS CMP',`${reverseDate(selectedDate.start)} - ${reverseDate(selectedDate.finish)}   N=${chartData.length}`],
         position: "top",
+        align: 'start',
+        color: '#000',
         font: {
           size: 18,
+          weight: 'bold'
         },
       },
       datalabels: {
@@ -209,17 +212,24 @@ const EventLocationChart = ({ chartData, getHrefImage, selectedDate }) => {
   };
 
   return (
-    <div>
-      <Chart
-        type="bar"
-        ref={chartRef}
-        data={data}
-        options={options}
-        onClick={onClick}
-      />
-       <button
+    <div className="flex flex-col gap-7 items-start">
+
+    <Chart
+      type="bar"
+      ref={chartRef}
+      data={data}
+      options={options}
+      onClick={onClick}
+
+    />
+    <p className="italic">
+    <strong>Methodology: </strong>
+    Black Health collects data on events held, including number and demographics of participants, resources distributed, testing 
+    outputs and outcomes/challenges from event delivery. No personally identifiable is collected or stored.
+    </p>
+    <button
         onClick={imageToClipboard}
-        className="my-5 px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
+        className="px-5 my-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
       >
         Copy to clipboard
       </button>

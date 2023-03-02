@@ -9,7 +9,7 @@ const ChallengesSection = ({ selectedEvents, selectedEventsOutputs }) => {
 
   return (
     <div className="px-5">
-      <h1 className="font-black mb-7">Challenges</h1>
+      <h1 className="font-black mb-7"> Challenges / Issues </h1>
       <p>{`${
         selectedEventsOutputs.filter((event) => event.eventchallenges !== "")
           .length
