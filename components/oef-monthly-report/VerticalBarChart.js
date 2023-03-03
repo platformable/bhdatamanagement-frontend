@@ -53,7 +53,7 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
   const options = {
     plugins: {
       legend: {
-        position: "top",
+        position: false,
       },
       title: {
         display: true,
@@ -65,6 +65,9 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
           size: 18,
           weight: 'bold'
         },
+        padding:{
+          bottom:50
+        }
       },
       datalabels: {
         display: true,
@@ -113,7 +116,7 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
     datasets: [
       {
         type: "bar",
-        label: barLabel,
+        //label: '',
         backgroundColor: "#3c9648",
         data: stadistics,
         borderColor: "white",
