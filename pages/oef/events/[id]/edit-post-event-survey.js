@@ -588,7 +588,7 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
         />
       )}
 
-      <div style={{display:'none'}}>
+      <div style={{display:'block'}}>
           <OefHivOutreachPrint ref={componentRef} event={eventToPrint} />
         </div>
     </>
