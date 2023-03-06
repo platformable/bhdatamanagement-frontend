@@ -26,7 +26,7 @@ export default function Highlights({
     console.log("data", data);
     navigator.clipboard.writeText(data);
   }
-console.log("events and events outputs",selectedEventsOutputs)
+console.log("hiv events outputs",selectedEvents.filter(event => event._surveyname === 'oef-fbo-outreach').map(e => console.log(e.eventname, e._eventname)))
   useEffect(() => {
     selectedEventsOutputs.map(event => {
       event.participantreferral && (participantReferral[event.participantreferral] += 1)
@@ -54,7 +54,7 @@ console.log("events and events outputs",selectedEventsOutputs)
                 key={index}
                 className={`${index % 2 === 0 ? "bg-white" : "bg-light-blue"}`}
               >
-                <td>{event.eventname}</td>
+                <td>{event._eventname}</td>
                 <td className="">{event._deliverypartner}</td>
                 <td className="">{event.eventdate.split("T")[0]}</td>
                 <td className="text-right">{event.totalattendees}</td>
