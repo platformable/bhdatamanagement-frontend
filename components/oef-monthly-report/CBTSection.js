@@ -8,20 +8,25 @@ const CBTSection = ({
   selectedEventsOutputs,
 }) => {
   const [cbtEvents, setCbtEvents] = useState(
-    selectedEvents.filter((event) => event._surveyname === "bh-cbt-register")
+    [...selectedEvents.filter((event) => event._surveyname === "bh-cbt-register")]
   );
   const [cbtParticipants, setCbtParticipants] = useState(
     [...selectedEventsOutputs.filter(
       (participant) => participant.surveyname === "cbt-participant"
     )]
   );
-  // console.log(cbtParticipants);
+ 
+  console.log("events output",selectedEvents);
+
   function handleCopy(id) {
     const data = document.getElementById(id).innerText;
     console.log("data", data);
     navigator.clipboard.writeText(data);
   }
-
+  const cbtCounts = {
+    totalAttendees: 0,
+    eventNames: []
+  }
   const fboPositionCounts = {
     "Leader (Pastor, Imam, Deacon)": 0,
     "Coordinator": 0,
@@ -37,36 +42,40 @@ const CBTSection = ({
       fboPositionCounts[participant.fboposition] += 1;
     }
   });
+
+  const addCbtCounts = cbtEvents.map(event => {
+    cbtCounts.totalAttendees += event.totalattendees
+    if (event._eventname) cbtCounts.eventNames.push(`"${event._eventname}"`);
+  })
   
 
   return (
     <div className="">
-      <h1 className="bg-red bg-red-200 text-white py-2 px-3 mb-7">
+      <h1 className="bg-red bg-red-200  py-2 px-3 mb-7">
         Capacity Building Training
       </h1>
       <div className="grid gap-5 mb-10" id='cbt-section'>
         <p>
           {cbtEvents.length} CBT/s session was held in [insert month manually
-          here] on the topic/s Building a Youth Ministry around HIV. 60 people
-          attended and 36 participants in total filled in a post-CBT survey. The
-          facilitator/s was/were: Disleiry Benitez.
+          here] on the topic/s <span className="">{cbtCounts.eventNames.join(', ')}</span>. {cbtCounts.totalAttendees} people
+          attended and {cbtParticipants.length} participants in total filled in a post-CBT survey. The
           <br />
           <br />
           The facilitator/s was/were: Disleiry Benitez.
           <br />
           <br />
           <br />
-          {((fboPositionCounts["Coordinator"] / fboPositionTotals) * 100) || 0}%
+          {((fboPositionCounts["Coordinator"] / fboPositionTotals).toFixed() * 100) || 0}%
           of the respondents reported the title Coordinator,{" "}
           {((fboPositionCounts["Leader (Pastor, Imam, Deacon)"] /
             fboPositionTotals) *
-            100).toFixed(2) || 0}
+            100).toFixed() || 0}
           % Leader (Pastor, Imam, Deacon),{" "}
-          {((fboPositionCounts["Youth Leader"] / fboPositionTotals) * 100).toFixed(2) || 0}%
+          {((fboPositionCounts["Youth Leader"] / fboPositionTotals) * 100).toFixed() || 0}%
           Youth Leader,{" "}
-          {((fboPositionCounts["Community Member"] / fboPositionTotals) * 100).toFixed(2) || 0}%
+          {((fboPositionCounts["Community Member"] / fboPositionTotals) * 100).toFixed() || 0}%
           Community Member, and{" "}
-          {((fboPositionCounts["Representative"] / fboPositionTotals) * 100).toFixed(2) || 0}%
+          {((fboPositionCounts["Representative"] / fboPositionTotals) * 100).toFixed() || 0}%
           Representative. The results of the post-training survey are shown in
           Figure 6. The feedback from the training was [manually insert feedback
           summary here].
@@ -89,6 +98,7 @@ const CBTSection = ({
       </div>
       
       <CBTTrainingFeedbackChart selectedDate={selectedDate} cbtParticipants={cbtParticipants} />
+      
     </div>
   );
 };

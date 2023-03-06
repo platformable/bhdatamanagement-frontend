@@ -36,7 +36,7 @@ ChartJS.register(
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 import {reverseDate} from "../../utils/helpers";
 
-const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,chartDataValues }) => {
+const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,chartDataValues, barLabel }) => {
   const [stadistics, setStadistics] = useState([])
   const [value, copy] = useCopyToClipboard()
   
@@ -53,21 +53,27 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
   const options = {
     plugins: {
       legend: {
-        position: "top",
+        position: false,
       },
       title: {
         display: true,
-        text: `${chartTitle} ${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}`,
+        text: [chartTitle,`${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}  N=${totalOfValues}`],
         position: "top",
+        align: 'start',
+        color: '#000',
         font: {
           size: 18,
+          weight: 'bold'
         },
+        padding:{
+          bottom:50
+        }
       },
       datalabels: {
         display: true,
         color: "#000",
         formatter: function (value, context) {
-          return value > 0 ? `${((value * 100) / totalOfValues).toFixed(2)}%`   : "";
+          return value > 0 ? `${((value * 100) / totalOfValues).toFixed(1)}%`   : "";
         },
         font: {
           weight: "bold",
@@ -78,22 +84,25 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
       },
     },
     scales: {
+      x: {
+        ticks: {
+          color: '#000',
+        }
+      },
       y: {
         beginAtZero: true,
         title: {
           display: true,
-          text: "# of events",
           font: {
             weight: "bold",
           },
         },
         ticks: {
+          color: '#000',
           precision: 0,
           // callback: (value, index, values) => {
-          //   maxValue = values.findLast(e => e).value
-          //   return `${((value * 100) / maxValue).toFixed()} %`
+          //   return `${((value * 100) / totalOfValues).toFixed()} %`
           // },
-          
         },
         min: 0,
         max: maxValue + (maxValue / 3),
@@ -107,7 +116,7 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
     datasets: [
       {
         type: "bar",
-        label: "# of events",
+        //label: '',
         backgroundColor: "#3c9648",
         data: stadistics,
         borderColor: "white",
@@ -174,12 +183,16 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
         options={options}
         onClick={onClick}
       />
-       <button
+      <br />
+      <small className="italic"><strong>Methodology:</strong> Black Health collects data on events held, including number and demographics of participants, resources distributed,  testing outputs and outcomes/challenges from event delivery. No personally identifiable information is collected or stored.</small>
+      
+      <br /> <button
         onClick={imageToClipboard}
         className="my-5 px-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"
       >
         Copy to clipboard
       </button>
+
     </div>
   );
 };

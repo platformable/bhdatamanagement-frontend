@@ -39,6 +39,7 @@ console.log(event)
   const [eventForm, setEventForm] = useState({
     eventID:event?.id,
     programid:1,
+    eventDate: new Date(),
 programname:"OEF",
 participantRegistrationForm:false,
 eventStartedOnTime:false,

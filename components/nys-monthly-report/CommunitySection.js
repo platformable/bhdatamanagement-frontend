@@ -445,7 +445,8 @@ const CommunitySection = ({
 
   return (
     <section>
-      <h1 className="font-black mb-7">Community</h1>
+      <h1 className="font-black mb-7">Community Mobilization Events
+</h1>
       <div id="communityText">
         <p>{`There were ${
           !allTests.hivTesting ? 0 : allTests.hivTesting
@@ -507,24 +508,28 @@ const CommunitySection = ({
         getHrefImage={getHrefImage}
         chartData={selectedEventsOutputs}
         selectedDate={selectedDate}
+        hivTestedTotal={allTests.hivTestedTotal}
       />{" "}
       <br />
       <AgeChart
         getHrefImage={getHrefImage}
         chartData={selectedEventsOutputs}
         selectedDate={selectedDate}
+        hivTestedTotal={allTests.hivTestedTotal}
       />{" "}
       <br />
       <RaceChart
         getHrefImage={getHrefImage}
         chartData={selectedEventsOutputs}
         selectedDate={selectedDate}
+        hivTestedTotal={allTests.hivTestedTotal}
       />{" "}
       <br />
       <SexualOrientationChart
         getHrefImage={getHrefImage}
         chartData={selectedEventsOutputs}
         selectedDate={selectedDate}
+        hivTestedTotal={allTests.hivTestedTotal}
       />
     </section>
   );

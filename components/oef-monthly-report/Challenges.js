@@ -6,7 +6,7 @@ export default function Challenges({selectedDate, selectedEvents, selectedEvents
   }
     return (
         <section>
-            <h1 className="bg-red-500 text-white py-2 px-3">Challenges</h1>
+            <h1 className="bg-red-500 py-2 px-3">Challenges</h1>
             
         <div className="mt-10 grid gap-10" id="challenges-section">
           <div>

@@ -20,6 +20,7 @@ import {
 } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 
+
 ChartJS.register(
   LinearScale,
   CategoryScale,
@@ -31,7 +32,8 @@ ChartJS.register(
   Legend,
   Tooltip,
   Title,
-  ChartDataLabels
+  ChartDataLabels,
+  // ChartjsPluginStacked100
 );
 import useCopyToClipboard from "../../../utils/useCopyToClipboard";
 import { reverseDate } from "../../../utils/helpers";
@@ -103,6 +105,7 @@ const CBTTrainingFeedbackChart = ({
   const options = {
     indexAxis: 'y',
     plugins: {
+      // stacked100: { enable: true, },
       legend: {
         position: "top",
         // align: 'start',
@@ -115,7 +118,7 @@ const CBTTrainingFeedbackChart = ({
       },
       title: {
         display: true,
-        text: ["CBT Training Feedback",`${new Date(selectedDate.finish).toLocaleDateString('en-US', {month: 'long', year: '2-digit'})}`],
+        text: ["CBT Training Feedback",`${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}  N=${totalOfValues}`],
         position: "top",
         align: 'start',
         color: '#000',
@@ -144,7 +147,9 @@ const CBTTrainingFeedbackChart = ({
       x: {
         stacked: true,
         min: 0,
+
         ticks: {
+          color: '#000',
           stepSize: (value) => {
             return value.scale.max / 4
           },
@@ -166,7 +171,7 @@ const CBTTrainingFeedbackChart = ({
           },
         },
         ticks: {
-          
+          color: '#000',
           precision: 0,
         },
         // min: 0,
@@ -177,6 +182,7 @@ const CBTTrainingFeedbackChart = ({
         // type: 'linear',
         position: 'right',
         ticks: {
+          color: '#000',
           callback: (value,index,values) => {
             let obj = stadistics[value];
             if (obj) {
@@ -205,7 +211,7 @@ const CBTTrainingFeedbackChart = ({
       {
         type: "bar",
         label: "Strongly disagree",
-        backgroundColor: "#BE7EB4",
+        backgroundColor: "#DE8EA3",
         data: stadistics.map(obj => obj["Strongly disagree"]),
         borderColor: "white",
         borderWidth: 2,
@@ -213,7 +219,7 @@ const CBTTrainingFeedbackChart = ({
       {
         type: "bar",
         label: "Disagree",
-        backgroundColor: "#802E86",
+        backgroundColor: "#EDC1CC",
         data: stadistics.map(obj => obj["Disagree"]),
         borderColor: "white",
         borderWidth: 2,
@@ -221,7 +227,7 @@ const CBTTrainingFeedbackChart = ({
       {
         type: "bar",
         label: "Neutral",
-        backgroundColor: "#C8231F",
+        backgroundColor: "#C0E2F7",
         data: stadistics.map(obj => obj["Neither agree nor disagree"]),
         borderColor: "white",
         borderWidth: 2,
@@ -229,7 +235,7 @@ const CBTTrainingFeedbackChart = ({
       {
         type: "bar",
         label: "Agree",
-        backgroundColor: "#2E7D3D",
+        backgroundColor: "#C6FFEB",
         data: stadistics.map(obj => obj["Agree"]),
         borderColor: "white",
         borderWidth: 2,
@@ -237,7 +243,7 @@ const CBTTrainingFeedbackChart = ({
       {
         type: "bar",
         label: "Strongly agree",
-        backgroundColor: "#E8AB00",
+        backgroundColor: "#A1EDD2",
         data: stadistics.map(obj => obj["Strongly agree"]),
         borderColor: "white",
         borderWidth: 2,
@@ -305,6 +311,11 @@ const CBTTrainingFeedbackChart = ({
         options={options}
         onClick={onClick}
       />
+
+<br />
+      <small className="italic"><strong>Methodology:</strong> Black Health collects data on events held, including number and demographics of participants, resources distributed,  testing outputs and outcomes/challenges from event delivery. No personally identifiable information is collected or stored.</small>
+      
+      <br /> 
       <button
         onClick={imageToClipboard}
         className="px-5 my-5 py-2 text-lg border hover:bg-black hover:text-white rounded shadow"

@@ -31,7 +31,7 @@ const Survey = ({ event, fbos }) => {
   const [surveyForm, setSurveyForm] = useState({
     deliveryPartner: "",
     programName: "OEF",
-    eventDate: new Date().toLocaleDateString(),
+    eventDate: new Date(),
     programID: 1,
     participantZipCode: 0,
     ageID: 0,
