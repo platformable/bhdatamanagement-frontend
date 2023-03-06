@@ -18,7 +18,7 @@ const AdministrativeSection = ({
   console.log("selectedEventsOutputs",selectedEventsOutputs)
 
   const numbersOfOefEvents =selectedEvents.filter(event=>event.eventname!==null).length
-  const totalNumberOfParticipantsSurveys=selectedEventsOutputs.length
+  const totalNumberOfParticipantsSurveys= selectedEventsOutputs.filter(events=>events.surveyname==='oef-participant').length
 
   /* totalAttendees */
 
@@ -112,6 +112,6 @@ There was ${totalNumberOfCbtPostEvent}  CBT workshop held as well as  ${totalNum
         </button>
     </section>
   );
-};
+};  
 
 export default AdministrativeSection;

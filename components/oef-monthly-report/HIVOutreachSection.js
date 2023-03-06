@@ -23,7 +23,7 @@ const HIVOutreachSection = ({
 
   /* total hiv outreach events total surveyName = oef-fbo-outreach */
   const totalNumberOfParticipantsSurveys = selectedEventsOutputs.filter(events=>events.surveyname==='oef-participant').length
-
+  console.log("hiv ",selectedEventsOutputs)
  
   const sumHivOutreachEvents =  selectedEvents.forEach((element) => {
     let totalHivOutreachEvents = 0;
