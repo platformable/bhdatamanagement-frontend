@@ -145,6 +145,59 @@ const HIVOutreachSection = ({
     (totalHivAge2 / totalAges)*100
   ).toFixed(1);
 
+
+/* AGE RANGE */
+
+
+const getAgeRangeSumPerValue = (value) => {
+  let total = 0;
+  selectedEventsOutputs.forEach((event) => {
+    if (event.participantagerange ===value) {
+      return total+=1
+    } else {
+      return null
+    }
+  } )
+  
+  return total
+};
+const getAgeRange1=()=>{
+   
+let total=0
+total=getAgeRangeSumPerValue('Under 13')+ getAgeRangeSumPerValue('13-18')+
+  getAgeRangeSumPerValue('19-24')+
+  getAgeRangeSumPerValue('25-29')+
+  getAgeRangeSumPerValue('30-34')+
+  getAgeRangeSumPerValue('35-39')+
+  getAgeRangeSumPerValue('40-44')
+  return total
+
+}
+
+const getAgeRange2=()=>{
+   
+  let total=0
+  total=getAgeRangeSumPerValue('45-49')+
+    getAgeRangeSumPerValue('50-54')+
+    getAgeRangeSumPerValue('55-59')+
+    getAgeRangeSumPerValue('60-64')+
+    getAgeRangeSumPerValue('65-69')+
+    getAgeRangeSumPerValue('70+')
+  
+    return total
+  
+  }
+
+const totalAgeRange=getAgeRange1()+getAgeRange2()
+
+const percentageAgeRange1 = (
+  (getAgeRange1() / totalAgeRange)*100
+).toFixed(1);
+
+const percentageAgeRange2 = (
+  (getAgeRange2() / totalAgeRange)*100
+).toFixed(1);
+
   /* GENDER */
 
 
@@ -330,7 +383,7 @@ const HIVOutreachSection = ({
   const totalOrientationOther=((getTotalOther()/totalOrientation)*100).toFixed(1)
   const totalOrientationDeclined=((getTotalOrientationDeclined()/totalOrientation)*100).toFixed(1)
   
-  console.log("totalOrientation",totalOrientation)
+
 
 
   /* RACE */
@@ -351,7 +404,7 @@ const HIVOutreachSection = ({
 
   const totalHispanic=getTotalHispanic()
 
-  console.log("totalHispanic",totalHispanic)
+ 
 
   const getTotalAsian = () => {
     let totalAsian = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Asian')&& event.participantrace!==null).length
@@ -359,7 +412,6 @@ const HIVOutreachSection = ({
   };
   const totalAsian= getTotalAsian()
 
-  console.log("totalAsian",totalAsian)
 
   const getTotalAmerican = () => {
     let totalAmerican = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('American Indian or Alaska Native')&& event.participantrace!==null).length
@@ -367,7 +419,7 @@ const HIVOutreachSection = ({
   };
 
   const totalAmerican=getTotalAmerican()
-  console.log("totalAmerican",totalAmerican)
+
 
   const getTotalMiddleE = () => {
     let totalMiddelE = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Middle Eastern or North African')&& event.participantrace!==null).length
@@ -375,7 +427,7 @@ const HIVOutreachSection = ({
   };
 
   const totalMiddleE=getTotalMiddleE()
-  console.log("totalMiddleE",totalMiddleE)
+
 
   const getTotalHawaiian = () => {
     let totalHawaiian = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Native Hawaiian or Other Pacific Islander')&& event.participantrace!==null).length
@@ -385,7 +437,7 @@ const HIVOutreachSection = ({
 
 
   const totalHawaiian=getTotalHawaiian()
-  console.log("totalHawaiian",totalHawaiian)
+
 
   const getTotalWhite = () => {
     let totalWhite = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('White')&& event.participantrace!==null).length
@@ -395,14 +447,14 @@ const HIVOutreachSection = ({
 
 
   const totalWhite=getTotalWhite()
-  console.log("totalWhite",totalWhite)
+
 
   const getTotalSomeOtherRace = () => {
     let totalSomeOtherRace = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Some other race or origin')&& event.participantrace!==null).length
     return totalSomeOtherRace
   };
 const totalSomeOtherRace=getTotalSomeOtherRace()
-console.log("totalsomeotherrace",totalSomeOtherRace)
+
 
   const getTotalRaceDeclinedToAnswer = () => {
     let totalDeclinedToAnswer = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Decline to answer')&& event.participantrace!==null).length
@@ -411,7 +463,7 @@ console.log("totalsomeotherrace",totalSomeOtherRace)
 
 
   const totalRaceDeclined=getTotalRaceDeclinedToAnswer()
-  console.log("declined to anwswer",totalRaceDeclined)
+
 
   const totalRace=+totalBlack+totalAmerican+totalAsian+totalHawaiian+totalHispanic+totalWhite+totalSomeOtherRace+totalMiddleE+totalRaceDeclined
 
@@ -463,6 +515,8 @@ console.log("totalsomeotherrace",totalSomeOtherRace)
   };
 
 
+console.log("selectedEvents",selectedEvents)
+
   const ageAxisDataForChart=[
     {id:1,name:'Under 13',value:getAgesSumPerValueName('altagehiv13_18'),dataPoint:'altagehiv13_18'},  
     {id:2,name:'13_18 ',value:getAgesSumPerValueName('altagehivunder13'),dataPoint:'altagehivunder13'},
@@ -479,6 +533,8 @@ console.log("totalsomeotherrace",totalSomeOtherRace)
     {id:13,name:'65_69',value:getAgesSumPerValueName('hiv65_69'),dataPoint:'hiv65_69'},
     {id:14,name:'+70',value:getAgesSumPerValueName('hiv70'),dataPoint:'hiv70'}
   ]
+
+console.log("ageAxisDataForChart",ageAxisDataForChart)
 
 
   const dataValuesForGenderChart=[
@@ -514,7 +570,46 @@ console.log("totalsomeotherrace",totalSomeOtherRace)
     
   ]
 
+
+  const getAgeRangeSumPerValueName = (value,nameOfDataPoint) => {
+    let total = 0;
+    selectedEventsOutputs.forEach((event) => {
+      if (event[nameOfDataPoint] ===value) {
+        return total+=1
+      } else {
+        return null
+      }
+    } )
+    
+    return total
+  };
+  const ageRangeAxisDataForChart=[
+    {id:1,name:'Under 13',value:getAgeRangeSumPerValueName('Under 13','participantagerange'),dataPoint:'participantagerange'},
+    {id:2,name:'13_18 ',value:getAgeRangeSumPerValueName('13-18','participantagerange'),dataPoint:'participantagerange'},
+    {id:3,name:'19_24',value:getAgeRangeSumPerValueName('19-24','participantagerange'),dataPoint:'participantagerange'},
+    {id:4,name:'25_29',value:getAgeRangeSumPerValueName('25-29','participantagerange'),dataPoint:'participantagerange'},
+    {id:5,name:'30_34',value:getAgeRangeSumPerValueName('30-34','participantagerange'),dataPoint:'participantagerange'},
+    {id:6,name:'35_39',value:getAgeRangeSumPerValueName('35-39','participantagerange'),dataPoint:'participantagerange'},	
+    {id:7,name:'40_44',value:getAgeRangeSumPerValueName('40-44','participantagerange'),dataPoint:'participantagerange'},
+    {id:8,name:'45_49',value:getAgeRangeSumPerValueName('45-49','participantagerange'),dataPoint:'participantagerange'},
+    {id:9,name:'50_54',value:getAgeRangeSumPerValueName('50-54','participantagerange'),dataPoint:'participantagerange'},
+    {id:10,name:'55_59',value:getAgeRangeSumPerValueName('55-59','participantagerange'),dataPoint:'participantagerange'},
+    {id:11,name:'60_64',value:getAgeRangeSumPerValueName('60-64','participantagerange'),dataPoint:'participantagerange'},
+    {id:12,name:'65_69',value:getAgeRangeSumPerValueName('65-69','participantagerange'),dataPoint:'participantagerange'},
+    {id:13,name:'+70',value:getAgeRangeSumPerValueName('70+','participantagerange'),dataPoint:'participantagerange'}
+  ]
+
+
   //let totalOfValues = values.reduce((a, b) => a + b, 0);
+
+  const totalAgePeopleTestedHiv=()=>{
+    let total=0
+    const sum=ageAxisDataForChart.map(data=>{
+    total +=data.value
+    })
+
+    return total
+  }
 
   return (
     <section>
@@ -525,11 +620,11 @@ console.log("totalsomeotherrace",totalSomeOtherRace)
         <p>
           {" "}
           <strong>Age:</strong>
-          {` The participants’ ages ranged from 16 to 70+ years, as shown in Figure 1. ${percentageHivAge}% of the participants were aged 45 or over, this is [manual calculation: X% lower/higher than in previous month year]. This month ${percentageHivAg2e}% of participants were under 44.`}{" "}
+          {` The participants’ ages ranged from 16 to 70+ years, as shown in Figure 1. ${percentageAgeRange1}% of the participants were aged 45 or over, this is [manual calculation: X% lower/higher than in previous month year]. This month ${percentageAgeRange2}% of participants were under 44.`}{" "}
         </p>
       </div>
       <br />
-        <VerticalBarChart selectedDate={selectedDate} chartTitle='Age of Participants - HIV Outreach events' axisXLabels={ageAxisDataForChart} chartDataValues={ageAxisDataForChart.map(data=>data.value)}/>
+        <VerticalBarChart selectedDate={selectedDate} chartTitle='Age of Participants - HIV Outreach events' axisXLabels={ageRangeAxisDataForChart} chartDataValues={ageRangeAxisDataForChart.map(data=>data.value)}/>
 
     
       <br />
@@ -604,9 +699,12 @@ The full range of participant racial identity is shown in Figure 4.
 
       <div>
         <p>
-        <strong>Age of people tested for HIV:</strong> A total of [total of altAgeHiv13_18 + altAgeHiv19_24 + hiv25_29 + hiv30_34 + hiv35_39 + hiv40_44 + hiv45_49 + hiv50_54 + hiv55_59 + hiv60_64 + hiv65_69 + hiv70 from oef-fbo-outreach in events_output table] people were reported to have been tested for HIV in [insert month manually] by FBOs. Figure 5 below shows the age breakdown of those who were tested, according to the testing sheets. 
+        <strong>Age of people tested for HIV:</strong> {`A total of ${totalAgePeopleTestedHiv()} people were reported to have been tested for HIV in [insert month manually] by FBOs. Figure 5 below shows the age breakdown of those who were tested, according to the testing sheets. `}
 
         </p>
+        <br />
+
+        <VerticalBarChart selectedDate={selectedDate} chartTitle='Ages of people tested for HIV - HIV Outreach events' axisXLabels={ageAxisDataForChart} chartDataValues={ageAxisDataForChart.map(data=>data.value)}/>
       </div>
    
     </section>
