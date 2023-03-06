@@ -26,7 +26,7 @@ export default function Highlights({
     console.log("data", data);
     navigator.clipboard.writeText(data);
   }
-console.log("events and events outputs",selectedEventsOutputs)
+// console.log("events and events outputs",selectedEventsOutputs)
   useEffect(() => {
     selectedEventsOutputs.map(event => {
       event.participantreferral && (participantReferral[event.participantreferral] += 1)
