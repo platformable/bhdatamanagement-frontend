@@ -213,9 +213,9 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
           alt="airs form logo"
           width={45}
         /> */}
-        <h4 className="font-black mb-2 justify-self-center text-center mt-2 mb-2">
+        <h3 className="font-black mb-2 justify-self-center text-center mt-2 mb-2">
           OEF HIV Outreach
-        </h4>
+        </h3>
       </div>
 
       <div className="container mx-auto px-7 text-xs">
@@ -226,7 +226,7 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
         </div>
 
         <div className="flex gap-x-1 my-5">
-          <h3 className="font-black mb-2">Enter your email address</h3>
+          <h3 className="font-black mb-2">Enter your email address:</h3>
           <p>{event?.oefeventemail}</p>
         </div>
 
@@ -371,56 +371,56 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
         <h3 className="font-black mb-2 my-5">Resources Distributed</h3>
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
-          HIV literature
+          HIV literature: {' '}
           </h3>
           <p>{event?.hivliterature}</p>
         </div>
 
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
-          HepC literature
+          HepC literature: {' '}
           </h3>
           <p>{event?.hepcliterature}</p>
         </div>
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
-          Safer sex kits
+          Safer sex: {' '}
           </h3>
           <p>{event?.safersexkits}</p>
         </div>
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
-          Health disparities literature
+          Health disparities literature: {' '}
           </h3>
           <p>{event?.healthdisparitiesliterature}</p>
         </div>
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
-          Bags/boxes of food
+          Bags/boxes of food: {' '}
           </h3>
           <p>{event?.bagsboxesfood}</p>
         </div>
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
-          Masks
+          Masks: {' '}
           </h3>
           <p>{event?.masks}</p>
         </div>
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
-          Bags/boxes of food
+          Bags/boxes of food: {' '}
           </h3>
           <p>{event?.handsanitizers}</p>
         </div>
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
-          COVID literature
+          COVID literature: {' '}
           </h3>
           <p>{event?.covidliterature}</p>
         </div>
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
-          COVID vaccine site referral information/details
+          COVID vaccine site referral information/details: {' '}
           </h3>
           <p>{event?.covidvaccinesitereferraldetails}</p>
         </div>
@@ -951,7 +951,9 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
         )}
 
 
-<h3 className="font-black mb-2 my-5">Other testing</h3>
+        {event?.otherTesting && (
+          <>
+          <h3 className="font-black mb-2 my-5">Other testing</h3>
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
           What other testing was done at the event?
@@ -965,24 +967,26 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
           <p>{event?.othertestedtotal}</p>
         </div>
 
+          </>
+        )}
 
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
-          Status
+          Status: {' '}
           </h3>
           <p>{event?.submissionstatus}</p>
         </div>
 
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
-          One line description
+          One line description:{' '}
           </h3>
           <p>{event?.onelinedescription}</p>
         </div>
 
         <div className="gap-x-1 my-5">
           <h3 className="font-black mb-2">
-          Leason learned
+          Lessons learned: {' '}
           </h3>
           <p>{event?.lessonslearned}</p>
         </div>
