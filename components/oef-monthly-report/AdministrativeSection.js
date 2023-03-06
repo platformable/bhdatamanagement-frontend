@@ -17,7 +17,7 @@ const AdministrativeSection = ({
   console.log("selectedEvents",selectedEvents)
   console.log("selectedEventsOutputs",selectedEventsOutputs)
 
-  const numbersOfOefEvents =selectedEvents.length
+  const numbersOfOefEvents =selectedEvents.filter(event=>event.eventname!==null).length
   const totalNumberOfParticipantsSurveys=selectedEventsOutputs.length
 
   /* totalAttendees */

@@ -514,7 +514,7 @@ console.log("totalsomeotherrace",totalSomeOtherRace)
     
   ]
 
-
+  let totalOfValues = values.reduce((a, b) => a + b, 0);
 
   return (
     <section>
@@ -599,6 +599,14 @@ The full range of participant racial identity is shown in Figure 4.
         >
           Select and right-click to copy the text 
         </button>
+      </div>
+
+
+      <div>
+        <p>
+        <strong>Age of people tested for HIV:</strong> A total of [total of altAgeHiv13_18 + altAgeHiv19_24 + hiv25_29 + hiv30_34 + hiv35_39 + hiv40_44 + hiv45_49 + hiv50_54 + hiv55_59 + hiv60_64 + hiv65_69 + hiv70 from oef-fbo-outreach in events_output table] people were reported to have been tested for HIV in [insert month manually] by FBOs. Figure 5 below shows the age breakdown of those who were tested, according to the testing sheets. 
+
+        </p>
       </div>
    
     </section>
