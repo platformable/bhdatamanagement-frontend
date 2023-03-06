@@ -514,7 +514,7 @@ console.log("totalsomeotherrace",totalSomeOtherRace)
     
   ]
 
-  let totalOfValues = values.reduce((a, b) => a + b, 0);
+  //let totalOfValues = values.reduce((a, b) => a + b, 0);
 
   return (
     <section>
