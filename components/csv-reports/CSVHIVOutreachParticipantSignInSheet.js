@@ -14,7 +14,7 @@ const orderDataset = (data, headers) => {
     if (typeof data[header] === 'object' ) {
       `${data[header].join(', ')}`
     }
-    return `${data[header.toLowerCase()]}`.replace(/$(\r|\n)(?=.)/gm, " ").replace(/"/g,'');
+    return `${data[header.toLowerCase()]}`.replace(/$(\r|\n)(?=.)/gm, " ");
   })
   return results;
 };
@@ -28,6 +28,7 @@ const CSVHIVOutreachParticipantSignInSheet = ({ csvData, fileName, headers}) => 
     const data = csvData.map((dataset) => orderDataset(dataset, headers));
     setOrdereData(data);
   }, [csvData]);
+  console.log("data to download", orderedData)
 
   return (
     //use ";" as separator for testing 
