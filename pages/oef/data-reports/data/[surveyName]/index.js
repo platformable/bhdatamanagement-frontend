@@ -324,7 +324,7 @@ export const allHeaders = {
     "programId",
     "programName",
     "surveyName",
-    "eventId",
+    "id",
     "surveyCompleted",
     "eventName",
     "eventDate",
@@ -334,7 +334,7 @@ export const allHeaders = {
     "onlineInPersonEventType",
     "inPersonEventTypeId",
     "inPersonEventTypeName",
-    "inPersonEventTypeOther",
+    "inPersonEventTypeNameOther",
     "onlineEventTypeName",
     "eventDescription",
     "locationAddress",
@@ -365,7 +365,7 @@ export const allHeaders = {
     "improveEngagement",
     "eventChallenges",
     "eventQuestions",
-    "organizerFeedback",
+    "organizerFeedback"
   ],
 };
 const ReportPicker = ({
