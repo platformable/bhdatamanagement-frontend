@@ -28,6 +28,7 @@ const Register = () => {
   const router = useRouter();
   const { user, error, isLoading } = useUser();
   let userId = user?.sub;
+
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
   const [loading, setLoading] = useState(false);
@@ -50,7 +51,10 @@ const Register = () => {
     inPersonEventTypeID:"",
     onlineEventTypeName:"",
     locationAddress:"",
-    onlineEventTypeID:""
+    onlineEventTypeID:"",
+
+    createdByName: user['https://lanuevatest.herokuapp.com/name'],
+    createdByLastname: user['https://lanuevatest.herokuapp.com/lastname'],
   });
 
   console.log("oef state form", eventForm);

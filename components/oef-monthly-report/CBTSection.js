@@ -16,7 +16,7 @@ const CBTSection = ({
     )]
   );
  
-  console.log("events output",selectedEvents);
+  console.log("cbt events output",cbtEvents);
 
   function handleCopy(id) {
     const data = document.getElementById(id).innerText;
@@ -25,7 +25,9 @@ const CBTSection = ({
   }
   const cbtCounts = {
     totalAttendees: 0,
-    eventNames: []
+    eventNames: [],
+    facilitators: [],
+    externalFacilitators: [] 
   }
   const fboPositionCounts = {
     "Leader (Pastor, Imam, Deacon)": 0,
@@ -46,6 +48,14 @@ const CBTSection = ({
   const addCbtCounts = cbtEvents.map(event => {
     cbtCounts.totalAttendees += event.totalattendees
     if (event._eventname) cbtCounts.eventNames.push(`"${event._eventname}"`);
+    if (event.createdbyname || event.createdbylastname) {
+      const facilitator = `${event.createdbyname} ${event.createdbylastname}`
+      if (!cbtCounts.facilitators.includes(facilitator)) cbtCounts.facilitators.push(`${event.createdbyname} ${event.createdbylastname}`);
+    }
+    if (event.externalfacilitatorname) {
+      if (!cbtCounts.externalFacilitators.includes(event.externalfacilitatorname))  cbtCounts.externalFacilitators.push(event.externalfacilitatorname)
+    }
+
   })
   
 
@@ -61,8 +71,11 @@ const CBTSection = ({
           attended and {cbtParticipants.length} participants in total filled in a post-CBT survey. The
           <br />
           <br />
-          The facilitator/s was/were: Disleiry Benitez.
+          The facilitator/s was/were: {cbtCounts.facilitators.join(', ')}
           <br />
+          <br />
+
+          The External facilitator/s was/were: {cbtCounts.externalFacilitators.join(', ')}
           <br />
           <br />
           {((fboPositionCounts["Coordinator"] / fboPositionTotals).toFixed() * 100) || 0}%
