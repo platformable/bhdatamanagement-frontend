@@ -14,7 +14,7 @@ const orderDataset = (data, headers) => {
     if (typeof data[header] === 'object' ) {
       `${data[header].join(', ')}`
     }
-    return `${data[header.toLowerCase()]}`.replace(/$(\r|\n)(?=.)/gm, " ");
+    return `${data[header.toLowerCase()]}`.replace(/$(\r|\n)(?=.)/gm, " ").replace(/"/g,'');
   })
   return results;
 };
