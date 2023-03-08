@@ -14,7 +14,7 @@ const orderDataset = (data, headers) => {
     if (typeof data[header] === 'object' ) {
       `${data[header].join(', ')}`
     }
-    return `${data[header.toLowerCase()]}`
+    return `${data[header.toLowerCase()]}`?.replace(/¶/g,'')
   })
   return results;
 };
@@ -31,7 +31,7 @@ const CSVHIVOutreachParticipantSignInSheet = ({ csvData, fileName, headers}) => 
 
   return (
     //use ";" as separator for testing 
-    <CSVLink headers={headers} data={orderedData} filename={fileName} separator=";" enclosingCharacter={`"`}>
+    <CSVLink headers={headers} data={orderedData} filename={fileName} separator="," enclosingCharacter={`"`}>
       <button  className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase">
       Download <br/> dataset
       </button>
