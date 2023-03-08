@@ -374,10 +374,10 @@ const ReportPicker = ({
   surveyName,
   fileName,
 }) => {
-  console.log(
-    "******************error: does not have eventdate to filter",
-    participantReport
-  );
+  // console.log(
+  //   "******************error: does not have eventdate to filter",
+  //   participantReport
+  // );
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
