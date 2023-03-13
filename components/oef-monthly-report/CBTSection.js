@@ -68,7 +68,7 @@ const CBTSection = ({
         <p>
           {cbtEvents.length} CBT/s session was held in [insert month manually
           here] on the topic/s <span className="">{cbtCounts.eventNames.join(', ')}</span>. {cbtCounts.totalAttendees} people
-          attended and {cbtParticipants.length} participants in total filled in a post-CBT survey. The
+          attended and {cbtParticipants.length} participants in total filled in a post-CBT survey.
           <br />
           <br />
           The facilitator/s was/were: {cbtCounts.facilitators.join(', ')}
