@@ -4,7 +4,7 @@ import Image from "next/image";
 import DashboardBtn from "./DashboardBtn";
 import BackBtn from "./BackBtn";
 
-const PageTopHeading = ({ pageTitle,dashboardBtn,backBtn }) => {
+const PageTopHeading = ({ pageTitle,dashboardBtn,backBtn,subTitle }) => {
   return (
     <section className="pt-10 bg-white">
       <div className="container mx-auto md:px-0 px-5">
@@ -14,6 +14,7 @@ const PageTopHeading = ({ pageTitle,dashboardBtn,backBtn }) => {
         </div>
         <div className="search-box grid  grid-cols-1  items-center my-10 space-between">
           <h1 className="font-black">{pageTitle}</h1>
+          <p>{subTitle}</p>
         </div>
       </div>
     </section>

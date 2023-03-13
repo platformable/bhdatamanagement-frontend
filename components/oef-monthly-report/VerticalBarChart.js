@@ -36,7 +36,7 @@ ChartJS.register(
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 import {reverseDate} from "../../utils/helpers";
 
-const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,chartDataValues, barLabel }) => {
+const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,chartDataValues, barLabel,totalNumberOfParticipantsSurveys }) => {
   const [stadistics, setStadistics] = useState([])
   const [value, copy] = useCopyToClipboard()
   
@@ -57,7 +57,7 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
       },
       title: {
         display: true,
-        text: [chartTitle,`${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}  N=${totalOfValues}`],
+        text: [chartTitle,`${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}  N=${totalNumberOfParticipantsSurveys}`],
         position: "top",
         align: 'start',
         color: '#000',
@@ -73,7 +73,7 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
         display: true,
         color: "#000",
         formatter: function (value, context) {
-          return value > 0 ? `${((value * 100) / totalOfValues).toFixed(1)}%`   : "";
+          return value > 0 ? `${((value * 100) / totalNumberOfParticipantsSurveys).toFixed(1)}%`   : "";
         },
         font: {
           weight: "bold",

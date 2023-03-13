@@ -150,7 +150,7 @@ const Register = () => {
           eventID: createdEventId,
           programid:1,
           programname: 'OEF',
-          surveyname:"bh-cbt-post-event-external",
+          surveyname:"bh-cbt-post-event",
         }
       )
       .then((response) => {
