@@ -47,7 +47,19 @@ const ParticipantReferralsChart = ({ selectedDate,chartData}) => {
   useEffect(() => {
     setStadistics(chartData)
   }, [chartData])
-  
+  const labels = [
+    "Word of mouth",
+    "Social Media",
+    "Community-Based Organization",
+    "Social media",
+    "Signs/flyers",
+    "Referral from local health provider or services",
+    "Referral from another Black Health program",
+    "Government or city agency (E.g., DOH, DOE, Health + Hospitals)",
+    "Local Community Leader or Politician",
+    "NYCHA or public housing",
+    "Other",
+  ]
   const options = {
     plugins: {
       legend: {
@@ -98,9 +110,8 @@ const ParticipantReferralsChart = ({ selectedDate,chartData}) => {
   };
 
 
-
   const data = {
-    labels: Object.keys(chartData),
+    labels: labels,
     datasets: [
       {
         type: "bar",

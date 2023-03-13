@@ -118,7 +118,7 @@ const CBTTrainingFeedbackChart = ({
       },
       title: {
         display: true,
-        text: ["CBT Training Feedback",`${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}  N=${totalOfValues}`],
+        text: ["CBT Training Feedback",`${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}  N=${cbtParticipants.length}`],
         position: "top",
         align: 'start',
         color: '#000',
