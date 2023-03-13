@@ -16,13 +16,7 @@ const CBTSection = ({
     )]
   );
  
-  console.log("cbt events output",cbtEvents);
-
-  function handleCopy(id) {
-    const data = document.getElementById(id).innerText;
-    console.log("data", data);
-    navigator.clipboard.writeText(data);
-  }
+  
   const cbtCounts = {
     totalAttendees: 0,
     eventNames: [],
@@ -35,12 +29,13 @@ const CBTSection = ({
     "Youth Leader": 0,
     "Representative": 0,
     "Community Member": 0,
+    fboPositionTotals: 0
   };
-  const fboPositionTotals = 0;
+
 
   const addPositionCounts = cbtParticipants.map((participant) => {
     if (participant.fboposition) {
-      fboPositionTotals += 1;
+      fboPositionCounts.fboPositionTotals += 1;
       fboPositionCounts[participant.fboposition] += 1;
     }
   });
@@ -58,7 +53,13 @@ const CBTSection = ({
 
   })
   
+  console.log("cbt events output",cbtEvents);
 
+  function handleCopy(id) {
+    const data = document.getElementById(id).innerText;
+    console.log("data", data);
+    navigator.clipboard.writeText(data);
+  }
   return (
     <div className="">
       <h1 className="bg-red bg-red-200  py-2 px-3 mb-7">
@@ -78,17 +79,17 @@ const CBTSection = ({
           The External facilitator/s was/were: {cbtCounts.externalFacilitators.join(', ')}
           <br />
           <br />
-          {((fboPositionCounts["Coordinator"] / fboPositionTotals).toFixed() * 100) || 0}%
+          {((fboPositionCounts["Coordinator"] * 100) / fboPositionCounts.fboPositionTotals).toFixed() || 0}%
           of the respondents reported the title Coordinator,{" "}
           {((fboPositionCounts["Leader (Pastor, Imam, Deacon)"] /
-            fboPositionTotals) *
+            fboPositionCounts.fboPositionTotals) *
             100).toFixed() || 0}
           % Leader (Pastor, Imam, Deacon),{" "}
-          {((fboPositionCounts["Youth Leader"] / fboPositionTotals) * 100).toFixed() || 0}%
+          {((fboPositionCounts["Youth Leader"] / fboPositionCounts.fboPositionTotals) * 100).toFixed() || 0}%
           Youth Leader,{" "}
-          {((fboPositionCounts["Community Member"] / fboPositionTotals) * 100).toFixed() || 0}%
+          {((fboPositionCounts["Community Member"] / fboPositionCounts.fboPositionTotals) * 100).toFixed() || 0}%
           Community Member, and{" "}
-          {((fboPositionCounts["Representative"] / fboPositionTotals) * 100).toFixed() || 0}%
+          {((fboPositionCounts["Representative"] / fboPositionCounts.fboPositionTotals) * 100).toFixed() || 0}%
           Representative. The results of the post-training survey are shown in
           Figure 6. The feedback from the training was [manually insert feedback
           summary here].
@@ -98,7 +99,10 @@ const CBTSection = ({
           <br/>
           <ul className="mt-7 px-7">
             {cbtParticipants?.map(participant => participant.participantsuggestions && (
+              <>
               <li className="list-disc list-inside">{participant.participantsuggestions}</li>
+              <br/>
+              </>
             ))}
           </ul>
         </p>
