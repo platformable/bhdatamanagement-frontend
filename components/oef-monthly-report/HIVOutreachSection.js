@@ -373,7 +373,7 @@ const percentageAgeRange2 = (
 
 
   const totalOrientation=getTotalStraight()+getTotalGay()+getTotalBisexual()+getTotalQueer()+getTotalQuestioning()+getTotalOther()+getTotalOrientationDeclined();
-  
+  console.log("totalOrientation",totalOrientation)
   
   const totalStraight=((getTotalStraight()/totalOrientation)*100).toFixed(1)
   const totalGay=((getTotalGay()/totalOrientation)*100).toFixed(1)
@@ -507,10 +507,15 @@ const totalSomeOtherRace=getTotalSomeOtherRace()
 
     return (totalBoroughs/totalOefParticipantsSurveys)*100
   }
+
+  //const totalNumberOfParticipantsSurveys= selectedEventsOutputs.filter(events=>events.surveyname==='oef-participant').length
+
+
+
   const getAgesSumPerValueName = (nameOfDataPoint) => {
     let total = 0;
     selectedEvents.forEach((event) => {
-      if (event[nameOfDataPoint] !=='' && event[nameOfDataPoint] !==null) total+=event[nameOfDataPoint]})
+      if (event[nameOfDataPoint] !=='' && event[nameOfDataPoint] !==null) total+=1})
     return total
   };
 
@@ -569,11 +574,12 @@ console.log("ageAxisDataForChart",ageAxisDataForChart)
     {id:6,value:getTotalRaceDeclinedToAnswer(),name:"Declined to answer"},
     
   ]
+  //const totalNumberOfParticipantsSurveys= selectedEventsOutputs.filter(events=>events.surveyname==='oef-participant').length
 
 
   const getAgeRangeSumPerValueName = (value,nameOfDataPoint) => {
     let total = 0;
-    selectedEventsOutputs.forEach((event) => {
+    selectedEventsOutputs.filter(events=>events.surveyname==='oef-participant').forEach((event) => {
       if (event[nameOfDataPoint] ===value) {
         return total+=1
       } else {
@@ -624,7 +630,9 @@ console.log("ageAxisDataForChart",ageAxisDataForChart)
         </p>
       </div>
       <br />
-        <VerticalBarChart selectedDate={selectedDate} chartTitle='Age of Participants - HIV Outreach events' axisXLabels={ageRangeAxisDataForChart} chartDataValues={ageRangeAxisDataForChart.map(data=>data.value)}/>
+        <VerticalBarChart 
+        totalNumberOfParticipantsSurveys={totalNumberOfParticipantsSurveys}
+        selectedDate={selectedDate} chartTitle='Age of Participants - HIV Outreach events' axisXLabels={ageRangeAxisDataForChart} chartDataValues={ageRangeAxisDataForChart.map(data=>data.value)}/>
 
     
       <br />
@@ -633,7 +641,9 @@ console.log("ageAxisDataForChart",ageAxisDataForChart)
         {` The gender of participants who filled in a survey were ${totalFemales.toFixed(1)}% female, ${totalMales.toFixed(1)}% male, ${totalTransgenderFemales.toFixed(1)}% transgender female, ${totalTransgenderMales.toFixed(1)}% transgender male, ${totalGenderNonConfirming.toFixed(1)}% gender non-conforming, ${totalGenderNonBinary.toFixed(1)}% non binary, ${totalGenderOther.toFixed(1)}% other gender identity, and ${totalGenderDeclined.toFixed(1)}% declined to answer.`} </p>
 
         <br />
-        <VerticalBarChart selectedDate={selectedDate} chartTitle='Gender of Participants - HIV Outreach events' 
+        <VerticalBarChart 
+        totalNumberOfParticipantsSurveys={totalNumberOfParticipantsSurveys}
+        selectedDate={selectedDate} chartTitle='Gender of Participants - HIV Outreach events' 
         axisXLabels={dataValuesForGenderChart} chartDataValues={dataValuesForGenderChart.map(data=>data.value)}/>
         <br />
 <p>{`
@@ -641,7 +651,9 @@ In relation to sexual orientation, ${totalStraight}% of the participants identif
 `}</p>
  <br />
  <br />
- <VerticalBarChart selectedDate={selectedDate} chartTitle='Sexual Orientation of Participants - HIV Outreach events' 
+ <VerticalBarChart 
+ totalNumberOfParticipantsSurveys={totalNumberOfParticipantsSurveys}
+ selectedDate={selectedDate} chartTitle='Sexual Orientation of Participants - HIV Outreach events' 
         axisXLabels={dataValuesForSexualOrientation} chartDataValues={dataValuesForSexualOrientation.map(data=>data.value)}/>
  <br />
  <br />
@@ -655,7 +667,10 @@ The full range of participant racial identity is shown in Figure 4.
 
       <br />
 
-      <VerticalBarChart selectedDate={selectedDate} chartTitle='Race of Participants - HIV Outreach events' 
+      <VerticalBarChart 
+      
+      totalNumberOfParticipantsSurveys={totalNumberOfParticipantsSurveys}
+      selectedDate={selectedDate} chartTitle='Race of Participants - HIV Outreach events' 
         axisXLabels={dataValuesForSRacialIdentity} chartDataValues={dataValuesForSRacialIdentity.map(data=>data.value)}/>
 
       <br />

@@ -61,6 +61,7 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
         pageTitle={"Generate the NYS CMP monthly report data and charts"}
         backBtn={true}
         dashboardBtn={true}
+        subTitle='Use the internet browser Google Chrome to copy and paste the charts'
       />
       <section className="container mx-auto px-5 md:px-0 mb-14">
         <p className="font-bold text-xl">Choose the data range:</p>
