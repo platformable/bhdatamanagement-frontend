@@ -27,7 +27,7 @@ const HIVOutreachSection = ({
  
   const sumHivOutreachEvents =  selectedEvents.forEach((element) => {
     let totalHivOutreachEvents = 0;
-    if (element.totalattendees === "oef-fbo-outreach") {
+    if (element.totalattendees === "oef-fbo-outreach" && element.submissionstatus==='Complete') {
       totalHivOutreachEvents += 1;
     }
  return  totalHivOutreachEvents 
@@ -205,17 +205,25 @@ const percentageAgeRange2 = (
     
     let totalFemales = selectedEventsOutputs.filter(
       (event) =>
-        event.participantgender === "Female" &&
+        event.participantgender === "Female" 
+        &&
+        event.surveyname !== null
+        &&
         event.surveyname === "oef-participant"
     ).length;
    
     return totalFemales
   };
 
+  console.log("TOTAL FEMALESS",getTotalFemales())
+
   const getTotalMales = () => {
     let totalMales = selectedEventsOutputs.filter(
       (event) =>
-        event.participantgender === "Male" &&
+        event.participantgender === "Male"
+        &&
+        event.surveyname !== null
+        &&
         event.surveyname === "oef-participant"
     ).length;
     return totalMales
@@ -224,7 +232,10 @@ const percentageAgeRange2 = (
   const getTotalTransgenderFemales = () => {
     let totalTransgenderFemales = selectedEventsOutputs.filter(
       (event) =>
-        event.participantgender === "Transgender female" &&
+        event.participantgender === "Transgender female"
+        &&
+        event.surveyname !== null
+        &&
         event.surveyname === "oef-participant"
     ).length;
 
@@ -235,7 +246,10 @@ const percentageAgeRange2 = (
   const getTotalTransgenderMales = () => {
     let totalTransgenderMales = selectedEventsOutputs.filter(
       (event) =>
-        event.participantgender === "Transgender male" &&
+        event.participantgender === "Transgender male"
+        &&
+        event.surveyname !== null
+        &&
         event.surveyname === "oef-participant"
     ).length;
     return totalTransgenderMales
@@ -244,7 +258,10 @@ const percentageAgeRange2 = (
   const getTotalTGenederNonConfirming = () => {
     let totalGenderNonConfirming = selectedEventsOutputs.filter(
       (event) =>
-        event.participantgender === "Gender non-conforming" &&
+        event.participantgender === "Gender non-conforming"
+        &&
+        event.surveyname !== null
+        &&
         event.surveyname === "oef-participant"
     ).length;
     return totalGenderNonConfirming
@@ -253,7 +270,10 @@ const percentageAgeRange2 = (
   const getTotalGenderNonBinary = () => {
     let totalNonBinary = selectedEventsOutputs.filter(
       (event) =>
-        event.participantgender === "Non binary" &&
+        event.participantgender === "Non binary"
+        &&
+        event.surveyname !== null
+        &&
         event.surveyname === "oef-participant"
     ).length;
 
@@ -263,7 +283,10 @@ const percentageAgeRange2 = (
   const getTotalGenderOther = () => {
     let totalOther = selectedEventsOutputs.filter(
       (event) =>
-        event.participantgender === "Other" &&
+        event.participantgender === "Other" 
+        &&
+        event.surveyname !== null
+        &&
         event.surveyname === "oef-participant"
     ).length;
 
@@ -282,15 +305,17 @@ const percentageAgeRange2 = (
 
   const totalGender=getTotalFemales()+getTotalMales()+getTotalTransgenderFemales()+getTotalTransgenderMales()+getTotalTGenederNonConfirming()+getTotalGenderNonBinary()+getTotalGenderDeclinedToAnswer()+getTotalGenderOther();
 
+  console.log(getTotalFemales(),getTotalMales(),getTotalTransgenderFemales(),getTotalTransgenderMales(),getTotalTGenederNonConfirming(),getTotalGenderNonBinary(),getTotalGenderDeclinedToAnswer(),getTotalGenderOther());
 
-  const totalFemales=(getTotalFemales().toFixed(1)/totalGender)*100
-  const totalMales=(getTotalMales().toFixed(1)/totalGender)*100
-  const totalTransgenderFemales=(getTotalTransgenderFemales().toFixed(1)/totalGender)*100
-  const totalTransgenderMales=(getTotalTransgenderMales().toFixed(1)/totalGender)*100
-  const totalGenderNonConfirming=(getTotalTGenederNonConfirming().toFixed(1)/totalGender)*100
-  const totalGenderNonBinary=(getTotalGenderNonBinary().toFixed(1)/totalGender)*100
-  const totalGenderDeclined=(getTotalGenderDeclinedToAnswer().toFixed(1)/totalGender)*100
-  const totalGenderOther=(getTotalGenderOther().toFixed(1)/totalGender)*100
+
+  const totalFemales=(getTotalFemales()/totalGender)*100
+  const totalMales=(getTotalMales()/totalGender)*100
+  const totalTransgenderFemales=(getTotalTransgenderFemales()/totalGender)*100
+  const totalTransgenderMales=(getTotalTransgenderMales()/totalGender)*100
+  const totalGenderNonConfirming=(getTotalTGenederNonConfirming()/totalGender)*100
+  const totalGenderNonBinary=(getTotalGenderNonBinary()/totalGender)*100
+  const totalGenderDeclined=(getTotalGenderDeclinedToAnswer()/totalGender)*100
+  const totalGenderOther=(getTotalGenderOther()/totalGender)*100
 
   // sexual orientation
 
@@ -515,7 +540,7 @@ const totalSomeOtherRace=getTotalSomeOtherRace()
   const getAgesSumPerValueName = (nameOfDataPoint) => {
     let total = 0;
     selectedEvents.forEach((event) => {
-      if (event[nameOfDataPoint] !=='' && event[nameOfDataPoint] !==null) total+=1})
+      if (event[nameOfDataPoint] !=='' && event[nameOfDataPoint] !==null) total+=event[nameOfDataPoint]})
     return total
   };
 
@@ -523,8 +548,8 @@ const totalSomeOtherRace=getTotalSomeOtherRace()
 console.log("selectedEvents",selectedEvents)
 
   const ageAxisDataForChart=[
-    {id:1,name:'Under 13',value:getAgesSumPerValueName('altagehiv13_18'),dataPoint:'altagehiv13_18'},  
-    {id:2,name:'13_18 ',value:getAgesSumPerValueName('altagehivunder13'),dataPoint:'altagehivunder13'},
+    {id:1,name:'13_18',value:getAgesSumPerValueName('altagehiv13_18'),dataPoint:'altagehiv13_18'},  
+    //{id:2,name:'13_18 ',value:getAgesSumPerValueName('altagehivunder13'),dataPoint:'altagehivunder13'},
     {id:3,name:'16_19',value:getAgesSumPerValueName('hiv16_19'),dataPoint:'hiv16_19'},
     {id:4,name:'20_24',value:getAgesSumPerValueName('hiv20_24'),dataPoint:'hiv20_24'},
     {id:5,name:'25_29',value:getAgesSumPerValueName('hiv25_29'),dataPoint:'hiv25_29'},
@@ -616,17 +641,17 @@ console.log("ageAxisDataForChart",ageAxisDataForChart)
 
     return total
   }
-
+  const numbersOfOefEvents =selectedEvents.filter(event=>event.eventname!==null && event._surveyname==='oef-fbo-outreach' && event.submissionstatus==='Complete').length
   return (
     <section>
       <h1 className="text-black mb-7 bg-red-500 text-white py-2 px-3">HIV Outreach Events</h1>
       <div className="grid grid-cols-1 gap-10">
-        <p>{`A total of ${selectedEvents.length} outreach events took place in [manually nsert month here], reaching a total of ${totalAttendees} people. There were ${totalNumberOfParticipantsSurveys} participant sign-in sheets completed. It was reported that ${totalTalkedHivPrepSaferSex} participants received verbal and educational information about HIV, PrEP, and safer sex messages. ${hivTesting} events offered HIV testing and this month there was ${hepCTesting} event with Hep-C testing. A total of ${hivTestedTotal} people were tested for HIV, with ${hivReactiveResults}  reactive results. ${prepReferrals}  people was referred to PrEP services and ${hivLinkedToCare} people were linked to HIV Care services.`}</p>
+        <p>{`A total of ${numbersOfOefEvents} outreach events took place in [manually nsert month here], reaching a total of ${totalAttendees} people. There were ${totalNumberOfParticipantsSurveys} participant sign-in sheets completed. It was reported that ${totalTalkedHivPrepSaferSex} participants received verbal and educational information about HIV, PrEP, and safer sex messages. ${hivTesting} events offered HIV testing and this month there was ${hepCTesting} event with Hep-C testing. A total of ${hivTestedTotal} people were tested for HIV, with ${hivReactiveResults}  reactive results. ${prepReferrals}  people was referred to PrEP services and ${hivLinkedToCare} people were linked to HIV Care services.`}</p>
 
         <p>
           {" "}
           <strong>Age:</strong>
-          {` The participants’ ages ranged from 16 to 70+ years, as shown in Figure 1. ${percentageAgeRange1}% of the participants were aged 45 or over, this is [manual calculation: X% lower/higher than in previous month year]. This month ${percentageAgeRange2}% of participants were under 44.`}{" "}
+          {` The participants’ ages ranged from 16 to 70+ years, as shown in Figure 1. ${percentageAgeRange2}% of the participants were aged 45 or over, this is [manual calculation: X% lower/higher than in previous month year]. This month ${percentageAgeRange1}% of participants were under 44.`}{" "}
         </p>
       </div>
       <br />
@@ -638,7 +663,7 @@ console.log("ageAxisDataForChart",ageAxisDataForChart)
       <br />
       <p>
         <strong>Gender and Sexual Orientation:</strong>
-        {` The gender of participants who filled in a survey were ${totalFemales.toFixed(1)}% female, ${totalMales.toFixed(1)}% male, ${totalTransgenderFemales.toFixed(1)}% transgender female, ${totalTransgenderMales.toFixed(1)}% transgender male, ${totalGenderNonConfirming.toFixed(1)}% gender non-conforming, ${totalGenderNonBinary.toFixed(1)}% non binary, ${totalGenderOther.toFixed(1)}% other gender identity, and ${totalGenderDeclined.toFixed(1)}% declined to answer.`} </p>
+        {` The gender of participants who filled in a survey were ${totalFemales.toFixed(2)}% female, ${totalMales.toFixed(2)}% male, ${totalTransgenderFemales.toFixed(2)}% transgender female, ${totalTransgenderMales.toFixed(2)}% transgender male, ${totalGenderNonConfirming.toFixed(2)}% gender non-conforming, ${totalGenderNonBinary.toFixed(2)}% non binary, ${totalGenderOther.toFixed(2)}% other gender identity, and ${totalGenderDeclined.toFixed(2)}% declined to answer.`} </p>
 
         <br />
         <VerticalBarChart 
@@ -719,7 +744,9 @@ The full range of participant racial identity is shown in Figure 4.
         </p>
         <br />
 
-        <VerticalBarChart selectedDate={selectedDate} chartTitle='Ages of people tested for HIV - HIV Outreach events' axisXLabels={ageAxisDataForChart} chartDataValues={ageAxisDataForChart.map(data=>data.value)}/>
+        <VerticalBarChart 
+        totalNumberOfParticipantsSurveys={totalNumberOfParticipantsSurveys}
+        selectedDate={selectedDate} chartTitle='Ages of people tested for HIV - HIV Outreach events' axisXLabels={ageAxisDataForChart} chartDataValues={ageAxisDataForChart.map(data=>data.value)}/>
       </div>
    
     </section>

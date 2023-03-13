@@ -73,7 +73,7 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
         display: true,
         color: "#000",
         formatter: function (value, context) {
-          return value > 0 ? `${((value * 100) / totalNumberOfParticipantsSurveys).toFixed(1)}%`   : "";
+          return value > 0 ? `${((value * 100) / totalOfValues).toFixed(2)}%`   : "";
         },
         font: {
           weight: "bold",
