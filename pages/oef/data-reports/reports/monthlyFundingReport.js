@@ -36,6 +36,8 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
   }
   const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
 
+  console.log("eventsOutput cbt",eventsOutput)
+
   useEffect(() => {
     // console.log("selectedDate", selectedDate);
     const selectedReports = eventsOutput.filter(

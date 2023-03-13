@@ -78,10 +78,14 @@ const AdministrativeSection = ({
     /* SURVEYNAME = bh-cbt-post-event */
    let totalNumberOfCbtPostEvent=0
    const sumNumberOfCbtPostEvents=selectedEvents.forEach(element => {
-     if(element._surveyname==='bh-cbt-post-event'){
+     if(element.surveyname==='bh-cbt-post-event'){
       totalNumberOfCbtPostEvent+=1
      }  
     });
+
+
+    console.log("selectedEvents bh-cbt-post-event",selectedEvents)
+    console.log("sumNumberOfCbtPostEvents",sumNumberOfCbtPostEvents)
 
     let totalNumberOfCabPostEvent=0
    const sumNumberOfCabPostEvents=selectedEvents.forEach(element => {
