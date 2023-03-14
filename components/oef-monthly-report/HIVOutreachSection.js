@@ -12,18 +12,17 @@ const HIVOutreachSection = ({
   selectedDate,
 }) => {
 
-  console.log("selectedEventsOuput",selectedEvents.filter((event) => event._surveyname === "bh-cbt-register")) 
 
 
   function handleCopy() {
     const data = document.querySelector("#events-description").innerText;
-    console.log("data", data);
+
     navigator.clipboard.writeText(data);
   }
 
   /* total hiv outreach events total surveyName = oef-fbo-outreach */
   const totalNumberOfParticipantsSurveys = selectedEventsOutputs.filter(events=>events.surveyname==='oef-participant').length
-  console.log("hiv ",selectedEventsOutputs)
+
  
   const sumHivOutreachEvents =  selectedEvents.forEach((element) => {
     let totalHivOutreachEvents = 0;
@@ -34,7 +33,7 @@ const HIVOutreachSection = ({
   });
 
 
-  console.log("sumHivOutreachEvents",sumHivOutreachEvents)
+
 
   /* totalAttendees */
 
@@ -152,7 +151,7 @@ const HIVOutreachSection = ({
 const getAgeRangeSumPerValue = (value) => {
   let total = 0;
   selectedEventsOutputs.forEach((event) => {
-    if (event.participantagerange ===value) {
+    if (event.programname === 'OEF' && event.participantagerange ===value) {
       return total+=1
     } else {
       return null
@@ -162,9 +161,11 @@ const getAgeRangeSumPerValue = (value) => {
   return total
 };
 const getAgeRange1=()=>{
+
    
 let total=0
-total=getAgeRangeSumPerValue('Under 13')+ getAgeRangeSumPerValue('13-18')+
+total=getAgeRangeSumPerValue('Under 13')+ 
+    getAgeRangeSumPerValue('13-18')+
   getAgeRangeSumPerValue('19-24')+
   getAgeRangeSumPerValue('25-29')+
   getAgeRangeSumPerValue('30-34')+
@@ -188,15 +189,16 @@ const getAgeRange2=()=>{
   
   }
 
+
 const totalAgeRange=getAgeRange1()+getAgeRange2()
 
 const percentageAgeRange1 = (
   (getAgeRange1() / totalAgeRange)*100
-).toFixed(1);
+).toFixed(2);
 
 const percentageAgeRange2 = (
   (getAgeRange2() / totalAgeRange)*100
-).toFixed(1);
+).toFixed(2);
 
   /* GENDER */
 
@@ -215,7 +217,7 @@ const percentageAgeRange2 = (
     return totalFemales
   };
 
-  console.log("TOTAL FEMALESS",getTotalFemales())
+
 
   const getTotalMales = () => {
     let totalMales = selectedEventsOutputs.filter(
@@ -305,7 +307,7 @@ const percentageAgeRange2 = (
 
   const totalGender=getTotalFemales()+getTotalMales()+getTotalTransgenderFemales()+getTotalTransgenderMales()+getTotalTGenederNonConfirming()+getTotalGenderNonBinary()+getTotalGenderDeclinedToAnswer()+getTotalGenderOther();
 
-  console.log(getTotalFemales(),getTotalMales(),getTotalTransgenderFemales(),getTotalTransgenderMales(),getTotalTGenederNonConfirming(),getTotalGenderNonBinary(),getTotalGenderDeclinedToAnswer(),getTotalGenderOther());
+  //console.log(getTotalFemales(),getTotalMales(),getTotalTransgenderFemales(),getTotalTransgenderMales(),getTotalTGenederNonConfirming(),getTotalGenderNonBinary(),getTotalGenderDeclinedToAnswer(),getTotalGenderOther());
 
 
   const totalFemales=(getTotalFemales()/totalGender)*100
@@ -398,7 +400,7 @@ const percentageAgeRange2 = (
 
 
   const totalOrientation=getTotalStraight()+getTotalGay()+getTotalBisexual()+getTotalQueer()+getTotalQuestioning()+getTotalOther()+getTotalOrientationDeclined();
-  console.log("totalOrientation",totalOrientation)
+
   
   const totalStraight=((getTotalStraight()/totalOrientation)*100).toFixed(1)
   const totalGay=((getTotalGay()/totalOrientation)*100).toFixed(1)
@@ -545,7 +547,7 @@ const totalSomeOtherRace=getTotalSomeOtherRace()
   };
 
 
-console.log("selectedEvents",selectedEvents)
+
 
   const ageAxisDataForChart=[
     {id:1,name:'13_18',value:getAgesSumPerValueName('altagehiv13_18'),dataPoint:'altagehiv13_18'},  
@@ -564,7 +566,7 @@ console.log("selectedEvents",selectedEvents)
     {id:14,name:'+70',value:getAgesSumPerValueName('hiv70'),dataPoint:'hiv70'}
   ]
 
-console.log("ageAxisDataForChart",ageAxisDataForChart)
+
 
 
   const dataValuesForGenderChart=[
@@ -611,7 +613,7 @@ console.log("ageAxisDataForChart",ageAxisDataForChart)
         return null
       }
     } )
-    
+
     return total
   };
   const ageRangeAxisDataForChart=[
@@ -631,6 +633,8 @@ console.log("ageAxisDataForChart",ageAxisDataForChart)
   ]
 
 
+
+
   //let totalOfValues = values.reduce((a, b) => a + b, 0);
 
   const totalAgePeopleTestedHiv=()=>{
@@ -642,6 +646,10 @@ console.log("ageAxisDataForChart",ageAxisDataForChart)
     return total
   }
   const numbersOfOefEvents =selectedEvents.filter(event=>event.eventname!==null && event._surveyname==='oef-fbo-outreach' && event.submissionstatus==='Complete').length
+  
+  
+
+  
   return (
     <section>
       <h1 className="text-black mb-7 bg-red-500 text-white py-2 px-3">HIV Outreach Events</h1>
