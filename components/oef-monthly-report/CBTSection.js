@@ -53,7 +53,7 @@ const CBTSection = ({
 
   })
   
-  console.log("cbt events output",cbtEvents);
+  console.log("cbt events output",cbtParticipants);
 
   function handleCopy(id) {
     const data = document.getElementById(id).innerText;
@@ -67,8 +67,8 @@ const CBTSection = ({
       </h1>
       <div className="grid gap-5 mb-10" id='cbt-section'>
         <p>
-          {cbtEvents.length} CBT/s session was held in [insert month manually
-          here] on the topic/s <span className="">{cbtCounts.eventNames.join(', ')}</span>. {cbtCounts.totalAttendees} people
+          {cbtEvents.length} CBT {cbtEvents.length > 1 ? 'sessions were' : 'session was'} held in [insert month manually
+          here] on the topic {cbtCounts.eventNames.join(', ')}. {cbtCounts.totalAttendees} people
           attended and {cbtParticipants.length} participants in total filled in a post-CBT survey.
           <br />
           <br />

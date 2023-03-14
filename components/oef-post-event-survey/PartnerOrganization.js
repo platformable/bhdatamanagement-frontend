@@ -2,10 +2,11 @@ import React, {useState, useEffect} from "react";
 
 const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
   const [partners, setPartners] = useState(eventForm?.partnerOrganization1);
+  console.log(fbos)
   useEffect(() => {
     setEventForm((previous) => ({
       ...previous,
-      partnerOrganization1: partners.replace(/,/g,', ').replace(",",'').replace(" ",''),
+      partnerOrganization1: partners.replace(/,/g,', ').trim(),
     }));
   }, [partners]);
 
@@ -14,19 +15,19 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
     setEventForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
   const handleArray = (e) => {
-    e.target.value === "Other" ? setEventForm(prev => ({...prev, partnerOrganization1Other: ''})) : null
+    e.target.value !== "Other" ? setEventForm(prev => ({...prev, partnerOrganization1Other: ''})) : null
 
     let partnersArray = partners.split(',')
-
-    const isValueOnData = partnersArray.includes(e.target.value);
-    const filteredData = partnersArray.filter(
-      (oldValues) => oldValues != e.target.value
-    );
-
+    const isValueOnData = partnersArray.map(x=>x.trim()).includes(e.target.value);
+    const filteredData = partnersArray.map(x=>x.trim()).filter((oldValues) => oldValues != e.target.value);
+    
     isValueOnData
       ? setPartners((previous) => ([...filteredData].toString()))
       : setPartners((previous) => ([...filteredData, e.target.value].toString()));
   };
+
+  let partnersArray = eventForm?.partnerOrganization1.split(',')
+  console.log("partnersArray",partnersArray)
 
   return (
     <div className="question-body">
