@@ -285,7 +285,7 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
           <h3 className="font-black mb-2">
             What is the event's health area of focus?:
           </h3>
-          {/* <p>{event?.healthareaoffocusname.join(", ")}</p> */}
+          <p>{event?.healthareaoffocusname.join(", ")}</p>
         </div>
 
         {/* POST EVENT */}
