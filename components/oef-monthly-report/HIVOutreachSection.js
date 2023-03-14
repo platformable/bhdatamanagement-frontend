@@ -550,8 +550,8 @@ console.log("selectedEvents",selectedEvents)
   const ageAxisDataForChart=[
     {id:1,name:'13_18',value:getAgesSumPerValueName('altagehiv13_18'),dataPoint:'altagehiv13_18'},  
     //{id:2,name:'13_18 ',value:getAgesSumPerValueName('altagehivunder13'),dataPoint:'altagehivunder13'},
-    {id:3,name:'16_19',value:getAgesSumPerValueName('hiv16_19'),dataPoint:'hiv16_19'},
-    {id:4,name:'20_24',value:getAgesSumPerValueName('hiv20_24'),dataPoint:'hiv20_24'},
+    {id:3,name:'19_24',value:getAgesSumPerValueName('altagehiv19_24'),dataPoint:'altagehiv19_24'},
+    //{id:4,name:'20_24',value:getAgesSumPerValueName('hiv20_24'),dataPoint:'hiv20_24'},
     {id:5,name:'25_29',value:getAgesSumPerValueName('hiv25_29'),dataPoint:'hiv25_29'},
     {id:6,name:'30_34',value:getAgesSumPerValueName('hiv30_34'),dataPoint:'hiv30_34'},
     {id:7,name:'35_39',value:getAgesSumPerValueName('hiv35_39'),dataPoint:'hiv35_39'},	

@@ -10,12 +10,10 @@ export default function YIP({selectedDate, selectedEvents, selectedEventsOutputs
               What have you learned from the Black Health Capacity Trainings, including ALI and YIP, during this quarter?
                How was the information useful to you and the community you serve? They answered:
             </p>
-            <ul>
+            <br/>
+            <ul className="">
               {selectedEvents?.map(event => event.capacitytraininguseful && (
-                  <>
-                  <li className="list-disc list-inside">{event.capacitytraininguseful}</li>
-                  <br/>
-                  </>
+                  <li className="list-disc text-lg">{event.capacitytraininguseful}</li>
               ))}
             </ul>
         </section>
