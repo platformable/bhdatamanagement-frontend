@@ -50,6 +50,8 @@ const VerticalBarChart = ({ getHrefImage, selectedDate,chartTitle,axisXLabels,ch
   let maxValue = Math.max.apply(null, values);
   let totalOfValues = values.reduce((a, b) => a + b, 0);
 
+
+
   const options = {
     plugins: {
       legend: {
