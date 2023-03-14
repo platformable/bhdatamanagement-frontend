@@ -47,6 +47,8 @@ import OefHivOutreachPrint from "../../../../components/oef-post-event-survey/Oe
 const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
   console.log("eventF", event);
 
+  console.log("eventToPrint",eventToPrint)
+
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
   const [msgStatusUpload, setMsgStatusUpload] = useState({});
@@ -589,7 +591,7 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
       )}
 
       <div style={{display:'none'}}>
-          <OefHivOutreachPrint ref={componentRef} event={eventToPrint} />
+          <OefHivOutreachPrint ref={componentRef} event={event} />
         </div>
     </>
   );
