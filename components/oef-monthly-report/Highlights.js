@@ -10,9 +10,9 @@ export default function Highlights({
 
   const participantReferral = {
     "Word of mouth": 0,
-    "Faith-Based Organization / Place of worship (Eg. church, mosque, etc.)": 0,
-    "Community-Based Organization": 0,
     "Social media": 0,
+    "Community-Based Organization": 0,
+    "Faith-Based Organization / Place of worship (Eg. church, mosque, etc.)": 0,
     "Signs/flyers": 0,
     "Referral from local health provider or services": 0,
     "Referral from another Black Health program": 0,
@@ -100,7 +100,8 @@ export default function Highlights({
                   year: "numeric",
                 })}{" "}
               </h3>
-              <p>{event._deliverypartner}</p>
+              <p className="font-bold">{event._deliverypartner}</p>
+
               <br />
 
               <p>{event.eventhighlights}</p>

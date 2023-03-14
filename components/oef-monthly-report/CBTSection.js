@@ -100,8 +100,7 @@ const CBTSection = ({
           <ul className="mt-7 px-7">
             {cbtParticipants?.map(participant => participant.participantsuggestions && (
               <>
-              <li className="list-disc list-inside">{participant.participantsuggestions}</li>
-              <br/>
+              <li className="list-disc ">{participant.participantsuggestions}</li>
               </>
             ))}
           </ul>

@@ -14,7 +14,7 @@ export default function Challenges({selectedDate, selectedEvents, selectedEvents
           <br/>
           <ul className="px-7">
             {selectedEvents?.map(event => event.eventchallenges && (
-              <li className="list-disc list-inside">{event.eventchallenges}</li>
+              <li className="list-disc text-lg">{event.eventchallenges}</li>
             ))}
           </ul>
           <button
