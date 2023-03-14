@@ -285,7 +285,7 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
           <h3 className="font-black mb-2">
             What is the event's health area of focus?:
           </h3>
-          <p>{event?.healthareaoffocusname.join(", ")}</p>
+          {/* <p>{event?.healthareaoffocusname.join(", ")}</p> */}
         </div>
 
         {/* POST EVENT */}
@@ -389,7 +389,7 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
         </div>
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">PrEP literature: </h3>
-          <p>{event?.prepLiterature}</p>
+          <p>{event?.prepliterature}</p>
         </div>
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">Safer sex: </h3>
@@ -1025,10 +1025,7 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
           <p>{event?.onelinedescription}</p>
         </div>
 
-        <div className="gap-x-1 my-5">
-          <h3 className="font-black mb-2">Lessons learned: </h3>
-          <p>{event?.lessonslearned}</p>
-        </div>
+  
 
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">
@@ -1041,6 +1038,12 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
           <h3 className="font-black mb-2">Notes:</h3>
           <p>{event?.submissionnotes}</p>
         </div>
+
+        <div className="flex gap-x-1 my-5">
+          <h3 className="font-black mb-2">Drobox folder url:</h3>
+          <a href={event.folderurl}>{event?.folderurl}</a>
+        </div>
+
       </div>
     </div>
   );
