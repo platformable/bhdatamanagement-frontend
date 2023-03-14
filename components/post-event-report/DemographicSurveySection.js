@@ -7,7 +7,7 @@ import SexualOrientationSurveySection from './SexualOrientationSurveySection'
 
 const DemographicSurveySection = ({setEventForm, eventForm, typeOfTest}) => {
   const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1)
-  console.log('demographics oef post event', eventForm)
+  // console.log('demographics oef post event', eventForm)
   const typeOfTestForTitles = (string) => {
     switch(string) {
       case('hiv'):

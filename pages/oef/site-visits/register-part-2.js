@@ -113,7 +113,7 @@ console.log("surveyForm",surveyForm)
             id:6,value:"MSM: Men who have sex with men, regardless of their sexual identity"
           },
           {
-              id:7,value:"Inmigrants"
+              id:7,value:"Immigrants"
             },
             {
                 id:9,value:"Other"

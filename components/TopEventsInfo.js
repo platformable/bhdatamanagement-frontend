@@ -1,12 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import { crearFecha2 } from '../utils/helpers';
-import { useRouter } from 'next/router'
 
 const TopEventsInfo = ({event,airs,selectedEventId,handlePrint, editPath}) => {
 
-  const router = useRouter()
-console.log("router",event)
     return (
         <section className="md:px-0 px-5">
         <div

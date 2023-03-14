@@ -45,7 +45,7 @@ import RadioList from "../../../../components/oef-post-event-survey/RadioList";
 import OefHivOutreachPrint from "../../../../components/oef-post-event-survey/OefHivOutreachPrint";
 
 const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
-  console.log("eventToPrint", eventToPrint);
+  console.log("eventF", event);
 
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
   const [showStatusUpload, setShowStatusUpload] = useState(false);

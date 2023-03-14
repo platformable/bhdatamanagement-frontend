@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 
 const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
   const [partners, setPartners] = useState(eventForm?.partnerOrganization1);
+  console.log(fbos)
   useEffect(() => {
     setEventForm((previous) => ({
       ...previous,
