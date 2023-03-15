@@ -77,7 +77,7 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
     isClusterEvent: event?.isclusterevent || "",
     cluster: event?.cluster || "",
     clusterFbos: event?.clusterfbos || [],
-    partnerOrganization1: event?.partnerorganization1.charAt(0)=== "," ? event?.partnerorganization1.replace(",","") :event?.partnerorganization1,
+    partnerOrganization1: event?.partnerorganization1?.charAt(0)=== "," ? event?.partnerorganization1.replace(",","") :event?.partnerorganization1,
     partnerOrganization1Other: event?.partnerorganization1other || "",
     partnerOrganization2: event?.partnerorganization2 || "",
     nationalAwarenessDay: event?.nationalawarenessday || "",

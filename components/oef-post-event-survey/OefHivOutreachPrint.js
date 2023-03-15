@@ -1041,7 +1041,7 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
 
         <div className="flex gap-x-1 my-5">
           <h3 className="font-black mb-2">Drobox folder url:</h3>
-          <a href={event.folderurl}>{event?.folderurl}</a>
+          <a href={event?.folderurl}>{event?.folderurl}</a>
         </div>
 
       </div>
