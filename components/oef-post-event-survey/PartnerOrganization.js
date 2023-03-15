@@ -6,7 +6,7 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
   useEffect(() => {
     setEventForm((previous) => ({
       ...previous,
-      partnerOrganization1: partners.replace(/,/g,', ').trim(),
+      partnerOrganization1: partners?.replace(/,/g,', ').trim(),
     }));
   }, [partners]);
 
@@ -26,7 +26,7 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
       : setPartners((previous) => ([...filteredData, e.target.value].toString()));
   };
 
-  let partnersArray = eventForm?.partnerOrganization1.split(',')
+  let partnersArray = eventForm?.partnerOrganization1?.split(',')
   console.log("partnersArray",partnersArray)
 
   return (
@@ -47,7 +47,7 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
                   name="partnerOrganization1"
                   value={option.namefbo}
                   onChange={handleArray}
-                  defaultChecked={eventForm?.partnerOrganization1.includes(option.namefbo)? "checked":false}
+                  defaultChecked={eventForm?.partnerOrganization1?.includes(option.namefbo)? "checked":false}
 
                 />
                 <p>{option.namefbo}</p>
@@ -66,7 +66,7 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
                     name="partnerOrganization1"
                     value={option.namefbo}
                     onChange={handleArray}
-                    defaultChecked={eventForm?.partnerOrganization1.includes(option.namefbo)? "checked":false}
+                    defaultChecked={eventForm?.partnerOrganization1?.includes(option.namefbo)? "checked":false}
                   />
                   <p>{option.namefbo}</p>
                 </label>
@@ -80,7 +80,7 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
               name="partnerOrganization1"
               value={"Other"}
               onChange={handleArray}
-              defaultChecked={eventForm?.partnerOrganization1.includes('Other')? "checked":false}
+              defaultChecked={eventForm?.partnerOrganization1?.includes('Other')? "checked":false}
             />
             <p>Other</p>
             </div>
@@ -99,7 +99,7 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
               name="partnerOrganization1"
               value={"N/A"}
               onChange={handleArray}
-              defaultChecked={eventForm?.partnerOrganization1.includes('N/A')? "checked":false}
+              defaultChecked={eventForm?.partnerOrganization1?.includes('N/A')? "checked":false}
             />
             <p>N/A</p>
           </label>
