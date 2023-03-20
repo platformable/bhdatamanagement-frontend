@@ -23,7 +23,7 @@ const quarterlySubcontractorReport = ({
   });
   useEffect(() => {
     const cerohoursDate = new Date(selectedDate.start).setHours(0);
-    console.log("selectedDate", selectedDate);
+    // console.log("selectedDate", selectedDate);
     const selectReportsInDateRange = (reports) => reports.filter((report) => {
       const start = new Date(new Date(selectedDate.start).setHours(0));
       const end = new Date(new Date(selectedDate.finish).setHours(23));
@@ -31,7 +31,7 @@ const quarterlySubcontractorReport = ({
       // console.log("start", start)
       // console.log("end", end)
       // console.log("eventdate", eventdate)
-      console.log(eventdate >= start && eventdate <= end);
+      // console.log(eventdate >= start && eventdate <= end);
       return eventdate >= start && eventdate <= end;
     });
     const hivCsv = selectReportsInDateRange(hivOutreachCSV);
