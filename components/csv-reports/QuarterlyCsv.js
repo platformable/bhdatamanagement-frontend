@@ -23,8 +23,8 @@ const orderDataset = (data, headers) => {
 };
 
 const QuarterlyCsv = ({ csvData, fileName, headers, buttonText}) => {
-  console.log("csv data",csvData)
-  console.log('headers', headers);
+//   console.log("csv data",csvData)
+//   console.log('headers', headers);
   const [orderedData, setOrdereData] = useState([]);
   
   useEffect(() => {
