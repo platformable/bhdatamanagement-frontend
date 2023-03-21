@@ -41,13 +41,12 @@ import Notes from "../../../../components/oef-post-event-survey/Notes";
 import ResponseStatusModal from "../../../../components/ResponseStatusModal";
 import TextArea from "../../../../components/oef-post-event-survey/TextArea";
 import RadioList from "../../../../components/oef-post-event-survey/RadioList";
+import RadioListWithOptions from "../../../../components/oef-post-event-survey/RadioListWithOptions";
 
 import OefHivOutreachPrint from "../../../../components/oef-post-event-survey/OefHivOutreachPrint";
 
 const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
-  console.log("eventF", event);
-
-  console.log("eventToPrint",eventToPrint)
+  
 
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
@@ -72,6 +71,7 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
     submissionStatus: event?.submissionstatus || "",
     onelineDescription: event?.onelinedescription || "",
     oefEventPresentationTopic: event?.oefeventpresentationtopic || "",
+    oefTargetAudienceForReport:event?.oeftargetaudienceforreport || ""
   });
   const [eventForm, setEventForm] = useState({
     isClusterEvent: event?.isclusterevent || "",
@@ -246,9 +246,10 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
     datePostEventSurvey: event?.dateposteventsurvey || new Date(),
     guestSpeakers: event?.guestspeakers || "",
     nameGuestSpeakers: event?.nameguestspeakers || "",
+
   });
   const userId = user && user.sub;
-  console.log("eventForm", eventForm);
+  
   // console.log("event", submissionForm);
 
   const router = useRouter();
@@ -336,6 +337,8 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
     content: () => componentRef.current,
     documentTitle:`AIRS_NYS_CMP_${event.eventname}_${new Date(event.eventdate).toLocaleDateString('en-US',{year:'numeric',month:'numeric',day:'numeric'})}`
   });
+
+
 
   return (
     <>
@@ -563,6 +566,12 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
             <RadioList
               name="oefEventPresentationTopic"
               title="Type of Activity: Presentation Topic"
+              surveyForm={submissionForm}
+              setSurveyForm={setSubmissionForm}
+            />
+              <RadioListWithOptions
+              name="oefTargetAudienceForReport"
+              title="Target Audience"
               surveyForm={submissionForm}
               setSurveyForm={setSubmissionForm}
             />
