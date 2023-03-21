@@ -15,6 +15,7 @@ const quarterlySubcontractorReport = ({
     finish: null,
   });
 
+  const [download, setDownload] = useState(false);
   const [selectedHivCSV, setSelectedHivCSV] = useState([]);
   const [selectedCabCSV, setSelectedCabCSV] = useState([]);
 
@@ -78,17 +79,27 @@ const quarterlySubcontractorReport = ({
           </div>
           {selectedHivCSV && selectedCabCSV && (
             <>
+            <div>
+              <button
+                onClick={() => setDownload(true)}
+                className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase"
+              >
+                Download <br /> all <br /> datasets
+              </button>
+              </div>
             <QuarterlyCsv
               csvData={selectedHivCSV}
               headers={(Object.keys(hivOutreachCSV[0]))}
               fileName={`OEF_Outreach Event_Data_Quarterly_${csvNowDate.split("_")[0]}.csv`}
               buttonText="Hiv Outreach"
+              download={{state:download, set: setDownload}}
             />
             <QuarterlyCsv
               csvData={selectedCabCSV}
               headers={(Object.keys(cabCSV[0]))}
               fileName={`OEF_CAB_Data_Quarterly_${csvNowDate.split("_")[0]}.csv`}
               buttonText="CAB"
+              download={{state:download, set: setDownload}}
             />
             </>
           )}
