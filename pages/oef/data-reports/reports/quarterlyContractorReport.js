@@ -5,18 +5,17 @@ import PageTopHeading from "../../../../components/PageTopHeading";
 import CSVHIVOutreachParticipantSignInSheet from "../../../../components/csv-reports/CSVHIVOutreachParticipantSignInSheet";
 import QuarterlyCsv from "../../../../components/csv-reports/QuarterlyCsv";
 
-const quarterlyContractorReport = ({
-  hivOutreachCSV,
-  cabCSV
-}) => {
-  console.log("cabCSV", cabCSV)
+const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
+  // console.log("siteVisitsCSV", siteVisitsCSV);
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
   });
 
+  const [download, setDownload] = useState(false);
   const [selectedCbtCSV, setSelectedCbtCSV] = useState([]);
-  const [selectedCabCSV, setSelectedCabCSV] = useState([]);
+  const [selectedTACSV, setSelectedTACSV] = useState([]);
+  const [selectedSiteVisitCSV, setSelectedSiteVisitCSV] = useState([]);
 
   const csvNowDate = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
@@ -24,23 +23,26 @@ const quarterlyContractorReport = ({
   useEffect(() => {
     const cerohoursDate = new Date(selectedDate.start).setHours(0);
     // console.log("selectedDate", selectedDate);
-    const selectReportsInDateRange = (reports) => reports.filter((report) => {
-      const start = new Date(new Date(selectedDate.start).setHours(0));
-      const end = new Date(new Date(selectedDate.finish).setHours(23));
-      const eventdate = new Date(report?.eventDate);
-      // console.log("start", start)
-      // console.log("end", end)
-      // console.log("eventdate", eventdate)
-      // console.log(eventdate >= start && eventdate <= end);
-      return eventdate >= start && eventdate <= end;
-    });
-    const hivCsv = selectReportsInDateRange(hivOutreachCSV);
-    const cabCsv = selectReportsInDateRange(cabCSV)
-    setSelectedCbtCSV(hivCsv);
-    setSelectedCabCSV(cabCsv)
+    const selectReportsInDateRange = (reports) =>
+      reports.filter((report) => {
+        const start = new Date(new Date(selectedDate.start).setHours(0));
+        const end = new Date(new Date(selectedDate.finish).setHours(23));
+        const eventdate = new Date(report?.eventDate || report?.activityDate);
+        // console.log("start", start)
+        // console.log("end", end)
+        // console.log("eventdate", eventdate)
+        // console.log(eventdate >= start && eventdate <= end);
+        return eventdate >= start && eventdate <= end;
+      });
+    const cbt = selectReportsInDateRange(cbtCSV);
+    const siteVisits = selectReportsInDateRange(siteVisitsCSV);
+    const technicalAssitance = selectReportsInDateRange(TACSV)
+    setSelectedCbtCSV(cbt);
+    setSelectedSiteVisitCSV(siteVisits);
+    setSelectedTACSV(technicalAssitance)
   }, [selectedDate]);
 
-  console.log("selected", selectedCabCSV);
+  console.log("selected", selectedSiteVisitCSV);
 
   return (
     <Layout showStatusHeader={true}>
@@ -74,22 +76,46 @@ const quarterlyContractorReport = ({
                 }}
               />
             </label>
-            
           </div>
-          {selectedCbtCSV && selectedCabCSV && (
+          {selectedCbtCSV && selectedTechnicallAssistanceCSV && (
             <>
-            <QuarterlyCsv
-              csvData={selectedCbtCSV}
-              headers={(Object.keys(hivOutreachCSV[0]))}
-              fileName={`OEF_Outreach Event_Data_Quarterly_${csvNowDate.split("_")[0]}.csv`}
-              buttonText="Hiv Outreach"
-            />
-            <QuarterlyCsv
-              csvData={selectedCabCSV}
-              headers={(Object.keys(cabCSV[0]))}
-              fileName={`OEF_CAB_Data_Quarterly_${csvNowDate.split("_")[0]}.csv`}
-              buttonText="CAB"
-            />
+              <div>
+              <button
+                onClick={() => setDownload(true)}
+                className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase"
+              >
+                Download <br /> all <br /> datasets
+              </button>
+              </div>
+              <QuarterlyCsv
+                csvData={selectedCbtCSV}
+                headers={Object.keys(cbtCSV[0])}
+                fileName={`OEF_CBT_Data_Quarterly_${
+                  csvNowDate.split("_")[0]
+                }.csv`}
+                buttonText="CBT"
+                download={{state:download, set: setDownload}}
+              />
+              <QuarterlyCsv
+                csvData={selectedSiteVisitCSV}
+                headers={Object.keys(siteVisitsCSV[0])}
+                fileName={`OEF_Site Visit_Data_Quarterly_${
+                  csvNowDate.split("_")[0]
+                }.csv`}
+                buttonText="Site Visit"
+                download={{state:download, set: setDownload}}
+
+              />
+              <QuarterlyCsv
+                csvData={selectedTACSV}
+                headers={Object.keys(TACSV[0])}
+                fileName={`OEF_Technical_Assistance_Data_Quarterly_${
+                  csvNowDate.split("_")[0]
+                }.csv`}
+                buttonText="Technical Assistance"
+                download={{state:download, set: setDownload}}
+
+              />
             </>
           )}
         </div>
@@ -102,20 +128,20 @@ export default quarterlyContractorReport;
 
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
+    const [cbtCSV, siteVisitsCSV, TACSV] = await Promise.all([
+      fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/cbt_report_contractor`
+      ).then((r) => r.json()),
+      fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/sv_report_contractor`
+      ).then((r) => r.json()),
+    ]);
 
-    const [hivOutreachCSV, cabCSV] = await Promise.all([
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/quarterly_report_subcon`
-      ).then(r => r.json()),
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/cab_quarterly_report_subcon`
-      ).then(r => r.json()),
-    ])
- 
     return {
       props: {
-        hivOutreachCSV: hivOutreachCSV,
-        cabCSV: cabCSV
+        cbtCSV: cbtCSV,
+        siteVisitsCSV: siteVisitsCSV,
+        TACSV:TACSV
       },
     };
   },
