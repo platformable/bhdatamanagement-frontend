@@ -27,7 +27,7 @@ const PartnerOrganization = ({ fbos, eventForm, setEventForm }) => {
   };
 
   let partnersArray = eventForm?.partnerOrganization1?.split(',')
-  console.log("partnersArray",partnersArray)
+
 
   return (
     <div className="question-body">
