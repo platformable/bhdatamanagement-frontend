@@ -36,7 +36,7 @@ ChartJS.register(
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
 const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
   const [value, copy] = useCopyToClipboard()
-
+  console.log("chart data",chartData)
   const counts = {
     "Online: Meeting": 0,
     "Online: Town Hall": 0,
@@ -56,7 +56,6 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
 
 
       if (event.inpersoneventtypename !== null || event.inpersoneventtypename !== "") {
-        console.log("type",event.inpersoneventtypename)
         switch(event.inpersoneventtypename) {
           case ("Outreach/Community Event"):
             counts["Outreach/Community Event"] += 1
@@ -77,16 +76,16 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
       if (event.onlineeventtypename !== null || event.onlineeventtypename !== "") {
         switch (event.onlineeventtypename){
           case "Meeting":
-            counts["Meeting"] += 1
+            counts["Online: Meeting"] += 1
             break;
           case "Town Hall":
-            counts["Town Hall"] += 1
+            counts["Online: Town Hall"] += 1
             break;
           case "Webinar":
-            counts["Webinar"] += 1
+            counts["Online: Webinar"] += 1
             break;
           case "Workshop/Training":
-            counts["Workshop/Training"] += 1
+            counts["Online: Workshop/Training"] += 1
             break;
         }
       }

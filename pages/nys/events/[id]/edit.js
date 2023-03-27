@@ -44,7 +44,7 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
     eventFinishTime: event?.eventfinishtime|| "",
     eventLocationTypeID: event?.eventlocationtypeid || null,
     eventLocationTypeName: event?.eventlocationtypename || '',
-    eventLocationTypeName: event?.eventlocationtypename || '',
+    eventLocationTypeNameOther: event?.eventlocationtypenameother || '',
     // eventZipCode: "",
     healthAreaOfFocusID: event?.healthareaoffocusid || [],
     healthAreaOfFocusName: event?.healthareaoffocusname|| [],
