@@ -14,7 +14,7 @@ export default function preWorkshop() {
     const [showResponseStatus, setShowResponseStatus] = useState()
     const [responseStatus, setResponseStatus] = useState()
     const [loading, setLoading] = useState()
-    const [surveyData, setSurveyData] = useState({
+    const [eventForm, setEventForm] = useState({
         
         participantBorough: '',
 
