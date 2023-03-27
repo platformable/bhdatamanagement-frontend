@@ -105,7 +105,7 @@ export default function preWorkshop() {
             <div className="flex justify-center my-10">
              {loading? null:<button
                 className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-                // onClick={submitEventForm}
+        
                  >
                 Submit
               </button> } 
