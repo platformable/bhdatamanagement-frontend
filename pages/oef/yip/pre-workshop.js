@@ -14,7 +14,7 @@ export default function preWorkshop() {
     const [showResponseStatus, setShowResponseStatus] = useState()
     const [responseStatus, setResponseStatus] = useState()
     const [loading, setLoading] = useState()
-    const [surveyData, setSurveyData] = useState({
+    const [eventForm, setEventForm] = useState({
         
         participantBorough: '',
 
@@ -113,7 +113,7 @@ export default function preWorkshop() {
             <div className="flex justify-center my-10">
              {loading? null:<button
                 className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-                // onClick={submitEventForm}
+              //className="py-2"
                  >
                 Submit
               </button> } 
