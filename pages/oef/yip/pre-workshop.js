@@ -99,8 +99,8 @@ export default function preWorkshop() {
               <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
               <RadioGroup 
                 options={[...grades]} 
-                surveyForm={surveyData}
-                setSurveyForm={setSurveyData}
+                surveyForm={eventForm}
+                setSurveyForm={setEventForm}
                 title='What grade are you in?'
                 stateValue={'participantGrade'}
                 // IdStateValue={'programId'}
