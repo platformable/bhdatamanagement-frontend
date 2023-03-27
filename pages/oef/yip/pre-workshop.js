@@ -14,7 +14,7 @@ export default function preWorkshop() {
     const [showResponseStatus, setShowResponseStatus] = useState()
     const [responseStatus, setResponseStatus] = useState()
     const [loading, setLoading] = useState()
-    const [surveyData, setSurveyData] = useState({
+    const [eventForm, setEventForm] = useState({
         
         participantBorough: '',
 
@@ -78,9 +78,16 @@ export default function preWorkshop() {
         partnerCheckPhoneEmail: '',
     })
     const grades = [
-        {
-
-        },
+       {id: 0,value: "Grade 7",},
+       {id: 1,value: "Grade 8",},
+       {id: 2,value: "Grade 9",},
+       {id: 3,value: "Grade 10",},
+       {id: 4,value: "Grade 11",},
+       {id: 5,value: "Grade 12",},
+       {id: 6,value: "College",},
+       {id: 7,value: "Trade / Technical School",},
+       {id: 8,value: "Not currently in school",},
+       {id: 9,value: "Other",},
     ]
     return (
         <>
@@ -91,21 +98,22 @@ export default function preWorkshop() {
             <div className="container mx-auto border-black rounded-lg mb-10">
               <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
               <RadioGroup 
-                options={[{id:3,value:'NYS CMP'},{id:1,value:'OEF'}]} 
-                surveyForm={eventForm}
-                setSurveyForm={setEventForm}
+                options={[...grades]} 
+                surveyForm={surveyData}
+                setSurveyForm={setSurveyData}
                 title='What grade are you in?'
                 stateValue={'participantGrade'}
-                IdStateValue={'programId'}
+                // IdStateValue={'programId'}
 
             />
+            
               </div>
             </div>
             <div className="flex justify-center">{loading && <Loader />}</div>
             <div className="flex justify-center my-10">
              {loading? null:<button
                 className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-                // onClick={submitEventForm}
+              //className="py-2"
                  >
                 Submit
               </button> } 
