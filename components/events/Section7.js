@@ -49,7 +49,7 @@ const Section7 = ({eventForm, setEventForm,event}) => {
                     onChange={(e) => setEventForm(prev => ({...prev, eventLocationTypeNameOther: e.target.value}))} 
                     className='w-96 border-dark-violet rounded ' 
                     placeholder="Eg. Sporting facility"
-                    defaultValue={eventForm?.eventLocationTypeID === 11 ? eventForm.eventLocationTypeName : ''}
+                    defaultValue={eventForm?.eventLocationTypeID === 11 ? eventForm.eventLocationTypeNameOther : ''}
                     />
                 </label></div>)
 
