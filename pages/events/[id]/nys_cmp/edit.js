@@ -112,7 +112,7 @@ eventZipCode:event?.eventzipcode
       />
       
       <div className="container mx-auto md:px-0 px-5 mb-10 items-center">
-      <p className="p-5">Event registered by {eventForm.createdByName} {eventForm.createdByLastname} on {new Date(eventForm.eventDateCreated).toLocaleDateString('en-US')}</p>
+      <p className="pb-5">Event registered by {eventForm.createdByName} {eventForm.createdByLastname} on {new Date(eventForm.eventDateCreated).toLocaleDateString('en-US')}</p>
 
         <div className="register-envent-form-container  grid gap-10 bg-white border-black rounded-lg p-7 mb-5 pb-10 shadow-lg">
           {/* <Section1 eventForm={eventForm} setEventForm={setEventForm} programs={programs} event={event}/>
