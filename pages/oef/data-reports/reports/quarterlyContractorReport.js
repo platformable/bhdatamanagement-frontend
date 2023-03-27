@@ -77,7 +77,7 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
               />
             </label>
           </div>
-          {selectedCbtCSV && selectedTechnicallAssistanceCSV && (
+          {selectedCbtCSV && selectedTACSV && (
             <>
               <div>
               <button
@@ -134,6 +134,9 @@ export const getServerSideProps = withPageAuthRequired({
       ).then((r) => r.json()),
       fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/sv_report_contractor`
+      ).then((r) => r.json()),
+      fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/ta_report_contractor`
       ).then((r) => r.json()),
     ]);
 
