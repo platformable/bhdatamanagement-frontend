@@ -13,7 +13,7 @@ const PrioritiesSection = ({
     console.log("data", data);
     navigator.clipboard.writeText(data);
   }
-
+console.log("priorities", selectedEventsOutputs)
   return (
     <section>
       <h1 className="font-black mb-7">Priorities and Program Accomplishments / Highlights</h1>
