@@ -22,7 +22,7 @@ function RadiogroupList({
       </div>
       {questions?.map((question, index) => (
           <div className="px-5 py-3 flex justify-between" key={index}>
-            <h4 className="font-medium">{question.title}</h4>
+            <h4 className="font-medium text-lg">{question.title}</h4>
             <div className="grid grid-cols-2 gap-16">
               {booleansValues.map((bool) => (
                 <label className="flex gap-5 text-base items-center">
