@@ -401,7 +401,7 @@ export default function preWorkshop({ fbos }) {
 
           notifyMessage();
           setTimeout(()=>{
-            router.push("https://nblch.org")
+            router.push("/oef/yip/pre-workshop/success")
 
             },1000) 
         }
