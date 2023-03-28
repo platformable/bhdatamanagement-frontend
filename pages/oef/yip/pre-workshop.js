@@ -4,11 +4,6 @@ import Loader from "../../../components/Loader";
 import ResponseStatusModal from "../../../components/ResponseStatusModal";
 
 import RadioGroup from "../../../components/yip/RadioGroup";
-import TextArea from "../../../components/yip/TextArea";
-import TimeComponent from "../../../components/yip/TimeComponent";
-import InputValidationAddress from "../../../components/InputValidationAddress";
-import DateComponent from "../../../components/yip/DateComponent";
-import OnlineOrInPerson from "../../../components/yip/OnlineOrInPerson";
 import Zipcode from "../../../components/yip/Zipcode";
 import NumberLimits from "../../../components/yip/NumberLimits";
 import { ParticipantSurveySection3 } from "../../../components/yip/ParticipantSurveySection3";
