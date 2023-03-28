@@ -18,7 +18,7 @@ function RadiogroupList({
   return (
     <div className="grid divide-y divide border">
       <div className="header-list  bg-black text-white font-bold px-5 py-3 text-lg">
-        {header}
+        <h2>{header}</h2>
       </div>
       {questions?.map((question, index) => (
           <div className="px-5 py-3 flex justify-between" key={index}>
@@ -26,7 +26,7 @@ function RadiogroupList({
             <div className="grid grid-cols-2 gap-16">
               {booleansValues.map((bool) => (
                 <label className="flex gap-5 text-base items-center">
-                  <input type={"radio"} value={bool.value} onChange={(e) => {
+                  <input type={"radio"} value={bool.value} name={question.value} onChange={(e) => {
                     setSurveyForm(prev => ({
                         ...prev,
                         [question.value]: bool.value
