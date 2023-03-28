@@ -27,6 +27,9 @@ const DemographicSurveySection = ({setEventForm, eventForm, typeOfTest}) => {
       
       case('other'):
         return capitalizeFirstLetter(string)
+
+      default:
+        return ''
     }
   }
   const handleMaxNumber = (e) => {

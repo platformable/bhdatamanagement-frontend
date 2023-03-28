@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-export const ParticipantSurveySection1 = ({ surveyForm, setSurveyForm }) => {
+const Zipcode = ({ surveyForm, setSurveyForm }) => {
   const [errorField, setErrorField] = useState("")
   const handleForm = (e) => {
     (e.target.value.length === 0 || e.target.value.length === 5) && setErrorField("");
@@ -23,7 +23,7 @@ export const ParticipantSurveySection1 = ({ surveyForm, setSurveyForm }) => {
 }
 console.log(surveyForm.participantZipCode)
   return (
-    <div className="px-7 mt-7">
+    <div className="">
       <h2 className="font-black">
         {/* <span className="">1</span> */}
         What zip code do you live in or spend most of your time in?
@@ -54,3 +54,5 @@ console.log(surveyForm.participantZipCode)
     </div>
   );
 };
+
+export default Zipcode
