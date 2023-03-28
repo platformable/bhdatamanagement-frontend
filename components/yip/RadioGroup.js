@@ -2,8 +2,6 @@ import React from 'react'
 
 export default function RadioGroup({options,surveyForm,setSurveyForm,title,stateValue, IdStateValue}) {
 
-
-
   
   return (
     <div className="">
@@ -26,14 +24,12 @@ export default function RadioGroup({options,surveyForm,setSurveyForm,title,state
               }
               }
               name={stateValue}
-              defaultChecked={
-                option.value === surveyForm?.[stateValue] ? "checked" : ""
-              }
               disabled={stateValue === 'yipSession'}
             />
             <p className="">{option.value}</p>
-            {option === 'Other' && (
+            {option.value === 'Other' && (
               <input type="text" 
+              className='border p-2'
               onChange={(e) =>
                 setSurveyForm({...surveyForm, [`${stateValue}Other`]: e.target.name })
               }
