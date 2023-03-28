@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import { useRouter } from "next/router";
 import ExternalSurveyHeader from "../../../components/ExternalSurveyHeader";
 import Loader from "../../../components/Loader";
 import ResponseStatusModal from "../../../components/ResponseStatusModal";
-
+import axios from "axios";
 import RadioGroup from "../../../components/yip/RadioGroup";
 
 import Zipcode from "../../../components/yip/Zipcode";
@@ -17,35 +18,42 @@ import DeliveryPartner from "../../../components/yip/DeliveryPartner";
 import LeichardtScale from "../../../components/yip/LeichardtScale";
 import OneColumnCheckbox from "../../../components/yip/OneColumnCheckbox";
 
+import { NYSZipCodesAndBoroughs } from "../../../utils/sharedData";
+
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function preWorkshop({ fbos }) {
+
+  const router = useRouter();
   const [showResponseStatus, setShowResponseStatus] = useState();
   const [responseStatus, setResponseStatus] = useState();
   const [loading, setLoading] = useState();
   const [eventForm, setEventForm] = useState({
     participantBorough: "",
-
     participantHivKnowledge: "",
     deliveryPartner: "",
     deliveryPartnerOther: "",
-
+    surveyCreated:new Date(),
     participantZipCode: "",
-    raceId: "",
+    raceID: "",
     participantRace: "",
     participantRaceOther: "",
-    ethnicityId: "",
+    ethnicityID: "",
     participantEthnicity: "",
     participantEthnicityOther: "",
-    genderId: "",
+    genderID: "",
     participantGender: "",
     participantGenderOther: "",
-    orientationId: "",
+    orientationID: "",
     participantOrientation: "",
     participantOrientationOther: "",
     participantReferral: "",
     participantReferralOther: "",
     participantSuggestions: "",
-    participantConsentKnowledge: "",
-    yipId: "",
+    consentCanBeTakenAway: "",
+    yipId: 4,
     confidentCondom: "",
     confidentRelationshipsCommunicating: "",
     noGymBodyImage: "",
@@ -84,6 +92,8 @@ export default function preWorkshop({ fbos }) {
     confidentJobAndCareerChoices: "",
     expectedBenefits: "",
     partnerCheckPhoneEmail: "",
+    surveyName:'yip-pre-workshop',
+    awareOptionsEducationCareer:""
   });
   const grades = [
     { id: 0, value: "Grade 7" },
@@ -99,7 +109,7 @@ export default function preWorkshop({ fbos }) {
   ];
   const radioQuestionsList = [
     {
-      value: "participantConsentKnowledge",
+      value: "consentCanBeTakenAway",
       title: "You can take consent away at any point, even after I’ve given it",
     },
     {
@@ -353,7 +363,58 @@ export default function preWorkshop({ fbos }) {
       options: confidentScaleOptions,
     },
   ];
-  console.log("survey", eventForm);
+
+
+
+  const getCity = (zipcode, array) => {
+    const searchZipcode = array.filter((code) => code.zipcode === zipcode);
+    if (searchZipcode.length > 0) {
+      setEventForm({ ...eventForm, participantBorough: searchZipcode[0].borought });
+    } else {
+      setEventForm({ ...eventForm, participantBorough: "" });
+    }
+  };
+
+
+  useEffect(() => {
+
+    getCity(eventForm.participantZipCode, NYSZipCodesAndBoroughs);
+  }, [eventForm.participantZipCode,
+  ]);
+
+
+  const notifyMessage = () => {
+    toast.success("Survey saved!", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
+  const submitParticipantSurvey = async () => {
+    // if (!isEmpty) {
+    axios
+      .post(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef-pre-workout-survey/create`,
+        eventForm
+      )
+      .then((response) => {
+        if (response.data.statusText === "OK") {
+
+          notifyMessage();
+          setTimeout(()=>{
+            router.push("https://nblch.org")
+
+            },1000) 
+        }
+      })
+      .catch(function (error) {
+        console.error("error: ", error);
+      });
+
+  };
+
+
+  console.log("eventForm",eventForm)
+
   return (
     <>
       {/*   <Layout showStatusHeader={true}> */}
@@ -460,7 +521,7 @@ export default function preWorkshop({ fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title="Are you aware about the different options you have for your education and career?"
-            stateValue={"deleteFromInternetGoneForever"}
+            stateValue={"awareOptionsEducationCareer"}
             // IdStateValue={'programId'}
           />
 
@@ -496,7 +557,7 @@ export default function preWorkshop({ fbos }) {
           />
 
           <LeichardtScale
-            title="Are you aware of the different ways to practice self-care routine?"
+            title="How confident do you feel in managing issues related to the following topics:"
             options={confidentManagingIssues}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
@@ -507,8 +568,9 @@ export default function preWorkshop({ fbos }) {
       <div className="flex justify-center my-10">
         {loading ? null : (
           <button
-            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
+            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold text"
             //className="py-2"
+            onClick={()=>submitParticipantSurvey()}
           >
             Submit
           </button>
