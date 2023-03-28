@@ -2,11 +2,7 @@ import React from 'react'
 
 function LeichardtScale({ surveyForm,setSurveyForm, stateValue, options, title}) {
 
-/*   const handleForm = (e) => {
-    console.log("e.value.name",e.target.value)
-    setSurveyForm({...surveyForm,[stateValue]:e.target.value})
-  }; */
-  
+
   return (
     <div className="">
     <h2 className="font-black bg-black text-white px-5 rounded-tl-md rounded-tr-md">{title}</h2>
