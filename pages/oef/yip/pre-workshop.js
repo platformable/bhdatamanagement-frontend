@@ -4,25 +4,30 @@ import Loader from "../../../components/Loader";
 import ResponseStatusModal from "../../../components/ResponseStatusModal";
 
 import RadioGroup from "../../../components/yip/RadioGroup";
-import TextArea from "../../../components/yip/TextArea";
-import TimeComponent from "../../../components/yip/TimeComponent";
-import InputValidationAddress from "../../../components/InputValidationAddress";
-import DateComponent from "../../../components/yip/DateComponent";
-import OnlineOrInPerson from "../../../components/yip/OnlineOrInPerson";
-OneColumnCheckbox;
-import OneColumnCheckbox from "../../../components/yip/OneColumnCheckbox";
-import LeichardtScale from "../../../components/yip/LeichardtScale";
-import Rating from "../../../components/yip/Rating";
 
-export default function preWorkshop() {
+import Zipcode from "../../../components/yip/Zipcode";
+import NumberLimits from "../../../components/yip/NumberLimits";
+import { ParticipantSurveySection3 } from "../../../components/yip/ParticipantSurveySection3";
+import { ParticipantSurveySection4 } from "../../../components/yip/ParticipantSurveySection4";
+import { ParticipantSurveySection5 } from "../../../components/yip/ParticipantSurveySection5";
+import { ParticipantSurveySection6 } from "../../../components/yip/ParticipantSurveySection6";
+import { ParticipantSurveySection32 } from "../../../components/yip/ParticipantSurveySection32";
+import RadiogroupList from "../../../components/yip/RadiogroupList";
+import DeliveryPartner from "../../../components/yip/DeliveryPartner";
+import LeichardtScale from "../../../components/yip/LeichardtScale";
+import OneColumnCheckbox from "../../../components/yip/OneColumnCheckbox";
+
+export default function preWorkshop({ fbos }) {
   const [showResponseStatus, setShowResponseStatus] = useState();
   const [responseStatus, setResponseStatus] = useState();
   const [loading, setLoading] = useState();
   const [eventForm, setEventForm] = useState({
     participantBorough: "",
 
-    participantHivKnowledge: [],
+    participantHivKnowledge: "",
     deliveryPartner: "",
+    deliveryPartnerOther: "",
+
     participantZipCode: "",
     raceId: "",
     participantRace: "",
@@ -79,8 +84,6 @@ export default function preWorkshop() {
     confidentJobAndCareerChoices: "",
     expectedBenefits: "",
     partnerCheckPhoneEmail: "",
-    managingHealthyRelationships:"",
-    confidentCommunicatingEffectively:""
   });
   const grades = [
     { id: 0, value: "Grade 7" },
@@ -94,6 +97,109 @@ export default function preWorkshop() {
     { id: 8, value: "Not currently in school" },
     { id: 9, value: "Other" },
   ];
+  const radioQuestionsList = [
+    {
+      value: "participantConsentKnowledge",
+      title: "You can take consent away at any point, even after I’ve given it",
+    },
+    {
+      value: "participantBodyLanguageConsent",
+      title: "Body language is a good indicator of consent",
+    },
+    {
+      value: "partnerCheckPhoneEmail",
+      title:
+        "My partner should be allowed to check my phone, email, or social media accounts",
+    },
+    {
+      value: "preparationHelpsGoals",
+      title:
+        "Preparing for obstacles, instead of ignoring them, will help me achieve my goals",
+    },
+    {
+      value: "lowEnergySocialMediaHelpful",
+      title:
+        "When you feel like you have low energy, it is best to relax by scrolling through social media for a while",
+    },
+    {
+      value: "pubertyDifferentExperiences",
+      title:
+        "Everyone experiences puberty differently and our bodies are constantly developing and changing",
+    },
+    {
+      value: "eatingHabitsEmotions",
+      title: "Our eating habits are usually connected to our emotions",
+    },
+    {
+      value: "stairsInsteadElevator",
+      title:
+        "Taking the stairs instead of the elevator is an example of making everyday activities more active",
+    },
+    {
+      value: "peopleMentallyIllViolent",
+      title: "People with mental Illness are violent",
+    },
+  ];
+
+  const radiosList2 = [
+    {
+      value: "phoneActiveListening",
+      title:
+        "Being on your phone while a friend is talking is an example of active listening",
+    },
+    {
+      value: "participantListening",
+      title:
+        "When you're listening to someone, the best thing to do is think about what you're going to say next",
+    },
+    {
+      value: "goodCommunicationImportantOnlyPublicSpeakers",
+      title:
+        "Good communication is only important for people who do public speaking, like teachers or politicians",
+    },
+    {
+      value: "poorCommunicationCanRuinRelationships",
+      title: "Poor communication can ruin relationships",
+    },
+    {
+      value: "cyberBullyingOnlyNegativeSocialMedia",
+      title: "Cyber bullying is the only negative part of social media",
+    },
+    {
+      value: "deleteFromInternetGoneForever",
+      title: "When you delete something off the Internet, it’s gone forever",
+    },
+  ];
+
+  const radiosList3 = [
+    {
+      value: "preparationHelpsGoals",
+      title:
+        "Preparing for obstacles, instead of ignoring them, will help me achieve my goals",
+    },
+    {
+      value: "oneProvenPathToSuccess",
+      title: "There is one proven path for success",
+    },
+    {
+      value: "shouldKnowFutureCareerInHighSchool",
+      title:
+        "You should know exactly what you want to do for a career when you leave high school",
+    },
+    {
+      value: "hbcuMeaningKnowledge",
+      title: "HBCU stands for Historically Black College and University",
+    },
+  ];
+
+  const radiosList4 = [
+    {value: 'stiInfectionsAgeRange', title: "Almost half of all sexually transmitted infections occur amongst people aged 15-24 years old"},
+    {value: 'knowHaveSti', title: "You will always know when you have an STI"},
+    {value: 'pep28DaysAfter', title: "Post exposure prophylaxis (PEP) can be taken any time within 28 days after unprotected sex"},
+    {value: 'condomWalletHandy', title: "It's always handy to keep a condom in your wallet"},
+    {value: 'emergencyContraceptionAfterSex', title: "Emergency contraception can be taken any time within 5 days after unprotected sex"},
+
+  ]
 
   const mentalIllnessCausesOptions = [
     { id: 0, value: "Lack of willpower" },
@@ -171,7 +277,6 @@ export default function preWorkshop() {
     },
   ];
 
-
   const confidentScaleOptions = [
     {
       id: 1,
@@ -179,7 +284,6 @@ export default function preWorkshop() {
       text: "Not at all confident",
       bgColor: "stronglyDisagreeBg",
       bgColorHover: "hover:stronglyDisagreeBg",
-     
     },
     {
       id: 2,
@@ -211,49 +315,45 @@ export default function preWorkshop() {
     },
   ];
 
-
-const confidentManagingIssues =[
-  {
-  id:1,
-  question:'Managing healthy relationships',
-  stateValue:'managingHealthyRelationships',
-  options:confidentScaleOptions
-},
-{
-  id:2,
-  question:'Communicating effectively',
-  stateValue:'confidentCommunicatingEffectively',
-  options:confidentScaleOptions
-},
-{
-  id:3,
-  question:'Looking after my mental health, nutrition and wellness',
-  stateValue:'confidentMentalHealthToolsResources',
-  options:confidentScaleOptions
-},
-{
-  id:3,
-  question:'Negotiating contraceptives',
-  stateValue:'confidentNegotiatingContraceptives',
-  options:confidentScaleOptions
-},
-{
-  id:3,
-  question:'Preventing risks of HIV and STIs',
-  stateValue:'confidentPreventingHivAndStis',
-  options:confidentScaleOptions
-},
-{
-  id:3,
-  question:'Making Job and Career Choices',
-  stateValue:'confidentJobAndCareerChoices',
-  options:confidentScaleOptions
-}
-
-]
-
-console.log("eventForm",eventForm)
-
+  const confidentManagingIssues = [
+    {
+      id: 1,
+      question: "Managing healthy relationships",
+      stateValue: "managingHealthyRelationships",
+      options: confidentScaleOptions,
+    },
+    {
+      id: 2,
+      question: "Communicating effectively",
+      stateValue: "confidentCommunicatingEffectively",
+      options: confidentScaleOptions,
+    },
+    {
+      id: 3,
+      question: "Looking after my mental health, nutrition and wellness",
+      stateValue: "confidentMentalHealthToolsResources",
+      options: confidentScaleOptions,
+    },
+    {
+      id: 3,
+      question: "Negotiating contraceptives",
+      stateValue: "confidentNegotiatingContraceptives",
+      options: confidentScaleOptions,
+    },
+    {
+      id: 3,
+      question: "Preventing risks of HIV and STIs",
+      stateValue: "confidentPreventingHivAndStis",
+      options: confidentScaleOptions,
+    },
+    {
+      id: 3,
+      question: "Making Job and Career Choices",
+      stateValue: "confidentJobAndCareerChoices",
+      options: confidentScaleOptions,
+    },
+  ];
+  console.log("survey", eventForm);
   return (
     <>
       {/*   <Layout showStatusHeader={true}> */}
@@ -262,6 +362,56 @@ console.log("eventForm",eventForm)
       <ExternalSurveyHeader pageTitle={"YIP Pre-Workshop Survey"} />
       <div className="container mx-auto border-black rounded-lg mb-10">
         <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
+          <RadioGroup
+            options={[...grades]}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            title="What grade are you in?"
+            stateValue={"participantGrade"}
+            // IdStateValue={'programId'}
+          />
+          <NumberLimits
+            stateValue={"participantAge"}
+            title={"What is your age?"}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+          />
+          <Zipcode surveyForm={eventForm} setSurveyForm={setEventForm} />
+          <ParticipantSurveySection3
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+          />
+          <ParticipantSurveySection4
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+          />
+          <ParticipantSurveySection5
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+          />
+          <ParticipantSurveySection6
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+          />
+          <ParticipantSurveySection32
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+          />
+          {eventForm.participantReferral ===
+            "Faith-Based Organization / Place of worship (Eg. church, mosque, etc.)" && (
+            <DeliveryPartner
+              fbos={fbos}
+              surveyForm={eventForm}
+              setSurveyForm={setEventForm}
+            />
+          )}
+          <RadiogroupList
+            header='Please reply with "True" or "False" to each of the following statements:'
+            questions={radioQuestionsList}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+          />
+
           <RadioGroup
             options={[...grades]}
             surveyForm={eventForm}
@@ -298,6 +448,13 @@ console.log("eventForm",eventForm)
             // IdStateValue={'programId'}
           />
 
+          <RadiogroupList
+            header='Please reply with "True" or "False" to each of the following statements:'
+            questions={radiosList2}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+          />
+
           <RadioGroup
             options={smartGoalsOptions}
             surveyForm={eventForm}
@@ -305,6 +462,13 @@ console.log("eventForm",eventForm)
             title="Are you aware about the different options you have for your education and career?"
             stateValue={"deleteFromInternetGoneForever"}
             // IdStateValue={'programId'}
+          />
+
+          <RadiogroupList
+            header='Please reply with "True" or "False" to each of the following statements:'
+            questions={radiosList3}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
           />
 
           <RadioGroup
@@ -324,6 +488,12 @@ console.log("eventForm",eventForm)
             stateValue={"participantHivKnowledge"}
           />
 
+          <RadiogroupList
+            header='Please reply with "True" or "False" to each of the following statements:'
+            questions={radiosList4}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+          />
 
           <LeichardtScale
             title="Are you aware of the different ways to practice self-care routine?"
@@ -354,3 +524,18 @@ console.log("eventForm",eventForm)
     </>
   );
 }
+
+export const getServerSideProps = async (ctx) => {
+  const [fbos] = await Promise.all([
+    //   fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`).then((r) =>
+    //     r.json()
+    //   ),
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
+  ]);
+  return {
+    props: {
+      // event: event,
+      fbos: fbos,
+    },
+  };
+};

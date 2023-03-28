@@ -42,6 +42,10 @@ export const ParticipantSurveySection32 = ({ surveyForm, setSurveyForm }) => {
       value: "Government or city agency (E.g., DOH, DOE, Health + Hospitals)",
     },
     {
+      id:12,
+      value:"Local Business Owner"
+    },
+    {
       id: 9,
       value: "Local Community Leader or Politician",
     },
