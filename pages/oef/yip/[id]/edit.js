@@ -149,8 +149,8 @@ const EditYip = ({event, user}) => {
 {id: 2, value:'Session 2: Healthy Relationship/ Effective Communication'},
 {id: 3, value:'Session 3: Nutrition'},
 {id: 4, value:'Session 4: Mental Health'},
-{id: 5, value:'Session 5: Financial Literacy'},
-{id: 6, value:'Session 6: College and Job Readiness'},
+// {id: 5, value:'Session 5: Financial Literacy'},
+// {id: 6, value:'Session 6: College and Job Readiness'},
 {id:7, value:'Other'},
 
   ]

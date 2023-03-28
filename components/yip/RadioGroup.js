@@ -23,6 +23,7 @@ export default function RadioGroup({options,surveyForm,setSurveyForm,title,state
                 setSurveyForm(prev => ({...prev, [stateValue]: option.value }));
               }
               }
+              defaultChecked={option.value === surveyForm[stateValue] ? 'checked' : ''}
               name={stateValue}
               disabled={stateValue === 'yipSession'}
             />
@@ -32,8 +33,6 @@ export default function RadioGroup({options,surveyForm,setSurveyForm,title,state
               className='border p-2'
               onChange={(e) =>
                {
-                console.log(surveyForm[`${stateValue}Other`], `${stateValue}Other`, 'participantGradeOther')
-                
                 setSurveyForm((prev) => ({...prev, [`${stateValue}Other`]: e.target.value }))}
               }
               value={surveyForm[`${stateValue}Other`]  }

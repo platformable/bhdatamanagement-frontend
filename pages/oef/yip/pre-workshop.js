@@ -341,19 +341,19 @@ export default function preWorkshop({ fbos }) {
       options: confidentScaleOptions,
     },
     {
-      id: 3,
+      id: 4,
       question: "Negotiating contraceptives",
       stateValue: "confidentNegotiatingContraceptives",
       options: confidentScaleOptions,
     },
     {
-      id: 3,
+      id: 5,
       question: "Preventing risks of HIV and STIs",
       stateValue: "confidentPreventingHivAndStis",
       options: confidentScaleOptions,
     },
     {
-      id: 3,
+      id: 6,
       question: "Making Job and Career Choices",
       stateValue: "confidentJobAndCareerChoices",
       options: confidentScaleOptions,
@@ -561,7 +561,7 @@ export default function preWorkshop({ fbos }) {
         </div>
       </div>
       <div className="flex justify-center">{loading && <Loader />}</div>
-      <div className="flex justify-center my-10">
+      <div className="flex justify-center mb-10">
         {loading ? null : (
           <button
             className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold text"
