@@ -719,3 +719,13 @@ label h3 {
 .text-to-print {
   font-size: 8px !important;
 }
+
+.LeichardTScale {
+  grid-template-columns: 3fr 2fr 2fr 2fr 2fr 2fr;
+}
+
+@media (max-width: 768px) {
+  .LeichardTScale {
+    grid-template-columns: 1fr;
+  }
+}

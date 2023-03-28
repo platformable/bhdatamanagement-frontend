@@ -25,7 +25,7 @@ const OneColumnCheckbox = ({options, surveyForm,setSurveyForm,title,stateValue})
         setSurveyForm({...surveyForm,[stateValue]:data})
       },[data])
     return (
-        <div className="question-body">
+        <div className="">
       <h2 className=" font-black">
         {title}
       </h2>
