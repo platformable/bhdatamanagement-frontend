@@ -31,9 +31,12 @@ export default function RadioGroup({options,surveyForm,setSurveyForm,title,state
               <input type="text" 
               className='border p-2'
               onChange={(e) =>
-                setSurveyForm({...surveyForm, [`${stateValue}Other`]: e.target.name })
+               {
+                console.log(surveyForm[`${stateValue}Other`], `${stateValue}Other`, 'participantGradeOther')
+                
+                setSurveyForm((prev) => ({...prev, [`${stateValue}Other`]: e.target.value }))}
               }
-              defaultValue={`${stateValue}Other`}
+              value={surveyForm[`${stateValue}Other`]  }
               />
             )}
           </label>
