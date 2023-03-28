@@ -473,14 +473,14 @@ export default function preWorkshop({ fbos }) {
             setSurveyForm={setEventForm}
           />
 
-          <RadioGroup
+     {/*      <RadioGroup
             options={[...grades]}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title="What grade are you in?"
             stateValue={"participantGrade"}
             // IdStateValue={'programId'}
-          />
+          /> */}
 
           <RadioGroup
             options={selfCareOptions}
