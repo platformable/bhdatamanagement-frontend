@@ -88,7 +88,7 @@ export default function preWorkshop({ fbos }) {
         confidentCommunicatingEffectively: '',
         deliveryPartnerOther: '',
         awareOptionsEducationCareer: '',
-        consentCanBeTakenAway: '',
+        consentCanBeTakenAway: false,
         participantBorough: ''
   });
   const grades = [
