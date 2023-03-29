@@ -22,7 +22,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TextArea from "../../../../../components/yip/TextArea";
 
-export default function Session1({ event, fbos }) {
+export default function Session3({ event, fbos }) {
   console.log("event", event);
   const [showResponseStatus, setShowResponseStatus] = useState();
   const [responseStatus, setResponseStatus] = useState();
@@ -81,7 +81,7 @@ export default function Session1({ event, fbos }) {
     // if (!isEmpty) {
     axios
       .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef-yip-participant-session1-survey/create`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef-yip-participant-session3-survey/create`,
         eventForm
       )
       .then((response) => {
