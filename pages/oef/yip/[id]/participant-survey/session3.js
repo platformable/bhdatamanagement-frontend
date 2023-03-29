@@ -30,7 +30,7 @@ export default function Session1({ event, fbos }) {
   const [eventForm, setEventForm] = useState({
     surveyCreated: new Date(),
     surveyName: "yip-participant-session2",
-    eventId: event?.eventid,
+    eventId: event?.id,
     canApply: "",
     informationUseful: "",
     thinkDifferently: "",
@@ -63,6 +63,7 @@ export default function Session1({ event, fbos }) {
     participantAge: "",
     hasMentor: false,
     confidentJobAndCareerChoices: "",
+    awareOptionsEducationCareer: "",
     satisfiedEventActivities: "",
     recommendEvent: "",
     workshopShouldChange: "",
@@ -87,7 +88,7 @@ export default function Session1({ event, fbos }) {
         if (response.data.statusText === "OK") {
           notifyMessage();
           setTimeout(() => {
-            router.push("/oef/yip/pre-workshop/success");
+            router.push(`/oef/yip/${event?.eventid}/participant-survey/success`);
           }, 1000);
         }
       })
@@ -132,7 +133,7 @@ export default function Session1({ event, fbos }) {
     
   ];
 
-  const selfCareOptions = [
+  const awareScaleOptions = [
     {
       id: 1,
       value: "Not at all aware",
@@ -349,6 +350,15 @@ export default function Session1({ event, fbos }) {
               setSurveyForm={setEventForm}
             />
           )}
+          
+          <RadioGroup
+            options={awareScaleOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            title="Are you aware about the different options you have for your education and career?"
+            stateValue={"awareOptionsEducationCareer"}
+            // IdStateValue={'programId'}
+          />
           <RadiogroupList
             header='Please reply with "True" or "False" to each of the following statements:'
             questions={radioQuestionsList}
@@ -372,7 +382,7 @@ export default function Session1({ event, fbos }) {
           />
 
           <RadioGroup
-            options={[{value: 'Yes', title: 'Yes'}, {value: 'Yes', title: 'No'}]}
+            options={[{value: 'Yes', title: 'Yes'}, {value: 'No', title: 'No'}]}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title="Do you have any mentors?"
