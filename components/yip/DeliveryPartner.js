@@ -1,6 +1,6 @@
 import React from "react";
 
-const DeliveryPartner = ({ fbos, surveyForm, setSurveyForm }) => {
+const DeliveryPartner = ({ fbos, surveyForm, setSurveyForm,questionText }) => {
   console.log();
   const handleForm = (e) => {
     if (e.target.value !== "Other")
@@ -9,7 +9,7 @@ const DeliveryPartner = ({ fbos, surveyForm, setSurveyForm }) => {
   };
   return (
     <div className="">
-      <h2 className="font-black">Fbo List</h2>
+      <h2 className="font-black">{questionText}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 mt-7 gap-5">
         <div className="grid gap-5">
           {fbos

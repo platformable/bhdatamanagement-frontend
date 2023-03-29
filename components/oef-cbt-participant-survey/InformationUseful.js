@@ -38,9 +38,9 @@ const options= [
 
 const InformationUseful = ({surveyForm,setSurveyForm,title,state}) => {
     return (
-        <div className="question-body">
+        <div className="">
         <h2 className="font-black">{title}</h2>
-        <div className="grid md:grid-cols-5 gap-20">
+        <div className="grid md:grid-cols-5 gap-x-5">
           
           {options.map((option,indx)=>{
             return (

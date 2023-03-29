@@ -22,14 +22,16 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TextArea from "../../../../../components/yip/TextArea";
 
-export default function Session1({ event, fbos }) {
+export default function Session2({ event, fbos }) {
   console.log("event", event);
   const [showResponseStatus, setShowResponseStatus] = useState();
   const [responseStatus, setResponseStatus] = useState();
   const [loading, setLoading] = useState();
+
+
   const [eventForm, setEventForm] = useState({
     surveyCreated: new Date(),
-    surveyName: "yip-participant-session1",
+    surveyName: "yip-participant-session2",
     eventId: event?.id,
     participantHivKnowledge: [],
     canApply: "",
@@ -52,12 +54,12 @@ export default function Session1({ event, fbos }) {
     participantOrientationOther: "",
     participantReferral: "",
     participantReferralOther: "",
-    participantBodyLanguageConsent: false,
-    pubertyDifferentExperiences: false,
-    eatingHabitsEmotions: false,
-    stairsInsteadElevator: false,
-    lowEnergySocialMediaHelpful: false,
-    preparationHelpsGoals: false,
+    // participantBodyLanguageConsent: false,
+    // pubertyDifferentExperiences: false,
+    // eatingHabitsEmotions: false,
+    // stairsInsteadElevator: false,
+    // lowEnergySocialMediaHelpful: false,
+    // preparationHelpsGoals: false,
     participantSuggestions: "",
     workshopDoDifferently: "",
     participantGrade: "",
@@ -68,13 +70,22 @@ export default function Session1({ event, fbos }) {
     satisfiedEventActivities: "",
     recommendEvent: "",
     workshopShouldChange: "",
-    partnerCheckPhoneEmail: false,
-    peopleMentallyIllViolent: false,
+    // partnerCheckPhoneEmail: false,
+    // peopleMentallyIllViolent: false,
     selfCareAwareness: "",
     mentalIllnessCausedBy: "",
     managingHealthyRelationships: "",
     deliveryPartnerOther: "",
-    consentCanBeTakenAway: "",
+    //consentCanBeTakenAway: "",
+
+
+    phoneActiveListening: false,
+    participantListening: false,
+    goodCommunicationImportantOnlyPublicSpeakers: false,
+    poorCommunicationCanRuinRelationships: false,
+    cyberBullyingOnlyNegativeSocialMedia: false,
+    deleteFromInternetGoneForever: false,
+    confidentCommunicatingEffectively: '',
   });
   const router = useRouter();
 
@@ -87,7 +98,7 @@ export default function Session1({ event, fbos }) {
     // if (!isEmpty) {
     axios
       .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef-yip-participant-session1-survey/create`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef-yip-participant-session2-survey/create`,
         eventForm
       )
       .then((response) => {
@@ -116,8 +127,9 @@ export default function Session1({ event, fbos }) {
   };
 
   useEffect(() => {
+
     getCity(eventForm.participantZipCode, NYSZipCodesAndBoroughs);
-  }, [eventForm.participantZipCode]);
+  }, [eventForm.participantZipCode,]);
 
   const grades = [
     { id: 0, value: "Grade 7" },
@@ -172,6 +184,37 @@ export default function Session1({ event, fbos }) {
     {
       value: "peopleMentallyIllViolent",
       title: "People with mental Illness are violent",
+    },
+  ];
+
+
+  const radiosList2 = [
+    {
+      value: "phoneActiveListening",
+      title:
+        "Being on your phone while a friend is talking is an example of active listening",
+    },
+    {
+      value: "participantListening",
+      title:
+        "When you're listening to someone, the best thing to do is think about what you're going to say next",
+    },
+    {
+      value: "goodCommunicationImportantOnlyPublicSpeakers",
+      title:
+        "Good communication is only important for people who do public speaking, like teachers or politicians",
+    },
+    {
+      value: "poorCommunicationCanRuinRelationships",
+      title: "Poor communication can ruin relationships",
+    },
+    {
+      value: "cyberBullyingOnlyNegativeSocialMedia",
+      title: "Cyber bullying is the only negative part of social media",
+    },
+    {
+      value: "deleteFromInternetGoneForever",
+      title: "When you delete something off the Internet, it’s gone forever",
     },
   ];
 
@@ -301,33 +344,47 @@ export default function Session1({ event, fbos }) {
   ];
 
   const confidentManagingIssues = [
-    {
+   /*  {
       id: 1,
       question: "Managing healthy relationships",
       stateValue: "managingHealthyRelationships",
       options: confidentScaleOptions,
-    },
+    }, */
     {
       id: 2,
+      question: "Communicating effectively",
+      stateValue: "confidentCommunicatingEffectively",
+      options: confidentScaleOptions,
+    },
+   /*  {
+      id: 3,
       question: "Looking after my mental health, nutrition and wellness",
-      stateValue: "confidentLookingAfterMyMentalHealth",
+      stateValue: "confidentMentalHealthToolsResources",
       options: confidentScaleOptions,
     },
     {
-      id: 3,
-      question: "How satisfied were you with the workshop activities?",
-      stateValue: "satisfiedEventActivities",
-      options: satisfiedScaleOptions,
+      id: 4,
+      question: "Negotiating contraceptives",
+      stateValue: "confidentNegotiatingContraceptives",
+      options: confidentScaleOptions,
     },
     {
-      id: 4,
-      question:
-        "How likely are you to recommend this workshop to your friends, family members, or peers?",
-      stateValue: "recommendEvent",
-      options: satisfiedScaleOptions,
+      id: 5,
+      question: "Preventing risks of HIV and STIs",
+      stateValue: "confidentPreventingHivAndStis",
+      options: confidentScaleOptions,
     },
+    {
+      id: 6,
+      question: "Making Job and Career Choices",
+      stateValue: "confidentJobAndCareerChoices",
+      options: confidentScaleOptions,
+    }, */
   ];
-  console.log("yip session 1 form: ", eventForm);
+
+  
+  console.log("yip session 2 form: ", eventForm);
+  console.log("yip id: ", event?.id);
   return (
     <>
       {/*   <Layout showStatusHeader={true}> */}
@@ -396,41 +453,43 @@ export default function Session1({ event, fbos }) {
               fbos={fbos}
               surveyForm={eventForm}
               setSurveyForm={setEventForm}
-              questionText={'FBO List'}
+              questionText={'If you heard about this program through a Faith-Based Organisation, what is the name?'}
             />
           )}
           <RadiogroupList
             header='Please reply with "True" or "False" to each of the following statements:'
-            questions={radioQuestionsList}
+            questions={radiosList2}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
 
-          <RadioGroup
+
+
+  {/*         <RadioGroup
             options={selfCareOptions}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title="Are you aware of the different ways to practice self-care routine?"
             stateValue={"selfCareAwareness"}
             // IdStateValue={'programId'}
-          />
+          /> */}
 
-          <RadioGroup
+    {/*       <RadioGroup
             options={mentalIllnessCausesOptions}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title="Mental illness is caused by:"
             stateValue={"mentalIllnessCausedBy"}
             // IdStateValue={'programId'}
-          />
+          /> */}
 
-          <TextArea
+ {/*          <TextArea
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title="What does mental health mean to you? "
             stateValue={"mentalHealthMeaning"}
           />
-
+ */}
           <LeichardtScale
             title="How confident do you feel in managing issues related to the following topics:"
             options={confidentManagingIssues}
@@ -439,7 +498,6 @@ export default function Session1({ event, fbos }) {
           />
 
 <h2 className="font-black bg-black text-white px-5 rounded-tl-md rounded-tr-md">For the following statements, please indicate your level of agreement:</h2>
-
           <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}

@@ -11,6 +11,7 @@ import Yip from "../../../../components/oef-monthly-report/Yip";
 import Highlights from "../../../../components/oef-monthly-report/Highlights";
 import Challenges from "../../../../components/oef-monthly-report/Challenges";
 import Conclusion from "../../../../components/oef-monthly-report/Conclusion";
+import SiteVisits from "../../../../components/oef-monthly-report/SiteVisits";
 
 
 
@@ -123,6 +124,7 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
               <CABSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
               <CBTSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs}/>
               <Yip selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
+              <SiteVisits />
               <Highlights selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
               <Challenges selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
               <Conclusion selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
