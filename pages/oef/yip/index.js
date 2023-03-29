@@ -200,16 +200,16 @@ const EventsIndex = ({ events }) => {
   const findSession = (session) => {
     console.log(session)
     switch (session) {
-      case ('Session 1: Sexual and Reproductive Health'):
+      case ('Session 1: Sexual Health and Healthy Relationships'):
         return "1";
         break;
-      case ('Session 2: Healthy Relationship/ Effective Communication'):
+      case ('Session 2: Effective Communication'):
         return "2";
         break;
-      case ('Session 3: Nutrition'):
+      case ('Session 3: Let’s Make a choice/ HIV (Health), Education and Careers'):
         return "3";
         break;
-      case ('Session 4: Mental Health'):
+      case ('Session 4: STI & HIV Risk Reduction and Prevention'):
         return "4";
         break;
     }
