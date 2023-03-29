@@ -7,8 +7,8 @@ function Rating({ surveyForm,setSurveyForm, stateValue, options, title}) {
   };
   
   return (
-    <div className="question-body">
-    <h2 className="font-black">{title}</h2>
+    <div className="">
+    <h2 className="mb-7 font-black">{title}</h2>
     <div className="grid md:grid-cols-5 gap-7 md:gap-10 lg:gap-20">
       
       {options.map((option,indx)=>{

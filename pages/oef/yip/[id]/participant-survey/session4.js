@@ -17,23 +17,22 @@ import DeliveryPartner from "../../../../../components/yip/DeliveryPartner";
 import LeichardtScale from "../../../../../components/yip/LeichardtScale";
 import InformationUseful from "../../../../../components/oef-cbt-participant-survey/InformationUseful";
 import { NYSZipCodesAndBoroughs } from "../../../../../utils/sharedData";
+import Rating from "../../../../../components/yip/Rating";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TextArea from "../../../../../components/yip/TextArea";
+import OneColumnCheckbox from "../../../../../components/yip/OneColumnCheckbox";
 
-export default function Session3({ event, fbos }) {
+export default function Session4({ event, fbos }) {
   console.log("event", event);
   const [showResponseStatus, setShowResponseStatus] = useState();
   const [responseStatus, setResponseStatus] = useState();
   const [loading, setLoading] = useState();
   const [eventForm, setEventForm] = useState({
     surveyCreated: new Date(),
-    surveyName: "yip-participant-session3",
+    surveyName: "yip-participant-session4",
     eventId: event?.id,
-    canApply: "",
-    informationUseful: "",
-    thinkDifferently: "",
     deliveryPartner: "",
     deliveryPartnerOther: "",
     participantZipCode: "",
@@ -52,25 +51,38 @@ export default function Session3({ event, fbos }) {
     participantOrientationOther: "",
     participantReferral: "",
     participantReferralOther: "",
-    preparationHelpsGoals: false,
-    oneProvenPathToSuccess: false,
-    shouldKnowFutureCareerInHighSchool: false,
-    hbcuMeaningKnowledge: false,
-    participantSuggestions: "",
+    participantHivKnowledge: [],
+    consentCanBeTakenAway: false,
+    stiInfectionsAgeRange: false,
+    knowHaveSti: false,
+    pep28DaysAfter: false,
+    condomWalletHandy: false,
+    emergencyContraceptionAfterSex: false,
+    confidentNegotiatingContraceptives: "",
+    confidentPreventingHivAndStis: "",
+    satisfiedEventActivities: "",
+    recommendEvent: "",
     workshopDoDifferently: "",
+    workshopShouldChange: "",
+    participantSuggestions: "",
     participantGrade: "",
     participantGradeOther: "",
     participantAge: "",
-    hasMentor: false,
-    confidentJobAndCareerChoices: "",
-    awareOptionsEducationCareer: "",
-    satisfiedEventActivities: "",
-    recommendEvent: "",
-    workshopShouldChange: "",
-    mentorBenefits: "",
-    confidentFindingMentor: ""
+    canApply: "",
+    informationUseful: "",
+    thinkDifferently: "",
   });
   const router = useRouter();
+
+  const hivKnowledge = [
+    { value: "Massaging, hugging, kissing" },
+    { value: "Oral sex" },
+    { value: "Sex with an HIV-positive sex partner" },
+    { value: "Sex without a condom" },
+    {
+      value: "Sex without a condom with a partner whose HIV status is unknown",
+    },
+  ];
 
   const notifyMessage = () => {
     toast.success("Survey saved!", {
@@ -81,14 +93,16 @@ export default function Session3({ event, fbos }) {
     // if (!isEmpty) {
     axios
       .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef-yip-participant-session3-survey/create`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef-yip-participant-session4-survey/create`,
         eventForm
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
           setTimeout(() => {
-            router.push(`/oef/yip/${event?.eventid}/participant-survey/success`);
+            router.push(
+              `/oef/yip/${event?.eventid}/participant-survey/success`
+            );
           }, 1000);
         }
       })
@@ -126,11 +140,29 @@ export default function Session3({ event, fbos }) {
     { id: 9, value: "Other" },
   ];
   const radioQuestionsList = [
-    {value: "preparationHelpsGoals", title: "Preparing for obstacles, instead of ignoring them, will help me achieve my goals"},
-    {value: "oneProvenPathToSuccess", title: "There is one proven path for success"},
-    {value: "shouldKnowFutureCareerInHighSchool", title: "You should know exactly what you want to do for a career when you leave high school"},
-    {value: "hbcuMeaningKnowledge", title: "HBCU stands for Historically Black College and University"},
-    
+    {
+      value: "stiInfectionsAgeRange",
+      title:
+        "Almost half of all sexually transmitted infections occur amongst people aged 15-24 years old",
+    },
+    {
+      value: "knowHaveSti",
+      title: "You will always know when you have an STI",
+    },
+    {
+      value: "pep28DaysAfter",
+      title:
+        "Post exposure prophylaxis (PEP) can be taken any time within 28 days after unprotected sex",
+    },
+    {
+      value: "condomWalletHandy",
+      title: "It's always handy to keep a condom in your wallet",
+    },
+    {
+      value: "emergencyContraceptionAfterSex",
+      title:
+        "Emergency contraception can be taken any time within 5 days after unprotected sex",
+    },
   ];
 
   const awareScaleOptions = [
@@ -171,16 +203,16 @@ export default function Session3({ event, fbos }) {
     },
   ];
 
-  const mentalIllnessCausesOptions = [
-    { id: 0, value: "Lack of willpower" },
-    { id: 1, value: "Personal Weakness" },
-    {
-      id: 2,
-      value:
-        "A number of factors including biological factors, stressful or traumatic life events, and long-lasting health conditions such heart disease or cancer.",
-    },
-    { id: 3, value: "All of the above" },
-  ];
+  // const mentalIllnessCausesOptions = [
+  //   { id: 0, value: "Lack of willpower" },
+  //   { id: 1, value: "Personal Weakness" },
+  //   {
+  //     id: 2,
+  //     value:
+  //       "A number of factors including biological factors, stressful or traumatic life events, and long-lasting health conditions such heart disease or cancer.",
+  //   },
+  //   { id: 3, value: "All of the above" },
+  // ];
 
   const confidentScaleOptions = [
     {
@@ -261,24 +293,114 @@ export default function Session3({ event, fbos }) {
   const confidentManagingIssues = [
     {
       id: 1,
-      question: "Making Job and Career Choices",
-      stateValue: "confidentJobAndCareerChoices",
+      question: "Negotiating contraceptives",
+      stateValue: "confidentNegotiatingContraceptives",
       options: confidentScaleOptions,
     },
     {
       id: 2,
-      question: "How satisfied were you with the workshop activities?",
-      stateValue: "satisfiedEventActivities",
-      options: satisfiedScaleOptions,
+      question: "Preventing risks of HIV and STIs",
+      stateValue: "confidentPreventingHivAndStis",
+      options: confidentScaleOptions,
+    },
+  ];
+  const agreeOrDisagreeOptions = [
+    {
+      id: 1,
+      value: "Strongly disagree",
+      text: "Strongly disagree",
+      bgColor: "stronglyDisagreeBg",
+      bgColorHover: "hover:stronglyDisagreeBg",
+    },
+    {
+      id: 2,
+      value: "Disagree",
+      text: "Disagree",
+      bgColor: "disagreeBg",
+      bgColorHover: "hover:disagreeBg",
     },
     {
       id: 3,
-      question:
-        "How likely are you to recommend this workshop to your friends, family members, or peers?",
-      stateValue: "recommendEvent",
-      options: satisfiedScaleOptions,
+      value: "Neither agree nor disagree",
+      text: "Neither agree nor disagree",
+      bgColor: "neitherAgreeOrDisagreeBg",
+      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
+    },
+    {
+      id: 4,
+      value: "Agree",
+      text: "Agree",
+      bgColor: "agreeBg",
+      bgColorHover: "hover:agreeBg",
+    },
+    {
+      id: 5,
+      value: "Strongly agree",
+      text: "Strongly agree",
+      bgColor: "stronglyAgreeBg",
+      bgColorHover: "hover:stronglyAgreeBg",
     },
   ];
+  const agreeOrDisagreeOptionsShort = [
+    
+    {
+      id: 2,
+      value: "Disagree",
+      text: "Disagree",
+      bgColor: "disagreeBg",
+      bgColorHover: "hover:disagreeBg",
+    },
+    {
+      id: 3,
+      value: "Neither agree nor disagree",
+      text: "Neither agree nor disagree",
+      bgColor: "neitherAgreeOrDisagreeBg",
+      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
+    },
+    {
+      id: 4,
+      value: "Agree",
+      text: "Agree",
+      bgColor: "agreeBg",
+      bgColorHover: "hover:agreeBg",
+    },
+    
+  ];
+  const yipSessionOptions = [
+  {id: 1, value: "Sexual health and healthy relationships"},
+  {id: 2, value: "Effective communication "},
+  {id: 3, value: "Let’s make a choice: HIV (Health), Education, and Career Options"},
+  {id: 4, value: "STI/HIV Reduction and Prevention"},
+
+  ]
+  const levelOfAgreement = [
+    {
+      id: 1,
+      question: "The information and materials presented were useful",
+      stateValue: "informationUseful",
+      options: agreeOrDisagreeOptions,
+    },
+    {
+      id: 2,
+      question: "The presenter explained the topic well",
+      stateValue: "thinkDifferently",
+      options: agreeOrDisagreeOptions,
+    },
+    {
+      id: 3,
+      question: "I will apply the information I learned to my everyday life",
+      stateValue: "canApply",
+      options: agreeOrDisagreeOptions,
+    },
+  ];
+  const workshopOptions = [
+    {id: 0, stateValue: 'workshopsHelpful', options: agreeOrDisagreeOptionsShort,question: "The trainings were helpful to me"},
+    {id: 1, stateValue: 'workshopsEnjoyed', options: agreeOrDisagreeOptionsShort,question: "I enjoyed the trainings"},
+    {id: 2, stateValue: 'workshopsLearnedFrom', options: agreeOrDisagreeOptionsShort,question: "I learned from the trainings"},
+    {id: 3, stateValue: 'workshopsRecommendToFriends', options: agreeOrDisagreeOptionsShort,question: "I would tell my friends to go to these training"},
+
+
+  ]
   console.log("yip session 3 form: ", eventForm);
   return (
     <>
@@ -349,17 +471,28 @@ export default function Session3({ event, fbos }) {
               surveyForm={eventForm}
               setSurveyForm={setEventForm}
               questionText="If you heard about this program through a Faith-Based Organisation, what is the name?"
-
             />
           )}
-          
-          <RadioGroup
-            options={awareScaleOptions}
+          <OneColumnCheckbox
+            options={hivKnowledge}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
-            title="Are you aware about the different options you have for your education and career?"
-            stateValue={"awareOptionsEducationCareer"}
-            // IdStateValue={'programId'}
+            title="Which of the following can put you at risk for sexually transmitted HIV? "
+            stateValue="participantHivKnowledge"
+            subheading={"Select all that apply."}
+          />
+
+          <RadiogroupList
+            header='Please reply with "True" or "False" to each of the following statements:'
+            questions={[
+              {
+                value: "consentCanBeTakenAway",
+                title:
+                  "You can take consent away at any point, even after I’ve given it",
+              },
+            ]}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
           />
           <RadiogroupList
             header='Please reply with "True" or "False" to each of the following statements:'
@@ -367,39 +500,33 @@ export default function Session3({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
-          <TextArea
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            title="Describe two benefits that mentors can provide?"
-            stateValue={"mentorBenefits"}
-          />
-
-          <RadioGroup
-            options={confidentScaleOptions}
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            title="How confident do you feel identifying a mentor?"
-            stateValue={"confidentFindingMentor"}
-            // IdStateValue={'programId'}
-          />
-
-          <RadioGroup
-            options={[{value: 'Yes', title: 'Yes'}, {value: 'No', title: 'No'}]}
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            title="Do you have any mentors?"
-            stateValue={"hasMentor"}
-            // IdStateValue={'programId'}
-          />
-
-
           <LeichardtScale
             title="How confident do you feel in managing issues related to the following topics:"
             options={confidentManagingIssues}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
-
+          <Rating
+            title="How satisfied were you with the workshop activities?"
+            options={satisfiedScaleOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            stateValue="satisfiedEventActivities"
+          />
+          <Rating
+            title="How likely are you to recommend this workshop to your friends, family members, or peers?"
+            options={satisfiedScaleOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            stateValue="recommendEvent"
+          />
+          <LeichardtScale
+            title="For the following statements, please indicate your level of agreement:"
+            options={levelOfAgreement}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+          />
+          {/*           
           <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
@@ -417,7 +544,7 @@ export default function Session3({ event, fbos }) {
             setSurveyForm={setEventForm}
             state="canApply"
             title="I will apply the information I learned to my everyday life."
-          />
+          /> */}
           <TextArea
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
@@ -427,14 +554,36 @@ export default function Session3({ event, fbos }) {
           <TextArea
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
-            title="What would you like to see changed about this workshop?  "
+            title="What would you like to see changed about this workshop?"
             stateValue={"workshopShouldChange"}
           />
           <TextArea
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
-            title="Do you have any other comments or suggestions? "
+            title="Do you have any other comments or suggestions?"
             stateValue={"participantSuggestions"}
+          />
+          <LeichardtScale
+            title="Please answer how much you agree or disagree with the following statements"
+            options={workshopOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+          />
+          <RadioGroup
+            options={yipSessionOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            title="Which workshop was your favorite?"
+            stateValue={"workshopFavorite"}
+            // IdStateValue={'programId'}
+          />
+          <RadioGroup
+            options={yipSessionOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            title="Which workshop are you likely to tell a friend about?"
+            stateValue={"workshopLikelyTellFriend"}
+            // IdStateValue={'programId'}
           />
         </div>
       </div>
