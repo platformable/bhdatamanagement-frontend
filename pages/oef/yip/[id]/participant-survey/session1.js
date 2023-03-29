@@ -94,7 +94,7 @@ export default function Session1({ event, fbos }) {
         if (response.data.statusText === "OK") {
           notifyMessage();
           setTimeout(() => {
-            router.push("/oef/yip/pre-workshop/success");
+            router.push(`/oef/yip/${event?.eventid}/participant-survey/successs`);
           }, 1000);
         }
       })
