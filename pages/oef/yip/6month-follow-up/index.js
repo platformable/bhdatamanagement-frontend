@@ -32,12 +32,10 @@ export default function MonthsFollowUp({ event, fbos }) {
   const [eventForm, setEventForm] = useState({
     surveyCreated: new Date(),
     surveyName: "yip-6month-follow-up",
-    eventId: event?.id,
+    // eventId: event?.id,
     participantHivKnowledge: [],
-    canApply: "",
-    informationUseful: "",
-    thinkDifferently: "",
     deliveryPartner: "",
+    deliveryPartnerOther: "",
     participantZipCode: "",
     participantBorough: "",
     raceID: [],
@@ -54,29 +52,32 @@ export default function MonthsFollowUp({ event, fbos }) {
     participantOrientationOther: "",
     participantReferral: "",
     participantReferralOther: "",
+    selfCareAwareness: '',
+    smartGoalAwareness: '', 
+    awareOptionsEducationCareer: '',
+    confidentCondom: '',
+    consentCanBeTakenAway: false,
     participantBodyLanguageConsent: false,
-    pubertyDifferentExperiences: false,
-    eatingHabitsEmotions: false,
-    stairsInsteadElevator: false,
-    lowEnergySocialMediaHelpful: false,
-    preparationHelpsGoals: false,
-    participantSuggestions: "",
-    workshopDoDifferently: "",
-    participantGrade: "",
-    participantGradeOther: "",
-    participantAge: "",
-    confidentLookingAfterMyMentalHealth: "",
-    mentalHealthMeaning: "",
-    satisfiedEventActivities: "",
-    recommendEvent: "",
-    workshopShouldChange: "",
-    partnerCheckPhoneEmail: false,
-    peopleMentallyIllViolent: false,
-    selfCareAwareness: "",
-    mentalIllnessCausedBy: "",
-    managingHealthyRelationships: "",
-    deliveryPartnerOther: "",
-    consentCanBeTakenAway: "",
+    goodCommunicationImportantOnlyPublicSpeakers: false,
+    oneProvenPathToSuccess: false,
+    knowHaveSti: false,
+    managingHealthyRelationships: '',
+    confidentCommunicatingEffectively: '',
+    confidentMentalHealthToolsResources: '',
+    confidentNegotiatingContraceptives: '',
+    confidentPreventingHivAndStis: '',
+    confidentJobAndCareerChoices: '',
+    workshopsRating: '',
+    workshopContentFamiliar: '',
+    workshopsUseful: '',
+    workshopsMostUseful: '',
+    workshopLeastUseful: '',
+    workshopLikelyUseInfoLearned: '',
+    likelyDiscussWithFriends6MonthsAfter: '',
+    workshopsPlanToUseInfoLearned: '',
+    workshopShouldChange: '',
+    participantSuggestions: '',
+
   });
   const router = useRouter();
 
@@ -87,20 +88,26 @@ export default function MonthsFollowUp({ event, fbos }) {
   };
   const submitParticipantSurvey = async () => {
     // if (!isEmpty) {
+      setLoading(true)
     axios
       .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef-yip-participant-session1-survey/create`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef-yip-6month-follow-up/create`,
         eventForm
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
           setTimeout(() => {
-            router.push(`/oef/yip/${event?.eventid}/participant-survey/successs`);
+            router.push(
+              `/oef/yip/6month-follow-up/successs`
+            );
           }, 1000);
+        setLoading(false)
+
         }
       })
       .catch(function (error) {
+      setLoading(false)
         console.error("error: ", error);
       });
   };
@@ -329,8 +336,8 @@ export default function MonthsFollowUp({ event, fbos }) {
       options: confidentScaleOptions,
     },
   ];
-/*   console.log("yip session 1 form: ", eventForm); */
-const smartGoalsOptions = [
+  /*   console.log("yip session 1 form: ", eventForm); */
+  const smartGoalsOptions = [
     { id: 0, value: "Not at all aware" },
     { id: 1, value: "Not so aware" },
     { id: 2, value: "Somewhat aware" },
@@ -356,7 +363,6 @@ const smartGoalsOptions = [
       value: "Sex without a condom with a partner whose HIV status is unknown",
     },
   ];
-
 
   const programRatingOptions = [
     {
@@ -425,7 +431,6 @@ const smartGoalsOptions = [
       bgColor: "agreeBg",
       bgColorHover: "hover:agreeBg",
     },
-  
   ];
 
   const usefullOptions = [
@@ -457,16 +462,15 @@ const smartGoalsOptions = [
       bgColor: "agreeBg",
       bgColorHover: "hover:agreeBg",
     },
-
   ];
-  
+
   return (
     <>
       {/*   <Layout showStatusHeader={true}> */}
       {/* <ToastContainer autoClose={20000} /> */}
 
-      <ExternalSurveyHeader pageTitle={"YIP Participant Survey"} />
-     
+      <ExternalSurveyHeader pageTitle={"YIP 6-Month Follow Up Survey"} yipLegend={true}/>
+
       <div className="container mx-auto border-black rounded-lg mb-10">
         <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
           <RadioGroup
@@ -510,7 +514,7 @@ const smartGoalsOptions = [
               fbos={fbos}
               surveyForm={eventForm}
               setSurveyForm={setEventForm}
-              questionText={'FBO List'}
+              questionText={"FBO List"}
             />
           )}
           {/* REPEATED CONTEND END */}
@@ -524,7 +528,7 @@ const smartGoalsOptions = [
             // IdStateValue={'programId'}
           />
 
-            <RadioGroup
+          <RadioGroup
             options={smartGoalsOptions}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
@@ -533,8 +537,7 @@ const smartGoalsOptions = [
             // IdStateValue={'programId'}
           />
 
-
-        <RadioGroup
+          <RadioGroup
             options={smartGoalsOptions}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
@@ -543,7 +546,7 @@ const smartGoalsOptions = [
             // IdStateValue={'programId'}
           />
 
-<RadioGroup
+          <RadioGroup
             options={confidentOptions}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
@@ -552,15 +555,14 @@ const smartGoalsOptions = [
             // IdStateValue={'programId'}
           />
 
-        <RadiogroupList         
+          <RadiogroupList
             header='Please reply with "True" or "False" to each of the following statements:'
             questions={radioQuestionsList}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
 
-
-            <OneColumnCheckbox
+          <OneColumnCheckbox
             options={riskSexuallHivOptions}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
@@ -568,16 +570,14 @@ const smartGoalsOptions = [
             stateValue={"participantHivKnowledge"}
           />
 
-
-            <LeichardtScale
+          <LeichardtScale
             title="How confident do you feel in managing issues related to the following topics:"
             options={confidentManagingIssues}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
 
-
-            <Rating
+          <Rating
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title={"Overall, how would you rate this program?"}
@@ -585,8 +585,17 @@ const smartGoalsOptions = [
             stateValue={"workshopsRating"}
           />
 
-            <RadioGroup
+          <RadioGroup
             options={familiarOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            title="How familiar were you with the content of this program before attending?"
+            stateValue={"workshopContentFamiliar"}
+            // IdStateValue={'programId'}
+          />
+
+          <Rating
+            options={usefullOptions}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title="How useful did you find the content of this program?"
@@ -594,61 +603,57 @@ const smartGoalsOptions = [
             // IdStateValue={'programId'}
           />
 
-            <Rating
+          <TextArea
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
-            title={"How useful did you find the content of this program?"}
-            options={usefullOptions}
-            stateValue={"workshopsRating"}
+            title="What did you find most useful about this program?"
+            stateValue={"workshopsMostUseful"}
           />
-
-            <TextArea
+          <TextArea
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
-            title="What did you find least useful about this program?"
+            title={"What did you find least useful about this program?"}
             stateValue={"workshopLeastUseful"}
           />
 
-<RadioGroup
+          <RadioGroup
             options={satisfiedScaleOptions}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title="How likely are you to use what you have learned in this program?"
-            stateValue={"workshopsUseful"}
+            stateValue={"workshopLikelyUseInfoLearned"}
             // IdStateValue={'programId'}
           />
 
-
-<RadioGroup
+          <RadioGroup
             options={satisfiedScaleOptions}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title="How likely are you to still discuss the topics learned with your friends?"
-            stateValue={"workshopsUseful"}
+            stateValue={"likelyDiscussWithFriends6MonthsAfter"}
             // IdStateValue={'programId'}
           />
 
-<TextArea
+          <TextArea
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title="What do you plan to use from this program?"
             stateValue={"workshopsPlanToUseInfoLearned"}
           />
 
-<TextArea
+          <TextArea
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title="What, if anything, could be improved about this program?"
             stateValue={"workshopShouldChange"}
           />
 
-<TextArea
+          <TextArea
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title="Additional comments"
             stateValue={"participantSuggestions"}
           />
-       
         </div>
       </div>
       <div className="flex justify-center">{loading && <Loader />}</div>
@@ -674,9 +679,8 @@ const smartGoalsOptions = [
   );
 }
 export const getServerSideProps = async (ctx) => {
-  
   const [fbos] = await Promise.all([
-/*     fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`).then((r) =>
+    /*     fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`).then((r) =>
       r.json()
     ), */
     fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
