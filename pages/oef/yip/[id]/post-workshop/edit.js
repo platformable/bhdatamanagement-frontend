@@ -29,68 +29,70 @@ import TextArea from "../../../../../components/yip/TextArea";
 import DropboxDocumentUpload from "../../../../../components/oef-post-event-survey/DropboxDocumentUpload";
 import ProgramLeaders from "../../../../../components/yip/ProgramLeader";
 
-export default function PostWorkshop({ event, fbos }) {
-  // console.log("event", event);
+export default function PostWorkshop({ event }) {
+  console.log("event edit", event);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
   const [msgStatusUpload, setMsgStatusUpload] = useState({});
   const [showResponseStatus, setShowResponseStatus] = useState();
   const [responseStatus, setResponseStatus] = useState();
   const [loading, setLoading] = useState();
   const [eventForm, setEventForm] = useState({
-    surveyCreated: new Date(),
-    surveyName: "yip-post-event",
-    eventId: event?.id,
-    programName: "OEF",
-    programID: 1,
-    //  createdDate:new Date(),
-    externalFacilitatorName: "",
-    mainRoles: [],
-    participantRegistrationForm: false,
-    eventStartedOnTime: false,
-    eventFinishedOnTime: false,
-    participantGreeted: false,
-    resourcesAvailable: false,
-    photoRelease: false,
-    handSanitizerAvailable: false,
-    reminderSafeSpace: false,
-    reminderPostEvaluationSurvey: false,
-    eventChecklistOther: false,
-    totalAttendees: "",
-    eventOrganization: "",
-    eventResponsive: "",
-    engaged: "",
-    topicsFollowup: "",
-    leastEngaged: "",
-    improveEngagement: "",
-    eventChallenges: "",
-    eventQuestions: "",
-    organizerFeedback: "",
+    surveyCreated: event?.surveycreated || new Date(),
+    surveyName: event?.surveyname || "yip-post-event",
+    id: event?.id,
+    programName: event?.programname || "OEF",
+    programID: event?.programid || 1,
+    // createdDate:event?.createddate ||new Date(),
+    externalFacilitatorName: event?.externalfacilitatorname || "",
+    mainRoles: event?.mainroles || [],
+    participantRegistrationForm: event?.participantregistrationform || false,
+    eventStartedOnTime: event?.eventstartedontime || false,
+    eventFinishedOnTime: event?.eventfinishedontime || false,
+    participantGreeted: event?.participantgreeted || false,
+    resourcesAvailable: event?.resourcesavailable || false,
+    photoRelease: event?.photorelease || false,
+    handSanitizerAvailable: event?.handsanitizeravailable || false,
+    reminderSafeSpace: event?.remindersafespace || false,
+    reminderPostEvaluationSurvey: event?.reminderpostevaluationsurvey || false,
+    eventChecklistOther: event?.eventchecklistother || false,
+    totalAttendees: event?.totalattendees || "",
+    eventOrganization: event?.eventorganization || "",
+    eventResponsive: event?.eventresponsive || "",
+    engaged: event?.engaged || "",
+    topicsFollowup: event?.topicsfollowup || "",
+    leastEngaged: event?.leastengaged || "",
+    improveEngagement: event?.improveengagement || "",
+    eventChallenges: event?.eventchallenges || "",
+    eventQuestions: event?.eventquestions || "",
+    organizerFeedback: event?.organizerfeedback || "",
   });
   const router = useRouter();
+
+  const FileUploadedMessage = (fileName) => {
+    setMsgStatusUpload({ statusMessage: "Upload has been successful" });
+    setShowStatusUpload(true);
+  };
 
   const notifyMessage = () => {
     toast.success("Survey saved!", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
-  const FileUploadedMessage = (fileName) => {
-    setMsgStatusUpload({ statusMessage: "Upload has been successful" });
-    setShowStatusUpload(true);
-  };
   const submitParticipantSurvey = async () => {
     // if (!isEmpty) {
     axios
-      .post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/yip/create`,
+      .put(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/yip/event/update`,
         eventForm
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
           console.log(response);
-          // notifyMessage();
-          // setTimeout(() => {
-          //   router.push(`/oef/yip/${event?.eventid}/participant-survey/successs`);
-          // }, 1000);
+
+          //   notifyMessage();
+          //   setTimeout(() => {
+          //     router.push(`/oef/yip/${event?.eventid}/participant-survey/successs`);
+          //   }, 1000);
         }
       })
       .catch(function (error) {
@@ -576,6 +578,7 @@ export default function PostWorkshop({ event, fbos }) {
             title="What other topics or discussions did participants raise?"
             stateValue={"eventQuestions"}
           />
+
           <DropboxDocumentUpload
             title="Please upload the meeting agenda. Choose File"
             path={event?.folderpath + '/Documents'}
@@ -621,16 +624,14 @@ export default function PostWorkshop({ event, fbos }) {
 }
 export const getServerSideProps = async (ctx) => {
   const { id } = ctx.params;
-  const [event, fbos] = await Promise.all([
-    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/${id}`).then((r) =>
-      r.json()
-    ),
-    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
+  const [event] = await Promise.all([
+    fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/yip/event/${id}`
+    ).then((r) => r.json()),
   ]);
   return {
     props: {
       event: event[0],
-      fbos: fbos,
     },
   };
 };
