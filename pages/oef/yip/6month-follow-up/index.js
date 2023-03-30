@@ -319,14 +319,14 @@ export default function MonthsFollowUp({ event, fbos }) {
       id: 3,
       question: "How satisfied were you with the workshop activities?",
       stateValue: "satisfiedEventActivities",
-      options: satisfiedScaleOptions,
+      options: confidentScaleOptions,
     },
     {
       id: 4,
       question:
         "How likely are you to recommend this workshop to your friends, family members, or peers?",
       stateValue: "recommendEvent",
-      options: satisfiedScaleOptions,
+      options: confidentScaleOptions,
     },
   ];
 /*   console.log("yip session 1 form: ", eventForm); */
@@ -648,83 +648,7 @@ const smartGoalsOptions = [
             title="Additional comments"
             stateValue={"participantSuggestions"}
           />
-        {/*   <RadiogroupList
-            header='Please reply with "True" or "False" to each of the following statements:'
-            questions={radioQuestionsList}
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-          />
-
-          <RadioGroup
-            options={selfCareOptions}
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            title="Are you aware of the different ways to practice self-care routine?"
-            stateValue={"selfCareAwareness"}
-            // IdStateValue={'programId'}
-          />
-
-          <RadioGroup
-            options={mentalIllnessCausesOptions}
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            title="Mental illness is caused by:"
-            stateValue={"mentalIllnessCausedBy"}
-            // IdStateValue={'programId'}
-          />
-
-          <TextArea
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            title="What does mental health mean to you? "
-            stateValue={"mentalHealthMeaning"}
-          />
-
-          <LeichardtScale
-            title="How confident do you feel in managing issues related to the following topics:"
-            options={confidentManagingIssues}
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-          />
-
-<h2 className="font-black bg-black text-white px-5 rounded-tl-md rounded-tr-md">For the following statements, please indicate your level of agreement:</h2>
-
-          <InformationUseful
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            state="informationUseful"
-            title="The information and materials presented were useful"
-          />
-          <InformationUseful
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            state="thinkDifferently"
-            title="The presenter explained the topic well"
-          />
-          <InformationUseful
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            state="canApply"
-            title="I will apply the information I learned to my everyday life."
-          />
-          <TextArea
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            title="What do you think you'll do differently because of this workshop?"
-            stateValue={"workshopDoDifferently"}
-          />
-          <TextArea
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            title="What would you like to see changed about this workshop? "
-            stateValue={"workshopShouldChange"}
-          />
-          <TextArea
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            title="Do you have any other comments or suggestions? "
-            stateValue={"participantSuggestions"}
-          /> */}
+       
         </div>
       </div>
       <div className="flex justify-center">{loading && <Loader />}</div>
