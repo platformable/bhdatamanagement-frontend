@@ -87,10 +87,10 @@ export default function PostWorkshop({ event, fbos }) {
       .then((response) => {
         if (response.data.statusText === "OK") {
           console.log(response);
-          // notifyMessage();
-          // setTimeout(() => {
-          //   router.push(`/oef/yip/${event?.eventid}/participant-survey/successs`);
-          // }, 1000);
+          notifyMessage();
+          setTimeout(() => {
+            router.push(`/oef/yip/${event?.eventid}/post-workshop/successs`);
+          }, 1000);
         }
       })
       .catch(function (error) {
