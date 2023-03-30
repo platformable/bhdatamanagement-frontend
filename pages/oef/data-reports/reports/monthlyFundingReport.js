@@ -16,7 +16,7 @@ import SiteVisits from "../../../../components/oef-monthly-report/SiteVisits";
 
 
 
-export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
+export default function oefMonthlyReport({ eventsOutput, participantEvents,siteVisits }) {
   const [selectedEvents, setSelectedEvents] = useState([]);
   const [selectedEventsOutputs, setSelectedEventsOutputs] = useState([]);
   const [generateReport, setGenerateReport]  = useState(false)
@@ -37,7 +37,7 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
   }
   const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
 
-  console.log("eventsOutput cbt",eventsOutput)
+  console.log("siteVisits ",siteVisits)
 
   useEffect(() => {
     // console.log("selectedDate", selectedDate);
@@ -124,8 +124,9 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
               <CABSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
               <CBTSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs}/>
               <Yip selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
-              <SiteVisits />
+              
               <Highlights selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
+              <SiteVisits data={siteVisits}/>
               <Challenges selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
               <Conclusion selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
           </section>
@@ -137,16 +138,19 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
 }
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
-    const [eventsOutput, participantEvents,] = await Promise.all([
+    const [eventsOutput, participantEvents,siteVisits] = await Promise.all([
       fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/events_output/report/`).then((r) =>
         r.json()
       ),
       fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/participant_events_output/report/`
       ).then((r) => r.json()),
+      fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/site_visits/`
+      ).then((r) => r.json()),
       
     ]);
-    return { props: { eventsOutput, participantEvents } };
+    return { props: { eventsOutput, participantEvents,siteVisits } };
   },
 });
 
