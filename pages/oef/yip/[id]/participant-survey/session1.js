@@ -75,6 +75,8 @@ export default function Session1({ event, fbos }) {
     managingHealthyRelationships: "",
     deliveryPartnerOther: "",
     consentCanBeTakenAway: "",
+
+    presenterExplainWell: '',
   });
   const router = useRouter();
 
@@ -457,7 +459,13 @@ export default function Session1({ event, fbos }) {
             state="informationUseful"
             title="The information and materials presented were useful"
           />
-          <InformationUseful
+           <InformationUseful
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            state="presenterExplainWell"
+            title="The presenter explained the topic well"
+          />
+           <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="thinkDifferently"

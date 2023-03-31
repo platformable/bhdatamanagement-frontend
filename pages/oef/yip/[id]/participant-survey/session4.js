@@ -71,6 +71,7 @@ export default function Session4({ event, fbos }) {
     canApply: "",
     informationUseful: "",
     thinkDifferently: "",
+    presenterExplainWell: ''
   });
   const router = useRouter();
 
@@ -342,7 +343,6 @@ export default function Session4({ event, fbos }) {
     },
   ];
   const agreeOrDisagreeOptionsShort = [
-    
     {
       id: 2,
       value: "Disagree",
@@ -364,15 +364,16 @@ export default function Session4({ event, fbos }) {
       bgColor: "agreeBg",
       bgColorHover: "hover:agreeBg",
     },
-    
   ];
   const yipSessionOptions = [
-  {id: 1, value: "Sexual health and healthy relationships"},
-  {id: 2, value: "Effective communication "},
-  {id: 3, value: "Let’s make a choice: HIV (Health), Education, and Career Options"},
-  {id: 4, value: "STI/HIV Reduction and Prevention"},
-
-  ]
+    { id: 1, value: "Sexual health and healthy relationships" },
+    { id: 2, value: "Effective communication " },
+    {
+      id: 3,
+      value: "Let’s make a choice: HIV (Health), Education, and Career Options",
+    },
+    { id: 4, value: "STI/HIV Reduction and Prevention" },
+  ];
   const levelOfAgreement = [
     {
       id: 1,
@@ -394,13 +395,31 @@ export default function Session4({ event, fbos }) {
     },
   ];
   const workshopOptions = [
-    {id: 0, stateValue: 'workshopsHelpful', options: agreeOrDisagreeOptionsShort,question: "The trainings were helpful to me"},
-    {id: 1, stateValue: 'workshopsEnjoyed', options: agreeOrDisagreeOptionsShort,question: "I enjoyed the trainings"},
-    {id: 2, stateValue: 'workshopsLearnedFrom', options: agreeOrDisagreeOptionsShort,question: "I learned from the trainings"},
-    {id: 3, stateValue: 'workshopsRecommendToFriends', options: agreeOrDisagreeOptionsShort,question: "I would tell my friends to go to these training"},
-
-
-  ]
+    {
+      id: 0,
+      stateValue: "workshopsHelpful",
+      options: agreeOrDisagreeOptionsShort,
+      question: "The trainings were helpful to me",
+    },
+    {
+      id: 1,
+      stateValue: "workshopsEnjoyed",
+      options: agreeOrDisagreeOptionsShort,
+      question: "I enjoyed the trainings",
+    },
+    {
+      id: 2,
+      stateValue: "workshopsLearnedFrom",
+      options: agreeOrDisagreeOptionsShort,
+      question: "I learned from the trainings",
+    },
+    {
+      id: 3,
+      stateValue: "workshopsRecommendToFriends",
+      options: agreeOrDisagreeOptionsShort,
+      question: "I would tell my friends to go to these training",
+    },
+  ];
   const ageOptions = [
     { value: "13", title: "13" },
     { value: "14", title: "14" },
@@ -417,7 +436,10 @@ export default function Session4({ event, fbos }) {
       {/*   <Layout showStatusHeader={true}> */}
       {/* <ToastContainer autoClose={20000} /> */}
 
-      <ExternalSurveyHeader pageTitle={"YIP Participant Survey"} yipLegend={true}/>
+      <ExternalSurveyHeader
+        pageTitle={"YIP Participant Survey"}
+        yipLegend={true}
+      />
       <div
         id="event"
         className="container mx-auto rounded my-10 md:h-36 border-black rounded-tr-lg rounded-tl-lg"
@@ -453,8 +475,7 @@ export default function Session4({ event, fbos }) {
             title={"What is your age?"}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
-            widthForInput={{width: '100px'}}
-
+            widthForInput={{ width: "100px" }}
           />
           <Zipcode surveyForm={eventForm} setSurveyForm={setEventForm} />
           <ParticipantSurveySection3
@@ -473,7 +494,7 @@ export default function Session4({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
-  {/*         <ParticipantSurveySection32
+          {/*         <ParticipantSurveySection32
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
@@ -533,31 +554,42 @@ export default function Session4({ event, fbos }) {
             setSurveyForm={setEventForm}
             stateValue="recommendEvent"
           />
-          <LeichardtScale
+          {/* <LeichardtScale
             title="For the following statements, please indicate your level of agreement:"
             options={levelOfAgreement}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
-          />
-          {/*           
+          /> */}
+
+          <h2 className="font-black bg-black text-white px-5 rounded-tl-md rounded-tr-md">
+            For the following statements, please indicate your level of
+            agreement:
+          </h2>
+
           <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="informationUseful"
-            title="The information and materials presented were us"
+            title="The information and materials presented were useful"
+          />
+          <InformationUseful
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            state="presenterExplainWell"
+            title="The presenter explained the topic well"
           />
           <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="thinkDifferently"
-            title="The presenter explained the topic well"
+            title="The presenters explained the topic well"
           />
           <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="canApply"
             title="I will apply the information I learned to my everyday life."
-          /> */}
+          />
           <TextArea
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
