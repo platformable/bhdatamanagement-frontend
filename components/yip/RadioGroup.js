@@ -25,7 +25,7 @@ export default function RadioGroup({options,surveyForm,setSurveyForm,title,state
               }
               defaultChecked={option.value === surveyForm[stateValue] ? 'checked' : ''}
               name={stateValue}
-              disabled={stateValue === 'yipSession'}
+              // disabled={stateValue !== 'yipSession'}
             />
             <p className="">{option.value}</p>
             {option.value === 'Other' && (
