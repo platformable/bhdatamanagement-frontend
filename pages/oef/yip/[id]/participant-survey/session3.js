@@ -68,7 +68,8 @@ export default function Session3({ event, fbos }) {
     recommendEvent: "",
     workshopShouldChange: "",
     mentorBenefits: "",
-    confidentFindingMentor: ""
+    confidentFindingMentor: "",
+    presenterExplainWell:""
   });
   const router = useRouter();
 
@@ -338,7 +339,7 @@ export default function Session3({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
-          <ParticipantSurveySection32
+      {/*     <ParticipantSurveySection32
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
@@ -351,7 +352,7 @@ export default function Session3({ event, fbos }) {
               questionText="If you heard about this program through a Faith-Based Organisation, what is the name?"
 
             />
-          )}
+          )} */}
           
           <RadioGroup
             options={awareScaleOptions}
@@ -406,10 +407,10 @@ export default function Session3({ event, fbos }) {
             state="informationUseful"
             title="The information and materials presented were us"
           />
-          <InformationUseful
+         <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
-            state="thinkDifferently"
+            state="presenterExplainWell"
             title="The presenter explained the topic well"
           />
           <InformationUseful
@@ -417,6 +418,12 @@ export default function Session3({ event, fbos }) {
             setSurveyForm={setEventForm}
             state="canApply"
             title="I will apply the information I learned to my everyday life."
+          />
+          <InformationUseful
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            state="thinkDifferently"
+            title="The presentation made me think differently about this topic."
           />
           <TextArea
             surveyForm={eventForm}

@@ -460,7 +460,7 @@ export default function Session4({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
-          <ParticipantSurveySection32
+  {/*         <ParticipantSurveySection32
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
@@ -472,7 +472,7 @@ export default function Session4({ event, fbos }) {
               setSurveyForm={setEventForm}
               questionText="If you heard about this program through a Faith-Based Organisation, what is the name?"
             />
-          )}
+          )} */}
           <OneColumnCheckbox
             options={hivKnowledge}
             surveyForm={eventForm}
