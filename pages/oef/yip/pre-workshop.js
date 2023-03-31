@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import ExternalSurveyHeader from "../../../components/ExternalSurveyHeader";
 import Loader from "../../../components/Loader";
@@ -20,76 +20,74 @@ import OneColumnCheckbox from "../../../components/yip/OneColumnCheckbox";
 
 import { NYSZipCodesAndBoroughs } from "../../../utils/sharedData";
 
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function preWorkshop({ fbos }) {
-
   const router = useRouter();
   const [showResponseStatus, setShowResponseStatus] = useState();
   const [responseStatus, setResponseStatus] = useState();
   const [loading, setLoading] = useState();
   const [eventForm, setEventForm] = useState({
-        participantHivKnowledge: [],
-        deliveryPartner: '',
-        participantZipCode: '',
-        raceID: [],
-        participantRace: [],
-        participantRaceOther: '',
-        ethnicityID: '',
-        participantEthnicity: '',
-        participantEthnicityOther: '',
-        genderID: '',
-        participantGender: '',
-        participantGenderOther: '',
-        orientationID: '',
-        participantOrientation: '',
-        participantOrientationOther: '',
-        participantReferral: '',
-        participantReferralOther: '',
-        participantSuggestions: '',
-        surveyName: 'yip-pre-workshop',
-        surveyCreated: new Date(),
-        confidentCondom: '',
-        stiInfectionsAgeRange: false,
-        knowHaveSti: false,
-        pep28DaysAfter: false,
-        condomWalletHandy: false,
-        emergencyContraceptionAfterSex: false,
-        confidentRelationshipsCommunicating: '',
-        participantListening: false,
-        participantBodyLanguageConsent: false,
-        phoneActiveListening: false,
-        pubertyDifferentExperiences: false,
-        eatingHabitsEmotions: false,
-        stairsInsteadElevator: false,
-        confidentMentalHealthToolsResources: false,
-        lowEnergySocialMediaHelpful: false,
-        preparationHelpsGoals: false,
-        hbcuMeaningKnowledge: false,
-        participantGrade: '',
-        participantGradeOther: '',
-        participantAge: '',
-        confidentPreventingHivAndStis: false,
-        confidentJobAndCareerChoices: false,
-        partnerCheckPhoneEmail: false,
-        peopleMentallyIllViolent: false,
-        selfCareAwareness: '',
-        mentalIllnessCausedBy: '',
-        smartGoalAwareness: '',
-        goodCommunicationImportantOnlyPublicSpeakers: false,
-        poorCommunicationCanRuinRelationships: false,
-        cyberBullyingOnlyNegativeSocialMedia: false,
-        deleteFromInternetGoneForever: false,
-        oneProvenPathToSuccess: false,
-        shouldKnowFutureCareerInHighSchool: false,
-        managingHealthyRelationships: '',
-        confidentCommunicatingEffectively: '',
-        deliveryPartnerOther: '',
-        awareOptionsEducationCareer: '',
-        consentCanBeTakenAway: false,
-        participantBorough: ''
+    participantHivKnowledge: [],
+    deliveryPartner: "",
+    participantZipCode: "",
+    raceID: [],
+    participantRace: [],
+    participantRaceOther: "",
+    ethnicityID: "",
+    participantEthnicity: "",
+    participantEthnicityOther: "",
+    genderID: "",
+    participantGender: "",
+    participantGenderOther: "",
+    orientationID: "",
+    participantOrientation: "",
+    participantOrientationOther: "",
+    participantReferral: "",
+    participantReferralOther: "",
+    participantSuggestions: "",
+    surveyName: "yip-pre-workshop",
+    surveyCreated: new Date(),
+    confidentCondom: "",
+    stiInfectionsAgeRange: false,
+    knowHaveSti: false,
+    pep28DaysAfter: false,
+    condomWalletHandy: false,
+    emergencyContraceptionAfterSex: false,
+    confidentRelationshipsCommunicating: "",
+    participantListening: false,
+    participantBodyLanguageConsent: false,
+    phoneActiveListening: false,
+    pubertyDifferentExperiences: false,
+    eatingHabitsEmotions: false,
+    stairsInsteadElevator: false,
+    confidentMentalHealthToolsResources: false,
+    lowEnergySocialMediaHelpful: false,
+    preparationHelpsGoals: false,
+    hbcuMeaningKnowledge: false,
+    participantGrade: "",
+    participantGradeOther: "",
+    participantAge: "",
+    confidentPreventingHivAndStis: false,
+    confidentJobAndCareerChoices: false,
+    partnerCheckPhoneEmail: false,
+    peopleMentallyIllViolent: false,
+    selfCareAwareness: "",
+    mentalIllnessCausedBy: "",
+    smartGoalAwareness: "",
+    goodCommunicationImportantOnlyPublicSpeakers: false,
+    poorCommunicationCanRuinRelationships: false,
+    cyberBullyingOnlyNegativeSocialMedia: false,
+    deleteFromInternetGoneForever: false,
+    oneProvenPathToSuccess: false,
+    shouldKnowFutureCareerInHighSchool: false,
+    managingHealthyRelationships: "",
+    confidentCommunicatingEffectively: "",
+    deliveryPartnerOther: "",
+    awareOptionsEducationCareer: "",
+    consentCanBeTakenAway: false,
+    participantBorough: "",
   });
   const grades = [
     { id: 0, value: "Grade 7" },
@@ -199,13 +197,30 @@ export default function preWorkshop({ fbos }) {
   ];
 
   const radiosList4 = [
-    {value: 'stiInfectionsAgeRange', title: "Almost half of all sexually transmitted infections occur amongst people aged 15-24 years old"},
-    {value: 'knowHaveSti', title: "You will always know when you have an STI"},
-    {value: 'pep28DaysAfter', title: "Post exposure prophylaxis (PEP) can be taken any time within 28 days after unprotected sex"},
-    {value: 'condomWalletHandy', title: "It's always handy to keep a condom in your wallet"},
-    {value: 'emergencyContraceptionAfterSex', title: "Emergency contraception can be taken any time within 5 days after unprotected sex"},
-
-  ]
+    {
+      value: "stiInfectionsAgeRange",
+      title:
+        "Almost half of all sexually transmitted infections occur amongst people aged 15-24 years old",
+    },
+    {
+      value: "knowHaveSti",
+      title: "You will always know when you have an STI",
+    },
+    {
+      value: "pep28DaysAfter",
+      title:
+        "Post exposure prophylaxis (PEP) can be taken any time within 28 days after unprotected sex",
+    },
+    {
+      value: "condomWalletHandy",
+      title: "It's always handy to keep a condom in your wallet",
+    },
+    {
+      value: "emergencyContraceptionAfterSex",
+      title:
+        "Emergency contraception can be taken any time within 5 days after unprotected sex",
+    },
+  ];
 
   const mentalIllnessCausesOptions = [
     { id: 0, value: "Lack of willpower" },
@@ -360,24 +375,21 @@ export default function preWorkshop({ fbos }) {
     },
   ];
 
-
-
   const getCity = (zipcode, array) => {
     const searchZipcode = array.filter((code) => code.zipcode === zipcode);
     if (searchZipcode.length > 0) {
-      setEventForm({ ...eventForm, participantBorough: searchZipcode[0].borought });
+      setEventForm({
+        ...eventForm,
+        participantBorough: searchZipcode[0].borought,
+      });
     } else {
       setEventForm({ ...eventForm, participantBorough: "" });
     }
   };
 
-
   useEffect(() => {
-
     getCity(eventForm.participantZipCode, NYSZipCodesAndBoroughs);
-  }, [eventForm.participantZipCode,
-  ]);
-
+  }, [eventForm.participantZipCode]);
 
   const notifyMessage = () => {
     toast.success("Survey saved!", {
@@ -394,22 +406,28 @@ export default function preWorkshop({ fbos }) {
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-
           notifyMessage();
-          setTimeout(()=>{
-            router.push("/oef/yip/pre-workshop/success")
-
-            },1000) 
+          setTimeout(() => {
+            router.push("/oef/yip/pre-workshop/success");
+          }, 1000);
         }
       })
       .catch(function (error) {
         console.error("error: ", error);
       });
-
   };
 
-
-  console.log("eventForm",eventForm)
+  const ageOptions = [
+    { value: "13", title: "13" },
+    { value: "14", title: "14" },
+    { value: "15", title: "15" },
+    { value: "16", title: "16" },
+    { value: "17", title: "17" },
+    { value: "18", title: "18" },
+    { value: "19", title: "19" },
+    { value: "Other", title: "Other" },
+  ];
+  // console.log("eventForm",eventForm)
 
   return (
     <>
@@ -427,11 +445,14 @@ export default function preWorkshop({ fbos }) {
             stateValue={"participantGrade"}
             // IdStateValue={'programId'}
           />
-          <NumberLimits
+          <RadioGroup
+            options={ageOptions}
             stateValue={"participantAge"}
             title={"What is your age?"}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
+            widthForInput={{width: '100px'}}
+
           />
           <Zipcode surveyForm={eventForm} setSurveyForm={setEventForm} />
           <ParticipantSurveySection3
@@ -469,7 +490,7 @@ export default function preWorkshop({ fbos }) {
             setSurveyForm={setEventForm}
           />
 
-     {/*      <RadioGroup
+          {/*      <RadioGroup
             options={[...grades]}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
@@ -564,9 +585,9 @@ export default function preWorkshop({ fbos }) {
       <div className="flex justify-center mb-10">
         {loading ? null : (
           <button
-            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold text"
+            className="py-2 px-16 flex items-center rounded bg-black text-white font-semibold text"
             //className="py-2"
-            onClick={()=>submitParticipantSurvey()}
+            onClick={() => submitParticipantSurvey()}
           >
             Submit
           </button>

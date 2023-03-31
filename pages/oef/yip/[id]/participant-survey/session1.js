@@ -327,6 +327,16 @@ export default function Session1({ event, fbos }) {
       options: satisfiedScaleOptions,
     },
   ];
+  const ageOptions = [
+    { value: "13", title: "13" },
+    { value: "14", title: "14" },
+    { value: "15", title: "15" },
+    { value: "16", title: "16" },
+    { value: "17", title: "17" },
+    { value: "18", title: "18" },
+    { value: "19", title: "19" },
+    { value: "Other", title: "Other" },
+  ];
   console.log("yip session 1 form: ", eventForm);
   return (
     <>
@@ -363,7 +373,8 @@ export default function Session1({ event, fbos }) {
             stateValue={"participantGrade"}
             // IdStateValue={'programId'}
           />
-          <NumberLimits
+          <RadioGroup
+            options={ageOptions}
             stateValue={"participantAge"}
             title={"What is your age?"}
             surveyForm={eventForm}
@@ -482,7 +493,7 @@ export default function Session1({ event, fbos }) {
       <div className="flex justify-center mb-10">
         {loading ? null : (
           <button
-            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold text"
+            className="py-2 px-16 flex items-center rounded bg-black text-white font-semibold text"
             //className="py-2"
             onClick={() => submitParticipantSurvey()}
           >
