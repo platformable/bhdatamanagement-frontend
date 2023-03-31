@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function RadioGroup({options,surveyForm,setSurveyForm,title,stateValue, IdStateValue}) {
+export default function RadioGroup({options,surveyForm,setSurveyForm,title,stateValue, IdStateValue, widthForInput}) {
 
   
   return (
-    <div className="">
-    <h2 className="font-black">
+    <div className=" ">
+    <h2 className="font-black" >
       {title}
     </h2>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
@@ -31,6 +31,7 @@ export default function RadioGroup({options,surveyForm,setSurveyForm,title,state
             {option.value === 'Other' && (
               <input type="text" 
               className='border p-2'
+              style={{...widthForInput}}
               onChange={(e) =>
                {
                 setSurveyForm((prev) => ({...prev, [`${stateValue}Other`]: e.target.value }))}

@@ -280,6 +280,16 @@ export default function Session3({ event, fbos }) {
       options: satisfiedScaleOptions,
     },
   ];
+  const ageOptions = [
+    { value: "13", title: "13" },
+    { value: "14", title: "14" },
+    { value: "15", title: "15" },
+    { value: "16", title: "16" },
+    { value: "17", title: "17" },
+    { value: "18", title: "18" },
+    { value: "19", title: "19" },
+    { value: "Other", title: "Other" },
+  ];
   console.log("yip session 3 form: ", eventForm);
   return (
     <>
@@ -316,11 +326,14 @@ export default function Session3({ event, fbos }) {
             stateValue={"participantGrade"}
             // IdStateValue={'programId'}
           />
-          <NumberLimits
+         <RadioGroup
+            options={ageOptions}
             stateValue={"participantAge"}
             title={"What is your age?"}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
+            widthForInput={{width: '100px'}}
+
           />
           <Zipcode surveyForm={eventForm} setSurveyForm={setEventForm} />
           <ParticipantSurveySection3
@@ -407,11 +420,17 @@ export default function Session3({ event, fbos }) {
             state="informationUseful"
             title="The information and materials presented were us"
           />
-         <InformationUseful
+          <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="presenterExplainWell"
             title="The presenter explained the topic well"
+          />
+           <InformationUseful
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            state="thinkDifferently"
+            title="The presenters explained the topic well"
           />
           <InformationUseful
             surveyForm={eventForm}
@@ -449,7 +468,7 @@ export default function Session3({ event, fbos }) {
       <div className="flex justify-center mb-10">
         {loading ? null : (
           <button
-            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold text"
+            className="py-2 px-16 flex items-center rounded bg-black text-white font-semibold text"
             //className="py-2"
             onClick={() => submitParticipantSurvey()}
           >

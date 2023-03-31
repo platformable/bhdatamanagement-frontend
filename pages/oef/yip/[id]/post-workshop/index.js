@@ -595,7 +595,7 @@ export default function PostWorkshop({ event, fbos }) {
       <div className="flex justify-center mb-10">
         {loading ? null : (
           <button
-            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold text"
+            className="py-2 px-16 flex items-center rounded bg-black text-white font-semibold text"
             //className="py-2"
             onClick={() => submitParticipantSurvey()}
           >

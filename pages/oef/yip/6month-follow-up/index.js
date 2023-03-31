@@ -463,7 +463,16 @@ export default function MonthsFollowUp({ event, fbos }) {
       bgColorHover: "hover:agreeBg",
     },
   ];
-
+  const ageOptions = [
+    { value: "13", title: "13" },
+    { value: "14", title: "14" },
+    { value: "15", title: "15" },
+    { value: "16", title: "16" },
+    { value: "17", title: "17" },
+    { value: "18", title: "18" },
+    { value: "19", title: "19" },
+    { value: "Other", title: "Other" },
+  ];
   return (
     <>
       {/*   <Layout showStatusHeader={true}> */}
@@ -481,11 +490,14 @@ export default function MonthsFollowUp({ event, fbos }) {
             stateValue={"participantGrade"}
             // IdStateValue={'programId'}
           />
-          <NumberLimits
+          <RadioGroup
+            options={ageOptions}
             stateValue={"participantAge"}
             title={"What is your age?"}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
+            widthForInput={{width: '100px'}}
+
           />
           <Zipcode surveyForm={eventForm} setSurveyForm={setEventForm} />
           <ParticipantSurveySection3
@@ -660,7 +672,7 @@ export default function MonthsFollowUp({ event, fbos }) {
       <div className="flex justify-center mb-10">
         {loading ? null : (
           <button
-            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold text"
+            className="py-2 px-16 flex items-center rounded bg-black text-white font-semibold text"
             //className="py-2"
             onClick={() => submitParticipantSurvey()}
           >
