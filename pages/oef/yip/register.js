@@ -144,11 +144,11 @@ const Register = ({user}) => {
   };
 
   const yipSessionOptions=[
-    {id: 1, value:'Session 1: Sexual and Reproductive Health'},
-{id: 2, value:'Session 2: Healthy Relationship/ Effective Communication'},
-{id: 3, value:'Session 3: Nutrition'},
-{id: 4, value:'Session 4: Mental Health'},
-{id:5, value:'Other'},
+    {id: 1, value:'Session 1: Sexual Health and Healthy Relationships'},
+{id: 2, value:'Session 2: Effective Communication'},
+{id: 3, value:'Session 3: Let’s Make a choice/ HIV (Health), Education and Careers'},
+{id: 4, value:'Session 4: STI & HIV Risk Reduction and Prevention'},
+{id:7, value:'Other'},
 
   ]
 
