@@ -86,6 +86,7 @@ export default function Session2({ event, fbos }) {
     cyberBullyingOnlyNegativeSocialMedia: false,
     deleteFromInternetGoneForever: false,
     confidentCommunicatingEffectively: '',
+    presenterExplainWell:""
   });
   const router = useRouter();
 
@@ -455,7 +456,7 @@ export default function Session2({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
-          <ParticipantSurveySection32
+          {/* <ParticipantSurveySection32
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
@@ -467,7 +468,7 @@ export default function Session2({ event, fbos }) {
               setSurveyForm={setEventForm}
               questionText={'If you heard about this program through a Faith-Based Organisation, what is the name?'}
             />
-          )}
+          )} */}
           <RadiogroupList
             header='Please reply with "True" or "False" to each of the following statements:'
             questions={radiosList2}
@@ -519,6 +520,12 @@ export default function Session2({ event, fbos }) {
           <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
+            state="presenterExplainWell"
+            title="The presenter explained the topic well"
+          />
+           <InformationUseful
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
             state="thinkDifferently"
             title="The presenters explained the topic well"
           />
@@ -527,6 +534,12 @@ export default function Session2({ event, fbos }) {
             setSurveyForm={setEventForm}
             state="canApply"
             title="I will apply the information I learned to my everyday life."
+          />
+          <InformationUseful
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            state="thinkDifferently"
+            title="The presentation made me think differently about this topic."
           />
           <TextArea
             surveyForm={eventForm}

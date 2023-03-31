@@ -14,7 +14,7 @@ const ExternalSurveyHeader = ({pageTitle, yipLegend}) => {
           />{" "}
         </div>
         {yipLegend && (
-          <p className='text-lg px-10 mt-5 text-center'>Thank you so much for completing the YIP Pre-Workshop Survey.<br/>
+          <p className='text-lg px-10 mt-5 text-center'>Thank you so much for completing the YIP Survey.<br/>
           This survey will help us improve the YIP program.<br/>
           Any data that is shared with us will be anonymous so that we can make sure our events are open and welcoming to
            all members of our community.<br/>  We use this data to monitor our efforts to reduce health disparities.
