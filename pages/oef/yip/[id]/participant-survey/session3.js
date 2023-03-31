@@ -285,7 +285,7 @@ export default function Session3({ event, fbos }) {
       {/*   <Layout showStatusHeader={true}> */}
       {/* <ToastContainer autoClose={20000} /> */}
 
-      <ExternalSurveyHeader pageTitle={"YIP Participant Survey"} />
+      <ExternalSurveyHeader pageTitle={"YIP Participant Survey"} yipLegend={true}/>
       <div
         id="event"
         className="container mx-auto rounded my-10 md:h-36 border-black rounded-tr-lg rounded-tl-lg"
