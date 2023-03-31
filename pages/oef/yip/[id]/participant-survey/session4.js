@@ -382,7 +382,7 @@ export default function Session4({ event, fbos }) {
     },
     {
       id: 2,
-      question: "The presenter explained the topic well",
+      question: "The presenters explained the topic well",
       stateValue: "thinkDifferently",
       options: agreeOrDisagreeOptions,
     },

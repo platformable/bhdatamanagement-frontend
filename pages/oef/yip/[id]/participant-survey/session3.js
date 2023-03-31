@@ -410,7 +410,7 @@ export default function Session3({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="thinkDifferently"
-            title="The presenter explained the topic well"
+            title="The presenters explained the topic well"
           />
           <InformationUseful
             surveyForm={eventForm}
