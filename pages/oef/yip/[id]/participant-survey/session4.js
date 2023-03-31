@@ -102,7 +102,7 @@ export default function Session4({ event, fbos }) {
           notifyMessage();
           setTimeout(() => {
             router.push(
-              `/oef/yip/${event?.eventid}/participant-survey/success`
+              `/oef/yip/${event?.id}/participant-survey/success`
             );
           }, 1000);
         }

@@ -17,7 +17,7 @@ import DeliveryPartner from "../../../../../components/yip/DeliveryPartner";
 import LeichardtScale from "../../../../../components/yip/LeichardtScale";
 import InformationUseful from "../../../../../components/oef-cbt-participant-survey/InformationUseful";
 import { NYSZipCodesAndBoroughs } from "../../../../../utils/sharedData";
-
+import Rating from "../../../../../components/yip/Rating";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TextArea from "../../../../../components/yip/TextArea";
@@ -96,7 +96,7 @@ export default function Session1({ event, fbos }) {
         if (response.data.statusText === "OK") {
           notifyMessage();
           setTimeout(() => {
-            router.push(`/oef/yip/${event?.eventid}/participant-survey/successs`);
+            router.push(`/oef/yip/${event?.id}/participant-survey/success`);
           }, 1000);
         }
       })
@@ -315,7 +315,7 @@ export default function Session1({ event, fbos }) {
       stateValue: "confidentLookingAfterMyMentalHealth",
       options: confidentScaleOptions,
     },
-    {
+  /*   {
       id: 3,
       question: "How satisfied were you with the workshop activities?",
       stateValue: "satisfiedEventActivities",
@@ -327,7 +327,7 @@ export default function Session1({ event, fbos }) {
         "How likely are you to recommend this workshop to your friends, family members, or peers?",
       stateValue: "recommendEvent",
       options: satisfiedScaleOptions,
-    },
+    }, */
   ];
   const ageOptions = [
     { value: "13", title: "13" },
@@ -399,7 +399,7 @@ export default function Session1({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
-          <ParticipantSurveySection32
+       {/*    <ParticipantSurveySection32
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
@@ -411,7 +411,7 @@ export default function Session1({ event, fbos }) {
               setSurveyForm={setEventForm}
               questionText={'FBO List'}
             />
-          )}
+          )} */}
           <RadiogroupList
             header='Please reply with "True" or "False" to each of the following statements:'
             questions={radioQuestionsList}
@@ -451,6 +451,18 @@ export default function Session1({ event, fbos }) {
             setSurveyForm={setEventForm}
           />
 
+<Rating  title="How satisfied were you with the workshop activities?:"
+            options={satisfiedScaleOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            stateValue={'satisfiedEventActivities'}/>
+
+<Rating  title="How likely are you to recommend this workshop to your friends, family members, or peers?"
+            options={satisfiedScaleOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            stateValue={'recommendEvent'}/>
+
 <h2 className="font-black bg-black text-white px-5 rounded-tl-md rounded-tr-md">For the following statements, please indicate your level of agreement:</h2>
 
           <InformationUseful
@@ -463,13 +475,13 @@ export default function Session1({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="presenterExplainWell"
-            title="The presenter explained the topic well"
+            title="The presenter/s explained the topic well"
           />
            <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="thinkDifferently"
-            title="The presenters explained the topic well"
+            title="The presentation made me think differently about this topic."
           />
           <InformationUseful
             surveyForm={eventForm}

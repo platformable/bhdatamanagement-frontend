@@ -89,7 +89,7 @@ export default function Session3({ event, fbos }) {
         if (response.data.statusText === "OK") {
           notifyMessage();
           setTimeout(() => {
-            router.push(`/oef/yip/${event?.eventid}/participant-survey/success`);
+            router.push(`/oef/yip/${event?.id}/participant-survey/success`);
           }, 1000);
         }
       })
@@ -414,23 +414,23 @@ export default function Session3({ event, fbos }) {
             setSurveyForm={setEventForm}
           />
 
-          <InformationUseful
+<InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="informationUseful"
-            title="The information and materials presented were us"
+            title="The information and materials presented were useful"
           />
-          <InformationUseful
+           <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="presenterExplainWell"
-            title="The presenter explained the topic well"
+            title="The presenter/s explained the topic well"
           />
            <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="thinkDifferently"
-            title="The presenters explained the topic well"
+            title="The presentation made me think differently about this topic."
           />
           <InformationUseful
             surveyForm={eventForm}
@@ -438,12 +438,7 @@ export default function Session3({ event, fbos }) {
             state="canApply"
             title="I will apply the information I learned to my everyday life."
           />
-          <InformationUseful
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-            state="thinkDifferently"
-            title="The presentation made me think differently about this topic."
-          />
+         
           <TextArea
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
