@@ -17,7 +17,7 @@ import DeliveryPartner from "../../../../../components/yip/DeliveryPartner";
 import LeichardtScale from "../../../../../components/yip/LeichardtScale";
 import InformationUseful from "../../../../../components/oef-cbt-participant-survey/InformationUseful";
 import { NYSZipCodesAndBoroughs } from "../../../../../utils/sharedData";
-
+import Rating from "../../../../../components/yip/Rating";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TextArea from "../../../../../components/yip/TextArea";
@@ -221,7 +221,79 @@ export default function Session3({ event, fbos }) {
     },
   ];
 
+
+  const confidentManagingIssues = [
+    {
+      id: 1,
+      question: "Making Job and Career Choices",
+      stateValue: "confidentJobAndCareerChoices",
+      options: confidentScaleOptions,
+    },
+    /* {
+      id: 2,
+      question: "How satisfied were you with the workshop activities?",
+      stateValue: "satisfiedEventActivities",
+      options: satisfiedScaleOptions,
+    },
+    {
+      id: 3,
+      question:
+        "How likely are you to recommend this workshop to your friends, family members, or peers?",
+      stateValue: "recommendEvent",
+      options: satisfiedScaleOptions,
+    }, */
+  ];
+  const ageOptions = [
+    { value: "13", title: "13" },
+    { value: "14", title: "14" },
+    { value: "15", title: "15" },
+    { value: "16", title: "16" },
+    { value: "17", title: "17" },
+    { value: "18", title: "18" },
+    { value: "19", title: "19" },
+    { value: "Other", title: "Other" },
+  ];
+  console.log("yip session 3 form: ", eventForm);
+
   const satisfiedScaleOptions = [
+    {
+      id: 1,
+      value: "Very unsatisfied",
+      text: "Very unsatisfied",
+      bgColor: "stronglyDisagreeBg",
+      bgColorHover: "hover:stronglyDisagreeBg",
+    },
+    {
+      id: 2,
+      value: "Unsatisfied",
+      text: "Unsatisfied",
+      bgColor: "disagreeBg",
+      bgColorHover: "hover:disagreeBg",
+    },
+    {
+      id: 3,
+      value: "Neutral",
+      text: "Neutral",
+      bgColor: "neitherAgreeOrDisagreeBg",
+      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
+    },
+    {
+      id: 4,
+      value: "Satisfied",
+      text: "Satisfied",
+      bgColor: "agreeBg",
+      bgColorHover: "hover:agreeBg",
+    },
+    {
+      id: 5,
+      value: "Very satisfied",
+      text: "Very satisfied",
+      bgColor: "stronglyAgreeBg",
+      bgColorHover: "hover:stronglyAgreeBg",
+    },
+  ];
+
+  const likeScaleOptions = [
     {
       id: 1,
       value: "Not at all likely",
@@ -258,39 +330,6 @@ export default function Session3({ event, fbos }) {
       bgColorHover: "hover:stronglyAgreeBg",
     },
   ];
-
-  const confidentManagingIssues = [
-    {
-      id: 1,
-      question: "Making Job and Career Choices",
-      stateValue: "confidentJobAndCareerChoices",
-      options: confidentScaleOptions,
-    },
-    {
-      id: 2,
-      question: "How satisfied were you with the workshop activities?",
-      stateValue: "satisfiedEventActivities",
-      options: satisfiedScaleOptions,
-    },
-    {
-      id: 3,
-      question:
-        "How likely are you to recommend this workshop to your friends, family members, or peers?",
-      stateValue: "recommendEvent",
-      options: satisfiedScaleOptions,
-    },
-  ];
-  const ageOptions = [
-    { value: "13", title: "13" },
-    { value: "14", title: "14" },
-    { value: "15", title: "15" },
-    { value: "16", title: "16" },
-    { value: "17", title: "17" },
-    { value: "18", title: "18" },
-    { value: "19", title: "19" },
-    { value: "Other", title: "Other" },
-  ];
-  console.log("yip session 3 form: ", eventForm);
   return (
     <>
       {/*   <Layout showStatusHeader={true}> */}
@@ -414,7 +453,21 @@ export default function Session3({ event, fbos }) {
             setSurveyForm={setEventForm}
           />
 
-<InformationUseful
+<Rating  title="How satisfied were you with the workshop activities?:"
+            options={satisfiedScaleOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            stateValue={'satisfiedEventActivities'}/>
+
+<Rating  title="How likely are you to recommend this workshop to your friends, family members, or peers?"
+            options={likeScaleOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            stateValue={'recommendEvent'}/>
+
+  <h2 className="font-black bg-black text-white px-5 rounded-tl-md rounded-tr-md">For the following statements, please indicate your level of agreement:</h2>
+
+          <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="informationUseful"

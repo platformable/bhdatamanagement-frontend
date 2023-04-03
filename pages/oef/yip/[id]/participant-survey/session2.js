@@ -17,6 +17,7 @@ import DeliveryPartner from "../../../../../components/yip/DeliveryPartner";
 import LeichardtScale from "../../../../../components/yip/LeichardtScale";
 import InformationUseful from "../../../../../components/oef-cbt-participant-survey/InformationUseful";
 import { NYSZipCodesAndBoroughs } from "../../../../../utils/sharedData";
+import Rating from "../../../../../components/yip/Rating";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -86,7 +87,8 @@ export default function Session2({ event, fbos }) {
     cyberBullyingOnlyNegativeSocialMedia: false,
     deleteFromInternetGoneForever: false,
     confidentCommunicatingEffectively: '',
-    presenterExplainWell:""
+    presenterExplainWell:"",
+    smartGoalAwareness:""
   });
   const router = useRouter();
 
@@ -309,6 +311,44 @@ export default function Session2({ event, fbos }) {
   const satisfiedScaleOptions = [
     {
       id: 1,
+      value: "Very unsatisfied",
+      text: "Very unsatisfied",
+      bgColor: "stronglyDisagreeBg",
+      bgColorHover: "hover:stronglyDisagreeBg",
+    },
+    {
+      id: 2,
+      value: "Unsatisfied",
+      text: "Unsatisfied",
+      bgColor: "disagreeBg",
+      bgColorHover: "hover:disagreeBg",
+    },
+    {
+      id: 3,
+      value: "Neutral",
+      text: "Neutral",
+      bgColor: "neitherAgreeOrDisagreeBg",
+      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
+    },
+    {
+      id: 4,
+      value: "Satisfied",
+      text: "Satisfied",
+      bgColor: "agreeBg",
+      bgColorHover: "hover:agreeBg",
+    },
+    {
+      id: 5,
+      value: "Very satisfied",
+      text: "Very satisfied",
+      bgColor: "stronglyAgreeBg",
+      bgColorHover: "hover:stronglyAgreeBg",
+    },
+  ];
+
+  const likeScaleOptions = [
+    {
+      id: 1,
       value: "Not at all likely",
       text: "Not at all likely",
       bgColor: "stronglyDisagreeBg",
@@ -395,6 +435,15 @@ export default function Session2({ event, fbos }) {
   
   console.log("yip session 2 form: ", eventForm);
   // console.log("yip id: ", event?.id);
+
+
+  const smartGoalsOptions = [
+    { id: 0, value: "Not at all aware" },
+    { id: 1, value: "Not so aware" },
+    { id: 2, value: "Somewhat aware" },
+    { id: 3, value: "Very aware" },
+    { id: 4, value: "Extremely aware" },
+  ];
   return (
     <>
       {/*   <Layout showStatusHeader={true}> */}
@@ -452,23 +501,20 @@ export default function Session2({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
+
+          <RadioGroup
+            options={smartGoalsOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            title="Are you aware about setting SMART goals?"
+            stateValue={"smartGoalAwareness"}
+            // IdStateValue={'programId'}
+          />
           <ParticipantSurveySection6
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
-          {/* <ParticipantSurveySection32
-            surveyForm={eventForm}
-            setSurveyForm={setEventForm}
-          />
-          {eventForm.participantReferral ===
-            "Faith-Based Organization / Place of worship (Eg. church, mosque, etc.)" && (
-            <DeliveryPartner
-              fbos={fbos}
-              surveyForm={eventForm}
-              setSurveyForm={setEventForm}
-              questionText={'If you heard about this program through a Faith-Based Organisation, what is the name?'}
-            />
-          )} */}
+        
           <RadiogroupList
             header='Please reply with "True" or "False" to each of the following statements:'
             questions={radiosList2}
@@ -509,6 +555,18 @@ export default function Session2({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
+
+<Rating  title="How satisfied were you with the workshop activities?:"
+            options={satisfiedScaleOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            stateValue={'satisfiedEventActivities'}/>
+
+<Rating  title="How likely are you to recommend this workshop to your friends, family members, or peers?"
+            options={likeScaleOptions}
+            surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            stateValue={'recommendEvent'}/>
 
 <h2 className="font-black bg-black text-white px-5 rounded-tl-md rounded-tr-md">For the following statements, please indicate your level of agreement:</h2>
 <InformationUseful

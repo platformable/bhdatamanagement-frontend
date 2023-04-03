@@ -267,6 +267,44 @@ export default function Session1({ event, fbos }) {
   const satisfiedScaleOptions = [
     {
       id: 1,
+      value: "Very unsatisfied",
+      text: "Very unsatisfied",
+      bgColor: "stronglyDisagreeBg",
+      bgColorHover: "hover:stronglyDisagreeBg",
+    },
+    {
+      id: 2,
+      value: "Unsatisfied",
+      text: "Unsatisfied",
+      bgColor: "disagreeBg",
+      bgColorHover: "hover:disagreeBg",
+    },
+    {
+      id: 3,
+      value: "Neutral",
+      text: "Neutral",
+      bgColor: "neitherAgreeOrDisagreeBg",
+      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
+    },
+    {
+      id: 4,
+      value: "Satisfied",
+      text: "Satisfied",
+      bgColor: "agreeBg",
+      bgColorHover: "hover:agreeBg",
+    },
+    {
+      id: 5,
+      value: "Very satisfied",
+      text: "Very satisfied",
+      bgColor: "stronglyAgreeBg",
+      bgColorHover: "hover:stronglyAgreeBg",
+    },
+  ];
+
+  const likeScaleOptions = [
+    {
+      id: 1,
       value: "Not at all likely",
       text: "Not at all likely",
       bgColor: "stronglyDisagreeBg",
@@ -458,7 +496,7 @@ export default function Session1({ event, fbos }) {
             stateValue={'satisfiedEventActivities'}/>
 
 <Rating  title="How likely are you to recommend this workshop to your friends, family members, or peers?"
-            options={satisfiedScaleOptions}
+            options={likeScaleOptions}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             stateValue={'recommendEvent'}/>

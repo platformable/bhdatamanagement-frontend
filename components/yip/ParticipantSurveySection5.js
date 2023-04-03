@@ -1,7 +1,20 @@
 import React from 'react';
-import { gender } from '../../utils/sharedData';
+//import { gender } from '../../utils/sharedData';
 
 export const ParticipantSurveySection5 = ({surveyForm, setSurveyForm}) => {
+
+
+const gender = [
+    { id: 1, value: "Female" },
+    { id: 2, value: "Male" },
+    { id: 3, value: "Transgender female" },
+    { id: 4, value: "Transgender male" },
+    { id: 5, value: "Gender non-conforming" },
+    { id: 6, value: "Non-binary" },
+    { id: 7, value: "Decline to answer" },
+    { id: 8, value: "Other gender identity" },
+  ];
+
   const handleForm = (e) => {
     
     setSurveyForm({...surveyForm, [e.target.name]: e.target.value, "genderID": Number(e.target.id) })
