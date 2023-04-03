@@ -188,7 +188,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     </button>
                   </div>
                 </Link>
-                <Link href={`/#`}>
+                <Link href={`/oef/data-reports/reports/YipParticipantFeedback`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
@@ -197,7 +197,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     </button>
                   </div>
                 </Link>
-                <Link href={`/#`}>
+                <Link href={`/oef/data-reports/reports/YipBaseline`}>
                   <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
