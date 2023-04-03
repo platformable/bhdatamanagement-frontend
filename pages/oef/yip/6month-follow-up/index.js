@@ -19,6 +19,7 @@ import Rating from "../../../../components/yip/Rating";
 import InformationUseful from "../../../../components/oef-cbt-participant-survey/InformationUseful";
 import { NYSZipCodesAndBoroughs } from "../../../../utils/sharedData";
 import OneColumnCheckbox from "../../../../components/yip/OneColumnCheckbox";
+import Month from "../../../../components/yip/Month";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -77,6 +78,7 @@ export default function MonthsFollowUp({ event, fbos }) {
     workshopsPlanToUseInfoLearned: '',
     workshopShouldChange: '',
     participantSuggestions: '',
+    startMonthYip:""
 
   });
   const router = useRouter();
@@ -143,13 +145,25 @@ export default function MonthsFollowUp({ event, fbos }) {
   const radioQuestionsList = [
     {
       value: "consentCanBeTakenAway",
-      title: "You can take consent away at any point, even after I’ve given it",
+      title: "You can take consent away at any point, even after you've given it",
     },
     {
       value: "participantBodyLanguageConsent",
       title: "Body language is a good indicator of consent",
     },
     {
+      value: "goodCommunicationImportantOnlyPublicSpeakers",
+      title: "Good communication is only important for people who do public speaking, like teachers or politicians.",
+    },
+    {
+      value: "oneProvenPathToSuccess",
+      title: "There is one proven path for success",
+    },
+    {
+      value: "knowHaveSti",
+      title: "You will always know when you have an STI.",
+    },
+    /* {
       value: "partnerCheckPhoneEmail",
       title:
         "My partner should be allowed to check my phone, email, or social media accounts",
@@ -181,7 +195,7 @@ export default function MonthsFollowUp({ event, fbos }) {
     {
       value: "peopleMentallyIllViolent",
       title: "People with mental Illness are violent",
-    },
+    }, */
   ];
 
   const selfCareOptions = [
@@ -324,6 +338,30 @@ export default function MonthsFollowUp({ event, fbos }) {
     },
     {
       id: 3,
+      question: "Communicating effectively",
+      stateValue: "confidentCommunicatingEffectively",
+      options: confidentScaleOptions,
+    },
+    {
+      id: 4,
+      question: "Negotiating contraceptives",
+      stateValue: "confidentNegotiatingContraceptives",
+      options: confidentScaleOptions,
+    },
+    {
+      id: 5,
+      question: "Preventing risks of HIV and STIs",
+      stateValue: "confidentPreventingHivAndStis",
+      options: confidentScaleOptions,
+    },
+    {
+      id: 6,
+      question: "Making Job and Career Choices",
+      stateValue: "confidentJobAndCareerChoices",
+      options: confidentScaleOptions,
+    },
+/*     {
+      id: 3,
       question: "How satisfied were you with the workshop activities?",
       stateValue: "satisfiedEventActivities",
       options: confidentScaleOptions,
@@ -334,7 +372,7 @@ export default function MonthsFollowUp({ event, fbos }) {
         "How likely are you to recommend this workshop to your friends, family members, or peers?",
       stateValue: "recommendEvent",
       options: confidentScaleOptions,
-    },
+    }, */
   ];
   /*   console.log("yip session 1 form: ", eventForm); */
   const smartGoalsOptions = [
@@ -473,6 +511,11 @@ export default function MonthsFollowUp({ event, fbos }) {
     { value: "19", title: "19" },
     { value: "Other", title: "Other" },
   ];
+
+
+
+  console.log("eventForm", eventForm);
+
   return (
     <>
       {/*   <Layout showStatusHeader={true}> */}
@@ -482,6 +525,11 @@ export default function MonthsFollowUp({ event, fbos }) {
 
       <div className="container mx-auto border-black rounded-lg mb-10">
         <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
+        <Month
+            eventForm={eventForm}
+            setEventForm={setEventForm}
+            stateValue={"startMonthYip"}
+          />
           <RadioGroup
             options={[...grades]}
             surveyForm={eventForm}
@@ -526,7 +574,7 @@ export default function MonthsFollowUp({ event, fbos }) {
               fbos={fbos}
               surveyForm={eventForm}
               setSurveyForm={setEventForm}
-              questionText={"FBO List"}
+              questionText={"If you heard about this program through a Faith-Based Organization, what is the name?"}
             />
           )}
           {/* REPEATED CONTEND END */}
