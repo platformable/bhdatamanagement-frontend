@@ -17,6 +17,7 @@ import RadiogroupList from "../../../components/yip/RadiogroupList";
 import DeliveryPartner from "../../../components/yip/DeliveryPartner";
 import LeichardtScale from "../../../components/yip/LeichardtScale";
 import OneColumnCheckbox from "../../../components/yip/OneColumnCheckbox";
+import TextArea from "../../../components/yip/TextArea";
 
 import { NYSZipCodesAndBoroughs } from "../../../utils/sharedData";
 
@@ -62,7 +63,7 @@ export default function preWorkshop({ fbos }) {
     pubertyDifferentExperiences: false,
     eatingHabitsEmotions: false,
     stairsInsteadElevator: false,
-    confidentMentalHealthToolsResources: false,
+    confidentLookingAfterMyMentalHealth: "",
     lowEnergySocialMediaHelpful: false,
     preparationHelpsGoals: false,
     hbcuMeaningKnowledge: false,
@@ -104,7 +105,7 @@ export default function preWorkshop({ fbos }) {
   const radioQuestionsList = [
     {
       value: "consentCanBeTakenAway",
-      title: "You can take consent away at any point, even after I’ve given it",
+      title: "You can take consent away at any point, even after you've given it",
     },
     {
       value: "participantBodyLanguageConsent",
@@ -352,7 +353,7 @@ export default function preWorkshop({ fbos }) {
     {
       id: 3,
       question: "Looking after my mental health, nutrition and wellness",
-      stateValue: "confidentMentalHealthToolsResources",
+      stateValue: "confidentLookingAfterMyMentalHealth",
       options: confidentScaleOptions,
     },
     {
@@ -481,6 +482,7 @@ export default function preWorkshop({ fbos }) {
               fbos={fbos}
               surveyForm={eventForm}
               setSurveyForm={setEventForm}
+              questionText={'If you heard about this program through a Faith-Based Organization, what is the name?'}
             />
           )}
           <RadiogroupList
@@ -579,6 +581,12 @@ export default function preWorkshop({ fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
           />
+
+          <TextArea surveyForm={eventForm}
+            setSurveyForm={setEventForm}
+            stateValue={'participantSuggestions'}
+            title={'What benefits do you hope to get out of attending and participating in this workshop series?'}
+            />
         </div>
       </div>
       <div className="flex justify-center">{loading && <Loader />}</div>
