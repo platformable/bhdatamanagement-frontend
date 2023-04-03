@@ -345,7 +345,7 @@ export default function Session3({ event, fbos }) {
           <h2 className="flex justify-end text-2xl">Event date</h2>
         </div>
         <div className="grid grid-cols-2 py-6 px-7">
-          <h2 className="text-black text-2xl">{event?.eventname}</h2>
+          <h2 className="text-black text-2xl">{event?.yipsession}</h2>
           <h2 className="flex justify-end text-2xl">
             {new Date(event?.eventdate).toLocaleDateString("en-US", {
               year: "numeric",
