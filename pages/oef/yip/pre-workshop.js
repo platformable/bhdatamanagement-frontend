@@ -434,7 +434,7 @@ export default function preWorkshop({ fbos }) {
       {/*   <Layout showStatusHeader={true}> */}
       {/* <ToastContainer autoClose={20000} /> */}
 
-      <ExternalSurveyHeader pageTitle={"YIP Pre-Workshop Survey"} />
+      <ExternalSurveyHeader pageTitle={"YIP Pre-Workshop Survey"} yipLegend={true}/>
       <div className="container mx-auto border-black rounded-lg mb-10">
         <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
           <RadioGroup
