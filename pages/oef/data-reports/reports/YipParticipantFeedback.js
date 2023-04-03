@@ -4,7 +4,7 @@ import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import YipSessionCSV from "../../../../components/csv-reports/YipSessionCSV";
 
-const YipParticipantFeedback = ({ session1, session2, session3, session4, preWorkshop, sixMonths }) => {
+const YipParticipantFeedback = ({ session1, session2, session3, session4, }) => {
   console.log("sessions", session1,"sesion2", session2,"session3 ", session3,"session 4", session4);
   const [selectedDate, setSelectedDate] = useState({
     start: null,
@@ -16,8 +16,6 @@ const YipParticipantFeedback = ({ session1, session2, session3, session4, preWor
   const [selectedSession2, setSelectedSession2] = useState([]);
   const [selectedSession3, setSelectedSession3] = useState([]);
   const [selectedSession4, setSelectedSession4] = useState([]);
-  const [selectedPreworkshop, setSelectedPreworkshop] = useState([]);
-  const [selectedSixmonths, setSelectedSixmonths] = useState([]);
 
 
  console.log(selectedSession1)
@@ -44,16 +42,11 @@ const YipParticipantFeedback = ({ session1, session2, session3, session4, preWor
       const sess2 = selectReportsInDateRange(session2);
       const sess3 = selectReportsInDateRange(session3);
       const sess4 = selectReportsInDateRange(session4);
-      const preworkshop = selectReportsInDateRange(preWorkshop)
-      const sixmonths = selectReportsInDateRange(sixMonths)
 
       setSelectedSession1(sess1)
       setSelectedSession2(sess2)
       setSelectedSession3(sess3)
       setSelectedSession4(sess4)
-      setSelectedSession4(preworkshop)
-      setSelectedSession4(sixmonths)
-
     
   }, [selectedDate]);
 
@@ -170,12 +163,7 @@ export const getServerSideProps = withPageAuthRequired({
       fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/participant_survey_outputs_session4`
       ).then((r) => r.json()),
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/yip_pre_workshop`
-      ).then((r) => r.json()),
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/yip_6months`
-      ).then((r) => r.json()),
+     
     ]);
 
     return {
@@ -184,8 +172,6 @@ export const getServerSideProps = withPageAuthRequired({
         session2,
         session3,
         session4,
-        preWorshop,
-        sixMonths
       },
     };
   },
