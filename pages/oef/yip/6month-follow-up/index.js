@@ -25,7 +25,7 @@ import "react-toastify/dist/ReactToastify.css";
 import TextArea from "../../../../components/yip/TextArea";
 
 export default function MonthsFollowUp({ event, fbos }) {
-  console.log("event", event);
+  // console.log("event", event);
   const [showResponseStatus, setShowResponseStatus] = useState();
   const [responseStatus, setResponseStatus] = useState();
   const [loading, setLoading] = useState();
@@ -99,7 +99,7 @@ export default function MonthsFollowUp({ event, fbos }) {
           notifyMessage();
           setTimeout(() => {
             router.push(
-              `/oef/yip/6month-follow-up/successs`
+              `/oef/yip/6month-follow-up/success`
             );
           }, 1000);
         setLoading(false)
@@ -336,7 +336,7 @@ export default function MonthsFollowUp({ event, fbos }) {
       options: confidentScaleOptions,
     },
   ];
-  /*   console.log("yip session 1 form: ", eventForm); */
+  console.log("6 motnh form: ", eventForm); 
   const smartGoalsOptions = [
     { id: 0, value: "Not at all aware" },
     { id: 1, value: "Not so aware" },
@@ -526,7 +526,7 @@ export default function MonthsFollowUp({ event, fbos }) {
               fbos={fbos}
               surveyForm={eventForm}
               setSurveyForm={setEventForm}
-              questionText={"FBO List"}
+              questionText={"If you heard about this program through a Faith-Based Organization, what is the name?"}
             />
           )}
           {/* REPEATED CONTEND END */}

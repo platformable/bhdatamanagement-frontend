@@ -11,10 +11,10 @@ const orderDataset = (data, headers) => {
   const results = headers.map((header) => {
     if (
       header === "eventDate" ||
-      header === "surveyCreated" || header === 'surveycreated' ||
-      header === "activityDate" 
+      header === "surveyCreated" ||
+      header === "activityDate"
     ) {
-      return `${reverseDate(data.activityDate || data.eventDate || data.surveyCreated || data.surveycreated)}`;
+      return `${reverseDate(data.surveycreated)}`;
     }
     if (typeof data[header] === "object" && data[header]) {
       `${data[header].join(", ")}`;
@@ -27,7 +27,7 @@ const orderDataset = (data, headers) => {
   return results;
 };
 
-const QuarterlyCsv = ({ csvData, fileName, headers, buttonText, download }) => {
+const YipSessionCSV = ({ csvData, fileName, headers, sessionName, sessionNumber, download }) => {
   const buttonRef = useRef()
   //   console.log("csv data",csvData)
   //   console.log('headers', headers);
@@ -56,11 +56,11 @@ const QuarterlyCsv = ({ csvData, fileName, headers, buttonText, download }) => {
       enclosingCharacter={`"`}
       ref={buttonRef}
     >
-      <button className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase">
-        Download <br /> {buttonText || ""} <br /> dataset
+      <button className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase flex flex-col items-start gap-3">
+          {sessionNumber} CSV  <br/> <span className="text-lg">{sessionName}</span>
       </button>
     </CSVLink>
   );
 };
 
-export default QuarterlyCsv;
+export default YipSessionCSV;

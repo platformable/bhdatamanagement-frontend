@@ -447,7 +447,7 @@ export default function Session1({ event, fbos }) {
               fbos={fbos}
               surveyForm={eventForm}
               setSurveyForm={setEventForm}
-              questionText={'FBO List'}
+              questionText={'If you heard about this program through a Faith-Based Organization, what is the name?'}
             />
           )} */}
           <RadiogroupList
