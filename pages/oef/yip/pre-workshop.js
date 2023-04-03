@@ -62,7 +62,7 @@ export default function preWorkshop({ fbos }) {
     pubertyDifferentExperiences: false,
     eatingHabitsEmotions: false,
     stairsInsteadElevator: false,
-    confidentMentalHealthToolsResources: false,
+    confidentLookingAfterMyMentalHealth: false,
     lowEnergySocialMediaHelpful: false,
     preparationHelpsGoals: false,
     hbcuMeaningKnowledge: false,
@@ -352,7 +352,7 @@ export default function preWorkshop({ fbos }) {
     {
       id: 3,
       question: "Looking after my mental health, nutrition and wellness",
-      stateValue: "confidentMentalHealthToolsResources",
+      stateValue: "confidentLookingAfterMyMentalHealth",
       options: confidentScaleOptions,
     },
     {

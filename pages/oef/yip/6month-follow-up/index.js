@@ -63,7 +63,7 @@ export default function MonthsFollowUp({ event, fbos }) {
     knowHaveSti: false,
     managingHealthyRelationships: '',
     confidentCommunicatingEffectively: '',
-    confidentMentalHealthToolsResources: '',
+    confidentLookingAfterMyMentalHealth: '',
     confidentNegotiatingContraceptives: '',
     confidentPreventingHivAndStis: '',
     confidentJobAndCareerChoices: '',
