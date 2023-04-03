@@ -142,6 +142,11 @@ export default function Session4({ event, fbos }) {
   ];
   const radioQuestionsList = [
     {
+      value: "consentCanBeTakenAway",
+      title:
+        "You can take consent away at any point, even after you've given it",
+    },
+    {
       value: "stiInfectionsAgeRange",
       title:
         "Almost half of all sexually transmitted infections occur amongst people aged 15-24 years old",
@@ -253,43 +258,7 @@ export default function Session4({ event, fbos }) {
     },
   ];
 
-  const satisfiedScaleOptions = [
-    {
-      id: 1,
-      value: "Not at all likely",
-      text: "Not at all likely",
-      bgColor: "stronglyDisagreeBg",
-      bgColorHover: "hover:stronglyDisagreeBg",
-    },
-    {
-      id: 2,
-      value: "Not likely",
-      text: "Not likely",
-      bgColor: "disagreeBg",
-      bgColorHover: "hover:disagreeBg",
-    },
-    {
-      id: 3,
-      value: "Neutral",
-      text: "Neutral",
-      bgColor: "neitherAgreeOrDisagreeBg",
-      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
-    },
-    {
-      id: 4,
-      value: "Likely",
-      text: "Likely",
-      bgColor: "agreeBg",
-      bgColorHover: "hover:agreeBg",
-    },
-    {
-      id: 5,
-      value: "Very likely",
-      text: "Very likely",
-      bgColor: "stronglyAgreeBg",
-      bgColorHover: "hover:stronglyAgreeBg",
-    },
-  ];
+  
 
   const confidentManagingIssues = [
     {
@@ -431,6 +400,82 @@ export default function Session4({ event, fbos }) {
     { value: "Other", title: "Other" },
   ];
   console.log("yip session 3 form: ", eventForm);
+
+  const satisfiedScaleOptions = [
+    {
+      id: 1,
+      value: "Very unsatisfied",
+      text: "Very unsatisfied",
+      bgColor: "stronglyDisagreeBg",
+      bgColorHover: "hover:stronglyDisagreeBg",
+    },
+    {
+      id: 2,
+      value: "Unsatisfied",
+      text: "Unsatisfied",
+      bgColor: "disagreeBg",
+      bgColorHover: "hover:disagreeBg",
+    },
+    {
+      id: 3,
+      value: "Neutral",
+      text: "Neutral",
+      bgColor: "neitherAgreeOrDisagreeBg",
+      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
+    },
+    {
+      id: 4,
+      value: "Satisfied",
+      text: "Satisfied",
+      bgColor: "agreeBg",
+      bgColorHover: "hover:agreeBg",
+    },
+    {
+      id: 5,
+      value: "Very satisfied",
+      text: "Very satisfied",
+      bgColor: "stronglyAgreeBg",
+      bgColorHover: "hover:stronglyAgreeBg",
+    },
+  ];
+
+  const likeScaleOptions = [
+    {
+      id: 1,
+      value: "Not at all likely",
+      text: "Not at all likely",
+      bgColor: "stronglyDisagreeBg",
+      bgColorHover: "hover:stronglyDisagreeBg",
+    },
+    {
+      id: 2,
+      value: "Not likely",
+      text: "Not likely",
+      bgColor: "disagreeBg",
+      bgColorHover: "hover:disagreeBg",
+    },
+    {
+      id: 3,
+      value: "Neutral",
+      text: "Neutral",
+      bgColor: "neitherAgreeOrDisagreeBg",
+      bgColorHover: "hover:neitherAgreeOrDisagreeBg",
+    },
+    {
+      id: 4,
+      value: "Likely",
+      text: "Likely",
+      bgColor: "agreeBg",
+      bgColorHover: "hover:agreeBg",
+    },
+    {
+      id: 5,
+      value: "Very likely",
+      text: "Very likely",
+      bgColor: "stronglyAgreeBg",
+      bgColorHover: "hover:stronglyAgreeBg",
+    },
+  ];
   return (
     <>
       {/*   <Layout showStatusHeader={true}> */}
@@ -516,7 +561,7 @@ export default function Session4({ event, fbos }) {
             subheading={"Select all that apply."}
           />
 
-          <RadiogroupList
+          {/* <RadiogroupList
             header='Please reply with "True" or "False" to each of the following statements:'
             questions={[
               {
@@ -527,7 +572,7 @@ export default function Session4({ event, fbos }) {
             ]}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
-          />
+          /> */}
           <RadiogroupList
             header='Please reply with "True" or "False" to each of the following statements:'
             questions={radioQuestionsList}
@@ -549,7 +594,7 @@ export default function Session4({ event, fbos }) {
           />
           <Rating
             title="How likely are you to recommend this workshop to your friends, family members, or peers?"
-            options={satisfiedScaleOptions}
+            options={likeScaleOptions}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             stateValue="recommendEvent"
