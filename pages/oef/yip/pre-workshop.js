@@ -62,7 +62,7 @@ export default function preWorkshop({ fbos }) {
     pubertyDifferentExperiences: false,
     eatingHabitsEmotions: false,
     stairsInsteadElevator: false,
-    confidentLookingAfterMyMentalHealth: false,
+    confidentLookingAfterMyMentalHealth: "",
     lowEnergySocialMediaHelpful: false,
     preparationHelpsGoals: false,
     hbcuMeaningKnowledge: false,

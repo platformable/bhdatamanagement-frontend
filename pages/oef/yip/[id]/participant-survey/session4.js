@@ -584,7 +584,7 @@ export default function Session4({ event, fbos }) {
             options={confidentManagingIssues}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
-          />
+          /> 
           <Rating
             title="How satisfied were you with the workshop activities?"
             options={satisfiedScaleOptions}
