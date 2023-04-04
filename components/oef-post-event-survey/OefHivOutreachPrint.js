@@ -466,7 +466,7 @@ const OefHivOutreachPrint = React.forwardRef((props, ref) => {
             you will implement for the next event, and that can be shared with
             other event organizers.
           </h3>
-          <p>{event?.lessonsLearned}</p>
+          <p>{event?.lessonslearned}</p>
         </div>
 
         <div className="grid gap-y-5">
