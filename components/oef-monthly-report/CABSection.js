@@ -8,7 +8,7 @@ const CABSection = ({
   getHrefImage,
   selectedDate,
 }) => {
-  const [cabEvents, setCabEvents] = useState(selectedEvents.filter(event => event._surveyname === 'oef-cab'))
+  const [cabEvents, setCabEvents] = useState(selectedEvents?.filter(event => event._surveyname === 'oef-cab'))
   const [stadistics, setStadistics] = useState([]);
   const [value, copy] = useCopyToClipboard();
   const reversedDate = {
@@ -16,7 +16,7 @@ const CABSection = ({
     finish: reverseDate(selectedDate.finish),
   };
  
-  const clusters = cabEvents.reduce((acc, current) => {
+  const clusters = cabEvents?.reduce((acc, current) => {
     if (!current.cluster ) return acc;  
     const oneWordValue = current.cluster.replace('Cluster', '').trim();
     if (!acc.includes(oneWordValue)) {
@@ -36,10 +36,10 @@ const CABSection = ({
     <section className="grid gap-7">
      <h1 className="bg-red bg-red-200  py-2 px-3">Community Advisory Board Meetings</h1>
      <div className="grid gap-10">
-      <p>There were {cabEvents.length} CAB meetings held in [insert month and year manually], representing the clusters: {clusters.join(', ')}.</p>
+      <p>There were {cabEvents?.length} CAB meetings held in [insert month and year manually], representing the clusters: {clusters?.join(', ')}.</p>
       <div className="grid gap-7 mb-10">
         {cabEvents &&
-          cabEvents.map((event, index) => (
+          cabEvents?.map((event, index) => (
             <div key={index} className="">
               <h3 className="font-bold mb-2">
                 {event.eventname} - {" "}
@@ -48,9 +48,9 @@ const CABSection = ({
                   day: "2-digit",
                   year: "numeric",
                 })}{" "}
-                <br /> {event.deliverypartner}
+                <br /> {event?.deliverypartner}
               </h3>
-              <p>{event.eventhighlights}</p>
+              <p>{event?.eventhighlights}</p>
             </div>
           ))}
       </div>

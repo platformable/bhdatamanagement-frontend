@@ -17,13 +17,13 @@ const AdministrativeSection = ({
   console.log("selectedEvents",selectedEvents)
   console.log("selectedEventsOutputs",selectedEventsOutputs)
 
-  const numbersOfOefEvents =selectedEvents.filter(event=>event.eventname!==null && event._surveyname==='oef-fbo-outreach' && event.submissionstatus==='Complete').length
-  const totalNumberOfParticipantsSurveys= selectedEventsOutputs.filter(events=>events.surveyname==='oef-participant').length
+  const numbersOfOefEvents =selectedEvents?.filter(event=>event.eventname!==null && event._surveyname==='oef-fbo-outreach' && event.submissionstatus==='Complete').length
+  const totalNumberOfParticipantsSurveys= selectedEventsOutputs?.filter(events=>events.surveyname==='oef-participant').length
 
   /* totalAttendees */
 
   let totalAttendees=0
-  const sumTotalAttendees=selectedEvents.forEach(element => {
+  const sumTotalAttendees=selectedEvents?.forEach(element => {
     if(element.totalattendees===0){
       return null
     } else {
@@ -34,7 +34,7 @@ const AdministrativeSection = ({
    /* NationalAwarenessDay */
    const totallNationalAwarenessDay=[]
 
-   const sumTotalNationalAwarenessDay=selectedEvents.forEach(element => {
+   const sumTotalNationalAwarenessDay=selectedEvents?.forEach(element => {
     if(element.nationalawarenessday===null || element.nationalawarenessday===''){
       return 
     } else {
@@ -45,7 +45,7 @@ const AdministrativeSection = ({
 
   const totallNationalAwarenessDayOther=[]
 
-   const sumTotalNationalAwarenessDayOther=selectedEvents.forEach(element => {
+   const sumTotalNationalAwarenessDayOther=selectedEvents?.forEach(element => {
     if(element.nationalawarenessdayother===null || element.nationalawarenessdayother===''){
       return 
     } else {
@@ -56,7 +56,7 @@ const AdministrativeSection = ({
 
    /* PREPSAFESEX */
    let totalTalkedHivPrepSaferSex=0
-   const sumTotalTalkedHivPrepSaferSex=selectedEvents.forEach(element => {
+   const sumTotalTalkedHivPrepSaferSex=selectedEvents?.forEach(element => {
      if(element.totaltalkedhivprepsafersex===0){
        return null
      } else {
@@ -66,7 +66,7 @@ const AdministrativeSection = ({
 
     /* IS CLUSTER */
    let isClusterEvent=0
-   const sumIsClusterEvent=selectedEvents.forEach(element => {
+   const sumIsClusterEvent=selectedEvents?.forEach(element => {
      if(element.isclusterevent !=='Cluster Event'){
        return null
      } else {
@@ -77,7 +77,7 @@ const AdministrativeSection = ({
 
     /* SURVEYNAME = bh-cbt-post-event */
    let totalNumberOfCbtPostEvent=0
-   const sumNumberOfCbtPostEvents=selectedEvents.forEach(element => {
+   const sumNumberOfCbtPostEvents=selectedEvents?.forEach(element => {
      if(element.surveyname==='bh-cbt-post-event'){
       totalNumberOfCbtPostEvent+=1
      }  
@@ -88,7 +88,7 @@ const AdministrativeSection = ({
     console.log("sumNumberOfCbtPostEvents",sumNumberOfCbtPostEvents)
 
     let totalNumberOfCabPostEvent=0
-   const sumNumberOfCabPostEvents=selectedEvents.forEach(element => {
+   const sumNumberOfCabPostEvents=selectedEvents?.forEach(element => {
      if(element._surveyname==='oef-cab'){
       totalNumberOfCabPostEvent+=1
      }  

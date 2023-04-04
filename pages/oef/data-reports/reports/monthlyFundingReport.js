@@ -49,13 +49,18 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents,siteV
         const [eventsOutput, participantEvents,siteVisits] = await  Promise.all([
           fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/events_output/report/`).then((r) =>
             r.json()
+            .catch(e=>console.log("error events_out",e))
           ),
           fetch(
             `${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/participant_events_output/report/`
-          ).then((r) => r.json()),
+          ).then((r) => r.json())
+          .catch(e=>console.log("error participant_events_out",e))
+          ,
           fetch(
             `${process.env.NEXT_PUBLIC_SERVER_URL}/site_visits/`
-          ).then((r) => r.json()),
+          ).then((r) => r.json())
+          .catch(e=>console.log("error site",e))
+          ,
           
         ]);
 
@@ -86,14 +91,19 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents,siteV
     setSelectedSiteVisits(siteV)
     setSelectedEvents(selectedReports);
     setSelectedEventsOutputs(selectedEventOutputsReports);
+
+
   } 
 
   const alljsons = getdata().then(data => {
-    findRangeDate(data.props.eventsOutput, data.props.participantEvents, data.props.siteVisits)
+    console.log("data",data)
+    findRangeDate(data?.props?.eventsOutput, data?.props?.participantEvents, data?.props?.siteVisits)
     console.log("props",data);
 
   })
 
+
+ 
    
   }, [selectedDate.start, selectedDate.finish]);
 

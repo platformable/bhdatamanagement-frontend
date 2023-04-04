@@ -7,13 +7,9 @@ const CBTSection = ({
   selectedEvents,
   selectedEventsOutputs,
 }) => {
-  const [cbtEvents, setCbtEvents] = useState(
-    [...selectedEvents.filter((event) => event._surveyname === "bh-cbt-register")]
+  const [cbtEvents, setCbtEvents] = useState(selectedEvents?.filter((event) => event?._surveyname === "bh-cbt-register")
   );
-  const [cbtParticipants, setCbtParticipants] = useState(
-    [...selectedEventsOutputs.filter(
-      (participant) => participant.surveyname === "cbt-participant"
-    )]
+  const [cbtParticipants, setCbtParticipants] = useState(selectedEventsOutputs?.filter((participant) => participant?.surveyname === "cbt-participant")
   );
  
   
@@ -33,22 +29,22 @@ const CBTSection = ({
   };
 
 
-  const addPositionCounts = cbtParticipants.map((participant) => {
-    if (participant.fboposition) {
+  const addPositionCounts = cbtParticipants?.map((participant) => {
+    if (participant?.fboposition) {
       fboPositionCounts.fboPositionTotals += 1;
       fboPositionCounts[participant.fboposition] += 1;
     }
   });
 
-  const addCbtCounts = cbtEvents.map(event => {
-    cbtCounts.totalAttendees += event.totalattendees
-    if (event._eventname) cbtCounts.eventNames.push(`"${event._eventname}"`);
-    if (event.createdbyname || event.createdbylastname) {
-      const facilitator = `${event.createdbyname} ${event.createdbylastname}`
-      if (!cbtCounts.facilitators.includes(facilitator)) cbtCounts.facilitators.push(`${event.createdbyname} ${event.createdbylastname}`);
+  const addCbtCounts = cbtEvents?.map(event => {
+    cbtCounts.totalAttendees += event?.totalattendees
+    if (event?._eventname) cbtCounts?.eventNames.push(`"${event._eventname}"`);
+    if (event?.createdbyname || event?.createdbylastname) {
+      const facilitator = `${event?.createdbyname} ${event?.createdbylastname}`
+      if (!cbtCounts?.facilitators.includes(facilitator)) cbtCounts?.facilitators.push(`${event?.createdbyname} ${event?.createdbylastname}`);
     }
-    if (event.externalfacilitatorname) {
-      if (!cbtCounts.externalFacilitators.includes(event.externalfacilitatorname))  cbtCounts.externalFacilitators.push(event.externalfacilitatorname)
+    if (event?.externalfacilitatorname) {
+      if (!cbtCounts?.externalFacilitators.includes(event?.externalfacilitatorname))  cbtCounts?.externalFacilitators.push(event?.externalfacilitatorname)
     }
 
   })
@@ -67,16 +63,16 @@ const CBTSection = ({
       </h1>
       <div className="grid gap-5 mb-10" id='cbt-section'>
         <p>
-          {cbtEvents.length} CBT {cbtEvents.length > 1 ? 'sessions were' : 'session was'} held in [insert month manually
-          here] on the topic {cbtCounts.eventNames.join(', ')}. {cbtCounts.totalAttendees} people
-          attended and {cbtParticipants.length} participants in total filled in a post-CBT survey.
+          {cbtEvents?.length} CBT {cbtEvents?.length > 1 ? 'sessions were' : 'session was'} held in [insert month manually
+          here] on the topic {cbtCounts?.eventNames.join(', ')}. {cbtCounts.totalAttendees} people
+          attended and {cbtParticipants?.length} participants in total filled in a post-CBT survey.
           <br />
           <br />
-          The facilitator/s was/were: {cbtCounts.facilitators.join(', ')}
+          The facilitator/s was/were: {cbtCounts?.facilitators.join(', ')}
           <br />
           <br />
 
-          The External facilitator/s was/were: {cbtCounts.externalFacilitators.join(', ')}
+          The External facilitator/s was/were: {cbtCounts?.externalFacilitators.join(', ')}
           <br />
           <br />
           {((fboPositionCounts["Coordinator"] * 100) / fboPositionCounts.fboPositionTotals).toFixed() || 0}%
@@ -98,9 +94,9 @@ const CBTSection = ({
         <p>Feedback from the participants included:
           <br/>
           <ul className="mt-7 px-7">
-            {cbtParticipants?.map(participant => participant.participantsuggestions && (
+            {cbtParticipants?.map(participant => participant?.participantsuggestions && (
               <>
-              <li className="list-disc ">{participant.participantsuggestions}</li>
+              <li className="list-disc ">{participant?.participantsuggestions}</li>
               </>
             ))}
           </ul>

@@ -21,10 +21,10 @@ const HIVOutreachSection = ({
   }
 
   /* total hiv outreach events total surveyName = oef-fbo-outreach */
-  const totalNumberOfParticipantsSurveys = selectedEventsOutputs.filter(events=>events.surveyname==='oef-participant').length
+  const totalNumberOfParticipantsSurveys = selectedEventsOutputs?.filter(events=>events.surveyname==='oef-participant').length
 
  
-  const sumHivOutreachEvents =  selectedEvents.forEach((element) => {
+  const sumHivOutreachEvents =  selectedEvents?.forEach((element) => {
     let totalHivOutreachEvents = 0;
     if (element.totalattendees === "oef-fbo-outreach" && element.submissionstatus==='Complete') {
       totalHivOutreachEvents += 1;
@@ -38,7 +38,7 @@ const HIVOutreachSection = ({
   /* totalAttendees */
 
   let totalAttendees = 0;
-  const sumTotalAttendees = selectedEvents.forEach((element) => {
+  const sumTotalAttendees = selectedEvents?.forEach((element) => {
     if (element.totalattendees === 0) {
       return null;
     } else {
@@ -47,7 +47,7 @@ const HIVOutreachSection = ({
   });
 
   let totalTalkedHivPrepSaferSex = 0;
-  const sumtotalTalkedHivPrepSaferSex = selectedEvents.forEach((element) => {
+  const sumtotalTalkedHivPrepSaferSex = selectedEvents?.forEach((element) => {
     if (element.totaltalkedhivprepsafersex === 0) {
       return null;
     } else {
@@ -56,7 +56,7 @@ const HIVOutreachSection = ({
   });
 
   let hivTesting = 0;
-  const sumHivTesting = selectedEvents.forEach((element) => {
+  const sumHivTesting = selectedEvents?.forEach((element) => {
     if (!element.hivtesting) {
       return null;
     } else {
@@ -65,7 +65,7 @@ const HIVOutreachSection = ({
   });
 
   let hepCTesting = 0;
-  const sumHepCTesting = selectedEvents.forEach((element) => {
+  const sumHepCTesting = selectedEvents?.forEach((element) => {
     if (element.hepCTesting === 0) {
       return null;
     } else {
@@ -74,7 +74,7 @@ const HIVOutreachSection = ({
   });
 
   let hivTestedTotal = 0;
-  const sumhivTestedTotal = selectedEvents.forEach((element) => {
+  const sumhivTestedTotal = selectedEvents?.forEach((element) => {
     if (element.hivtestedtotal === 0) {
       return null;
     } else {
@@ -83,7 +83,7 @@ const HIVOutreachSection = ({
   });
 
   let hivReactiveResults = 0;
-  const sumhivReactiveResults = selectedEvents.forEach((element) => {
+  const sumhivReactiveResults = selectedEvents?.forEach((element) => {
     if (element.hivreactiveresults === 0) {
       return null;
     } else {
@@ -92,7 +92,7 @@ const HIVOutreachSection = ({
   });
 
   let prepReferrals = 0;
-  const sumhprepReferrals = selectedEvents.forEach((element) => {
+  const sumhprepReferrals = selectedEvents?.forEach((element) => {
     if (element.prepreferrals === 0) {
       return null;
     } else {
@@ -101,7 +101,7 @@ const HIVOutreachSection = ({
   });
 
   let hivLinkedToCare = 0;
-  const sumhivLinkedToCare = selectedEvents.forEach((element) => {
+  const sumhivLinkedToCare = selectedEvents?.forEach((element) => {
     if (element.hivlinkedtocare === 0) {
       return null;
     } else {
@@ -110,7 +110,7 @@ const HIVOutreachSection = ({
   });
 
   let totalHivAge = 0;
-  const sumhivage = selectedEvents.forEach((element) => {
+  const sumhivage = selectedEvents?.forEach((element) => {
     totalHivAge +=
       element.altagehivunder13 +
       element.altagehiv13_18 +
@@ -124,7 +124,7 @@ const HIVOutreachSection = ({
 
 
   let totalHivAge2 = 0;
-  const sumhivage2 = selectedEvents.forEach((element) => {
+  const sumhivage2 = selectedEvents?.forEach((element) => {
     totalHivAge2 +=
       element.hiv45_49 +
       element.hiv50_54 +
@@ -150,7 +150,7 @@ const HIVOutreachSection = ({
 
 const getAgeRangeSumPerValue = (value) => {
   let total = 0;
-  selectedEventsOutputs.forEach((event) => {
+  selectedEventsOutputs?.forEach((event) => {
     if (event.programname === 'OEF' && event.participantagerange ===value) {
       return total+=1
     } else {
@@ -205,7 +205,7 @@ const percentageAgeRange2 = (
 
   const getTotalFemales = () => {
     
-    let totalFemales = selectedEventsOutputs.filter(
+    let totalFemales = selectedEventsOutputs?.filter(
       (event) =>
         event.participantgender === "Female" 
         &&
@@ -220,7 +220,7 @@ const percentageAgeRange2 = (
 
 
   const getTotalMales = () => {
-    let totalMales = selectedEventsOutputs.filter(
+    let totalMales = selectedEventsOutputs?.filter(
       (event) =>
         event.participantgender === "Male"
         &&
@@ -232,7 +232,7 @@ const percentageAgeRange2 = (
   }; 
 
   const getTotalTransgenderFemales = () => {
-    let totalTransgenderFemales = selectedEventsOutputs.filter(
+    let totalTransgenderFemales = selectedEventsOutputs?.filter(
       (event) =>
         event.participantgender === "Transgender female"
         &&
@@ -246,7 +246,7 @@ const percentageAgeRange2 = (
 
 
   const getTotalTransgenderMales = () => {
-    let totalTransgenderMales = selectedEventsOutputs.filter(
+    let totalTransgenderMales = selectedEventsOutputs?.filter(
       (event) =>
         event.participantgender === "Transgender male"
         &&
@@ -258,7 +258,7 @@ const percentageAgeRange2 = (
   }; 
 
   const getTotalTGenederNonConfirming = () => {
-    let totalGenderNonConfirming = selectedEventsOutputs.filter(
+    let totalGenderNonConfirming = selectedEventsOutputs?.filter(
       (event) =>
         event.participantgender === "Gender non-conforming"
         &&
@@ -270,7 +270,7 @@ const percentageAgeRange2 = (
   }; 
 
   const getTotalGenderNonBinary = () => {
-    let totalNonBinary = selectedEventsOutputs.filter(
+    let totalNonBinary = selectedEventsOutputs?.filter(
       (event) =>
         event.participantgender === "Non binary"
         &&
@@ -283,7 +283,7 @@ const percentageAgeRange2 = (
   }; 
 
   const getTotalGenderOther = () => {
-    let totalOther = selectedEventsOutputs.filter(
+    let totalOther = selectedEventsOutputs?.filter(
       (event) =>
         event.participantgender === "Other" 
         &&
@@ -297,7 +297,7 @@ const percentageAgeRange2 = (
 
 
   const getTotalGenderDeclinedToAnswer = () => {
-    let totalDeclinedToAnswer = selectedEventsOutputs.filter(
+    let totalDeclinedToAnswer = selectedEventsOutputs?.filter(
       (event) =>
         event.participantgender === "Declined to answer" &&
         event.surveyname === "oef-participant"
@@ -322,7 +322,7 @@ const percentageAgeRange2 = (
   // sexual orientation
 
   const getTotalStraight = () => {
-    let totalStraight = selectedEventsOutputs.filter(
+    let totalStraight = selectedEventsOutputs?.filter(
       (event) =>
         event.participantorientation === "Straight or heterosexual" &&
         event.surveyname === "oef-participant"
@@ -334,7 +334,7 @@ const percentageAgeRange2 = (
 
 
   const getTotalGay = () => {
-    let totalGay = selectedEventsOutputs.filter(
+    let totalGay = selectedEventsOutputs?.filter(
       (event) =>
         event.participantorientation === "Gay or lesbian" &&
         event.surveyname === "oef-participant"
@@ -345,7 +345,7 @@ const percentageAgeRange2 = (
  
 
   const getTotalBisexual = () => {
-    let totalBisexual = selectedEventsOutputs.filter(
+    let totalBisexual = selectedEventsOutputs?.filter(
       (event) =>
         event.participantorientation === "Bisexual" &&
         event.surveyname === "oef-participant"
@@ -356,7 +356,7 @@ const percentageAgeRange2 = (
 
 
   const getTotalQueer = () => {
-    let totalQueer = selectedEventsOutputs.filter(
+    let totalQueer = selectedEventsOutputs?.filter(
       (event) =>
         event.participantorientation === "Queer" &&
         event.surveyname === "oef-participant"
@@ -367,7 +367,7 @@ const percentageAgeRange2 = (
   
 
   const getTotalQuestioning = () => {
-    let totalQuestioning = selectedEventsOutputs.filter(
+    let totalQuestioning = selectedEventsOutputs?.filter(
       (event) =>
         event.participantorientation === "Questioning or not sure" &&
         event.surveyname === "oef-participant"
@@ -378,7 +378,7 @@ const percentageAgeRange2 = (
 
 
   const getTotalOther = () => {
-    let totalOther = selectedEventsOutputs.filter(
+    let totalOther = selectedEventsOutputs?.filter(
       (event) =>
         event.participantorientation === "Other" &&
         event.surveyname === "oef-participant"
@@ -389,7 +389,7 @@ const percentageAgeRange2 = (
 
  
   const getTotalOrientationDeclined = () => {
-    let totalOrientationDeclined = selectedEventsOutputs.filter(
+    let totalOrientationDeclined = selectedEventsOutputs?.filter(
       (event) =>
         event.participantorientation === "Declined to answer" &&
         event.surveyname === "oef-participant"
@@ -418,14 +418,14 @@ const percentageAgeRange2 = (
 
 
   const getTotalBlack = () => {
-    let totalBlack = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Black or African American')&& event.participantrace!==null).length
+    let totalBlack = selectedEventsOutputs?.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Black or African American')&& event.participantrace!==null).length
     return totalBlack
   };
 
   const totalBlack=getTotalBlack()
 
   const getTotalHispanic = () => {
-    let totalHispanic = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Hispanic, Latino/a or Spanish')&& event.participantrace!==null).length
+    let totalHispanic = selectedEventsOutputs?.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Hispanic, Latino/a or Spanish')&& event.participantrace!==null).length
     return totalHispanic
   };
 
@@ -434,14 +434,14 @@ const percentageAgeRange2 = (
  
 
   const getTotalAsian = () => {
-    let totalAsian = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Asian')&& event.participantrace!==null).length
+    let totalAsian = selectedEventsOutputs?.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Asian')&& event.participantrace!==null).length
     return totalAsian
   };
   const totalAsian= getTotalAsian()
 
 
   const getTotalAmerican = () => {
-    let totalAmerican = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('American Indian or Alaska Native')&& event.participantrace!==null).length
+    let totalAmerican = selectedEventsOutputs?.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('American Indian or Alaska Native')&& event.participantrace!==null).length
     return totalAmerican
   };
 
@@ -449,7 +449,7 @@ const percentageAgeRange2 = (
 
 
   const getTotalMiddleE = () => {
-    let totalMiddelE = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Middle Eastern or North African')&& event.participantrace!==null).length
+    let totalMiddelE = selectedEventsOutputs?.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Middle Eastern or North African')&& event.participantrace!==null).length
     return totalMiddelE
   };
 
@@ -457,7 +457,7 @@ const percentageAgeRange2 = (
 
 
   const getTotalHawaiian = () => {
-    let totalHawaiian = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Native Hawaiian or Other Pacific Islander')&& event.participantrace!==null).length
+    let totalHawaiian = selectedEventsOutputs?.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Native Hawaiian or Other Pacific Islander')&& event.participantrace!==null).length
     return totalHawaiian
   };
 
@@ -467,7 +467,7 @@ const percentageAgeRange2 = (
 
 
   const getTotalWhite = () => {
-    let totalWhite = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('White')&& event.participantrace!==null).length
+    let totalWhite = selectedEventsOutputs?.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('White')&& event.participantrace!==null).length
     return totalWhite
   };
 
@@ -477,14 +477,14 @@ const percentageAgeRange2 = (
 
 
   const getTotalSomeOtherRace = () => {
-    let totalSomeOtherRace = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Some other race or origin')&& event.participantrace!==null).length
+    let totalSomeOtherRace = selectedEventsOutputs?.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Some other race or origin')&& event.participantrace!==null).length
     return totalSomeOtherRace
   };
 const totalSomeOtherRace=getTotalSomeOtherRace()
 
 
   const getTotalRaceDeclinedToAnswer = () => {
-    let totalDeclinedToAnswer = selectedEventsOutputs.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Decline to answer')&& event.participantrace!==null).length
+    let totalDeclinedToAnswer = selectedEventsOutputs?.filter(event=>event.surveyname === "oef-participant" && event.participantrace.includes('Decline to answer')&& event.participantrace!==null).length
     return totalDeclinedToAnswer
   };
 
@@ -514,7 +514,7 @@ const totalSomeOtherRace=getTotalSomeOtherRace()
 
   const calculateBorough=(borough)=>{
     let totalBoroughs=0
-    const getTotal=selectedEventsOutputs.forEach(event=>{
+    const getTotal=selectedEventsOutputs?.forEach(event=>{
       if(event.participantborough===borough){
         totalBoroughs+=1
       }
@@ -524,9 +524,9 @@ const totalSomeOtherRace=getTotalSomeOtherRace()
   }
 
   const calculateBoroughPercentage=(borough)=>{
-    const totalOefParticipantsSurveys=selectedEventsOutputs.filter(event=>event.surveyname==='oef-participant').length
+    const totalOefParticipantsSurveys=selectedEventsOutputs?.filter(event=>event.surveyname==='oef-participant').length
     let totalBoroughs=0
-    const getTotal=selectedEventsOutputs.forEach(event=>{
+    const getTotal=selectedEventsOutputs?.forEach(event=>{
       if(event.participantborough===borough){
         totalBoroughs+=1
       }
@@ -535,13 +535,13 @@ const totalSomeOtherRace=getTotalSomeOtherRace()
     return (totalBoroughs/totalOefParticipantsSurveys)*100
   }
 
-  //const totalNumberOfParticipantsSurveys= selectedEventsOutputs.filter(events=>events.surveyname==='oef-participant').length
+  //const totalNumberOfParticipantsSurveys= selectedEventsOutputs?.filter(events=>events.surveyname==='oef-participant').length
 
 
 
   const getAgesSumPerValueName = (nameOfDataPoint) => {
     let total = 0;
-    selectedEvents.forEach((event) => {
+    selectedEvents?.forEach((event) => {
       if (event[nameOfDataPoint] !=='' && event[nameOfDataPoint] !==null) total+=event[nameOfDataPoint]})
     return total
   };
@@ -601,12 +601,12 @@ const totalSomeOtherRace=getTotalSomeOtherRace()
     {id:6,value:getTotalRaceDeclinedToAnswer(),name:"Declined to answer"},
     
   ]
-  //const totalNumberOfParticipantsSurveys= selectedEventsOutputs.filter(events=>events.surveyname==='oef-participant').length
+  //const totalNumberOfParticipantsSurveys= selectedEventsOutputs?.filter(events=>events.surveyname==='oef-participant').length
 
 
   const getAgeRangeSumPerValueName = (value,nameOfDataPoint) => {
     let total = 0;
-    selectedEventsOutputs.filter(events=>events.surveyname==='oef-participant').forEach((event) => {
+    selectedEventsOutputs?.filter(events=>events.surveyname==='oef-participant').forEach((event) => {
       if (event[nameOfDataPoint] ===value) {
         return total+=1
       } else {
@@ -645,7 +645,7 @@ const totalSomeOtherRace=getTotalSomeOtherRace()
 
     return total
   }
-  const numbersOfOefEvents =selectedEvents.filter(event=>event.eventname!==null && event._surveyname==='oef-fbo-outreach' && event.submissionstatus==='Complete').length
+  const numbersOfOefEvents =selectedEvents?.filter(event=>event.eventname!==null && event._surveyname==='oef-fbo-outreach' && event.submissionstatus==='Complete').length
   
   
 

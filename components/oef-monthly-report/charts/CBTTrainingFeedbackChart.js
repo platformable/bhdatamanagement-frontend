@@ -77,10 +77,10 @@ const CBTTrainingFeedbackChart = ({
   const [stadistics, setStadistics] = useState([]);
   useEffect(() => {
     stadistics = cbtParticipants?.map((event) => {
-      informationuseful[event.informationuseful] += 1;
-      canapply[event.canapply] += 1;
-      presenterexplainwell[event.presenterexplainwell] += 1;
-      understoodtopics[event.understoodtopics] += 1;
+      informationuseful[event?.informationuseful] += 1;
+      canapply[event?.canapply] += 1;
+      presenterexplainwell[event?.presenterexplainwell] += 1;
+      understoodtopics[event?.understoodtopics] += 1;
     });
     setStadistics([informationuseful, canapply, presenterexplainwell, understoodtopics]);
   }, [cbtParticipants]);
@@ -118,7 +118,7 @@ const CBTTrainingFeedbackChart = ({
       },
       title: {
         display: true,
-        text: ["CBT Training Feedback",`${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}  N=${cbtParticipants.length}`],
+        text: ["CBT Training Feedback",`${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}  N=${cbtParticipants?.length}`],
         position: "top",
         align: 'start',
         color: '#000',
