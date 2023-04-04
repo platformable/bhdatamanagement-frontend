@@ -472,7 +472,7 @@ export default function PostWorkshop({ event }) {
       {/*   <Layout showStatusHeader={true}> */}
       {/* <ToastContainer autoClose={20000} /> */}
 
-      <ExternalSurveyHeader pageTitle={"YIP Participant Survey"} yipLegend={true}/>
+      <ExternalSurveyHeader pageTitle={"Edit YIP Facilitator Post-Workshop Survey"} yipLegend={true}/>
       <div
         id="event"
         className="container mx-auto rounded my-10 md:h-36 border-black rounded-tr-lg rounded-tl-lg"
@@ -484,7 +484,7 @@ export default function PostWorkshop({ event }) {
         <div className="grid grid-cols-2 py-6 px-7">
           <h2 className="text-black text-2xl">{event?.yipsession}</h2>
           <h2 className="flex justify-end text-2xl">
-            {new Date(event?.eventdate).toLocaleDateString("en-US", {
+            {new Date(event?._eventdate).toLocaleDateString("en-US", {
               year: "numeric",
               month: "numeric",
               day: "numeric",

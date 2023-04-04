@@ -306,9 +306,7 @@ const EventsIndex = ({ events }) => {
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
         <p className="lg:text-xl font-bold flex items-center ">Event name</p>
         <p className="lg:text-xl font-bold flex items-center ">Event date</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">
-          Status
-        </p>
+        
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
@@ -406,9 +404,9 @@ const EventsIndex = ({ events }) => {
                             /* crearFecha2(event) */
                           }
                         </div>
-                        <div className="flex items-center justify-center  lg:text-xl font-bold bg-red-50">
+                        {/* <div className="flex items-center justify-center  lg:text-xl font-bold bg-red-50">
                           <p>{event?.submissionstatus}</p>
-                        </div>
+                        </div> */}
                         <Link href={`/oef/yip/${event.id}/edit`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Edit event</p>

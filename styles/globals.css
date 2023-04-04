@@ -635,7 +635,7 @@ label > textarea {
 
 .yip-supervisor-existing-events-head-table {
  
-  grid-template-columns: 2fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
+  grid-template-columns: 2fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
   gap: 30px;
 }
 
@@ -647,7 +647,7 @@ label > textarea {
 
 .yip-existing-events-head-table {
   
-  grid-template-columns: 2fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
+  grid-template-columns: 2fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
   gap: 30px;
 }
 
