@@ -54,7 +54,7 @@ const YipParticipantFeedback = ({ session1, session2, session3, session4, }) => 
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Dwonload YIP Participant Data"}
+        pageTitle={"Download YIP Participant Data"}
         backBtn={true}
         dashboardBtn={true}
       />

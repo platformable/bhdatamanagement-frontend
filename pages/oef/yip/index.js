@@ -228,16 +228,23 @@ const EventsIndex = ({ events }) => {
           <Link href={"/oef/yip/register"}>
             <button className="bg-black text-white rounded px-5 py-2 cursor-pointer">
               <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
-                Add YIP Event
+                Register a YIP workshop
               </p>
             </button>
           </Link>
-          <Link href={"/oef/yip/pre-workshop"}>
-            <button className="bg-black text-white rounded px-5 py-2 cursor-pointer">
+          <Link href={"/oef/yip/pre-workshop"} target="_blank">
+            <a className="bg-black text-white rounded px-5 py-2 cursor-pointer">
               <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
-                Add Participant Pre-Workshop
+              Participant Pre-Workshop Survey
               </p>
-            </button>
+            </a>
+          </Link>
+          <Link href={"/oef/yip/6month-follow-up"} target="_blank">
+            <a target="_blank" className="bg-black text-white rounded px-5 py-2 cursor-pointer">
+              <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
+              Participant 6 Monthly Follow-Up Survey
+              </p>
+            </a>
           </Link>
         </div>
       </div>
