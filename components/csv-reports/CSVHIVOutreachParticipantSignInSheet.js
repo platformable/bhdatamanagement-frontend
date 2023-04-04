@@ -8,7 +8,7 @@ const orderDataset = (data, headers) => {
     return result;
   }
   const results = headers.map(header => {
-    if(header === 'eventDate' || header === 'surveyCreated' || header==="surveyModified") {
+    if(header === 'eventDate' || header === 'surveyCreated' || header==="surveyModified" || header === "taStatusCompleteDate" || header === "surveyCompleted") {
       console.log("header",header)
       return `${reverseDate(data[header.toLowerCase()])}`
     }    
