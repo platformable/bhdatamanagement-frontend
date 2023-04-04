@@ -17,11 +17,11 @@ export default function NumberLimits({stateValue, setSurveyForm,title,surveyForm
   const handleForm = (e) => {
     let {value} = e.target
       let finalValue;
-      value > 300 ? finalValue = 300:finalValue=value
+      value > 25 ? finalValue = 25:finalValue=value
       setSurveyForm({...surveyForm,[stateValue]:Number(finalValue)})
   }
   return (
-    <div className="px-7 mt-10 ">
+    <div className=" ">
       <h2 className="font-black">
       {title}
       </h2>
@@ -32,7 +32,7 @@ export default function NumberLimits({stateValue, setSurveyForm,title,surveyForm
         onWheelCapture={(e) => e.target.blur()}
         onKeyUp={(e) => {
           let {value} = e.target
-          value > 300 && (e.target.value = 300) 
+          value > 25 && (e.target.value = 25) 
         }}
         maxLength={3}
         defaultValue={0 || surveyForm[stateValue]}

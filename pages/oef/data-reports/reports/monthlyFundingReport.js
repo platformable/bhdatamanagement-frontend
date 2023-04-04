@@ -11,13 +11,16 @@ import Yip from "../../../../components/oef-monthly-report/Yip";
 import Highlights from "../../../../components/oef-monthly-report/Highlights";
 import Challenges from "../../../../components/oef-monthly-report/Challenges";
 import Conclusion from "../../../../components/oef-monthly-report/Conclusion";
+import SiteVisits from "../../../../components/oef-monthly-report/SiteVisits";
 
 
 
 
-export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
+export default function oefMonthlyReport({ eventsOutput, participantEvents,siteVisits }) {
   const [selectedEvents, setSelectedEvents] = useState([]);
   const [selectedEventsOutputs, setSelectedEventsOutputs] = useState([]);
+  const [selectedSiteVisits, setSelectedSiteVisits] = useState([]);
+
   const [generateReport, setGenerateReport]  = useState(false)
   const [selectedDate, setSelectedDate] = useState({
     start: null,
@@ -36,11 +39,39 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
   }
   const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
 
-  console.log("eventsOutput cbt",eventsOutput)
+  // console.log("siteVisits ",siteVisits)
 
   useEffect(() => {
     // console.log("selectedDate", selectedDate);
-    const selectedReports = eventsOutput.filter(
+    async function getdata() {
+      try {
+        console.log("pasa try")
+        const [eventsOutput, participantEvents,siteVisits] = await  Promise.all([
+          fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/events_output/report/`).then((r) =>
+            r.json()
+            .catch(e=>console.log("error events_out",e))
+          ),
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/participant_events_output/report/`
+          ).then((r) => r.json())
+          .catch(e=>console.log("error participant_events_out",e))
+          ,
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/site_visits/`
+          ).then((r) => r.json())
+          .catch(e=>console.log("error site",e))
+          ,
+          
+        ]);
+
+        return { props: { eventsOutput, participantEvents,siteVisits } };
+        
+      } catch (error) {
+        return {message: 'Error'}
+      }
+    }
+  async function findRangeDate (eventsOutput, participantEvents, siteV) {
+    const selectedReports = eventsOutput?.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
         const end = new Date(new Date(selectedDate.finish).setHours(23))
@@ -48,7 +79,7 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
         return eventdate >= start && eventdate <= end
       } 
     );
-    const selectedEventOutputsReports = participantEvents.filter(
+    const selectedEventOutputsReports = participantEvents?.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
         const end = new Date(new Date(selectedDate.finish).setHours(23))
@@ -57,13 +88,25 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
       } 
     );
     
+    setSelectedSiteVisits(siteV)
     setSelectedEvents(selectedReports);
     setSelectedEventsOutputs(selectedEventOutputsReports);
-   
-  }, [selectedDate]);
+
+
+  } 
+
+  const alljsons = getdata().then(data => {
+    console.log("data",data)
+    findRangeDate(data?.props?.eventsOutput, data?.props?.participantEvents, data?.props?.siteVisits)
+    console.log("props",data);
+
+  })
+
 
  
-  console.log("cbt events en report",selectedEvents.filter((event) => event['_surveyname'] === "bh-cbt-register"))
+   
+  }, [selectedDate.start, selectedDate.finish]);
+
 
 
   return (
@@ -123,7 +166,9 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
               <CABSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} getHrefImage={getHrefImage}/>
               <CBTSection selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs}/>
               <Yip selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
+              
               <Highlights selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
+              <SiteVisits data={selectedSiteVisits}/>
               <Challenges selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
               <Conclusion selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
           </section>
@@ -134,17 +179,6 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents }) {
   );
 }
 export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    const [eventsOutput, participantEvents,] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/events_output/report/`).then((r) =>
-        r.json()
-      ),
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/participant_events_output/report/`
-      ).then((r) => r.json()),
-      
-    ]);
-    return { props: { eventsOutput, participantEvents } };
-  },
+  
 });
 

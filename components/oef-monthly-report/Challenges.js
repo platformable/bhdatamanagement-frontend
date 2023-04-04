@@ -13,8 +13,8 @@ export default function Challenges({selectedDate, selectedEvents, selectedEvents
           <h3 className="font-bold">Challenges listed by the FBOs included:</h3>
           <br/>
           <ul className="px-7">
-            {selectedEvents?.map(event => event.eventchallenges && (
-              <li className="list-disc text-lg">{event.eventchallenges}</li>
+            {selectedEvents?.map(event => event?.eventchallenges && (
+              <li className="list-disc text-lg">{event?.eventchallenges}</li>
             ))}
           </ul>
           <button

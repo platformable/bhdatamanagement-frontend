@@ -28,9 +28,9 @@ export default function Highlights({
   }
   // console.log("hiv events outputs",selectedEvents.filter(event => event._surveyname === 'oef-fbo-outreach').map(e => console.log(e.eventname, e._eventname)))
   useEffect(() => {
-    selectedEventsOutputs.map((event) => {
-      event.participantreferral &&
-        (participantReferral[event.participantreferral] += 1);
+    selectedEventsOutputs?.map((event) => {
+      event?.participantreferral &&
+        (participantReferral[event?.participantreferral] += 1);
     });
     setStadistics(participantReferral);
   }, [selectedDate]);
@@ -51,7 +51,7 @@ export default function Highlights({
         <tbody>
           {selectedEvents &&
             selectedEvents
-              .filter(
+            ?.filter(
                 (event) =>
                   event._surveyname === "oef-fbo-outreach" &&
                   event.submissionstatus === "Complete"
@@ -73,7 +73,7 @@ export default function Highlights({
                       year: "numeric",
                     })}
                   </td>
-                  <td className="text-right">{event.totalattendees}</td>
+                  <td className="text-right">{event?.totalattendees}</td>
                 </tr>
               ))}
         </tbody>
@@ -84,7 +84,7 @@ export default function Highlights({
       <div className="grid gap-7 mb-10">
         {selectedEvents &&
           selectedEvents
-          .filter(
+          ?.filter(
             (event) =>
               event._surveyname === "oef-fbo-outreach" &&
               event.submissionstatus === "Complete"
@@ -112,46 +112,46 @@ export default function Highlights({
       <h3 className="font-black mb-7">How people heard about the events</h3>
       <div className="grid gap-7 mb-10">
         <p>
-          Of the {selectedEventsOutputs.length} participants who filled in
+          Of the {selectedEventsOutputs?.length} participants who filled in
           surveys at the outreach events,{" "}
           {(
             (stadistics[
               "Faith-Based Organization / Place of worship (Eg. church, mosque, etc.)"
             ] *
               100) /
-            selectedEventsOutputs.length
+            selectedEventsOutputs?.length
           ).toFixed(1)}
           % reported that they had learned through their faith-based
           organization,{" "}
           {(
             (stadistics["Word of mouth"] * 100) /
-            selectedEventsOutputs.length
+            selectedEventsOutputs?.length
           ).toFixed(1)}
           % from word of mouth,{" "}
           {(
             (stadistics["Signs/flyers"] * 100) /
-            selectedEventsOutputs.length
+            selectedEventsOutputs?.length
           ).toFixed(1)}
           % from signs and flyers,{" "}
           {(
             (stadistics["Community-Based Organization"] * 100) /
-            selectedEventsOutputs.length
+            selectedEventsOutputs?.length
           ).toFixed(1)}
           % from a community-based organization,{" "}
           {(
             (stadistics["Social media"] * 100) /
-            selectedEventsOutputs.length
+            selectedEventsOutputs?.length
           ).toFixed(1)}
           % through social media,{" "}
           {(
             (stadistics["Referral from local health provider or services"] *
               100) /
-            selectedEventsOutputs.length
+            selectedEventsOutputs?.length
           ).toFixed(1)}
           % referral from local health provider or services,{" "}
           {(
             (stadistics["Referral from another Black Health program"] * 100) /
-            selectedEventsOutputs.length
+            selectedEventsOutputs?.length
           ).toFixed(1)}
           % referral from another Black Health program,{" "}
           {(
@@ -159,20 +159,20 @@ export default function Highlights({
               "Government or city agency (E.g., DOH, DOE, Health + Hospitals)"
             ] *
               100) /
-            selectedEventsOutputs.length
+            selectedEventsOutputs?.length
           ).toFixed(1)}
           % government or city agency (E.g., DOH, DOE, Health + Hospitals),{" "}
           {(
             (stadistics["Local Community Leader or Politician"] * 100) /
-            selectedEventsOutputs.length
+            selectedEventsOutputs?.length
           ).toFixed(1)}
           % local community leader or politician,{" "}
           {(
             (stadistics["NYCHA or public housing"] * 100) /
-            selectedEventsOutputs.length
+            selectedEventsOutputs?.length
           ).toFixed(1)}
           % NYCHA or public housing, and{" "}
-          {((stadistics["Other"] * 100) / selectedEventsOutputs.length).toFixed(
+          {((stadistics["Other"] * 100) / selectedEventsOutputs?.length).toFixed(
             1
           )}
           % Other.

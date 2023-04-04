@@ -10,11 +10,11 @@ const orderDataset = (data, headers) => {
   };
   const results = headers.map((header) => {
     if (
-      header === "eventDate" ||
-      header === "surveyCreated" ||
-      header === "activityDate"
+      header === "eventDate" || header === 'eventdate' || header === 'surveymodified' ||
+      header === "surveyCreated" || header === 'surveycreated' || 
+      header === "activityDate" 
     ) {
-      return `${reverseDate(data.activityDate || data.eventDate)}`;
+      return `${reverseDate(data[header])}`;
     }
     if (typeof data[header] === "object" && data[header]) {
       `${data[header].join(", ")}`;

@@ -18,7 +18,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 const EventsIndex = ({ events }) => {
-  console.log("events", events);
+  // console.log("events", events);
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -197,7 +197,23 @@ const EventsIndex = ({ events }) => {
     (state) => state.eventCalendarDates.value.endDate
   );
 
-
+  const findSession = (session) => {
+    console.log(session)
+    switch (session) {
+      case ('Session 1: Sexual Health and Healthy Relationships'):
+        return "1";
+        break;
+      case ('Session 2: Effective Communication'):
+        return "2";
+        break;
+      case ('Session 3: Let’s Make a choice/ HIV (Health), Education and Careers'):
+        return "3";
+        break;
+      case ('Session 4: STI & HIV Risk Reduction and Prevention'):
+        return "4";
+        break;
+    }
+  };
   // console.log(sortedEventsByDate);
   return (
     <Layout showStatusHeader={true}>
@@ -210,70 +226,79 @@ const EventsIndex = ({ events }) => {
       <div className="container mx-auto">
         <div className="flex gap-5">
           <Link href={"/oef/yip/register"}>
-            <button
-              className="bg-black text-white rounded px-5 py-2 cursor-pointer"
-            >
+            <button className="bg-black text-white rounded px-5 py-2 cursor-pointer">
               <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
-                Add YIP Event
+                Register a YIP workshop
               </p>
             </button>
           </Link>
-       
-          
+          <Link href={"/oef/yip/pre-workshop"} target="_blank">
+            <a className="bg-black text-white rounded px-5 py-2 cursor-pointer">
+              <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
+              Participant Pre-Workshop Survey
+              </p>
+            </a>
+          </Link>
+          <Link href={"/oef/yip/6month-follow-up"} target="_blank">
+            <a target="_blank" className="bg-black text-white rounded px-5 py-2 cursor-pointer">
+              <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
+              Participant 6 Monthly Follow-Up Survey
+              </p>
+            </a>
+          </Link>
         </div>
       </div>
       <div className="container mx-auto grid  items-center lg:grid-cols-2 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5 mt-7">
         <div className="flex">
           <Search searchFunction={searchFunction} />
-         </div> 
-          <div className="flex flex-col md:flex-row gap-5 justify-start lg:justify-end">
-            <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0 items-center">
-              <h3 className="">Filter by date</h3>
-            </div>
-
-            <div className="block md:flex md:flex-row gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0 ">
-              <label className="w-full">
-                <input
-                  type="date"
-                  ref={ref}
-                  id="start"
-                  placeholder="start date"
-                  onChange={(e) => {
-                    setDateFilter({ ...dateFilter, startDate: e.target.value });
-                    dispatch(
-                      updateStartDate({
-                        ...dateFilter,
-                        startDate: e.target.value,
-                      })
-                    );
-                  }}
-                  defaultValue={startDate}
-                  className="border-black rounded-md text-sm w-full"
-                />
-              </label>
-              <h3 className="text-left md:text-center md:py-5 md:py-0 py-5">
-                and
-              </h3>
-              <label className="flex justify-end w-full">
-                <input
-                  type="date"
-                  placeholder="end date"
-                  onChange={(e) => {
-                    setDateFilter({ ...dateFilter, endDate: e.target.value });
-                    dispatch(
-                      updateStartDate({
-                        ...dateFilter,
-                        endDate: e.target.value,
-                      })
-                    );
-                  }}
-                  defaultValue={endDate}
-                  className="border-black rounded-md  text-sm w-full"
-                />
-              </label>
-            </div>
+        </div>
+        <div className="flex flex-col md:flex-row gap-5 justify-start lg:justify-end">
+          <div className="block md:flex xl:justify-end md:px-0 lg:col-start-4 py-5 md:py-0  mr-0 items-center">
+            <h3 className="">Filter by date</h3>
           </div>
-      
+
+          <div className="block md:flex md:flex-row gap-y-5 lg:flex-row gap-x-5 lg:col-end-6 items-center md:my-0 ">
+            <label className="w-full">
+              <input
+                type="date"
+                ref={ref}
+                id="start"
+                placeholder="start date"
+                onChange={(e) => {
+                  setDateFilter({ ...dateFilter, startDate: e.target.value });
+                  dispatch(
+                    updateStartDate({
+                      ...dateFilter,
+                      startDate: e.target.value,
+                    })
+                  );
+                }}
+                defaultValue={startDate}
+                className="border-black rounded-md text-sm w-full"
+              />
+            </label>
+            <h3 className="text-left md:text-center md:py-5 md:py-0 py-5">
+              and
+            </h3>
+            <label className="flex justify-end w-full">
+              <input
+                type="date"
+                placeholder="end date"
+                onChange={(e) => {
+                  setDateFilter({ ...dateFilter, endDate: e.target.value });
+                  dispatch(
+                    updateStartDate({
+                      ...dateFilter,
+                      endDate: e.target.value,
+                    })
+                  );
+                }}
+                defaultValue={endDate}
+                className="border-black rounded-md  text-sm w-full"
+              />
+            </label>
+          </div>
+        </div>
       </div>
 
       <div className="events-cards-container grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 container mx-auto md:px-0 px-5 mb-5 gap-5 md:mt-0 mt-5"></div>
@@ -288,7 +313,7 @@ const EventsIndex = ({ events }) => {
         {/* <p className="lg:text-xl font-bold flex items-center ">Program</p> */}
         <p className="lg:text-xl font-bold flex items-center ">Event name</p>
         <p className="lg:text-xl font-bold flex items-center ">Event date</p>
-        <p className="lg:text-xl font-bold flex items-center justify-center">Status</p>
+        
       </div>
 
       <div className="container  mx-auto md:px-0 px-7 mb-10 pb-10 rounded-lg ">
@@ -312,7 +337,7 @@ const EventsIndex = ({ events }) => {
                   event.programname
                     .toLowerCase()
                     .includes(searchWord.toLowerCase()) ||
-                  event.eventname
+                  event.yipsession
                     .toLowerCase()
                     .includes(searchWord.toLowerCase())
                 ) {
@@ -386,25 +411,27 @@ const EventsIndex = ({ events }) => {
                             /* crearFecha2(event) */
                           }
                         </div>
-                        <div className="flex items-center justify-center  lg:text-xl font-bold bg-red-50">
+                        {/* <div className="flex items-center justify-center  lg:text-xl font-bold bg-red-50">
                           <p>{event?.submissionstatus}</p>
-                        </div>
+                        </div> */}
                         <Link href={`/oef/yip/${event.id}/edit`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">Edit event</p>
                           </div>
                         </Link>
-                        
+
                         <a
-                          href={`/oef/yip/${event.id}/participant-survey/survey`}
+                          href={`/oef/yip/${
+                            event.id
+                          }/participant-survey/session${findSession(event?.yipsession)}`}
                           className="flex items-stretch"
-                          target={'_black'}
+                          target={"_black"}
                         >
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center ">
                             <p className="leading-5">Participant survey</p>
                           </div>
                         </a>
-      
+
                         <Link href={`/oef/yip/${event.id}/upload-event`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">
@@ -416,8 +443,8 @@ const EventsIndex = ({ events }) => {
                         <Link
                           href={
                             event.posteventreportid
-                              ? `/oef/yip/${event.id}/post-event-survey/edit-post-event-survey`
-                              : `/oef/yip/${event.id}/post-event-survey/register`
+                              ? `/oef/yip/${event.id}/post-workshop/edit`
+                              : `/oef/yip/${event.id}/post-workshop/`
                           }
                         >
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center text-center">

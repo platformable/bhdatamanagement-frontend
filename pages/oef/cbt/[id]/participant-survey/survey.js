@@ -203,7 +203,7 @@ participantTools:""
               surveyForm={surveyForm}
               setSurveyForm={setSurveyForm}
               state='presenterExplainWell'
-              title='3. The presenter explained the topic well.'
+              title='3. The presenters explained the topic well.'
             />
             <InformationUseful
               surveyForm={surveyForm}

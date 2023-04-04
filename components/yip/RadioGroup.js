@@ -1,13 +1,11 @@
 import React from 'react'
 
-export default function RadioGroup({options,surveyForm,setSurveyForm,title,stateValue, IdStateValue}) {
-
-
+export default function RadioGroup({options,surveyForm,setSurveyForm,title,stateValue, IdStateValue, widthForInput}) {
 
   
   return (
-    <div className="">
-    <h2 className="font-black">
+    <div className=" ">
+    <h2 className="font-black" >
       {title}
     </h2>
     <div className="mt-7 grid grid-cols-1 space-between gap-5">
@@ -25,19 +23,20 @@ export default function RadioGroup({options,surveyForm,setSurveyForm,title,state
                 setSurveyForm(prev => ({...prev, [stateValue]: option.value }));
               }
               }
+              defaultChecked={option.value === surveyForm[stateValue] ? 'checked' : ''}
               name={stateValue}
-              defaultChecked={
-                option.value === surveyForm?.[stateValue] ? "checked" : ""
-              }
-              disabled={stateValue === 'yipSession'}
+              // disabled={stateValue !== 'yipSession'}
             />
             <p className="">{option.value}</p>
-            {option === 'Other' && (
+            {option.value === 'Other' && (
               <input type="text" 
+              className='border p-2'
+              style={{...widthForInput}}
               onChange={(e) =>
-                setSurveyForm({...surveyForm, [`${stateValue}Other`]: e.target.name })
+               {
+                setSurveyForm((prev) => ({...prev, [`${stateValue}Other`]: e.target.value }))}
               }
-              defaultValue={`${stateValue}Other`}
+              value={surveyForm[`${stateValue}Other`]  }
               />
             )}
           </label>

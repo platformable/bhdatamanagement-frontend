@@ -635,7 +635,7 @@ label > textarea {
 
 .yip-supervisor-existing-events-head-table {
  
-  grid-template-columns: 2fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
+  grid-template-columns: 2fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
   gap: 30px;
 }
 
@@ -647,7 +647,7 @@ label > textarea {
 
 .yip-existing-events-head-table {
   
-  grid-template-columns: 2fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
+  grid-template-columns: 2fr 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
   gap: 30px;
 }
 
@@ -718,4 +718,14 @@ label h3 {
 }
 .text-to-print {
   font-size: 8px !important;
+}
+
+.LeichardTScale {
+  grid-template-columns: 3fr 2fr 2fr 2fr 2fr 2fr;
+}
+
+@media (max-width: 768px) {
+  .LeichardTScale {
+    grid-template-columns: 1fr;
+  }
 }

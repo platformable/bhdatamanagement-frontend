@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 
-const OneColumnCheckbox = ({options, surveyForm,setSurveyForm,title,stateValue}) => {
+const OneColumnCheckbox = ({options, surveyForm,setSurveyForm,title,stateValue, subheading}) => {
 
     console.log("options",options)
 
@@ -25,10 +25,11 @@ const OneColumnCheckbox = ({options, surveyForm,setSurveyForm,title,stateValue})
         setSurveyForm({...surveyForm,[stateValue]:data})
       },[data])
     return (
-        <div className="question-body">
+        <div className="">
       <h2 className=" font-black">
         {title}
       </h2>
+      <p className='mt-2'>{subheading}</p>
       <div className="mt-7 grid grid-cols-1 space-between gap-5">
         {options &&
           options?.map((option, index) => {
