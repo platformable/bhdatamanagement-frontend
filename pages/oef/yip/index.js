@@ -18,7 +18,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 const EventsIndex = ({ events }) => {
-  console.log("events", events);
+  // console.log("events", events);
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -330,7 +330,7 @@ const EventsIndex = ({ events }) => {
                   event.programname
                     .toLowerCase()
                     .includes(searchWord.toLowerCase()) ||
-                  event.eventname
+                  event.yipsession
                     .toLowerCase()
                     .includes(searchWord.toLowerCase())
                 ) {
