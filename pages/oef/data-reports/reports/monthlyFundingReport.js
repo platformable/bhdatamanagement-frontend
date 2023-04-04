@@ -19,6 +19,8 @@ import SiteVisits from "../../../../components/oef-monthly-report/SiteVisits";
 export default function oefMonthlyReport({ eventsOutput, participantEvents,siteVisits }) {
   const [selectedEvents, setSelectedEvents] = useState([]);
   const [selectedEventsOutputs, setSelectedEventsOutputs] = useState([]);
+  const [selectedSiteVisits, setSelectedSiteVisits] = useState([]);
+
   const [generateReport, setGenerateReport]  = useState(false)
   const [selectedDate, setSelectedDate] = useState({
     start: null,
@@ -37,11 +39,34 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents,siteV
   }
   const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
 
-  console.log("siteVisits ",siteVisits)
+  // console.log("siteVisits ",siteVisits)
 
   useEffect(() => {
     // console.log("selectedDate", selectedDate);
-    const selectedReports = eventsOutput.filter(
+    async function getdata() {
+      try {
+        console.log("pasa try")
+        const [eventsOutput, participantEvents,siteVisits] = await  Promise.all([
+          fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/events_output/report/`).then((r) =>
+            r.json()
+          ),
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/participant_events_output/report/`
+          ).then((r) => r.json()),
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/site_visits/`
+          ).then((r) => r.json()),
+          
+        ]);
+
+        return { props: { eventsOutput, participantEvents,siteVisits } };
+        
+      } catch (error) {
+        return {message: 'Error'}
+      }
+    }
+  async function findRangeDate (eventsOutput, participantEvents, siteV) {
+    const selectedReports = eventsOutput?.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
         const end = new Date(new Date(selectedDate.finish).setHours(23))
@@ -49,7 +74,7 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents,siteV
         return eventdate >= start && eventdate <= end
       } 
     );
-    const selectedEventOutputsReports = participantEvents.filter(
+    const selectedEventOutputsReports = participantEvents?.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
         const end = new Date(new Date(selectedDate.finish).setHours(23))
@@ -58,13 +83,20 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents,siteV
       } 
     );
     
+    setSelectedSiteVisits(siteV)
     setSelectedEvents(selectedReports);
     setSelectedEventsOutputs(selectedEventOutputsReports);
-   
-  }, [selectedDate]);
+  } 
 
- 
-  console.log("cbt events en report",selectedEvents.filter((event) => event['_surveyname'] === "bh-cbt-register"))
+  const alljsons = getdata().then(data => {
+    findRangeDate(data.props.eventsOutput, data.props.participantEvents, data.props.siteVisits)
+    console.log("props",data);
+
+  })
+
+   
+  }, [selectedDate.start, selectedDate.finish]);
+
 
 
   return (
@@ -126,7 +158,7 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents,siteV
               <Yip selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
               
               <Highlights selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
-              <SiteVisits data={siteVisits}/>
+              <SiteVisits data={selectedSiteVisits}/>
               <Challenges selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
               <Conclusion selectedDate={selectedDate} selectedEvents={selectedEvents} selectedEventsOutputs={selectedEventsOutputs} />
           </section>
@@ -137,20 +169,6 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents,siteV
   );
 }
 export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    const [eventsOutput, participantEvents,siteVisits] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/events_output/report/`).then((r) =>
-        r.json()
-      ),
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/participant_events_output/report/`
-      ).then((r) => r.json()),
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/site_visits/`
-      ).then((r) => r.json()),
-      
-    ]);
-    return { props: { eventsOutput, participantEvents,siteVisits } };
-  },
+  
 });
 

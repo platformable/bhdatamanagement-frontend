@@ -47,7 +47,7 @@ const YipParticipantFeedback = ({  preWorkshop, sixMonths }) => {
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Dwonload YIP Participant Baseline Data"}
+        pageTitle={"Download YIP Participant Baseline Data"}
         backBtn={true}
         dashboardBtn={true}
       />

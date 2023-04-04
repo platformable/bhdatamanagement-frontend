@@ -18,6 +18,7 @@ import authUserICon from '../../public/authorized-users-icon.svg'
 import addUserICon from '../../public/add-new-user-icon.svg' 
 import Header from '../../components/Header';
 import Layout from '../../components/Layout';
+import DashboardBtn from '../../components/DashboardBtn';
 
 export default function AuthorizedUsersIndex({data, users}) {
   const router = useRouter()
@@ -73,19 +74,7 @@ export default function AuthorizedUsersIndex({data, users}) {
            <div className="container md:mx-auto"> 
               <div className="flex items-center py-5">
                 
-                <Link href="/dashboard">
-                <a
-                  className="px-2 py-2  flex bg-black text-white  rounded gap-x-2 items-center font-black"
-                  id=""
-                >
-                {/*   <Image
-                    src="/supervisor/dashboard_icon.svg"
-                    width={22}
-                    height={20}
-                  /> */}
-                  Dashboard
-                </a>
-               </Link>
+                <DashboardBtn />
               </div>
             <div className='button-container  md:flex justify-between items-center py-5'>
                <h1 className='block font-bold '>Manage users</h1>
