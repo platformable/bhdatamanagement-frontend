@@ -14,7 +14,7 @@ const orderDataset = (data, headers) => {
       header === "surveyCreated" || header === 'surveycreated' ||
       header === "activityDate"
     ) {
-      return `${reverseDate(data[header])}`;
+      return `${reverseDate(data[header.toLowerCase()])}`;
     }
     if (typeof data[header] === "object" && data[header]) {
       `${data[header].join(", ")}`;
