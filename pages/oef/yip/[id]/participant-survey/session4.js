@@ -635,7 +635,7 @@ export default function Session4({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="canApply"
-            title="I will apply the information I learned to my everyday life."
+            title="I will apply the information I learned to my everyday life"
           />
           <TextArea
             surveyForm={eventForm}
