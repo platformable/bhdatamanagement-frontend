@@ -47,7 +47,7 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Download Quarterly Report Subcontractor CSV Data"}
+        pageTitle={"Download Quarterly Report CBO Contractor CSV Data"}
         backBtn={true}
         dashboardBtn={true}
       />

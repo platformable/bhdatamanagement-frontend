@@ -23,6 +23,7 @@ import EventQuestions from "../../../../../components/oef-cbt-post-event-survey/
 import OrganizerFeedback from "../../../../../components/oef-cbt-post-event-survey/OrganizerFeedback";
 import DropboxDocumentUpload from "../../../../../components/oef-post-event-survey/DropboxDocumentUpload";
 import ResponseStatusModal from "../../../../../components/ResponseStatusModal";
+import NameGuestSpeakers from "../../../../../components/oef-cbt-post-event-survey/NameGuesSpeakers";
 
 const PostEventReport = ({ event }) => {
   const { user, error, isLoading } = useUser();
@@ -40,6 +41,7 @@ const PostEventReport = ({ event }) => {
     programid: 1,
     eventDate: new Date(),
     programname: "OEF",
+    nameGuestSpeakers: "",
     participantRegistrationForm: false,
     eventStartedOnTime: false,
     eventFinishedOnTime: false,
@@ -50,7 +52,7 @@ const PostEventReport = ({ event }) => {
     reminderSafeSpace: false,
     reminderPostEvaluationSurvey: false,
     eventChecklistOther: false,
-    totalAttendees: "",
+    totalAttendees: 0,
     eventChallenges: "",
     eventQuestions: "",
     surveyname: "bh-cbt-post-event",
@@ -118,6 +120,11 @@ const PostEventReport = ({ event }) => {
         }
       })
       .catch(function (error) {
+        setResponseStatus({
+          success: true,
+          statusMessage:
+            "Something went wrong, please try again",
+        });
         console.error("error: ", error);
       });
   };
@@ -139,6 +146,7 @@ const PostEventReport = ({ event }) => {
           />
 
           <div className="mt-10 border-black bg-white rounded-lg p-1 mb-10 pb-10 shadow-lg">
+            <NameGuestSpeakers eventForm={eventForm} setEventForm={setEventForm} /> 
             <MainRoles eventForm={eventForm} setEventForm={setEventForm} />
             <ProgramLeaders eventForm={eventForm} setEventForm={setEventForm} />
             <TotalAttendes
