@@ -2,6 +2,9 @@ import React, { useEffect, useState} from "react";
 import { CSVLink } from "react-csv";
 const orderDataset = (data, headers) => {
   const reverseDate = (date) => {
+    if (!date) {
+      return null
+    }
     const splitted = new Date(date).toISOString().split("T")
     const reverse = splitted[0].split('-');
     const result=reverse[1]+'/'+reverse[2]+'/'+reverse[0];
