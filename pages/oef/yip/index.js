@@ -432,13 +432,13 @@ const EventsIndex = ({ events }) => {
                           </div>
                         </a>
 
-                        <Link href={`/oef/yip/${event.id}/upload-event`}>
+                        {/* <Link href={`/oef/yip/${event.id}/upload-event`}>
                           <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center">
                             <p className="leading-5">
                               Uploads docs &#38; photos, etc{" "}
                             </p>
                           </div>
-                        </Link>
+                        </Link> */}
 
                         <Link
                           href={
