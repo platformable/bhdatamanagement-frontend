@@ -369,7 +369,7 @@ export const allHeaders = {
     "improveEngagement",
     "eventChallenges",
     "eventQuestions",
-    "organizerFeedback"
+    "organizerFeedback",
   ],
 };
 const ReportPicker = ({
@@ -377,11 +377,9 @@ const ReportPicker = ({
   pageTitle,
   surveyName,
   fileName,
+  headerToFilter
 }) => {
-  console.log(
-    "******************",
-    participantReport
-  );
+  console.log("******************", participantReport);
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -397,10 +395,12 @@ const ReportPicker = ({
     const selectedReports = participantReport.filter((report) => {
       const start = new Date(new Date(selectedDate.start).setHours(0));
       const end = new Date(new Date(selectedDate.finish).setHours(23));
-      const eventdate = new Date(report?.eventdate || report?.surveycreated || report?.surveyCompleted );
+      const eventdate = new Date(
+        report[headerToFilter]
+      );
+      
       // console.log("start", start)
       // console.log("end", end)
-      // console.log("eventdate", eventdate)
       console.log(eventdate >= start && eventdate <= end);
       return eventdate >= start && eventdate <= end;
     });
@@ -470,6 +470,7 @@ export const getServerSideProps = withPageAuthRequired({
             surveyRoute: "fbo/participant_survey",
             pageTitle: "Download OEF Participant Sign-In sheet data",
             fileName: "OEF_Participant_Sign_In_Sheet",
+            headerToFilter: "eventdate",
           };
           break;
         case "cbt_participant_survey":
@@ -477,6 +478,7 @@ export const getServerSideProps = withPageAuthRequired({
             surveyRoute: "cbt/participant_survey",
             pageTitle: "Download CBT Participant Feedback data",
             fileName: "CBT_Participant_Survey",
+            headerToFilter: "eventdate",
           };
           break;
         case "hiv_outreach_event":
@@ -484,6 +486,7 @@ export const getServerSideProps = withPageAuthRequired({
             surveyRoute: "hiv/fbo_outreach",
             pageTitle: "Download HIV Outreach Event data",
             fileName: "HIV_Outreach_Event",
+            headerToFilter: "eventdate",
           };
           break;
         case "cbt_quarterly":
@@ -491,6 +494,7 @@ export const getServerSideProps = withPageAuthRequired({
             surveyRoute: "cbt/cbt_quarterly",
             pageTitle: "Download CBT Quarterly Evaluation Data",
             fileName: "CBT_Quarterly_Evaluation",
+            headerToFilter: "surveycreated",
           };
           break;
         case "technical_assistance_request":
@@ -498,6 +502,7 @@ export const getServerSideProps = withPageAuthRequired({
             surveyRoute: "ta/technical_assitance",
             pageTitle: "Download OEF Technical Assistance Request Data",
             fileName: "Technical_Assistance_Request",
+            headerToFilter: "tadatesubmitted",
           };
           break;
         case "site_visits":
@@ -505,6 +510,7 @@ export const getServerSideProps = withPageAuthRequired({
             surveyRoute: "sv/site_visits",
             pageTitle: "Download Site Visit Data",
             fileName: "Site_Visits",
+            headerToFilter: "eventdate",
           };
           break;
         case "cbt_facilitator_feedback":
@@ -512,11 +518,12 @@ export const getServerSideProps = withPageAuthRequired({
             surveyRoute: "cbt/facilitator",
             pageTitle: "Download CBT Facilitator Feedback Data",
             fileName: "CBT_Facilitator_Feedback",
+            headerToFilter: "eventdate",
           };
           break;
       }
     };
-    const { surveyRoute, pageTitle, fileName } = reportNameFromSurveyName();
+    const { surveyRoute, pageTitle, fileName, headerToFilter } = reportNameFromSurveyName();
 
     console.log("surveyRoute", surveyRoute);
     const response = await fetch(
@@ -529,7 +536,9 @@ export const getServerSideProps = withPageAuthRequired({
         pageTitle: pageTitle,
         surveyName: surveyName,
         fileName,
+        headerToFilter
       },
     };
   },
 });
+
