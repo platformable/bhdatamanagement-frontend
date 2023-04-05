@@ -485,13 +485,13 @@ export default function Session3({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="thinkDifferently"
-            title="The presentation made me think differently about this topic."
+            title="The presentation made me think differently about this topic"
           />
           <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="canApply"
-            title="I will apply the information I learned to my everyday life."
+            title="I will apply the information I learned to my everyday life"
           />
          
           <TextArea
