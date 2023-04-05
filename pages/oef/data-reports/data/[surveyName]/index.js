@@ -325,8 +325,8 @@ export const allHeaders = {
     "programName",
     "surveyName",
     "id",
-  "createdByName",
-  "createdByLastName",
+    "createdByName",
+    "createdByLastName",
     "surveyCompleted",
     "surveyModified",
     "eventName",
@@ -378,10 +378,10 @@ const ReportPicker = ({
   surveyName,
   fileName,
 }) => {
-  // console.log(
-  //   "******************error: does not have eventdate to filter",
-  //   participantReport
-  // );
+  console.log(
+    "******************",
+    participantReport
+  );
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -397,7 +397,7 @@ const ReportPicker = ({
     const selectedReports = participantReport.filter((report) => {
       const start = new Date(new Date(selectedDate.start).setHours(0));
       const end = new Date(new Date(selectedDate.finish).setHours(23));
-      const eventdate = new Date(report?.eventdate);
+      const eventdate = new Date(report?.eventdate || report?.surveycreated || report?.surveyCompleted );
       // console.log("start", start)
       // console.log("end", end)
       // console.log("eventdate", eventdate)
