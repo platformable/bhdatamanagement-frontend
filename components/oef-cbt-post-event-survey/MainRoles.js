@@ -39,7 +39,7 @@ const [data,setData]=useState(eventForm?.mainRoles || [])
     return (
         <div className="question-body">
       <h2 className=" font-black">
-        What was your primary role today?
+          What was their primary role today?
       </h2>
       <div className="mt-7 grid md:grid-cols-2 space-between gap-5">
         {options &&
