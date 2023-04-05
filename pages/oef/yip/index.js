@@ -232,14 +232,14 @@ const EventsIndex = ({ events }) => {
               </p>
             </button>
           </Link>
-          <Link href={"/oef/yip/pre-workshop"} target="_blank">
-            <a className="bg-black text-white rounded px-5 py-2 cursor-pointer">
+          <Link href={"/oef/yip/pre-workshop"} >
+            <a target="_blank" className="bg-black text-white rounded px-5 py-2 cursor-pointer">
               <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
               Participant Pre-Workshop Survey
               </p>
             </a>
           </Link>
-          <Link href={"/oef/yip/6month-follow-up"} target="_blank">
+          <Link href={"/oef/yip/6month-follow-up"} >
             <a target="_blank" className="bg-black text-white rounded px-5 py-2 cursor-pointer">
               <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
               Participant 6 Monthly Follow-Up Survey
@@ -447,12 +447,12 @@ const EventsIndex = ({ events }) => {
                               : `/oef/yip/${event.id}/post-workshop/`
                           }
                         >
-                          <div className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center text-center">
+                          <a target="_blank" className="cursor-pointer flex items-center border-black shadow-md rounded-lg text-center lg:text-xl p-2 font-bold justify-center text-center">
                             <p className="leading-5 text-center">
                               {event.posteventreportid ? "Edit " : "Complete "}{" "}
                               post-event survey
                             </p>
-                          </div>
+                          </a>
                         </Link>
                         <div
                           onClick={() => makeIcsFile(event)}

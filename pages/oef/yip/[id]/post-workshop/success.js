@@ -9,7 +9,7 @@ const success = () => {
     <div className="h-88  py-10 px-10  mt-3 flex flex-col gap-5 items-center rounded-lg border-black">
           
           <h1 className="text-center font-black">
-            YIP Pre-Workshop Survey
+          YIP Facilitator Post-Workshop Survey
           </h1>
           <div className="flex flex-col gap-5 md:flex-row items-center mt-5">
             <h2 className="pt-2">In partnership with</h2>
