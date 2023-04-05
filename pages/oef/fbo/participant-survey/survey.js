@@ -81,7 +81,7 @@ const Survey = ({ event, fbos }) => {
     setError('')
 
     const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
-      key === "participantReferralOther" || key === "participantSuggestions" || key === "participantGenderOther" || key === "participantRaceOther" || key === "participantEthnicityOther" || key === "participantRaceOther" || key === "participantOrientationOther"
+      key === "participantReferralOther" || key === "participantSuggestions" || key === "participantGenderOther" || key === "participantRaceOther" || key === "participantEthnicityOther" || key === "participantRaceOther" || key === "participantOrientationOther" || key==='participantBorough'
 
         ? false
         : value === 0 || value.length === 0

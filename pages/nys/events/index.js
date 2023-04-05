@@ -275,6 +275,7 @@ const EventsIndex = ({ events }) => {
                 ) {
                   return event;
                 }
+                 if(!event.eventname) return null
                 if (
                   event.programname
                     .toLowerCase()
