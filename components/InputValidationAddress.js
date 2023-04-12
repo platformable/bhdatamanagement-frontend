@@ -13,7 +13,7 @@ const InputValidationAddress = ({ setForm, name, defaultValue }) => {
     defaultValue,
     cache: 24 * 60 * 60,
   });
-console.log("value", value)
+// console.log("value", value)
   const handleInput = (e) => {
     setValue(e.target.value);
   };
@@ -63,7 +63,7 @@ console.log("value", value)
   };
 
   const renderSuggestions = () =>
-    data.map((suggestion, other) => {
+    data?.map((suggestion) => {
       const {
         place_id,
         structured_formatting: { main_text, secondary_text },
@@ -79,7 +79,6 @@ console.log("value", value)
         </li>
       );
     });
-
   return (
     <div>
       <input
@@ -97,14 +96,14 @@ console.log("value", value)
         </ul>
       )}
       {status === "ZERO_RESULTS" && (
-        <ul className="divide-black divide-y rounded border-black">
-          <li
+        <div className="divide-black divide-y rounded border-black">
+          <p
             className="py-2 px-4"
             onClick={(e) => setForm((prev) => ({ ...prev, [name]: value }))}
           >
             {value}
-          </li>
-        </ul>
+          </p>
+        </div>
       )}
     </div>
   );
