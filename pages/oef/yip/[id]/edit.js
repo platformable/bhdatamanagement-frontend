@@ -149,7 +149,7 @@ const EditYip = ({event, user}) => {
   {id: 2, value:'Session 2: Effective Communication'},
   {id: 3, value:'Session 3: Let’s Make a choice/ HIV (Health), Education and Careers'},
   {id: 4, value:'Session 4: STI & HIV Risk Reduction and Prevention'},
-  {id:7, value:'Other'},
+  // {id:7, value:'Other'},
 
   ]
 
@@ -171,7 +171,7 @@ const EditYip = ({event, user}) => {
         <div className="container mx-auto border rounded-lg mb-10">
           <div className="register-envent-form-container  grid gap-10 bg-white  rounded-lg px-7 my-10 ">
 
-           <RadioGroup 
+           {/* <RadioGroup 
             options={[{id:3,value:'NYS CMP'},{id:1,value:'OEF'}]} 
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
@@ -179,7 +179,7 @@ const EditYip = ({event, user}) => {
             stateValue={'programName'}
             IdStateValue={'programId'}
 
-            />
+            /> */}
 
             <RadioGroup 
             options={yipSessionOptions} 
@@ -189,7 +189,7 @@ const EditYip = ({event, user}) => {
             stateValue={'yipSession'}
             />
 
-            {eventForm.yipSession==='Other' && (
+            {/* {eventForm.yipSession==='Other' && (
                 
             <TextArea 
             surveyForm={eventForm}
@@ -198,14 +198,14 @@ const EditYip = ({event, user}) => {
             stateValue={'yipSessionOther'}
             />
             )}
-       
-            <RadioGroup 
+        */}
+            {/* <RadioGroup 
             options={workArea}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title='Which region is the YIP running in?'
             stateValue={'workArea'}
-            />
+            /> */}
 
 
             <OnlineOrInPerson 

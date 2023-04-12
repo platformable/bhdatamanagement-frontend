@@ -180,15 +180,15 @@ const Register = ({user}) => {
 
             /> */}
 
-            {/* <RadioGroup 
+            <RadioGroup 
             options={yipSessionOptions} 
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title='Which YIP session is it?'
             stateValue={'yipSession'}
-            /> */}
+            />
 
-            {eventForm.yipSession==='Other' && (
+            {/* {eventForm.yipSession==='Other' && (
                 
             <TextArea 
             surveyForm={eventForm}
@@ -196,15 +196,15 @@ const Register = ({user}) => {
             title='Please provide an event description'
             stateValue={'yipSessionOther'}
             />
-            )}
+            )} */}
        
-            <RadioGroup 
+            {/* <RadioGroup 
             options={workArea}
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             title='Which region is the YIP running in?'
             stateValue={'workArea'}
-            />
+            /> */}
 
 
             <OnlineOrInPerson 
