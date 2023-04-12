@@ -42,6 +42,7 @@ const EditYip = ({event, user}) => {
     eventStartTime:event?.eventstarttime,
     inPersonEventTypeId:event?.inpersoneventtypeid || 0,
     inPersonEventTypeName:event?.inpersoneventtypename || "",
+    inPersonEventTypeNameOther:event?.inpersoneventtypenameother || "",
     locationAddress:event?.locationaddress || "",
     onlineEventTypeId:event?.onlineeventtypeid ||  0,
     onlineEventTypeName:event?.onlineeventtypename || "",
@@ -60,6 +61,7 @@ const EditYip = ({event, user}) => {
   });
 
   console.log("oef state form", eventForm);
+  console.log("event", event);
   async function makeIcsFile() {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];
