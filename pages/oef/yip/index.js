@@ -246,6 +246,19 @@ const EventsIndex = ({ events }) => {
               </p>
             </a>
           </Link>
+          
+            <a href='/qr/oef-yip-pre-workshop.png' className="bg-black text-white rounded px-5 py-2 cursor-pointer" download>
+              <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
+              Pre workshop QR
+              </p>
+            </a>
+
+            <a href='/qr/oef-6month-followup.png' className="bg-black text-white rounded px-5 py-2 cursor-pointer" download>
+              <p className="flex bg-black gap-x-2 items-center font-black text-white rounded">
+              6 Monthly QR
+              </p>
+            </a>
+
         </div>
       </div>
       <div className="container mx-auto grid  items-center lg:grid-cols-2 container mx-auto md:px-0 px-5 md:mb-5 md:gap-5 mt-7">
