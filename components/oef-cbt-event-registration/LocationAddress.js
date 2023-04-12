@@ -4,7 +4,7 @@ const LocationAddress = ({eventForm,setEventForm}) => {
 
   return (
     <div className=" rounded">
-    <h2 className="font-black">
+    <h2 className="font-black mb-7">
     What is the event location address?{/*       <span className='text-xl text-red-500 ml-2'>*required</span> */}
     </h2>
     <p>Can be physical or an online meeting address</p>

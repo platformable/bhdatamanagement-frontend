@@ -41,6 +41,7 @@ const Register = ({user}) => {
     eventStartTime:"14:00",
     inPersonEventTypeId:0,
     inPersonEventTypeName:"",
+    inPersonEventTypeNameOther:"",
     locationAddress:"",
     onlineEventTypeId: 0,
     onlineEventTypeName:"",
