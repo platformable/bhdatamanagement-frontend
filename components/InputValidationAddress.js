@@ -13,7 +13,7 @@ const InputValidationAddress = ({ setForm, name, defaultValue }) => {
     defaultValue,
     cache: 24 * 60 * 60,
   });
-
+console.log("value", value)
   const handleInput = (e) => {
     setValue(e.target.value);
   };
@@ -55,7 +55,7 @@ const InputValidationAddress = ({ setForm, name, defaultValue }) => {
         throw new Error();
       }
 
-      console.log(data);
+      // console.log(data);
     } catch (e) {
       setError(true);
       console.log(e);
@@ -63,7 +63,7 @@ const InputValidationAddress = ({ setForm, name, defaultValue }) => {
   };
 
   const renderSuggestions = () =>
-    data.map((suggestion) => {
+    data.map((suggestion, other) => {
       const {
         place_id,
         structured_formatting: { main_text, secondary_text },
@@ -82,18 +82,28 @@ const InputValidationAddress = ({ setForm, name, defaultValue }) => {
 
   return (
     <div>
-        <input
+      <input
         onChange={handleInput}
         className="grid text-lg px-4 py-2 border-black  rounded w-full md:w-96"
         name={name}
         type="text"
-        {...defaultValue ? defaultValue={value} : value={value} }
+        {...(defaultValue ? (defaultValue = { value }) : (value = { value }))}
         disabled={!ready}
-        />
+      />
 
       {status === "OK" && (
         <ul className="divide-black divide-y rounded border-black">
           {renderSuggestions()}
+        </ul>
+      )}
+      {status === "ZERO_RESULTS" && (
+        <ul className="divide-black divide-y rounded border-black">
+          <li
+            className="py-2 px-4"
+            onClick={(e) => setForm((prev) => ({ ...prev, [name]: value }))}
+          >
+            {value}
+          </li>
         </ul>
       )}
     </div>
