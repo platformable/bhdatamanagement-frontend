@@ -95,16 +95,7 @@ const InputValidationAddress = ({ setForm, name, defaultValue }) => {
           {renderSuggestions()}
         </ul>
       )}
-      {status === "ZERO_RESULTS" && (
-        <div className="divide-black divide-y rounded border-black">
-          <p
-            className="py-2 px-4"
-            onClick={(e) => setForm((prev) => ({ ...prev, [name]: value }))}
-          >
-            {value}
-          </p>
-        </div>
-      )}
+     
     </div>
   );
 };
