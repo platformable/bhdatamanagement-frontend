@@ -219,7 +219,11 @@ const EditYip = ({event, user}) => {
               <h2 className="mb-2 font-black">What is the event location address?</h2>
               <p>Can be physical or an online meeting address</p>
               <label className="mt-7">
-                <InputValidationAddress setForm={setEventForm} name={'locationAddress'} defaultValue={eventForm?.locationAddress}/>
+              {eventForm?.onlineInPersonEventType === 'Online' ? (
+                  <input type="text" className="md:w-96" onChange={(e) => setEventForm(prev => ({...prev, locationAddress: e.target.value}))} defaultValue={eventForm.locationAddress}/>
+                ) : (
+                  <InputValidationAddress setForm={setEventForm} name={'locationAddress'} defaultValue={eventForm.locationAddress}/>
+                )}
               </label>
             </div>
 
