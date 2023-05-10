@@ -218,7 +218,7 @@ const Register = ({user}) => {
               <p>Can be physical or an online meeting address</p>
               <label className="mt-7">
                 {eventForm?.onlineInPersonEventType === 'Online' ? (
-                  <input type="text" className="md:w-96" onClick={(e) => setEventForm(prev => ({...prev, locationAddress: e.target.value}))}/>
+                  <input type="text" className="md:w-96" onClick={(e) => setEventForm(prev => ({...prev, locationAddress: e.target.value}))} />
                 ) : (
                   <InputValidationAddress setForm={setEventForm} name={'locationAddress'}/>
                 )}
