@@ -1,12 +1,13 @@
 import React, { useState ,useEffect} from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
+import Loader from "../../../../components/Loader";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import axios from "axios";
 import { NYSZipCodesAndBoroughs } from "../../../../utils/sharedData";
-
+import Loader from "../../../../components/Loader";
 import { ParticipantSurveySection1 } from "../../../../components/participant-event-survey/ParticipantSurveySection1";
 import { ParticipantSurveySection10 } from "../../../../components/participant-event-survey/ParticipantSurveySection10";
 import { ParticipantSurveySection11 } from "../../../../components/participant-event-survey/ParticipantSurveySection11";
@@ -44,6 +45,9 @@ import { ParticipantSurveySection34 } from "../../../../components/participant-e
 
 const Survey = ({ data }) => {
   const [showDemographicsForm, setShowDemographicsForm] = useState(false);
+  const [loading,setLoading]=useState(false)
+  // const [showResponseStatus, setShowResponseStatus] = useState(false)
+  // const [responseStatus, setResponseStatus] = useState ({})
   const notifyMessage = () => {
     toast.success("Survey saved!", {
       position: toast.POSITION.TOP_CENTER,
@@ -146,6 +150,8 @@ const Survey = ({ data }) => {
 
   const submitParticipantSurvey = async () => {
     // if (!isEmpty) {
+      setLoading(true);
+
     axios
       .post(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef/participant-event-survey/create`,
@@ -153,19 +159,22 @@ const Survey = ({ data }) => {
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-          /* setResponseStatus({
-            success: true,
-            statusMessage: "Your Event has been saved",
-          });
-          setShowResponseStatus(!showResponseStatus); */
+          //  setResponseStatus({
+          //   success: true,
+          //   statusMessage: "Your response was submitted",
+          // });
+          // setShowResponseStatus(!showResponseStatus); 
           notifyMessage();
           setTimeout(()=>{
+            setLoading(false)
             router.push("https://nblch.org")
 
             },1000) 
         }
       })
       .catch(function (error) {
+        setLoading(false);
+
         // setResponseStatus({
         //   success: false,
         //   statusMessage: "Request Failed",
@@ -389,15 +398,19 @@ All your answers are completely anonymous, we respect your privacy and thank you
               focus on our community, and help us meet our funding commitments.
             </h3>
           </div>
-
+          <div className="flex justify-center">
+       {loading && <Loader/>} 
+        </div> 
           <div className="flex justify-center my-10">
-            <button
+          {loading ? null : (
+          <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
               /* onClick={(e)=>{router.push("https://nblch.org/")}} */
               onClick={submitParticipantSurvey}
             >
               Save
             </button>
+          )}
           </div>
         </main>
       </div>

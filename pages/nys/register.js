@@ -29,7 +29,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import ResponseStatusModal from "../../components/ResponseStatusModal";
 
-const Register = ({ programs, locationTypes, areasOfFocus, eventTypes }) => {
+const Register = ({  }) => {
   const router = useRouter();
   const { user, error, isLoading } = useUser();
   let userId = user?.sub;
@@ -135,20 +135,20 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes }) => {
       .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
       .then((response) => {
         if (response.data.statusText === "OK") {
-          setLoading(false);
-          //setResponseStatus({ success: true, statusMessage: "Your event is being saved"})
-          //setShowResponseStatus(!showResponseStatus)
+          setResponseStatus({ success: true, statusMessage: "Your event is being saved"})
+          setShowResponseStatus(!showResponseStatus)
 
           notifyMessage();
           setTimeout(() => {
+            setLoading(false);
             router.push("/events");
           }, 15000);
         }
       })
       .catch(function (error) {
         setLoading(false);
-        //         setResponseStatus({ success: false, statusMessage: "Request Failed"})
-        //         setShowResponseStatus(!showResponseStatus)
+                setResponseStatus({ success: false, statusMessage: "Request Failed"})
+                setShowResponseStatus(!showResponseStatus)
         console.error("error: ", error);
       });
   };
@@ -227,7 +227,8 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes }) => {
         </div>
         <div className="flex justify-center">{loading && <Loader />}</div>
         <div className="flex justify-center my-10">
-          <button
+        {loading ? null : (
+           <button
             className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
             onClick={submitEventForm}
           >
@@ -238,6 +239,7 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes }) => {
             />
             Create event
           </button>
+        )}
         </div>
       </Layout>
       {showResponseStatus && (
@@ -253,30 +255,5 @@ const Register = ({ programs, locationTypes, areasOfFocus, eventTypes }) => {
 export default Register;
 
 export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    
-    const [programs, locationTypes, areasOfFocus, eventTypes] =
-      await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/programs`).then((r) =>
-          r.json()
-        ),
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/event_location_type`).then(
-          (r) => r.json()
-        ),
-        fetch(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/health_area_of_focus`
-        ).then((r) => r.json()),
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/event_type`).then((r) =>
-          r.json()
-        ),
-      ]);
-    return {
-      props: {
-        programs: programs,
-        locationTypes: locationTypes,
-        areasOfFocus: areasOfFocus,
-        eventTypes: eventTypes,
-      },
-    };
-  },
+ 
 });

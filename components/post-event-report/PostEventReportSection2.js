@@ -53,6 +53,7 @@ const PostEventReportSection2 = ({ eventForm, setEventForm }) => {
                       mainRoleOther: e.target.value,
                     })
                   }
+                  defaultValue={eventForm?.mainRoleOther}
                   className="border-black rounded self-start p-1 md:w-96"
                 />
               </label>
