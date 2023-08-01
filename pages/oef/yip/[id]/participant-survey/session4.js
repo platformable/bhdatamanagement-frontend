@@ -26,9 +26,9 @@ import OneColumnCheckbox from "../../../../../components/yip/OneColumnCheckbox";
 
 export default function Session4({ event, fbos }) {
   console.log("event", event);
-  const [showResponseStatus, setShowResponseStatus] = useState();
-  const [responseStatus, setResponseStatus] = useState();
-  const [loading, setLoading] = useState();
+  // const [showResponseStatus, setShowResponseStatus] = useState();
+  const [responseStatus, setResponseStatus] = useState('');
+  const [loading, setLoading] = useState(false);
   const [eventForm, setEventForm] = useState({
     surveyCreated: new Date(),
     surveyName: "yip-participant-session4",
@@ -93,6 +93,8 @@ export default function Session4({ event, fbos }) {
     });
   };
   const submitParticipantSurvey = async () => {
+      setLoading(true)
+      setResponseStatus('')
     // if (!isEmpty) {
     axios
       .post(
@@ -103,6 +105,7 @@ export default function Session4({ event, fbos }) {
         if (response.data.statusText === "OK") {
           notifyMessage();
           setTimeout(() => {
+            setLoading(false)
             router.push(
               `/oef/yip/${event?.id}/participant-survey/success`
             );
@@ -110,6 +113,8 @@ export default function Session4({ event, fbos }) {
         }
       })
       .catch(function (error) {
+        setLoading(false)
+        setResponseStatus('Network error')
         console.error("error: ", error);
       });
   };
@@ -680,7 +685,9 @@ export default function Session4({ event, fbos }) {
         </div>
       </div>
       <div className="flex justify-center">{loading && <Loader />}</div>
-      <div className="flex justify-center mb-10">
+      <div className="flex flex-col items-center justify-center gap-y-3 mb-10">
+      {responseStatus && <center className="text-red-700">{responseStatus}</center>}
+
         {loading ? null : (
           <button
             className="py-2 px-16 flex items-center rounded bg-black text-white font-semibold text"
@@ -692,12 +699,12 @@ export default function Session4({ event, fbos }) {
         )}
       </div>
       {/*   </Layout> */}
-      {showResponseStatus && (
+      {/* {showResponseStatus && (
         <ResponseStatusModal
           setShowResponseStatus={setShowResponseStatus}
           responseStatus={responseStatus}
         />
-      )}
+      )} */}
     </>
   );
 }
