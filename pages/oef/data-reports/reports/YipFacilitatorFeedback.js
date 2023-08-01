@@ -33,7 +33,7 @@ const YipFacilitatorFeedback = ({  postWorkshop, }) => {
         // console.log(eventdate >= start && eventdate <= end);
         return eventdate >= start && eventdate <= end;
       });
-      const postworkshop = selectReportsInDateRange(postWorkshop);
+      const postworkshop = postworkshop && selectReportsInDateRange(postWorkshop);
 
       setSelectedPostworkshop(postworkshop)
     

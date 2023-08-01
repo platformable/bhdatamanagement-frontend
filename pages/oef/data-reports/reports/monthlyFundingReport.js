@@ -45,7 +45,6 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents,siteV
     // console.log("selectedDate", selectedDate);
     async function getdata() {
       try {
-        console.log("pasa try")
         const [eventsOutput, participantEvents,siteVisits] = await  Promise.all([
           fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/events_output/report/`).then((r) =>
             r.json()
@@ -71,7 +70,7 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents,siteV
       }
     }
   async function findRangeDate (eventsOutput, participantEvents, siteV) {
-    const selectedReports = eventsOutput?.filter(
+    const selectedReports = eventsOutput && eventsOutput.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
         const end = new Date(new Date(selectedDate.finish).setHours(23))
@@ -79,7 +78,7 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents,siteV
         return eventdate >= start && eventdate <= end
       } 
     );
-    const selectedEventOutputsReports = participantEvents?.filter(
+    const selectedEventOutputsReports = participantEvents && participantEvents?.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
         const end = new Date(new Date(selectedDate.finish).setHours(23))
@@ -96,9 +95,7 @@ export default function oefMonthlyReport({ eventsOutput, participantEvents,siteV
   } 
 
   const alljsons = getdata().then(data => {
-    console.log("data",data)
     findRangeDate(data?.props?.eventsOutput, data?.props?.participantEvents, data?.props?.siteVisits)
-    console.log("props",data);
 
   })
 

@@ -15,7 +15,7 @@ const NysParticipantSurveyReport = ({ participantReport }) => {
   useEffect(() => {
     const cerohoursDate = new Date(selectedDate.start).setHours(0)
     console.log("selectedDate", selectedDate)
-    const selectedReports = participantReport.filter(
+    const selectedReports = participantReport?.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
         const end = new Date(new Date(selectedDate.finish).setHours(23))

@@ -34,9 +34,9 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
         // console.log(eventdate >= start && eventdate <= end);
         return eventdate >= start && eventdate <= end;
       });
-    const cbt = selectReportsInDateRange(cbtCSV);
-    const siteVisits = selectReportsInDateRange(siteVisitsCSV);
-    const technicalAssitance = selectReportsInDateRange(TACSV)
+    const cbt = cbtCSV && selectReportsInDateRange(cbtCSV);
+    const siteVisits = siteVisitsCSV && selectReportsInDateRange(siteVisitsCSV);
+    const technicalAssitance = TACSV && selectReportsInDateRange(TACSV)
     setSelectedCbtCSV(cbt);
     setSelectedSiteVisitCSV(siteVisits);
     setSelectedTACSV(technicalAssitance)

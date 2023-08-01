@@ -217,10 +217,10 @@ const YipParticipantFeedback = ({ session1, session2, session3, session4 }) => {
         // console.log(eventdate >= start && eventdate <= end);
         return eventdate >= start && eventdate <= end;
       });
-    const sess1 = selectReportsInDateRange(session1);
-    const sess2 = selectReportsInDateRange(session2);
-    const sess3 = selectReportsInDateRange(session3);
-    const sess4 = selectReportsInDateRange(session4);
+    const sess1 = session1 && selectReportsInDateRange(session1);
+    const sess2 = session2 && selectReportsInDateRange(session2);
+    const sess3 = session3 && selectReportsInDateRange(session3);
+    const sess4 = session4 && selectReportsInDateRange(session4);
 
     setSelectedSession1(sess1);
     setSelectedSession2(sess2);

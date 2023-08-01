@@ -379,7 +379,7 @@ const ReportPicker = ({
   fileName,
   headerToFilter
 }) => {
-  console.log("******************", participantReport);
+  // console.log("******************", participantReport);
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -392,7 +392,7 @@ const ReportPicker = ({
   useEffect(() => {
     const cerohoursDate = new Date(selectedDate.start).setHours(0);
     console.log("selectedDate", selectedDate);
-    const selectedReports = participantReport.filter((report) => {
+    const selectedReports = participantReport && participantReport.filter((report) => {
       const start = new Date(new Date(selectedDate.start).setHours(0));
       const end = new Date(new Date(selectedDate.finish).setHours(23));
       const eventdate = new Date(
@@ -401,13 +401,13 @@ const ReportPicker = ({
       
       // console.log("start", start)
       // console.log("end", end)
-      console.log(eventdate >= start && eventdate <= end);
+      // console.log(eventdate >= start && eventdate <= end);
       return eventdate >= start && eventdate <= end;
     });
     setSelectedCSV(selectedReports);
   }, [selectedDate]);
 
-  console.log("selected", selectedCSV);
+  // console.log("selected", selectedCSV);
 
   return (
     <Layout showStatusHeader={true}>

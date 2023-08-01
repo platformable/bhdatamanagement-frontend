@@ -34,8 +34,8 @@ const YipParticipantFeedback = ({  preWorkshop, sixMonths }) => {
         // console.log(eventdate >= start && eventdate <= end);
         return eventdate >= start && eventdate <= end;
       });
-      const preworkshop = selectReportsInDateRange(preWorkshop);
-      const sixmonths = selectReportsInDateRange(sixMonths);
+      const preworkshop = preWorkshop && selectReportsInDateRange(preWorkshop);
+      const sixmonths = sixMonths && selectReportsInDateRange(sixMonths);
 
       setSelectedPreworkshop(preworkshop)
       setSelectedSixmonths(sixmonths)
