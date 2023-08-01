@@ -26,9 +26,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function preWorkshop({ fbos }) {
   const router = useRouter();
-  const [showResponseStatus, setShowResponseStatus] = useState();
-  const [responseStatus, setResponseStatus] = useState();
-  const [loading, setLoading] = useState();
+  // const [showResponseStatus, setShowResponseStatus] = useState();
+  const [responseStatus, setResponseStatus] = useState('');
+  const [loading, setLoading] = useState(false);
   const [eventForm, setEventForm] = useState({
     participantHivKnowledge: [],
     deliveryPartner: "",
@@ -36,13 +36,13 @@ export default function preWorkshop({ fbos }) {
     raceID: [],
     participantRace: [],
     participantRaceOther: "",
-    ethnicityID: "",
+    ethnicityID: null,
     participantEthnicity: "",
     participantEthnicityOther: "",
-    genderID: "",
+    genderID: null,
     participantGender: "",
     participantGenderOther: "",
-    orientationID: "",
+    orientationID: null,
     participantOrientation: "",
     participantOrientationOther: "",
     participantReferral: "",
@@ -399,6 +399,8 @@ export default function preWorkshop({ fbos }) {
   };
 
   const submitParticipantSurvey = async () => {
+        setLoading(true)
+        setResponseStatus('')
     // if (!isEmpty) {
     axios
       .post(
@@ -410,10 +412,14 @@ export default function preWorkshop({ fbos }) {
           notifyMessage();
           setTimeout(() => {
             router.push("/oef/yip/pre-workshop/success");
+          setLoading(false)
+
           }, 1000);
         }
       })
       .catch(function (error) {
+        setLoading(false)
+        setResponseStatus('Network error')
         console.error("error: ", error);
       });
   };
@@ -428,7 +434,7 @@ export default function preWorkshop({ fbos }) {
     { value: "19", title: "19" },
     { value: "Other", title: "Other" },
   ];
-  // console.log("eventForm",eventForm)
+  console.log("eventForm",eventForm)
 
   return (
     <>
@@ -590,7 +596,9 @@ export default function preWorkshop({ fbos }) {
         </div>
       </div>
       <div className="flex justify-center">{loading && <Loader />}</div>
-      <div className="flex justify-center mb-10">
+      <div className="flex flex-col items-center justify-center gap-y-3 mb-10">
+      {responseStatus && <center className="text-red-700">{responseStatus}</center>}
+
         {loading ? null : (
           <button
             className="py-2 px-16 flex items-center rounded bg-black text-white font-semibold text"
@@ -602,12 +610,12 @@ export default function preWorkshop({ fbos }) {
         )}
       </div>
       {/*   </Layout> */}
-      {showResponseStatus && (
+      {/* {showResponseStatus && (
         <ResponseStatusModal
           setShowResponseStatus={setShowResponseStatus}
           responseStatus={responseStatus}
         />
-      )}
+      )} */}
     </>
   );
 }

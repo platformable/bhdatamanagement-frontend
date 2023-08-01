@@ -26,7 +26,7 @@ export default function Session1({ event, fbos }) {
   console.log("event", event);
   const [showResponseStatus, setShowResponseStatus] = useState();
   const [responseStatus, setResponseStatus] = useState('');
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(false);
 
   const [eventForm, setEventForm] = useState({
     surveyCreated: new Date(),
@@ -107,7 +107,7 @@ export default function Session1({ event, fbos }) {
       })
       .catch(function (error) {
         setLoading(false)
-        setResponseStatus(error.message)
+        setResponseStatus('Network error')
         console.error("error: ", error);
       });
   };
@@ -555,7 +555,9 @@ export default function Session1({ event, fbos }) {
         </div>
       </div>
       <div className="flex justify-center">{loading && <Loader />}</div>
-      <div className="flex flex-col items-center justify-center gap-y-3 ">
+      <div className="flex flex-col items-center justify-center gap-y-3 mb-10">
+      {responseStatus && <center className="text-red-700">{responseStatus}</center>}
+
         {loading ? null : (
           <button
             className={`py-2 px-16 mb-10 flex items-center rounded bg-black text-white font-semibold text ${loading ? 'pointer-event-none':''}`}
@@ -565,7 +567,6 @@ export default function Session1({ event, fbos }) {
             Submit
           </button>
         )}
-        {responseStatus && <center className="text-red-700">{responseStatus}</center>}
       </div>
       {/*   </Layout> */}
       {/* {showResponseStatus && (

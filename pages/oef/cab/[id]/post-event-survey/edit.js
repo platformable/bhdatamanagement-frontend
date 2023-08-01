@@ -8,6 +8,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import Loader from "../../../../../components/Loader";
 import WhichCluster from "../../../../../components/oef-cab-post-event-survey/WhichCluster";
 import ClusterFbos from "../../../../../components/oef-cab-post-event-survey/ClusterFbos";
 import TotalAttendees from "../../../../../components/oef-cab-post-event-survey/TotalAttendees";
@@ -28,6 +29,10 @@ const EditCabPostEventSurvey = ({ event, fbos }) => {
   // const [showDemographicsSection, setShowDemographicsSection] = useState(true);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
   const [msgStatusUpload, setMsgStatusUpload] = useState({});
+  const [showResponseStatus, setShowResponseStatus] = useState(false);
+  const [responseStatus, setResponseStatus] = useState({});
+  const [loading, setLoading] = useState(false);
+
   const loggedUsername = user && user["https://lanuevatest.herokuapp.com/name"];
   const loggedUserLastname =
     user && user["https://lanuevatest.herokuapp.com/lastname"];
@@ -85,8 +90,11 @@ const EditCabPostEventSurvey = ({ event, fbos }) => {
   });
 
   const submitPostEventForm = async () => {
-    const isEmpty = Object.values(eventForm).some((value) => !value);
+    // const isEmpty = Object.values(eventForm).some((value) => !value);
 
+    setLoading(true);
+    setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
+    setShowResponseStatus(true)
     // if (!isEmpty) {
     axios
       .put(
@@ -96,11 +104,12 @@ const EditCabPostEventSurvey = ({ event, fbos }) => {
       .then((response) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
-          console.log(response);
           submitSubmissionForm();
         }
       })
       .catch(function (error) {
+        setLoading(false);
+        setResponseStatus({ success: true, statusMessage: "An error ocurred, try again"})
         console.error("error: ", error);
       });
   };
@@ -113,7 +122,6 @@ const EditCabPostEventSurvey = ({ event, fbos }) => {
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-          console.log(response);
 
           setTimeout(() => {
             router.push(`/oef/cab`);
@@ -121,6 +129,8 @@ const EditCabPostEventSurvey = ({ event, fbos }) => {
         }
       })
       .catch(function (error) {
+        setLoading(false);
+        setResponseStatus({ success: true, statusMessage: "An error ocurred, try again"})
         console.error("error: ", error);
       });
   };
@@ -209,17 +219,24 @@ const EditCabPostEventSurvey = ({ event, fbos }) => {
               setSubmissionForm={setSubmissionForm}
             />
           </div>
-          
+          <div className="flex justify-center">{loading && <Loader />}</div>
           <div className="flex justify-center my-10">
-            <button
+          {loading? null: <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
               onClick={submitPostEventForm}
             >
               Save and finish
             </button>
+            }
           </div>
         </div>
       </Layout>
+      {showResponseStatus && (
+        <ResponseStatusModal
+          setShowResponseStatus={setShowResponseStatus}
+          responseStatus={responseStatus}
+        />
+      )}
       {showStatusUpload && (
         <ResponseStatusModal
           responseStatus={msgStatusUpload}

@@ -8,6 +8,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import Loader from "../../../../../components/Loader";
 import WhichCluster from "../../../../../components/oef-cab-post-event-survey/WhichCluster";
 import ClusterFbos from "../../../../../components/oef-cab-post-event-survey/ClusterFbos";
 import TotalAttendees from "../../../../../components/oef-cab-post-event-survey/TotalAttendees";
@@ -21,9 +22,12 @@ const PostEventReport = ({ event, fbos }) => {
   const [showDemographicsSection, setShowDemographicsSection] = useState(true);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
   const [msgStatusUpload, setMsgStatusUpload] = useState({})
+  const [showResponseStatus, setShowResponseStatus] = useState(false);
+  const [responseStatus, setResponseStatus] = useState({});
+  const [loading, setLoading] = useState(false);
   const loggedUsername = user && user["https://lanuevatest.herokuapp.com/name"];
   const loggedUserLastname = user && user["https://lanuevatest.herokuapp.com/lastname"];
-console.log("evento",event)
+// console.log("evento",event)
   const [eventForm, setEventForm] = useState({
     cluster: "",
     clusterFbos: [],
@@ -70,7 +74,10 @@ console.log("evento",event)
   };
 
   const submitPostEventForm = async () => {
-    const isEmpty = Object.values(eventForm).some((value) => !value);
+    // const isEmpty = Object.values(eventForm).some((value) => !value);
+    setLoading(true);;
+    setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"});
+    setShowResponseStatus(true);
 
     // if (!isEmpty) {
     axios
@@ -81,13 +88,15 @@ console.log("evento",event)
       .then((response) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
-          console.log(response)
+          // console.log(response)
           setTimeout(() => {
             router.push(`/oef/cab/success`);
           }, 1500);
         }
       })
       .catch(function (error) {
+        setLoading(false);
+        setResponseStatus({ success: true, statusMessage: "An error ocurred, try again"})
         console.error("error: ", error);
       });
   };
@@ -146,16 +155,26 @@ console.log("evento",event)
 
 
           </div>
+
+          <div className="flex justify-center">{loading && <Loader />}</div>
+
           <div className="flex justify-center my-10">
-            <button
+          {loading? null: <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
               onClick={submitPostEventForm}
             >
               Save and finish
             </button>
+          }
           </div>
         </div>
       </Layout>
+      {showResponseStatus && (
+        <ResponseStatusModal
+          setShowResponseStatus={setShowResponseStatus}
+          responseStatus={responseStatus}
+        />
+      )}
       {showStatusUpload && <ResponseStatusModal responseStatus={msgStatusUpload} setShowResponseStatus={setShowStatusUpload}/>}
 
     </>
