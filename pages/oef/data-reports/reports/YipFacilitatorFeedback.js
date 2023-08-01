@@ -22,18 +22,18 @@ const YipFacilitatorFeedback = ({  postWorkshop, }) => {
     const cerohoursDate = new Date(selectedDate.start).setHours(0);
     // console.log("selectedDate", selectedDate);
     const selectReportsInDateRange = (reports) =>
-      reports.filter((report) => {
+      reports?.filter((report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0));
         const end = new Date(new Date(selectedDate.finish).setHours(23));
         const eventdate = new Date(report?.surveycreated);
-        console.log(eventdate)
+        // console.log(eventdate)
         // console.log("start", start)
         // console.log("end", end)
         // console.log("eventdate", eventdate)
         // console.log(eventdate >= start && eventdate <= end);
         return eventdate >= start && eventdate <= end;
       });
-      const postworkshop = selectReportsInDateRange(postWorkshop);
+      const postworkshop = postworkshop && selectReportsInDateRange(postWorkshop);
 
       setSelectedPostworkshop(postworkshop)
     
@@ -50,7 +50,7 @@ const YipFacilitatorFeedback = ({  postWorkshop, }) => {
       <section className="container mx-auto px-5 md:px-0 pb-10">
         <p className="font-bold text-xl">Choose the data range:</p>
         <div className="grid md:flex md:flex-row my-7 gap-7">
-          <div className="grid grid-cols-1 gap-5">
+          <div className="grid  gap-5">
             <label className="border-black p-5 flex justify-between">
               Start date:
               <input
@@ -87,7 +87,7 @@ const YipFacilitatorFeedback = ({  postWorkshop, }) => {
             
                <QuarterlyCsv
                 csvData={selectedPostworkshop}
-                headers={Object.keys(postWorkshop[0])}
+                // headers={Object.keys(postWorkshop[0])}
                 fileName={`OEF_YIP_Event_Facilitator_Feedback_${
                   csvNowDate.split("_")[0]
                 }.csv`}

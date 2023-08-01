@@ -25,8 +25,9 @@ import TextArea from "../../../../../components/yip/TextArea";
 export default function Session1({ event, fbos }) {
   console.log("event", event);
   const [showResponseStatus, setShowResponseStatus] = useState();
-  const [responseStatus, setResponseStatus] = useState();
+  const [responseStatus, setResponseStatus] = useState('');
   const [loading, setLoading] = useState();
+
   const [eventForm, setEventForm] = useState({
     surveyCreated: new Date(),
     surveyName: "yip-participant-session1",
@@ -88,6 +89,7 @@ export default function Session1({ event, fbos }) {
   };
   const submitParticipantSurvey = async () => {
     // if (!isEmpty) {
+      setResponseStatus('')
       setLoading(true)
     axios
       .post(
@@ -104,6 +106,8 @@ export default function Session1({ event, fbos }) {
         }
       })
       .catch(function (error) {
+        setLoading(false)
+        setResponseStatus(error.message)
         console.error("error: ", error);
       });
   };
@@ -551,24 +555,25 @@ export default function Session1({ event, fbos }) {
         </div>
       </div>
       <div className="flex justify-center">{loading && <Loader />}</div>
-      <div className="flex justify-center mb-10">
+      <div className="flex flex-col items-center justify-center gap-y-3 ">
         {loading ? null : (
           <button
-            className={`py-2 px-16 flex items-center rounded bg-black text-white font-semibold text ${loading ? 'pointer-event-none':''}`}
+            className={`py-2 px-16 mb-10 flex items-center rounded bg-black text-white font-semibold text ${loading ? 'pointer-event-none':''}`}
             //className="py-2"
             onClick={() => submitParticipantSurvey()}
           >
             Submit
           </button>
         )}
+        {responseStatus && <center className="text-red-700">{responseStatus}</center>}
       </div>
       {/*   </Layout> */}
-      {showResponseStatus && (
+      {/* {showResponseStatus && (
         <ResponseStatusModal
           setShowResponseStatus={setShowResponseStatus}
           responseStatus={responseStatus}
         />
-      )}
+      )} */}
     </>
   );
 }

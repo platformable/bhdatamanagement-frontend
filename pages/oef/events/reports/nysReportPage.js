@@ -13,8 +13,7 @@ const NysReportPage = ({ eventReport,  }) => {
   const [headers, setHeaders] = useState([]);
   const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
   useEffect(() => {
-    console.log("selectedDate", selectedDate)
-    const selectedReports = eventReport.filter(
+    const selectedReports = eventReport?.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
         const end = new Date(new Date(selectedDate.finish).setHours(23))
@@ -32,7 +31,7 @@ const NysReportPage = ({ eventReport,  }) => {
     // setHeaders(headers)
   }, [selectedDate]);
 
-  console.log("selected", selectedCSV);
+  // console.log("selected", selectedCSV);
 
   return (
     <Layout showStatusHeader={true}>

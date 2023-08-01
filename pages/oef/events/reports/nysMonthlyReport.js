@@ -32,8 +32,7 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
   const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
 
   useEffect(() => {
-    console.log("selectedDate", selectedDate);
-    const selectedReports = events.filter(
+    const selectedReports = events?.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
         const end = new Date(new Date(selectedDate.finish).setHours(23))
@@ -41,7 +40,7 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
         return eventdate >= start && eventdate <= end
       } 
     );
-    const selectedEventOutputsReports = eventsOutput.filter(
+    const selectedEventOutputsReports = eventsOutput?.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
         const end = new Date(new Date(selectedDate.finish).setHours(23))
