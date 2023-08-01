@@ -176,16 +176,16 @@ const keys = {
   ],
 };
 const YipParticipantFeedback = ({ session1, session2, session3, session4 }) => {
-  console.log(
-    "sessions",
-    session1,
-    "sesion2",
-    session2,
-    "session3 ",
-    session3,
-    "session 4",
-    session4
-  );
+  // console.log(
+  //   "sessions",
+  //   session1,
+  //   "sesion2",
+  //   session2,
+  //   "session3 ",
+  //   session3,
+  //   "session 4",
+  //   session4
+  // );
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -210,17 +210,17 @@ const YipParticipantFeedback = ({ session1, session2, session3, session4 }) => {
         const start = new Date(new Date(selectedDate.start).setHours(0));
         const end = new Date(new Date(selectedDate.finish).setHours(23));
         const eventdate = new Date(report?.eventdate);
-        console.log(eventdate);
+        // console.log(eventdate);
         // console.log("start", start)
         // console.log("end", end)
         // console.log("eventdate", eventdate)
         // console.log(eventdate >= start && eventdate <= end);
         return eventdate >= start && eventdate <= end;
       });
-    const sess1 = selectReportsInDateRange(session1);
-    const sess2 = selectReportsInDateRange(session2);
-    const sess3 = selectReportsInDateRange(session3);
-    const sess4 = selectReportsInDateRange(session4);
+    const sess1 = session1 && selectReportsInDateRange(session1);
+    const sess2 = session2 && selectReportsInDateRange(session2);
+    const sess3 = session3 && selectReportsInDateRange(session3);
+    const sess4 = session4 && selectReportsInDateRange(session4);
 
     setSelectedSession1(sess1);
     setSelectedSession2(sess2);
@@ -238,7 +238,7 @@ const YipParticipantFeedback = ({ session1, session2, session3, session4 }) => {
       <section className="container mx-auto px-5 md:px-0 pb-10">
         <p className="font-bold text-xl">Choose the data range:</p>
         <div className="grid md:flex md:flex-row my-7 gap-7">
-          <div className="grid grid-cols-1 gap-5">
+          <div className="grid gap-5">
             <label className="border-black p-5 flex justify-between">
               Start date:
               <input

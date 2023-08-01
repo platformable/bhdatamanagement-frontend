@@ -35,8 +35,8 @@ const quarterlySubcontractorReport = ({
       // console.log(eventdate >= start && eventdate <= end);
       return eventdate >= start && eventdate <= end;
     });
-    const hivCsv = selectReportsInDateRange(hivOutreachCSV);
-    const cabCsv = selectReportsInDateRange(cabCSV)
+    const hivCsv = hivOutreachCSV && selectReportsInDateRange(hivOutreachCSV);
+    const cabCsv = cabCSV && selectReportsInDateRange(cabCSV)
     setSelectedHivCSV(hivCsv);
     setSelectedCabCSV(cabCsv)
   }, [selectedDate]);
