@@ -129,7 +129,7 @@ const RegisterSiteVisits = ({ fbos }) => {
     });
   };
   const submitForm = async () => {
-    setLoading(!loading);
+    setLoading(true);
     await axios
       .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/site_visits`, surveyForm)
       .then((response) => {
@@ -143,7 +143,12 @@ const RegisterSiteVisits = ({ fbos }) => {
         }
       })
       .catch(function (error) {
-        setLoading(!loading);
+        setLoading(false);
+        setShowResponseStatus(true)
+        setResponseStatus({
+          success: false,
+          statusMessage: "An error has occurred, try again later",
+        });
         setError("An error ocurred, try again");
         console.error("error: ", error);
       });
@@ -290,7 +295,7 @@ const RegisterSiteVisits = ({ fbos }) => {
         <div className="flex justify-center">{loading && <Loader />}</div>
         <div className="flex justify-center my-10">
           {loading ? null : (
-            <div className="flex gap-x-5 justify-center mt-0 mb-10">
+            <div className={`flex gap-x-5 justify-center mt-0 mb-10 ${loading ? 'pointer-event-none':''}`}>
               <button
                 className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
                 onClick={() => router.push("/oef/site-visits/register-part-3")}

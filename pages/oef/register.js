@@ -125,7 +125,7 @@ const Register = ({ fbos }) => {
       })
       .catch(function (error) {
         setLoading(false);
-        setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed. This can take up to 20 seconds. Thank you for your patience."})
+        setResponseStatus({ success: false, statusMessage: "An error ocurred, try again later"})
 
         console.error("error: ", error);
       });
@@ -185,7 +185,7 @@ const Register = ({ fbos }) => {
         <div className="flex justify-center">{loading && <Loader />}</div>
         <div className="flex justify-center my-10">
          {loading? null:<button
-            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
+            className={`py-2 px-5 flex items-center rounded bg-black text-white font-semibold ${loading ? 'pointer-event-none':''}`}
             onClick={submitEventForm}
           >
             Next

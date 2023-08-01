@@ -10,7 +10,7 @@ import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import ResponseStatusModal from "../../../../../components/ResponseStatusModal";
 import ReactToPrint from 'react-to-print'
 import PrintQR from '../../../../../components/PrintQR'
-
+import Loader from "../../../../../components/Loader";
 
 
 const ParticipantSurvey = ({
@@ -23,6 +23,7 @@ const ParticipantSurvey = ({
   const { user, error, isLoading } = useUser();
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
+  const [loading, setLoading] = useState();
   let componentRef = useRef();
   
   const userId = user && user.sub;

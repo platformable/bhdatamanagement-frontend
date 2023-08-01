@@ -7,6 +7,7 @@ import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "../../../../../components/Loader";
 
 import MainRoles from "../../../../../components/oef-cbt-post-event-survey/MainRoles";
 import ProgramLeaders from "../../../../../components/oef-cbt-post-event-survey/ProgramLeaders";
@@ -30,6 +31,7 @@ const PostEventReport = ({ event }) => {
   const [showDemographicsSection, setShowDemographicsSection] = useState(true);
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
+  const [loading, setLoading] = useState();
   const [showStatusUpload, setShowStatusUpload] = useState(false);
   const [msgStatusUpload, setMsgStatusUpload] = useState({});
   const loggedUsername = user && user["https://lanuevatest.herokuapp.com/name"];
@@ -98,6 +100,7 @@ const PostEventReport = ({ event }) => {
 
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
+    setLoading(true)
     setResponseStatus({
       success: true,
       statusMessage:
@@ -120,6 +123,7 @@ const PostEventReport = ({ event }) => {
         }
       })
       .catch(function (error) {
+        setLoading(false)
         setResponseStatus({
           success: true,
           statusMessage:
@@ -210,14 +214,15 @@ const PostEventReport = ({ event }) => {
               forValue="2"
             />
           </div>
-          <div className="flex justify-center my-10">
+          <div className="flex justify-center my-5">{loading && <Loader />}</div>
+         {loading ? null : <div className="flex justify-center my-10">
             <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
               onClick={submitPostEventForm}
             >
               Save and finish
             </button>
-          </div>
+          </div>}
         </div>
       </Layout>
       {showStatusUpload && (

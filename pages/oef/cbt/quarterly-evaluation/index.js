@@ -14,11 +14,12 @@ import Rating from "../../../../components/oef-cbt-quarterly-evaluation-survey/R
 import TextArea from "../../../../components/oef-cbt-quarterly-evaluation-survey/TextArea";
 import RadioBoolean from "../../../../components/oef-cbt-quarterly-evaluation-survey/RadioBoolean";
 import NumberLimits from "../../../../components/oef-cbt-quarterly-evaluation-survey/NumberLimits";
+import Loader from "../../../../components/Loader";
 
 const Survey = ({ event, fbos }) => {
   const [showDemographicsForm, setShowDemographicsForm] = useState(false);
   const [error, setError] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const notifyMessage = () => {
     toast.success("Survey saved!", {
       position: toast.POSITION.TOP_CENTER,
@@ -82,22 +83,7 @@ const Survey = ({ event, fbos }) => {
   const submitParticipantSurvey = async () => {
     setError("");
 
-    // const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
-
-    //   key === "participantReferralOther" ||
-    //   key === "participantSuggestions" ||
-    //   key === "participantSexualIdentityOther" ||
-    //   key === "participantRaceOther" ||
-    //   key === "participantEthnicityOther" ||
-    //   key === "participantRaceOther" ||
-    //   key === "participantOrientationOther"
-    //     ? false
-    //     : value === 0 || value.length === 0
-    // );
-    // if (isEmpty) {
-    //   setError("Please complete all fields");
-    //   return;
-    // }
+  setLoading(true)
     axios
       .post(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef-cbt-quarterly-evaluation-survey/create`,
@@ -930,10 +916,10 @@ const Survey = ({ event, fbos }) => {
               focus on our community, and help us meet our funding commitments.
             </h3>
           </div>
-
+          <div className="flex justify-center my-5">{loading && <Loader />}</div>
           <div className="flex flex-col items-center gap-3 justify-center my-10">
             <button
-              className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
+              className={`py-2 px-5 flex items-center rounded bg-black text-white font-semibold ${loading ? 'pointer-event-none hidden':'block'}`}
               /* onClick={(e)=>{router.push("https://nblch.org/")}} */
               onClick={submitParticipantSurvey}
             >

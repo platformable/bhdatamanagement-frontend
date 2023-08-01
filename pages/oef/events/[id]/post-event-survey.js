@@ -34,6 +34,7 @@ import DocumentUploadDropbox from "../../../../components/oef-post-event-survey/
 import PictureUploadDropbox from "../../../../components/oef-post-event-survey/PictureUploadDropbox";
 import OtherTesting from "../../../../components/oef-post-event-survey/OtherTesting";
 import ResponseStatusModal from "../../../../components/ResponseStatusModal";
+import Loader from "../../../../components/Loader";
 
 const PostEventReport = ({ event, fbos }) => {
   const { user, error, isLoading } = useUser();
@@ -42,7 +43,9 @@ const PostEventReport = ({ event, fbos }) => {
   const [msgStatusUpload, setMsgStatusUpload] = useState({})
   const loggedUsername = user && user["https://lanuevatest.herokuapp.com/name"];
   const loggedUserLastname = user && user["https://lanuevatest.herokuapp.com/lastname"];
-console.log(event)
+  const [loading, setLoading] = useState(false);
+  const [showResponseStatus, setShowResponseStatus] = useState(false);
+  const [responseStatus, setResponseStatus] = useState({});
   const [eventForm, setEventForm] = useState({
     isClusterEvent: "",
     cluster: "",
@@ -256,7 +259,9 @@ console.log(event)
 
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
-
+    setLoading(true);
+    setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
+    setShowResponseStatus(true)
     // if (!isEmpty) {
     axios
       .post(
@@ -273,6 +278,9 @@ console.log(event)
         }
       })
       .catch(function (error) {
+        setLoading(false);
+        setResponseStatus({ success: false, statusMessage: "An error ocurred, try again later"})
+
         console.error("error: ", error);
       });
   };
@@ -438,6 +446,7 @@ console.log(event)
               </>
             )}
           </div>
+          <div className="flex justify-center">{loading && <Loader />}</div>
           <div className="flex justify-center my-10">
             <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
@@ -449,7 +458,12 @@ console.log(event)
         </div>
       </Layout>
       {showStatusUpload && <ResponseStatusModal responseStatus={msgStatusUpload} setShowResponseStatus={setShowStatusUpload}/>}
-
+      {showResponseStatus && (
+        <ResponseStatusModal
+          setShowResponseStatus={setShowResponseStatus}
+          responseStatus={responseStatus}
+        />
+      )}
     </>
   );
 };
