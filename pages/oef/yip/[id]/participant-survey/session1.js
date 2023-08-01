@@ -88,6 +88,7 @@ export default function Session1({ event, fbos }) {
   };
   const submitParticipantSurvey = async () => {
     // if (!isEmpty) {
+      setLoading(true)
     axios
       .post(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef-yip-participant-session1-survey/create`,
@@ -99,6 +100,7 @@ export default function Session1({ event, fbos }) {
           setTimeout(() => {
             router.push(`/oef/yip/${event?.id}/participant-survey/success`);
           }, 1000);
+          //setLoading(false)
         }
       })
       .catch(function (error) {
@@ -552,7 +554,7 @@ export default function Session1({ event, fbos }) {
       <div className="flex justify-center mb-10">
         {loading ? null : (
           <button
-            className="py-2 px-16 flex items-center rounded bg-black text-white font-semibold text"
+            className={`py-2 px-16 flex items-center rounded bg-black text-white font-semibold text ${loading ? 'pointer-event-none':''}`}
             //className="py-2"
             onClick={() => submitParticipantSurvey()}
           >
