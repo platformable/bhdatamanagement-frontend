@@ -7,7 +7,6 @@ import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import axios from "axios";
 import { NYSZipCodesAndBoroughs } from "../../../../utils/sharedData";
-import Loader from "../../../../components/Loader";
 import { ParticipantSurveySection1 } from "../../../../components/participant-event-survey/ParticipantSurveySection1";
 import { ParticipantSurveySection10 } from "../../../../components/participant-event-survey/ParticipantSurveySection10";
 import { ParticipantSurveySection11 } from "../../../../components/participant-event-survey/ParticipantSurveySection11";
