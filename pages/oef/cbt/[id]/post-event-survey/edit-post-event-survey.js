@@ -7,6 +7,7 @@ import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "../../../../../components/Loader";
 
 import MainRoles from "../../../../../components/oef-cbt-post-event-survey/MainRoles";
 import ProgramLeaders from "../../../../../components/oef-cbt-post-event-survey/ProgramLeaders";
@@ -33,11 +34,14 @@ const EditPostEventReport = ({ event }) => {
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
   const [showStatusUpload, setShowStatusUpload] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const [msgStatusUpload, setMsgStatusUpload] = useState({});
+  const [loading, setLoading] = useState();
   const loggedUsername = user && user["https://lanuevatest.herokuapp.com/name"];
   const loggedUserLastname =
     user && user["https://lanuevatest.herokuapp.com/lastname"];
-  console.log("event", event);
+    const [newError,setNewError]= useState(false)
+
   const [eventForm, setEventForm] = useState({
     id: event.id,
     eventID: event?.eventid,
@@ -97,12 +101,15 @@ const EditPostEventReport = ({ event }) => {
   };
 
   const submitPostEventForm = async () => {
+    setErrorMsg('')
+  
+    setLoading(true)
     const isEmpty = Object.values(eventForm).some((value) => !value);
     setResponseStatus({
       success: true,
       statusMessage: "Update in progress",
     });
-    setShowResponseStatus(true);
+    
     // if (!isEmpty) {
     axios
       .put(
@@ -111,7 +118,7 @@ const EditPostEventReport = ({ event }) => {
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-          //notifyMessage();
+          setShowResponseStatus(true);
           console.log(response);
           setTimeout(() => {
             router.push(`/oef/cbt`);
@@ -119,7 +126,11 @@ const EditPostEventReport = ({ event }) => {
         }
       })
       .catch(function (error) {
-        console.error("error: ", error);
+        setNewError(true)
+        setErrorMsg('Something went wrong, try again')
+        console.log("verga que ladilla el error")
+        setLoading(false)
+
       });
   };
 
@@ -133,7 +144,7 @@ const EditPostEventReport = ({ event }) => {
           dashboardBtn={true}
           pageTitle={"CBT Post-event survey"}
         />
-        <div className="container mx-auto md:px-0 px-5 items-center">
+        <div className="container mx-auto md:px-0 px-5 items-center mb-20">
           <TopEventsInfo
             event={event}
             editPath={`/oef/cbt/${event?.eventid || event?.id}/events/edit`}
@@ -208,14 +219,25 @@ const EditPostEventReport = ({ event }) => {
               forValue="2"
             />
           </div>
-          <div className="flex justify-center my-10">
+          <div className="flex justify-center my-5">{loading && <Loader />}</div>
+          <div className="flex justify-center ">
+          <div className="my-2">
             <button
-              className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
+              className={`py-2 px-5 flex items-center rounded bg-black text-white font-semibold ${loading ? 'pointer-event-none hidden':'block'}`}
               onClick={submitPostEventForm}
             >
               Save and finish
             </button>
+            
+            
           </div>
+         
+          </div>
+          {errorMsg && (
+              <center className="flex justify-center text-center text-red-500 text-lg font-bold">
+                {errorMsg}
+              </center>
+            )}
         </div>
       </Layout>
       {showStatusUpload && (

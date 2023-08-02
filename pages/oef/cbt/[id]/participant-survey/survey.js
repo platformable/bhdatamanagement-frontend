@@ -19,11 +19,14 @@ import Race from '../../../../../components/oef-cbt-participant-survey/Race'
 import ParticipantTools from '../../../../../components/oef-cbt-participant-survey/ParticipantTools'
 import ExternalSurveyHeader from '../../../../../components/ExternalSurveyHeader'
 
-
+import Loader from "../../../../../components/Loader";
 
 const Survey = ({ event, fbos }) => {
   const [showDemographicsForm, setShowDemographicsForm] = useState(false);
   const [error, setError] = useState("");
+  const [showResponseStatus, setShowResponseStatus] = useState(false);
+  const [responseStatus, setResponseStatus] = useState({});
+  const [loading, setLoading] = useState();
 
   const notifyMessage = () => {
     toast.success("Survey saved!", {
@@ -31,7 +34,7 @@ const Survey = ({ event, fbos }) => {
     });
   };
 
-  console.log("data", event);
+
 
   const [surveyForm, setSurveyForm] = useState({
     eventID:event.id,
@@ -60,7 +63,7 @@ deliveryPartner:"",
 participantSuggestions:"",
 participantTools:""
   });
-  console.log("form", surveyForm);
+
 
   const router = useRouter();
 
@@ -71,29 +74,11 @@ participantTools:""
       : setShowDemographicsForm((prev) => false);
   };
 
-  // const getCity = (zipcode, array) => {
-  //   const searchZipcode = array.filter((code) => code.zipcode === zipcode);
-  //   if (searchZipcode.length > 0) {
-  //     setSurveyForm({
-  //       ...surveyForm,
-  //       participantBorough: searchZipcode[0].borought,
-  //     });
-  //   } else {
-  //     setSurveyForm({ ...surveyForm, participantBorough: "" });
-  //   }
-  // };
+
 
   const submitParticipantSurvey = async () => {
     setError('')
-    /* const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
-      key === "participantReferralOther" || key === "participantSuggestions"
-        ? false
-        : value === 0 || value.length === 0
-    );
-    if (isEmpty) {
-      setError("Please complete all fields");
-      return;
-    } */
+  setLoading(true)
     axios
       .post(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/oef/cbt/participant-event-survey/create`,
@@ -114,6 +99,7 @@ participantTools:""
         // });
         // setShowResponseStatus(!showResponseStatus);
         setError('Something went wrong, try again')
+        setLoading(false)
         console.error("error: ", error);
       });
     //   } else {
@@ -238,9 +224,10 @@ participantTools:""
             </h3>
           </div>
 
+          <div className="flex justify-center my-5">{loading && <Loader />}</div>
           <div className="flex flex-col items-center gap-3 justify-center my-10">
             <button
-              className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
+              className={`py-2 px-5 flex items-center rounded bg-black text-white font-semibold ${loading ? 'pointer-event-none hidden':'block'}`}
               /* onClick={(e)=>{router.push("https://nblch.org/")}} */
               onClick={submitParticipantSurvey}
             >

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import TopEventsInfo from "../../../../components/TopEventsInfo";
-
+import Loader from "../../../../components/Loader";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 import axios from "axios";
@@ -72,8 +72,9 @@ const PostEventReport = ({
   const { user, error, isLoading } = useUser();
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
+  const [loading,setLoading]=useState(false)
 
-console.log("event",event)
+// console.log("event",event)
 
   const loggedUsername=user && user['https://lanuevatest.herokuapp.com/name']
   const loggedUserLastname=user && user['https://lanuevatest.herokuapp.com/lastname']
@@ -518,6 +519,7 @@ const router = useRouter()
 
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
+    setLoading(true)
 
  
     // if (!isEmpty) {
@@ -532,11 +534,15 @@ const router = useRouter()
             setShowResponseStatus(!showResponseStatus);
             notifyMessage()
             setTimeout(()=>{
+              setLoading(false)
+
               router.back()
             },1500)
           }
         })
         .catch(function (error) {
+          setLoading(false)
+
           setResponseStatus({
             success: false,
             statusMessage: "Request Failed",
@@ -544,13 +550,7 @@ const router = useRouter()
           setShowResponseStatus(!showResponseStatus);
           console.error("error: ", error);
         });
-  //   } else {
-  //     setResponseStatus({
-  //       success: false,
-  //       statusMessage: "Please complete all the fields",
-  //     });
-  //     setShowResponseStatus(!showResponseStatus);
-  //  }
+  
   };
 
   const programAndAreaStyles = {
@@ -560,7 +560,7 @@ const router = useRouter()
   };
 
 
-console.log("eventForm",eventForm)
+// console.log("eventForm",eventForm)
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -762,8 +762,12 @@ console.log("eventForm",eventForm)
             {(eventForm.otherTesting && eventForm.eventTestingDone) && 
             <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
           </div>
+          <div className="flex justify-center">
+       {loading && <Loader/>} 
+        </div> 
           <div className="flex justify-center my-10">
-          <button
+          {loading ? null : (
+             <button
             className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
             onClick={submitPostEventForm}
           >
@@ -774,6 +778,7 @@ console.log("eventForm",eventForm)
             /> */}
             Save
           </button>
+          )}
           </div>
         </div>
       </Layout>

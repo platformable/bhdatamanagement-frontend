@@ -71,6 +71,8 @@ const EditPostEventReport = ({
   const { user, error, isLoading } = useUser();
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
+  const [loading,setLoading]=useState(false)
+
   let componentRef = useRef();
 
   const [eventForm, setEventForm] = useState({
@@ -513,6 +515,7 @@ const router = useRouter()
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
 
+    setLoading(true)
  
     // if (!isEmpty) {
       axios
@@ -526,11 +529,15 @@ const router = useRouter()
             setShowResponseStatus(!showResponseStatus);
             notifyMessage()
             setTimeout(()=>{
+              setLoading(false)
+
               router.back()
             },1500)
           }
         })
         .catch(function (error) {
+            setLoading(false)
+
           setResponseStatus({
             success: false,
             statusMessage: "Request Failed",
@@ -563,7 +570,7 @@ const router = useRouter()
     } 
 }
 
-console.log("form",eventForm)
+console.log("form",event)
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -780,8 +787,12 @@ console.log("form",eventForm)
             {(eventForm.otherTesting && eventForm.eventTestingDone ) && 
             <PostEventReportSection24 eventForm={eventForm} setEventForm={setEventForm} isNumberKey={isNumberKey}/>}
           </div>
+          <div className="flex justify-center">
+       {loading && <Loader/>} 
+        </div> 
           <div className="flex justify-center my-10">
-          <button
+          {loading ? null : (
+             <button
             className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
             onClick={submitPostEventForm}
           >
@@ -792,6 +803,7 @@ console.log("form",eventForm)
             /> */}
             Save
           </button>
+          )}
           </div>
         </div>
       </Layout>

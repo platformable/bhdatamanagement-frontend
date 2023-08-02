@@ -76,10 +76,7 @@ const CABEdit = ({ event,fbos }) => {
       .then((response) => {
         if (response.data.statusText === "OK") {
           // setShowResponseStatus(false)
-          setLoading(false);
           router.push(`/oef/cab/${eventForm?.id}/post-event-survey/edit`);
-
-          console.log("response createdEventId",response.data.createdEventId)
         }
       })
       .catch(function (error) {

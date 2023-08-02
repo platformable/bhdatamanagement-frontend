@@ -55,13 +55,14 @@ const EditTA = ({ technicalAssistance,fbos }) => {
     programName: "OEF",
   });
   const notifyMessage = () => {
-    toast.success("Technical assistance created", {
+    toast.success("Technical assistance updated", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
   const submitForm = async () => {
-    setLoading(!loading);
-    setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
+    setError('')
+    setLoading(true);
+    //setResponseStatus({ success: true, statusMessage: "Please wait while your event information is being processed"})
     setShowResponseStatus(true)
     await axios
       .put(
@@ -71,7 +72,8 @@ const EditTA = ({ technicalAssistance,fbos }) => {
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
-          setLoading(!loading);
+          setLoading(true);
+          notifyMessage()
           setResponseStatus({ success: true, statusMessage: "Technical Assistance updated correctly"})
           setTimeout(() => {
             router.push("/oef/technical-assistance");
@@ -79,7 +81,8 @@ const EditTA = ({ technicalAssistance,fbos }) => {
         }
       })
       .catch(function (error) {
-        setLoading(!loading);
+        setLoading(false);
+        setResponseStatus({ success: true, statusMessage: "Technical Assistance updated correctly"})
         setError("An error ocurred, try again");
         console.error("error: ", error);
       });
@@ -146,22 +149,37 @@ const EditTA = ({ technicalAssistance,fbos }) => {
           <Loader />
         </div>
       ) : (
-        <div className="flex justify-center my-10">
-        {loading? null:<button
-           className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-           onClick={submitForm}
-         >
-           Submit
-         </button> } 
-       </div>
+
+        <>
+        <div className="mt-10 pb-20">
+          <div className="flex justify-center mt-10 pb-5">
+          <button
+            className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
+            onClick={submitForm}
+          >
+            <img
+              src="/check-save-and-finish.svg"
+              alt="register event icon"
+              className="mr-2"
+            />
+            Submit
+          </button>
+     
+        </div>
+
+        {error && <center className="text-red-700">{error}</center>}
+        </div>
+        </>
       )}
 
-      {showResponseStatus && (
+
+
+  {/*     {showResponseStatus && (
         <ResponseStatusModal
           setShowResponseStatus={setShowResponseStatus}
           responseStatus={responseStatus}
         />
-      )}
+      )} */}
 
       </Layout>
     </>

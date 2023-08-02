@@ -88,15 +88,16 @@ eventZipCode:event?.eventzipcode
         .then(response => {
 
             if (response.data.statusText==='OK') {
-                setLoading(false)
               setResponseStatus({ success: true, statusMessage: "Your Event has been updated"})
               setShowResponseStatus(!showResponseStatus)
               setTimeout(()=>{
+                setLoading(false)
                 router.push("/events") 
              },1500 )
             } 
         })
         .catch(function (error) {
+            setLoading(false)
             setResponseStatus({ success: false, statusMessage: error.message})
             setShowResponseStatus(!showResponseStatus)
             console.error("error: ", error)
@@ -140,10 +141,12 @@ eventZipCode:event?.eventzipcode
        {loading && <Loader/>} 
         </div> 
         <div className="py-5 flex justify-center">
-        <button className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold" onClick={submitEventForm}>
+        {loading ? null : (
+           <button className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold" onClick={submitEventForm}>
             {/* <img src="/check-save-and-finish.svg" alt="register event icon" className="mr-2"/> */}
             Update event
         </button>
+        )}
         </div>
       </div>    
     </Layout>

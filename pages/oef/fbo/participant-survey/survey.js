@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { NYSZipCodesAndBoroughs } from "../../../../utils/sharedData";
+import Loader from "../../../../components/Loader";
 
 import { ParticipantSurveySection1 } from "../../../../components/oef-participant-event-survey/ParticipantSurveySection1";
 import { ParticipantSurveySection2 } from "../../../../components/oef-participant-event-survey/ParticipantSurveySection2";
@@ -26,8 +27,10 @@ const Survey = ({ event, fbos }) => {
     });
   };
 
-  console.log("data", event);
 
+  const [loading, setLoading] = useState();
+  const [responseStatus, setResponseStatus] = useState('');
+  const [showResponseStatus, setShowResponseStatus] = useState();
   const [surveyForm, setSurveyForm] = useState({
     deliveryPartner: "",
     programName: "OEF",
@@ -79,7 +82,7 @@ const Survey = ({ event, fbos }) => {
 
   const submitParticipantSurvey = async () => {
     setError('')
-
+    setLoading(true)
     const isEmpty = Object.entries(surveyForm).some(([key, value]) =>
       key === "participantReferralOther" || key === "participantSuggestions" || key === "participantGenderOther" || key === "participantRaceOther" || key === "participantEthnicityOther" || key === "participantRaceOther" || key === "participantOrientationOther" || key==='participantBorough'
 
@@ -88,6 +91,7 @@ const Survey = ({ event, fbos }) => {
     );
     if (isEmpty) {
       setError("Please complete all fields");
+      setLoading(false)
       return;
     } 
     axios
@@ -104,11 +108,12 @@ const Survey = ({ event, fbos }) => {
         }
       })
       .catch(function (error) {
-        // setResponseStatus({
-        //   success: false,
-        //   statusMessage: "Request Failed",
-        // });
-        // setShowResponseStatus(!showResponseStatus);
+        setResponseStatus({
+          success: false,
+          statusMessage: "Request Failed",
+        });
+        setLoading(false)
+        setShowResponseStatus(!showResponseStatus);
         setError('Something went wrong, try again')
         console.error("error: ", error);
       });
@@ -215,11 +220,11 @@ const Survey = ({ event, fbos }) => {
               focus on our community, and help us meet our funding commitments.
             </h3>
           </div>
-
+{/* 
           <div className="flex flex-col items-center gap-3 justify-center my-10">
             <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
-              /* onClick={(e)=>{router.push("https://nblch.org/")}} */
+             
               onClick={submitParticipantSurvey}
             >
               Submit
@@ -229,7 +234,24 @@ const Survey = ({ event, fbos }) => {
                 {error}
               </center>
             )}
-          </div>
+          </div> */}
+          <div className="flex justify-center">{loading && <Loader />}</div>
+      <div className="flex flex-col items-center justify-center gap-y-3 my-10">
+        {loading ? null : (
+          <button
+            className={`py-2 px-16 mb-3 flex items-center rounded bg-black text-white font-semibold text ${loading ? 'pointer-event-none':''}`}
+            //className="py-2"
+            onClick={submitParticipantSurvey}
+          >
+            Submit
+          </button>
+        )}
+        {error && (
+              <center className="text-red-500 text-lg font-bold">
+                {error}
+              </center>
+            )}
+      </div>
         </main>
 
     </>

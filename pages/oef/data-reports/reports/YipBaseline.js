@@ -34,8 +34,8 @@ const YipParticipantFeedback = ({  preWorkshop, sixMonths }) => {
         // console.log(eventdate >= start && eventdate <= end);
         return eventdate >= start && eventdate <= end;
       });
-      const preworkshop = selectReportsInDateRange(preWorkshop);
-      const sixmonths = selectReportsInDateRange(sixMonths);
+      const preworkshop = preWorkshop && selectReportsInDateRange(preWorkshop);
+      const sixmonths = sixMonths && selectReportsInDateRange(sixMonths);
 
       setSelectedPreworkshop(preworkshop)
       setSelectedSixmonths(sixmonths)
@@ -54,7 +54,7 @@ const YipParticipantFeedback = ({  preWorkshop, sixMonths }) => {
       <section className="container mx-auto px-5 md:px-0 pb-10">
         <p className="font-bold text-xl">Choose the data range:</p>
         <div className="grid md:flex md:flex-row my-7 gap-7">
-          <div className="grid grid-cols-1 gap-5">
+          <div className="grid  gap-5">
             <label className="border-black p-5 flex justify-between">
               Start date:
               <input

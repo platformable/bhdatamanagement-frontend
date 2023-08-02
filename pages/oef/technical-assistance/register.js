@@ -19,7 +19,9 @@ import ExternalSurveyHeader from "../../../components/ExternalSurveyHeader";
 
 const RegisterTA = ({ fbos }) => {
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [showResponseStatus, setShowResponseStatus] = useState();
+  const [responseStatus, setResponseStatus] = useState('');
+  const [loading, setLoading] = useState();
   const router = useRouter();
   const [isEmpty,setIsEmpty]=useState(false)
 
@@ -48,7 +50,7 @@ const RegisterTA = ({ fbos }) => {
   });
 
   const [messageToCompleteForm,setMessageToCompleteForm]=useState({
-    status:false,
+    status:true,
     message:""
   })
   const notifyMessage = () => {
@@ -57,7 +59,8 @@ const RegisterTA = ({ fbos }) => {
     });
   };
   const submitForm = async () => {
-    setLoading(!loading);
+    setError('')
+    setLoading(true);
 
   /*   const isEmpty = Object.values(form).some(value => !value) */
 
@@ -72,9 +75,10 @@ const RegisterTA = ({ fbos }) => {
         console.log('isEmpty yesss',isEmpty)
         setLoading(false)
         setMessageToCompleteForm({status:true,message:"Please complete all the fields"})
+        
     } else {
       setMessageToCompleteForm({status:false,message:"All fields completed"})
-      console.log('isEmpty NOOOO',isEmpty)
+      
     const send = await axios
       .post(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/technical_assistance/create`,
@@ -83,7 +87,7 @@ const RegisterTA = ({ fbos }) => {
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
-          setLoading(!loading);
+          setLoading(true);
           notifyMessage();
           setTimeout(() => {
             router.push("/oef/technical-assistance/success");
@@ -91,9 +95,9 @@ const RegisterTA = ({ fbos }) => {
         }
       })
       .catch(function (error) {
-        setLoading(!loading);
+        setLoading(false);
         setError("An error ocurred, try again");
-        console.error("error: ", error);
+        console.error("error: ", "verga");
       });
     }
 
@@ -145,7 +149,8 @@ const RegisterTA = ({ fbos }) => {
         </div>
       ) : (
         <>
-        <div className="grid justify-center mt-10">
+        <div className="mt-10 pb-20">
+          <div className="flex justify-center mt-10 pb-5">
           <button
             className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
             onClick={submitForm}
@@ -157,10 +162,14 @@ const RegisterTA = ({ fbos }) => {
             />
             Submit
           </button>
+     
         </div>
-        {messageToCompleteForm.status===true && <p className="red-100 text-red-500 text-center my-5">{messageToCompleteForm.message}</p> }
+        {messageToCompleteForm.status===true &&  (<p className="red-100 text-red-500 text-center ">{messageToCompleteForm.message}</p>) }
+        {error && <center className="text-red-700">{error}</center>}
+        </div>
         </>
       )}
+
 
       {/* </Layout> */}
     </>

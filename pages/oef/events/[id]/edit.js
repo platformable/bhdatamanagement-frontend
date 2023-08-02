@@ -31,7 +31,7 @@ import ExternalSurveyHeader from "../../../../components/ExternalSurveyHeader";
 import InPersonOrOnlineEvent from "../../../../components/oef-event-registration/InPersonOrOnlineEvent";
 
 const EditOefEvent = ({ event, fbos, user }) => {
-  console.log("event", event);
+
   const router = useRouter();
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
@@ -71,8 +71,6 @@ const EditOefEvent = ({ event, fbos, user }) => {
     onlineEventTypeID: event?.onlineeventtypeid,
   });
 
-  console.log("oef state form", eventForm);
-
   const notifyMessage = () => {
     toast.success("Event updated", {
       position: toast.POSITION.TOP_CENTER,
@@ -82,27 +80,30 @@ const EditOefEvent = ({ event, fbos, user }) => {
   const submitEventForm = async () => {
     setLoading(true);
 
-    notifyMessage();
+    
     
     await axios
       .put(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/oef/update`, eventForm)
       .then((response) => {
         if (response.data.statusText === "OK") {
-          setLoading(false);
-          //notifyMessage();
+          // setLoading(false);
+          notifyMessage();
           router.push(`/oef/events/${eventForm.id}/edit-post-event-survey`);
           console.log("updated");
         }
       })
       .catch(function (error) {
-        setLoading(false);
+        setLoading(false)
+        setShowResponseStatus(true);
+        setResponseStatus({ success: false, statusMessage: "An error ocurred, try again later"})
+      
         console.error("error: ", error);
       });
   };
 
   const getCity = (zipcode, array) => {
     const searchZipcode = array.filter((code) => code.zipcode === zipcode);
-    console.log("searchZipcode", searchZipcode);
+   
     if (searchZipcode.length > 0) {
       setEventForm({ ...eventForm, borough: searchZipcode[0].borought });
     } else {
@@ -231,7 +232,7 @@ const EditOefEvent = ({ event, fbos, user }) => {
             <div className="flex justify-center my-10">
               {loading ? null : (
                 <button
-                  className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
+                  className={`py-2 px-5 flex items-center rounded bg-black text-white font-semibold ${loading ? 'pointer-event-none':''}`}
                   onClick={submitEventForm}
                 >
                   Next

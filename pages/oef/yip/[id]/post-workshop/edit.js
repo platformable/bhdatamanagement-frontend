@@ -33,9 +33,9 @@ export default function PostWorkshop({ event }) {
   console.log("event edit", event);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
   const [msgStatusUpload, setMsgStatusUpload] = useState({});
-  const [showResponseStatus, setShowResponseStatus] = useState();
-  const [responseStatus, setResponseStatus] = useState();
-  const [loading, setLoading] = useState();
+  // const [showResponseStatus, setShowResponseStatus] = useState();
+  const [responseStatus, setResponseStatus] = useState('');
+  const [loading, setLoading] = useState(false);
   const [eventForm, setEventForm] = useState({
     surveyCreated: event?.surveycreated || new Date(),
     surveyName: event?.surveyname || "yip-post-event",
@@ -80,6 +80,8 @@ export default function PostWorkshop({ event }) {
   };
   const submitParticipantSurvey = async () => {
     // if (!isEmpty) {
+      setLoading(true)
+      setResponseStatus('')
     axios
       .put(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/oef/yip/event/update`,
@@ -87,15 +89,19 @@ export default function PostWorkshop({ event }) {
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-          console.log(response);
+          // console.log(response);
 
             notifyMessage();
             setTimeout(() => {
-              router.push(`/oef/yip/${event?.id}/post-workshop/success`);
+              router.push(`/oef/yip/${event?.eventid}/post-workshop/success`);
+               setLoading(false)
+
             }, 1000);
         }
       })
       .catch(function (error) {
+        setLoading(false)
+        setResponseStatus('Network error')
         console.error("error: ", error);
       });
   };
@@ -595,7 +601,8 @@ export default function PostWorkshop({ event }) {
         </div>
       </div>
       <div className="flex justify-center">{loading && <Loader />}</div>
-      <div className="flex justify-center mb-10">
+      <div className="flex flex-col items-center justify-center gap-y-3 mb-10">
+      {responseStatus && <center className="text-red-700">{responseStatus}</center>}
         {loading ? null : (
           <button
             className="py-2 px-16 flex items-center rounded bg-black text-white font-semibold text"
@@ -607,12 +614,12 @@ export default function PostWorkshop({ event }) {
         )}
       </div>
       {/*   </Layout> */}
-      {showResponseStatus && (
+      {/* {showResponseStatus && (
         <ResponseStatusModal
           setShowResponseStatus={setShowResponseStatus}
           responseStatus={responseStatus}
         />
-      )}
+      )} */}
       {showStatusUpload && (
         <ResponseStatusModal
           responseStatus={msgStatusUpload}

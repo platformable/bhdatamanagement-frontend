@@ -47,7 +47,8 @@ import OefHivOutreachPrint from "../../../../components/oef-post-event-survey/Oe
 
 const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
   
-
+  const [showResponseStatus, setShowResponseStatus] = useState(false);
+  const [responseStatus, setResponseStatus] = useState({});
   const [showDemographicsSection, setShowDemographicsSection] = useState(false);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
   const [msgStatusUpload, setMsgStatusUpload] = useState({});
@@ -73,6 +74,8 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
     oefEventPresentationTopic: event?.oefeventpresentationtopic || "",
     oefTargetAudienceForReport:event?.oeftargetaudienceforreport || ""
   });
+
+  const [loading, setLoading] = useState(false);
   const [eventForm, setEventForm] = useState({
     isClusterEvent: event?.isclusterevent || "",
     cluster: event?.cluster || "",
@@ -276,7 +279,7 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
 
   const submitPostEventForm = async () => {
     const isEmpty = Object.values(eventForm).some((value) => !value);
-
+    setLoading(true);
     // if (!isEmpty) {
     axios
       .put(
@@ -288,11 +291,14 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
           notifyMessage();
           submitSubmissionForm();
           router.push(`/oef/fbo`);
-          console.log(response);
+          
         }
       })
       .catch(function (error) {
         console.error("error: ", error);
+        setLoading(false)
+        setShowResponseStatus(true);
+        setResponseStatus({ success: false, statusMessage: "An error ocurred, try again later"})
       });
   };
   const submitSubmissionForm = async () => {
@@ -306,7 +312,7 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-          console.log(response);
+          
           setTimeout(() => {
             // router.push(
             //   router.asPath.replace("edit-post-event-survey", "success")
@@ -580,10 +586,11 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
               setSubmissionForm={setSubmissionForm}
             />
           </div>
+          <div className="flex justify-center">{loading && <Loader />}</div>
           {!eventNotCompletedMessage && (
-            <div className="flex justify-center my-10">
+            <div className={`flex justify-center my-10 ${loading ? 'hidden':'block'}`}>
               <button
-                className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
+                className={`py-2 px-5 flex items-center rounded bg-black text-white font-semibold ${loading ? 'pointer-event-none hidden':'block'}`}
                 onClick={submitPostEventForm}
               >
                 Submit
@@ -596,6 +603,13 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
         <ResponseStatusModal
           responseStatus={msgStatusUpload}
           setShowResponseStatus={setShowStatusUpload}
+        />
+      )}
+
+{showResponseStatus && (
+        <ResponseStatusModal
+          setShowResponseStatus={setShowResponseStatus}
+          responseStatus={responseStatus}
         />
       )}
 

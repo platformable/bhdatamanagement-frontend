@@ -35,6 +35,8 @@ const PostEventReportSection21 = ({eventForm,setEventForm}) => {
               [e.target.name]: false,
             }))
           }
+          defaultChecked={eventForm.eventTestingDone === false ? "checked" : ""}
+
         />
         No
       </p>

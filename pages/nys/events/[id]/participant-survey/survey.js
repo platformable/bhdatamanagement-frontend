@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 //import PageTopHeading from "../../../../components/PageTopHeading";
 import axios from "axios";
 import { NYSZipCodesAndBoroughs } from "../../../../../utils/sharedData";
-
+import Loader from "../../../../../components/Loader";
 import { ParticipantSurveySection1 } from "../../../../../components/participant-event-survey/ParticipantSurveySection1";
 import { ParticipantSurveySection10 } from "../../../../../components/participant-event-survey/ParticipantSurveySection10";
 import { ParticipantSurveySection11 } from "../../../../../components/participant-event-survey/ParticipantSurveySection11";
@@ -44,13 +44,15 @@ import { ParticipantSurveySection34 } from "../../../../../components/participan
 
 const Survey = ({ data }) => {
   const [showDemographicsForm, setShowDemographicsForm] = useState(false);
+  const [loading,setLoading]=useState(false)
+
   const notifyMessage = () => {
     toast.success("Survey saved!", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
 
-  console.log("data", data);
+  // console.log("data", data);
 
   const [surveyForm, setSurveyForm] = useState({
     eventID: data[0]?.id,
@@ -124,7 +126,7 @@ const Survey = ({ data }) => {
     interestOtherText: "",
     participantBorough:""
   });
-  console.log("form", surveyForm);
+  // console.log("form", surveyForm);
 
   const router = useRouter();
 
@@ -145,6 +147,8 @@ const Survey = ({ data }) => {
 
 
   const submitParticipantSurvey = async () => {
+    setLoading(true)
+
     // if (!isEmpty) {
     axios
       .post(
@@ -160,6 +164,8 @@ const Survey = ({ data }) => {
           setShowResponseStatus(!showResponseStatus); */
           notifyMessage();
           setTimeout(()=>{
+            setLoading(false)
+
             router.push("https://nblch.org")
 
             },1000) 
@@ -171,6 +177,8 @@ const Survey = ({ data }) => {
         //   statusMessage: "Request Failed",
         // });
         // setShowResponseStatus(!showResponseStatus);
+        setLoading(false)
+
         console.error("error: ", error);
       });
     //   } else {
@@ -389,15 +397,19 @@ All your answers are completely anonymous, we respect your privacy and thank you
               focus on our community, and help us meet our funding commitments.
             </h3>
           </div>
-
+          <div className="flex justify-center mt-5">
+       {loading && <Loader/>} 
+        </div> 
           <div className="flex justify-center my-10">
-            <button
+          {loading ? null : (
+             <button
               className="py-2 px-5 flex items-center rounded bg-black text-white font-semibold"
               /* onClick={(e)=>{router.push("https://nblch.org/")}} */
               onClick={submitParticipantSurvey}
             >
               Save
             </button>
+          )}
           </div>
         </main>
       </div>
