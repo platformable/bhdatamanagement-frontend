@@ -30,7 +30,7 @@ import DropboxDocumentUpload from "../../../../../components/oef-post-event-surv
 import ProgramLeaders from "../../../../../components/yip/ProgramLeader";
 
 export default function PostWorkshop({ event }) {
-  console.log("event edit", event);
+  // console.log("event edit", event);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
   const [msgStatusUpload, setMsgStatusUpload] = useState({});
   // const [showResponseStatus, setShowResponseStatus] = useState();
@@ -330,7 +330,7 @@ export default function PostWorkshop({ event }) {
       options: satisfiedScaleOptions,
     },
   ];
-  console.log("yip session 1 form: ", eventForm);
+  // console.log("yip session 1 form: ", eventForm);
 
   ///////NEW
 

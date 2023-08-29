@@ -23,7 +23,7 @@ import "react-toastify/dist/ReactToastify.css";
 import TextArea from "../../../../../components/yip/TextArea";
 
 export default function Session3({ event, fbos }) {
-  console.log("event", event);
+  // console.log("event", event);
   // const [showResponseStatus, setShowResponseStatus] = useState();
   const [responseStatus, setResponseStatus] = useState('');
   const [loading, setLoading] = useState(false);
@@ -261,7 +261,7 @@ export default function Session3({ event, fbos }) {
     { value: "19", title: "19" },
     { value: "Other", title: "Other" },
   ];
-  console.log("yip session 3 form: ", eventForm);
+  // console.log("yip session 3 form: ", eventForm);
 
   const satisfiedScaleOptions = [
     {

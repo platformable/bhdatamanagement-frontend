@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 export default function EditUser({data, user}) {
-console.log("user", data);
+// console.log("user", data);
 const [program, setProgram] = useState(data?.useraccessibleprograms || [])
     const router = useRouter()
     const [userData,setUserData]= useState({
@@ -119,7 +119,7 @@ const handleForm=(e)=>{
         
       }
     
-      console.log("userData",userData)
+      // console.log("userData",userData)
 
   return (
     <Layout showStatusHeader={true}>
