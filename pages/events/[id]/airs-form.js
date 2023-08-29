@@ -66,7 +66,7 @@ const AirsForm = ({ event, selectedEventId }) => {
     participantGreeted: false || event?.participantgreeted,
     resourcesAvailable: false || event?.resourcesavailable,
     photoRelease: false || event?.photorelease,
-    handSanitizerAvailable: false || event?.handsanitizeravailable,
+    handSanitizerAvailable: null || event?.handsanitizeravailable,
     reminderSafeSpace: false || event?.remindersafespace,
     reminderPostEvaluationSurvey: false || event?.reminderpostevaluationsurvey,
     totalAttendees: 0 || event?.totalattendees,

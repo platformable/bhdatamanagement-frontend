@@ -211,11 +211,11 @@ export const eventChecklist = [
     event: "If photos were taken, participants signed a photo usage form.",
     dataField: "photoRelease",
   },
-  {
-    id: 7,
-    event: "Hand sanitizer was available.",
-    dataField: "handSanitizerAvailable",
-  },
+  // {
+  //   id: 7,
+  //   event: "Hand sanitizer was available.",
+  //   dataField: "handSanitizerAvailable",
+  // },
   {
     id: 8,
     event:

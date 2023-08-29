@@ -139,7 +139,7 @@ const PostEventReport = ({
         participantGreeted : false,
         resourcesAvailable : false,
         photoRelease : false,
-        handSanitizerAvailable : false,
+        handSanitizerAvailable : null,
         reminderSafeSpace : false,
         reminderPostEvaluationSurvey : false,
         totalAttendees : 0,

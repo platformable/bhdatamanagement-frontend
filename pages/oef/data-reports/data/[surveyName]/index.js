@@ -352,7 +352,7 @@ export const allHeaders = {
     "participantGreeted",
     "resourcesAvailable",
     "photoRelease",
-    "handSanitizerAvailable",
+    // "handSanitizerAvailable",
     "reminderSafeSpace",
     "reminderPostEvaluationSurvey",
     "eventChecklistOther",
