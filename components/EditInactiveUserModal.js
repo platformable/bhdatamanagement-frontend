@@ -7,7 +7,7 @@ export default function EditInactiveUserModal({ selectedUser, setShowEditInactiv
   const router = useRouter()
   // console.log('selecteduser',selectedUser)
   const [userData, setUserData] = useState(selectedUser)
-  console.log('userDataInactive',userData)
+  // console.log('userDataInactive',userData)
 
   const [saving, setSaving] = useState(false)
 

@@ -13,7 +13,7 @@ export default function EditAuthUserModal({ selectedUser, setShowEditAuthUserMod
     role: "",
     isactive: ''
   })
-console.log("userData", userData)
+// console.log("userData", userData)
   const [saving, setSaving] = useState(false)
 
   const EditUser = (user) => {
@@ -23,7 +23,6 @@ console.log("userData", userData)
       setSaving(!saving)
       axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/authorizedusers`, userData)
       .then(function (response) {
-        console.log("response",response)
         setShowEditAuthUserModal(!showEditAuthUserModal)
         router.reload()
       })

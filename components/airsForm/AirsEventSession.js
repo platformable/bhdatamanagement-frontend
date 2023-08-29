@@ -1,7 +1,7 @@
 import React from "react";
 
 const AirsEventSession = ({ event}) => {
-  console.log(event);
+  // console.log(event);
   
   return (
     <section className="divide-y divide-black border-t-2 border-t-black border-x border-x-black mx-5">

@@ -11,7 +11,6 @@ export default function EventsCardItems({id,
 }) {
   
   const handleDeleteEvent=(id,eventName)=>{
-    console.log(id)
     setSelectedEventToDelete({id:id,eventname:eventName})
     setShowDeleteEventModal(!showDeleteEventModal)
   }

@@ -156,13 +156,16 @@ export const roles = [
 
 
 export const nysActivity = [
-  { id: 8, value: "Strategic Planning Group (SPG)", nyscmp: 1 },
-  { id: 10, value: "Block Association", nyscmp: 1 },
-  { id: 1, value: "Campus Approach", nyscmp: 1 },
-  { id: 2, value: "Conscientious Clinician", nyscmp: 1 },
-  { id: 11, value: "Mental Health First Aid", nyscmp: 1 },
-  { id: 5, value: "Leadership Training Institute", nyscmp: 1 },
-  { id: 9, value: "Other", nyscmp: 1 },
+  { id: 8, value: "Strategic Planning Group (SPG)", nyscmp: 1, programNameGroup: 'SPG' },
+  { id: 10, value: "Block Association", nyscmp: 1, programNameGroup: 'NYS CMP' },
+  { id: 1, value: "Campus Approach", nyscmp: 1, programNameGroup: 'NYS CMP' },
+  { id: 2, value: "Conscientious Clinician", nyscmp: 1, programNameGroup: 'NYS CMP' },
+  { id: 11, value: "Mental Health First Aid", nyscmp: 1, programNameGroup: 'HCPI' },
+  { id: 5, value: "Leadership Training Institute", nyscmp: 1, programNameGroup: 'NYS CMP' },
+  { id: 12, value: "Health Equity Summit", nyscmp: 1, programNameGroup: 'NYS CMP' },
+  { id: 13, value: "Library Mental Health Project", nyscmp: 1, programNameGroup: 'HCPI' },
+  { id: 9, value: "Other", nyscmp: 1, programNameGroup: '' },
+  
 ];
 
 export const nysPrograms = [

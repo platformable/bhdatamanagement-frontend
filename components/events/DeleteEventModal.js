@@ -10,8 +10,7 @@ const DeleteEventModal = ({id,eventname,setShowDeleteEventModal,showDeleteEventM
 
 
     const handleDeleteEvent = ()=>{
-        console.log("borrando event")
-        console.log(id)
+        // console.log(id)
 
         axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/delete`,{ data: {id} })
         .then(response=>{
