@@ -51,7 +51,7 @@ export default function PostWorkshop({ event, fbos }) {
     participantGreeted: false,
     resourcesAvailable: false,
     photoRelease: false,
-    handSanitizerAvailable: false,
+    handSanitizerAvailable: null,
     reminderSafeSpace: false,
     reminderPostEvaluationSurvey: false,
     eventChecklistOther: false,
@@ -369,11 +369,11 @@ export default function PostWorkshop({ event, fbos }) {
       value: "photoRelease",
       title: "If photos were taken, participants signed a photo usage form.",
     },
-    {
-      id: 7,
-      value: "handSanitizerAvailable",
-      title: "Hand sanitizer was available.",
-    },
+    // {
+    //   id: 7,
+    //   value: "handSanitizerAvailable",
+    //   title: "Hand sanitizer was available.",
+    // },
     {
       id: 8,
       value: "reminderSafeSpace",

@@ -51,7 +51,7 @@ export default function PostWorkshop({ event }) {
     participantGreeted: event?.participantgreeted || false,
     resourcesAvailable: event?.resourcesavailable || false,
     photoRelease: event?.photorelease || false,
-    handSanitizerAvailable: event?.handsanitizeravailable || false,
+    handSanitizerAvailable: event?.handsanitizeravailable || null,
     reminderSafeSpace: event?.remindersafespace || false,
     reminderPostEvaluationSurvey: event?.reminderpostevaluationsurvey || false,
     eventChecklistOther: event?.eventchecklistother || false,
@@ -372,11 +372,11 @@ export default function PostWorkshop({ event }) {
       value: "photoRelease",
       title: "If photos were taken, participants signed a photo usage form.",
     },
-    {
-      id: 7,
-      value: "handSanitizerAvailable",
-      title: "Hand sanitizer was available.",
-    },
+    // {
+    //   id: 7,
+    //   value: "handSanitizerAvailable",
+    //   title: "Hand sanitizer was available.",
+    // },
     {
       id: 8,
       value: "reminderSafeSpace",

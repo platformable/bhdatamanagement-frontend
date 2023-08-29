@@ -50,7 +50,7 @@ const PostEventReport = ({ event }) => {
     participantGreeted: false,
     resourcesAvailable: false,
     photoRelease: false,
-    handSanitizerAvailable: false,
+    handSanitizerAvailable: null,
     reminderSafeSpace: false,
     reminderPostEvaluationSurvey: false,
     eventChecklistOther: false,
