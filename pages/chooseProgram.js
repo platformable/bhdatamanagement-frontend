@@ -19,7 +19,7 @@ export default function ChooseProgram({user}) {
   //const { user, error, isLoading } = useUser();
   const [loading, setLoading] = useState(true);
 
-console.log("user choose program:",user)
+// console.log("user choose program:",user)
   const dispatch=useDispatch()
 
   const loggedUserRole = 
@@ -40,7 +40,6 @@ useEffect(()=>{
 },[loggedUserRole])
 
 
-console.log("userAccessiblePrograms",userAccessiblePrograms)
 
   return (
     <>

@@ -198,7 +198,7 @@ const EventsIndex = ({ events }) => {
   );
 
   const findSession = (session) => {
-    console.log(session)
+    // console.log(session)
     switch (session) {
       case ('Session 1: Sexual Health and Healthy Relationships'):
         return "1";

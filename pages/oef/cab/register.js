@@ -53,7 +53,7 @@ const CABRegister = ({ fbos }) => {
     surveyName:"oef-cab",
   });
 
-  console.log("oef state form", eventForm);
+  // console.log("oef state form", eventForm);
 
 
   
@@ -80,7 +80,7 @@ const CABRegister = ({ fbos }) => {
           setLoading(false);
           router.push(`/oef/cab/${response.data.createdEventId}/post-event-survey/register`);
        }, 18000);
-          console.log("response createdEventId",response.data.createdEventId)
+          // console.log("response createdEventId",response.data.createdEventId)
         }
       })
       .catch(function (error) {
@@ -93,7 +93,7 @@ const CABRegister = ({ fbos }) => {
 
   const getCity = (zipcode, array) => {
     const searchZipcode = array.filter((code) => code.zipcode === zipcode);
-    console.log("searchZipcode", searchZipcode);
+    // console.log("searchZipcode", searchZipcode);
     if (searchZipcode.length > 0) {
       setEventForm({ ...eventForm, borough: searchZipcode[0].borought });
     } else {

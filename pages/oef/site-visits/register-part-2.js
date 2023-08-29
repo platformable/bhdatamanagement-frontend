@@ -91,7 +91,7 @@ export default function RegisterPart2({fbos}) {
     const surveyForm = useSelector((state)=>state.siteVisitsReducer.value) 
 
 
-console.log("surveyForm",surveyForm)
+// console.log("surveyForm",surveyForm)
 
     const targetAudienceOptions= [
         {

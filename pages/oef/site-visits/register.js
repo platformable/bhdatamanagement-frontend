@@ -98,7 +98,7 @@ const RegisterSiteVisits = ({ fbos }) => {
 
   const surveyForm = useSelector((state)=>state.siteVisitsReducer.value) 
 
-  console.log("surveyForm",surveyForm)
+  // console.log("surveyForm",surveyForm)
 
   const notifyMessage = () => {
     toast.success("Technical assistance created", {
@@ -113,7 +113,7 @@ const RegisterSiteVisits = ({ fbos }) => {
         form
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
           setLoading(!loading);
           notifyMessage();

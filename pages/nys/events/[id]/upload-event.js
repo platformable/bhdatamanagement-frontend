@@ -15,7 +15,7 @@ export const Upload_event = ({ event }) => {
   const [loadingFile,setLoadingFile]=useState(false)
   const [loadingImgFile,setLoadingImgFile]=useState(false)
 
-  console.log("event",event)
+  // console.log("event",event)
 
   const onSubmitFile = async (e) => {
     setLoadingFile(!loadingFile)
@@ -54,14 +54,14 @@ export const Upload_event = ({ event }) => {
         }
       );
       // setLoading(false)
-      console.log("response", response);
+      // console.log("response", response);
       if (response.status === 200) {
         const data = await response.json();
         setLoadingFile(false)
         notifyMessage(fileName);
         setFile(null);
         setFileName("");
-        console.log("saved");
+        // console.log("saved");
         // setUploadSuccess(!uploadSuccess)
       }
     } catch (error) {
@@ -115,7 +115,7 @@ export const Upload_event = ({ event }) => {
         notifyMessage(fileName);
         setFile(null);
         setFileName("");
-        console.log("saved");
+        // console.log("saved");
         // setUploadSuccess(!uploadSuccess)
       }
     } catch (error) {
@@ -146,7 +146,6 @@ export const Upload_event = ({ event }) => {
   //   imageFile ? onSubmitImageFile() : "";
   // }, [file, imageFile]);
 
-  console.log("imageFile",imageFile)
 
   return (
     <Layout showStatusHeader={true}>

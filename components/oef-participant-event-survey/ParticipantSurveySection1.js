@@ -23,7 +23,6 @@ export const ParticipantSurveySection1 = ({ surveyForm, setSurveyForm }) => {
       e.preventDefault();
     } 
 }
-console.log(surveyForm.participantZipCode)
   return (
     <div className="px-7 ">
       <h2 className="font-black">

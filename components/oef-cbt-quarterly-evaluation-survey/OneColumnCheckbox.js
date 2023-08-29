@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react';
 
 const OneColumnCheckbox = ({options, surveyForm,setSurveyForm,title,stateValue}) => {
 
-    console.log("options",options)
+    // console.log("options",options)
 
     const [data,setData]=useState([...surveyForm?.[stateValue]])
 

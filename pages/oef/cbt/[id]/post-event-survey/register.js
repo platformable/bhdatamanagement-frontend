@@ -37,7 +37,7 @@ const PostEventReport = ({ event }) => {
   const loggedUsername = user && user["https://lanuevatest.herokuapp.com/name"];
   const loggedUserLastname =
     user && user["https://lanuevatest.herokuapp.com/lastname"];
-  console.log(event);
+  // console.log(event);
   const [eventForm, setEventForm] = useState({
     eventID: event?.id,
     programid: 1,
@@ -116,7 +116,7 @@ const PostEventReport = ({ event }) => {
       .then((response) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
-          console.log(response);
+          // console.log(response);
           setTimeout(() => {
             router.push(`/oef/cbt`);
           }, 1500);
@@ -133,7 +133,7 @@ const PostEventReport = ({ event }) => {
       });
   };
 
-  console.log("eventForm", eventForm);
+  // console.log("eventForm", eventForm);
   return (
     <>
       <Layout showStatusHeader={true}>

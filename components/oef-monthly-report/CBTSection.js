@@ -49,11 +49,11 @@ const CBTSection = ({
 
   })
   
-  console.log("cbt events output",cbtParticipants);
+  // console.log("cbt events output",cbtParticipants);
 
   function handleCopy(id) {
     const data = document.getElementById(id).innerText;
-    console.log("data", data);
+    // console.log("data", data);
     navigator.clipboard.writeText(data);
   }
   return (

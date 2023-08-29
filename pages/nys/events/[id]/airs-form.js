@@ -7,7 +7,7 @@ import AirsDemographics from "../../../../components/airsForm/AirsDemographics";
 import AirsMaterials from "../../../../components/airsForm/AirsMaterials";
 
 const AirsForm = ({ event, selectedEventId }) => {
-  console.log("event", event);
+  // console.log("event", event);
 
   const [formData, setFormData] = useState({
     startTime: event?.eventstarttime,
@@ -464,7 +464,7 @@ const AirsForm = ({ event, selectedEventId }) => {
     staffPresentNames: event?.staffpresentnames,
   });
 
-  console.log("formData", formData);
+  // console.log("formData", formData);
   return (
     <Layout>
       <PageTopHeading

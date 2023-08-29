@@ -15,7 +15,6 @@ function LeichardtScale({ surveyForm,setSurveyForm, stateValue, options, title})
         {option.options.map(opt=> (
                     <button  name={opt.stateValue} value={opt.value} className={`${surveyForm?.[option.stateValue] === opt?.value ? opt?.bgColor : null} border-black py-4 rounded shadow-lg ${opt?.bgColorHover}`} 
                     onClick={(e)=>{
-                        console.log("opt.stateValue",opt.stateValue)
                         setSurveyForm({...surveyForm,[option.stateValue]:opt.value})}}>
                     {opt.value}
                     </button>

@@ -9,7 +9,7 @@ import { Footer } from "./Footer"; */
 import Section1 from "../oef-event-registration/Section1";
 const OefHivOutreachPrint = React.forwardRef((props, ref) => {
   let { event } = props;
-  console.log("event en el print", event);
+  // console.log("event en el print", event);
 
   const [formData, setFormData] = useState({
     id: event.id,

@@ -59,7 +59,7 @@ const Register = ({ fbos }) => {
     onlineEventTypeID:""
   });
 
-  console.log("oef state form", eventForm);
+  // console.log("oef state form", eventForm);
   async function makeIcsFile() {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];
@@ -120,7 +120,7 @@ const Register = ({ fbos }) => {
         setTimeout(() => {
       router.push(`/oef/events/${response.data.createdEventId}/post-event-survey`);
        }, 1000);
-          console.log("response createdEventId",response.data.createdEventId)
+          // console.log("response createdEventId",response.data.createdEventId)
         }
       })
       .catch(function (error) {
@@ -133,7 +133,7 @@ const Register = ({ fbos }) => {
 
   const getCity = (zipcode, array) => {
     const searchZipcode = array.filter((code) => code.zipcode === zipcode);
-    console.log("searchZipcode", searchZipcode);
+    // console.log("searchZipcode", searchZipcode);
     if (searchZipcode.length > 0) {
       setEventForm({ ...eventForm, borough: searchZipcode[0].borought });
     } else {
