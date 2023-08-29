@@ -20,7 +20,7 @@ const EditFBO = ({ data }) => {
       e.preventDefault();
     }
   };
-  console.log(data);
+  // console.log(data);
   const [form, setForm] = useState({
     nameFBO: data[0]?.namefbo || "",
     addressFBO: data[0]?.addressfbo || "",
@@ -52,7 +52,7 @@ const EditFBO = ({ data }) => {
     await axios
       .put(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`, form)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response.data.status === 200) {
           setLoading(false);
           notifyMessage();
@@ -80,7 +80,7 @@ const EditFBO = ({ data }) => {
     "Queens",
   ];
 
-  console.log(form);
+  // console.log(form);
   return (
     <>
       <Layout>

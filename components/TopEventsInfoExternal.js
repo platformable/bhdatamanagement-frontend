@@ -6,7 +6,6 @@ import { useRouter } from 'next/router'
 const TopEventsInfo = ({event,airs,selectedEventId,handlePrint, editPath}) => {
 
   const router = useRouter()
-console.log("router",router)
     return (
         <section className="md:px-0 px-5">
         <div

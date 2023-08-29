@@ -13,7 +13,7 @@ const YipFacilitatorFeedback = ({  postWorkshop, }) => {
 
   const [download, setDownload] = useState(false);
   const [selectedPostworkshop, setSelectedPostworkshop] = useState([]);
-
+console.log("SElected workshopps", selectedPostworkshop)
 
   const csvNowDate = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
@@ -26,16 +26,18 @@ const YipFacilitatorFeedback = ({  postWorkshop, }) => {
         const start = new Date(new Date(selectedDate.start).setHours(0));
         const end = new Date(new Date(selectedDate.finish).setHours(23));
         const eventdate = new Date(report?.surveycreated);
-        // console.log(eventdate)
+        console.log(eventdate)
         // console.log("start", start)
         // console.log("end", end)
         // console.log("eventdate", eventdate)
         // console.log(eventdate >= start && eventdate <= end);
         return eventdate >= start && eventdate <= end;
       });
-      const postworkshop = postworkshop && selectReportsInDateRange(postWorkshop);
+      const postWorkshopResult = postWorkshop && selectReportsInDateRange(postWorkshop);
+      console.log("populate", postWorkshopResult)
 
-      setSelectedPostworkshop(postworkshop)
+
+      setSelectedPostworkshop(postWorkshopResult)
     
   }, [selectedDate]);
 
@@ -87,7 +89,7 @@ const YipFacilitatorFeedback = ({  postWorkshop, }) => {
             
                <QuarterlyCsv
                 csvData={selectedPostworkshop}
-                // headers={Object.keys(postWorkshop[0])}
+                headers={Object.keys(postWorkshop[0])}
                 fileName={`OEF_YIP_Event_Facilitator_Feedback_${
                   csvNowDate.split("_")[0]
                 }.csv`}

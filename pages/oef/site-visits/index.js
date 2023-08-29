@@ -52,7 +52,7 @@ const EventsIndex = ({ siteVisits }) => {
   }, [])
    
   const handleDeleteEvent=(id,eventName)=>{
-    console.log(id)
+    // console.log(id)
     setSelectedEventToDelete({id:id,eventname:eventName})
     setShowDeleteEventModal(!showDeleteEventModal)
   }
@@ -73,18 +73,17 @@ const EventsIndex = ({ siteVisits }) => {
   const endDate = useSelector(
     (state) => state.eventCalendarDates.value.endDate
   );
-  console.log("startDate desde toolkit", startDate);
-  console.log("endDate desde toolkit", endDate);
+  // console.log("startDate desde toolkit", startDate);
+  // console.log("endDate desde toolkit", endDate);
 
-  const state = useSelector((state) => console.log(state));
+  // const state = useSelector((state) => console.log(state));
 
-  console.log("state", state);
 
   const sortedEventsByDate = siteVisits?.sort(
     (a, b) => new Date(b.tadatesubmitted) - new Date(a.tadatesubmitted)
   );
 
-  console.log("sortedEventsByDate", sortedEventsByDate);
+  // console.log("sortedEventsByDate", sortedEventsByDate);
 
 
 

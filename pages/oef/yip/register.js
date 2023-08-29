@@ -27,7 +27,7 @@ const Register = ({user}) => {
   const router = useRouter();
 /*   const { user, error, isLoading } = useUser(); */
   let userId = user?.sub;
-  console.log("user",user)
+  // console.log("user",user)
   const [showResponseStatus, setShowResponseStatus] = useState(false);
   const [responseStatus, setResponseStatus] = useState({});
   const [loading, setLoading] = useState(false);
@@ -59,7 +59,7 @@ const Register = ({user}) => {
     yipSessionOther:"",
   });
 
-  console.log("oef state form", eventForm);
+  // console.log("oef state form", eventForm);
   async function makeIcsFile() {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];
@@ -123,7 +123,7 @@ const Register = ({user}) => {
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-          console.log(response)
+          // console.log(response)
           //setShowResponseStatus(false)
           //notifyMessage();
           setTimeout(() => {

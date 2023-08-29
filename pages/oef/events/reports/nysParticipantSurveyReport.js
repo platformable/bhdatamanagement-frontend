@@ -4,7 +4,7 @@ import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import ExportPaticipantCSV from "../../../../components/csv-reports/ExportParticipantCSV";
 const NysParticipantSurveyReport = ({ participantReport }) => {
-  console.log("report", participantReport);
+  // console.log("report", participantReport);
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -14,7 +14,7 @@ const NysParticipantSurveyReport = ({ participantReport }) => {
   const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
   useEffect(() => {
     const cerohoursDate = new Date(selectedDate.start).setHours(0)
-    console.log("selectedDate", selectedDate)
+    // console.log("selectedDate", selectedDate)
     const selectedReports = participantReport?.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))
@@ -31,7 +31,7 @@ const NysParticipantSurveyReport = ({ participantReport }) => {
 
   }, [selectedDate]);
 
-  console.log("selected", selectedCSV);
+  // console.log("selected", selectedCSV);
 
   return (
     <Layout showStatusHeader={true}>

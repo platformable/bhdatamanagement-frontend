@@ -2,12 +2,10 @@ import React,{useState,useEffect} from 'react';
 import {eventChecklist} from "../../utils/sharedData";
 
 const PostEventReportSection14 = ({eventForm, setEventForm}) => {
-  // console.log("eventForm 14",eventForm)
 
 const [data,setData]=useState(false)
   
   const handleForm=(field)=>{
-  /*     console.log(field) */
       setEventForm((previous) => ({
         ...previous,
         [field]:!eventForm[field]

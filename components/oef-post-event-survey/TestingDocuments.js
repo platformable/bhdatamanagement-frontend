@@ -15,7 +15,7 @@ const TestingDocuments = ({path, testName, FileUploadedMessage}) => {
     const blob = new Blob([event.target.files[0]], {
       type: "text/plain",
     });
-    console.log("blob", blob);
+    // console.log("blob", blob);
 
     form.append("file", blob);
 
@@ -47,14 +47,14 @@ const TestingDocuments = ({path, testName, FileUploadedMessage}) => {
         }
       );
       // setLoading(false)
-      console.log("response", response);
+      // console.log("response", response);
       if (response.status === 200) {
         const data = await response.json();
         setLoading(false);
         FileUploadedMessage(fileName);
         setFile(null);
         setFileName("");
-        console.log("saved");
+        // console.log("saved");
         // setUploadSuccess(!uploadSuccess)
       }
     } catch (error) {

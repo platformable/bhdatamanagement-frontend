@@ -54,7 +54,7 @@ const CreateFBO = () => {
     await axios
       .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`, form)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
           setLoading(!loading)
           notifyMessage();
@@ -84,7 +84,7 @@ const handleAddress = (value, key) => {
     setForm((prev) => ({ ...prev, key: value }));
 }
 
-  console.log(form);
+  // console.log(form);
   return (
     <>
       <Layout>

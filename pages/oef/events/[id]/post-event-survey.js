@@ -271,7 +271,7 @@ const PostEventReport = ({ event, fbos }) => {
       .then((response) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
-          console.log(response)
+          // console.log(response)
           setTimeout(() => {
             router.push(`/oef/events/${eventForm.eventID}/success`);
           }, 1500);
@@ -285,7 +285,7 @@ const PostEventReport = ({ event, fbos }) => {
       });
   };
 
-  console.log("eventForm", eventForm);
+  // console.log("eventForm", eventForm);
   return (
     <>
       <Layout showStatusHeader={true}>

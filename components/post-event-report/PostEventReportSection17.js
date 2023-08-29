@@ -5,7 +5,6 @@ const PostEventReportSection17 = ({eventForm, setEventForm}) => {
     let {value} = e.target
       let finalValue;
       value > 1000 ? finalValue = 1000:finalValue=value
-      console.log("Send email value0", finalValue)
       setEventForm((previous) => ({
         ...previous,
         [e.target.name]:Number(finalValue)

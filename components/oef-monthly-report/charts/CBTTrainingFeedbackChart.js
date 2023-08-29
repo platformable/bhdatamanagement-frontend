@@ -43,7 +43,7 @@ const CBTTrainingFeedbackChart = ({
   getHrefImage,
   selectedDate,
 }) => {
-  console.log("chartDAta",cbtParticipants)
+  // console.log("chartDAta",cbtParticipants)
   const [value, copy] = useCopyToClipboard();
   const informationuseful = {
     "Strongly disagree": 0,
@@ -84,7 +84,7 @@ const CBTTrainingFeedbackChart = ({
     });
     setStadistics([informationuseful, canapply, presenterexplainwell, understoodtopics]);
   }, [cbtParticipants]);
-  console.log(stadistics)
+  // console.log(stadistics)
 
   let values = stadistics.filter((value) => Number.isFinite(value));
   let maxValue = Math.max.apply(null, values);
@@ -255,7 +255,7 @@ const CBTTrainingFeedbackChart = ({
 
     const datasetIndex = dataset[0].datasetIndex;
 
-    console.log(data.datasets[datasetIndex].label);
+    // console.log(data.datasets[datasetIndex].label);
   };
 
   const printElementAtEvent = (element) => {
@@ -263,13 +263,13 @@ const CBTTrainingFeedbackChart = ({
 
     const { datasetIndex, index } = element[0];
 
-    console.log(data.labels[index], data.datasets[datasetIndex].data[index]);
+    // console.log(data.labels[index], data.datasets[datasetIndex].data[index]);
   };
 
   const printElementsAtEvent = (elements) => {
     if (!elements.length) return;
 
-    console.log(elements.length);
+    // console.log(elements.length);
   };
 
   const chartRef = useRef();

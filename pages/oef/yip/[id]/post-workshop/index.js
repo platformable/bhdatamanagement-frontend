@@ -30,7 +30,7 @@ import DropboxDocumentUpload from "../../../../../components/oef-post-event-surv
 import ProgramLeaders from "../../../../../components/yip/ProgramLeader";
 
 export default function PostWorkshop({ event, fbos }) {
-  console.log("event", event);
+  // console.log("event", event);
   const [showStatusUpload, setShowStatusUpload] = useState(false);
   const [msgStatusUpload, setMsgStatusUpload] = useState({});
   // const [showResponseStatus, setShowResponseStatus] = useState();

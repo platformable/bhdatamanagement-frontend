@@ -12,7 +12,7 @@ const orderDataset = (data, headers) => {
   }
   const results = headers.map(header => {
     if(header === 'eventDate' || header === 'surveyCreated' || header==="surveyModified" || header === "taStatusCompleteDate" || header === "surveyCompleted") {
-      console.log("header",header)
+      // console.log("header",header)
       return `${reverseDate(data[header.toLowerCase()])}`
     }    
     if (typeof data[header] === 'object' && data[header] ) {
@@ -24,15 +24,14 @@ const orderDataset = (data, headers) => {
 };
 
 const CSVHIVOutreachParticipantSignInSheet = ({ csvData, fileName, headers}) => {
-  console.log("csv data",csvData)
-  console.log('headers', headers);
+  // console.log("csv data",csvData)
+  // console.log('headers', headers);
   const [orderedData, setOrdereData] = useState([]);
   
   useEffect(() => {
     const data = csvData.map((dataset) => orderDataset(dataset, headers));
     setOrdereData(data);
   }, [csvData]);
-  console.log("data to download", orderedData)
 
   return (
     //use ";" as separator for testing 

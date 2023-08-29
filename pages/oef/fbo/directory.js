@@ -17,7 +17,7 @@ import {
 import { useEffect } from "react";
 
 const fboDirectory = ({ fbos }) => {
-  console.log("events", fbos);
+  // console.log("events", fbos);
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -173,7 +173,7 @@ const fboDirectory = ({ fbos }) => {
     return icsFile;
   }
   const handleDeleteEvent = (id, eventName) => {
-    console.log(id);
+    // console.log(id);
     setSelectedEventToDelete({ id: id, eventname: eventName });
     setShowDeleteEventModal(!showDeleteEventModal);
   };

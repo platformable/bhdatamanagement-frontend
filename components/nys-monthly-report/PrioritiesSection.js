@@ -107,7 +107,7 @@ console.log("priorities", selectedEventsOutputs)
 };
 function copyText() {
   var Text = document.getElementById("events-description");
-  console.log(Text.innerHTML);
+  // console.log(Text.innerHTML);
   navigator.clipboard.writeText(Text.innerHTML);
 
 }

@@ -9,7 +9,7 @@ const ResourcesSection = ({
 }) => {
   const [stadistics, setStadistics] = useState([]);
   const [value, copy] = useCopyToClipboard();
-  console.log("resources  section", selectedEventsOutputs);
+  // console.log("resources  section", selectedEventsOutputs);
   const reversedDate = {
     start: reverseDate(selectedDate.start),
     finish: reverseDate(selectedDate.finish),
@@ -43,7 +43,7 @@ const ResourcesSection = ({
 
   const textToClipboard = async (htmlID) => {
     const element = document.getElementById(htmlID);
-    console.log(element.innerHTML);
+    // console.log(element.innerHTML);
     const blob = new Blob([element.textContent], { type: "text/plain" });
     await copy(blob);
   };

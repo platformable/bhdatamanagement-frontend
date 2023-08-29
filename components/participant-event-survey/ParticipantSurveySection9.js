@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 
 
 export const ParticipantSurveySection9 = ({surveyForm,setSurveyForm}) => {
-console.log("surveyForm",surveyForm)
+// console.log("surveyForm",surveyForm)
 
   const options= [
 {id:1,value:"Employed for wages"},

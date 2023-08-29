@@ -53,7 +53,7 @@ const Register = () => {
     onlineEventTypeID:""
   });
 
-  console.log("oef state form", eventForm);
+  // console.log("oef state form", eventForm);
   async function makeIcsFile() {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];
@@ -115,7 +115,7 @@ const Register = () => {
         eventForm
       )
       .then((response) => {
-        console.log(response)
+        // console.log(response)
         if (response.data.statusText === "OK") {
           //setShowResponseStatus(false)
           //notifyMessage();
@@ -156,7 +156,7 @@ const Register = () => {
       .then((response) => {
         if (response.data.statusText === "OK") {
           // notifyMessage();
-          console.log(response)
+          // console.log(response)
            setTimeout(() => {
             router.push(`/oef/cbt/`);
           }, 1500); 

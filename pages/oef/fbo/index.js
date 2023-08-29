@@ -18,7 +18,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 const EventsIndex = ({ events }) => {
-  console.log("events", events);
+  // console.log("events", events);
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -174,7 +174,7 @@ const EventsIndex = ({ events }) => {
   }
   
   const handleDeleteEvent = (id, eventName) => {
-    console.log(id);
+    // console.log(id);
     setSelectedEventToDelete({ id: id, eventname: eventName });
     setShowDeleteEventModal(!showDeleteEventModal);
   };

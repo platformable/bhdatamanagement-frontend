@@ -39,7 +39,7 @@ const EditPostEventReport = ({ event }) => {
   const [msgStatusUpload, setMsgStatusUpload] = useState({})
   const loggedUsername = user && user["https://lanuevatest.herokuapp.com/name"];
   const loggedUserLastname = user && user["https://lanuevatest.herokuapp.com/lastname"];
-console.log("event",event)
+// console.log("event",event)
   const [eventForm, setEventForm] = useState({
     id:event.id,
     eventID:event?.eventid,
@@ -116,7 +116,7 @@ externalFacilitatorEmail:  event?.externalfacilitatoremail ||''
       .then((response) => {
         if (response.data.statusText === "OK") {
           //notifyMessage();
-          console.log(response)
+          // console.log(response)
            setTimeout(() => {
             router.push(`/oef/cbt`);
           }, 1500); 
@@ -127,7 +127,7 @@ externalFacilitatorEmail:  event?.externalfacilitatoremail ||''
       });
   };
 
-  console.log("eventForm", eventForm);
+  // console.log("eventForm", eventForm);
   return (
     <>
       

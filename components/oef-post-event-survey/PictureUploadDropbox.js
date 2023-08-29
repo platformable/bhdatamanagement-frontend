@@ -47,14 +47,14 @@ const PictureUploadDropbox = ({path, title, FileUploadedMessage, index}) => {
         }
       );
       // setLoader(false)
-      console.log("response", response);
+      // console.log("response", response);
       if (response.status === 200) {
         const data = await response.json();
         setLoader(false);
         FileUploadedMessage(fileName);
         setFile(null);
         setFileName("");
-        console.log("saved");
+        // console.log("saved");
         // setUploadSuccess(!uploadSuccess)
       }
     } catch (error) {

@@ -9,12 +9,11 @@ const DeleteUserModal = ({urlEntity,selectedUser, showDeleteUserModal, setShowDe
     const router = useRouter()
     const {userid, name, lastname,email} = selectedUser
 
-    console.log("selected user: ", selectedUser)
-    console.log("entity", urlEntity)
-    console.log("userid: ", userid)
+    // console.log("selected user: ", selectedUser)
+    // console.log("entity", urlEntity)
+    // console.log("userid: ", userid)
 
     const handleAuthUserDelete = ()=>{
-        console.log("handle user delete")
         urlEntity==="users" ?
         axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL}/${urlEntity}/`,{ data: {userid}  }):
         axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL}/${urlEntity}/`,{ data: {email} })

@@ -10,12 +10,11 @@ const DeleteFboModal = ({id,eventname,setShowDeleteEventModal,showDeleteEventMod
 
 
     const handleDeleteEvent = ()=>{
-        console.log("borrando event")
-        console.log(id)
+        // console.log(id)
 
         axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos/delete`,{ data: {id} })
         .then(response=>{
-            console.log(response)
+            // console.log(response)
             if(response.data.statusText==='OK'){
                 setShowDeleteEventModal(!showDeleteEventModal)
                 router.reload()

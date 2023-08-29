@@ -72,7 +72,6 @@ const RegisterTA = ({ fbos }) => {
       form.taEmail==='' ||
       form.taPhone==='' ||
       form.taFbo.length===0 ){
-        console.log('isEmpty yesss',isEmpty)
         setLoading(false)
         setMessageToCompleteForm({status:true,message:"Please complete all the fields"})
         
@@ -85,7 +84,7 @@ const RegisterTA = ({ fbos }) => {
         form
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
           setLoading(true);
           notifyMessage();

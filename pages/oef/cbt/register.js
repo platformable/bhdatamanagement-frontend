@@ -57,7 +57,7 @@ const Register = () => {
     createdByLastname: user['https://lanuevatest.herokuapp.com/lastname'],
   });
 
-  console.log("oef state form", eventForm);
+  // console.log("oef state form", eventForm);
   async function makeIcsFile() {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];

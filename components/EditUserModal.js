@@ -5,7 +5,7 @@ import Loader from "./Loader";
 
 export default function EditUserModal({selectedUser, setShowEditUserModal, showEditUserModal }) {
   const router = useRouter()
-  console.log("Edit user:", selectedUser)
+  // console.log("Edit user:", selectedUser)
   const [userData,setUserData]= useState(selectedUser 
     // || {
     // user_id: selectedUser.user_id,
@@ -43,7 +43,6 @@ export default function EditUserModal({selectedUser, setShowEditUserModal, showE
      }); 
    }
 
-  console.log("userData",userData)
 
   return (
     <>

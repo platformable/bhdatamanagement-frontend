@@ -39,7 +39,7 @@ const RegisterSiteVisits = ({ fbos }) => {
 
   const surveyForm = useSelector((state)=>state.siteVisitsReducer.value) 
 
-  console.log("surveyForm",surveyForm)
+  // console.log("surveyForm",surveyForm)
 
   const notifyMessage = () => {
     toast.success("Technical assistance created", {

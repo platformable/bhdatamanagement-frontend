@@ -20,7 +20,6 @@ const DropboxDocumentUpload = ({
     const blob = new Blob([event.target.files[0]], {
       type: "text/plain",
     });
-    console.log("blob", blob);
 
     form.append("file", blob);
 
@@ -33,7 +32,7 @@ const DropboxDocumentUpload = ({
       path: `${path}/${event.target.files[0].name}`,
       strict_conflict: false,
     };
-    console.log("Documents", path, fileName);
+    // console.log("Documents", path, fileName);
 
     try {
       const tokenResponse = await fetch(
@@ -53,14 +52,14 @@ const DropboxDocumentUpload = ({
         }
       );
       // setLoading(false)
-      console.log("response", response);
+      // console.log("response", response);
       if (response.status === 200) {
         const data = await response.json();
         setLoading(false);
         FileUploadedMessage(fileName);
         setFile(null);
         setFileName("");
-        console.log("saved");
+        // console.log("saved");
         // setUploadSuccess(!uploadSuccess)
       }
     } catch (error) {

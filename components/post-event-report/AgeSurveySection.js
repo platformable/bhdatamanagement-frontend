@@ -53,9 +53,7 @@ const AgeSurveySection = ({
   disableWheelInputNumber,
 }) => {
   const fields = useMemo(() => dataFieldStrings(typeOfTest), [typeOfTest]);
-  const handleForm = (e) => {
-    console.log("e.target.value", e.target.name);
-  };
+  
   return (
     <div className="grid gap-7">
       <h2 className="font-black">
