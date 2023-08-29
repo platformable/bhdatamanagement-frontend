@@ -12,7 +12,7 @@ const ProgramLeaders = ({eventForm,setEventForm}) => {
 {id:4,value:"Participants were greeted by someone from the program when they entered." ,dataPoint:'participantGreeted'},
 {id:5,value:"Resources were available to participants." ,dataPoint:'resourcesAvailable'},
 {id:6,value:"If photos were taken, participants signed a photo usage form." ,dataPoint:'photoRelease'},
-{id:7,value:"Hand sanitizer was available." ,dataPoint:'handSanitizerAvailable'},
+// {id:7,value:"Hand sanitizer was available." ,dataPoint:'handSanitizerAvailable'},
 {id:8,value:"Participants were reminded that the workshop area is a safe space and to treat each other respectfully and within the workshop guidelines." ,dataPoint:'reminderSafeSpace'},
 {id:9,value:"All participants completed a post-workshop evaluation form." ,dataPoint:'reminderPostEvaluationSurvey'},
 //{id:10,value:"Are sign-in sheets from last week up to date and stored appropriately?" ,state:''},
