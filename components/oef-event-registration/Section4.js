@@ -16,7 +16,7 @@ const Section4 = ({eventForm,setEventForm}) => {
 
   return (
     <div className="">
-      <h2 className="font-black">Please list the primary zip code where the outreach was held, or where the majority of participants attending the event are expected to be living?</h2>
+      <h2 className="font-black">Please list the primary zip code where the outreach was held, or where the majority of participants are living?</h2>
     <div className="flex gap-x-5 items-center mt-7">
       <p>Zip code</p>
       <label>
