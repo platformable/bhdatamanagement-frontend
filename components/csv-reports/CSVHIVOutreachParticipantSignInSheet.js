@@ -24,7 +24,6 @@ const orderDataset = (data, headers) => {
 };
 
 const CSVHIVOutreachParticipantSignInSheet = ({ csvData, fileName, headers}) => {
-  // console.log("csv data",csvData)
   // console.log('headers', headers);
   const [orderedData, setOrdereData] = useState([]);
   

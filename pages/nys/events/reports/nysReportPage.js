@@ -37,7 +37,7 @@ const NysReportPage = ({ eventReport,  }) => {
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Download the CSV for NYS CMD events"}
+        pageTitle={"Download the CSV for NYS events"}
         backBtn={true}
         dashboardBtn={true}
       />

@@ -372,22 +372,20 @@ export const allHeaders = {
     "organizerFeedback",
   ],
   cab_organizer_survey: [
-    "programId",
-    "programName",
-    "surveyName",
-    // "eventDateCreated",
     "createdByName",
     "createdByLastname",
+    "eventRole",
+    "eventName",
+    "cluster",
     "eventDate",
     "eventStartTime",
     "eventFinishTime",
-    // "healthAreaOfFocusId",
     "healthAreaOfFocusName",
-    "oefEventEmail",
     "deliveryPartner",
+    "clusterFBOs",
+    'totalAttendees',
     "submissionStatus",
-    "submissionNotes",
-    "eventRole",
+    // "submissionNotes",
   ],
 };
 const ReportPicker = ({
@@ -464,7 +462,7 @@ const ReportPicker = ({
             <CSVHIVOutreachParticipantSignInSheet
               csvData={selectedCSV}
               headers={allHeaders[surveyName]}
-              fileName={`${fileName}${csvNowDate.split(",")[0]}.csv`}
+              fileName={`${fileName}-${csvNowDate.split(",")[0]}.csv`}
             />
           )}
         </div>

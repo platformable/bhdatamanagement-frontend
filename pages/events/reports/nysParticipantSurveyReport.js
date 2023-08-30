@@ -35,7 +35,7 @@ const NysParticipantSurveyReport = ({ participantReport }) => {
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Download the CSV for NYS CMD participant survey outputs"}
+        pageTitle={"Download the CSV for NYS participant survey outputs"}
         backBtn={true}
         dashboardBtn={true}
       />
