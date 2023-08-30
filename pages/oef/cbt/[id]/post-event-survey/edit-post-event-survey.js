@@ -119,7 +119,7 @@ const EditPostEventReport = ({ event }) => {
       .then((response) => {
         if (response.data.statusText === "OK") {
           setShowResponseStatus(true);
-          console.log(response);
+          // console.log(response);
           setTimeout(() => {
             router.push(`/oef/cbt`);
           }, 1500);
@@ -128,13 +128,12 @@ const EditPostEventReport = ({ event }) => {
       .catch(function (error) {
         setNewError(true)
         setErrorMsg('Something went wrong, try again')
-        console.log("verga que ladilla el error")
         setLoading(false)
 
       });
   };
 
-  console.log("eventForm", eventForm);
+  // console.log("eventForm", eventForm);
   return (
     <>
       <Layout showStatusHeader={true}>

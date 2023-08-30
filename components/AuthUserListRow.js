@@ -7,7 +7,7 @@ export default function AuthUserListRow({showDeleteUserModal,setShowDeleteUserMo
   index,setSelectedUser, showEditInactiveUserModal, setShowEditInactiveUserModal,selectedEntity,setSelectedEntity}) {
   const {email,name,lastname,role,isactive,datelastlogin,id,dateaccountactivated} = authorizeduser
   const router = useRouter()
-    console.log("name:", name)
+    // console.log("name:", name)
 
     
   const handleSelectedUser =(selectedUser)=>{

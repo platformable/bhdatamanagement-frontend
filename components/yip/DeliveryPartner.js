@@ -1,7 +1,6 @@
 import React from "react";
 
 const DeliveryPartner = ({ fbos, surveyForm, setSurveyForm,questionText }) => {
-  console.log();
   const handleForm = (e) => {
     if (e.target.value !== "Other")
       setSurveyForm((prev) => ({ ...prev, deliveryPartnerOther: "" }));

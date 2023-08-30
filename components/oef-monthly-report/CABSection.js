@@ -28,7 +28,7 @@ const CABSection = ({
 
   const textToClipboard = async (htmlID) => {
     const element = document.getElementById(htmlID);
-    console.log(element.innerHTML);
+    // console.log(element.innerHTML);
     const blob = new Blob([element.textContent], { type: "text/plain" });
     await copy(blob);
   };

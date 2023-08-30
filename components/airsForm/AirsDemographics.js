@@ -33,7 +33,6 @@ const AirsDemographics = ({event}) => {
         { value: "More than one race / ethnicity" },
         { value: "Unknown / unreported" },
       ];
-    console.log("airscompoentn",event)
     const demographiscknown = event?.hivtestedtotal+event?.stitestedtotal+event?.hepctestedtotal+event?.covidtestedtotal
     return (
         <div className="border-black  mx-5 ">

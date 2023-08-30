@@ -26,7 +26,7 @@ const Survey = ({ event, fbos }) => {
     });
   };
 
-  console.log("data", event);
+  // console.log("data", event);
 
   const [surveyForm, setSurveyForm] = useState({
     deliveryPartner: "",
@@ -52,7 +52,7 @@ const Survey = ({ event, fbos }) => {
     participantEthnicityOther:"",
     participantGenderOther:""
   });
-  console.log("form", surveyForm);
+  // console.log("form", surveyForm);
 
   const router = useRouter();
 
@@ -244,7 +244,6 @@ export const getServerSideProps = async (ctx) => {
     ),
     fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
   ]);
-  console.log(event);
   return {
     props: {
       event: event,

@@ -37,7 +37,7 @@ const QuarterlyCsv = ({ csvData, fileName, headers, buttonText, download }) => {
     const data = csvData.map((dataset) => orderDataset(dataset, headers));
     setOrdereData(data);
   }, [csvData]);
-  console.log("data to download", orderedData);
+  // console.log("data to download", orderedData);
   useEffect(() => {
     if (download.state) buttonRef.current.link.click()
     download.set(false)

@@ -110,7 +110,6 @@ else if(
 
 
 const assignUser = async (clientHCWID)=>{
-  console.log("ejecutandose assign",clientHCWID)
 const filteredusers= await users.filter((user,index)=>user.user_id===clientHCWID)
 
 

@@ -49,14 +49,14 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
   }
   const [stadistics, setStadistics] = useState([]);
   useEffect(() => {
-  console.log("db",chartData)
+  // console.log("db",chartData)
 
     const datastadistics = chartData?.map((event, index) => {
 
 
 
       if (event.inpersoneventtypename !== null || event.inpersoneventtypename !== "") {
-        console.log("type",event.inpersoneventtypename)
+        // console.log("type",event.inpersoneventtypename)
         switch(event.inpersoneventtypename) {
           case ("Outreach/Community Event"):
             counts["Outreach/Community Event"] += 1
@@ -95,7 +95,7 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
     });
     setStadistics(Object.values(counts));
   }, [chartData]);
-  console.log("stadistics", counts)
+  // console.log("stadistics", counts)
 
   let values = stadistics.filter(value => Number.isFinite(value));
   let maxValue = Math.max.apply(null, values);
@@ -189,7 +189,7 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
 
     const datasetIndex = dataset[0].datasetIndex;
 
-    console.log(data.datasets[datasetIndex].label);
+    // console.log(data.datasets[datasetIndex].label);
   };
 
   const printElementAtEvent = (element) => {
@@ -197,13 +197,13 @@ const TypeOfEventChart = ({ chartData, getHrefImage, selectedDate }) => {
 
     const { datasetIndex, index } = element[0];
 
-    console.log(data.labels[index], data.datasets[datasetIndex].data[index]);
+    // console.log(data.labels[index], data.datasets[datasetIndex].data[index]);
   };
 
   const printElementsAtEvent = (elements) => {
     if (!elements.length) return;
 
-    console.log(elements.length);
+    // console.log(elements.length);
   };
 
   const chartRef = useRef();

@@ -69,7 +69,6 @@ export default function create({fbos}) {
 
 
     const addUser =  ()=> {
-        console.log("add user")
         //const isEmpty = Object.values(userData).some(value => !value)
     
        // if (!isEmpty) {
@@ -111,7 +110,7 @@ export default function create({fbos}) {
         }))
       },[data])
     
-      console.log("userData",userData)
+      // console.log("userData",userData)
 
   return (
     <Layout showStatusHeader={true}>

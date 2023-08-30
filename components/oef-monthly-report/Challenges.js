@@ -1,7 +1,7 @@
 export default function Challenges({selectedDate, selectedEvents, selectedEventsOutputs}) {
   function handleCopy(id) {
     const data = document.getElementById(id).innerText;
-    console.log("data", data);
+    // console.log("data", data);
     navigator.clipboard.writeText(data);
   }
     return (

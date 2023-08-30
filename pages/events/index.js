@@ -17,7 +17,7 @@ import {
 import { useEffect } from "react";
 
 const EventsIndex = ({ events }) => {
-  console.log("events", events)
+  // console.log("events", events)
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -192,12 +192,8 @@ const EventsIndex = ({ events }) => {
   const endDate = useSelector(
     (state) => state.eventCalendarDates.value.endDate
   );
-  console.log("startDate desde toolkit", startDate);
-  console.log("endDate desde toolkit", endDate);
 
-  const state = useSelector((state) => console.log(state));
 
-  console.log("state", state);
 
   const sortedEventsByDate = events.sort(
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)

@@ -27,7 +27,7 @@ const ParticipantSurvey = ({
   
   const userId = user && user.sub;
 
-  console.log("event",event)
+  // console.log("event",event)
 
 
   const programAndAreaStyles = {
@@ -184,7 +184,7 @@ export const getServerSideProps = withPageAuthRequired({
         ),
 
       ]);
-      console.log(event)
+      // console.log(event)
     return {
       props: {
         event: event

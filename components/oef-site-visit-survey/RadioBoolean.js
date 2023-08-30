@@ -9,10 +9,8 @@ const RadioBoolean = ({
   dispatch,
 }) => {
   const handleForm = (e) => {
-    console.log("gfsdfgsdfgd");
     dispatch(updateFunction({ [stateValue]: e.target.value }));
   };
-console.log(options, surveyForm?.[stateValue])
   return (
     <div className="px-7">
       <h2 className="font-black">

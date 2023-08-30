@@ -57,7 +57,7 @@ const Survey = ({ event, fbos }) => {
     surveyName:'oef-participant',
     participantBorough:""
   });
-  console.log("form", surveyForm);
+  // console.log("form", surveyForm);
 
   const router = useRouter();
 

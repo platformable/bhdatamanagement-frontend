@@ -4,7 +4,6 @@ import Layout from "../../../components/Layout";
 import PageTopHeading from "../../../components/PageTopHeading";
 import ExportPaticipantCSV from "../../../components/csv-reports/ExportParticipantCSV";
 const NysParticipantSurveyReport = ({ participantReport }) => {
-  console.log("report", participantReport);
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,

@@ -299,7 +299,7 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
         if (response.data.statusText === "OK") {
           notifyMessage();
           submitSubmissionForm()
-          console.log(response);
+          // console.log(response);
        
         }
       })
@@ -318,7 +318,7 @@ const ExternalPostEventReport = ({ event, fbos, user }) => {
       )
       .then((response) => {
         if (response.data.statusText === "OK") {
-          console.log(response);
+          // console.log(response);
           setTimeout(() => {
             router.push(router.asPath.replace('edit-post-event-survey-external', 'success'))
           }, 1500);

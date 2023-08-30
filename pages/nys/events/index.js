@@ -17,7 +17,7 @@ import {
 import { useEffect } from "react";
 
 const EventsIndex = ({ events }) => {
-  console.log("events", events)
+  // console.log("events", events)
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );

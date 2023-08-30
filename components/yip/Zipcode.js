@@ -21,7 +21,7 @@ const Zipcode = ({ surveyForm, setSurveyForm }) => {
       e.preventDefault();
     } 
 }
-console.log(surveyForm.participantZipCode)
+// console.log(surveyForm.participantZipCode)
   return (
     <div className="">
       <h2 className="font-black">

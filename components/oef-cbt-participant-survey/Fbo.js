@@ -1,7 +1,6 @@
 import React from "react";
 
 const Fbo = ({ fbos, surveyForm, setSurveyForm }) => {
-  console.log();
   const handleForm = (e) => {
     setSurveyForm((prev) => ({ ...prev, deliveryPartner: e.target.value }));
   };

@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function edit({data,fbos}) {
 
-  console.log("data",data)
+  // console.log("data",data)
 
     const router = useRouter()
     const [userData,setUserData]= useState({
@@ -83,7 +83,6 @@ export default function edit({data,fbos}) {
         
       }
     
-      console.log("userData",userData)
 
       useEffect(() => {
         setUserData((prev)=> ({...prev, userAccessiblePrograms: program}))
@@ -223,7 +222,6 @@ export default function edit({data,fbos}) {
               <p className="ml-1 mb-5">Choose Program</p>
               {programs &&
                 programs.map((program, index) => {
-                  console.log('program', program)
                   return (
                     <label className="flex items-center  gap-x-5" key={index}>
                       <input

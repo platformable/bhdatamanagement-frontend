@@ -20,7 +20,7 @@ import { useEffect } from "react";
 // ***************************************************************************************************************************
 
 const EventsIndex = ({ events, user }) => {
-  console.log("events", events)
+  // console.log("events", events)
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -173,7 +173,7 @@ const EventsIndex = ({ events, user }) => {
     return icsFile;
   } 
   const handleDeleteEvent=(id,eventName)=>{
-    console.log(id)
+    // console.log(id)
     setSelectedEventToDelete({id:id,eventname:eventName})
     setShowDeleteEventModal(!showDeleteEventModal)
   }
@@ -194,18 +194,17 @@ const EventsIndex = ({ events, user }) => {
   const endDate = useSelector(
     (state) => state.eventCalendarDates.value.endDate
   );
-  console.log("startDate desde toolkit", startDate);
-  console.log("endDate desde toolkit", endDate);
+  // console.log("startDate desde toolkit", startDate);
+  // console.log("endDate desde toolkit", endDate);
 
-  const state = useSelector((state) => console.log(state));
+  // const state = useSelector((state) => console.log(state));
 
-  console.log("state", state);
 
   const sortedEventsByDate = events.sort(
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
   );
 
-  console.log(sortedEventsByDate);
+  // console.log(sortedEventsByDate);
 
 
   const changeStatusBg = (submissionstatus)=>{

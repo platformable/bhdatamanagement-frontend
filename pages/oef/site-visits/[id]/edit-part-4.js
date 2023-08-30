@@ -123,7 +123,7 @@ const RegisterSiteVisits = ({ fbos }) => {
   ]
   const surveyForm = useSelector((state)=>state.siteVisitsReducer.value) 
 
-  console.log("surveyForm p4",surveyForm)
+  // console.log("surveyForm p4",surveyForm)
 
   const notifyMessage = () => {
     toast.success("Site Visit Saving", {
@@ -138,7 +138,7 @@ const RegisterSiteVisits = ({ fbos }) => {
         surveyForm
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
           setLoading(!loading);
           notifyMessage();

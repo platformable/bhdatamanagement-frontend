@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react";
 import { CSVLink } from "react-csv";
+import { nysActivity } from "../../utils/sharedData";
 const orderDataset = (data) => {
   const reverseDate = (date) => {
     const splitted = new Date(date).toISOString().split("T")
@@ -7,6 +8,9 @@ const orderDataset = (data) => {
     const result=reverse[1]+'/'+reverse[2]+'/'+reverse[0];
     return result;
   }
+  const findProgramGroup = (activityProp) => {
+    return activityProp && nysActivity?.find(activity => activity.value === activityProp).programNameGroup
+  } 
   return [
     data.eventid,
     data.userid,
@@ -14,7 +18,7 @@ const orderDataset = (data) => {
     data.lastname,
     reverseDate(data.eventdatecreated),
     data.programid,
-    data.programname,
+    findProgramGroup(data._nysactivity),
     data._nysactivity,
     data._nysactivityother,
     data._workarea,
@@ -261,7 +265,7 @@ const orderDataset = (data) => {
 };
 
 const ExportCSV = ({ csvData, fileName}) => {
-  console.log("csv data",csvData)
+  // console.log("csv data",csvData)
   const [orderedData, setOrdereData] = useState([]);
   const headers = [
     "eventID",

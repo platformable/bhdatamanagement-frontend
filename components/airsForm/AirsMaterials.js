@@ -8,7 +8,6 @@ const AirsMaterials = ({ event }) => {
     
     
     const literature = covidliterature + vaccinerelatedliterature  + hivliterature + hepcliterature + prepliterature + healthdisparitiesliterature
-    console.log("literature",literature)
   return (
     <div className="mx-5 divide-y divide-black border-t-0 border-b border-b-black border-x border-x-black">
       <div className="grid grid-cols-3 gap-x-1 ">

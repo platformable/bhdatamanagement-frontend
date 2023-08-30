@@ -70,7 +70,7 @@ const EditTA = ({ technicalAssistance,fbos }) => {
         form
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
           setLoading(true);
           notifyMessage()
@@ -103,9 +103,8 @@ const EditTA = ({ technicalAssistance,fbos }) => {
   };
 
   const handleStatus = (e) => setForm(prev => ({...prev, taStatus: e.target.value,taStatusCompleteDate:null})) 
-  console.log(form);
+  // console.log(form);
 
-  console.log("technicalAssistance",technicalAssistance)
   return (
     <>
       <Layout>

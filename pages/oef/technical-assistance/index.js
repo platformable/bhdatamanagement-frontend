@@ -70,18 +70,17 @@ const EventsIndex = ({ technicalAssistance }) => {
   const endDate = useSelector(
     (state) => state.eventCalendarDates.value.endDate
   );
-  console.log("startDate desde toolkit", startDate);
-  console.log("endDate desde toolkit", endDate);
+  // console.log("startDate desde toolkit", startDate);
+  // console.log("endDate desde toolkit", endDate);
 
-  const state = useSelector((state) => console.log(state));
+  // const state = useSelector((state) => console.log(state));
 
-  console.log("state", state);
 
   const sortedEventsByDate = technicalAssistance?.sort(
     (a, b) => new Date(b.tadatesubmitted) - new Date(a.tadatesubmitted)
   );
 
-  console.log("sortedEventsByDate", sortedEventsByDate);
+  // console.log("sortedEventsByDate", sortedEventsByDate);
 
 
 

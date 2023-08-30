@@ -25,7 +25,7 @@ import TextArea from "../../../../../components/yip/TextArea";
 import OneColumnCheckbox from "../../../../../components/yip/OneColumnCheckbox";
 
 export default function Session4({ event, fbos }) {
-  console.log("event", event);
+  // console.log("event", event);
   // const [showResponseStatus, setShowResponseStatus] = useState();
   const [responseStatus, setResponseStatus] = useState('');
   const [loading, setLoading] = useState(false);
@@ -406,7 +406,7 @@ export default function Session4({ event, fbos }) {
     { value: "19", title: "19" },
     { value: "Other", title: "Other" },
   ];
-  console.log("yip session 3 form: ", eventForm);
+  // console.log("yip session 3 form: ", eventForm);
 
   const satisfiedScaleOptions = [
     {

@@ -54,8 +54,8 @@ const CABEdit = ({ event,fbos }) => {
     eventName:event?.eventname
   });
 
-  console.log("eventCAB",event)
-  console.log("eventForm",eventForm)
+  // console.log("eventCAB",event)
+  // console.log("eventForm",eventForm)
 
   const notifyMessage = () => {
     toast.success("Please wait while your event information is being processed", {
@@ -89,7 +89,7 @@ const CABEdit = ({ event,fbos }) => {
 
   const getCity = (zipcode, array) => {
     const searchZipcode = array.filter((code) => code.zipcode === zipcode);
-    console.log("searchZipcode", searchZipcode);
+    // console.log("searchZipcode", searchZipcode);
     if (searchZipcode.length > 0) {
       setEventForm({ ...eventForm, borough: searchZipcode[0].borought });
     } else {

@@ -14,7 +14,7 @@ const DropboxDocumentUpload = ({path, title, FileUploadedMessage}) => {
     const blob = new Blob([event.target.files[0]], {
       type: "text/plain",
     });
-    console.log("blob", blob);
+    // console.log("blob", blob);
 
     form.append("file", blob);
 
@@ -27,7 +27,7 @@ const DropboxDocumentUpload = ({path, title, FileUploadedMessage}) => {
       path: `${path}/${event.target.files[0].name}`,
       strict_conflict: false,
     };
-    console.log("Documents", path, fileName)
+    // console.log("Documents", path, fileName)
 
     try {
       const tokenResponse = await fetch(
@@ -47,7 +47,7 @@ const DropboxDocumentUpload = ({path, title, FileUploadedMessage}) => {
         }
       );
       // setLoading(false)
-      console.log("response", response);
+      // console.log("response", response);
       if (response.status === 200) {
         const data = await response.json();
         setLoading(false);

@@ -17,7 +17,7 @@ import {
 import { useRouter } from "next/router";
 
 const EventsIndex = ({ events }) => {
-  console.log("events", events);
+  // console.log("events", events);
   const eventSearchWord = useSelector(
     (state) => state.eventsSearchWord.value.word
   );
@@ -174,7 +174,7 @@ const EventsIndex = ({ events }) => {
     return icsFile;
   }
   const handleDeleteEvent = (id, eventName) => {
-    console.log(id);
+    // console.log(id);
     setSelectedEventToDelete({ id: id, eventname: eventName });
     setShowDeleteEventModal(!showDeleteEventModal);
   };
@@ -198,7 +198,7 @@ const EventsIndex = ({ events }) => {
 
   const state = useSelector((state) => console.log(state));
 
-  console.log(sortedEventsByDate);
+  // console.log(sortedEventsByDate);
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading

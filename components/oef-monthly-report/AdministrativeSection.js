@@ -9,13 +9,13 @@ const AdministrativeSection = ({
 }) => {
   function handleCopy() {
     const data = document.querySelector("#events-description").innerText;
-    console.log("data", data);
+    // console.log("data", data);
     navigator.clipboard.writeText(data);
   }
 
 
-  console.log("selectedEvents",selectedEvents)
-  console.log("selectedEventsOutputs",selectedEventsOutputs)
+  // console.log("selectedEvents",selectedEvents)
+  // console.log("selectedEventsOutputs",selectedEventsOutputs)
 
   const numbersOfOefEvents =selectedEvents?.filter(event=>event.eventname!==null && event._surveyname==='oef-fbo-outreach' && event.submissionstatus==='Complete').length
   const totalNumberOfParticipantsSurveys= selectedEventsOutputs?.filter(events=>events.surveyname==='oef-participant').length
@@ -84,8 +84,8 @@ const AdministrativeSection = ({
     });
 
 
-    console.log("selectedEvents bh-cbt-post-event",selectedEvents)
-    console.log("sumNumberOfCbtPostEvents",sumNumberOfCbtPostEvents)
+    // console.log("selectedEvents bh-cbt-post-event",selectedEvents)
+    // console.log("sumNumberOfCbtPostEvents",sumNumberOfCbtPostEvents)
 
     let totalNumberOfCabPostEvent=0
    const sumNumberOfCabPostEvents=selectedEvents?.forEach(element => {

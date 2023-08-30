@@ -15,7 +15,6 @@ export const ParticipantSurveySection19 = ({surveyForm,setSurveyForm}) => {
         name="participantRelationship"
         placeholder=""
         onChange={(e) =>
-          //console.log("hello")
           setSurveyForm((previous) => ({
             ...previous,
             [e.target.name]:e.target.value

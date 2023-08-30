@@ -37,7 +37,7 @@ const EditOefEventExternal = ({
   eventTypes,
   fbos,
 }) => {
-  console.log("event", event);
+  // console.log("event", event);
   const router = useRouter();
   const { user, error, isLoading } = useUser();
   // let userId = user?.sub;
@@ -71,7 +71,7 @@ const EditOefEventExternal = ({
     onlineEventTypeID: event?.onlineeventtypeid,
   });
 
-  console.log("oef state form", eventForm);
+  // console.log("oef state form", eventForm);
   const isEditable =
     new Date().toLocaleDateString() ===
     new Date(event?.eventdatecreated).toLocaleDateString();
@@ -94,7 +94,6 @@ const EditOefEventExternal = ({
           router.push(
             `/oef/events/${eventForm.id}/edit-post-event-survey-external`
           );
-          console.log("updated");
         }
       })
       .catch(function (error) {
@@ -105,7 +104,7 @@ const EditOefEventExternal = ({
 
   const getCity = (zipcode, array) => {
     const searchZipcode = array.filter((code) => code.zipcode === zipcode);
-    console.log("searchZipcode", searchZipcode);
+    // console.log("searchZipcode", searchZipcode);
     if (searchZipcode.length > 0) {
       setEventForm({ ...eventForm, borough: searchZipcode[0].borought });
     } else {

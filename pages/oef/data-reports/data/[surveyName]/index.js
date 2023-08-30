@@ -371,6 +371,24 @@ export const allHeaders = {
     "eventQuestions",
     "organizerFeedback",
   ],
+  cab_organizer_survey: [
+    "programId",
+    "programName",
+    "surveyName",
+    // "eventDateCreated",
+    "createdByName",
+    "createdByLastname",
+    "eventDate",
+    "eventStartTime",
+    "eventFinishTime",
+    // "healthAreaOfFocusId",
+    "healthAreaOfFocusName",
+    "oefEventEmail",
+    "deliveryPartner",
+    "submissionStatus",
+    "submissionNotes",
+    "eventRole",
+  ],
 };
 const ReportPicker = ({
   participantReport,
@@ -391,7 +409,7 @@ const ReportPicker = ({
   });
   useEffect(() => {
     const cerohoursDate = new Date(selectedDate.start).setHours(0);
-    console.log("selectedDate", selectedDate);
+    // console.log("selectedDate", selectedDate);
     const selectedReports = participantReport && participantReport.filter((report) => {
       const start = new Date(new Date(selectedDate.start).setHours(0));
       const end = new Date(new Date(selectedDate.finish).setHours(23));
@@ -518,6 +536,14 @@ export const getServerSideProps = withPageAuthRequired({
             surveyRoute: "cbt/facilitator",
             pageTitle: "Download CBT Facilitator Feedback Data",
             fileName: "CBT_Facilitator_Feedback",
+            headerToFilter: "eventdate",
+          };
+          break;
+        case "cab_organizer_survey":
+          return {
+            surveyRoute: "cab/organizer",
+            pageTitle: "Download CAB Organizer Data",
+            fileName: "CAB_Organizer",
             headerToFilter: "eventdate",
           };
           break;

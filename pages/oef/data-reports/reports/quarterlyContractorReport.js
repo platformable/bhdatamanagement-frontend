@@ -6,7 +6,7 @@ import CSVHIVOutreachParticipantSignInSheet from "../../../../components/csv-rep
 import QuarterlyCsv from "../../../../components/csv-reports/QuarterlyCsv";
 
 const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
-  // console.log("siteVisitsCSV", siteVisitsCSV);
+  console.log("cbtCSV", cbtCSV);
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,

@@ -73,7 +73,7 @@ const Register = () => {
     borough: "",
   });
 
-  console.log("nys state form", eventForm);
+  // console.log("nys state form", eventForm);
   async function makeIcsFile() {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];
@@ -125,8 +125,8 @@ const Register = () => {
   };
 
   const submitEventForm = async () => {
-    console.log("user id ", eventForm.userID);
-    console.log(eventForm.icsUrlFile);
+    // console.log("user id ", eventForm.userID);
+    // console.log(eventForm.icsUrlFile);
     await makeIcsFile(eventForm);
     setLoading(true);
     await axios
@@ -136,7 +136,7 @@ const Register = () => {
           setLoading(false);
           //setResponseStatus({ success: true, statusMessage: "Your event is being saved"})
           //setShowResponseStatus(!showResponseStatus)
-          console.log("response",response)
+          // console.log("response",response)
           notifyMessage();
           // setTimeout(() => {
           //   router.push("/events");
@@ -153,7 +153,7 @@ const Register = () => {
 
   const getCity = (zipcode, array) => {
     const searchZipcode = array.filter((code) => code.zipcode === zipcode);
-    console.log("searchZipcode", searchZipcode);
+    // console.log("searchZipcode", searchZipcode);
     if (searchZipcode.length > 0) {
       setEventForm({ ...eventForm, borough: searchZipcode[0].borought });
     } else {

@@ -121,7 +121,7 @@ const RegisterSiteVisits = ({ fbos }) => {
   ];
   const surveyForm = useSelector((state) => state.siteVisitsReducer.value);
 
-  console.log("surveyForm", surveyForm);
+  // console.log("surveyForm", surveyForm);
 
   const notifyMessage = () => {
     toast.success("Site Visit Saving", {
@@ -133,7 +133,7 @@ const RegisterSiteVisits = ({ fbos }) => {
     await axios
       .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/site_visits`, surveyForm)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
           setLoading(!loading);
           notifyMessage();

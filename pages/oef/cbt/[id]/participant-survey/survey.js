@@ -255,7 +255,7 @@ export const getServerSideProps = async (ctx) => {
     ),
     fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fbos`).then((r) => r.json()),
   ]);
-  console.log(event);
+  // console.log(event);
   return {
     props: {
       event: event,

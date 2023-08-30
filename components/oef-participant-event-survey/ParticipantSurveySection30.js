@@ -16,7 +16,7 @@ export const ParticipantSurveySection30 = ({surveyForm,setSurveyForm}) => {
     ]))
  */
 
-    console.log(value, ddbb_label)
+    // console.log(value, ddbb_label)
     setSurveyForm((previous) => ({
       ...previous,
       [ddbb_label]: !surveyForm[ddbb_label]
