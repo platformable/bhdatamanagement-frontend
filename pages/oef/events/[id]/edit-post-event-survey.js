@@ -326,7 +326,7 @@ const PostEventReport = ({ event, fbos, user ,eventToPrint}) => {
       });
   };
 
-  const [eventNotCompletedMessage, setEventNotCompletedMessage] =
+  const [eventNotCompletedMessage, setEventNotCompletedMessage] = 
     useState(false);
 
   useEffect(() => {

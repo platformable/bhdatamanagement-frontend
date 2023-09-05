@@ -9,7 +9,7 @@ const quarterlySubcontractorReport = ({
   hivOutreachCSV,
   cabCSV
 }) => {
-  console.log("cabCSV", cabCSV)
+  console.log("hivOutreachCSV", hivOutreachCSV)
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -41,7 +41,7 @@ const quarterlySubcontractorReport = ({
     setSelectedCabCSV(cabCsv)
   }, [selectedDate]);
 
-  console.log("selected", selectedCabCSV);
+  console.log("selected", selectedHivCSV);
 
   return (
     <Layout showStatusHeader={true}>
