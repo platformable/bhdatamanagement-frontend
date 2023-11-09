@@ -131,7 +131,7 @@ const Register = ({  }) => {
     await makeIcsFile(eventForm);
     setLoading(true);
     await axios
-      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
+      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/nyscreate`, eventForm)
       .then((response) => {
         if (response.data.statusText === "OK") {
           setResponseStatus({ success: true, statusMessage: "Your event is being saved"})
