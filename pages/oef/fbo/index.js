@@ -9,6 +9,7 @@ import Search from "../../../components/SearchEvents";
 import DeleteEventModal from "../../../components/events/DeleteEventModal";
 import { useSelector, useDispatch } from "react-redux";
 import { searchEventByName } from "../../../slices/eventsSearchWordSlice";
+import { filterByDateRange } from "../../../utils/helpers";
 
 import {
   updateStartDate,
@@ -195,14 +196,14 @@ const EventsIndex = ({ events }) => {
   const endDate = useSelector(
     (state) => state.eventCalendarDates.value.endDate
   );
-  // console.log("startDate desde toolkit", startDate);
-  // console.log("endDate desde toolkit", endDate);
+  console.log("startDate desde toolkit", startDate);
+  console.log("endDate desde toolkit", endDate);
 
   const state = useSelector((state) => console.log(state));
 
   // console.log("state", state);
 
-  console.log("sorted events", sortedEventsByDate);
+  // console.log("sorted events", sortedEventsByDate);
 
   const changeStatusBg = (submissionstatus) => {
     let color;
@@ -347,23 +348,8 @@ const EventsIndex = ({ events }) => {
                 }
               })
               .filter((event, index) => {
-                var startDate = new Date(
-                  new Date(dateFilter?.startDate).setHours(0)
-                );
-                var endDate = new Date(
-                  new Date(dateFilter?.endDate).setHours(23)
-                );
-                if (startDate !== null && endDate !== null) {
-                  let filterPass = true;
-                  const date = new Date(event.eventdate);
-                  if (dateFilter.startDate) {
-                    filterPass = filterPass && startDate <= date;
-                  }
-                  if (dateFilter.endDate) {
-                    filterPass = filterPass && endDate >= date;
-                  }
-                  return filterPass;
-                }
+                return filterByDateRange(event.eventdate, startDate, endDate)
+               
               })
 
               .map((event, index) => {

@@ -16,6 +16,7 @@ import {
   updateEndDate,
 } from "../../../slices/eventsCalendarDatesSlice";
 import { useEffect } from "react";
+import { filterByDateRange } from "../../../utils/helpers";
 
 const EventsIndex = ({ technicalAssistance }) => {
 
@@ -186,20 +187,21 @@ const EventsIndex = ({ technicalAssistance }) => {
                 return event.tacontactname.toLowerCase().includes(searchWord) || event.tatype.some(type => type.toLowerCase().includes(searchWord)) || event.tafbo.some(type => type.toLowerCase().includes(searchWord))
               })
               .filter((event, index) => {
-                var startDate = new Date(new Date(dateFilter?.startDate).setHours(0))
-                var endDate = new Date(new Date(dateFilter?.endDate).setHours(23))
-                if (startDate !== null && endDate !== null) {
-                  let filterPass = true;
-                  const date = new Date(event.tadatesubmitted);
-                  if (dateFilter.startDate) {
-                    filterPass = filterPass && startDate <= date;
-                  }
-                  if (dateFilter.endDate) {
-                    filterPass =
-                      filterPass && endDate >= date;
-                  }
-                  return filterPass;
-                }
+                return filterByDateRange(event.tadatesubmitted, startDate, endDate)
+                // var startDate = new Date(new Date(dateFilter?.startDate).setHours(0))
+                // var endDate = new Date(new Date(dateFilter?.endDate).setHours(23))
+                // if (startDate !== null && endDate !== null) {
+                //   let filterPass = true;
+                //   const date = new Date(event.tadatesubmitted);
+                //   if (dateFilter.startDate) {
+                //     filterPass = filterPass && startDate <= date;
+                //   }
+                //   if (dateFilter.endDate) {
+                //     filterPass =
+                //       filterPass && endDate >= date;
+                //   }
+                //   return filterPass;
+                // }
               })
               .map((event, index) => {
               
