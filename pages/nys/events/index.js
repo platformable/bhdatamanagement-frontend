@@ -32,14 +32,6 @@ const EventsIndex = ({ events }) => {
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
 
-  /*   const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState(""); */
-
-  const [dateFilter, setDateFilter] = useState({
-    startDate: null,
-    endDate: null,
-  });
- 
   
    function makeIcsFile(event) {
     function convertDate(date, time) {
@@ -177,11 +169,10 @@ const EventsIndex = ({ events }) => {
   };
   const ref = useRef();
 
-  const handleStartDate = () => {
-    dispatch(updateStartDate(dateFilter));
-  };
-  // console.log("events",events)
 
+  const calendarDateState = useSelector(
+    (state) => state.eventCalendarDates.value
+  );
   const startDate = useSelector(
     (state) => state.eventCalendarDates.value.startDate
   );
@@ -189,7 +180,7 @@ const EventsIndex = ({ events }) => {
     (state) => state.eventCalendarDates.value.endDate
   );
   
-  // console.log("date", startDate, endDate)
+  console.log("date", startDate, endDate)
 
 
   const sortedEventsByDate = events.sort(
@@ -220,9 +211,8 @@ const EventsIndex = ({ events }) => {
               id="start"
               placeholder="start date"
               onChange={(e) => {
-                setDateFilter({ ...dateFilter, startDate: e.target.value });
                 dispatch(
-                  updateStartDate({ ...dateFilter, startDate: e.target.value })
+                  updateStartDate({ ...calendarDateState, startDate: e.target.value })
                 );
               }}
               defaultValue={startDate}
@@ -235,9 +225,8 @@ const EventsIndex = ({ events }) => {
               type="date"
               placeholder="end date"
               onChange={(e) => {
-                setDateFilter({ ...dateFilter, endDate: e.target.value });
                 dispatch(
-                  updateStartDate({ ...dateFilter, endDate: e.target.value })
+                  updateStartDate({ ...calendarDateState, endDate: e.target.value })
                 );
               }}
               defaultValue={endDate}
@@ -263,8 +252,8 @@ const EventsIndex = ({ events }) => {
               .filter((event, index) => {
                 if (
                   searchWord === "" &&
-                  dateFilter.startDate === null &&
-                  dateFilter.endDate === null
+                  startDate === null &&
+                  endDate === null
                 ) {
                   return event;
                 }

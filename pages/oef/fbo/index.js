@@ -36,16 +36,7 @@ const EventsIndex = ({ events }) => {
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
 
-  /*   const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState(""); */
-
-  const [dateFilter, setDateFilter] = useState({
-    startDate: null,
-    endDate: null,
-  });
-  // async function downloadCalendar (base64) {
-
-  // }
+  
 
   function makeIcsFile(event) {
     function convertDate(date, time) {
@@ -185,10 +176,9 @@ const EventsIndex = ({ events }) => {
   };
   const ref = useRef();
 
-  const handleStartDate = () => {
-    dispatch(updateStartDate(dateFilter));
-  };
-  // console.log("events",events)
+  const calendarDateState = useSelector(
+    (state) => state.eventCalendarDates.value
+  );
 
   const startDate = useSelector(
     (state) => state.eventCalendarDates.value.startDate
@@ -196,14 +186,12 @@ const EventsIndex = ({ events }) => {
   const endDate = useSelector(
     (state) => state.eventCalendarDates.value.endDate
   );
-  console.log("startDate desde toolkit", startDate);
-  console.log("endDate desde toolkit", endDate);
+  // console.log("startDate desde toolkit", startDate);
+  // console.log("endDate desde toolkit", endDate);
 
   const state = useSelector((state) => console.log(state));
 
-  // console.log("state", state);
-
-  // console.log("sorted events", sortedEventsByDate);
+  
 
   const changeStatusBg = (submissionstatus) => {
     let color;
@@ -259,10 +247,9 @@ const EventsIndex = ({ events }) => {
                   id="start"
                   placeholder="start date"
                   onChange={(e) => {
-                    setDateFilter({ ...dateFilter, startDate: e.target.value });
                     dispatch(
                       updateStartDate({
-                        ...dateFilter,
+                        ...calendarDateState,
                         startDate: e.target.value,
                       })
                     );
@@ -279,10 +266,9 @@ const EventsIndex = ({ events }) => {
                   type="date"
                   placeholder="end date"
                   onChange={(e) => {
-                    setDateFilter({ ...dateFilter, endDate: e.target.value });
                     dispatch(
                       updateStartDate({
-                        ...dateFilter,
+                        ...calendarDateState,
                         endDate: e.target.value,
                       })
                     );
@@ -331,8 +317,8 @@ const EventsIndex = ({ events }) => {
               .filter((event, index) => {
                 if (
                   searchWord === "" &&
-                  dateFilter.startDate === null &&
-                  dateFilter.endDate === null
+                  startDate === null &&
+                  endDate === null
                 ) {
                   return event;
                 }
