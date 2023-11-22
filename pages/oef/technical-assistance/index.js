@@ -15,7 +15,6 @@ import {
   updateStartDate,
   updateEndDate,
 } from "../../../slices/eventsCalendarDatesSlice";
-import { useEffect } from "react";
 import { filterByDateRange } from "../../../utils/helpers";
 
 const EventsIndex = ({ technicalAssistance }) => {
@@ -35,19 +34,7 @@ const EventsIndex = ({ technicalAssistance }) => {
   const loggedUserRole =
     user && user["https://lanuevatest.herokuapp.com/roles"];
 
-  /*   const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState(""); */
 
-  const [dateFilter, setDateFilter] = useState({
-    startDate: null,
-    endDate: null,
-  });
-  // async function downloadCalendar (base64) {
-    
-  // }
-  useEffect(() => {
-    // events.map(event => {event.url_calendar = makeIcsFile(event)})
-  }, [])
    
   const handleDeleteEvent=(id,eventName)=>{
     console.log(id)
@@ -60,11 +47,10 @@ const EventsIndex = ({ technicalAssistance }) => {
   };
   const ref = useRef();
 
-  const handleStartDate = () => {
-    dispatch(updateStartDate(dateFilter));
-  };
   // console.log("events",events)
-
+  const calendarDateState = useSelector(
+    (state) => state.eventCalendarDates.value
+  );
   const startDate = useSelector(
     (state) => state.eventCalendarDates.value.startDate
   );
@@ -133,9 +119,8 @@ const EventsIndex = ({ technicalAssistance }) => {
               id="start"
               placeholder="start date"
               onChange={(e) => {
-                setDateFilter({ ...dateFilter, startDate: e.target.value });
                 dispatch(
-                  updateStartDate({ ...dateFilter, startDate: e.target.value })
+                  updateStartDate({ ...calendarDateState, startDate: e.target.value })
                 );
               }}
               defaultValue={startDate}
@@ -148,9 +133,8 @@ const EventsIndex = ({ technicalAssistance }) => {
               type="date"
               placeholder="end date"
               onChange={(e) => {
-                setDateFilter({ ...dateFilter, endDate: e.target.value });
                 dispatch(
-                  updateStartDate({ ...dateFilter, endDate: e.target.value })
+                  updateStartDate({ ...calendarDateState, endDate: e.target.value })
                 );
               }}
               defaultValue={endDate}
@@ -179,8 +163,8 @@ const EventsIndex = ({ technicalAssistance }) => {
               .filter((event, index) => {
                 if (
                   searchWord === "" &&
-                  dateFilter.startDate === null &&
-                  dateFilter.endDate === null
+                  startDate === null &&
+                  endDate === null
                 ) {
                   return event;
                 }
