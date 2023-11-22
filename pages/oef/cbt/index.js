@@ -38,16 +38,7 @@ const EventsIndex = ({ events }) => {
   /*   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState(""); */
 
-  const [dateFilter, setDateFilter] = useState({
-    startDate: null,
-    endDate: null,
-  });
-  // async function downloadCalendar (base64) {
-
-  // }
-  useEffect(() => {
-    // events.map(event => {event.url_calendar = makeIcsFile(event)})
-  }, []);
+ 
   function makeIcsFile(event) {
     function convertDate(date, time) {
       const dateParts = date.split("T")[0];
@@ -189,6 +180,9 @@ const EventsIndex = ({ events }) => {
     dispatch(updateStartDate(dateFilter));
   };
   // console.log("events",events)
+  const calendarDateState = useSelector(
+    (state) => state.eventCalendarDates.value
+  );
 
   const startDate = useSelector(
     (state) => state.eventCalendarDates.value.startDate
@@ -250,10 +244,9 @@ const EventsIndex = ({ events }) => {
                 id="start"
                 placeholder="start date"
                 onChange={(e) => {
-                  setDateFilter({ ...dateFilter, startDate: e.target.value });
                   dispatch(
                     updateStartDate({
-                      ...dateFilter,
+                      ...calendarDateState,
                       startDate: e.target.value,
                     })
                   );
@@ -270,10 +263,9 @@ const EventsIndex = ({ events }) => {
                 type="date"
                 placeholder="end date"
                 onChange={(e) => {
-                  setDateFilter({ ...dateFilter, endDate: e.target.value });
                   dispatch(
                     updateStartDate({
-                      ...dateFilter,
+                      ...calendarDateState,
                       endDate: e.target.value,
                     })
                   );
@@ -312,8 +304,8 @@ const EventsIndex = ({ events }) => {
               .filter((event, index) => {
                 if (
                   searchWord === "" &&
-                  dateFilter.startDate === null &&
-                  dateFilter.endDate === null
+                  startDate === null &&
+                  endDate === null
                 ) {
                   return event;
                 }

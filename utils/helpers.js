@@ -61,6 +61,7 @@ export const crearFecha2 = (event) => {
 };
 
 export const filterByDateRange = (date, startDate, endDate) => {
+  console.log(date,"=> ", startDate, "=> ", endDate)
   if (!startDate || !endDate) return true;
   var startDateFormated = new Date(new Date(startDate).setHours(0));
   var endDateFormated = new Date(new Date(endDate).setHours(23));
