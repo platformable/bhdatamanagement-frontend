@@ -15,6 +15,7 @@ import {
   updateEndDate,
 } from "../../../slices/eventsCalendarDatesSlice";
 import { useEffect } from "react";
+import { filterByDateRange } from "../../../utils/helpers";
 
 const EventsIndex = ({ events }) => {
   // console.log("events", events)
@@ -188,14 +189,14 @@ const EventsIndex = ({ events }) => {
     (state) => state.eventCalendarDates.value.endDate
   );
   
-
+  // console.log("date", startDate, endDate)
 
 
   const sortedEventsByDate = events.sort(
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
   );
 
-  console.log(sortedEventsByDate);
+  // console.log("sorted events by date",sortedEventsByDate);
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
@@ -280,20 +281,23 @@ const EventsIndex = ({ events }) => {
                 }
               })
               .filter((event, index) => {
-                var startDate = new Date(new Date(dateFilter?.startDate).setHours(0))
-                var endDate = new Date(new Date(dateFilter?.endDate).setHours(23))
-                if (startDate !== null && endDate !== null) {
-                  let filterPass = true;
-                  const date = new Date(event.eventdate);
-                  if (dateFilter.startDate) {
-                    filterPass = filterPass && startDate <= date;
-                  }
-                  if (dateFilter.endDate) {
-                    filterPass =
-                      filterPass && endDate >= date;
-                  }
-                  return filterPass;
-                }
+                return filterByDateRange(event.eventdate, startDate, endDate)
+                // if(!startDate || !endDate) return true
+
+                // var startDateFormated = new Date(new Date(startDate).setHours(0))
+                // var endDateFormated = new Date(new Date(endDate).setHours(23))
+                // if (startDateFormated !== null && endDateFormated !== null) {
+                //   let filterPass = true;
+                //   const date = new Date(event.eventdate);
+                //   if (startDateFormated) {
+                //     filterPass = filterPass && startDateFormated <= date;
+                //   }
+                //   if (endDateFormated) {
+                //     filterPass =
+                //       filterPass && endDateFormated >= date;
+                //   }
+                //   return filterPass;
+                // }
               })
               
               .map((event, index) => {
