@@ -63,7 +63,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                       <button id="myBtn" className="flex items-center">
                         <p className=" font-bold text-white uppercase">
-                          Quarterly <br /> Contractor <br /> CBO Report
+                          Quarterly Report <br /> on BH work  <br /> <small>(Contractor)</small>
                         </p>
                       </button>
                     </div>
@@ -72,7 +72,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                     <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
                       <button id="myBtn" className="flex items-center">
                         <p className=" font-bold text-white uppercase">
-                          Quarterly <br /> Subcontractor <br /> Report
+                          Quarterly Report <br /> on FBO work <br /> <small>(Subcontractor)</small>
                         </p>
                       </button>
                     </div>
