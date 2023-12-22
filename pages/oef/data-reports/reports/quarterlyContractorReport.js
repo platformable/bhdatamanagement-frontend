@@ -6,7 +6,6 @@ import CSVHIVOutreachParticipantSignInSheet from "../../../../components/csv-rep
 import QuarterlyCsv from "../../../../components/csv-reports/QuarterlyCsv";
 
 const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
-  console.log("cbtCSV", cbtCSV);
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -42,19 +41,18 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
     setSelectedTACSV(technicalAssitance)
   }, [selectedDate]);
 
-  console.log("selected", selectedSiteVisitCSV);
 
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading
-        pageTitle={"Download Quarterly Report CBO Contractor CSV Data"}
+        pageTitle={"Download Quarterly Report on BH work (Contractor)"}
         backBtn={true}
         dashboardBtn={true}
       />
       <section className="container mx-auto px-5 md:px-0 pb-10">
         <p className="font-bold text-xl">Choose the data range:</p>
         <div className="grid md:flex md:flex-row my-7 gap-7">
-          <div className="grid grid-cols-1 gap-5">
+          <div className="grid grid-cols-1 gap-5 h-32">
             <label className="border-black p-5 flex justify-between">
               Start date:
               <input
@@ -77,16 +75,28 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
               />
             </label>
           </div>
-          {selectedCbtCSV && selectedTACSV && (
-            <>
-              <div>
+          
+          {selectedCbtCSV && selectedTACSV && selectedSiteVisitCSV &&  (
+            <section className="grid grid-rows-2 gap-5">
+
+              <QuarterlyCsv
+                csvData={[...selectedCbtCSV, ...selectedSiteVisitCSV, ...selectedTACSV]}
+                headers={Object.keys(cbtCSV[0])}
+                fileName={`Quarterly_Report_BH_Work_${
+                  csvNowDate.split("_")[0]
+                }.csv`}
+                buttonText="combined"
+                download={{state:download, set: setDownload}}
+              />
+
+              <div className="flex flex-col md:flex-row gap-5">
               <button
                 onClick={() => setDownload(true)}
                 className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase"
               >
                 Download <br /> all <br /> datasets
               </button>
-              </div>
+              
               <QuarterlyCsv
                 csvData={selectedCbtCSV}
                 headers={Object.keys(cbtCSV[0])}
@@ -116,7 +126,8 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
                 download={{state:download, set: setDownload}}
 
               />
-            </>
+              </div>
+            </section>
           )}
         </div>
       </section>
