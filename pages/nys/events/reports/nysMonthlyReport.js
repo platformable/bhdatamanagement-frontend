@@ -119,7 +119,7 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const [events, eventsOutput,] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`).then((r) =>
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/nys/report/getEvents`).then((r) =>
         r.json()
       ),
       fetch(
