@@ -10,10 +10,10 @@ const PrioritiesSection = ({
 }) => {
   function handleCopy() {
     const data = document.querySelector("#events-description").innerText;
-    console.log("data", data);
+    // console.log("data", data);
     navigator.clipboard.writeText(data);
   }
-console.log("priorities", selectedEventsOutputs)
+// console.log("priorities", selectedEventsOutputs)
   return (
     <section>
       <h1 className="font-black mb-7">Priorities and Program Accomplishments / Highlights</h1>
@@ -70,9 +70,9 @@ console.log("priorities", selectedEventsOutputs)
               {selectedEventsOutputs
                 ?.sort((a, b) => new Date(a.eventdate) - new Date(b.eventdate))
                 .map(
-                  (event) =>
+                  (event, index) =>
                     event.onlineinpersoneventtype === "Online" && (
-                      <div>
+                      <div key={index}>
                         <h3 className="font-black">
                           {new Date(event.eventdate).toLocaleDateString(
                             "en-US",

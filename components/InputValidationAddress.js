@@ -58,7 +58,7 @@ const InputValidationAddress = ({ setForm, name, defaultValue }) => {
       // console.log(data);
     } catch (e) {
       setError(true);
-      console.log(e);
+      // console.log(e);
     }
   };
 

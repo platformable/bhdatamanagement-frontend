@@ -5,7 +5,7 @@ import PageTopHeading from "../../../../components/PageTopHeading";
 import QuarterlyCsv from "../../../../components/csv-reports/QuarterlyCsv";
 
 const YipParticipantFeedback = ({  preWorkshop, sixMonths }) => {
-  console.log("baseline data",preWorkshop, sixMonths)
+  // console.log("baseline data",preWorkshop, sixMonths)
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -27,7 +27,7 @@ const YipParticipantFeedback = ({  preWorkshop, sixMonths }) => {
         const start = new Date(new Date(selectedDate.start).setHours(0));
         const end = new Date(new Date(selectedDate.finish).setHours(23));
         const eventdate = new Date(report?.surveycreated);
-        console.log(eventdate)
+        // console.log(eventdate)
         // console.log("start", start)
         // console.log("end", end)
         // console.log("eventdate", eventdate)

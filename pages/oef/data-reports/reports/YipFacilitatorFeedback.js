@@ -5,7 +5,7 @@ import PageTopHeading from "../../../../components/PageTopHeading";
 import QuarterlyCsv from "../../../../components/csv-reports/QuarterlyCsv";
 
 const YipFacilitatorFeedback = ({  postWorkshop, }) => {
-  console.log("baseline data",postWorkshop )
+  // console.log("baseline data",postWorkshop )
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -13,7 +13,7 @@ const YipFacilitatorFeedback = ({  postWorkshop, }) => {
 
   const [download, setDownload] = useState(false);
   const [selectedPostworkshop, setSelectedPostworkshop] = useState([]);
-console.log("SElected workshopps", selectedPostworkshop)
+// console.log("SElected workshopps", selectedPostworkshop)
 
   const csvNowDate = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
@@ -26,7 +26,7 @@ console.log("SElected workshopps", selectedPostworkshop)
         const start = new Date(new Date(selectedDate.start).setHours(0));
         const end = new Date(new Date(selectedDate.finish).setHours(23));
         const eventdate = new Date(report?.surveycreated);
-        console.log(eventdate)
+        // console.log(eventdate)
         // console.log("start", start)
         // console.log("end", end)
         // console.log("eventdate", eventdate)
@@ -34,7 +34,7 @@ console.log("SElected workshopps", selectedPostworkshop)
         return eventdate >= start && eventdate <= end;
       });
       const postWorkshopResult = postWorkshop && selectReportsInDateRange(postWorkshop);
-      console.log("populate", postWorkshopResult)
+      // console.log("populate", postWorkshopResult)
 
 
       setSelectedPostworkshop(postWorkshopResult)

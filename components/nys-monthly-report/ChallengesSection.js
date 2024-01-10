@@ -3,7 +3,7 @@ import React from "react";
 const ChallengesSection = ({ selectedEvents, selectedEventsOutputs }) => {
   function handleCopy() {
     const data = document.querySelector("#challengesList").innerText;
-    console.log("data", data);
+    // console.log("data", data);
     navigator.clipboard.writeText(data);
   }
 

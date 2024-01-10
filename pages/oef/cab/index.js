@@ -45,7 +45,7 @@ const EventsIndex = ({ events }) => {
   }, []);
 
   const handleDeleteEvent = (id, eventName) => {
-    console.log(id);
+    // console.log(id);
     setSelectedEventToDelete({ id: id, eventname: eventName });
     setShowDeleteEventModal(!showDeleteEventModal);
   };
