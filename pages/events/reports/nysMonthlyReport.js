@@ -20,7 +20,7 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
     finish: null,
   });
   const [imagesRefs, setImagesRefs] = useState({});
-  console.log("events output", eventsOutput)
+  // console.log("events output", eventsOutput)
     const getHrefImage = async (link, name) => {
         setImagesRefs((prev) => ({ ...prev, [name]: link }));
     };
@@ -32,7 +32,7 @@ export default function nysMonthlyReport({ events, eventsOutput }) {
   const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
 
   useEffect(() => {
-    console.log("selectedDate", selectedDate);
+    // console.log("selectedDate", selectedDate);
     const selectedReports = events.filter(
       (report) => {
         const start = new Date(new Date(selectedDate.start).setHours(0))

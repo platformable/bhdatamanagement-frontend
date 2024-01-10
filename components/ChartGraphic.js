@@ -172,7 +172,7 @@ const ChartGraphic = ({ chartData, dataGraphicPeriod }) => {
   const printElementsAtEvent = (elements) => {
     if (!elements.length) return;
 
-    console.log(elements.length);
+    // console.log(elements.length);
   };
 
   const chartRef = useRef();

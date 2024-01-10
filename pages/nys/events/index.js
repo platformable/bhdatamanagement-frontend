@@ -180,7 +180,7 @@ const EventsIndex = ({ events }) => {
     (state) => state.eventCalendarDates.value.endDate
   );
   
-  console.log("date", startDate, endDate)
+  // console.log("date", startDate, endDate)
 
 
   const sortedEventsByDate = events.sort(

@@ -74,7 +74,7 @@ const ResourcesSection = ({
           </thead>
           <tbody>
             {stadistics &&
-              Object.entries(stadistics).map(([key, value, index]) => (
+              Object.entries(stadistics).map(([key, value], index) => (
                 <tr
                   key={index}
                   className={`${

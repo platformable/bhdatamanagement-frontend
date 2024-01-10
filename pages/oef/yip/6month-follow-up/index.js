@@ -378,7 +378,7 @@ export default function MonthsFollowUp({ event, fbos }) {
       options: confidentScaleOptions,
     }, */
   ];
-  console.log("6 motnh form: ", eventForm); 
+  // console.log("6 motnh form: ", eventForm); 
   const smartGoalsOptions = [
     { id: 0, value: "Not at all aware" },
     { id: 1, value: "Not so aware" },
@@ -518,7 +518,7 @@ export default function MonthsFollowUp({ event, fbos }) {
 
 
 
-  console.log("eventForm", eventForm);
+  // console.log("eventForm", eventForm);
 
   return (
     <>

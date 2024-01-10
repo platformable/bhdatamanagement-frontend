@@ -57,7 +57,7 @@ const EditEvent = ({event,programs,locationTypes, areasOfFocus, eventTypes}) => 
     // if (!isEmpty) {
         axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/events`, eventForm)
         .then(response => {
-            console.log("response",response)
+            // console.log("response",response)
 
             if (response.data.statusText==='OK') {
               setResponseStatus({ success: true, statusMessage: "Your Event has been saved"})
