@@ -53,7 +53,7 @@ const Survey = ({ data }) => {
     });
   };
 
-  console.log("data", data);
+  // console.log("data", data);
 
   const [surveyForm, setSurveyForm] = useState({
     eventID: data[0]?.id,
@@ -127,7 +127,7 @@ const Survey = ({ data }) => {
     interestOtherText: "",
     participantBorough:""
   });
-  console.log("form", surveyForm);
+  // console.log("form", surveyForm);
 
   const router = useRouter();
 

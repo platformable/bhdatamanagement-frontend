@@ -30,7 +30,7 @@ const NysParticipantSurveyReport = ({ participantReport }) => {
 
   }, [selectedDate]);
 
-  console.log("selected", selectedCSV);
+  // console.log("selected", selectedCSV);
 
   return (
     <Layout showStatusHeader={true}>

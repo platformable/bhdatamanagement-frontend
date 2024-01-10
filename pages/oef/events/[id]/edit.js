@@ -89,7 +89,7 @@ const EditOefEvent = ({ event, fbos, user }) => {
           // setLoading(false);
           notifyMessage();
           router.push(`/oef/events/${eventForm.id}/edit-post-event-survey`);
-          console.log("updated");
+          // console.log("updated");
         }
       })
       .catch(function (error) {

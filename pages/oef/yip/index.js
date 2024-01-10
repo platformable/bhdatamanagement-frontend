@@ -164,7 +164,7 @@ const EventsIndex = ({ events }) => {
     return icsFile;
   }
   const handleDeleteEvent = (id, eventName) => {
-    console.log(id);
+    // console.log(id);
     setSelectedEventToDelete({ id: id, eventname: eventName });
     setShowDeleteEventModal(!showDeleteEventModal);
   };

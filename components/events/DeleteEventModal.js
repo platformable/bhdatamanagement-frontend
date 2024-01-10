@@ -14,7 +14,7 @@ const DeleteEventModal = ({id,eventname,setShowDeleteEventModal,showDeleteEventM
 
         axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/delete`,{ data: {id} })
         .then(response=>{
-            console.log(response)
+            // console.log(response)
             if(response.data.statusText==='OK'){
                 setShowDeleteEventModal(!showDeleteEventModal)
                 setSortedEventsByDate(prev => ([

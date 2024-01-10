@@ -197,7 +197,7 @@ const YipParticipantFeedback = ({ session1, session2, session3, session4 }) => {
   const [selectedSession3, setSelectedSession3] = useState([]);
   const [selectedSession4, setSelectedSession4] = useState([]);
 
-  console.log(selectedSession1);
+  // console.log(selectedSession1);
 
   const csvNowDate = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
