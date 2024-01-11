@@ -46,13 +46,13 @@ export default function nysMonthlyReport({}) {
     try {
       const [events, eventsOutput] = await Promise.all([
         fetch(
-          `https://z8lt2f25-3500.uks1.devtunnels.ms/events/nys/report/getEvents/${selectedDate.start}&${selectedDate.finish}`
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/events/nys/report/getEvents/${selectedDate.start}&${selectedDate.finish}`
         )
           .then((r) => r.json())
           .catch((err) => {
             console.log(err)}),
         fetch(
-          `https://z8lt2f25-3500.uks1.devtunnels.ms/post_event_report/nys_events_output/${selectedDate.start}&${selectedDate.finish}`
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/nys_events_output/${selectedDate.start}&${selectedDate.finish}`
         )
           .then((r) => r.json())
           .catch((err) => {
