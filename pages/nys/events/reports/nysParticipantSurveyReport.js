@@ -33,7 +33,7 @@ const NysParticipantSurveyReport = () => {
 
     try {
       const participantReport = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/${selectedDate.start}&${selectedDate.finish}`
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs/report/${selectedDate.start}&${selectedDate.finish}`
       )
         .then((r) => r.json())
         .catch((err) => {
