@@ -7,6 +7,7 @@ import ReactToPrint from 'react-to-print'
 import { useReactToPrint } from 'react-to-print';
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import AirsToPrint from "../../../../components/airsForm/AirsToPrint";
+import Loader from '../../../../components/Loader'
 
 import axios from "axios";
 import ResponseStatusModal from "../../../../components/ResponseStatusModal";
