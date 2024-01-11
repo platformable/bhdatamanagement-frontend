@@ -112,7 +112,6 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage, reversedDate}) => 
 
     const datasetIndex = dataset[0].datasetIndex;
 
-    // console.log(data.datasets[datasetIndex].label);
   };
 
   const printElementAtEvent = (element) => {
@@ -120,13 +119,11 @@ const ResourcesDistributedChart = ({ chartData, getHrefImage, reversedDate}) => 
 
     const { datasetIndex, index } = element[0];
 
-    // console.log(data.labels[index], data.datasets[datasetIndex].data[index]);
   };
 
   const printElementsAtEvent = (elements) => {
     if (!elements.length) return;
 
-    // console.log(elements.length);
   };
 
   const chartRef = useRef();
