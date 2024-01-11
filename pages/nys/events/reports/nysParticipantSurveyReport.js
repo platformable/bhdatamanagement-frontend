@@ -140,15 +140,5 @@ const NysParticipantSurveyReport = () => {
 export default NysParticipantSurveyReport;
 
 export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/participant_event_outputs`
-    );
-    const participantReport = await response.json();
-    return {
-      props: {
-        participantReport: participantReport,
-      },
-    };
-  },
+/*  */
 });
