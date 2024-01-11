@@ -199,7 +199,6 @@ const EventsIndex = ({ events }) => {
     (a, b) => new Date(b.eventdate) - new Date(a.eventdate)
   );
 
-  console.log(sortedEventsByDate);
   return (
     <Layout showStatusHeader={true}>
       <PageTopHeading

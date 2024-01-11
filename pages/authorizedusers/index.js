@@ -62,7 +62,6 @@ export default function AuthorizedUsersIndex({data, users}) {
   }
   const getNoActiveUser = (array1) => {
     const noActive = array1.filter(user => user.isactive === 'No Active')
-    console.log('lista noactive',noActive)
     setListOfNoActive(noActive)
   }
 
