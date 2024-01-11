@@ -37,7 +37,6 @@ export default function Dashboard({selectedProgram}) {
     user && user["https://lanuevatest.herokuapp.com/activestatus"];
   const userId = user?.sub;
   const router = useRouter();
-  console.log(router)
 
   const userName = user && user["https://lanuevatest.herokuapp.com/name"];
 

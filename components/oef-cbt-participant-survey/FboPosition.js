@@ -1,7 +1,6 @@
 import React from "react";
 
 const FboPosition = ({ surveyForm, setSurveyForm }) => {
-  console.log();
   const handleForm = (e) => {
     setSurveyForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };

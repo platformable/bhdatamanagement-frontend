@@ -3,36 +3,55 @@ import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import ExportCSV from "../../../../components/csv-reports/exportCSV";
-const NysReportPage = ({ eventReport,  }) => {
+const NysReportPage = ({}) => {
   // console.log("post events",eventReport)
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorRequest, setErrorResquest] = useState("");
   const [selectedCSV, setSelectedCSV] = useState([]);
   const [headers, setHeaders] = useState([]);
-  const csvNowDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
+  const csvNowDate = new Date().toLocaleString("en-US", {
+    timeZone: "America/New_York",
+  });
+
+  const fetchWithinRange = async () => {
+    if (!selectedDate.start || !selectedDate.finish) {
+      setErrorResquest("Select dates");
+      return;
+    }
+    setErrorResquest(false);
+    setIsLoading(true);
+
+    try {
+      const eventsOutput = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/nys_events_output/${selectedDate.start}&${selectedDate.finish}`
+      )
+        .then((r) => r.json())
+        .catch((err) => {
+          console.log(err);
+        });
+      if (eventsOutput?.statusText === "FAIL") {
+        setIsLoading(false);
+        setErrorResquest("No data founded");
+      } else {
+        setIsLoading(false);
+        setSelectedCSV(eventsOutput);
+      }
+    } catch (err) {
+      console.log("idnsandsaknsdk");
+      setIsLoading(false);
+
+      setErrorResquest(err.message);
+    }
+  };
   useEffect(() => {
-    console.log("selectedDate", selectedDate)
-    const selectedReports = eventReport.filter(
-      (report) => {
-        const start = new Date(new Date(selectedDate.start).setHours(0))
-        const end = new Date(new Date(selectedDate.finish).setHours(23))
-        const eventdate = new Date(report?.eventdate)
-        // console.log("start", start)
-        // console.log("end", end)
-        // console.log("eventdate", eventdate)
-        // console.log(eventdate >= start && eventdate <= end)
-        return eventdate >= start && eventdate <= end
-      } 
-    );
-    setSelectedCSV(selectedReports);
-
-    // const headers = Object.keys(eventReport[0]).map(key => ({"label": key, "key": key}))
-    // setHeaders(headers)
-  }, [selectedDate]);
-
-  console.log("selected", selectedCSV);
+    if (selectedDate.start || selectedDate.finish) {
+      fetchWithinRange();
+    }
+  }, [selectedDate.start, selectedDate.finish]);
 
   return (
     <Layout showStatusHeader={true}>
@@ -50,9 +69,8 @@ const NysReportPage = ({ eventReport,  }) => {
               <input
                 type="date"
                 onChange={(e) => {
-                  // console.log(new Date(e.target.value))
 
-                  setSelectedDate({ ...selectedDate, start: e.target.value })
+                  setSelectedDate({ ...selectedDate, start: e.target.value });
                 }}
               />
             </label>
@@ -60,20 +78,20 @@ const NysReportPage = ({ eventReport,  }) => {
               Finish date:
               <input
                 type="date"
-                onChange={(e) =>{
-                  // console.log(new Date(new Date(e.target.value).toLocaleString("en-US", {timeZone: "America/New_York"})).setHours(0), "new date")
-                  setSelectedDate({ ...selectedDate, finish: e.target.value })
+                onChange={(e) => {
+                  setSelectedDate({ ...selectedDate, finish: e.target.value });
                 }}
               />
             </label>
           </div>
-          {selectedCSV && (
+          <div className={`${selectedCSV.length === 0 ? "pointer-events-none" : ""}`}>
             <ExportCSV
               csvData={selectedCSV}
               fileName={`NYS_CMP_Event_Data_${csvNowDate.split(",")[0]}.csv`}
             />
-          )}
+          </div>
         </div>
+        <span className="font-medium">Select both dates to dowload report</span>
       </section>
     </Layout>
   );
@@ -81,16 +99,4 @@ const NysReportPage = ({ eventReport,  }) => {
 
 export default NysReportPage;
 
-export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/post_event_report/nys_events_output`
-      );
-    const eventReport = await response.json();
-    return {
-      props: {
-        eventReport: eventReport,
-      },
-    };
-  },
-});
+export const getServerSideProps = withPageAuthRequired({});

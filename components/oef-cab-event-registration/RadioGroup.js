@@ -3,7 +3,6 @@ import React from 'react'
 export default function RadioGroup({options,eventForm,setEventForm,title,stateValue,event}) {
 
 
-console.log("stateValue",stateValue)
   
   return (
     <div className="">
