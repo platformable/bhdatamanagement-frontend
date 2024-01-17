@@ -383,17 +383,14 @@ export const allHeaders = {
     "healthAreaOfFocusName",
     "deliveryPartner",
     "clusterFBOs",
-    'totalAttendees',
+    "totalAttendees",
     "submissionStatus",
     // "submissionNotes",
   ],
 };
 const ReportPicker = ({
-  participantReport,
-  pageTitle,
+  // pageTitle,
   surveyName,
-  fileName,
-  headerToFilter
 }) => {
   // console.log("******************", participantReport);
   const [selectedDate, setSelectedDate] = useState({
@@ -405,25 +402,107 @@ const ReportPicker = ({
   const csvNowDate = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorRequest, setErrorResquest] = useState("");
   useEffect(() => {
-    const cerohoursDate = new Date(selectedDate.start).setHours(0);
-    // console.log("selectedDate", selectedDate);
-    const selectedReports = participantReport && participantReport.filter((report) => {
-      const start = new Date(new Date(selectedDate.start).setHours(0));
-      const end = new Date(new Date(selectedDate.finish).setHours(23));
-      const eventdate = new Date(
-        report[headerToFilter]
-      );
-      
-      // console.log("start", start)
-      // console.log("end", end)
-      // console.log(eventdate >= start && eventdate <= end);
-      return eventdate >= start && eventdate <= end;
-    });
-    setSelectedCSV(selectedReports);
-  }, [selectedDate]);
 
-  // console.log("selected", selectedCSV);
+    if (selectedDate.start && selectedDate.finish) {
+        setIsLoading(true)
+        setErrorResquest('')
+      // console.log("surveyRoute", surveyRoute);
+      const response = fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/${surveyRoute}/${selectedDate.start}&${selectedDate.finish}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          if (data?.statusText === "FAIL") {
+            setErrorResquest("Not founded data")
+          } else {
+            setSelectedCSV(data)
+          }
+          setIsLoading(false)
+         
+        })
+        .catch((e) => {
+          setErrorResquest(data.message)
+          setIsLoading(false)
+
+          console.log("error: ", e)})
+    }
+  }, [selectedDate.start, selectedDate.finish]);
+
+  // console.log("surveyName", surveyName);
+
+  const reportNameFromSurveyName = () => {
+    switch (surveyName) {
+      case "oef_participant_sign_in_sheet":
+        return {
+          surveyRoute: "fbo/participant_survey",
+          pageTitle: "Download OEF Participant Sign-In sheet data",
+          fileName: "OEF_Participant_Sign_In_Sheet",
+          headerToFilter: "eventdate",
+        };
+        break;
+      case "cbt_participant_survey":
+        return {
+          surveyRoute: "cbt/participant_survey",
+          pageTitle: "Download CBT Participant Feedback data",
+          fileName: "CBT_Participant_Survey",
+          headerToFilter: "eventdate",
+        };
+        break;
+      case "hiv_outreach_event":
+        return {
+          surveyRoute: "hiv/fbo_outreach",
+          pageTitle: "Download HIV Outreach Event data",
+          fileName: "HIV_Outreach_Event",
+          headerToFilter: "eventdate",
+        };
+        break;
+      case "cbt_quarterly":
+        return {
+          surveyRoute: "cbt/cbt_quarterly",
+          pageTitle: "Download CBT Quarterly Evaluation Data",
+          fileName: "CBT_Quarterly_Evaluation",
+          headerToFilter: "surveycreated",
+        };
+        break;
+      case "technical_assistance_request":
+        return {
+          surveyRoute: "ta/technical_assitance",
+          pageTitle: "Download OEF Technical Assistance Request Data",
+          fileName: "Technical_Assistance_Request",
+          headerToFilter: "tadatesubmitted",
+        };
+        break;
+      case "site_visits":
+        return {
+          surveyRoute: "sv/site_visits",
+          pageTitle: "Download Site Visit Data",
+          fileName: "Site_Visits",
+          headerToFilter: "eventdate",
+        };
+        break;
+      case "cbt_facilitator_feedback":
+        return {
+          surveyRoute: "cbt/facilitator",
+          pageTitle: "Download CBT Facilitator Feedback Data",
+          fileName: "CBT_Facilitator_Feedback",
+          headerToFilter: "eventdate",
+        };
+        break;
+      case "cab_organizer_survey":
+        return {
+          surveyRoute: "cab/organizer",
+          pageTitle: "Download CAB Organizer Data",
+          fileName: "CAB_Organizer",
+          headerToFilter: "eventdate",
+        };
+        break;
+    }
+  };
+  const { surveyRoute, pageTitle, fileName, headerToFilter } =
+    reportNameFromSurveyName();
 
   return (
     <Layout showStatusHeader={true}>
@@ -458,14 +537,16 @@ const ReportPicker = ({
               />
             </label>
           </div>
-          {selectedCSV && (
+          <div className={`${selectedCSV.length === 0 ? "pointer-events-none" : ""}`}>
+
             <CSVHIVOutreachParticipantSignInSheet
               csvData={selectedCSV}
               headers={allHeaders[surveyName]}
               fileName={`${fileName}-${csvNowDate.split(",")[0]}.csv`}
             />
-          )}
+         </div>
         </div>
+        <span>{errorRequest !== '' && errorRequest}</span>
       </section>
     </Layout>
   );
@@ -476,93 +557,8 @@ export default ReportPicker;
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const { surveyName } = ctx.params;
-
-    console.log("surveyName", surveyName);
-
-    const reportNameFromSurveyName = () => {
-      switch (surveyName) {
-        case "oef_participant_sign_in_sheet":
-          return {
-            surveyRoute: "fbo/participant_survey",
-            pageTitle: "Download OEF Participant Sign-In sheet data",
-            fileName: "OEF_Participant_Sign_In_Sheet",
-            headerToFilter: "eventdate",
-          };
-          break;
-        case "cbt_participant_survey":
-          return {
-            surveyRoute: "cbt/participant_survey",
-            pageTitle: "Download CBT Participant Feedback data",
-            fileName: "CBT_Participant_Survey",
-            headerToFilter: "eventdate",
-          };
-          break;
-        case "hiv_outreach_event":
-          return {
-            surveyRoute: "hiv/fbo_outreach",
-            pageTitle: "Download HIV Outreach Event data",
-            fileName: "HIV_Outreach_Event",
-            headerToFilter: "eventdate",
-          };
-          break;
-        case "cbt_quarterly":
-          return {
-            surveyRoute: "cbt/cbt_quarterly",
-            pageTitle: "Download CBT Quarterly Evaluation Data",
-            fileName: "CBT_Quarterly_Evaluation",
-            headerToFilter: "surveycreated",
-          };
-          break;
-        case "technical_assistance_request":
-          return {
-            surveyRoute: "ta/technical_assitance",
-            pageTitle: "Download OEF Technical Assistance Request Data",
-            fileName: "Technical_Assistance_Request",
-            headerToFilter: "tadatesubmitted",
-          };
-          break;
-        case "site_visits":
-          return {
-            surveyRoute: "sv/site_visits",
-            pageTitle: "Download Site Visit Data",
-            fileName: "Site_Visits",
-            headerToFilter: "eventdate",
-          };
-          break;
-        case "cbt_facilitator_feedback":
-          return {
-            surveyRoute: "cbt/facilitator",
-            pageTitle: "Download CBT Facilitator Feedback Data",
-            fileName: "CBT_Facilitator_Feedback",
-            headerToFilter: "eventdate",
-          };
-          break;
-        case "cab_organizer_survey":
-          return {
-            surveyRoute: "cab/organizer",
-            pageTitle: "Download CAB Organizer Data",
-            fileName: "CAB_Organizer",
-            headerToFilter: "eventdate",
-          };
-          break;
-      }
-    };
-    const { surveyRoute, pageTitle, fileName, headerToFilter } = reportNameFromSurveyName();
-
-    console.log("surveyRoute", surveyRoute);
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/reports/oef/${surveyRoute}`
-    );
-    const participantReport = await response.json();
     return {
-      props: {
-        participantReport: participantReport,
-        pageTitle: pageTitle,
-        surveyName: surveyName,
-        fileName,
-        headerToFilter
-      },
+      props: { surveyName },
     };
   },
 });
-

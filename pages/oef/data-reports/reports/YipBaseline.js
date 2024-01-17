@@ -4,7 +4,7 @@ import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import QuarterlyCsv from "../../../../components/csv-reports/QuarterlyCsv";
 
-const YipParticipantFeedback = ({  preWorkshop, sixMonths }) => {
+const YipParticipantFeedback = ({   }) => {
   // console.log("baseline data",preWorkshop, sixMonths)
   const [selectedDate, setSelectedDate] = useState({
     start: null,
@@ -16,33 +16,54 @@ const YipParticipantFeedback = ({  preWorkshop, sixMonths }) => {
   const [selectedSixmonths, setSelectedSixmonths] = useState([]);
 
 
+  const [errorRequest, setErrorRequest] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const csvNowDate = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
   });
-  useEffect(() => {
-    const cerohoursDate = new Date(selectedDate.start).setHours(0);
-    // console.log("selectedDate", selectedDate);
-    const selectReportsInDateRange = (reports) =>
-      reports.filter((report) => {
-        const start = new Date(new Date(selectedDate.start).setHours(0));
-        const end = new Date(new Date(selectedDate.finish).setHours(23));
-        const eventdate = new Date(report?.surveycreated);
-        // console.log(eventdate)
-        // console.log("start", start)
-        // console.log("end", end)
-        // console.log("eventdate", eventdate)
-        // console.log(eventdate >= start && eventdate <= end);
-        return eventdate >= start && eventdate <= end;
-      });
-      const preworkshop = preWorkshop && selectReportsInDateRange(preWorkshop);
-      const sixmonths = sixMonths && selectReportsInDateRange(sixMonths);
 
-      setSelectedPreworkshop(preworkshop)
-      setSelectedSixmonths(sixmonths)
+  useEffect(() => {
+   // console.log("selectedDate", selectedDate);
+   setIsLoading(false);
+   setErrorRequest("");
+   async function getdata() {
+     try {
+      const [ preWorkshop, sixMonths] = await Promise.all([
+     
+        fetch(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/yip_pre_workshop/${selectedDate.start}&${selectedDate.finish}`
+        ).then((r) => r.json()),
+        fetch(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/yip_6months/${selectedDate.start}&${selectedDate.finish}`
+        ).then((r) => r.json()),
+      ]);
+       if (
+        preWorkshop?.statusText === "FAIL" ||
+        sixMonths?.statusText === "FAIL" 
+       ) {
+         setIsLoading(false);
+         setErrorRequest("Not founded data");
+       } else {
+        setSelectedPreworkshop(preWorkshop)
+        setSelectedSixmonths(sixMonths)
+       }
+       
+     } catch (error) {
+       setErrorRequest("Something went wrong try again");
+       setIsLoading(false);
+     }
+   }
+
+   if (selectedDate.start && selectedDate.finish) {
+     getdata();
+   }
+
+     
 
     
-  }, [selectedDate]);
-
+  }, [selectedDate.start, selectedDate.finish]);
+console.log("states", selectedPreworkshop, selectedSixmonths)
 
   return (
     <Layout showStatusHeader={true}>
@@ -77,9 +98,8 @@ const YipParticipantFeedback = ({  preWorkshop, sixMonths }) => {
               />
             </label>
           </div>
-          { selectedPreworkshop && selectedSixmonths
-            && (
-            <>
+          <section className={`${selectedPreworkshop.length > 0 || selectedSixmonths.length > 0 ? '' : 'pointer-events-none ' } grid grid-cols-3 gap-5`}>
+          
               <div>
                 <button
                   onClick={() => setDownload(true)}
@@ -91,7 +111,7 @@ const YipParticipantFeedback = ({  preWorkshop, sixMonths }) => {
             
                <QuarterlyCsv
                 csvData={selectedPreworkshop}
-                headers={Object.keys(preWorkshop[0])}
+                headers={selectedPreworkshop.length > 0 && Object.keys(selectedPreworkshop[0]) }
                 fileName={`OEF_YIP_Participant_Pre_Workshop_${
                   csvNowDate.split("_")[0]
                 }.csv`}
@@ -100,16 +120,17 @@ const YipParticipantFeedback = ({  preWorkshop, sixMonths }) => {
               />
                <QuarterlyCsv
                 csvData={selectedSixmonths}
-                headers={Object.keys(sixMonths[0])}
+                headers={selectedSixmonths.length > 0 && Object.keys(selectedSixmonths[0])}
                 fileName={`OEF_YIP_Participant_6_month_follow_up_${
                   csvNowDate.split("_")[0]
                 }.csv`}
                 buttonText="6 Month Follow Up CSV"
                 download={{ state: download, set: setDownload }}
               />
-            </>
-          )}
+           </section> 
         </div>
+        <span className="font-medium">{errorRequest !== '' && errorRequest}</span>
+
       </section>
     </Layout>
   );
@@ -118,22 +139,5 @@ const YipParticipantFeedback = ({  preWorkshop, sixMonths }) => {
 export default YipParticipantFeedback;
 
 export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    const [ preWorkshop, sixMonths] = await Promise.all([
-     
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/yip_pre_workshop`
-      ).then((r) => r.json()),
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/yip_6months`
-      ).then((r) => r.json()),
-    ]);
-
-    return {
-      props: {
-        preWorkshop,
-        sixMonths
-      },
-    };
-  },
+ 
 });

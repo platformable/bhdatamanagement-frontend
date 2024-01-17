@@ -4,7 +4,7 @@ import Layout from "../../../../components/Layout";
 import PageTopHeading from "../../../../components/PageTopHeading";
 import QuarterlyCsv from "../../../../components/csv-reports/QuarterlyCsv";
 
-const YipFacilitatorFeedback = ({  postWorkshop, }) => {
+const YipFacilitatorFeedback = ({}) => {
   // console.log("baseline data",postWorkshop )
   const [selectedDate, setSelectedDate] = useState({
     start: null,
@@ -13,34 +13,43 @@ const YipFacilitatorFeedback = ({  postWorkshop, }) => {
 
   const [download, setDownload] = useState(false);
   const [selectedPostworkshop, setSelectedPostworkshop] = useState([]);
-// console.log("SElected workshopps", selectedPostworkshop)
+  // console.log("SElected workshopps", selectedPostworkshop)
+
+
+  const [errorRequest, setErrorRequest] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const csvNowDate = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
   });
+
   useEffect(() => {
-    const cerohoursDate = new Date(selectedDate.start).setHours(0);
-    // console.log("selectedDate", selectedDate);
-    const selectReportsInDateRange = (reports) =>
-      reports?.filter((report) => {
-        const start = new Date(new Date(selectedDate.start).setHours(0));
-        const end = new Date(new Date(selectedDate.finish).setHours(23));
-        const eventdate = new Date(report?.surveycreated);
-        // console.log(eventdate)
-        // console.log("start", start)
-        // console.log("end", end)
-        // console.log("eventdate", eventdate)
-        // console.log(eventdate >= start && eventdate <= end);
-        return eventdate >= start && eventdate <= end;
-      });
-      const postWorkshopResult = postWorkshop && selectReportsInDateRange(postWorkshop);
-      // console.log("populate", postWorkshopResult)
+    setIsLoading(false);
+    setErrorRequest("");
+    async function getdata() {
+      try {
+        const postWorkshop = await fetch(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/post_event/${selectedDate.start}&${selectedDate.finish}`
+        ).then((r) => r.json());
 
+        if (postWorkshop?.statusText === "FAIL") {
+          setIsLoading(false);
+          setErrorRequest("Not founded data");
+        } else {
+          setSelectedPostworkshop(postWorkshop);
 
-      setSelectedPostworkshop(postWorkshopResult)
-    
+        }
+      } catch (error) {
+        setErrorRequest("Something went wrong try again");
+        setIsLoading(false);
+      }
+    }
+
+    if (selectedDate.start && selectedDate.finish) {
+      getdata();
+    }
+
   }, [selectedDate]);
-
 
   return (
     <Layout showStatusHeader={true}>
@@ -75,8 +84,7 @@ const YipFacilitatorFeedback = ({  postWorkshop, }) => {
               />
             </label>
           </div>
-          { selectedPostworkshop 
-            && (
+          {selectedPostworkshop && (
             <>
               {/* <div>
                 <button
@@ -86,20 +94,21 @@ const YipFacilitatorFeedback = ({  postWorkshop, }) => {
                   Download <br /> all <br /> datasets
                 </button>
               </div> */}
-            
-               <QuarterlyCsv
+
+              <QuarterlyCsv
                 csvData={selectedPostworkshop}
-                headers={Object.keys(postWorkshop[0])}
+                headers={selectedPostworkshop.length > 0 && Object.keys(selectedPostworkshop[0])}
                 fileName={`OEF_YIP_Event_Facilitator_Feedback_${
                   csvNowDate.split("_")[0]
                 }.csv`}
                 buttonText="CSV"
                 download={{ state: download, set: setDownload }}
               />
-               
             </>
           )}
         </div>
+        <span className="font-medium">{errorRequest !== '' && errorRequest}</span>
+
       </section>
     </Layout>
   );
@@ -107,20 +116,4 @@ const YipFacilitatorFeedback = ({  postWorkshop, }) => {
 
 export default YipFacilitatorFeedback;
 
-export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    const [ postWorkshop ] = await Promise.all([
-     
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/post_event`
-      ).then((r) => r.json()),
-     
-    ]);
-
-    return {
-      props: {
-        postWorkshop,
-      },
-    };
-  },
-});
+export const getServerSideProps = withPageAuthRequired({});
