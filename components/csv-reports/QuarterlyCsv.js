@@ -8,7 +8,7 @@ const orderDataset = (data, headers) => {
     const result = reverse[1] + "/" + reverse[2] + "/" + reverse[0];
     return result;
   };
-  const results = headers.map((header) => {
+  const results = headers?.map((header) => {
     if (
       header === "eventDate" || header === 'eventdate' || header === 'surveymodified' ||
       header === "surveyCreated" || header === 'surveycreated' || 
@@ -28,9 +28,10 @@ const orderDataset = (data, headers) => {
 };
 
 const QuarterlyCsv = ({ csvData, fileName, headers, buttonText, download }) => {
+
   const buttonRef = useRef()
   //   console.log("csv data",csvData)
-  //   console.log('headers', headers);
+    console.log('headers', headers);
   const [orderedData, setOrdereData] = useState([]);
 
   useEffect(() => {

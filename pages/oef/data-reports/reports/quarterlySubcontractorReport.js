@@ -5,7 +5,7 @@ import PageTopHeading from "../../../../components/PageTopHeading";
 import CSVHIVOutreachParticipantSignInSheet from "../../../../components/csv-reports/CSVHIVOutreachParticipantSignInSheet";
 import QuarterlyCsv from "../../../../components/csv-reports/QuarterlyCsv";
 
-const quarterlySubcontractorReport = ({ hivOutreachCSV, cabCSV }) => {
+const quarterlySubcontractorReport = ({ }) => {
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -14,29 +14,50 @@ const quarterlySubcontractorReport = ({ hivOutreachCSV, cabCSV }) => {
   const [download, setDownload] = useState(false);
   const [selectedHivCSV, setSelectedHivCSV] = useState([]);
   const [selectedCabCSV, setSelectedCabCSV] = useState([]);
-
+  const [errorRequest, setErrorRequest] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const csvNowDate = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
   });
   useEffect(() => {
-    const cerohoursDate = new Date(selectedDate.start).setHours(0);
-    // console.log("selectedDate", selectedDate);
-    const selectReportsInDateRange = (reports) =>
-      reports.filter((report) => {
-        const start = new Date(new Date(selectedDate.start).setHours(0));
-        const end = new Date(new Date(selectedDate.finish).setHours(23));
-        const eventdate = new Date(report?.eventDate);
-        // console.log("start", start)
-        // console.log("end", end)
-        // console.log("eventdate", eventdate)
-        // console.log(eventdate >= start && eventdate <= end);
-        return eventdate >= start && eventdate <= end;
-      });
-    const hivCsv = hivOutreachCSV && selectReportsInDateRange(hivOutreachCSV);
-    const cabCsv = cabCSV && selectReportsInDateRange(cabCSV);
-    setSelectedHivCSV(hivCsv);
-    setSelectedCabCSV(cabCsv);
-  }, [selectedDate]);
+    setIsLoading(false)
+    setErrorRequest('')
+    async function getdata() {
+      try {
+        const [hivOutreachCSV, cabCSV] = await Promise.all([
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/quarterly_report_subcon/${selectedDate.start}&${selectedDate.finish}`
+          ).then((r) => r.json()),
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/cab_quarterly_report_subcon/${selectedDate.start}&${selectedDate.finish}`
+          ).then((r) => r.json()),
+        ]);
+        
+        if (
+          hivOutreachCSV?.statusText === "FAIL" ||
+          cabCSV?.statusText === "FAIL" 
+        ) {
+          setIsLoading(false);
+          setErrorRequest("Not founded data");
+        } else {
+          setSelectedHivCSV(hivOutreachCSV);
+           setSelectedCabCSV(cabCSV);
+        }
+        
+      } catch (error) {
+        setErrorRequest('Something went wrong try again')
+        setIsLoading(false)
+
+      }
+    }
+
+  
+    if (selectedDate.start && selectedDate.finish) {
+      getdata()
+    }
+   
+    
+  }, [selectedDate.start, selectedDate.finish]);
 
 
   return (
@@ -72,11 +93,11 @@ const quarterlySubcontractorReport = ({ hivOutreachCSV, cabCSV }) => {
               />
             </label>
           </div>
-          {selectedHivCSV && selectedCabCSV && (
-            <section className="grid grid-rows-2 gap-5">
+            <section className={`${selectedHivCSV.length > 0 || selectedCabCSV.length > 0 ? '' : 'pointer-events-none ' } grid grid-rows-2 gap-5`}>
+
               <QuarterlyCsv
                 csvData={[...selectedHivCSV, ...selectedCabCSV]}
-                headers={Object.keys(hivOutreachCSV[0])}
+                headers={selectedHivCSV.length > 0 && Object.keys(selectedHivCSV[0])}
                 fileName={`Quarterly_Report_FBO_Work_${csvNowDate.split("_")[0]}.csv`}
                 buttonText="combined"
                 download={{ state: download, set: setDownload }}
@@ -90,7 +111,7 @@ const quarterlySubcontractorReport = ({ hivOutreachCSV, cabCSV }) => {
                 </button>
                 <QuarterlyCsv
                   csvData={selectedHivCSV}
-                  headers={Object.keys(hivOutreachCSV[0])}
+                  headers={selectedHivCSV.length > 0 && Object.keys(selectedHivCSV[0])}
                   fileName={`OEF_Outreach Event_Data_Quarterly_${
                     csvNowDate.split("_")[0]
                   }.csv`}
@@ -99,7 +120,7 @@ const quarterlySubcontractorReport = ({ hivOutreachCSV, cabCSV }) => {
                 />
                 <QuarterlyCsv
                   csvData={selectedCabCSV}
-                  headers={Object.keys(cabCSV[0])}
+                  headers={selectedCabCSV.length > 0 && Object.keys(selectedCabCSV[0])}
                   fileName={`OEF_CAB_Data_Quarterly_${
                     csvNowDate.split("_")[0]
                   }.csv`}
@@ -107,9 +128,11 @@ const quarterlySubcontractorReport = ({ hivOutreachCSV, cabCSV }) => {
                   download={{ state: download, set: setDownload }}
                 />
               </div>
+
             </section>
-          )}
         </div>
+        <span className="font-medium">{errorRequest !== '' && errorRequest}</span>
+
       </section>
     </Layout>
   );
@@ -118,21 +141,5 @@ const quarterlySubcontractorReport = ({ hivOutreachCSV, cabCSV }) => {
 export default quarterlySubcontractorReport;
 
 export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    const [hivOutreachCSV, cabCSV] = await Promise.all([
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/quarterly_report_subcon`
-      ).then((r) => r.json()),
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/cab_quarterly_report_subcon`
-      ).then((r) => r.json()),
-    ]);
-
-    return {
-      props: {
-        hivOutreachCSV: hivOutreachCSV,
-        cabCSV: cabCSV,
-      },
-    };
-  },
+  
 });

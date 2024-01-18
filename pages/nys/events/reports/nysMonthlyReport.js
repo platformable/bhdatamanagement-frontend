@@ -63,7 +63,7 @@ export default function nysMonthlyReport({}) {
         eventsOutput?.statusText === "FAIL"
       ) {
         setIsLoading(false)
-        setErrorResquest("No data founded");
+        setErrorResquest("Not founded data");
       } else {
         setIsLoading(false)
 
@@ -172,7 +172,7 @@ export default function nysMonthlyReport({}) {
             />
           </section>
         </>
-      ) : (<center>{errorRequest}</center>)}
+      ) : (<span className="font-medium">{errorRequest !== '' &&  errorRequest}</span>)}
     </Layout>
   );
 }
