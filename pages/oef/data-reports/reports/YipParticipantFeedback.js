@@ -175,7 +175,7 @@ const keys = {
     "workshoplikelytellfriend",
   ],
 };
-const YipParticipantFeedback = ({ session1, session2, session3, session4 }) => {
+const YipParticipantFeedback = ({}) => {
   // console.log(
   //   "sessions",
   //   session1,
@@ -197,35 +197,57 @@ const YipParticipantFeedback = ({ session1, session2, session3, session4 }) => {
   const [selectedSession3, setSelectedSession3] = useState([]);
   const [selectedSession4, setSelectedSession4] = useState([]);
 
-  // console.log(selectedSession1);
+  const [errorRequest, setErrorRequest] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const csvNowDate = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
   });
   useEffect(() => {
-    const cerohoursDate = new Date(selectedDate.start).setHours(0);
-    // console.log("selectedDate", selectedDate);
-    const selectReportsInDateRange = (reports) =>
-      reports?.filter((report) => {
-        const start = new Date(new Date(selectedDate.start).setHours(0));
-        const end = new Date(new Date(selectedDate.finish).setHours(23));
-        const eventdate = new Date(report?.eventdate);
-        // console.log(eventdate);
-        // console.log("start", start)
-        // console.log("end", end)
-        // console.log("eventdate", eventdate)
-        // console.log(eventdate >= start && eventdate <= end);
-        return eventdate >= start && eventdate <= end;
-      });
-    const sess1 = session1 && selectReportsInDateRange(session1);
-    const sess2 = session2 && selectReportsInDateRange(session2);
-    const sess3 = session3 && selectReportsInDateRange(session3);
-    const sess4 = session4 && selectReportsInDateRange(session4);
+    setIsLoading(false);
+    setErrorRequest("");
+    async function getdata() {
+      try {
+        const [session1, session2, session3, session4] =
+        await Promise.all([
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/participant_survey_outputs_session1/${selectedDate.start}&${selectedDate.finish}`
+          ).then((r) => r.json()),
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/participant_survey_outputs_session2/${selectedDate.start}&${selectedDate.finish}`
+          ).then((r) => r.json()),
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/participant_survey_outputs_session3/${selectedDate.start}&${selectedDate.finish}`
+          ).then((r) => r.json()),
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/participant_survey_outputs_session4/${selectedDate.start}&${selectedDate.finish}`
+          ).then((r) => r.json()),
+        ]);
+        if (
+          session1?.statusText === "FAIL" ||
+          session2?.statusText === "FAIL" ||
+          session3?.statusText === "FAIL" ||
+          session4?.statusText === "FAIL"
+        ) {
+          setIsLoading(false);
+          setErrorRequest("Not founded data");
+        } else {
+          setSelectedSession1(session1);
+          setSelectedSession2(session2);
+          setSelectedSession3(session3);
+          setSelectedSession4(session4);
+        }
+      } catch (error) {
+        setErrorRequest("Something went wrong try again");
+        setIsLoading(false);
+      }
+    }
 
-    setSelectedSession1(sess1);
-    setSelectedSession2(sess2);
-    setSelectedSession3(sess3);
-    setSelectedSession4(sess4);
+    if (selectedDate.start && selectedDate.finish) {
+      getdata();
+    }
+   
+
   }, [selectedDate]);
 
   return (
@@ -261,11 +283,9 @@ const YipParticipantFeedback = ({ session1, session2, session3, session4 }) => {
               />
             </label>
           </div>
-          {selectedSession1 &&
-            selectedSession2 &&
-            selectedSession3 &&
-            selectedSession4 && (
-              <>
+         
+              <section className={`${selectedSession1.length > 0 || selectedSession2.length > 0 || selectedSession3.length > 0 || selectedSession4.length > 0 ? '' : 'pointer-events-none ' } grid grid-cols-5 gap-5`}>
+
                 <div>
                   <button
                     onClick={() => setDownload(true)}
@@ -306,9 +326,10 @@ const YipParticipantFeedback = ({ session1, session2, session3, session4 }) => {
                   sessionNumber="session 4"
                   download={{ state: download, set: setDownload }}
                 />
-              </>
-            )}
+              </section>
         </div>
+        <span className="font-medium">{errorRequest !== '' && errorRequest}</span>
+
       </section>
     </Layout>
   );
@@ -317,30 +338,5 @@ const YipParticipantFeedback = ({ session1, session2, session3, session4 }) => {
 export default YipParticipantFeedback;
 
 export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    const [session1, session2, session3, session4, preWorshop] =
-      await Promise.all([
-        fetch(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/participant_survey_outputs_session1`
-        ).then((r) => r.json()),
-        fetch(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/participant_survey_outputs_session2`
-        ).then((r) => r.json()),
-        fetch(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/participant_survey_outputs_session3`
-        ).then((r) => r.json()),
-        fetch(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/participant_survey_outputs_session4`
-        ).then((r) => r.json()),
-      ]);
-
-    return {
-      props: {
-        session1,
-        session2,
-        session3,
-        session4,
-      },
-    };
-  },
+  
 });

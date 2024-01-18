@@ -5,7 +5,7 @@ import PageTopHeading from "../../../../components/PageTopHeading";
 import CSVHIVOutreachParticipantSignInSheet from "../../../../components/csv-reports/CSVHIVOutreachParticipantSignInSheet";
 import QuarterlyCsv from "../../../../components/csv-reports/QuarterlyCsv";
 
-const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
+const quarterlyContractorReport = ({  }) => {
   const [selectedDate, setSelectedDate] = useState({
     start: null,
     finish: null,
@@ -16,30 +16,58 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
   const [selectedTACSV, setSelectedTACSV] = useState([]);
   const [selectedSiteVisitCSV, setSelectedSiteVisitCSV] = useState([]);
 
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorRequest, setErrorRequest] = useState("");
+  
   const csvNowDate = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
   });
   useEffect(() => {
-    const cerohoursDate = new Date(selectedDate.start).setHours(0);
-    // console.log("selectedDate", selectedDate);
-    const selectReportsInDateRange = (reports) =>
-      reports.filter((report) => {
-        const start = new Date(new Date(selectedDate.start).setHours(0));
-        const end = new Date(new Date(selectedDate.finish).setHours(23));
-        const eventdate = new Date(report?.eventDate || report?.activityDate);
-        // console.log("start", start)
-        // console.log("end", end)
-        // console.log("eventdate", eventdate)
-        // console.log(eventdate >= start && eventdate <= end);
-        return eventdate >= start && eventdate <= end;
-      });
-    const cbt = cbtCSV && selectReportsInDateRange(cbtCSV);
-    const siteVisits = siteVisitsCSV && selectReportsInDateRange(siteVisitsCSV);
-    const technicalAssitance = TACSV && selectReportsInDateRange(TACSV)
-    setSelectedCbtCSV(cbt);
-    setSelectedSiteVisitCSV(siteVisits);
-    setSelectedTACSV(technicalAssitance)
-  }, [selectedDate]);
+    setIsLoading(false)
+    setErrorRequest('')
+    async function getdata() {
+      try {
+        const [cbtCSV, siteVisitsCSV, TACSV] = await Promise.all([
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/cbt_report_contractor/${selectedDate.start}&${selectedDate.finish}`
+          ).then((r) => r.json()),
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/sv_report_contractor/${selectedDate.start}&${selectedDate.finish}`
+          ).then((r) => r.json()),
+          fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/ta_report_contractor/${selectedDate.start}&${selectedDate.finish}`
+          ).then((r) => r.json()),
+        ]);
+        if (
+          cbtCSV?.statusText === "FAIL" ||
+          siteVisitsCSV?.statusText === "FAIL" ||
+          TACSV?.statusText === "FAIL" 
+        ) {
+          setIsLoading(false);
+          setErrorRequest("Not founded data");
+        } else {
+          setSelectedCbtCSV(cbtCSV);
+          setSelectedSiteVisitCSV(siteVisitsCSV);
+          setSelectedTACSV(TACSV)
+        }
+       
+       
+        
+      } catch (error) {
+        setErrorRequest('Something went wrong try again')
+        setIsLoading(false)
+
+        return {message: 'Error'}
+      }
+    }
+
+  
+    if (selectedDate.start && selectedDate.finish) {
+      getdata()
+    }
+    
+  }, [selectedDate.start, selectedDate.finish]);
 
 
   return (
@@ -76,12 +104,11 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
             </label>
           </div>
           
-          {selectedCbtCSV && selectedTACSV && selectedSiteVisitCSV &&  (
-            <section className="grid grid-rows-2 gap-5">
+            <section className={`${selectedCbtCSV.length > 0 || selectedTACSV.length > 0 || selectedSiteVisitCSV.length > 0 ? '' : 'pointer-events-none ' } grid grid-rows-2 gap-5`}>
 
               <QuarterlyCsv
                 csvData={[...selectedCbtCSV, ...selectedSiteVisitCSV, ...selectedTACSV]}
-                headers={Object.keys(cbtCSV[0])}
+                headers={selectedCbtCSV.length > 0 && Object.keys(selectedCbtCSV[0])}
                 fileName={`Quarterly_Report_BH_Work_${
                   csvNowDate.split("_")[0]
                 }.csv`}
@@ -99,7 +126,7 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
               
               <QuarterlyCsv
                 csvData={selectedCbtCSV}
-                headers={Object.keys(cbtCSV[0])}
+                headers={selectedCbtCSV.length > 0 && Object.keys(selectedCbtCSV[0])}
                 fileName={`OEF_CBT_Data_Quarterly_${
                   csvNowDate.split("_")[0]
                 }.csv`}
@@ -108,7 +135,7 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
               />
               <QuarterlyCsv
                 csvData={selectedSiteVisitCSV}
-                headers={Object.keys(siteVisitsCSV[0])}
+                headers={selectedSiteVisitCSV.length > 0 && Object.keys(selectedSiteVisitCSV[0])}
                 fileName={`OEF_Site Visit_Data_Quarterly_${
                   csvNowDate.split("_")[0]
                 }.csv`}
@@ -118,7 +145,7 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
               />
               <QuarterlyCsv
                 csvData={selectedTACSV}
-                headers={Object.keys(TACSV[0])}
+                headers={selectedTACSV.length > 0 && Object.keys(selectedTACSV[0])}
                 fileName={`OEF_Technical_Assistance_Data_Quarterly_${
                   csvNowDate.split("_")[0]
                 }.csv`}
@@ -128,8 +155,9 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
               />
               </div>
             </section>
-          )}
         </div>
+        <span className="font-medium">{errorRequest !== '' && errorRequest}</span>
+        
       </section>
     </Layout>
   );
@@ -138,25 +166,5 @@ const quarterlyContractorReport = ({ cbtCSV, siteVisitsCSV, TACSV }) => {
 export default quarterlyContractorReport;
 
 export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    const [cbtCSV, siteVisitsCSV, TACSV] = await Promise.all([
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/cbt_report_contractor`
-      ).then((r) => r.json()),
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/sv_report_contractor`
-      ).then((r) => r.json()),
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/ta_report_contractor`
-      ).then((r) => r.json()),
-    ]);
-
-    return {
-      props: {
-        cbtCSV: cbtCSV,
-        siteVisitsCSV: siteVisitsCSV,
-        TACSV:TACSV
-      },
-    };
-  },
+  
 });
