@@ -79,7 +79,7 @@ const EditPostEventReport = ({
   const [eventForm, setEventForm] = useState({
     // userID: "",
     eventID : Number(event?.eventid),
-    eventDateCreated: event.eventdatecreated,
+    eventDateCreated: event.eventdatecreatedtodisplay,
     // programID: event?.programid,
     programName: event?.programname,
     eventName: event?.eventname,
