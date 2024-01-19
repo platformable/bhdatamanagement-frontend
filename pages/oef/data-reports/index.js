@@ -156,7 +156,7 @@ export default function ReportsDashboard({ selectedProgram, user }) {
                   </div>
                 </Link>
                 <Link href={`/#`}>
-                  <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center">
+                  <div className="text-center rounded bg-black p-5 text-center shadow-xl rounded-xl grid justify-center content-center pointer-events-none">
                     <button id="myBtn" className="flex items-center">
                       <p className=" font-bold text-white uppercase">
                         cbt <br /> baseline

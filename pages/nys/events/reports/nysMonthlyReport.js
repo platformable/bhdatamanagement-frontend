@@ -172,7 +172,7 @@ export default function nysMonthlyReport({}) {
             />
           </section>
         </>
-      ) : (<span className="font-medium">{errorRequest !== '' &&  errorRequest}</span>)}
+      ) : (<center className="font-medium">{errorRequest !== '' &&  errorRequest}</center>)}
     </Layout>
   );
 }
