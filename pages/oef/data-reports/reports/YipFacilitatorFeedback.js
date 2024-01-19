@@ -84,8 +84,8 @@ const YipFacilitatorFeedback = ({}) => {
               />
             </label>
           </div>
-          {selectedPostworkshop && (
-            <>
+          
+            <section className={`${selectedPostworkshop.length > 0 ? '' : 'pointer-events-none ' }`}>
               {/* <div>
                 <button
                   onClick={() => setDownload(true)}
@@ -104,8 +104,8 @@ const YipFacilitatorFeedback = ({}) => {
                 buttonText="CSV"
                 download={{ state: download, set: setDownload }}
               />
-            </>
-          )}
+            </section>
+          
         </div>
         <span className="font-medium">{errorRequest !== '' && errorRequest}</span>
 
