@@ -79,7 +79,7 @@ const EditPostEventReport = ({
   const [eventForm, setEventForm] = useState({
     // userID: "",
     eventID : Number(event?.eventid),
-    eventDateCreated: new Date(),
+    eventDateCreated: event.eventdatecreated,
     // programID: event?.programid,
     programName: event?.programname,
     eventName: event?.eventname,
@@ -496,6 +496,8 @@ const EditPostEventReport = ({
   });
   const userId = user && user.sub;
 const router = useRouter()
+
+console.log("event",event)
   // useEffect(() => {
   //   setEventForm({ ...eventForm, userID: userId });
     
