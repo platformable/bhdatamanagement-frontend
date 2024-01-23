@@ -98,7 +98,7 @@ export default function PostWorkshop({ event, fbos }) {
       })
       .catch(function (error) {
         setLoading(false)
-        setResponseStatus('Network error')
+        setResponseStatus(error.message)
         console.error("error: ", error);
       });
   };
