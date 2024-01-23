@@ -98,8 +98,8 @@ export default function PostWorkshop({ event, fbos }) {
       })
       .catch(function (error) {
         setLoading(false)
-        setResponseStatus(error.message)
-        console.error("error: ", error);
+        setResponseStatus(error.response.data.message)
+        console.error("error: ", error.response.data.message);
       });
   };
 
@@ -327,7 +327,7 @@ export default function PostWorkshop({ event, fbos }) {
       options: satisfiedScaleOptions,
     },
   ];
-  console.log("yip session 1 form: ", eventForm);
+  
 
   ///////NEW
 
