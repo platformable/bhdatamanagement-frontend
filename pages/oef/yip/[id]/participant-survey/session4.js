@@ -32,7 +32,7 @@ export default function Session4({ event, fbos }) {
   const [eventForm, setEventForm] = useState({
     surveyCreated: new Date(),
     surveyName: "yip-participant-session4",
-    id: event?.id,
+    eventId: event?.id,
     eventDate: event?.eventdate,
     deliveryPartner: "",
     deliveryPartnerOther: "",
