@@ -208,8 +208,7 @@ const YipParticipantFeedback = ({}) => {
     setErrorRequest("");
     async function getdata() {
       try {
-        const [session1, session2, session3, session4] =
-        await Promise.all([
+        const [session1, session2, session3, session4] = await Promise.all([
           fetch(
             `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/participant_survey_outputs_session1/${selectedDate.start}&${selectedDate.finish}`
           ).then((r) => r.json()),
@@ -223,22 +222,32 @@ const YipParticipantFeedback = ({}) => {
             `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/participant_survey_outputs_session4/${selectedDate.start}&${selectedDate.finish}`
           ).then((r) => r.json()),
         ]);
-        if (
-          session1?.statusText === "FAIL" &&
-          session2?.statusText === "FAIL" &&
-          session3?.statusText === "FAIL" &&
-          session4?.statusText === "FAIL"
-        ) {
-          setIsLoading(false);
-          setErrorRequest("Not founded data");
+        if (session1?.statusText === "FAIL") {
+          setSelectedSession1([]);
+          setErrorRequest("Some sessions file may not have data");
         } else {
           setSelectedSession1(session1);
-          setSelectedSession2(session2);
-          setSelectedSession3(session3);
-          setSelectedSession4(session4);
-          setIsLoading(false);
-          setErrorRequest("");
         }
+        if (session2?.statusText === "FAIL") {
+          setSelectedSession2([]);
+          setErrorRequest("Some sessions file may not have data");
+        } else {
+          setSelectedSession2(session2);
+        }
+        if (session3?.statusText === "FAIL") {
+          setSelectedSession3([]);
+          setErrorRequest("Some sessions file may not have data");
+        } else {
+          setSelectedSession3(session3);
+        }
+        if (session4?.statusText === "FAIL") {
+          setSelectedSession4([]);
+          setErrorRequest("Some sessions files may not have data");
+        } else {
+          setSelectedSession4(session4);
+        }
+
+        setIsLoading(false);
       } catch (error) {
         setErrorRequest("Something went wrong try again");
         setIsLoading(false);
@@ -248,8 +257,6 @@ const YipParticipantFeedback = ({}) => {
     if (selectedDate.start && selectedDate.finish) {
       getdata();
     }
-   
-
   }, [selectedDate]);
 
   return (
@@ -285,53 +292,62 @@ const YipParticipantFeedback = ({}) => {
               />
             </label>
           </div>
-         
-              <section className={`${selectedSession1.length > 0 || selectedSession2.length > 0 || selectedSession3.length > 0 || selectedSession4.length > 0 ? '' : 'pointer-events-none ' } grid grid-cols-5 gap-5`}>
 
-                <div>
-                  <button
-                    onClick={() => setDownload(true)}
-                    className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase"
-                  >
-                    Download <br /> all <br /> datasets
-                  </button>
-                </div>
-                <YipSessionCSV
-                  csvData={selectedSession1}
-                  headers={selectedSession1.length > 0 && keys.session1}
-                  fileName={`OEF_YIP_Session_1_${csvNowDate.split("_")[0]}.csv`}
-                  sessionName="Sexual Health and Healthy Relationships"
-                  sessionNumber="session 1"
-                  download={{ state: download, set: setDownload }}
-                />
-                <YipSessionCSV
-                  csvData={selectedSession2}
-                  headers={selectedSession2.length > 0 && keys.session2}
-                  fileName={`OEF_YIP_Session_2_${csvNowDate.split("_")[0]}.csv`}
-                  sessionName="Effective Communication"
-                  sessionNumber="session 2"
-                  download={{ state: download, set: setDownload }}
-                />
-                <YipSessionCSV
-                  csvData={selectedSession3}
-                  headers={selectedSession3.length > 0 && keys.session3}
-                  fileName={`OEF_YIP_Session_3_${csvNowDate.split("_")[0]}.csv`}
-                  sessionName="Let’s Make a choice/ HIV (Health), Education and Careers"
-                  sessionNumber="session 3"
-                  download={{ state: download, set: setDownload }}
-                />
-                <YipSessionCSV
-                  csvData={selectedSession4}
-                  headers={selectedSession4.length > 0 && keys.session4}
-                  fileName={`OEF_YIP_Session_4_${csvNowDate.split("_")[0]}.csv`}
-                  sessionName="STI & HIV Risk Reduction and Prevention"
-                  sessionNumber="session 4"
-                  download={{ state: download, set: setDownload }}
-                />
-              </section>
+          <section
+            className={`${
+              selectedSession1.length > 0 ||
+              selectedSession2.length > 0 ||
+              selectedSession3.length > 0 ||
+              selectedSession4.length > 0
+                ? ""
+                : "pointer-events-none "
+            } grid grid-cols-5 gap-5`}
+          >
+            <div>
+              <button
+                onClick={() => setDownload(true)}
+                className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase"
+              >
+                Download <br /> all <br /> datasets
+              </button>
+            </div>
+            <YipSessionCSV
+              csvData={selectedSession1}
+              headers={keys.session1}
+              fileName={`OEF_YIP_Session_1_${csvNowDate.split("_")[0]}.csv`}
+              sessionName="Sexual Health and Healthy Relationships"
+              sessionNumber="session 1"
+              download={{ state: download, set: setDownload }}
+            />
+            <YipSessionCSV
+              csvData={selectedSession2}
+              headers={keys.session2}
+              fileName={`OEF_YIP_Session_2_${csvNowDate.split("_")[0]}.csv`}
+              sessionName="Effective Communication"
+              sessionNumber="session 2"
+              download={{ state: download, set: setDownload }}
+            />
+            <YipSessionCSV
+              csvData={selectedSession3}
+              headers={keys.session3}
+              fileName={`OEF_YIP_Session_3_${csvNowDate.split("_")[0]}.csv`}
+              sessionName="Let’s Make a choice/ HIV (Health), Education and Careers"
+              sessionNumber="session 3"
+              download={{ state: download, set: setDownload }}
+            />
+            <YipSessionCSV
+              csvData={selectedSession4}
+              headers={keys.session4}
+              fileName={`OEF_YIP_Session_4_${csvNowDate.split("_")[0]}.csv`}
+              sessionName="STI & HIV Risk Reduction and Prevention"
+              sessionNumber="session 4"
+              download={{ state: download, set: setDownload }}
+            />
+          </section>
         </div>
-        <span className="font-medium">{errorRequest !== '' && errorRequest}</span>
-
+        <span className="font-medium">
+          {errorRequest !== "" && errorRequest}
+        </span>
       </section>
     </Layout>
   );
@@ -339,6 +355,4 @@ const YipParticipantFeedback = ({}) => {
 
 export default YipParticipantFeedback;
 
-export const getServerSideProps = withPageAuthRequired({
-  
-});
+export const getServerSideProps = withPageAuthRequired({});
