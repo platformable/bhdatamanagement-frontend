@@ -38,19 +38,24 @@ const YipParticipantFeedback = ({   }) => {
           `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/yip_6months/${selectedDate.start}&${selectedDate.finish}`
         ).then((r) => r.json()),
       ]);
-       if (
-        preWorkshop?.statusText === "FAIL" &&
-        sixMonths?.statusText === "FAIL" 
-       ) {
-         setIsLoading(false);
-         setErrorRequest("Not founded data");
-       } else {
+      if (preWorkshop?.statusText === "FAIL" ) {
         setSelectedPreworkshop(preWorkshop)
+        setErrorRequest("Some sessions file may not have data");
+      } else {
+        setSelectedPreworkshop(preWorkshop)
+      }
+      if (sixMonths?.statusText === "FAIL" ) {
         setSelectedSixmonths(sixMonths)
+        setErrorRequest("Some sessions file may not have data");
 
+      } else {
+        setSelectedSixmonths(sixMonths)
+      }
+
+        if (preWorkshop?.statusText === "FAIL" && sixMonths?.statusText === "FAIL") {
+          setErrorRequest("No data founded")
+        }
         setIsLoading(false);
-        setErrorRequest("");
-       }
        
      } catch (error) {
        setErrorRequest("Something went wrong try again");
