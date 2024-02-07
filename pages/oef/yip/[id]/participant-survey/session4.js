@@ -628,13 +628,13 @@ export default function Session4({ event, fbos }) {
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="presenterExplainWell"
-            title="The presenter explained the topic well"
+            title="The presenter/s explained the topic well"
           />
           <InformationUseful
             surveyForm={eventForm}
             setSurveyForm={setEventForm}
             state="thinkDifferently"
-            title="The presenters explained the topic well"
+            title="The presentation made me think differently about this topic"
           />
           <InformationUseful
             surveyForm={eventForm}
