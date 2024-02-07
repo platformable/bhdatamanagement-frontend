@@ -40,8 +40,8 @@ const quarterlyContractorReport = ({  }) => {
           ).then((r) => r.json()),
         ]);
         if (
-          cbtCSV?.statusText === "FAIL" ||
-          siteVisitsCSV?.statusText === "FAIL" ||
+          cbtCSV?.statusText === "FAIL" &&
+          siteVisitsCSV?.statusText === "FAIL" &&
           TACSV?.statusText === "FAIL" 
         ) {
           setIsLoading(false);
@@ -50,6 +50,9 @@ const quarterlyContractorReport = ({  }) => {
           setSelectedCbtCSV(cbtCSV);
           setSelectedSiteVisitCSV(siteVisitsCSV);
           setSelectedTACSV(TACSV)
+
+          setIsLoading(false);
+          setErrorRequest("");
         }
        
        
