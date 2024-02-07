@@ -34,7 +34,7 @@ const quarterlySubcontractorReport = ({ }) => {
         ]);
         
         if (
-          hivOutreachCSV?.statusText === "FAIL" ||
+          hivOutreachCSV?.statusText === "FAIL" &&
           cabCSV?.statusText === "FAIL" 
         ) {
           setIsLoading(false);
@@ -42,6 +42,9 @@ const quarterlySubcontractorReport = ({ }) => {
         } else {
           setSelectedHivCSV(hivOutreachCSV);
            setSelectedCabCSV(cabCSV);
+
+           setIsLoading(false);
+          setErrorRequest("");
         }
         
       } catch (error) {

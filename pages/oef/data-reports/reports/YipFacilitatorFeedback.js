@@ -37,6 +37,7 @@ const YipFacilitatorFeedback = ({}) => {
           setErrorRequest("Not founded data");
         } else {
           setSelectedPostworkshop(postWorkshop);
+          setErrorRequest("");
 
         }
       } catch (error) {

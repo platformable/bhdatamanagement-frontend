@@ -34,8 +34,13 @@ const YipSessionCSV = ({ csvData, fileName, headers, sessionName, sessionNumber,
   const [orderedData, setOrdereData] = useState([]);
 
   useEffect(() => {
-    const data = csvData.map((dataset) => orderDataset(dataset, headers));
-    setOrdereData(data);
+    if (csvData.length > 0) {
+      const data = csvData.map((dataset) => orderDataset(dataset, headers));
+      setOrdereData(data);
+    } else {
+      setOrdereData([])
+    }
+   
   }, [csvData]);
   console.log("data to download", orderedData);
   useEffect(() => {

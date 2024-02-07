@@ -90,6 +90,9 @@ export default function oefMonthlyReport({}) {
           setSelectedEvents(eventsOutput);
           setSelectedEventsOutputs(participantEvents);
           setSelectedSiteVisits(siteVisits);
+
+          setIsLoading(false);
+          setErrorRequest("");
         }
       } catch (error) {
         setErrorRequest("Something went wrong try again");
@@ -140,7 +143,11 @@ export default function oefMonthlyReport({}) {
               onClick={() => {
                 setGenerateReport((prev) => !prev);
               }}
-              className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full"
+              className={`${
+                selectedEvents.length < 1 ||
+                selectedEventsOutputs.length < 1 ||
+                selectedSiteVisits.length < 1 ? 'pointer-events-none ' : ' '
+              } text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full`}
             >
               GENERATE <br />
               DATA AND CHARTS
