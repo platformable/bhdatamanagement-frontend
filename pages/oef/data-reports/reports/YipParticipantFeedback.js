@@ -224,9 +224,9 @@ const YipParticipantFeedback = ({}) => {
           ).then((r) => r.json()),
         ]);
         if (
-          session1?.statusText === "FAIL" ||
-          session2?.statusText === "FAIL" ||
-          session3?.statusText === "FAIL" ||
+          session1?.statusText === "FAIL" &&
+          session2?.statusText === "FAIL" &&
+          session3?.statusText === "FAIL" &&
           session4?.statusText === "FAIL"
         ) {
           setIsLoading(false);
@@ -236,6 +236,8 @@ const YipParticipantFeedback = ({}) => {
           setSelectedSession2(session2);
           setSelectedSession3(session3);
           setSelectedSession4(session4);
+          setIsLoading(false);
+          setErrorRequest("");
         }
       } catch (error) {
         setErrorRequest("Something went wrong try again");
@@ -296,7 +298,7 @@ const YipParticipantFeedback = ({}) => {
                 </div>
                 <YipSessionCSV
                   csvData={selectedSession1}
-                  headers={keys.session1}
+                  headers={selectedSession1.length > 0 && keys.session1}
                   fileName={`OEF_YIP_Session_1_${csvNowDate.split("_")[0]}.csv`}
                   sessionName="Sexual Health and Healthy Relationships"
                   sessionNumber="session 1"
@@ -304,7 +306,7 @@ const YipParticipantFeedback = ({}) => {
                 />
                 <YipSessionCSV
                   csvData={selectedSession2}
-                  headers={keys.session2}
+                  headers={selectedSession2.length > 0 && keys.session2}
                   fileName={`OEF_YIP_Session_2_${csvNowDate.split("_")[0]}.csv`}
                   sessionName="Effective Communication"
                   sessionNumber="session 2"
@@ -312,7 +314,7 @@ const YipParticipantFeedback = ({}) => {
                 />
                 <YipSessionCSV
                   csvData={selectedSession3}
-                  headers={keys.session3}
+                  headers={selectedSession3.length > 0 && keys.session3}
                   fileName={`OEF_YIP_Session_3_${csvNowDate.split("_")[0]}.csv`}
                   sessionName="Let’s Make a choice/ HIV (Health), Education and Careers"
                   sessionNumber="session 3"
@@ -320,7 +322,7 @@ const YipParticipantFeedback = ({}) => {
                 />
                 <YipSessionCSV
                   csvData={selectedSession4}
-                  headers={keys.session4}
+                  headers={selectedSession4.length > 0 && keys.session4}
                   fileName={`OEF_YIP_Session_4_${csvNowDate.split("_")[0]}.csv`}
                   sessionName="STI & HIV Risk Reduction and Prevention"
                   sessionNumber="session 4"

@@ -39,7 +39,7 @@ const YipParticipantFeedback = ({   }) => {
         ).then((r) => r.json()),
       ]);
        if (
-        preWorkshop?.statusText === "FAIL" ||
+        preWorkshop?.statusText === "FAIL" &&
         sixMonths?.statusText === "FAIL" 
        ) {
          setIsLoading(false);
@@ -47,6 +47,9 @@ const YipParticipantFeedback = ({   }) => {
        } else {
         setSelectedPreworkshop(preWorkshop)
         setSelectedSixmonths(sixMonths)
+
+        setIsLoading(false);
+        setErrorRequest("");
        }
        
      } catch (error) {
@@ -63,7 +66,7 @@ const YipParticipantFeedback = ({   }) => {
 
     
   }, [selectedDate.start, selectedDate.finish]);
-console.log("states", selectedPreworkshop, selectedSixmonths)
+// console.log("states", selectedPreworkshop, selectedSixmonths)
 
   return (
     <Layout showStatusHeader={true}>
