@@ -12,7 +12,7 @@ const DeleteEventModal = ({id,eventname,setShowDeleteEventModal,showDeleteEventM
     const handleDeleteEvent = ()=>{
         // console.log(id)
 
-        axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/delete`,{ data: {id} })
+        axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL}/events/delete/${id}` )
         .then(response=>{
             // console.log(response)
             if(response.data.statusText==='OK'){
