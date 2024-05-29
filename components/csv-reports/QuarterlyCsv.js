@@ -31,11 +31,10 @@ const QuarterlyCsv = ({ csvData, fileName, headers, buttonText, download }) => {
 
   const buttonRef = useRef()
   //   console.log("csv data",csvData)
-    console.log('headers', headers);
   const [orderedData, setOrdereData] = useState([]);
 
   useEffect(() => {
-    if (csvData.length > 0 ) {
+    if (csvData.length > 0 && headers.length > 0) {
       const data = csvData.map((dataset) => orderDataset(dataset, headers));
       setOrdereData(data);
     } else {

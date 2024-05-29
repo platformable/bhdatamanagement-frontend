@@ -34,13 +34,27 @@ const quarterlySubcontractorReport = ({ }) => {
         ]);
         
         if (
+          hivOutreachCSV?.statusText === "FAIL"
+        ) {
+          setIsLoading(false);
+          setErrorRequest("Some reports have no data");
+          setSelectedHivCSV([]);
+
+        } else {
+          setSelectedHivCSV(hivOutreachCSV);
+
+           setIsLoading(false);
+          setErrorRequest("");
+        }
+        if (
           hivOutreachCSV?.statusText === "FAIL" &&
           cabCSV?.statusText === "FAIL" 
         ) {
           setIsLoading(false);
-          setErrorRequest("Not founded data");
+          setErrorRequest("Some reports have no data");
+          setSelectedCabCSV([]);
+
         } else {
-          setSelectedHivCSV(hivOutreachCSV);
            setSelectedCabCSV(cabCSV);
 
            setIsLoading(false);

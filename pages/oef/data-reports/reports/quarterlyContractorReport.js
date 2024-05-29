@@ -16,7 +16,7 @@ const quarterlyContractorReport = ({  }) => {
   const [selectedTACSV, setSelectedTACSV] = useState([]);
   const [selectedSiteVisitCSV, setSelectedSiteVisitCSV] = useState([]);
 
-console.log(selectedCbtCSV)
+console.log("selected tac ",selectedTACSV)
   const [isLoading, setIsLoading] = useState(false);
   const [errorRequest, setErrorRequest] = useState("");
   
@@ -39,21 +39,49 @@ console.log(selectedCbtCSV)
             `${process.env.NEXT_PUBLIC_SERVER_URL}/csv/ta_report_contractor/${selectedDate.start}&${selectedDate.finish}`
           ).then((r) => r.json()),
         ]);
+       
         if (
-          cbtCSV?.statusText === "FAIL" ||
-          siteVisitsCSV?.statusText === "FAIL" ||
+          cbtCSV?.statusText === "FAIL" 
+        ) {
+          setIsLoading(false);
+          setErrorRequest("Some reports have no data");
+          setSelectedCbtCSV([]);
+
+        } else {
+          setSelectedCbtCSV(cbtCSV);
+        }
+        if (
+          siteVisitsCSV?.statusText === "FAIL" 
+        ) {
+          setIsLoading(false);
+          setErrorRequest("Some reports have no data");
+          setSelectedSiteVisitCSV([]);
+
+        } else {
+          setSelectedSiteVisitCSV(siteVisitsCSV);
+
+        }
+
+        if (
           TACSV?.statusText === "FAIL" 
         ) {
           setIsLoading(false);
-          setErrorRequest("Not founded data");
+          setErrorRequest("Some reports have no data");
+          setSelectedTACSV([])
         } else {
-          setSelectedCbtCSV(cbtCSV);
-          setSelectedSiteVisitCSV(siteVisitsCSV);
           setSelectedTACSV(TACSV)
 
-          setIsLoading(false);
-          setErrorRequest("");
+
         }
+
+        // else {
+        //   setSelectedCbtCSV(cbtCSV);
+        //   setSelectedSiteVisitCSV(siteVisitsCSV);
+        //   setSelectedTACSV(TACSV)
+
+        //   setIsLoading(false);
+        //   setErrorRequest("");
+        // }
        
        
         
@@ -107,48 +135,63 @@ console.log(selectedCbtCSV)
             </label>
           </div>
           
-            <section className={`${selectedCbtCSV.length > 0 || selectedTACSV.length > 0 || selectedSiteVisitCSV.length > 0 ? '' : 'pointer-events-none ' } grid grid-rows-2 gap-5`}>
+            <section className={`
+             grid grid-rows-2 gap-5`}>
 
-              <QuarterlyCsv
-                csvData={[...selectedCbtCSV, ...selectedSiteVisitCSV, ...selectedTACSV]}
-                headers={selectedCbtCSV.length > 0 && Object.keys(selectedCbtCSV[0])}
-                fileName={`Quarterly_Report_BH_Work_${
-                  csvNowDate.split("_")[0]
-                }.csv`}
-                buttonText="combined"
-                download={{state:download, set: setDownload}}
-              />
-
-              <div className="flex flex-col md:flex-row gap-5">
-              <button
-                onClick={() => setDownload(true)}
-                className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase"
-              >
-                Download <br /> all <br /> datasets
-              </button>
-              
+              <div className={`${selectedCbtCSV.length > 0 && selectedTACSV.length > 0 && selectedSiteVisitCSV.length > 0 ? '' : 'pointer-events-none ' }`}>
                 <QuarterlyCsv
-                csvData={selectedCbtCSV}
-                headers={selectedCbtCSV.length > 0 && Object.keys(selectedCbtCSV[0])}
-                fileName={`OEF_CBT_Data_Quarterly_${
-                  csvNowDate.split("_")[0]
-                }.csv`}
-                buttonText="CBT"
-                download={{state:download, set: setDownload}}
-              />
-              <QuarterlyCsv
-                csvData={selectedSiteVisitCSV}
-                headers={selectedSiteVisitCSV.length > 0 && Object.keys(selectedSiteVisitCSV[0])}
-                fileName={`OEF_Site Visit_Data_Quarterly_${
-                  csvNowDate.split("_")[0]
-                }.csv`}
-                buttonText="Site Visit"
-                download={{state:download, set: setDownload}}
+                  csvData={[...selectedCbtCSV, ...selectedSiteVisitCSV, ...selectedTACSV]}
+                  headers={selectedCbtCSV.length > 0 && Object.keys(selectedCbtCSV[0])}
+                  fileName={`Quarterly_Report_BH_Work_${
+                    csvNowDate.split("_")[0]
+                  }.csv`}
+                  buttonText="combined"
+                  download={{state:download, set: setDownload}}
+                />
+              </div>
+              
+              
+              <div className="flex flex-col md:flex-row gap-5">
+              <div className={`${selectedCbtCSV.length > 0 && selectedTACSV.length > 0 && selectedSiteVisitCSV.length > 0 ? '' : 'pointer-events-none ' }`}>
+              <button
+                   onClick={() => setDownload(true)}
+                   className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase"
+                 >
+                   Download <br /> all <br /> datasets
+                 </button>
+      
+              </div>
+              
+              <div className={`${selectedCbtCSV.length > 0 ? '' : 'pointer-events-none ' }`}>
+                <QuarterlyCsv
+                  csvData={selectedCbtCSV}
+                  headers={selectedCbtCSV.length > 0 ? Object.keys(selectedCbtCSV[0]) : []}
+                  fileName={`OEF_CBT_Data_Quarterly_${
+                    csvNowDate.split("_")[0]
+                  }.csv`}
+                  buttonText="CBT"
+                  download={{state:download, set: setDownload}}
+                />
+              </div>
 
-              />
+              <div className={`${ selectedSiteVisitCSV.length > 0 ? '' : 'pointer-events-none ' }`}>
+                <QuarterlyCsv
+                  csvData={selectedSiteVisitCSV}
+                  headers={selectedSiteVisitCSV.length > 0 ? Object.keys(selectedSiteVisitCSV[0]) : []}
+                  fileName={`OEF_Site Visit_Data_Quarterly_${
+                    csvNowDate.split("_")[0]
+                  }.csv`}
+                  buttonText="Site Visit"
+                  download={{state:download, set: setDownload}}
+
+                />
+              </div>
+                
+              <div className={`${ selectedTACSV.length > 0  ? '' : 'pointer-events-none ' }`}>
+            
               <QuarterlyCsv
                 csvData={selectedTACSV}
-                headers={selectedTACSV.length > 0 && Object.keys(selectedTACSV[0])}
+                headers={selectedTACSV.length > 0 ? Object.keys(selectedTACSV[0]) : []}
                 fileName={`OEF_Technical_Assistance_Data_Quarterly_${
                   csvNowDate.split("_")[0]
                 }.csv`}
@@ -156,6 +199,8 @@ console.log(selectedCbtCSV)
                 download={{state:download, set: setDownload}}
 
               />
+              </div>
+
               </div>
             </section>
         </div>
