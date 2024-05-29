@@ -16,7 +16,7 @@ const quarterlyContractorReport = ({  }) => {
   const [selectedTACSV, setSelectedTACSV] = useState([]);
   const [selectedSiteVisitCSV, setSelectedSiteVisitCSV] = useState([]);
 
-
+console.log(selectedCbtCSV)
   const [isLoading, setIsLoading] = useState(false);
   const [errorRequest, setErrorRequest] = useState("");
   
@@ -40,8 +40,8 @@ const quarterlyContractorReport = ({  }) => {
           ).then((r) => r.json()),
         ]);
         if (
-          cbtCSV?.statusText === "FAIL" &&
-          siteVisitsCSV?.statusText === "FAIL" &&
+          cbtCSV?.statusText === "FAIL" ||
+          siteVisitsCSV?.statusText === "FAIL" ||
           TACSV?.statusText === "FAIL" 
         ) {
           setIsLoading(false);
@@ -127,7 +127,7 @@ const quarterlyContractorReport = ({  }) => {
                 Download <br /> all <br /> datasets
               </button>
               
-              <QuarterlyCsv
+                <QuarterlyCsv
                 csvData={selectedCbtCSV}
                 headers={selectedCbtCSV.length > 0 && Object.keys(selectedCbtCSV[0])}
                 fileName={`OEF_CBT_Data_Quarterly_${
