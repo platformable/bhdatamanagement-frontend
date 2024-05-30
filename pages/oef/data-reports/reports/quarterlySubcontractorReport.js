@@ -110,40 +110,50 @@ const quarterlySubcontractorReport = ({ }) => {
               />
             </label>
           </div>
-            <section className={`${selectedHivCSV.length > 0 || selectedCabCSV.length > 0 ? '' : 'pointer-events-none ' } grid grid-rows-2 gap-5`}>
+            <section className={`grid grid-rows-2 gap-5`}>
 
-              <QuarterlyCsv
-                csvData={[...selectedHivCSV, ...selectedCabCSV]}
-                headers={selectedHivCSV.length > 0 && Object.keys(selectedHivCSV[0])}
-                fileName={`Quarterly_Report_FBO_Work_${csvNowDate.split("_")[0]}.csv`}
-                buttonText="combined"
-                download={{ state: download, set: setDownload }}
-              />
+                <div className={`${selectedHivCSV.length > 0 && selectedCabCSV.length > 0 ? '' : 'pointer-events-none ' }`}>
+                    <QuarterlyCsv
+                    csvData={[...selectedHivCSV, ...selectedCabCSV]}
+                    headers={selectedHivCSV.length > 0 && Object.keys(selectedHivCSV[0])}
+                    fileName={`Quarterly_Report_FBO_Work_${csvNowDate.split("_")[0]}.csv`}
+                    buttonText="combined"
+                    download={{ state: download, set: setDownload }}
+                  />
+                </div>
+             
               <div className="flex flex-col md:flex-row gap-5">
                 <button
                   onClick={() => setDownload(true)}
-                  className="text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase"
+                  className={`${selectedHivCSV.length > 0 && selectedCabCSV.length > 0 ? '' : 'pointer-events-none ' } text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full uppercase`}
                 >
                   Download <br /> all <br /> datasets
                 </button>
-                <QuarterlyCsv
-                  csvData={selectedHivCSV}
-                  headers={selectedHivCSV.length > 0 && Object.keys(selectedHivCSV[0])}
-                  fileName={`OEF_Outreach Event_Data_Quarterly_${
-                    csvNowDate.split("_")[0]
-                  }.csv`}
-                  buttonText="Hiv Outreach"
-                  download={{ state: download, set: setDownload }}
-                />
-                <QuarterlyCsv
-                  csvData={selectedCabCSV}
-                  headers={selectedCabCSV.length > 0 && Object.keys(selectedCabCSV[0])}
-                  fileName={`OEF_CAB_Data_Quarterly_${
-                    csvNowDate.split("_")[0]
-                  }.csv`}
-                  buttonText="CAB"
-                  download={{ state: download, set: setDownload }}
-                />
+
+                <div className={`${selectedHivCSV.length > 0 ? '' : 'pointer-events-none ' }`}>
+                  <QuarterlyCsv
+                    csvData={selectedHivCSV}
+                    headers={selectedHivCSV.length > 0 && Object.keys(selectedHivCSV[0])}
+                    fileName={`OEF_Outreach Event_Data_Quarterly_${
+                      csvNowDate.split("_")[0]
+                    }.csv`}
+                    buttonText="Hiv Outreach"
+                    download={{ state: download, set: setDownload }}
+                  />
+                </div>
+                <div className={`${selectedCabCSV.length > 0 ? '' : 'pointer-events-none ' }`}>
+                  <QuarterlyCsv
+                    csvData={selectedCabCSV}
+                    headers={selectedCabCSV.length > 0 && Object.keys(selectedCabCSV[0])}
+                    fileName={`OEF_CAB_Data_Quarterly_${
+                      csvNowDate.split("_")[0]
+                    }.csv`}
+                    buttonText="CAB"
+                    download={{ state: download, set: setDownload }}
+                  />
+                </div>
+                
+               
               </div>
 
             </section>
