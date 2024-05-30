@@ -80,15 +80,35 @@ export default function oefMonthlyReport({}) {
           ]
         );
         if (
-          eventsOutput?.statusText === "FAIL" ||
-          eventsOutput?.statusText === "FAIL" ||
-          siteVisits?.statusText === "FAIL"
+          eventsOutput?.statusText === "FAIL" 
         ) {
           setIsLoading(false);
           setErrorRequest("Not founded data");
         } else {
           setSelectedEvents(eventsOutput);
+
+          setIsLoading(false);
+          setErrorRequest("");
+        }
+
+        if (
+          eventsOutput?.statusText === "FAIL" 
+        ) {
+          setIsLoading(false);
+          setErrorRequest("Not founded data");
+        } else {
           setSelectedEventsOutputs(participantEvents);
+
+          setIsLoading(false);
+          setErrorRequest("");
+        }
+
+        if (
+          siteVisits?.statusText === "FAIL"
+        ) {
+          setIsLoading(false);
+          setErrorRequest("Not founded data");
+        } else {
           setSelectedSiteVisits(siteVisits);
 
           setIsLoading(false);
@@ -143,11 +163,7 @@ export default function oefMonthlyReport({}) {
               onClick={() => {
                 setGenerateReport((prev) => !prev);
               }}
-              className={`${
-                selectedEvents.length < 1 ||
-                selectedEventsOutputs.length < 1 ||
-                selectedSiteVisits.length < 1 ? 'pointer-events-none ' : ' '
-              } text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full`}
+              className={` text-2xl text-white bg-black rounded shadow-xl p-5 w-full md:w-52 h-full`}
             >
               GENERATE <br />
               DATA AND CHARTS
@@ -159,9 +175,9 @@ export default function oefMonthlyReport({}) {
         fileName={`NYS_CMP_Event_Data_${csvNowDate.split(",")[0]}.csv`}
         /> */}
         </div>
-        <span className="font-medium">
+        {/* <span className="font-medium">
           {errorRequest !== "" && errorRequest}
-        </span>
+        </span> */}
       </section>
       {generateReport && selectedDate.start && selectedDate.finish && (
         <>
